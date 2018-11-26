@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SDKMAN入門 | ぺーぺーSEのテックブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java 系の anyenv 、 SDKMAN をさわってみる。">
+<meta name="keywords" content="Java,Maven,SDKMAN,Gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDKMAN入門">
+<meta property="og:url" content="https://pepese.github.io/blog/sdkman-basics/index.html">
+<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
+<meta property="og:description" content="Java 系の anyenv 、 SDKMAN をさわってみる。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SDKMAN入門">
+<meta name="twitter:description" content="Java 系の anyenv 、 SDKMAN をさわってみる。">
+<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta name="twitter:creator" content="@PeePeeSE">
+  
+    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42388425-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
+  
+    <p class="lead blog-description">備忘録用メモサイト</p>
+  
+</div>
+
+    <p>
+    <!-- twitter follow button start -->
+    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter follow button end -->
+    <!-- twitter share button start -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter share button end -->
+    <!-- RSS Feed start -->
+    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
+    <!-- RSS Feed end -->
+    </p>
+    <!-- Google Adsense TechBlog Head start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_head -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="3164499029"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Head end -->
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-SDKMAN入門" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      SDKMAN入門
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/blog/sdkman-basics/" class="article-date"><time datetime="2017-12-14T23:09:58.000Z" itemprop="datePublished">2017-12-15</time></a>
+</div>
+
+    
+    
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle/">Gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SDKMAN/">SDKMAN</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java 系の anyenv 、 <a href="http://sdkman.io/index.html" target="_blank" rel="noopener">SDKMAN</a> をさわってみる。</p>
+<a id="more"></a>
+<h1 id="概要">概要</h1>
+<p>SDKMAN を導入することで、以下のツールのバージョン管理が可能となる。</p>
+<ul>
+<li>Ant</li>
+<li>AsciidoctorJ</li>
+<li>Ceylon</li>
+<li>CRaSH</li>
+<li>Gaiden</li>
+<li>Glide</li>
+<li>Gradle</li>
+<li>Grails</li>
+<li>Griffon</li>
+<li>Groovy</li>
+<li>GroovyServ</li>
+<li>Java</li>
+<li>JBake</li>
+<li>Kobalt</li>
+<li>Kotlin</li>
+<li>kscript</li>
+<li>Lazybones</li>
+<li>Leiningen</li>
+<li>Maven</li>
+<li>sbt</li>
+<li>Scala</li>
+<li>Spring Boot</li>
+<li>Sshoogr</li>
+<li>Vert.x</li>
+</ul>
+<p>ここでは Java と Maven のみ記載する。</p>
+<h1 id="環境設定">環境設定</h1>
+<h2 id="sdkman">SDKMAN</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s <span class="string">"https://get.sdkman.io"</span> | bash</span><br><span class="line">$ <span class="built_in">source</span> <span class="string">"<span class="variable">$HOME</span>/.sdkman/bin/sdkman-init.sh"</span></span><br></pre></td></tr></table></figure>
+<p>init を叩かないと <code>sdk</code> コマンドのパスが通らないため、 <code>~/.bash_profile</code> に以下をいれておく。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &quot;$HOME/.sdkman/bin/sdkman-init.sh&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="各ツールの導入">各ツールの導入</h1>
+<p>USAGE は以下。<br>
+ツール名を「 xxxx 」とする。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sdk <span class="built_in">help</span>                     <span class="comment"># help を表示</span></span><br><span class="line">$ sdk version                  <span class="comment"># SDKMAN 自体のバージョン</span></span><br><span class="line">$ sdk selfupdate force         <span class="comment"># SDKMAN 自体のバージョンアップ</span></span><br><span class="line">$ sdk install xxxx             <span class="comment"># xxxx をインストール</span></span><br><span class="line">$ sdk install xxxx [version]   <span class="comment"># xxxx を version 指定でインストール</span></span><br><span class="line">$ sdk uninstall xxxx [version] <span class="comment"># xxxx を version 指定でアンインストール</span></span><br><span class="line">$ sdk list xxxx                <span class="comment"># xxxx の version の一覧を表示</span></span><br><span class="line">$ sdk use xxxx [version]       <span class="comment"># xxxx の現ターミナルの version を指定</span></span><br><span class="line">$ sdk default xxxx [version]   <span class="comment"># xxxx のデフォルトの version を指定</span></span><br><span class="line">$ sdk current xxxx             <span class="comment"># xxxx の現在の version を表示</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://sdkman.io/usage.html" target="_blank" rel="noopener">公式</a></p>
+<h2 id="java">Java</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ sdk install java</span><br><span class="line">$ sdk list java</span><br><span class="line">==========================</span><br><span class="line">Available Java Versions</span><br><span class="line">==========================</span><br><span class="line">     9.0.1-zulu</span><br><span class="line">     9.0.1-oracle</span><br><span class="line">     9.0.0-zulu</span><br><span class="line"> &gt; * 8u152-zulu</span><br><span class="line">     8u151-oracle</span><br><span class="line">     8u144-zulu</span><br><span class="line">     8u131-zulu</span><br><span class="line">     7u141-zulu</span><br><span class="line">     6u65-apple</span><br><span class="line">==========================</span><br><span class="line">+ - <span class="built_in">local</span> version</span><br><span class="line">* - installed</span><br><span class="line">&gt; - currently <span class="keyword">in</span> use</span><br><span class="line">==========================</span><br><span class="line">$ sdk install java 8u151-oracle</span><br><span class="line">$ sdk default java 8u151-oracle</span><br></pre></td></tr></table></figure>
+<p><code>-zulu</code> は OpenJDK 、 <code>-oracle</code> は Oracle Java を指す。<br>
+<code>/usr/libexec/java_home</code> もちゃんと有効だった。</p>
+<h2 id="maven">Maven</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sdk install maven 3.5.2</span><br><span class="line">$ sdk list maven</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://pepese.github.io/blog/sdkman-basics/" data-id="cjoy8er1n0020lziiw440gfms" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle/">Gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SDKMAN/">SDKMAN</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/blog/heroku-basics/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Heroku入門</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/blog/android-env-on-mac/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Androidアプリ入門 Macで環境構築編</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <!-- Google Adsense TechBlog Side start -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_side -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="7455097821"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+          <!-- Google Adsense TechBlog Side end -->
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Node-js/" style="font-size: 18.89px;">Node.js</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/blog/jupyter-notebook-basics/">Jupyter Notebook入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/vscode-basics/">Visual Studio Code入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/appium-basics/">Appium入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/android-env-on-mac/">Androidアプリ入門 Macで環境構築編</a>
+        </li>
+      
+        <li>
+          <a href="/blog/sdkman-basics/">SDKMAN入門</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+          <!-- Amazon Affiliate Side start -->
+          <!-- Amazon -->
+<script type="text/javascript"><!--
+amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
+<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+
+          <!-- Amazon Affiliate Side end -->
+        </div>
+    </div>
+    <!-- Google Adsense TechBlog Foot start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_foot -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Foot end -->
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ぺーぺーSE<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

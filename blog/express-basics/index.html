@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Express入門 | ぺーぺーSEのテックブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Node.jsのWebフレームワーク Express 触ってみた。 下記の記事を読んだテイで書く。  Node.js/npm入門  ついでに Yarn も使ってみる。 なお、ここでは express-generator は使用しない。">
+<meta name="keywords" content="Node.js,Express.js,JavaScript,npm,Yarn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express入門">
+<meta property="og:url" content="https://pepese.github.io/blog/express-basics/index.html">
+<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
+<meta property="og:description" content="Node.jsのWebフレームワーク Express 触ってみた。 下記の記事を読んだテイで書く。  Node.js/npm入門  ついでに Yarn も使ってみる。 なお、ここでは express-generator は使用しない。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express入門">
+<meta name="twitter:description" content="Node.jsのWebフレームワーク Express 触ってみた。 下記の記事を読んだテイで書く。  Node.js/npm入門  ついでに Yarn も使ってみる。 なお、ここでは express-generator は使用しない。">
+<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta name="twitter:creator" content="@PeePeeSE">
+  
+    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42388425-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
+  
+    <p class="lead blog-description">備忘録用メモサイト</p>
+  
+</div>
+
+    <p>
+    <!-- twitter follow button start -->
+    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter follow button end -->
+    <!-- twitter share button start -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter share button end -->
+    <!-- RSS Feed start -->
+    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
+    <!-- RSS Feed end -->
+    </p>
+    <!-- Google Adsense TechBlog Head start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_head -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="3164499029"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Head end -->
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Express入門" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Express入門
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/blog/express-basics/" class="article-date"><time datetime="2017-08-14T06:08:37.000Z" itemprop="datePublished">2017-08-14</time></a>
+</div>
+
+    
+    
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Express-js/">Express.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yarn/">Yarn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Node.jsのWebフレームワーク <code>Express</code> 触ってみた。<br>
+下記の記事を読んだテイで書く。</p>
+<ul>
+<li><a href="https://pepese.github.io/blog/nodejs-basics/">Node.js/npm入門</a></li>
+</ul>
+<p>ついでに <strong>Yarn</strong> も使ってみる。<br>
+なお、ここでは express-generator は使用しない。</p>
+<a id="more"></a>
+<h1 id="環境構築">環境構築</h1>
+<h2 id="yarnのインストール">Yarnのインストール</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g yarn</span><br><span class="line">$ ndenv <span class="built_in">rehash</span></span><br><span class="line">$ yarn --version</span><br></pre></td></tr></table></figure>
+<h1 id="expressアプリケーションの構築">Expressアプリケーションの構築</h1>
+<h2 id="expressプロジェクトの作成">Expressプロジェクトの作成</h2>
+<p>プロジェクト作成は以下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir express-sample          // プロジェクトディレクトリの作成</span><br><span class="line">$ <span class="built_in">cd</span> express-sample</span><br><span class="line">$ yarn init</span><br></pre></td></tr></table></figure>
+<p>Angular CLI 等で既にプロジェクトを作成している場合は、上記は行わず以下から実行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add express@5.0.0-alpha.6 body-parser cookie-parser debug morgan pug serve-favicon request fs file-stream-rotator node-sass-middleware</span><br><span class="line">$ touch .gitignore</span><br><span class="line">$ mkdir app                     // サーバサイドExpressアプリ用のソースディレクトリ作成</span><br><span class="line">$ touch app/app.js              // Expressアプリケーション起動ポイントの作成</span><br><span class="line">$ mkdir app/models              // Mongoose（MongoDB）用のモデルディレクトリ作成</span><br><span class="line">$ touch app/models/.gitkeep</span><br><span class="line">$ mkdir app/repositories        // DAO/Repository用のディレクトリ作成</span><br><span class="line">$ touch app/repositories/.gitkeep</span><br><span class="line">$ mkdir app/config              // 設定ファイル用ディレクトリ作成</span><br><span class="line">$ touch app/config/config.json  // 環境差分ファイル作成</span><br><span class="line">$ mkdir app/<span class="built_in">log</span>                 // ログ出力用ディレクトリ作成</span><br><span class="line">$ touch app/<span class="built_in">log</span>/.gitkeep</span><br><span class="line">$ mkdir app/spec                // テストスクリプト用のディレクトリ作成</span><br><span class="line">$ touch app/spec/.gitkeep</span><br></pre></td></tr></table></figure>
+<p>Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br>
+また、 forever を導入しておく。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global add forever // npm install -g コマンド互換</span><br><span class="line">$ ndenv <span class="built_in">rehash</span></span><br></pre></td></tr></table></figure>
+<p>さらに <code>.gitignore</code> に以下を追加しておく。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Logs</span><br><span class="line">/app/log</span><br><span class="line">*.log</span><br><span class="line"></span><br><span class="line"># dependencies</span><br><span class="line">/node_modules</span><br><span class="line"></span><br><span class="line"># System Files</span><br><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br></pre></td></tr></table></figure>
+<h3 id="フロントエンドアプリケーションをプロジェクトに同梱する場合rest-apiアプリを作成する場合">フロントエンドアプリケーションをプロジェクトに同梱する場合、REST APIアプリを作成する場合</h3>
+<p>この場合、以下のようにディレクトリを作成する。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir app/api           // REST API用のコントローラディレクトリ作成</span><br><span class="line">$ touch app/api/.gitkeep</span><br></pre></td></tr></table></figure>
+<p>フロントエンドアプリケーションのトランスパイル結果は <code>express-sample/dist</code> に出力されるものとし、サーバサイドアプリケーション（ <code>express-sample/app</code> ）は <code>express-sample/dist</code> をExpressの公開ディレクトリとする。<br>
+フロントエンドアプリケーションは <code>app/api</code> に実装したAPIにアクセスする。</p>
+<h3 id="フロントエンドアプリケーションをプロジェクトに同梱せずexpressからテンプレートエンジンviewを使用する場合">フロントエンドアプリケーションをプロジェクトに同梱せず、ExpressからテンプレートエンジンVIEWを使用する場合</h3>
+<p>この場合、以下のようにディレクトリを作成する。<br>
+なお、 SCSS を使用する。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir app/controllers                  // VIEW用のコントローラディレクトリ作成</span><br><span class="line">$ touch app/controllers/.gitkeep</span><br><span class="line">$ mkdir app/views                        // 画面・テンプレート（Pugなど）用のディレクトリ作成</span><br><span class="line">$ touch app/views/.gitkeep</span><br><span class="line">$ mkdir app/public                       // 静的コンテンツ用のディレクトリ作成</span><br><span class="line">$ mkdir app/public/javascripts           // JS用のディレクトリ作成</span><br><span class="line">$ touch app/public/javascripts/.gitkeep</span><br><span class="line">$ mkdir app/public/stylesheets           // SCSS用のディレクトリ作成</span><br><span class="line">$ touch app/public/stylesheets/style.scss</span><br><span class="line">$ mkdir app/public/images                // 画像用のディレクトリ作成</span><br><span class="line">$ touch app/public/images/.gitkeep</span><br></pre></td></tr></table></figure>
+<h2 id="ソースコードの作成">ソースコードの作成</h2>
+<p>「フロントエンドアプリケーションをプロジェクトに同梱する場合」は以下を参照。</p>
+<ul>
+<li><a href="https://pepese.github.io/blog/mean-stack-basics/">所謂MEANスタックを作る</a></li>
+</ul>
+<p>ここでは、「フロントエンドアプリケーションをプロジェクトに同梱せず、Expressからテンプレートエンジンを使用する場合」で、最低限動くViewアプリを構築するために以下のスクリプトを実装する。</p>
+<ul>
+<li><code>app/app.js</code>
+<ul>
+<li>Expressアプリケーションのミドルウェアの設定と起動処理</li>
+</ul></li>
+<li><code>app/controllers/router.js</code>
+<ul>
+<li>Viewを処理するモジュールへのルーティングを行う</li>
+</ul></li>
+<li><code>app/controllers/get_index.js</code>
+<ul>
+<li>Index画面を表示する</li>
+</ul></li>
+<li><code>app/controllers/get_users.js</code>
+<ul>
+<li>Users画面を表示する</li>
+</ul></li>
+<li><code>app/public/stylesheets/style.scss</code></li>
+<li><code>app/views/layout.pug</code></li>
+<li><code>app/views/index.pug</code></li>
+<li><code>app/views/error.pug</code></li>
+<li><code>app/config/config.json</code>
+<ul>
+<li>環境差分設定ファイル</li>
+</ul></li>
+</ul>
+<h3 id="appapp.js">app/app.js</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/app.js?footer=0"></script>
+<h3 id="appcontrollersindex.js">app/controllers/index.js</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/router.js?footer=0"></script>
+<h3 id="appcontrollersget_index.js">app/controllers/get_index.js</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_index.js?footer=0"></script>
+<h3 id="appcontrollersget_users.js">app/controllers/get_users.js</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_users.js?footer=0"></script>
+<h3 id="apppublicstylesheetsstyle.scss">app/public/stylesheets/style.scss</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/public/stylesheets/style.scss?footer=0"></script>
+<h3 id="appviewslayout.pug">app/views/layout.pug</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/views/layout.pug?footer=0"></script>
+<h3 id="appviewsindex.pug">app/views/index.pug</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/views/index.pug?footer=0"></script>
+<h3 id="appviewserror.pug">app/views/error.pug</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/views/error.pug?footer=0"></script>
+<h3 id="appconfigconfig.json">app/config/config.json</h3>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/config/config.json?footer=0"></script>
+<h3 id="起動">起動</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ NODE_ENV=production forever start app/app.js</span><br></pre></td></tr></table></figure>
+<p><code>NODE_ENV</code> で環境を指定することができる。デフォルトは <code>development</code> 。</p>
+<h1 id="ちょっとexpressの機能解説">ちょっとExpressの機能解説</h1>
+<h2 id="expressアプリケーション">Expressアプリケーション</h2>
+<p>Expressアプリケーションの最小単位は以下のように作成する。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br></pre></td></tr></table></figure>
+<h2 id="ミドルウェア関数">ミドルウェア関数</h2>
+<p>Expressは、単独では最小限の機能を備えたルーティングとミドルウェアのWebフレームワーク。<br>
+Expressアプリケーションは様々な <strong>ミドルウェア関数</strong> 呼び出しを行うことで様々な機能を実現する。<br>
+ミドルウェア関数はコールバック関数で以下の種類がある。</p>
+<ul>
+<li>アプリケーション・レベルのミドルウェア</li>
+<li>ルーター・レベルのミドルウェア</li>
+<li>エラー処理ミドルウェア</li>
+<li>標準装備のミドルウェア</li>
+<li>サード・パーティー・ミドルウェア</li>
+</ul>
+<h3 id="アプリケーションレベルのミドルウェア">アプリケーション・レベルのミドルウェア</h3>
+<p>以下のように記述する。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use([path,] callback [, callback...])</span><br></pre></td></tr></table></figure>
+<p><code>path</code> を記載しない場合は <strong>全てのリクエスト</strong> に対してミドルウェア関数（ <code>callback</code> :コールバック関数）が実行される。<br>
+コールバック関数には <code>(req, res, next)</code> の3つを渡すことができる。 <code>next()</code> を実行すると次のミドルウェア関数に処理が移る。（ <strong><code>next()</code> を実行しないと処理は終わる</strong> ）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use( <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Time:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>path</code> を記載すると <strong>指定したパスへのリクエスト</strong> に対してミドルウェア関数が実行される。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/user/:id'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Request Type:'</span>, req.method);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/user/:id'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'USER'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong><code>app.use</code> は <code>app.[all|get|post|put|delete|etc]</code> よりも全て前に記述する必要がある</strong> 。</p>
+<h3 id="ルーターレベルのミドルウェア">ルーター・レベルのミドルウェア</h3>
+<p>ルーター・レベルのミドルウェアは、express.Router() のインスタンスにバインドされる点を除き、アプリケーション・レベルのミドルウェアと同じ。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> router = express.Router();</span><br></pre></td></tr></table></figure>
+<p>正直、 <strong>アプリケーション・レベルとルーター・レベルの違いはよくわからない</strong> 。<br>
+以下の方針で使い分けることにする。</p>
+<ul>
+<li>アプリケーション・レベル
+<ul>
+<li><strong>アプリ全体</strong> 、 <strong>全てのHTTPメソッド</strong> へ影響する処理</li>
+<li><code>app.use()</code> を使用する</li>
+</ul></li>
+<li>ルーター・レベル
+<ul>
+<li><strong>特定のパス</strong> 、 <strong>特定のHTTPメソッド</strong> へのルーティング</li>
+<li><code>router.[all|get|post|put|delete](path, callback [, callback...])</code> を使用する</li>
+</ul></li>
+</ul>
+<h3 id="エラー処理ミドルウェア">エラー処理ミドルウェア</h3>
+<p>引数は <code>(err、req、res、next)</code> となり <code>err</code> が追加される。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use( <span class="function">(<span class="params">err, req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.error(err.stack);</span><br><span class="line">  res.status(<span class="number">500</span>).send(<span class="string">'Something broke!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="標準装備のミドルウェア">標準装備のミドルウェア</h3>
+<p>Expressの標準装備のミドルウェア関数は <code>express.static</code> のみ。<br>
+過去はもったあったらしいが、個別モジュール化されたらしい。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express.static(root, [options])</span><br></pre></td></tr></table></figure>
+<p>静的コンテツを提供する機能。<br>
+<code>root</code> 引数は、静的コンテンツを提供するルートディレクトリを指定する。<br>
+<code>options</code> オブジェクトにはプロパティを指定することができる。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  dotfiles: <span class="string">'ignore'</span>,</span><br><span class="line">  etag: <span class="literal">false</span>,</span><br><span class="line">  extensions: [<span class="string">'htm'</span>, <span class="string">'html'</span>],</span><br><span class="line">  index: <span class="literal">false</span>,</span><br><span class="line">  maxAge: <span class="string">'1d'</span>,</span><br><span class="line">  redirect: <span class="literal">false</span>,</span><br><span class="line">  setHeaders: <span class="function"><span class="keyword">function</span> (<span class="params">res, path, stat</span>) </span>&#123;</span><br><span class="line">    res.set(<span class="string">'x-timestamp'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.use(express.static(<span class="string">'public'</span>, options));</span><br></pre></td></tr></table></figure>
+<h3 id="サードパーティーミドルウェア">サード・パーティー・ミドルウェア</h3>
+<p><code>npm</code> でモジュールをインストールして、アプリケーション・レベルまたはルーター・レベルでロードして使用する。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>); <span class="comment">// サード・パーティー・ミドルウェア</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Parsers for POST data</span></span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br></pre></td></tr></table></figure>
+<h2 id="モジュール呼び出し">モジュール呼び出し</h2>
+<p><code>module.exports</code> と <code>require</code> を使用すると、モジュールの外部参照が可能になる。<br>
+以下のような <code>index.js</code> があったとすると</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.post(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = router; <span class="comment">// 外部モジュールからrequireできるようになる</span></span><br></pre></td></tr></table></figure>
+<p><code>app.js</code> から以下のように <code>index.js</code> の機能を呼び出すことができる。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> index = <span class="built_in">require</span>(<span class="string">'./index'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="expressアプリケーションの設定">Expressアプリケーションの設定</h2>
+<p>Expressでは、以下の記載で「key-value」形式でアプリケーションに対して様々な設定ができる。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.set(name, value);</span><br><span class="line">app.get(name);</span><br></pre></td></tr></table></figure>
+<p>代表的な設定項目としては以下（<a href="http://expressjs.com/ja/api.html#app.settings.table" target="_blank" rel="noopener">詳細</a>）があるが、単にインメモリキーバリューストア（好きな「key-value」を設定できる）としても使用できる。</p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 21%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Property</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: center;">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">case sensitive routing</td>
+<td style="text-align: center;">Boolean</td>
+<td style="text-align: left;">ルーティング時、URLの大文字・小文字を区別する。</td>
+<td style="text-align: center;">N/A (undefined)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">env</td>
+<td style="text-align: center;">String</td>
+<td style="text-align: left;">環境名。productionとかdevelopmentとか。</td>
+<td style="text-align: center;">process.env.NODE_ENV or “development”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">etag</td>
+<td style="text-align: center;">Varied</td>
+<td style="text-align: left;"><code>Etag</code> レスポンスヘッダの設定を行う。</td>
+<td style="text-align: center;">weak</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">jsonp callback name</td>
+<td style="text-align: center;">String</td>
+<td style="text-align: left;">JSONP callback名を設定する。</td>
+<td style="text-align: center;">“callback”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">json replacer</td>
+<td style="text-align: center;">Varied</td>
+<td style="text-align: left;"><code>JSON.stringify</code> で利用される引数 <code>replacer</code> の設定。JSONの各メンバの値の変換の設定ができる。</td>
+<td style="text-align: center;">N/A (undefined)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">json spaces</td>
+<td style="text-align: center;">Varied</td>
+<td style="text-align: left;"><code>JSON.stringify</code> で利用される引数 <code>space</code> の設定。JSONパース時に見やすいようにインデントのスペースを設定できる。</td>
+<td style="text-align: center;">N/A (undefined)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">query parser</td>
+<td style="text-align: center;">Varied</td>
+<td style="text-align: left;">URLクエリパラメータのパースの設定ができる。 <code>simple</code> 、 <code>extended</code> 、カスタマイズから選択できる。 <code>simple</code> はNodeJSが内包するNativeのクエリパーサ。 <code>extended</code> は サードパーティモジュール <code>qs</code> 。カスタマイズは関数を設定し、その関数はクエリパラメータの文字列を受け取り、キー・バリューのオブジェクトを返却するよう実装する。</td>
+<td style="text-align: center;">“extended”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">strict routing</td>
+<td style="text-align: center;">Boolean</td>
+<td style="text-align: left;">ルーティングにおいてURLの <code>/foo</code> と <code>/foo/</code> を区別するかどうか設定する。</td>
+<td style="text-align: center;">N/A (undefined)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">subdomain offset</td>
+<td style="text-align: center;">Number</td>
+<td style="text-align: left;">サブドメインにアクセスするために削除するホストのドット区切り部分の数。</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">trust proxy</td>
+<td style="text-align: center;">Varied</td>
+<td style="text-align: left;">信頼するWebプロキシの設定を行う。詳細は、<a href="http://expressjs.com/ja/guide/behind-proxies.html" target="_blank" rel="noopener">ここ</a>を参照。</td>
+<td style="text-align: center;">false (disabled)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">views</td>
+<td style="text-align: center;">String or Array</td>
+<td style="text-align: left;">Viewを配置するディレクトリを文字列もしくは配列で設定する。</td>
+<td style="text-align: center;">process.cwd() + ‘/views’</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">view cache</td>
+<td style="text-align: center;">Boolean</td>
+<td style="text-align: left;">Viewテンプレートコンパイルキャッシュを有効にする。</td>
+<td style="text-align: center;">true in production, otherwise undefined.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">view engine</td>
+<td style="text-align: center;">String</td>
+<td style="text-align: left;">Viewエンジンの設定を行う。</td>
+<td style="text-align: center;">N/A (undefined)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">x-powered-by</td>
+<td style="text-align: center;">Boolean</td>
+<td style="text-align: left;">“X-Powered-By: Express” HTTPヘッダを有効にする。</td>
+<td style="text-align: center;">true</td>
+</tr>
+</tbody>
+</table>
+<h2 id="モジュール間で変数をやりとりする方法">モジュール間で変数をやりとりする方法</h2>
+<ul>
+<li>global変数を使う
+<ul>
+<li><code>const global.hoge = 'hogehoge';</code> みたいに、頭にglobalを付けるとglobalスコープで扱われる。</li>
+<li>ただし、 <code>require('./global.js');</code> のようにグローバル変数を定義したモジュールを使用するモジュールでロードする必要がある。</li>
+<li>グローバル領域を汚染するので注意が必要</li>
+</ul></li>
+<li>共有変数用のモジュールを作成する
+<ul>
+<li><code>module.exports = {};</code> とだけ書いた <code>common.js</code> を作成する</li>
+<li>他モジュールからは <code>require('./common').hoge = hoge;</code> で変数を代入でき、 <code>const hoge = require('./common').hoge</code> で変数を参照できる</li>
+<li>どんな変数を作ったからわからなくなるので、 <code>common.js</code> にはコメントくらい残しておく必要がある</li>
+</ul></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://pepese.github.io/blog/express-basics/" data-id="cjoy8er4g008olziiquiyik9g" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Express-js/">Express.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yarn/">Yarn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/blog/nodejs-basics/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Node.js/npm入門</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/blog/angular-basics/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Angular入門</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <!-- Google Adsense TechBlog Side start -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_side -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="7455097821"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+          <!-- Google Adsense TechBlog Side end -->
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Node-js/" style="font-size: 18.89px;">Node.js</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/blog/jupyter-notebook-basics/">Jupyter Notebook入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/vscode-basics/">Visual Studio Code入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/appium-basics/">Appium入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/android-env-on-mac/">Androidアプリ入門 Macで環境構築編</a>
+        </li>
+      
+        <li>
+          <a href="/blog/sdkman-basics/">SDKMAN入門</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+          <!-- Amazon Affiliate Side start -->
+          <!-- Amazon -->
+<script type="text/javascript"><!--
+amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
+<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+
+          <!-- Amazon Affiliate Side end -->
+        </div>
+    </div>
+    <!-- Google Adsense TechBlog Foot start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_foot -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Foot end -->
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ぺーぺーSE<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Angular入門 | ぺーぺーSEのテックブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="フロントエンドMVCフレームワーク Angular （所謂Angular4）を触ってみた。 ここでは Angular CLI を使う。 なお、 ndenv が入ってるテイで書く。導入は下記記事参照。  すべての**envを管理するanyenv">
+<meta name="keywords" content="JavaScript,npm,Yarn,TypeScript,Angular,Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular入門">
+<meta property="og:url" content="https://pepese.github.io/blog/angular-basics/index.html">
+<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
+<meta property="og:description" content="フロントエンドMVCフレームワーク Angular （所謂Angular4）を触ってみた。 ここでは Angular CLI を使う。 なお、 ndenv が入ってるテイで書く。導入は下記記事参照。  すべての**envを管理するanyenv">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular入門">
+<meta name="twitter:description" content="フロントエンドMVCフレームワーク Angular （所謂Angular4）を触ってみた。 ここでは Angular CLI を使う。 なお、 ndenv が入ってるテイで書く。導入は下記記事参照。  すべての**envを管理するanyenv">
+<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta name="twitter:creator" content="@PeePeeSE">
+  
+    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42388425-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
+  
+    <p class="lead blog-description">備忘録用メモサイト</p>
+  
+</div>
+
+    <p>
+    <!-- twitter follow button start -->
+    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter follow button end -->
+    <!-- twitter share button start -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter share button end -->
+    <!-- RSS Feed start -->
+    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
+    <!-- RSS Feed end -->
+    </p>
+    <!-- Google Adsense TechBlog Head start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_head -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="3164499029"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Head end -->
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Angular入門" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Angular入門
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/blog/angular-basics/" class="article-date"><time datetime="2017-08-14T07:02:02.000Z" itemprop="datePublished">2017-08-14</time></a>
+</div>
+
+    
+    
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yarn/">Yarn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>フロントエンドMVCフレームワーク <strong>Angular</strong> （所謂Angular4）を触ってみた。<br>
+ここでは <a href="https://github.com/angular/angular-cli" target="_blank" rel="noopener">Angular CLI</a> を使う。<br>
+なお、 <strong>ndenv</strong> が入ってるテイで書く。導入は下記記事参照。</p>
+<ul>
+<li><a href="https://pepese.github.io/blog/anyenv/">すべての**envを管理するanyenv</a></li>
+</ul>
+<a id="more"></a>
+<h1 id="環境構築">環境構築</h1>
+<h2 id="yarnインストール">Yarnインストール</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g yarn</span><br><span class="line">$ ndenv <span class="built_in">rehash</span></span><br><span class="line">$ yarn --version</span><br></pre></td></tr></table></figure>
+<h2 id="angular-cliインストール">Angular CLIインストール</h2>
+<p>Angular CLI のインストール。<br>
+パッケージ管理ツールを <code>npm</code> から <code>yarn</code> へ変更。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global add @angular/cli</span><br><span class="line">$ ndenv <span class="built_in">rehash</span></span><br><span class="line">$ ng <span class="built_in">set</span> --global packageManager=yarn</span><br><span class="line">$ ng version</span><br><span class="line">_                      _                 ____ _     ___</span><br><span class="line">/ \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|</span><br><span class="line">/ △ \ | <span class="string">'_ \ / _` | | | | |/ _` | '</span>__|   | |   | |    | |</span><br><span class="line">/ ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |</span><br><span class="line">/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|</span><br><span class="line">           |___/</span><br><span class="line">@angular/cli: 1.3.0</span><br><span class="line">node: 8.3.0</span><br><span class="line">os: darwin x64</span><br></pre></td></tr></table></figure>
+<p>以降、 <code>ng</code> コマンドでいろいろできるようになる。</p>
+<h2 id="プロジェクト作成と起動">プロジェクト作成と起動</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">$ ng new angular-sample</span><br><span class="line">installing ng</span><br><span class="line">  create .editorconfig</span><br><span class="line">  create README.md</span><br><span class="line">  create src/app/app.component.css</span><br><span class="line">  create src/app/app.component.html</span><br><span class="line">  create src/app/app.component.spec.ts</span><br><span class="line">  create src/app/app.component.ts</span><br><span class="line">  create src/app/app.module.ts</span><br><span class="line">  create src/assets/.gitkeep</span><br><span class="line">  create src/environments/environment.prod.ts</span><br><span class="line">  create src/environments/environment.ts</span><br><span class="line">  create src/favicon.ico</span><br><span class="line">  create src/index.html</span><br><span class="line">  create src/main.ts</span><br><span class="line">  create src/polyfills.ts</span><br><span class="line">  create src/styles.css</span><br><span class="line">  create src/test.ts</span><br><span class="line">  create src/tsconfig.app.json</span><br><span class="line">  create src/tsconfig.spec.json</span><br><span class="line">  create src/typings.d.ts</span><br><span class="line">  create .angular-cli.json</span><br><span class="line">  create e2e/app.e2e-spec.ts</span><br><span class="line">  create e2e/app.po.ts</span><br><span class="line">  create e2e/tsconfig.e2e.json</span><br><span class="line">  create .gitignore</span><br><span class="line">  create karma.conf.js</span><br><span class="line">  create package.json</span><br><span class="line">  create protractor.conf.js</span><br><span class="line">  create tsconfig.json</span><br><span class="line">  create tslint.json</span><br><span class="line">Installing packages <span class="keyword">for</span> tooling via yarn.</span><br><span class="line">Installed packages <span class="keyword">for</span> tooling via yarn.</span><br><span class="line">Successfully initialized git.</span><br><span class="line">Project <span class="string">'angular-sample'</span> successfully created.</span><br></pre></td></tr></table></figure>
+<p><code>yarn</code> で作成されていることを確認する。<br>
+また、下記の通りプロジェクトディレクトリに移動して、導入されている Angular のバージョンを確認する。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> angular-sample</span><br><span class="line">$ ng version</span><br><span class="line">_                      _                 ____ _     ___</span><br><span class="line">/ \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|</span><br><span class="line">/ △ \ | <span class="string">'_ \ / _` | | | | |/ _` | '</span>__|   | |   | |    | |</span><br><span class="line">/ ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |</span><br><span class="line">/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|</span><br><span class="line">           |___/</span><br><span class="line">@angular/cli: 1.3.0</span><br><span class="line">node: 8.3.0</span><br><span class="line">os: darwin x64</span><br><span class="line">@angular/animations: 4.3.4</span><br><span class="line">@angular/common: 4.3.4</span><br><span class="line">@angular/compiler: 4.3.4</span><br><span class="line">@angular/core: 4.3.4</span><br><span class="line">@angular/forms: 4.3.4</span><br><span class="line">@angular/http: 4.3.4</span><br><span class="line">@angular/platform-browser: 4.3.4</span><br><span class="line">@angular/platform-browser-dynamic: 4.3.4</span><br><span class="line">@angular/router: 4.3.4</span><br><span class="line">@angular/cli: 1.3.0</span><br><span class="line">@angular/compiler-cli: 4.3.4</span><br><span class="line">@angular/language-service: 4.3.4</span><br></pre></td></tr></table></figure>
+<p>以下で起動。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ng serve</span><br></pre></td></tr></table></figure>
+<h2 id="プロジェクト構成">プロジェクト構成</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── .angular-cli.json                * Angular CLI 設定ファイル</span><br><span class="line">├── .editorconfig                    * エディタの設定ファイル</span><br><span class="line">├── .gitignore</span><br><span class="line">├── e2e                              * エンドツーエンドテストディレクトリ</span><br><span class="line">│   ├── app.e2e-spec.ts</span><br><span class="line">│   ├── app.po.ts</span><br><span class="line">│   └── tsconfig.e2e.json</span><br><span class="line">├── karma.conf.js                    * karma（テストランナー）の設定ファイル</span><br><span class="line">├── package.json                     * npmの設定ファイル</span><br><span class="line">├── protractor.conf.js               * e2eテストの設定ファイル</span><br><span class="line">├── tsconfig.json                    * TypeScriptの設定ファイル</span><br><span class="line">├── tslint.json                      * TypeScriptのLinter設定ファイル</span><br><span class="line">└── src                              * ソースファイルディレクトリ</span><br><span class="line">    ├── app                          * アプリケーションコードディレクトリ</span><br><span class="line">    │   ├── app.component.css</span><br><span class="line">    │   ├── app.component.html</span><br><span class="line">    │   ├── app.component.spec.ts</span><br><span class="line">    │   ├── app.component.ts</span><br><span class="line">    │   └── app.module.ts</span><br><span class="line">    ├── assets</span><br><span class="line">    ├── environments</span><br><span class="line">    │   ├── environment.prod.ts</span><br><span class="line">    │   └── environment.ts</span><br><span class="line">    ├── favicon.ico</span><br><span class="line">    ├── index.html                    * トップ画面、ルートコンポーネントを記載</span><br><span class="line">    ├── main.ts                       * ルートモジュールのロード（メイン）</span><br><span class="line">    ├── polyfills.ts</span><br><span class="line">    ├── styles.css</span><br><span class="line">    ├── test.ts</span><br><span class="line">    ├── tsconfig.app.json             * TypeScriptの設定ファイル</span><br><span class="line">    ├── tsconfig.spec.json            * TypeScriptのテスト設定ファイル</span><br><span class="line">    └── typings.d.ts                  * TypeScriptの型定義ファイル</span><br></pre></td></tr></table></figure>
+<p><code>.ditorconfig</code> は<a href="http://editorconfig.org" target="_blank" rel="noopener">EditorConfig</a>というプロジェクトの設定ファイルで、エディタへプラグインなどを入れることにより様々なエディタの設定をプロジェクト単位で可能にする。<br>
+テストは <strong>Jasmine</strong> （テスティングフレームワーク）と <strong>Karma</strong> （テストランナー）の組み合わせで実行される。<br>
+e2e（エンドツーエンド）テストは <strong>protractor</strong> 。</p>
+<h2 id="主要なコマンド">主要なコマンド</h2>
+<ul>
+<li><code>ng new</code>
+<ul>
+<li>新規にAngularプロジェクトを作成する</li>
+</ul></li>
+<li><code>ng build</code>
+<ul>
+<li><code>src</code> 配下をビルドして <code>dist</code> へ出力する</li>
+</ul></li>
+<li><code>ng serve</code>
+<ul>
+<li>Webサーバを起動してアプリケーションを実行する</li>
+</ul></li>
+<li><code>ng generate</code>
+<ul>
+<li>blueprints から選択して新たにコードを生成する</li>
+</ul></li>
+<li><code>ng eject</code>
+<ul>
+<li><code>ng generate</code> などで作成したコードを取り除き、webpackの設定やスクリプトを変更する</li>
+</ul></li>
+<li><code>ng get</code>
+<ul>
+<li>設定（key-value）から値（value）を取得する</li>
+</ul></li>
+<li><code>ng set</code>
+<ul>
+<li>設定（key-value）に値（value）を追加する</li>
+</ul></li>
+<li><code>ng lint</code>
+<ul>
+<li>Linterを実行する</li>
+</ul></li>
+<li><code>ng test</code>
+<ul>
+<li>テストを実行する</li>
+</ul></li>
+<li><code>ng e2e</code>
+<ul>
+<li>e2eテストを実行する</li>
+</ul></li>
+<li><code>ng xi18n</code>
+<ul>
+<li>コードからi18nメッセージを抜く</li>
+</ul></li>
+</ul>
+<p>上記以外や詳細なオプションは <code>ng help</code> を参照。</p>
+<h3 id="blueprints-の種類">blueprints の種類</h3>
+<ul>
+<li>module
+<ul>
+<li><code>ng generate module sample</code></li>
+<li>モジュール（ <code>sample/sample.module.ts</code> ）が作成される。</li>
+<li>自動で指定したモジュール名でディレクトリが切られることに注意</li>
+</ul></li>
+<li>component
+<ul>
+<li><code>ng generate component sample</code></li>
+<li>コンポーネント（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
+<ul>
+<li><code>sample.component.ts</code> 、 <code>sample.component.spec.ts</code> 、 <code>sample.component.html</code> 、 <code>sample.component.scss</code></li>
+</ul></li>
+<li>なお、既に存在するモジュール名で作成すると、そのモジュール名のディレクトリ内に作成される。</li>
+</ul></li>
+<li>directive
+<ul>
+<li><code>ng generate directive sample</code></li>
+<li>ディレクティブ（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
+<ul>
+<li><code>sample.directive.ts</code> 、 <code>sample.directive.spec.ts</code></li>
+</ul></li>
+</ul></li>
+<li>pipe
+<ul>
+<li><code>ng generate pipe sample</code></li>
+<li>パイプ（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
+<ul>
+<li><code>sample.pipe.ts</code> 、 <code>sample.pipe.spec.ts</code></li>
+</ul></li>
+</ul></li>
+<li>service
+<ul>
+<li><code>ng generate service sample</code></li>
+<li>サービス（以下）を作成する。
+<ul>
+<li><code>sample.service.ts</code> 、 <code>sample.service.spec.ts</code></li>
+</ul></li>
+</ul></li>
+<li>class
+<ul>
+<li><code>ng generate class sample</code></li>
+<li>普通のクラス（ <code>sample.ts</code> ）が作成される。</li>
+</ul></li>
+<li>interface
+<ul>
+<li><code>ng generate interface sample</code></li>
+<li>普通のインターフェース（ <code>sample.ts</code> ）が作成される。</li>
+</ul></li>
+<li>enum
+<ul>
+<li><code>ng generate enum sample</code></li>
+<li>普通の列挙型（ <code>sample.enum.ts</code> ）が作成される。</li>
+</ul></li>
+</ul>
+<p>ディレクトリを切りたい場合は <code>/</code> を加えて、 <code>ng generate service sample/sample-service</code> のようにする。</p>
+<h2 id="angular-cli-のバージョンアップ方法">Angular CLI のバージョンアップ方法</h2>
+<p>グローバルでは以下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global remove @angular/cli</span><br><span class="line">$ yarn cache clean</span><br><span class="line">$ yarn global add @angular/cli@latest</span><br><span class="line">$ ndenv <span class="built_in">rehash</span></span><br></pre></td></tr></table></figure>
+<p>ローカルプロジェクトでは以下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf node_modules dist <span class="comment"># use rmdir on Windows</span></span><br><span class="line">$ yarn add @angular/cli@latest --dev</span><br><span class="line">$ yarn install</span><br></pre></td></tr></table></figure>
+<h1 id="angularの基本">Angularの基本</h1>
+<p>Angularのアーキテクチャは以下の要素から構成される。</p>
+<ul>
+<li>モジュール（@NgModule）</li>
+<li>コンポーネント（@Components）</li>
+<li>テンプレート（Templates）</li>
+<li>メタデータ（Metadata）</li>
+<li>データバインディング（Data Binding）</li>
+<li>ディレクテイブ（@Directive）</li>
+<li>パイプ（@Pipe）</li>
+<li>サービス（Services）・DI（Dependency injection / <span class="citation" data-cites="Injectable">@Injectable</span>）</li>
+<li>フォームとバリデータ</li>
+<li>Angularライブラリ</li>
+</ul>
+<p>上記の各々について後述する。</p>
+<h2 id="モジュールngmodule">モジュール（@NgModule）</h2>
+<p>Angularのアプリケーションはモジュール単位で機能を管理する。<br>
+モジュールは後述の <strong>コンポーネント</strong> や <strong>テンプレート</strong> を包含する。</p>
+<p>Angularアプリケーションは少なくとも１つ <strong>ルートモジュール</strong> を持ち、<code>AppModule</code> と命名する。<br>
+ルートモジュールは、 <code>src/main.ts</code> からロードされる。<br>
+通常のアプリケーションの場合、ルートモジュールは１つだが、巨大なアプリケーションの場合、複数のルートモジュールを持つこともある。</p>
+<p>モジュールは以下のように作成する。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; NgModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports:      [ BrowserModule ],</span><br><span class="line">  providers:    [ Logger ],</span><br><span class="line">  declarations: [ AppComponent ],</span><br><span class="line">  exports:      [ AppComponent ],</span><br><span class="line">  bootstrap:    [ AppComponent ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p><code>AppModule</code> クラスに <code>@NgModule</code> <strong>デコレータ</strong> （Javaでいうアノテーション）を付与した形になっている。<br>
+デコレータにAngularに則した設定を行い、クラスには何も書かない（たぶん）。<br>
+<code>@NgModule</code> の代表的なプロパティは以下の通り。ちなみにデコレータに設定するプロパティを <strong>メタデータ</strong> という。</p>
+<ul>
+<li><code>imports</code>
+<ul>
+<li>このモジュールに他のモジュールを取り込み、このモジュール内で定義されているコンポーネントやテンプレートが他のモジュールのクラスを使用できるようになる。</li>
+<li>他のモジュールの <code>providers</code> ・ <code>exports</code> に定義されたものを使用できるようになる。</li>
+</ul></li>
+<li><code>providers</code>
+<ul>
+<li>このモジュールおよび関係するコンポーネント・サービスへインジェクトするためのサービスクラスを定義・インスタンス化する。</li>
+</ul></li>
+<li><code>declarations</code>
+<ul>
+<li>このモジュールに所属させるビュークラスを指定する。Angularのビュークラスには、 <strong>コンポーネント</strong> 、 <strong>ディレクティブ</strong> 、 <strong>パイプ</strong> がある。</li>
+</ul></li>
+<li><code>exports</code>
+<ul>
+<li>このモジュール内のクラスを他のモジュールのコンポーネント・テンプレートで使用可能にする。</li>
+<li><code>imports</code> の逆。</li>
+</ul></li>
+<li><code>bootstrap</code>
+<ul>
+<li><strong>ルートコンポーネント</strong> を定義する。ルートコンポーネントはアプリケーションのメインビュー。</li>
+<li><strong>ルートモジュールにだけ</strong> に <code>bootstarp</code> プロパティを設定する。</li>
+</ul></li>
+</ul>
+<p>以下が <strong>ルートモジュール</strong> を指定する方法（ <code>src/main.ts</code> ）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; platformBrowserDynamic &#125; from &apos;@angular/platform-browser-dynamic&apos;;</span><br><span class="line">import &#123; AppModule &#125; from &apos;./app/app.module&apos;;</span><br><span class="line"></span><br><span class="line">platformBrowserDynamic().bootstrapModule(AppModule);</span><br></pre></td></tr></table></figure>
+<p>また、モジュール内では以下のようにライブラリから他のモジュールをロードすることもできる。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br></pre></td></tr></table></figure>
+<p>ロードしたライブラリモジュールは、 <code>@NgModule</code> の <code>imports</code> プロパティに指定することにより使用できるようになる。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imports:      [ BrowserModule ],</span><br></pre></td></tr></table></figure>
+<h2 id="コンポーネントcomponent">コンポーネント（@Component）</h2>
+<p>コンポーネントはビューの役割を担う。<br>
+コンポーネントクラス内で定義したフィールド変数やメソッドは、テンプレートから直接使用できる。<br>
+ロジックは基本的にコンポーネント内に記載し、サービスクラスをDIしたりする。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  moduleId: <span class="built_in">module</span>.id,</span><br><span class="line">  selector:    <span class="string">'hero-list'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./hero-list.component.html'</span>,</span><br><span class="line">  providers:  [ HeroService ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HeroListComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>@Component</code> の代表的なメタデータプロパティは以下。</p>
+<ul>
+<li>moduleId
+<ul>
+<li>このモジュールが定義されるファイルのES/CommonJSモジュールID</li>
+</ul></li>
+<li>selector
+<ul>
+<li>このコンポーネントのHTMLタグ名を定義する。</li>
+</ul></li>
+<li>template
+<ul>
+<li>テンプレートを直接記載する。</li>
+</ul></li>
+<li>templateUrl
+<ul>
+<li>テンプレートファイルのパスを指定する。</li>
+</ul></li>
+<li>styles
+<ul>
+<li>スタイルシート（CSSやSass）を直接記載する。このコンポーネント外には影響が無い。</li>
+</ul></li>
+<li>styleUrls
+<ul>
+<li>スタイルシートファイルのパスを指定する。このコンポーネント外には影響が無い。</li>
+</ul></li>
+<li>providers
+<ul>
+<li>このコンポーネントがDI経由で使用するサービスクラスを指定する。</li>
+<li>コンポーネントクラスの <code>constructor</code> の引数でも指定する必要がある。</li>
+</ul></li>
+</ul>
+<p>その他の <code>@Component</code> のメタデータは<a href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html" target="_blank" rel="noopener">ここ</a>で確認できる。</p>
+<h2 id="テンプレートtemplates">テンプレート（Templates）</h2>
+<p>テンプレートはコンポーネントのDOMとして使われるHTML。<br>
+コンポーネントクラスの <code>@Component</code> デコレータのメタデータに直接記載（ <code>template</code> ）することも、別ファイルとして作成して読み込む（ <code>templateUrl</code> ）ことも可能。<br>
+テンプレート内では、HTMLの属性として <strong>ディレクティブ</strong> （ <code>*ngFor</code> など）、コンポーネントとのデータ・機能のやりとりに <strong>データバインディング</strong> を使用することができる。</p>
+<ul>
+<li>コンポーネントフィールドへのアクセス
+<ul>
+<li><code>*ngFor</code> ： コレクションフィールドの値にアクセス</li>
+<li><code>*ngFor=&quot;let hero of heroes&quot;</code> ： コレクションheroesの各要素をheroへ代入</li>
+</ul></li>
+<li>コンポーネントのメソッド呼び出し
+<ul>
+<li><code>(click)=&quot;onClickMe()&quot;</code> ： クリック時に <code>onClickMe()</code> メソッドを呼び出す</li>
+<li><code>(keyup)=&quot;onKey($event)&quot;</code> ： キーアップ時にイベントを引数に <code>onKey()</code> メソッドを呼び出す</li>
+</ul></li>
+</ul>
+<p>また、テンプレートにはスタイルシート（CSS、Sassなど）を指定することができ、<code>@Component</code> デコレータのメタデータ（ <code>styles</code> 、 <code>styleUrls</code> ）で指定することができる。</p>
+<h2 id="メタデータmetadata">メタデータ（Metadata）</h2>
+<p>メタデータは <strong>デコレータ</strong> （ <code>@</code> から始まるJavaでいうアノテーション）に設定するプロパティ。<br>
+Angularにクラスがどのように挙動するか知らせる役割。<br>
+<code>@Injectable</code> 、 <code>@Input</code> 、 <code>@Output</code> など様々なデコレータにメタデータを設定できる。<br>
+もう十分前述しているのでこの程度で。</p>
+<h2 id="データバインディングdata-binding">データバインディング（Data Binding）</h2>
+<p>テンプレートとコンポーネント間のデータ・機能のやりとりを行う機能。<br>
+以下のように４種類ある。</p>
+<ul>
+<li>単方向バインド（interpolation）
+<ul>
+<li><code>&lt;li&gt;&lt;/li&gt;</code></li>
+<li>コンポーネントの <code>hero.name</code> プロパティの値を <code>&lt;li&gt;</code> 表示する</li>
+</ul></li>
+<li>プロパティバインド（property binding）
+<ul>
+<li><code>&lt;hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;</code></li>
+<li>親コンポーネントの <code>selectedHero</code> の値を、子コンポーネントの <code>hero</code> へ渡している</li>
+</ul></li>
+<li>イベントバインド（event binding）
+<ul>
+<li><code>&lt;li (click)=&quot;selectHero(hero)&quot;&gt;&lt;/li&gt;</code></li>
+<li>ユーザのクリックにより <code>selectHero()</code> メソッドが呼び出される。</li>
+</ul></li>
+<li>双方向バインド（Two-way data binding）
+<ul>
+<li><code>&lt;input [(ngModel)]=&quot;hero.name&quot;&gt;</code></li>
+<li><code>ngModel</code> を用いて <strong>参照と更新</strong> を両方同時に実現する。</li>
+</ul></li>
+</ul>
+<p><code>ngModel</code> のようにテンプレートのHTMLタグの属性として記述できるAngularの機能を <strong>ディレクティブ</strong> という。</p>
+<h3 id="イベント">イベント</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"onClickButton()"</span>&gt;</span>ボタン1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"onClickButtonWithEvent($event)"</span>&gt;</span>ボタン2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>(click)</code> のように、イベント名をカッコで囲んだ属性に、イベントを処理するメソッドを記述する。<br>
+引数なしの記述と、イベントオブジェクト <code>$event</code> を指定する記述ができる。<br>
+コンポーネントクラス内では以下のようにメソッド定義する。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onClickButtonWithEvent(event:<span class="built_in">any</span>) &#123;</span><br><span class="line">   <span class="comment">// targetプロパティでイベントを発生させたオブジェクトを取得</span></span><br><span class="line">   <span class="keyword">var</span> button = event.target;</span><br><span class="line">   <span class="comment">// ボタンのラベルをtextContentプロパティから取得して表示</span></span><br><span class="line">   alert(<span class="string">"ボタン「"</span> + button.textContent + <span class="string">"」が押下されました"</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ディレクテイブdirective">ディレクテイブ（@Directive）</h2>
+<p>ディレクティブは前述の通り、テンプレートのHTMLタグの属性として指定できるAngularの機能。<br>
+モジュール・コンポーネント間のデータの授受や、ループ・条件分岐といった動的なDOMの機能を提供する。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> *<span class="attr">ngFor</span>=<span class="string">"let hero of heroes"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hero-detail</span> *<span class="attr">ngIf</span>=<span class="string">"selectedHero"</span>&gt;</span><span class="tag">&lt;/<span class="name">hero-detail</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>@Directive</code> デコレータでディレクティブを自作できる。<br>
+ここでは割愛。<a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html" target="_blank" rel="noopener">参考</a></p>
+<h2 id="パイプpipe">パイプ（@Pipe）</h2>
+<p>Pipeはテンプレート内で文字列操作の機能を提供する。<br>
+例えば、Dateオブジェクトをあるフォーマットに整形して表示できる。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// コンポーネントクラスのフィールド</span></span><br><span class="line"><span class="keyword">let</span> birthday = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1985</span>,<span class="number">3</span>,<span class="number">1</span>); <span class="comment">// これで1985年4月1日 なことに注意</span></span><br></pre></td></tr></table></figure>
+<p>上記をテンプレードで以下のように指定することにより <strong>yy/MM/dd</strong> 形式で表示できる。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; birthday | date:"yy/MM/dd" &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="comment">&lt;!-- 1985/04/01 と表示される --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>他にも下記のようなパイプがある。</p>
+<ul>
+<li>DatePipe
+<ul>
+<li>上記例。日付を整形する。</li>
+<li><code>date_expression | date[:format]</code></li>
+</ul></li>
+<li>UpperCasePipe
+<ul>
+<li>文字列を大文字にする。</li>
+<li><code>expression | uppercase</code></li>
+</ul></li>
+<li>JsonPipe
+<ul>
+<li>入力値にJSON.stringfyを実行して返す。</li>
+<li><code>expression | json</code></li>
+</ul></li>
+</ul>
+<p>また、パイプは以下のような感じでチェーンできる。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; birthday | date | uppercase&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>さらに、<code>@Pipe</code> デコレータでパイプを自作できる。<br>
+ここでは割愛。<a href="https://angular.io/docs/ts/latest/guide/pipes.html" target="_blank" rel="noopener">参考</a></p>
+<h2 id="サービスservicesdidependency-injection-injectable">サービス（Services）・DI（Dependency injection / <span class="citation" data-cites="Injectable">@Injectable</span>）</h2>
+<p>サービスは <code>export</code> された通常のtypescriptクラス。<br>
+DIを使用してコンポーネントや他サービスクラスにサービスクラスをインジェクトできる。</p>
+<h3 id="作成例">作成例</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ng generate service sample/sample</span><br><span class="line">installing service</span><br><span class="line">  create src/app/sample/sample.service.spec.ts</span><br><span class="line">  create src/app/sample/sample.service.ts</span><br><span class="line">  WARNING Service is generated but not provided, it must be provided to be used</span><br></pre></td></tr></table></figure>
+<p>上記で作成した <code>src/app/sample/sample.service.ts</code> をDIするには、使用するモジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。<br>
+以下コンポーネントへの導入例。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; SampleService &#125; <span class="keyword">from</span> <span class="string">'./sample/sample.service'</span> <span class="comment">// インポート</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  ...</span><br><span class="line">  providers: [SampleService], <span class="comment">// providers に追加</span></span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</span><br><span class="line">  title: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> sampleService: SampleService <span class="comment">// コンストラクタに設定</span></span></span><br><span class="line"><span class="params">  </span>)&#123;</span><br><span class="line">    <span class="keyword">this</span>.title = sampleService.getTitle();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="diインジェクタ">DI・インジェクタ</h3>
+<p>サービスをモジュールやコンポーネントで使用できるようにインジェクトする機能。<br>
+前述の通り、モジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。</p>
+<p><code>@Injectable</code> デコレータがついたサービスクラスは多段Inject（DIのDI）することが可能になる。<br>
+一段Injectはデコレータが無しでもOKだがつけておいても問題ない。</p>
+<h2 id="フォームとバリデータ">フォームとバリデータ</h2>
+<p>http://codezine.jp/article/detail/9596?p=4</p>
+<h2 id="angularライブラリ">Angularライブラリ</h2>
+<p>Angularのライブラリには様々用意されており、APIリファレンスは<a href="https://angular.io/docs/ts/latest/api/" target="_blank" rel="noopener">ここ</a>。<br>
+リファレンスではクラスの前に記号がついており、それぞれ以下の意味。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">記号</th>
+<th style="text-align: left;">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">Directive。ディレクティブ。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P</td>
+<td style="text-align: left;">Pipe。パイプ。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">@</td>
+<td style="text-align: left;">Decorator。デコレータ。Javaでいう所謂アノテーション。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">Class。普通のTypeScriptのクラス。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I</td>
+<td style="text-align: left;">Interface。普通のTypeScriptのインターフェース。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Function。関数。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">Enum。普通の列挙型。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">Type Alias。なんかわからん。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Const。定数クラス。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="その他話題メモ">その他話題、メモ</h1>
+<h2 id="typescriptの型解決について">TypeScriptの型解決について</h2>
+<p>解決方法には以下がある。</p>
+<ul>
+<li>tsd</li>
+<li>typings</li>
+<li><span class="citation" data-cites="types">@types</span></li>
+</ul>
+<p>Angularは型定義が含まれているため、上記３つは不要。ただし、他のライブラリを用いる場合 <code>@types</code> を使用する。（typingsに変わったかも。。。）</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://pepese.github.io/blog/angular-basics/" data-id="cjoy8er5300adlziijcma9i1s" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yarn/">Yarn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/blog/express-basics/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Express入門</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/blog/mean-stack-basics/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">所謂MEANスタックを作る</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <!-- Google Adsense TechBlog Side start -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_side -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="7455097821"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+          <!-- Google Adsense TechBlog Side end -->
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Node-js/" style="font-size: 18.89px;">Node.js</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/blog/jupyter-notebook-basics/">Jupyter Notebook入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/vscode-basics/">Visual Studio Code入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/appium-basics/">Appium入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/android-env-on-mac/">Androidアプリ入門 Macで環境構築編</a>
+        </li>
+      
+        <li>
+          <a href="/blog/sdkman-basics/">SDKMAN入門</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+          <!-- Amazon Affiliate Side start -->
+          <!-- Amazon -->
+<script type="text/javascript"><!--
+amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
+<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+
+          <!-- Amazon Affiliate Side end -->
+        </div>
+    </div>
+    <!-- Google Adsense TechBlog Foot start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_foot -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Foot end -->
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ぺーぺーSE<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

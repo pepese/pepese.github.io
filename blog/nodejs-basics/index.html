@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.js/npm入門 | ぺーぺーSEのテックブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Node.js（npm）についてまとめる。 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。 また、Node.jsはJavaScriptの実行エンジン。 ちなみにここでNode.">
+<meta name="keywords" content="Node.js,JavaScript,npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js&#x2F;npm入門">
+<meta property="og:url" content="https://pepese.github.io/blog/nodejs-basics/index.html">
+<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
+<meta property="og:description" content="Node.js（npm）についてまとめる。 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。 また、Node.jsはJavaScriptの実行エンジン。 ちなみにここでNode.">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js&#x2F;npm入門">
+<meta name="twitter:description" content="Node.js（npm）についてまとめる。 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。 また、Node.jsはJavaScriptの実行エンジン。 ちなみにここでNode.">
+<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta name="twitter:creator" content="@PeePeeSE">
+  
+    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42388425-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
+  
+    <p class="lead blog-description">備忘録用メモサイト</p>
+  
+</div>
+
+    <p>
+    <!-- twitter follow button start -->
+    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter follow button end -->
+    <!-- twitter share button start -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter share button end -->
+    <!-- RSS Feed start -->
+    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
+    <!-- RSS Feed end -->
+    </p>
+    <!-- Google Adsense TechBlog Head start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_head -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="3164499029"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Head end -->
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Node-js-npm入門" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js/npm入門
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/blog/nodejs-basics/" class="article-date"><time datetime="2017-08-14T05:43:12.000Z" itemprop="datePublished">2017-08-14</time></a>
+</div>
+
+    
+    
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Node.js（npm）についてまとめる。</p>
+<p>npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。<br>
+JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。<br>
+npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。<br>
+また、Node.jsはJavaScriptの実行エンジン。</p>
+<p>ちなみに<a href="http://node.green" target="_blank" rel="noopener">ここ</a>でNode.jsのES6対応状況がわかる。<br>
+v8.3.0で <strong>99%</strong> カバーしている。</p>
+<a id="more"></a>
+<h1 id="インストール">インストール</h1>
+<p>Node.jsのインストール方法は以下の「anyenv」を参照。</p>
+<ul>
+<li><a href="https://pepese.github.io/blog/anyenv/">すべての**envを管理するanyenv</a></li>
+</ul>
+<h2 id="ndenv">ndenv</h2>
+<p>上記の手順でNode.jsを導入した場合、Node.jsのバージョンを <code>ndenv</code> でコントロールする。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ndenv install -l <span class="comment"># インストールできるNode.jsのバージョン確認</span></span><br><span class="line">$ ndenv install v8.3.0 <span class="comment"># バージョンを指定してインストール</span></span><br><span class="line">$ ndenv versions <span class="comment"># インストールされたことを確認</span></span><br><span class="line">$ ndenv global v8.3.0 <span class="comment"># バージョンを切り替え</span></span><br><span class="line">$ ndenv <span class="built_in">local</span> v8.3.0 <span class="comment"># 今いるプロジェクトだけバージョンを指定したい場合はこっち</span></span><br><span class="line">$ node -v <span class="comment"># 確認</span></span><br><span class="line">$ npm update -g npm <span class="comment"># npm のバージョンアップ</span></span><br><span class="line">$ npm -v <span class="comment"># 確認</span></span><br></pre></td></tr></table></figure>
+<h1 id="npmの使い方">npmの使い方</h1>
+<p>公式ドキュメントは<a href="https://docs.npmjs.com" target="_blank" rel="noopener">ここ</a>。<br>
+プロキシの設定が必要な場合は以下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;</span><br><span class="line">$ npm config <span class="built_in">set</span> https-proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="プロジェクトの作成">プロジェクトの作成</h2>
+<p>任意のディレクトリを作成して <code>npm init</code> を実行すると <code>package.json</code> が作成され、プロジェクトとなる。<br>
+いろいろ聞かれるが、全部Enterで問題無い。あとで変更可能。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir nodejs-sample</span><br><span class="line">$ <span class="built_in">cd</span> nodejs-sample</span><br><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<p><code>package.json</code> はMavenでいう <code>pom.xml</code> みたいなもの。（Javaの人向けでごめん）</p>
+<h2 id="パッケージのインストール">パッケージのインストール</h2>
+<h3 id="グローバルインストール">グローバルインストール</h3>
+<p><code>npm install -g &lt;package_name&gt;@&lt;version&gt;</code> でパッケージのインストールが可能。<br>
+<code>-g</code> オプションがついてるのがポイント。<br>
+アンインストールは <code>npm uninstall -g &lt;package_name&gt;</code> 。<br>
+インストールパッケージ一覧の確認は <code>npm list -g</code> 。</p>
+<p>インストール先は以下で確認できる。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># グローバルインストール先のディレクトリ</span><br><span class="line">$ npm root -g</span><br><span class="line"></span><br><span class="line"># グローバルインストール先の、コマンドディレクトリ</span><br><span class="line">$ npm bin -g</span><br></pre></td></tr></table></figure>
+<h3 id="ローカルインストール">ローカルインストール</h3>
+<p><code>npm install &lt;option&gt; &lt;package_name&gt;@&lt;version&gt;</code> でパッケージのインストールが可能。<br>
+インストールしたパッケージは <code>package.json</code> に追記され、 <code>node_modules/</code> 配下に配備される。<br>
+オプションは以下の通り。</p>
+<ul>
+<li><code>--save</code> 、 <code>-S</code>
+<ul>
+<li><code>package.json</code> の <code>dependencies</code> に追記される</li>
+<li><code>npm install  --production</code> した時に <code>mode_modules/</code> に配備される</li>
+<li>開発したソフトウェアを動かすのに必要な依存ライブラリ</li>
+</ul></li>
+<li><code>--save-dev</code> 、 <code>-D</code>
+<ul>
+<li><code>package.json</code> の <code>devDependencies</code> に追記される</li>
+<li><code>npm install --dev</code> した時に <code>mode_modules/</code> に配備される</li>
+<li>ソフトウェアを開発する際に必要になるツール・ライブラリ</li>
+</ul></li>
+<li><code>--save-optional</code> 、 <code>-O</code>
+<ul>
+<li><code>package.json</code> の <code>optionalDependencies</code> に追記される</li>
+<li><code>npm install</code> した時に <code>mode_modules/</code> に配備される（失敗してもスルーされる）</li>
+</ul></li>
+</ul>
+<p>デフォルト設定の場合、 <code>npm install</code> （オプション無）すると、 <code>dependencies</code> 、 <code>devDependencies</code> 、 <code>optionalDependencies</code> の全てがインストールされる。<br>
+アンインストールは <code>npm uninstall &lt;package_name&gt;</code> 。<br>
+インストールパッケージ一覧の確認は <code>npm list</code> 。</p>
+<h3 id="パッケージの使い方">パッケージの使い方</h3>
+<p>npmで導入したJavaScriptライブラリ（ <code>node_modules/</code> 配下にある）は、JavaScriptのソースコードからほぼ以下の形式で呼び出すことができる。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="built_in">require</span>(<span class="string">'request'</span>)</span><br></pre></td></tr></table></figure>
+<p>上記は <code>request</code> モジュールを呼び出して <code>req</code> 変数へ代入している例。</p>
+<h2 id="npmスクリプト">npmスクリプト</h2>
+<p><code>package.json</code> の <code>scripts</code> にスクリプトを登録することにより簡易に実行することができる。<br>
+例えば以下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/"</span>,</span><br><span class="line">  <span class="string">"test-ci"</span>: <span class="string">"istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/"</span>,</span><br><span class="line">  <span class="string">"test-cov"</span>: <span class="string">"istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/"</span>,</span><br><span class="line">  <span class="string">"test-tap"</span>: <span class="string">"mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>上記のようにスクリプトを定義することにより <code>npm test</code> 、 <code>npm test-ci</code> といった具合で登録したスクリプトを実行することができる。</p>
+<h1 id="node.jsの使い方">Node.jsの使い方</h1>
+<p>Node.jsのAPIリファレンスは<a href="https://nodejs.org/api/" target="_blank" rel="noopener">ここ</a>。</p>
+<h2 id="シンプルに動かしてみる">シンプルに動かしてみる</h2>
+<p>まず、Node.jsをJavaScriptエンジンとしてシンプルに動かしてみる。</p>
+<p>■hello.js</p>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/hello.js?footer=0"></script>
+<p>■main.js</p>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/main.js?footer=0"></script>
+<p>上記JSファイルを作成して下記を実行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node main.js</span><br><span class="line">Hello World !</span><br></pre></td></tr></table></figure>
+<p><code>node &lt;JSファイル&gt;</code> コマンドで実行できる。</p>
+<h2 id="httpサーバ">HTTPサーバ</h2>
+<p>Node.jsでHTTPサービスを立ち上げてみる。</p>
+<p>■app.js</p>
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/app.js?footer=0"></script>
+<p>下記を実行してブラウザで <code>http://127.0.0.1:1337/</code> へアクセスすると「Hello World !」と表示される。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br></pre></td></tr></table></figure>
+<p><code>Ctr+C</code> でサービスを停止できる。<br>
+この方法でHTTPサービスを起動した場合、ロジックでエラーが発生するとプロセスが終了する。<br>
+エラーが発生してもプロセスが終了しないようにする方法の１つとして <strong>forever</strong> の導入がある。</p>
+<p>■foreverのインストール、起動、停止</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g forever</span><br><span class="line">$ forever start app.js</span><br><span class="line">$ forever stop app.js</span><br></pre></td></tr></table></figure>
+<h2 id="node.jsに関する話題">Node.jsに関する話題</h2>
+<ul>
+<li><a href="http://postd.cc/simple-guide-to-finding-a-javascript-memory-leak-in-node-js/" target="_blank" rel="noopener">Node.jsでのJavaScriptメモリリークを発見するための簡単ガイド</a>
+<ul>
+<li>JavaScriptは <strong>ガベージコレクション</strong> を行う言語。</li>
+</ul></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://pepese.github.io/blog/nodejs-basics/" data-id="cjoy8er1f001mlzii3rm8pwp1" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/blog/python-ml-metrics-score/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Pythonで機械学習 精度評価編</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/blog/express-basics/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Express入門</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <!-- Google Adsense TechBlog Side start -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_side -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="7455097821"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+          <!-- Google Adsense TechBlog Side end -->
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Node-js/" style="font-size: 18.89px;">Node.js</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/blog/jupyter-notebook-basics/">Jupyter Notebook入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/vscode-basics/">Visual Studio Code入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/appium-basics/">Appium入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/android-env-on-mac/">Androidアプリ入門 Macで環境構築編</a>
+        </li>
+      
+        <li>
+          <a href="/blog/sdkman-basics/">SDKMAN入門</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+          <!-- Amazon Affiliate Side start -->
+          <!-- Amazon -->
+<script type="text/javascript"><!--
+amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
+<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+
+          <!-- Amazon Affiliate Side end -->
+        </div>
+    </div>
+    <!-- Google Adsense TechBlog Foot start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_foot -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Foot end -->
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ぺーぺーSE<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
