@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Golang入門 | ぺーぺーSEのテックブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="golang の基本的なところをまとめる。  環境構築 基本文法">
+<meta name="keywords" content="golang,go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang入門">
+<meta property="og:url" content="https://pepese.github.io/blog/golang-basics/index.html">
+<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
+<meta property="og:description" content="golang の基本的なところをまとめる。  環境構築 基本文法">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta property="og:updated_time" content="2019-02-02T01:55:42.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang入門">
+<meta name="twitter:description" content="golang の基本的なところをまとめる。  環境構築 基本文法">
+<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta name="twitter:creator" content="@PeePeeSE">
+  
+    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42388425-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
+  
+    <p class="lead blog-description">備忘録用メモサイト</p>
+  
+</div>
+
+    <p>
+    <!-- twitter follow button start -->
+    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter follow button end -->
+    <!-- twitter share button start -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter share button end -->
+    <!-- RSS Feed start -->
+    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
+    <!-- RSS Feed end -->
+    </p>
+    <!-- Google Adsense TechBlog Head start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_head -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="3164499029"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Head end -->
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Golang入門" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Golang入門
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/blog/golang-basics/" class="article-date"><time datetime="2019-02-02T01:54:59.000Z" itemprop="datePublished">2019-02-02</time></a>
+</div>
+
+    
+    
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>golang の基本的なところをまとめる。</p>
+<ul>
+<li>環境構築</li>
+<li>基本文法</li>
+</ul>
+<a id="more"></a>
+<h1 id="環境構築">環境構築</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install go</span><br></pre></td></tr></table></figure>
+<h2 id="環境変数の設定">環境変数の設定</h2>
+<p>https://golang.org/doc/install/source#environment</p>
+<ul>
+<li><code>GOROOT</code>
+<ul>
+<li>go のバイナリのホームまでのパス</li>
+<li><code>go env GOROOT</code></li>
+</ul></li>
+<li><code>GOPATH</code>
+<ul>
+<li><code>go env GOPATH</code></li>
+<li>go のパスであってプロジェクトのパスでないことに注意</li>
+<li>プロジェクトのパスは <code>$GOPATH/src/github.com/&lt;Githubアカウント名&gt;/&lt;プロジェクト名&gt;</code></li>
+</ul></li>
+<li><code>GOOS</code>
+<ul>
+<li>コンパイルして作成するバイナリの対象 OS を指定する</li>
+</ul></li>
+<li><code>GOARCH</code>
+<ul>
+<li>コンパイルして作成するバイナリの対象 CPU を指定する</li>
+</ul></li>
+</ul>
+<p><code>.bash_profile</code> に以下を追記。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT=`go env GOROOT`</span><br><span class="line">export GOPATH=`go env GOPATH`</span><br><span class="line">export PATH=$PATH:$GOROOT/bin:$GOPATH/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> .bash_profile</span><br></pre></td></tr></table></figure>
+<h2 id="依存関係管理ツール-dep">依存関係管理ツール dep</h2>
+<p>ライブラリの依存解決ツールはいくつかあるが、オフィシャル化に近そうなので <code>dep</code> を使用する。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew install dep</span><br><span class="line">$ dep <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<h2 id="ディレクトリ構造">ディレクトリ構造</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$GOPATH</span><br><span class="line">├─bin/</span><br><span class="line">├─pkg/</span><br><span class="line">│  └─darwin_amd64/</span><br><span class="line">│    ├─github.com/</span><br><span class="line">│    │  └─GitHubアカウント名</span><br><span class="line">│    │    ├─`*.a`ファイル[^1]</span><br><span class="line">│    │    └─GitHubレポジトリ名/`*.a`ファイル[^2]</span><br><span class="line">│    └─pkg.in/</span><br><span class="line">│      ├─パッケージ名/</span><br><span class="line">│      └─`*.a`ファイル</span><br><span class="line">└─src/</span><br><span class="line">  ├─gopkg.in/</span><br><span class="line">  │  └─パッケージ名/</span><br><span class="line">  │    └─LICENSEとか`*.go`とかREADMEとか</span><br><span class="line">  └─github.com/</span><br><span class="line">    ├─GitHubアカウント名</span><br><span class="line">    │  └─GitHubレポジトリ名/</span><br><span class="line">    │    └─LICENSEとか`*.go`とかREADMEとか</span><br><span class="line">    └─&lt;あなたのGitHubユーザ名&gt;</span><br><span class="line">      └─GitHubレポジトリ名/ # プロジェクトディレクトリ（複数）</span><br><span class="line">        ├─glide.yaml</span><br><span class="line">        ├─main.go</span><br><span class="line">        ├─その他、あなたが開発中のソフトウェアのコード</span><br><span class="line">        └─vendor/依存先パッケージのコード(depでとってきたやつ)</span><br></pre></td></tr></table></figure>
+<h2 id="コマンドラインツール">コマンドラインツール</h2>
+<ul>
+<li>goimports
+<ul>
+<li>過不足のimportの自動補完</li>
+<li><code>go get golang.org/x/tools/cmd/goimports</code></li>
+</ul></li>
+<li>gocode
+<ul>
+<li>ヘルパー機能</li>
+<li><code>go get -u -v github.com/nsf/gocode</code></li>
+</ul></li>
+<li>godef
+<ul>
+<li>呼び出し関数へのジャンプなど</li>
+<li><code>go get -u -v github.com/rogpeppe/godef</code></li>
+</ul></li>
+<li>gogetdoc
+<ul>
+<li><code>go get -u -v github.com/zmb3/gogetdoc</code></li>
+</ul></li>
+<li>golint
+<ul>
+<li>lint</li>
+<li><code>go get -u -v github.com/golang/lint/golint</code></li>
+</ul></li>
+<li>go-outline
+<ul>
+<li><code>go get -u -v github.com/lukehoban/go-outline</code></li>
+</ul></li>
+<li>goreturns
+<ul>
+<li><code>go get -u -v sourcegraph.com/sqs/goreturns</code></li>
+</ul></li>
+<li>gorename
+<ul>
+<li><code>go get -u -v golang.org/x/tools/cmd/gorename</code></li>
+</ul></li>
+<li>gopkgs
+<ul>
+<li><code>go get -u -v github.com/tpng/gopkgs</code></li>
+</ul></li>
+<li>go-symbols
+<ul>
+<li><code>go get -u -v github.com/newhook/go-symbols</code></li>
+</ul></li>
+<li>guru
+<ul>
+<li><code>go get -u -v golang.org/x/tools/cmd/guru</code></li>
+</ul></li>
+<li>gotests
+<ul>
+<li><code>go get -u -v github.com/cweill/gotests/...</code></li>
+</ul></li>
+</ul>
+<h2 id="プロジェクトの作成">プロジェクトの作成</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p <span class="variable">$GOPATH</span>/src/github.com/&lt;あなたのGithubアカウント名&gt;/&lt;プロジェクト名&gt;</span><br><span class="line">$ <span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/github.com/&lt;あなたのGithubアカウント名&gt;/&lt;プロジェクト名&gt;</span><br></pre></td></tr></table></figure>
+<p>初回は以下のような感じ。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p <span class="variable">$GOPATH</span>/src/github.com/&lt;あなたのGithubアカウント名&gt;</span><br><span class="line">$ <span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/github.com/&lt;あなたのGithubアカウント名&gt;</span><br><span class="line">$ git <span class="built_in">clone</span> &lt;golangプロジェクト&gt; <span class="comment"># プロジェクトディレクトリの作成</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;golangプロジェクト&gt;</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"vendor/"</span> &gt; .gitignore</span><br><span class="line">$ dep init <span class="comment"># dep の初期化</span></span><br><span class="line">$ touch app.go <span class="comment"># 依存ライブラリ含め好きなコード書く</span></span><br><span class="line">$ dep ensure -v <span class="comment"># 依存ライブラリの解決</span></span><br><span class="line">$ go run app.go</span><br></pre></td></tr></table></figure>
+<h2 id="デバッグ環境作成">デバッグ環境作成</h2>
+<ul>
+<li>デバッガツール delve のインストール
+<ul>
+<li><code>go get -u github.com/derekparker/delve/cmd/dlv</code></li>
+</ul></li>
+<li>VSCodeにGo言語の拡張機能をインストール
+<ul>
+<li><code>Rich Go language support for Visual Studio Code</code></li>
+</ul></li>
+</ul>
+<h1 id="基本文法">基本文法</h1>
+<p><a href="https://go-tour-jp.appspot.com/list" target="_blank" rel="noopener">A Tour of Go</a>を一通りやるといい。<br>
+とりあえず、こんにちは世界。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello, 世界"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go run hello.go</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure>
+<h2 id="標準パッケージのインポート">標準パッケージのインポート</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"math/rand"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"math"</span></span><br></pre></td></tr></table></figure>
+<p>インポートしたら <code>fmt.Println</code> とかインポート名で使用できる。<br>
+また、インポート名を変更もできる。（ <code>f.Println</code> ）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	f <span class="string">"fmt"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="exported-name">exported name</h2>
+<p>Go では、最初の文字が大文字で始まる名前は、外部のパッケージから参照できる公開された名前( <em>exported name</em> )。<br>
+例えば、 <code>Pi</code> は <code>math</code> パッケージでエクスポートされている。<br>
+<code>pi</code> （小文字）ではないことに注意。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"math"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//fmt.Println(math.pi)  // Error になる</span></span><br><span class="line">    fmt.Println(math.Pi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="関数">関数</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// func add(x , y int) int &#123; // 引数の型定義、省略可能</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x <span class="keyword">int</span>, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(add(<span class="number">42</span>, <span class="number">13</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="複数の-return">複数の return</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swap</span><span class="params">(x, y <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">string</span>, <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> y, x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	a, b := swap(<span class="string">"hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">	fmt.Println(a, b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="result-の変数名">result の変数名</h2>
+<p>返り値となる変数に名前をつけることができる。<br>
+そして、 <code>return</code> と書くだけでよくなる。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">split</span><span class="params">(sum <span class="keyword">int</span>)</span> <span class="params">(x, y <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	x = sum * <span class="number">4</span> / <span class="number">9</span></span><br><span class="line">	y = sum - x</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(split(<span class="number">17</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="変数宣言">変数宣言</h2>
+<p><code>var</code> は <strong>変数宣言</strong> 。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c, python, java <span class="keyword">bool</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	fmt.Println(i, c, python, java)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初期化子が与えられている場合、型を省略できる。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i, j <span class="keyword">int</span> = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c, python, java = <span class="literal">true</span>, <span class="literal">false</span>, <span class="string">"no!"</span></span><br><span class="line">	fmt.Println(i, j, c, python, java)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>関数の中では、 <code>var</code> 宣言の代わりに、短い <code>:=</code> の代入文を使い、暗黙的な型宣言ができる。<br>
+この場合、変数の型は右側の変数から型推論される。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i := <span class="number">42</span>           <span class="comment">// int</span></span><br><span class="line">f := <span class="number">3.142</span>        <span class="comment">// float64</span></span><br><span class="line">g := <span class="number">0.867</span> + <span class="number">0.5i</span> <span class="comment">// complex128</span></span><br></pre></td></tr></table></figure>
+<p>関数の外では、キーワードではじまる宣言( <code>var</code> , <code>func</code> など)が必要で、 <code>:=</code> での暗黙的な宣言は利用できない。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i, j <span class="keyword">int</span> = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">	k := <span class="number">3</span></span><br><span class="line">	c, python, java := <span class="literal">true</span>, <span class="literal">false</span>, <span class="string">"no!"</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(i, j, k, c, python, java)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="基本型">基本型</h2>
+<ul>
+<li><code>bool</code></li>
+<li><code>string</code></li>
+<li><code>int</code> <code>int8</code> <code>int16</code> <code>int32</code> <code>int64</code></li>
+<li><code>uint</code> <code>uint8</code> <code>uint16</code> <code>uint32</code> <code>uint64</code> <code>uintptr</code></li>
+<li><code>byte</code>
+<ul>
+<li><code>uint8</code> の別名</li>
+</ul></li>
+<li><code>rune</code>
+<ul>
+<li><code>int32</code> の別名</li>
+<li>Unicode のコードポイントを表す</li>
+<li>rune とは古代文字を表す言葉( runes )、 Go では文字そのものを表すためにruneという言葉を使う</li>
+</ul></li>
+<li><code>float32</code> <code>float64</code></li>
+<li><code>complex64</code> <code>complex128</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"math/cmplx"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	ToBe   <span class="keyword">bool</span>       = <span class="literal">false</span></span><br><span class="line">	MaxInt <span class="keyword">uint64</span>     = <span class="number">1</span>&lt;&lt;<span class="number">64</span> - <span class="number">1</span></span><br><span class="line">	z      <span class="keyword">complex128</span> = cmplx.Sqrt(<span class="number">-5</span> + <span class="number">12i</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"Type: %T Value: %v\n"</span>, ToBe, ToBe)</span><br><span class="line">	fmt.Printf(<span class="string">"Type: %T Value: %v\n"</span>, MaxInt, MaxInt)</span><br><span class="line">	fmt.Printf(<span class="string">"Type: %T Value: %v\n"</span>, z, z)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ゼロ値">ゼロ値</h2>
+<p>変数に初期値を与えずに宣言すると、ゼロ値( <strong>zero value</strong> )が与えられる。<br>
+ゼロ値は型によって以下のように与えられる。</p>
+<ul>
+<li>数値型(int,floatなど): 0</li>
+<li>bool型: false</li>
+<li>string型: "" (空文字列( empty string ))</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> f <span class="keyword">float64</span></span><br><span class="line">	<span class="keyword">var</span> b <span class="keyword">bool</span></span><br><span class="line">	<span class="keyword">var</span> s <span class="keyword">string</span></span><br><span class="line">	fmt.Printf(<span class="string">"%v %v %v %q\n"</span>, i, f, b, s) <span class="comment">// 0 0 false ""</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="型変換">型変換</h2>
+<p>従来の <strong>キャスト</strong> とほぼ同じ。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">42</span></span><br><span class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="keyword">float64</span>(i)</span><br><span class="line"><span class="keyword">var</span> u <span class="keyword">uint</span> = <span class="keyword">uint</span>(f)</span><br></pre></td></tr></table></figure>
+<p>ただし、C言語とは異なり、 <em>Goでの型変換は明示的な変換が必要</em> 。</p>
+<h2 id="定数型">定数型</h2>
+<p>定数は、 <code>const</code> キーワードを使って変数と同じように宣言。<br>
+定数は、文字(character)、文字列(string)、boolean、数値(numeric)のみで使える。<br>
+なお、定数は <code>:=</code> を使って宣言できない。</p>
+<h2 id="繰り返し-for">繰り返し for</h2>
+<p>所謂 <code>for</code> ループ。Go に <code>while</code> はない。<br>
+他言語とは異なり、 for ステートメントの3つの部分を括る括弧 <code>( )</code> はない。なお、中括弧 <code>{ }</code> は必要。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		sum += i</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="while-っぽい-for">while っぽい for</h2>
+<p><code>for</code> はセミコロン( <code>;</code> )を省略することもできる。<br>
+つまり、C言語などにある <code>while</code> は、Goでは <code>for</code> だけを使う。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> sum &lt; <span class="number">1000</span> &#123;</span><br><span class="line">		sum += sum</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="条件文-if">条件文 if</h2>
+<p>Go 言語の <code>if</code> ステートメントは、 <code>for</code> ループと同様に、括弧 <code>( )</code> は不要で、中括弧 <code>{ }</code> は必要。<br>
+また、 <code>if</code> ステートメントは、 <code>for</code> のように、条件の前に、評価するための簡単なステートメントを書くことができる。<br>
+ここで宣言された変数は、 if のスコープ内だけで有効。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"math"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pow</span><span class="params">(x, n, lim <span class="keyword">float64</span>)</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> v := math.Pow(x, n); v &lt; lim &#123; <span class="comment">// ここ注目</span></span><br><span class="line">		<span class="keyword">return</span> v</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> lim</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(</span><br><span class="line">		pow(<span class="number">3</span>, <span class="number">2</span>, <span class="number">10</span>),</span><br><span class="line">		pow(<span class="number">3</span>, <span class="number">3</span>, <span class="number">20</span>),</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>if</code> ステートメントで宣言された変数は、 <code>else</code> ブロック内でも使うことができる。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"math"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pow</span><span class="params">(x, n, lim <span class="keyword">float64</span>)</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> v := math.Pow(x, n); v &lt; lim &#123;</span><br><span class="line">		<span class="keyword">return</span> v</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%g &gt;= %g\n"</span>, v, lim) <span class="comment">// v を参照できる</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// can't use v here, though</span></span><br><span class="line">	<span class="keyword">return</span> lim</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(</span><br><span class="line">		pow(<span class="number">3</span>, <span class="number">2</span>, <span class="number">10</span>),</span><br><span class="line">		pow(<span class="number">3</span>, <span class="number">3</span>, <span class="number">20</span>),</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="switch-文">switch 文</h2>
+<p>Go の <code>switch</code> は C や C++、Java、JavaScript、PHP の <code>switch</code> と似ているが、 Go では選択された <code>case</code> だけを実行してそれに続く全ての <code>case</code> は実行されない。<br>
+これらの言語の各 <code>case</code> の最後に必要な <code>break</code> ステートメントが Go では <em>自動的に提供される</em> 。<br>
+もう一つの重要な違いは Go の <code>switch</code> の <code>case</code> は定数である必要はなく、 関係する値は整数である必要はない。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"runtime"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">"Go runs on "</span>)</span><br><span class="line">	<span class="keyword">switch</span> os := runtime.GOOS; os &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">"darwin"</span>:</span><br><span class="line">		fmt.Println(<span class="string">"OS X."</span>)</span><br><span class="line">	<span class="keyword">case</span> <span class="string">"linux"</span>:</span><br><span class="line">		fmt.Println(<span class="string">"Linux."</span>)</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="comment">// freebsd, openbsd,</span></span><br><span class="line">		<span class="comment">// plan9, windows...</span></span><br><span class="line">		fmt.Printf(<span class="string">"%s."</span>, os)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="defer">defer</h2>
+<p><code>defer</code> ステートメントは、 <code>defer</code> へ渡した関数の実行を、呼び出し元の関数の終わり( <code>return</code> 後)まで遅延させる。<br>
+<code>defer</code> へ渡した関数の引数は、すぐに評価されるが、その関数自体は呼び出し元の関数が <code>return</code> するまで実行されない。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(<span class="string">"world"</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"hello"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// hello</span></span><br><span class="line"><span class="comment">// world</span></span><br><span class="line"><span class="comment">// と出力される</span></span><br></pre></td></tr></table></figure>
+<h2 id="stacking-defers">Stacking defers</h2>
+<p><code>defer</code> へ渡した関数が複数ある場合、その呼び出しはスタックされ、 LIFO の順番で実行される。（後から順に実行される）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"counting"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">defer</span> fmt.Println(i)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"done"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// counting</span></span><br><span class="line"><span class="comment">// done</span></span><br><span class="line"><span class="comment">// 9</span></span><br><span class="line"><span class="comment">// 8</span></span><br><span class="line"><span class="comment">// 7</span></span><br><span class="line"><span class="comment">// 6</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p><code>defer</code> は <code>panic</code> の <code>recover</code> によく用いられる。（ Java で言う <code>try-catch</code> 的な）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hoge</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        err := <span class="built_in">recover</span>()</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Println(<span class="string">"Recover!:"</span>, err)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;()</span><br><span class="line">    <span class="built_in">panic</span>(<span class="string">"Panic!"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    hoge()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>panic</code> は Java でいう <code>Runtime Exception</code> 。 エラーハンドリングでは使っちゃダメ。 <code>Error</code> インターフェースを使おう。</p>
+<ul>
+<li>https://qiita.com/nayuneko/items/3c0b3c0de9e8b27c9548</li>
+</ul>
+<h2 id="つづき">つづき</h2>
+<p>気が向いたらまとめるかも。</p>
+<p>https://go-tour-jp.appspot.com/moretypes/1</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li>https://www.slideshare.net/takuyaueda967/2016-go
+<ul>
+<li>slideshare</li>
+</ul></li>
+<li>http://blog.amedama.jp/entry/2015/10/06/231038
+<ul>
+<li>Go の文法ではなく、標準の構造・エコシステムがよくわかる</li>
+</ul></li>
+<li>http://blog.nishimu.land/entry/2015/03/16/032222
+<ul>
+<li>文法がわかる</li>
+</ul></li>
+<li>おすすめさいとまとめ
+<ul>
+<li>https://mayonez.jp/topic/1362</li>
+</ul></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://pepese.github.io/blog/golang-basics/" data-id="cjrmtthn6009l7eiip7xn8rh9" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/blog/jupyter-notebook-basics/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Jupyter Notebook入門</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <!-- Google Adsense TechBlog Side start -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_side -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="7455097821"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+          <!-- Google Adsense TechBlog Side end -->
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/go/">go</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/golang/">golang</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Node-js/" style="font-size: 18.89px;">Node.js</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 10px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">2月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/blog/golang-basics/">Golang入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/jupyter-notebook-basics/">Jupyter Notebook入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/vscode-basics/">Visual Studio Code入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/appium-basics/">Appium入門</a>
+        </li>
+      
+        <li>
+          <a href="/blog/android-env-on-mac/">Androidアプリ入門 Macで環境構築編</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+          <!-- Amazon Affiliate Side start -->
+          <!-- Amazon -->
+<script type="text/javascript"><!--
+amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
+<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+
+          <!-- Amazon Affiliate Side end -->
+        </div>
+    </div>
+    <!-- Google Adsense TechBlog Foot start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_foot -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0116602540349648"
+     data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Foot end -->
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2019 ぺーぺーSE<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

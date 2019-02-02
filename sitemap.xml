@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pepese.github.io/blog/golang-basics/</loc>
+    
+    <lastmod>2019-02-02T01:55:42.288Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/mac-dev-environment/</loc>
     
     <lastmod>2018-11-26T11:27:31.010Z</lastmod>
@@ -37,6 +44,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/jupyter-notebook-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/homebrew-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -51,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/jupyter-notebook-basics/</loc>
+    <loc>https://pepese.github.io/blog/express-http-client-request/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -72,28 +86,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/express-http-client-request/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/express-browser-put-delete-request/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/nodejs-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -121,6 +114,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/nodejs-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/python-ml-datasets/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -128,21 +128,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-metrics-score/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/virtualenv-basics/</loc>
+    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -156,7 +142,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/anyenv/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-metrics-score/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/virtualenv-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -170,7 +163,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/mean-stack-basics/</loc>
+    <loc>https://pepese.github.io/blog/anyenv/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -178,6 +178,13 @@
   
   <url>
     <loc>https://pepese.github.io/blog/move-article/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/mean-stack-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -198,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/dynamodb-basics/</loc>
+    <loc>https://pepese.github.io/blog/angular-router-cognito/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/angular-router-cognito/</loc>
+    <loc>https://pepese.github.io/blog/dynamodb-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
