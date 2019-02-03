@@ -4,7 +4,7 @@
   <url>
     <loc>https://pepese.github.io/blog/golang-basics/</loc>
     
-    <lastmod>2019-02-03T01:18:35.246Z</lastmod>
+    <lastmod>2019-02-03T08:20:49.594Z</lastmod>
     
   </url>
   
@@ -30,14 +30,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/git-basics/</loc>
+    <loc>https://pepese.github.io/blog/heroku-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/heroku-basics/</loc>
+    <loc>https://pepese.github.io/blog/git-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -65,7 +65,21 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/express-rdb-sequelize/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/express-multer-fileupload/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/express-browser-put-delete-request/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -86,21 +100,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/express-rdb-sequelize/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/express-browser-put-delete-request/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-k-means-clustering/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -114,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-k-means-clustering/</loc>
+    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -142,20 +142,6 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/virtualenv-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/vscode-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -163,14 +149,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/move-article/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/anyenv/</loc>
+    <loc>https://pepese.github.io/blog/virtualenv-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -184,14 +163,28 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/mean-stack-basics/</loc>
+    <loc>https://pepese.github.io/blog/vscode-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/appium-basics/</loc>
+    <loc>https://pepese.github.io/blog/anyenv/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/move-article/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/mean-stack-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -205,6 +198,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/appium-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/dynamodb-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -212,14 +212,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/express-basics/</loc>
+    <loc>https://pepese.github.io/blog/angular-router-cognito/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/angular-router-cognito/</loc>
+    <loc>https://pepese.github.io/blog/express-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
