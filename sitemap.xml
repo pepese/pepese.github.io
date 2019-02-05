@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://pepese.github.io/blog/python-data-analytics-basics/</loc>
+    <loc>https://pepese.github.io/blog/golang-basics/</loc>
     
-    <lastmod>2019-02-04T04:13:46.761Z</lastmod>
+    <lastmod>2019-02-05T00:12:18.732Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://pepese.github.io/blog/flask-ngrok-chatbot/</loc>
     
-    <lastmod>2019-02-04T04:13:40.305Z</lastmod>
+    <lastmod>2019-02-05T00:10:46.571Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/python-data-analytics-basics/</loc>
+    
+    <lastmod>2019-02-04T04:13:46.761Z</lastmod>
     
   </url>
   
@@ -44,23 +51,9 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/golang-basics/</loc>
-    
-    <lastmod>2019-02-03T23:46:17.806Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/mac-dev-environment/</loc>
     
     <lastmod>2018-11-26T11:27:31.010Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/android-env-on-mac/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
@@ -72,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/git-basics/</loc>
+    <loc>https://pepese.github.io/blog/android-env-on-mac/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -86,6 +79,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/git-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/homebrew-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/java-dynamodb/</loc>
+    <loc>https://pepese.github.io/blog/jupyter-notebook-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/jupyter-notebook-basics/</loc>
+    <loc>https://pepese.github.io/blog/java-dynamodb/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -135,6 +135,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/nodejs-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -163,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/nodejs-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/python-ml-datasets/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -177,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/typescript-environment-basics/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-metrics-score/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-metrics-score/</loc>
+    <loc>https://pepese.github.io/blog/typescript-environment-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
