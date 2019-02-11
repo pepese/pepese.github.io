@@ -14,7 +14,7 @@
 <meta property="og:description" content="golang の基本的なところをまとめる。 さらっとまとめるつもりがどえらい量になったので注意。  環境構築 基本文法">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta property="og:updated_time" content="2019-02-11T06:47:49.745Z">
+<meta property="og:updated_time" content="2019-02-11T06:51:33.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang入門">
 <meta name="twitter:description" content="golang の基本的なところをまとめる。 さらっとまとめるつもりがどえらい量になったので注意。  環境構築 基本文法">
@@ -405,7 +405,7 @@ ga('send', 'pageview');
 </ul>
 <p><code>make</code> は <code>list := make([]int, 2)</code> のようにサイズを指定できる。<br>
 なお、 <strong>多次元で作成する場合は注意</strong> が必要。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list := <span class="built_in">make</span>([][]<span class="keyword">int</span>, <span class="number">2</span>*<span class="number">2</span>) # <span class="number">2</span> 次元スライス（<span class="number">2</span>x2）</span><br><span class="line"># 上記で [][]<span class="keyword">int</span> は作成しても []<span class="keyword">int</span> は作成されていない！</span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</span><br><span class="line">	list[i] = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># <span class="number">2</span> 次元スライス（<span class="number">2</span>x2）を作成する場合</span><br><span class="line">list := <span class="built_in">make</span>([][]<span class="keyword">int</span>, <span class="number">2</span>)</span><br><span class="line"># 上記で [][]<span class="keyword">int</span> は作成しても []<span class="keyword">int</span> は作成されていない！</span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</span><br><span class="line">	list[i] = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="range">range</h2>
 <p>これも Python っぽい。</p>
@@ -517,7 +517,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
     
 
     <footer class="article-footer">
-      <a data-url="https://pepese.github.io/blog/golang-basics/" data-id="cjrzz76z200cue0iix1vopa85" class="article-share-link">
+      <a data-url="https://pepese.github.io/blog/golang-basics/" data-id="cjrzzbzhj00cuiziiyiv07hau" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
