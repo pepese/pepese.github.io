@@ -4,7 +4,14 @@
   <url>
     <loc>https://pepese.github.io/blog/golang-basics/</loc>
     
-    <lastmod>2019-02-11T06:51:33.538Z</lastmod>
+    <lastmod>2019-02-15T23:45:48.227Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/golang-string/</loc>
+    
+    <lastmod>2019-02-11T08:07:42.956Z</lastmod>
     
   </url>
   
@@ -107,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/homebrew-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/jupyter-notebook-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -122,6 +122,13 @@
   
   <url>
     <loc>https://pepese.github.io/blog/java-dynamodb/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/homebrew-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -156,13 +163,6 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/nodejs-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -170,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-svm-2class/</loc>
+    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -184,14 +184,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-k-means-clustering/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-svm-2class/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-datasets/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-k-means-clustering/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-datasets/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/typescript-environment-basics/</loc>
+    <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -226,6 +226,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/typescript-environment-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/vscode-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -233,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/anyenv/</loc>
+    <loc>https://pepese.github.io/blog/move-article/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/move-article/</loc>
+    <loc>https://pepese.github.io/blog/anyenv/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -275,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/dynamodb-basics/</loc>
+    <loc>https://pepese.github.io/blog/express-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/express-basics/</loc>
+    <loc>https://pepese.github.io/blog/dynamodb-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -310,14 +317,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/git-commands/</loc>
+    <loc>https://pepese.github.io/blog/hexo-github-pages/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/hexo-github-pages/</loc>
+    <loc>https://pepese.github.io/blog/git-commands/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
