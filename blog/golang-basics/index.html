@@ -6,7 +6,7 @@
   <title>Golang入門 | ぺーぺーSEのテックブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="golang の基本的なところをまとめる。 さらっとまとめるつもりがどえらい量になったので注意。  環境構築 基本文法">
-<meta name="keywords" content="go,golang,VS Code">
+<meta name="keywords" content="golang,go,VS Code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang入門">
 <meta property="og:url" content="https://pepese.github.io/blog/golang-basics/index.html">
@@ -14,7 +14,7 @@
 <meta property="og:description" content="golang の基本的なところをまとめる。 さらっとまとめるつもりがどえらい量になったので注意。  環境構築 基本文法">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta property="og:updated_time" content="2019-05-15T00:22:43.509Z">
+<meta property="og:updated_time" content="2019-05-16T23:25:07.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang入門">
 <meta name="twitter:description" content="golang の基本的なところをまとめる。 さらっとまとめるつもりがどえらい量になったので注意。  環境構築 基本文法">
@@ -155,7 +155,7 @@ ga('send', 'pageview');
 </ul>
 <a id="more"></a>
 <h1 id="環境構築">環境構築</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install go</span><br><span class="line">$ go version</span><br><span class="line">go version go1.11.5 darwin/amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install go</span><br><span class="line">$ go version</span><br><span class="line">go version go1.12.5 darwin/amd64</span><br></pre></td></tr></table></figure>
 <h2 id="環境変数の設定">環境変数の設定</h2>
 <p>https://golang.org/doc/install/source#environment</p>
 <ul>
@@ -167,7 +167,7 @@ ga('send', 'pageview');
 <li><code>GOPATH</code>
 <ul>
 <li><code>go env GOPATH</code> で値確認</li>
-<li>go のパスであってプロジェクトのパスでないことに注意</li>
+<li>go の各種資材が配置パスであってプロジェクトのパスでないことに注意</li>
 <li>プロジェクトのパスは <code>$GOPATH/src/github.com/&lt;Githubアカウント名&gt;/&lt;プロジェクト名&gt;</code></li>
 </ul></li>
 <li><code>GOOS</code>
@@ -179,8 +179,10 @@ ga('send', 'pageview');
 <li>コンパイルして作成するバイナリの対象 CPU を指定する</li>
 </ul></li>
 </ul>
-<p><code>.bash_profile</code> に以下を追記。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT=`go env GOROOT`</span><br><span class="line">export GOPATH=`go env GOPATH`</span><br><span class="line">export PATH=$PATH:$GOROOT/bin:$GOPATH/bin</span><br></pre></td></tr></table></figure>
+<p><code>.bash_profile</code> に以下を追記。（教科書的には）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=`go env GOROOT`</span><br><span class="line"><span class="built_in">export</span> GOPATH=`go env GOPATH`</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin:<span class="variable">$GOPATH</span>/bin</span><br></pre></td></tr></table></figure>
+<p>個人的には以下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOPATH=`go env GOPATH`</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin</span><br></pre></td></tr></table></figure>
 <p>反映。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> .bash_profile</span><br></pre></td></tr></table></figure>
 <p>また、 <code>$GOPATH</code> 以下のディレクトリ構造は以下のようになる。</p>
@@ -580,7 +582,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
     
 
     <footer class="article-footer">
-      <a data-url="https://pepese.github.io/blog/golang-basics/" data-id="cjvoheeqg0034wliirhoi1lzm" class="article-share-link">
+      <a data-url="https://pepese.github.io/blog/golang-basics/" data-id="cjvrap436005sx8ii2i8f1tva" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       

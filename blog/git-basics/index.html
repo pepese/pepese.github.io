@@ -5,19 +5,19 @@
   
   <title>Git入門 | ぺーぺーSEのテックブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git/Githubのメモ。 インストールから簡単な使い方まで書いてみる。">
+  <meta name="description" content="Git/Githubのメモ。 インストールから簡単な使い方まで書いてみる。  環境構築 一通りの使い方 その他 Tips  git submodule">
 <meta name="keywords" content="Git,Github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git入門">
 <meta property="og:url" content="https://pepese.github.io/blog/git-basics/index.html">
 <meta property="og:site_name" content="ぺーぺーSEのテックブログ">
-<meta property="og:description" content="Git/Githubのメモ。 インストールから簡単な使い方まで書いてみる。">
+<meta property="og:description" content="Git/Githubのメモ。 インストールから簡単な使い方まで書いてみる。  環境構築 一通りの使い方 その他 Tips  git submodule">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta property="og:updated_time" content="2019-05-16T23:25:07.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git入門">
-<meta name="twitter:description" content="Git/Githubのメモ。 インストールから簡単な使い方まで書いてみる。">
+<meta name="twitter:description" content="Git/Githubのメモ。 インストールから簡単な使い方まで書いてみる。  環境構築 一通りの使い方 その他 Tips  git submodule">
 <meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
 <meta name="twitter:creator" content="@PeePeeSE">
   
@@ -149,6 +149,14 @@ ga('send', 'pageview');
       
         <p>Git/Githubのメモ。<br>
 インストールから簡単な使い方まで書いてみる。</p>
+<ul>
+<li>環境構築</li>
+<li>一通りの使い方</li>
+<li>その他 Tips
+<ul>
+<li>git submodule</li>
+</ul></li>
+</ul>
 <a id="more"></a>
 <h1 id="環境構築">環境構築</h1>
 <h2 id="githubのアカウントを作成">GitHubのアカウントを作成</h2>
@@ -207,7 +215,7 @@ ga('send', 'pageview');
 </ul>
 <p>グローバル設定ではなく、単一Gitプロジェクトにのみ反映させたい場合は、 <code>--global</code> を外してコマンドを打つ。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">core.symlinks=false</span><br><span class="line">core.autocrlf=true</span><br><span class="line">color.diff=auto</span><br><span class="line">color.status=auto</span><br><span class="line">color.branch=auto</span><br><span class="line">color.interactive=true</span><br><span class="line">pack.packsizelimit=2g</span><br><span class="line">help.format=html</span><br><span class="line">http.sslcainfo=/bin/curl-ca-bundle.crt</span><br><span class="line">sendemail.smtpserver=/bin/msmtp.exe</span><br><span class="line">diff.astextplain.textconv=astextplain</span><br><span class="line">rebase.autosquash=true</span><br><span class="line">http.proxy=http://[ID]:[Password]@proxy.example.com:8080</span><br><span class="line">https.proxy=http://[ID]:[Password]@proxy.example.com:8080</span><br><span class="line">url.https://.insteadof=git://</span><br></pre></td></tr></table></figure>
-<h1 id="使い方">使い方</h1>
+<h1 id="一通りの使い方">一通りの使い方</h1>
 <h2 id="リモートリポジトリを作ってローカルリポジトリにコピーして編集して更新するパターン">リモートリポジトリを作って、ローカルリポジトリにコピーして編集して更新するパターン</h2>
 <ol type="1">
 <li>リモートリポジトリをローカルリポジトリへコピー（clone）
@@ -351,6 +359,9 @@ ga('send', 'pageview');
 <ul>
 <li>https://pepese.github.io/blog/git-commands/</li>
 </ul>
+<h1 id="その他-tips">その他 Tips</h1>
+<h2 id="git-submodule">git submodule</h2>
+<p><code>git submodule</code> は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み。（ <a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb" target="_blank" rel="noopener">参考</a> ）</p>
 
       
     </div>
@@ -361,7 +372,7 @@ ga('send', 'pageview');
     
 
     <footer class="article-footer">
-      <a data-url="https://pepese.github.io/blog/git-basics/" data-id="cjvoheeq9002nwliii6n029am" class="article-share-link">
+      <a data-url="https://pepese.github.io/blog/git-basics/" data-id="cjvrap42z005ix8iiwrx2vu3k" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
