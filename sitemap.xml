@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pepese.github.io/blog/aws-vpc-basics/</loc>
+    
+    <lastmod>2019-05-23T05:59:30.261Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/golang-basics/</loc>
     
     <lastmod>2019-05-16T23:25:07.076Z</lastmod>
@@ -93,14 +100,21 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/appium-basics/</loc>
+    <loc>https://pepese.github.io/blog/android-env-on-mac/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/angular-cognito/</loc>
+    <loc>https://pepese.github.io/blog/angular-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/appium-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -114,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/angular-router-cognito/</loc>
+    <loc>https://pepese.github.io/blog/angular-cognito/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -122,6 +136,13 @@
   
   <url>
     <loc>https://pepese.github.io/blog/dynamodb-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/angular-router-cognito/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -149,28 +170,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/hexo-github-pages/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/android-env-on-mac/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pepese.github.io/blog/angular-basics/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/homebrew-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/hexo-github-pages/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -198,13 +205,6 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/express-browser-put-delete-request/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/express-http-client-request/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -219,7 +219,7 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
+    <loc>https://pepese.github.io/blog/express-browser-put-delete-request/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -233,6 +233,13 @@
   </url>
   
   <url>
+    <loc>https://pepese.github.io/blog/nodejs-dynamodb/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pepese.github.io/blog/nodejs-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -240,14 +247,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-svm-multiclass/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-svm-2class/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-svm-2class/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-svm-multiclass/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -268,13 +275,6 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/python-ml-metrics-score/</loc>
-    
-    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pepese.github.io/blog/python-ml-recommendation/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
+    <loc>https://pepese.github.io/blog/python-ml-metrics-score/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pepese.github.io/blog/vscode-basics/</loc>
+    <loc>https://pepese.github.io/blog/sdkman-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     
@@ -304,6 +304,13 @@
   
   <url>
     <loc>https://pepese.github.io/blog/virtualenv-basics/</loc>
+    
+    <lastmod>2018-10-24T15:17:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pepese.github.io/blog/vscode-basics/</loc>
     
     <lastmod>2018-10-24T15:17:07.000Z</lastmod>
     

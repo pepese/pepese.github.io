@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Amazon VPCまとめ | ぺーぺーSEのテックブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定方針 VPC作成手順">
+<meta name="keywords" content="aws,vpc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Amazon VPCまとめ">
+<meta property="og:url" content="https://pepese.github.io/blog/aws-vpc-basics/index.html">
+<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
+<meta property="og:description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定方針 VPC作成手順">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta property="og:updated_time" content="2019-05-23T05:59:30.261Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Amazon VPCまとめ">
+<meta name="twitter:description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定方針 VPC作成手順">
+<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
+<meta name="twitter:creator" content="@PeePeeSE">
+  
+    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42388425-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+</html>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class href="/index.html">Home</a></li>
+        
+          <li><a class href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
+  
+    <p class="lead blog-description">備忘録用メモサイト</p>
+  
+</div>
+
+    <p>
+    <!-- twitter follow button start -->
+    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter follow button end -->
+    <!-- twitter share button start -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- twitter share button end -->
+    <!-- RSS Feed start -->
+    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
+    <!-- RSS Feed end -->
+    </p>
+    <!-- Google Adsense TechBlog Head start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_head -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0116602540349648" data-ad-slot="3164499029"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Head end -->
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Amazon-VPCまとめ" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Amazon VPCまとめ
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/blog/aws-vpc-basics/" class="article-date"><time datetime="2019-05-23T05:49:44.000Z" itemprop="datePublished">2019-05-23</time></a>
+</div>
+
+    
+    
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpc/">vpc</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://docs.aws.amazon.com/ja_jp/index.html" target="_blank" rel="noopener">AWS</a> の <a href="https://docs.aws.amazon.com/ja_jp/vpc/" target="_blank" rel="noopener">VPC</a> についてまとめる。</p>
+<ul>
+<li>用語整理
+<ul>
+<li>VPC</li>
+<li>サブネット</li>
+<li>ルートテーブル</li>
+<li>セキュリティ</li>
+<li>ゲートウェイ</li>
+<li>DNS / NTP</li>
+<li>Elastic IP (EIP)</li>
+<li>VPCエンドポイント</li>
+<li>ピアリング接続</li>
+<li>VPN接続</li>
+</ul></li>
+<li>設定方針</li>
+<li>VPC作成手順</li>
+</ul>
+<a id="more"></a>
+<h1 id="用語整理">用語整理</h1>
+<h2 id="vpc">VPC</h2>
+<p>AWSアカウント内に作成する仮想的なネットワーク。<br>
+会社や自宅のLANみたいなもんだと思えばいい。<br>
+作成にあたり、以下のような特徴・注意点がある。</p>
+<ul>
+<li>ネットマスクは Classless Inter-Domain Routing (CIDR) ブロック「<strong>/16</strong>」～「<strong>/28</strong>」の範囲（基本は「<strong>/16</strong>」にする）</li>
+<li>一度作成したVPCはサイズ変更不可能</li>
+<li><strong>テナンシー</strong>の設定
+<ul>
+<li>1つの物理サーバを1ユーザで専有することを<strong>シングルテナンシー</strong>、複数ユーザで共有することを<strong>マルチテナンシー</strong>という * VPC内に作成されるインスタンスを専用テナンシーインスタンスにするには「ハードウェア専有」を、VPC内に作成されるインスタンスを作成時に指定されたテナンシー属性を使用するには「デフォルト」を選択する</li>
+<li>基本的には「デフォルト」でよい</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>『シングルテナンシーのメリット』</p>
+<p>シングルテナンシーで作成した <strong>Dedicated Host</strong> は以下の事ができるようになる。</p>
+<ul>
+<li>「ライセンス持ち込み(Bring Your Own Licenses)」
+<ul>
+<li>サーバ単位の既存のライセンスであるWindows Server, SQL Server, SUSE Linux Enterprise Serverやその他のエンタープライズシステムや製品を、クラウドに持ち込める。</li>
+<li>Dedicated Hostのソケット数や物理コア数を確認することができますので、実際のハードウェアに適するソフトウェアライセンスを取得・使用できる。</li>
+</ul></li>
+<li>「コンプライアンスや規制への準拠」
+<ul>
+<li>Dedicated Hostを配置することで、ユーザが完全に専有するハードウェア上で、アプリケーションを実行することができる。</li>
+</ul></li>
+<li>「利用の追跡」
+<ul>
+<li>AWS Configを使うことで 、各Dedicated Host上にあるインスタンスの開始・停止といった利用履歴を追跡することができる。</li>
+<li>このデータは、ライセンスメトリクスの利用量との確認に使える。<br>
+</li>
+</ul></li>
+<li>「インスタンス配置の制御」
+<ul>
+<li>各Dedicated Host上のEC2インスタンスの配置を、細かい粒度で制御できる。</li>
+</ul></li>
+</ul>
+</blockquote>
+<h2 id="サブネット">サブネット</h2>
+<p>VPC内に作成する仮想的なサブネット。<br>
+１つのサブネットは１つの<strong>アベイラビリティゾーン</strong>（AZ）に所属する。<br>
+作成にあたり、以下のような特徴・注意点がある。</p>
+<ul>
+<li>サブネットで指定したIPアドレスの範囲のうち、最初の4つと最後の1つは使用できない
+<ul>
+<li>10.0.0.0/24 のサブネットを例にして言うと、予約されているアドレスは以下の5つで利用可能なIPアドレスは251個
+<ul>
+<li>10.0.0.0（ネットワークアドレス）</li>
+<li>10.0.0.1（VPC ルーター）</li>
+<li>10.0.0.2（DNS へのマッピング用）</li>
+<li>10.0.0.3（将来の利用のためにAWSで予約）</li>
+<li>10.0.0.255 （ネットワークブロードキャストアドレス）</li>
+</ul></li>
+</ul></li>
+<li>サブネットのネットマスクにCIDR「<strong>/27</strong>」以上をつける
+<ul>
+<li>ELBを設置するサブネットには、サブネット全体で<strong>8個</strong>以上のIPアドレスの余りが必要</li>
+<li>サブネット内にELB以外にもEC2インスタンスを配置することができるが、無計画にEC2を稼働させまくると、IPが不足してELBのスケールアウトができなくなる</li>
+</ul></li>
+<li>1 つのVPCに作成できるサブネットは 200 個</li>
+<li>EC2で使っていたSecurityGroupは使えない！
+<ul>
+<li>EC2のSecurityGroupとVPC内で使うSecurityGroupは別物</li>
+<li>EC2のSecurityGroupはInboundだけ設定できるが、VPCのSecurityGroupはOutboundまで制御することができる</li>
+</ul></li>
+<li>すべてのサブネットは仮想敵なルータ（ <strong>ルートテーブル</strong> と <strong>ネットワークACL</strong> ）が設定されている必要がある</li>
+</ul>
+<h2 id="ルートテーブル">ルートテーブル</h2>
+<ul>
+<li>ルートテーブルは個々のサブネットに 1 つずつ設定できる</li>
+<li>1 つのルートデーブルを複数サブネットに適用できるが、 1 つのサブネットに複数ルートテーブル設定できない</li>
+<li>宛先アドレス（ Destination ）とターゲットとなるゲートウェイ・ネクストホップ（ Target ）を設定する</li>
+</ul>
+<p>デフォルトのルートテーブルに <strong>メインルートテーブル</strong>（vpc内からvpc内へのルーティング）<br>
+「Destination：10.0.0.0/16(vpc)」 -「Target：local」<br>
+が設定されている。<br>
+送信先が「10.0.0.0/16(vpc)」のリクエストをルータがキャッチした場合「local」へルーティングする。<br>
+VPC内の該当サブネットからインターネットへ接続したい場合、<br>
+「Destination：0.0.0.0/0」-「Target：インターネットゲートウェイ」<br>
+を設定する。<br>
+作成にあたり、以下のような特徴・注意点がある。</p>
+<ul>
+<li>ルートテーブルでは上の定義が優先される</li>
+<li>VPC/サブネットからインターネットにアクセスするためには<strong>パブリックサブネット</strong>である必要がある
+<ul>
+<li>この設定が有効でないとEC2のLinuxからyumすら実行できない</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>プライベートサブネット</strong>と<strong>パブリックサブネット</strong></p>
+<p>設定項目としてこれらがVPCに備わっているのではなく、そのサブネットのルートテーブルの設定によってこれが決まる。<br>
+ルートテーブルで「0.0.0.0/0 」がインターネットゲートウェイに流れるような設定になっているのが「パブリックサブネット」、そうではないのが「プライベートサブネット」。</p>
+</blockquote>
+<h2 id="セキュリティ">セキュリティ</h2>
+<p>VPCのセキュリティとして<strong>ネットワークACL</strong>と<strong>セキュリティグループ</strong>が使用できる。</p>
+<h3 id="ネットワークacl">ネットワークACL</h3>
+<p>ネットワークアクセスコントロールリスト（ <strong>ネットワークACL</strong> ）は、サブネットの仮想ファイアウォールとして機能し、インバウンドトラフィックとアウトバウンドトラフィックを <strong>ブラックリスト</strong> 式で制御する。<br>
+ネットワークACLがサブネットのインバウンド・アウトバウンドのトラフィックを制御するのに対し、セキュリティグループはインスタンス単位のインバウンド・アウトバウンドのトラフィックを制御する。<br>
+<strong>ステートレス Firewall</strong> なので <strong>戻りのトラフィックも考慮する必要がある</strong> 。</p>
+<h3 id="セキュリティグループ">セキュリティグループ</h3>
+<p><strong>セキュリティグループ</strong>は、インスタンスの仮想ファイアウォールとして機能し、インバウンドトラフィックとアウトバウンドトラフィックを <strong>ホワイトリスト</strong> 式で制御する。<br>
+VPC 内でインスタンスを起動した場合、そのインスタンスは最大<strong>5</strong>つのセキュリティグループに割り当てることができる。<br>
+セキュリティグループは、サブネットレベルでなくインスタンスレベルで動作する。<br>
+このため、VPC内のサブネット内のインスタンスごとに異なるセキュリティグループのセットに割り当てることがでる。<br>
+起動時に特定のグループを指定しないと、インスタンスは VPC のデフォルトのセキュリティグループに自動的に割り当てられる。<br>
+<strong>ステートフル Firewall</strong> なので 戻りのトラフィックは考慮する必要がない。</p>
+<h3 id="vpc-flow-logs">VPC Flow logs</h3>
+<ul>
+<li>ネットワークトラフィックをキャプチャし、 CloudWatch Logs へ Publish する機能</li>
+<li>セキュリティグループとネットワーク ACL のルールで accept/reject されたトラフィックログを取得</li>
+<li>ネットワークインターフェースを送信元 / 送信先とするトラフィックが対象</li>
+<li>キャプチャウインドウと呼ばれる時間枠（ 約 10 分）で収集・プロセッシング・保存</li>
+<li>RDS、Redshift、ElastiCach、WorkSpacesのネットワークインターフェースのトラフィックも取得可能</li>
+<li>Flow logs データは Amazon CloudWatch Logs と Amazon S3 に保存・閲覧・取得可能</li>
+<li>VPC Flow logs は <strong>GuardDuty</strong> による脅威の検知と通知が可能</li>
+</ul>
+<h2 id="ゲートウェイ">ゲートウェイ</h2>
+<h3 id="インターネットゲートウェイ-igw">インターネットゲートウェイ（ <strong>IGW</strong> ）</h3>
+<p>VPCからインターネットを接続するためのゲートウェイ。<br>
+似た単語に「カスタマーゲートウェイ」「仮想プライベートゲートウェイ」があるが、これらはVPN接続するとき以外は関係ない。</p>
+<h3 id="natゲートウェイ">NATゲートウェイ</h3>
+<p>サブネット内に作成するNATの仕組み。EIPを設定する必要がある。<br>
+「NAPインスタンス」もあるが、基本的にはNATゲートウェイでいい。<a href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-nat-comparison.html" target="_blank" rel="noopener">参考</a><br>
+また、 IPv4の場合は NATゲートウェイだが、IPv6の場合は<a href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/egress-only-internet-gateway.html" target="_blank" rel="noopener">Egress-Only インターネットゲートウェイ</a>を利用する。</p>
+<h2 id="dns-ntp">DNS / NTP</h2>
+<h3 id="amazon-provided-dns">Amazon Provided DNS</h3>
+<p>VPCで用いることのできるDNSサーバ。<br>
+デフォルトではVPC内から名前解決を行う時はこのサーバを用いる。<br>
+VPC のインターネットゲートウェイを介して通信する必要があるインスタンスが利用できる DNS で、VPC が CIDR ブロック <code>10.0.0.0/16</code> ネットワークの場合 DNS サーバーの位置は <code>10.0.0.2</code> となる。（もしくは <code>169.254.169.253</code> ） VPC 内のインスタンスからのみ参照可能で、 VPN や専用線経由では参照できない。<br>
+以下の設定が可能。</p>
+<ul>
+<li>Enable DNS resolution
+<ul>
+<li>基本は Yes 。 No にすると DNS 機能が無効になる。</li>
+</ul></li>
+<li>Enable DNS hostname
+<ul>
+<li>True にすると DNS 名が割り当てられる。</li>
+</ul></li>
+</ul>
+<h3 id="dhcpオプションセット">DHCPオプションセット</h3>
+<p>VPCで使われるDHCPサービスの定義を行うもの。<br>
+独自のDNS・NTP・NetBIOSサーバを構築・設定したい場合に使用する。<br>
+以下の設定が可能。</p>
+<ul>
+<li>Name Tag
+<ul>
+<li>定義を識別する名前</li>
+</ul></li>
+<li>Domain Name
+<ul>
+<li>DHCPで配布するDNSドメイン名</li>
+<li>デフォルトだとリージョンが判別可能なものが付けられる</li>
+<li>Windowsの場合DNSサフィックスとして設定され、Linuxの場合resolv.confのsearchに設定される</li>
+</ul></li>
+<li>Domain name servers
+<ul>
+<li>DHCPで配布するDNSサーバのIPアドレスを指定する、最大4つ</li>
+<li>Windowsの場合参照先DNSサーバとして設定され、Linuxの場合resolv.confのnameserverに設定される</li>
+</ul></li>
+<li>NTP servers
+<ul>
+<li>DHCPで配布するNTPサーバのIPアドレスを指定する、最大4つ</li>
+</ul></li>
+<li>NetBIOS name servers
+<ul>
+<li>DHCPで配布するNetBIOSネームサーバ(WINSサーバ)のIPアドレスを指定する、最大4つ</li>
+</ul></li>
+<li>NetBIOS node type
+<ul>
+<li>DHCPで配布するNetBIOSのノードタイプを指定する</li>
+<li>1、2、4、8から指定する</li>
+</ul></li>
+</ul>
+<h3 id="amazon-time-sync-service">Amazon Time Sync Service</h3>
+<p>VPC 内で稼働する全てのインスタンスから利用できる NTP サーバ。（ <code>169.254.169.123</code> ）</p>
+<h2 id="elastic-ip-eip">Elastic IP (EIP)</h2>
+<ul>
+<li>プライベートIPについて
+<ul>
+<li>VPC でインスタンスを起動すると、サブネットのアドレス範囲内のプライマリプライベートIPアドレスがインスタンスのデフォルトのネットワークインターフェイス（eth0）に割り当てられる。<br>
+</li>
+</ul></li>
+<li>パブリックIPについて
+<ul>
+<li>すべてのサブネットに、そのサブネット内で起動されるインスタンスがパブリックIPアドレスを受け取るかどうかを決定する属性があり、デフォルトでは、デフォルト以外のサブネットではこの属性がfalseに設定されており、デフォルトのサブネットではこの属性がtrueに設定されている。</li>
+<li>サブネットのパブリックIPのアドレス動作を変更するには「サブネットのアクション」の「自動割り当てパブリックIPの変更」から変更する</li>
+<li>パブリック IP アドレスはデフォルトのネットワークインターフェイス（eth0）に割り当てられる。</li>
+<li>パブリック IP アドレスとインスタンスとの関連付けを解除すると、そのアドレスは解放されて使用できなくなる。</li>
+</ul></li>
+</ul>
+<p>固定のパブリックIPアドレスが必要な場合は、<strong>EIP</strong>アドレスを使用する。</p>
+<blockquote>
+<p>『<strong>Elastic Network Interface (ENI)</strong>』</p>
+<p>ENIは、VPC のインスタンスにアタッチできる仮想ネットワークインターフェイス。 ENIには以下の属性を含めることができる。 - プライマリプライベート IP アドレス。 - 1つ以上のセカンダリプライベート IP アドレス。 - プライベート IP アドレスごとに 1 つの Elastic IP アドレス。 - 1つのパブリック IP アドレス。 - eth0のElastic Network Interfaceについては、インスタンスを起動したときに自動的に割り当てることができる。 - ただし既存のネットワークインターフェイスを使用するのでなく、eth0のElastic Network Interfaceを作成する場合のみ。 - 1つまたは複数のセキュリティグループ。 - MAC アドレス。 - 送信元/送信先チェックフラグ。 - 説明。</p>
+</blockquote>
+<h2 id="vpcエンドポイント">VPCエンドポイント</h2>
+<p>VPCエンドポイントは、VPC 内のインスタンスからインターネットゲートウェイ・NAT デバイス・VPN 接続・AWS Direct Connect 接続を利用することなく直接AWS サービスや VPC エンドポイントサービスにプライベート接続できる機能を提供する。<br>
+<strong>ゲートウェイエンドポイント</strong> と <strong>インターフェースエンドポイント</strong> （ <strong>AWS PrivateLink</strong> ）があり、それぞれ以下のサービスを利用できる。</p>
+<ul>
+<li>ゲートウェイエンドポイント
+<ul>
+<li>Amazon S3</li>
+<li>DynamoDB</li>
+</ul></li>
+<li>インターフェースエンドポイント（AWS PrivateLink）
+<ul>
+<li>Amazon API Gateway</li>
+<li>Amazon CloudWatch</li>
+<li>Amazon CloudWatch Events</li>
+<li>Amazon CloudWatch Logs</li>
+<li>AWS CodeBuild</li>
+<li>Amazon EC2 API</li>
+<li>Elastic Load Balancing API</li>
+<li>AWS Key Management Service</li>
+<li>Amazon Kinesis Data Streams</li>
+<li>Amazon SageMaker ランタイム</li>
+<li>AWS Secrets Manager</li>
+<li>AWS Service Catalog</li>
+<li>Amazon SNS</li>
+<li>AWS Systems Manager</li>
+<li>他の AWS アカウントによってホストされるエンドポイントサービス</li>
+<li>サポートされる AWS Marketplace パートナーサービス</li>
+</ul></li>
+</ul>
+<h2 id="ピアリング接続">ピアリング接続</h2>
+<p>VPC ピア接続は、プライベートIPアドレスを使用して2つの VPC 間でトラフィックをルーティングすることを可能にするネットワーク接続。<br>
+どちらのVPCのインスタンスも、同じネットワーク内に存在しているかのように、相互に通信できる。<br>
+VPCピア接続は、自分のVPC間、または、1つのリージョン内の他のAWS アカウントにあるVPCとの間に作成できる。</p>
+<h2 id="vpn接続">VPN接続</h2>
+<p>VPN接続の設定には「仮想プライベートゲートウェイ」と「カスタマーゲートウェイ」の2つを使用する。<br>
+また、ここでは「 VPN接続 」と記載しているが、AWS では <a href="https://docs.aws.amazon.com/ja_jp/vpn/latest/s2svpn/VPC_VPN.html" target="_blank" rel="noopener">Site-to-Site VPN</a> という言葉で表現される。</p>
+<h3 id="仮想プライベートゲートウェイ-vgw">仮想プライベートゲートウェイ（ <strong>VGW</strong> ）</h3>
+<p>VPN接続においてのAmazon VPC側に配置するゲートウェイ。<br>
+複数のカスタマーゲートウェイからのVPN接続を受け付けることが可能。（「仮想プライベートゲートウェイ：カスタマーゲートウェイ」＝「１：N」）<br>
+仮想プライベートゲートウェイとカスタマーゲートウェイはセットで作成する必要がある。</p>
+<h3 id="カスタマーゲートウェイ">カスタマーゲートウェイ</h3>
+<p>VPN接続においてのユーザ側（自社のデータセンタなど）の定義を行う仮想的なVPN装置。<br>
+仮想プライベートゲートウェイとカスタマーゲートウェイはセットで作成する必要がある。</p>
+<h1 id="設定方針">設定方針</h1>
+<p>自分なりのVPC設計方針。<br>
+ただし、<a href="https://www.nic.ad.jp/ja/translation/rfc/1918.html" target="_blank" rel="noopener">RFC1918</a>に沿う。</p>
+<h2 id="vpc-1">VPC</h2>
+<p>「10.0.0.0/16」、「10.1.0.0/16」、「10.2.0.0/16」、、、<br>
+のように作成する。<br>
+CIDRブロックは最大の <code>/16</code> 確保する。</p>
+<h2 id="サブネット-1">サブネット</h2>
+<p>VPCが「10.0.0.0/16」の場合、<br>
+「10.0.0.0/24」、「10.0.1.0/24」、「10.0.2.0/24」、、、<br>
+のように作成する。<br>
+VPCが「10.1.0.0/16」の場合、<br>
+「10.1.0.0/24」、「10.1.1.0/24」、「10.1.2.0/24」、、、<br>
+のように作成する。<br>
+ELBを用いる場合等、基本的に同一のサービスで2つのサブネットを作成し、異なるAZを設定する。<br>
+CIDRフロックを <code>/24</code> に設定した理由は、 - <code>/24</code> のサブネット数が 251 個 - VPC あたりのサブネット数がデフォルト 200 個 - ちょっと上限緩和で対応できる - 8 の倍数でカウントアップしやすい から</p>
+<h2 id="ルートテーブル-1">ルートテーブル</h2>
+<p>基本的に、同一VPC間、およびVPCからインターネットへのルーティングを設定する。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Destination</th>
+<th style="text-align: center;">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10.0.0.0/16 (VPC)</td>
+<td style="text-align: center;">local</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.0.0.0/0</td>
+<td style="text-align: center;">インターネットゲートウェイ</td>
+</tr>
+</tbody>
+</table>
+<h2 id="セキュリティ-1">セキュリティ</h2>
+<p>設定簡易化のためネットワークACLは使用せず（全てのトラフィックを通す）、セキュリティグループを使用する。<br>
+ネットワークACLを使用する場合は、サブネット間で通信が発生しないところをブラックリストとして登録する用途として利用。<br>
+セキュリティグループは下記を作成する。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Security Group</th>
+<th style="text-align: center;">In-Bound</th>
+<th style="text-align: center;">Out-Bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">default-sg</td>
+<td style="text-align: center;">tcp/udp/icmp全通し</td>
+<td style="text-align: center;">全通し</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ssh-sg</td>
+<td style="text-align: center;">22のみ通す</td>
+<td style="text-align: center;">全通し</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">public-web-sg</td>
+<td style="text-align: center;">80と443のみ通す</td>
+<td style="text-align: center;">全通し</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">app-sg</td>
+<td style="text-align: center;">public-web-sgからは通す</td>
+<td style="text-align: center;">全通し</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">db-sg</td>
+<td style="text-align: center;">app-sgからは通す</td>
+<td style="text-align: center;">全通し</td>
+</tr>
+</tbody>
+</table>
+<p>基本的な通信用のdefault-sgとSSH用のssh-sgを作成。<br>
+その他、サービスの入り口（public-web-sg）、アプリ層（app-sg)、DB層（db-sg）を作成。<br>
+一部まったく同じ設定だが、レイヤとセキュリティグループの区切りを合わせている。</p>
+<h1 id="vpc作成手順">VPC作成手順</h1>
+<p>VPCウィザードを使用せずに先述の方針に沿って設定する手順。</p>
+<p><strong>（１）VPCの作成</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CIDRブロック</td>
+<td style="text-align: center;">10.0.0.0/16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">テナンシー</td>
+<td style="text-align: center;">デフォルト</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（２）サブネットの作成</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-vpc-subnet0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPC</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">アベイラビリティーゾーン</td>
+<td style="text-align: center;">ap-northeast-1a</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CIDRブロック</td>
+<td style="text-align: center;">10.0.0.0/24</td>
+</tr>
+</tbody>
+</table>
+<p>※ルートテーブル（メインルートテーブル）、ネットワークACLも同時に作成される。</p>
+<p>後々、ELB等を作成して冗長性・耐障害性を持たせたい場合はAZの異なる下記のようなサブネットも作成しておく。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-vpc-subnet1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPC</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">アベイラビリティーゾーン</td>
+<td style="text-align: center;">ap-northeast-1c</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CIDRブロック</td>
+<td style="text-align: center;">10.0.1.0/24</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（３）インターネットゲートウェイの作成</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-vpc-igw</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（４）インターネットゲートウェイをVPCへアタッチ</strong></p>
+<p>「インターネットゲートウェイ」→「VPCにアタッチ」から「sample-vpc-igw」をsample-vpcにアタッチする。</p>
+<p><strong>（５）ルートテーブルの更新</strong></p>
+<p>Nameタグに「sample-vpc-main-rt」とつける。<br>
+さらに下記のようにルーティングの定義を更新する。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Destination</th>
+<th style="text-align: center;">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10.0.0.0/16</td>
+<td style="text-align: center;">local</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.0.0.0/0</td>
+<td style="text-align: center;">sample-vpc-igw</td>
+</tr>
+</tbody>
+</table>
+<p>ルートテーブルを上記のように設定したサブネットは「パブリックサブネット」となる。</p>
+<p><strong>（６）ネットワークACLの更新</strong></p>
+<p>Nameタグに「sample-vpc-default-acl」とつける。</p>
+<p><strong>（７）セキュリティグループの作成</strong></p>
+<p>以下の5つを作成する。<br>
+※デフォルトで１つ作成されているので、default-sgにリネームして再利用してもよい。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ネームタグ—</th>
+<th style="text-align: center;">グループ名</th>
+<th style="text-align: center;">説明</th>
+<th style="text-align: center;">VPC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">default-sg</td>
+<td style="text-align: center;">default-sg</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ssh-sg</td>
+<td style="text-align: center;">ssh-sg</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">public-web-sg</td>
+<td style="text-align: center;">public-web-sg</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">app-sg</td>
+<td style="text-align: center;">app-sg</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">db-sg</td>
+<td style="text-align: center;">db-sg</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+</tbody>
+</table>
+<p>それぞれのセキュリティグループに対して下記を設定する。</p>
+<p>■インバウンドルール</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Security Group</th>
+<th style="text-align: center;">タイプ</th>
+<th style="text-align: center;">プロトコル</th>
+<th style="text-align: center;">ポート</th>
+<th style="text-align: center;">送信元</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">default-sg</td>
+<td style="text-align: center;">すべてのTCP</td>
+<td style="text-align: center;">TCP (6)</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">すべてのUDP</td>
+<td style="text-align: center;">UDP (17)</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">すべてのICMP</td>
+<td style="text-align: center;">ICMP (1)</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ssh-sg</td>
+<td style="text-align: center;">SSH (22)</td>
+<td style="text-align: center;">TCP (6)</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">自社・自宅のGIP/32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">public-web-sg</td>
+<td style="text-align: center;">HTTP (80)</td>
+<td style="text-align: center;">TCP (6)</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">HTTPS (443)</td>
+<td style="text-align: center;">TCP (6)</td>
+<td style="text-align: center;">443</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">app-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">public-web-sg</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">db-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">app-sg</td>
+</tr>
+</tbody>
+</table>
+<p>■アウトバウンドルール</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Security Group</th>
+<th style="text-align: center;">タイプ</th>
+<th style="text-align: center;">プロトコル</th>
+<th style="text-align: center;">ポート</th>
+<th style="text-align: center;">送信元</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">default-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ssh-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">public-web-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">app-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">db-sg</td>
+<td style="text-align: center;">すべてのトラフィック</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">すべて</td>
+<td style="text-align: center;">0.0.0.0/0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/amazon-vpc-limits.html" target="_blank" rel="noopener">制限</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://pepese.github.io/blog/aws-vpc-basics/" data-id="cjw08y5sg002ojriixd4d35c8" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpc/">vpc</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/blog/golang-string/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Golangの文字列操作</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <!-- Google Adsense TechBlog Side start -->
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_side -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-0116602540349648" data-ad-slot="7455097821"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+          <!-- Google Adsense TechBlog Side end -->
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DataFrame/">DataFrame</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Flask/">Flask</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/LINE/">LINE</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/MeCab/">MeCab</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Nginx/">Nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Pandas/">Pandas</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">14</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SQL/">SQL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/aws/">aws</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/chatbot/">chatbot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gensim/">gensim</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/go/">go</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/golang/">golang</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ngrok/">ngrok</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/vpc/">vpc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/word2vec/">word2vec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DataFrame/" style="font-size: 10px;">DataFrame</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/LINE/" style="font-size: 10px;">LINE</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/MeCab/" style="font-size: 10px;">MeCab</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 17.78px;">Node.js</a> <a href="/tags/Pandas/" style="font-size: 11.11px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 11.11px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/chatbot/" style="font-size: 10px;">chatbot</a> <a href="/tags/gensim/" style="font-size: 10px;">gensim</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/go/" style="font-size: 14.44px;">go</a> <a href="/tags/golang/" style="font-size: 14.44px;">golang</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/vpc/" style="font-size: 10px;">vpc</a> <a href="/tags/word2vec/" style="font-size: 10px;">word2vec</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">5月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">2月 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/01/">1月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/blog/aws-vpc-basics/">Amazon VPCまとめ</a>
+        </li>
+      
+        <li>
+          <a href="/blog/golang-string/">Golangの文字列操作</a>
+        </li>
+      
+        <li>
+          <a href="/blog/golang-sort/">Golangのソート</a>
+        </li>
+      
+        <li>
+          <a href="/blog/golang-file-io/">Golangのファイル入出力</a>
+        </li>
+      
+        <li>
+          <a href="/blog/golang-var-type-const-literal/">Golangの変数・型・定数・リテラル</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+          <!-- Amazon Affiliate Side start -->
+          <!-- Amazon -->
+<script type="text/javascript"><!--
+amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
+<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+
+          <!-- Amazon Affiliate Side end -->
+        </div>
+    </div>
+    <!-- Google Adsense TechBlog Foot start -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- techblog_foot -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0116602540349648" data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <!-- Google Adsense TechBlog Foot end -->
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2019 ぺーぺーSE<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
