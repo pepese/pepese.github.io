@@ -14,7 +14,7 @@
 <meta property="og:description" content="はてなブログが一向に https 対応しないし、そのほかのリスクも考えて流行りの 静的サイトジェネレータ の HEXO を使ってブログを作成し、GitHub Pagesで公開してみる。 前提として npm と Git 環境が必要なため以下参照。  https://pepese.github.io/blog/mac-dev-environment/">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta property="og:updated_time" content="2019-05-27T23:06:43.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexoで作ったブログをGithub Pagesで公開">
 <meta name="twitter:description" content="はてなブログが一向に https 対応しないし、そのほかのリスクも考えて流行りの 静的サイトジェネレータ の HEXO を使ってブログを作成し、GitHub Pagesで公開してみる。 前提として npm と Git 環境が必要なため以下参照。  https://pepese.github.io/blog/mac-dev-environment/">
@@ -155,7 +155,7 @@ ga('send', 'pageview');
 <a id="more"></a>
 <h1 id="hexoのインストールから起動まで">Hexoのインストールから起動まで</h1>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli --no-optional // インストール</span><br><span class="line">$ ndenv <span class="built_in">rehash</span></span><br><span class="line">$ hexo -version                         // 確認</span><br><span class="line">hexo: 3.3.8</span><br><span class="line">hexo-cli: 1.0.3</span><br><span class="line">os: Darwin 16.6.0 darwin x64</span><br><span class="line">http_parser: 2.7.0</span><br><span class="line">node: 8.3.0</span><br><span class="line">v8: 6.0.286.52</span><br><span class="line">uv: 1.13.1</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">ares: 1.10.1-DEV</span><br><span class="line">modules: 57</span><br><span class="line">openssl: 1.0.2l</span><br><span class="line">icu: 59.1</span><br><span class="line">unicode: 9.0</span><br><span class="line">cldr: 31.0.1</span><br><span class="line">tz: 2017b</span><br><span class="line">$ hexo init tech-blog                   // ブログプロジェクト作成</span><br><span class="line">$ <span class="built_in">cd</span> tech-blog</span><br><span class="line">$ npm install --no-optional</span><br><span class="line">$ hexo server                           // 起動</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>筆者がインストールした時（2017/05/02）は、 <strong>–no-optional</strong> オプション無しだと <strong>Error: Cannot find module ./build/default/DTraceProviderBindings</strong> というエラーがでた。</p>
+<p>筆者がインストールした時（2017/05/02）は、 <strong>--no-optional</strong> オプション無しだと <strong>Error: Cannot find module ./build/default/DTraceProviderBindings</strong> というエラーがでた。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ tree</span><br><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts  // これは無いかも</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 <h2 id="設定ファイルの編集">設定ファイルの編集</h2>
 <p><code>_config.yml</code> を以下のように設定する。</p>
@@ -290,7 +290,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </table>
 <p><strong>(4)</strong> プランの選択</p>
 <p>無料のFree Websiteを選択。<br>
-以上を完了すると「Please visit your registrar’s dashboard to change your nameservers to the following.」と出て、レジストラサイト（お名前.com など）のネームサーバを変更するように指示される。<br>
+以上を完了すると「Please visit your registrar's dashboard to change your nameservers to the following.」と出て、レジストラサイト（お名前.com など）のネームサーバを変更するように指示される。<br>
 ここでは以下のように指示された。</p>
 <table>
 <thead>
@@ -439,7 +439,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
     
 
     <footer class="article-footer">
-      <a data-url="https://pepese.github.io/blog/hexo-github-pages/" data-id="cjw08y5t5003ojriim5i3v46g" class="article-share-link">
+      <a data-url="https://pepese.github.io/blog/hexo-github-pages/" data-id="cjwju4pag006jr0zqln5vlpv3" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       

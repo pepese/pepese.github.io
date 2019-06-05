@@ -14,7 +14,7 @@
 <meta property="og:description" content="Node.js（npm）についてまとめる。 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。 また、Node.jsはJavaScriptの実行エンジン。 ちなみにここでNode.">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta property="og:updated_time" content="2018-10-24T15:17:07.000Z">
+<meta property="og:updated_time" content="2019-06-05T23:00:02.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js&#x2F;npm入門">
 <meta name="twitter:description" content="Node.js（npm）についてまとめる。 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。 また、Node.jsはJavaScriptの実行エンジン。 ちなみにここでNode.">
@@ -215,6 +215,12 @@ v8.3.0で <strong>99%</strong> カバーしている。</p>
 例えば以下。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/"</span>,</span><br><span class="line">  <span class="string">"test-ci"</span>: <span class="string">"istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/"</span>,</span><br><span class="line">  <span class="string">"test-cov"</span>: <span class="string">"istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/"</span>,</span><br><span class="line">  <span class="string">"test-tap"</span>: <span class="string">"mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>上記のようにスクリプトを定義することにより <code>npm test</code> 、 <code>npm test-ci</code> といった具合で登録したスクリプトを実行することができる。</p>
+<h3 id="package.json-の更新"><code>package.json</code> の更新</h3>
+<p>手動で <code>package.json</code> 内のライブラリバージョンを変更してもよいが、 <code>npm-check-updates</code> を利用すると楽。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g npm-check-updates</span><br><span class="line">$ <span class="built_in">which</span> ncu</span><br><span class="line">/usr/<span class="built_in">local</span>/bin/ncu</span><br></pre></td></tr></table></figure>
+<p><code>ncu</code> コマンドで <code>package.json</code> のライブラリの最新バージョンを確認できる。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ ncu</span><br><span class="line">Checking /path/to/project/package.json</span><br><span class="line">[====================] 17/17 100%</span><br><span class="line"></span><br><span class="line"> hexo-deployer-git       ^0.3.1  →  ^1.0.0 </span><br><span class="line"> hexo-generator-archive  ^0.1.4  →  ^0.1.5 </span><br><span class="line"> hexo-generator-index    ^0.2.0  →  ^0.2.1 </span><br><span class="line"> hexo-renderer-ejs       ^0.3.0  →  ^0.3.1 </span><br><span class="line"> hexo-renderer-marked    ^0.3.2  →  ^1.0.1 </span><br><span class="line"> hexo-renderer-pandoc    ^0.2.6  →  ^0.3.0 </span><br><span class="line"> hexo-renderer-stylus    ^0.3.1  →  ^0.3.3 </span><br><span class="line"> hexo-server             ^0.2.0  →  ^0.3.3 </span><br><span class="line"></span><br><span class="line">Run ncu -u to upgrade package.json</span><br></pre></td></tr></table></figure>
+<p><code>ncu -u</code> で <code>package.json</code> が書き換えられる。</p>
 <h1 id="node.jsの使い方">Node.jsの使い方</h1>
 <p>Node.jsのAPIリファレンスは<a href="https://nodejs.org/api/" target="_blank" rel="noopener">ここ</a>。</p>
 <h2 id="シンプルに動かしてみる">シンプルに動かしてみる</h2>
@@ -254,7 +260,7 @@ v8.3.0で <strong>99%</strong> カバーしている。</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://pepese.github.io/blog/nodejs-basics/" data-id="cjw08y5tm004ijriioeq5raao" class="article-share-link">
+      <a data-url="https://pepese.github.io/blog/nodejs-basics/" data-id="cjwju4paw007dr0zq8matrtw3" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       

@@ -5,19 +5,19 @@
   
   <title>Amazon VPCまとめ | ぺーぺーSEのテックブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定方針 VPC作成手順">
+  <meta name="description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定">
 <meta name="keywords" content="aws,vpc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Amazon VPCまとめ">
 <meta property="og:url" content="https://pepese.github.io/blog/aws-vpc-basics/index.html">
 <meta property="og:site_name" content="ぺーぺーSEのテックブログ">
-<meta property="og:description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定方針 VPC作成手順">
+<meta property="og:description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta property="og:updated_time" content="2019-05-23T05:59:30.261Z">
+<meta property="og:updated_time" content="2019-05-23T22:22:51.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Amazon VPCまとめ">
-<meta name="twitter:description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定方針 VPC作成手順">
+<meta name="twitter:description" content="AWS の VPC についてまとめる。  用語整理  VPC サブネット ルートテーブル セキュリティ ゲートウェイ DNS / NTP Elastic IP (EIP) VPCエンドポイント ピアリング接続 VPN接続  設定">
 <meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
 <meta name="twitter:creator" content="@PeePeeSE">
   
@@ -162,8 +162,7 @@ ga('send', 'pageview');
 <li>ピアリング接続</li>
 <li>VPN接続</li>
 </ul></li>
-<li>設定方針</li>
-<li>VPC作成手順</li>
+<li>設定</li>
 </ul>
 <a id="more"></a>
 <h1 id="用語整理">用語整理</h1>
@@ -406,14 +405,43 @@ VPCピア接続は、自分のVPC間、または、1つのリージョン内の�
 <h3 id="カスタマーゲートウェイ">カスタマーゲートウェイ</h3>
 <p>VPN接続においてのユーザ側（自社のデータセンタなど）の定義を行う仮想的なVPN装置。<br>
 仮想プライベートゲートウェイとカスタマーゲートウェイはセットで作成する必要がある。</p>
-<h1 id="設定方針">設定方針</h1>
+<h1 id="設定">設定</h1>
 <p>自分なりのVPC設計方針。<br>
-ただし、<a href="https://www.nic.ad.jp/ja/translation/rfc/1918.html" target="_blank" rel="noopener">RFC1918</a>に沿う。</p>
-<h2 id="vpc-1">VPC</h2>
+ただし、<a href="https://www.nic.ad.jp/ja/translation/rfc/1918.html" target="_blank" rel="noopener">RFC1918</a>に沿う。<br>
+パブリックサブネット 2 つ、プライベートサブネット 2 つの構成で作ってみる。</p>
+<h2 id="vpcの作成">（１）VPCの作成</h2>
 <p>「10.0.0.0/16」、「10.1.0.0/16」、「10.2.0.0/16」、、、<br>
 のように作成する。<br>
 CIDRブロックは最大の <code>/16</code> 確保する。</p>
-<h2 id="サブネット-1">サブネット</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IPv4 CIDRブロック</td>
+<td style="text-align: center;">10.0.0.0/16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">IPv6 CIDRブロック</td>
+<td style="text-align: center;">なし</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">テナンシー</td>
+<td style="text-align: center;">デフォルト</td>
+</tr>
+</tbody>
+</table>
+<p>この時、作成した VPC に対応する - メインルートテーブル が 1 つ - デフォルト ネットワーク ACL が 1 つ - DHCP オプションセット が自動で作成される。<br>
+放置でよい。</p>
+<h2 id="サブネットの作成">（２）サブネットの作成</h2>
 <p>VPCが「10.0.0.0/16」の場合、<br>
 「10.0.0.0/24」、「10.0.1.0/24」、「10.0.2.0/24」、、、<br>
 のように作成する。<br>
@@ -421,9 +449,133 @@ VPCが「10.1.0.0/16」の場合、<br>
 「10.1.0.0/24」、「10.1.1.0/24」、「10.1.2.0/24」、、、<br>
 のように作成する。<br>
 ELBを用いる場合等、基本的に同一のサービスで2つのサブネットを作成し、異なるAZを設定する。<br>
-CIDRフロックを <code>/24</code> に設定した理由は、 - <code>/24</code> のサブネット数が 251 個 - VPC あたりのサブネット数がデフォルト 200 個 - ちょっと上限緩和で対応できる - 8 の倍数でカウントアップしやすい から</p>
-<h2 id="ルートテーブル-1">ルートテーブル</h2>
+CIDRフロックを <code>/24</code> に設定した理由は、 - <code>/24</code> のサブネット数が 251 個 - VPC あたりのサブネット数がデフォルト 200 個 - ちょっと上限緩和で対応できる - 8 の倍数でカウントアップしやすい から。<br>
+以下のように作成する。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-subnet-public0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPC</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">アベイラビリティーゾーン</td>
+<td style="text-align: center;">ap-northeast-1a</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IPv4 CIDRブロック</td>
+<td style="text-align: center;">10.0.0.0/24</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-subnet-public1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPC</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">アベイラビリティーゾーン</td>
+<td style="text-align: center;">ap-northeast-1c</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CIDRブロック</td>
+<td style="text-align: center;">10.0.1.0/24</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-subnet-private0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPC</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">アベイラビリティーゾーン</td>
+<td style="text-align: center;">ap-northeast-1a</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CIDRブロック</td>
+<td style="text-align: center;">10.0.2.0/24</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-subnet-private1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPC</td>
+<td style="text-align: center;">sample-vpc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">アベイラビリティーゾーン</td>
+<td style="text-align: center;">ap-northeast-1c</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CIDRブロック</td>
+<td style="text-align: center;">10.0.3.0/24</td>
+</tr>
+</tbody>
+</table>
+<p>作成したサブネットには VPC の - メインルートテーブル - デフォルト ネットワーク ACL が自動で付与されている。</p>
+<h2 id="インターネットゲートウェイの作成とアタッチ">（３）インターネットゲートウェイの作成とアタッチ</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">設定項目</th>
+<th style="text-align: center;">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ネームタグ</td>
+<td style="text-align: center;">sample-igw</td>
+</tr>
+</tbody>
+</table>
+<p>「インターネットゲートウェイ」→「VPCにアタッチ」から <code>sample-igw</code> を <code>sample-vpc</code> にアタッチする。</p>
+<h2 id="ルートテーブルの更新">（４）ルートテーブルの更新</h2>
 <p>基本的に、同一VPC間、およびVPCからインターネットへのルーティングを設定する。</p>
+<p>メインルートテーブルを放置して新規にルートテーブルを作成する。<br>
+<code>sample-rt-public</code> ルートテーブルを作成し、以下のように定義する。</p>
 <table>
 <thead>
 <tr class="header">
@@ -433,16 +585,45 @@ CIDRフロックを <code>/24</code> に設定した理由は、 - <code>/24</co
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">10.0.0.0/16 (VPC)</td>
+<td style="text-align: center;">10.0.0.0/16</td>
 <td style="text-align: center;">local</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">0.0.0.0/0</td>
-<td style="text-align: center;">インターネットゲートウェイ</td>
+<td style="text-align: center;">sample-igw</td>
 </tr>
 </tbody>
 </table>
-<h2 id="セキュリティ-1">セキュリティ</h2>
+<p>ルートテーブルを上記のように設定したサブネットは「パブリックサブネット」となる。<br>
+これを先ほど作成した <code>sample-subnet-public0</code> <code>sample-subnet-public1</code> サブネットに関連付けする。</p>
+<ul>
+<li>対象サブネットの -&gt; 「ルートテーブル」タブ -&gt; 「ルートテーブルの関連付けの編集」ボタン -&gt; <code>sample-rt-public</code> を選択</li>
+</ul>
+<p><code>sample-rt-private</code> ルートテーブルを作成し、以下のように定義する。️</p>
+<p>＝＝＝＝＝＝＝＝＝ここ以降要修正＝＝＝＝＝＝＝＝＝＝＝</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Destination</th>
+<th style="text-align: center;">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10.0.0.0/16</td>
+<td style="text-align: center;">local</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.0.0.0/0</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>これを先ほど作成した <code>sample-subnet-private0</code> <code>sample-subnet-private1</code> サブネットに関連付けする。</p>
+<ul>
+<li>対象サブネットの -&gt; 「ルートテーブル」タブ -&gt; 「ルートテーブルの関連付けの編集」ボタン -&gt; <code>sample-rt-private</code> を選択</li>
+</ul>
+<h2 id="セキュリティ設定">（５）セキュリティ設定</h2>
 <p>設定簡易化のためネットワークACLは使用せず（全てのトラフィックを通す）、セキュリティグループを使用する。<br>
 ネットワークACLを使用する場合は、サブネット間で通信が発生しないところをブラックリストとして登録する用途として利用。<br>
 セキュリティグループは下記を作成する。</p>
@@ -485,134 +666,15 @@ CIDRフロックを <code>/24</code> に設定した理由は、 - <code>/24</co
 <p>基本的な通信用のdefault-sgとSSH用のssh-sgを作成。<br>
 その他、サービスの入り口（public-web-sg）、アプリ層（app-sg)、DB層（db-sg）を作成。<br>
 一部まったく同じ設定だが、レイヤとセキュリティグループの区切りを合わせている。</p>
-<h1 id="vpc作成手順">VPC作成手順</h1>
-<p>VPCウィザードを使用せずに先述の方針に沿って設定する手順。</p>
-<p><strong>（１）VPCの作成</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">設定項目</th>
-<th style="text-align: center;">設定値</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">ネームタグ</td>
-<td style="text-align: center;">sample-vpc</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">CIDRブロック</td>
-<td style="text-align: center;">10.0.0.0/16</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">テナンシー</td>
-<td style="text-align: center;">デフォルト</td>
-</tr>
-</tbody>
-</table>
-<p><strong>（２）サブネットの作成</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">設定項目</th>
-<th style="text-align: center;">設定値</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">ネームタグ</td>
-<td style="text-align: center;">sample-vpc-subnet0</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">VPC</td>
-<td style="text-align: center;">sample-vpc</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">アベイラビリティーゾーン</td>
-<td style="text-align: center;">ap-northeast-1a</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">CIDRブロック</td>
-<td style="text-align: center;">10.0.0.0/24</td>
-</tr>
-</tbody>
-</table>
-<p>※ルートテーブル（メインルートテーブル）、ネットワークACLも同時に作成される。</p>
-<p>後々、ELB等を作成して冗長性・耐障害性を持たせたい場合はAZの異なる下記のようなサブネットも作成しておく。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">設定項目</th>
-<th style="text-align: center;">設定値</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">ネームタグ</td>
-<td style="text-align: center;">sample-vpc-subnet1</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">VPC</td>
-<td style="text-align: center;">sample-vpc</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">アベイラビリティーゾーン</td>
-<td style="text-align: center;">ap-northeast-1c</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">CIDRブロック</td>
-<td style="text-align: center;">10.0.1.0/24</td>
-</tr>
-</tbody>
-</table>
-<p><strong>（３）インターネットゲートウェイの作成</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">設定項目</th>
-<th style="text-align: center;">設定値</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">ネームタグ</td>
-<td style="text-align: center;">sample-vpc-igw</td>
-</tr>
-</tbody>
-</table>
-<p><strong>（４）インターネットゲートウェイをVPCへアタッチ</strong></p>
-<p>「インターネットゲートウェイ」→「VPCにアタッチ」から「sample-vpc-igw」をsample-vpcにアタッチする。</p>
-<p><strong>（５）ルートテーブルの更新</strong></p>
-<p>Nameタグに「sample-vpc-main-rt」とつける。<br>
-さらに下記のようにルーティングの定義を更新する。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Destination</th>
-<th style="text-align: center;">Target</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">10.0.0.0/16</td>
-<td style="text-align: center;">local</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.0.0.0/0</td>
-<td style="text-align: center;">sample-vpc-igw</td>
-</tr>
-</tbody>
-</table>
-<p>ルートテーブルを上記のように設定したサブネットは「パブリックサブネット」となる。</p>
-<p><strong>（６）ネットワークACLの更新</strong></p>
+<h3 id="ネットワークaclの更新">ネットワークACLの更新</h3>
 <p>Nameタグに「sample-vpc-default-acl」とつける。</p>
-<p><strong>（７）セキュリティグループの作成</strong></p>
+<h3 id="セキュリティグループの作成">セキュリティグループの作成</h3>
 <p>以下の5つを作成する。<br>
 ※デフォルトで１つ作成されているので、default-sgにリネームして再利用してもよい。</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">ネームタグ—</th>
+<th style="text-align: center;">ネームタグ---</th>
 <th style="text-align: center;">グループ名</th>
 <th style="text-align: center;">説明</th>
 <th style="text-align: center;">VPC</th>
@@ -785,7 +847,7 @@ CIDRフロックを <code>/24</code> に設定した理由は、 - <code>/24</co
     
 
     <footer class="article-footer">
-      <a data-url="https://pepese.github.io/blog/aws-vpc-basics/" data-id="cjw08y5sg002ojriixd4d35c8" class="article-share-link">
+      <a data-url="https://pepese.github.io/blog/aws-vpc-basics/" data-id="cjwju4pa50063r0zqhazo4dgu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
