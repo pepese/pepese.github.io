@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/vscode/</link>
+    <description>Recent content in vscode on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Thu, 03 Jan 2019 18:23:48 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go入門</title>
+      <link>https://pepese.github.io/entry/golang-basics/</link>
+      <pubDate>Thu, 03 Jan 2019 18:23:48 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/golang-basics/</guid>
+      <description>&lt;p&gt;golang の基本的なところをまとめる。&lt;br /&gt;
+さらっとまとめるつもりがどえらい量になったので注意。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;環境構築&lt;/li&gt;
+&lt;li&gt;基本文法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code入門</title>
+      <link>https://pepese.github.io/entry/vscode-basics/</link>
+      <pubDate>Wed, 31 Jan 2018 18:09:30 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/vscode-basics/</guid>
+      <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

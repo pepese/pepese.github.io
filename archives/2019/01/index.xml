@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2019/01 on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/archives/2019/01/</link>
+    <description>Recent content in 2019/01 on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Thu, 03 Jan 2019 18:23:48 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/archives/2019/01/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go入門</title>
+      <link>https://pepese.github.io/entry/golang-basics/</link>
+      <pubDate>Thu, 03 Jan 2019 18:23:48 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/golang-basics/</guid>
+      <description>&lt;p&gt;golang の基本的なところをまとめる。&lt;br /&gt;
+さらっとまとめるつもりがどえらい量になったので注意。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;環境構築&lt;/li&gt;
+&lt;li&gt;基本文法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sdkman on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/sdkman/</link>
+    <description>Recent content in sdkman on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Fri, 15 Dec 2017 18:04:28 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/sdkman/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SDKMAN入門</title>
+      <link>https://pepese.github.io/entry/sdkman-basics/</link>
+      <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/sdkman-basics/</guid>
+      <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

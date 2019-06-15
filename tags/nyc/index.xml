@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nyc on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/nyc/</link>
+    <description>Recent content in nyc on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Wed, 16 Aug 2017 17:52:59 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/nyc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Node.js・Expressでユニットテスト</title>
+      <link>https://pepese.github.io/entry/express-test/</link>
+      <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/express-test/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;br /&gt;
+使用するツール・ライブラリは以下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;テスティングフレームワーク
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mochajs.org/&#34;&gt;mocha&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デフォルトでは &lt;code&gt;./test/*.js&lt;/code&gt; 、 &lt;code&gt;./test/*.coffee&lt;/code&gt; をテストスクリプトとして認識&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mocha.opts&lt;/code&gt; というファイルにオプションを設定できる模様（&lt;a href=&#34;https://mochajs.org/#mochaopts&#34;&gt;参考&lt;/a&gt;）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;アサート
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://chaijs.com/&#34;&gt;Chai&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;モック
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sinonjs.org/&#34;&gt;sinon.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;カバレッジ
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://istanbul.js.org/&#34;&gt;Istanbul&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;公式の案内にもある通り、以下の &lt;code&gt;nyc&lt;/code&gt; 経由で &lt;code&gt;istanbul&lt;/code&gt; を利用する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/istanbuljs/nyc&#34;&gt;nyc&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;tap、mocha、AVA といったJSテスティングフレームワークと Istanbul をうまく連携させるコマンドラインツール&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://istanbul.js.org/docs/tutorials/mocha/&#34;&gt;mocha用のチュートリアル&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なお、タスクランナーは使用せず、npmスクリプトを使用する。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

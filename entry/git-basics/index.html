@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Git入門 - ぺーぺーSEのテックブログ</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta property="og:title" content="Git入門" />
+<meta property="og:description" content="Git/Githubのメモ。
+インストールから簡単な使い方まで書いてみる。
+
+
+環境構築
+一通りの使い方
+その他 Tips
+
+
+git submodule
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pepese.github.io/entry/git-basics/" />
+
+<meta property="og:image" content="https://pepese.github.io/img/yaruwo.gif" />
+
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://pepese.github.io/img/yaruwo.gif"/>
+
+<meta name="twitter:title" content="Git入門"/>
+<meta name="twitter:description" content="Git/Githubのメモ。
+インストールから簡単な使い方まで書いてみる。
+
+
+環境構築
+一通りの使い方
+その他 Tips
+
+
+git submodule
+
+"/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="ぺーぺーSEのテックブログ" rel="home">
+				<div class="logo__title">ぺーぺーSEのテックブログ</div>
+				<div class="logo__tagline">備忘録用メモサイト</div>
+			</a>
+        </div>
+        
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:728px;height:90px"
+            data-ad-client="ca-pub-0116602540349648"
+            data-ad-slot="3164499029"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        
+        
+        <br />
+        
+        <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        
+        <a href="/feed.xml" title="RSS Feed"><img src="/img/rss_32.png" alt="RSSを購読する"></a>
+        
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Git入門</h1>
+			
+		</header>
+<div class="post__tags tags clearfix">
+	<svg class="tags__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/tag_name/" rel="tag">tag_name</a></li>
+	</ul>
+</div>
+		<div class="content post__content clearfix">
+			<p>Git/Githubのメモ。<br />
+インストールから簡単な使い方まで書いてみる。</p>
+
+<ul>
+<li>環境構築</li>
+<li>一通りの使い方</li>
+<li>その他 Tips
+
+<ul>
+<li>git submodule</li>
+</ul></li>
+</ul>
+
+<h1 id="環境構築">環境構築</h1>
+
+<h2 id="githubのアカウントを作成">GitHubのアカウントを作成</h2>
+
+<p>下記でGitHubのアカウントを作成。</p>
+
+<ul>
+<li><a href="https://github.com/">https://github.com/</a></li>
+<li>ちなみに自分のアカウント
+
+<ul>
+<li><a href="https://github.com/pepese">https://github.com/pepese</a></li>
+</ul></li>
+<li>リポジトリを作る
+
+<ul>
+<li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
+</ul></li>
+</ul>
+
+<h2 id="gitクライアント環境の作成">Gitクライアント環境の作成</h2>
+
+<h3 id="windowsへのインストール">Windowsへのインストール</h3>
+
+<ul>
+<li>GitクライアントアプリをWindowsPCへインストール
+
+<ul>
+<li><a href="http://www.git-scm.com/downloads">http://www.git-scm.com/downloads</a></li>
+</ul></li>
+</ul>
+
+<h3 id="macへのインストール">Macへのインストール</h3>
+
+<p>以下を参照。</p>
+
+<ul>
+<li><a href="https://pepese.github.io/blog/mac-dev-environment/">https://pepese.github.io/blog/mac-dev-environment/</a></li>
+</ul>
+
+<h3 id="gitクライアント設定">Gitクライアント設定</h3>
+
+<ul>
+<li>ユーザ名とメールアドレスを登録（ <strong>コミットログに残るユーザ名なので必ず設定する！</strong> ）
+
+<ul>
+<li><code>git config --global user.name &quot;hoge&quot;</code></li>
+<li><code>git config --global user.email &quot;hoge@email.sample.com&quot;</code></li>
+</ul></li>
+<li>プロキシがある環境の場合は下記を叩く
+
+<ul>
+<li><code>git config --global http.proxy http://[FQDN]:[PORT]</code></li>
+<li><code>git config --global https.proxy http://proxy.example.com:8080</code></li>
+</ul></li>
+<li>プロキシがある環境の場合は下記を叩く（ID、Passwordが必要な場合）
+
+<ul>
+<li><code>git config --global http.proxy http://[ID]:[Password]@[FQDN]:[PORT]</code></li>
+<li><code>git config --global https.proxy http://[ID]:[Password]@[FQDN]:[PORT]</code></li>
+</ul></li>
+<li>プロキシがある環境の場合は下記を叩く
+
+<ul>
+<li><code>git config --global url.&quot;https://&quot;.insteadOf git://</code></li>
+<li>これでgitスキームを使えるようになる</li>
+</ul></li>
+<li>Windowsのgitではデフォルトで改行コードがCR+LFへ変換されてしまうのでオフにする
+
+<ul>
+<li><code>git config --global core.autocrlf false</code></li>
+</ul></li>
+<li>設定が反映されていることを確認 <code>git config --global -l</code></li>
+</ul>
+
+<p>グローバル設定ではなく、単一Gitプロジェクトにのみ反映させたい場合は、 <code>--global</code> を外してコマンドを打つ。</p>
+
+<pre><code>core.symlinks=false
+core.autocrlf=true
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+pack.packsizelimit=2g
+help.format=html
+http.sslcainfo=/bin/curl-ca-bundle.crt
+sendemail.smtpserver=/bin/msmtp.exe
+diff.astextplain.textconv=astextplain
+rebase.autosquash=true
+http.proxy=http://[ID]:[Password]@proxy.example.com:8080
+https.proxy=http://[ID]:[Password]@proxy.example.com:8080
+url.https://.insteadof=git://
+</code></pre>
+
+<h1 id="一通りの使い方">一通りの使い方</h1>
+
+<h2 id="リモートリポジトリを作って-ローカルリポジトリにコピーして編集して更新するパターン">リモートリポジトリを作って、ローカルリポジトリにコピーして編集して更新するパターン</h2>
+
+<ol>
+<li>リモートリポジトリをローカルリポジトリへコピー（clone）
+
+<ul>
+<li>GitHub用のローカルリポジトリ領域を作成してカレントを移動
+
+<ul>
+<li><code>cd /d C:\Git\GitHub</code></li>
+</ul></li>
+<li>リモートリポジトリ（GitHub）をローカルリポジトリへコピー（初回のみ）
+
+<ul>
+<li><code>git clone https://github.com/pepese/Sample.git</code></li>
+<li><code>C:\Git\GitHub\Sample」と「C:\Git\GitHub\Sample\.git</code> ができる</li>
+</ul></li>
+</ul></li>
+<li>ローカルリポジトリへファイルを登録（add/commit）
+
+<ul>
+<li>コピーしたローカルリポジトリへ移動
+
+<ul>
+<li><code>cd /d C:\Git\GitHub\Sample</code></li>
+</ul></li>
+<li>ファイルを作成
+
+<ul>
+<li><code>touch sample.txt</code>
+
+<ul>
+<li><code>C:\Git\GitHub\Sample\sample.txt</code></li>
+</ul></li>
+<li>このままだとファイルを作っただけでまだローカルリポジトリへは反映されていない</li>
+</ul></li>
+<li>ステージング領域へ反映
+
+<ul>
+<li><code>git add sample.txt</code></li>
+<li>全ての変更ファイルをaddしたい場合は <code>git add --all</code></li>
+</ul></li>
+<li>ローカルリポジトリへコミット
+
+<ul>
+<li><code>git commit</code></li>
+<li>Vimが起動してコミットコメントを求められるので適当に編集</li>
+<li>コメント付きでコミットする場合は下記
+
+<ul>
+<li><code>git commit -m &quot;コミットコメント&quot;</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>ローカルリポジトリの内容をリモートリポジトリへ反映（push）
+
+<ul>
+<li>ローカルリポジトリの内容をリモートリポジトリ（GitHubのMasterブランチ）へ反映
+
+<ul>
+<li><code>git push origin master</code></li>
+</ul></li>
+<li>確認
+
+<ul>
+<li>下記を見ると「sample.txt」が追加されているのがわかる
+
+<ul>
+<li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
+</ul></li>
+<li>「sample.txt」のリンクを押すと下記のURIへ飛び、中身が確認できる（今回は空）
+
+<ul>
+<li><a href="https://github.com/pepese/Sample/blob/master/sample.txt">https://github.com/pepese/Sample/blob/master/sample.txt</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>ファイルを更新する
+
+<ul>
+<li>下記のファイルをエディタで更新
+
+<ul>
+<li><code>C:\Git\GitHub\Sample\sample.txt</code></li>
+</ul></li>
+<li>ステージング領域へ反映
+
+<ul>
+<li><code>git add sample.txt</code></li>
+</ul></li>
+<li>ローカルリポジトリへコミット
+
+<ul>
+<li><code>git commit</code></li>
+</ul></li>
+<li>ローカルリポジトリの内容をリモートリポジトリ（GitHub）へ反映
+
+<ul>
+<li><code>git push origin master</code></li>
+<li>GitHubアカウントのIDとPasswordを求められるので入力</li>
+</ul></li>
+<li>確認
+
+<ul>
+<li>下記を見ると「sample.txt」があることがわかる
+
+<ul>
+<li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
+</ul></li>
+<li>「sample.txt」のリンクを押すと下記のURIへ飛び、中身が確認できる
+
+<ul>
+<li><a href="https://github.com/pepese/Sample/blob/master/sample.txt">https://github.com/pepese/Sample/blob/master/sample.txt</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+
+<h2 id="ローカルリポジトリを作ってリモートリポジトリへ反映するパターン">ローカルリポジトリを作ってリモートリポジトリへ反映するパターン</h2>
+
+<p>リモートリポジトリが存在している前提で。</p>
+
+<ul>
+<li><code>cd /d C:\Git\GitHub</code></li>
+<li><code>mkdir Sample2</code></li>
+<li><code>cd Sample2</code></li>
+<li><code>git init</code></li>
+<li><code>git remote add origin https://github.com/pepese/Sample2.git</code>
+
+<ul>
+<li>リポジトリの参照先（origin）の設定</li>
+<li>もちろんGithub上にあらかじめリポジトリを作成しておく必要がある</li>
+</ul></li>
+<li><code>touch sample2.txt</code></li>
+<li><code>git add sample2.txt</code></li>
+<li><code>git commit</code></li>
+<li><code>git push origin master</code></li>
+</ul>
+
+<h2 id="ブランチの作成からpull-request完了まで">ブランチの作成からPull Request完了まで</h2>
+
+<pre><code class="language-sh">$ git branch &lt;branchname&gt;
+</code></pre>
+
+<p><code>&lt;branchname&gt;</code> を指定せずに実行すると現在のブランチ（*がついてる）が確認できる。<br />
+また、ブランチの切り替えは以下。</p>
+
+<pre><code class="language-sh">$ git checkout &lt;branchname&gt;
+</code></pre>
+
+<p>一連の流れは以下。</p>
+
+<pre><code class="language-sh">$ git branch issue1
+$ git branch
+  issues1
+* master
+$ git checkout issue1
+$ git branch
+* issues1
+  master
+</code></pre>
+
+<p>Pull Requestマージ後の作業。</p>
+
+<pre><code class="language-sh">$ git checkout master
+$ git branch -d issue1      #ローカルブランチの削除
+$ git push origin issue1   #リモートブランチの削除
+</code></pre>
+
+<h2 id="ファイルの変更を戻す">ファイルの変更を戻す</h2>
+
+<p>以下でコミットログのハッシュ値を取得。</p>
+
+<pre><code class="language-bash">git log [ファイルパス]
+</code></pre>
+
+<p>以下でコミットのハッシュ値を指定して戻す。</p>
+
+<pre><code class="language-sh">$ git checkout [コミット番号] [ファイルパス]
+</code></pre>
+
+<h2 id="特定のコミットをマージする">特定のコミットをマージする</h2>
+
+<p>以下でリモートリポジトリの変更をローカルリポジトリへ持ってくる。（ワーキングディレクトリの変更は行われない）</p>
+
+<pre><code class="language-sh">$ git fetch
+</code></pre>
+
+<p>コミットログのハッシュ値を指定してマージする。</p>
+
+<pre><code class="language-sh">$ git cherry-pick [ハッシュ値]
+</code></pre>
+
+<h2 id="ブランチをマージする">ブランチをマージする</h2>
+
+<p>issue1ブランチにmasterをマージしたい場合。</p>
+
+<pre><code class="language-sh">$ git checkout issue1
+$ git merge master
+</code></pre>
+
+<h2 id="ファイル-ディレクトリをgitの管理対象から外す">ファイル、ディレクトリをgitの管理対象から外す</h2>
+
+<h3 id="ファイルをgitの管理対象から外して且削除">ファイルをgitの管理対象から外して且削除</h3>
+
+<pre><code class="language-sh">$ git rm [削除したいファイル]
+</code></pre>
+
+<h3 id="ファイルをgitの管理対象から外すがファイルを削除しない">ファイルをgitの管理対象から外すがファイルを削除しない</h3>
+
+<pre><code class="language-sh">$ git rm —-cached [削除したいファイル]
+</code></pre>
+
+<h3 id="ディレクトリをgitの管理対象から外して且削除">ディレクトリをgitの管理対象から外して且削除</h3>
+
+<pre><code class="language-sh">$ git rm -r [削除したいディレクトリ]
+</code></pre>
+
+<p>もうちょっと知りたい人は以下を参照。</p>
+
+<ul>
+<li><a href="https://pepese.github.io/blog/git-commands/">https://pepese.github.io/blog/git-commands/</a></li>
+</ul>
+
+<h1 id="その他-tips">その他 Tips</h1>
+
+<h2 id="git-submodule">git submodule</h2>
+
+<p><code>git submodule</code> は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み。（ <a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb">参考</a> ）</p>
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="ぺーぺーSE avatar" src="/img/yaruwo.gif" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name"></span>
+	</div>
+	<div class="authorbox__description">
+		ぺーぺーSEがきまぐれでテックネタを書きます。
+	</div>
+</div>
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/entry/hexo-github-pages/" rel="next"><span class="post-nav__caption">&thinsp;»</span><p class="post-nav__post-title">Hexoで作ったブログをGithub Pagesで公開</p></a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	
+	<ins class="adsbygoogle"
+			style="display:inline-block;width:300px;height:250px"
+			data-ad-client="ca-pub-0116602540349648"
+			data-ad-slot="7455097821"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title"></h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/@PeePeeSE" target="_blank">
+				<svg class="widget-social__link-icon icon icon-twitter" width="24" height="24" viewBox="0 0 384 312"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
+				<span>Twitter</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/pepese" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title"></h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title"></h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/android" title="Android">Android</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/chai" title="Chai">Chai</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cognito" title="Cognito">Cognito</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dataframe" title="Dataframe">Dataframe</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dynamodb" title="Dynamodb">Dynamodb</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/express" title="Express">Express</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gensim" title="Gensim">Gensim</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gradle" title="Gradle">Gradle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/heroku" title="Heroku">Heroku</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hexo" title="Hexo">Hexo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homebrew" title="Homebrew">Homebrew</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hugo" title="Hugo">Hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iam" title="Iam">Iam</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ios" title="Ios">Ios</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/istanbul" title="Istanbul">Istanbul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java" title="Java">Java</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jupyter" title="Jupyter">Jupyter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/k-means" title="K means">K means</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kotlin" title="Kotlin">Kotlin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/line" title="Line">Line</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning" title="Machine learning">Machine learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/maven" title="Maven">Maven</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mecab" title="Mecab">Mecab</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mocha" title="Mocha">Mocha</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/multer" title="Multer">Multer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ndenv" title="Ndenv">Ndenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nginx" title="Nginx">Nginx</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ngrok" title="Ngrok">Ngrok</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/node.js" title="Node.js">Node.js</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/npm" title="Npm">Npm</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nyc" title="Nyc">Nyc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pandas" title="Pandas">Pandas</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/promise" title="Promise">Promise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pyenv" title="Pyenv">Pyenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rbenv" title="Rbenv">Rbenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/request" title="Request">Request</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby" title="Ruby">Ruby</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sass" title="Sass">Sass</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-learn" title="Scikit learn">Scikit learn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-surprise" title="Scikit surprise">Scikit surprise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sdkman" title="Sdkman">Sdkman</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seo" title="Seo">Seo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sequelize" title="Sequelize">Sequelize</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sinon.js" title="Sinon.js">Sinon.js</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sql" title="Sql">Sql</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/svm" title="Svm">Svm</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tag_name" title="Tag name">Tag name</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/typescript" title="Typescript">Typescript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/virtualenv" title="Virtualenv">Virtualenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc" title="Vpc">Vpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vscode" title="Vscode">Vscode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/word2vec" title="Word2vec">Word2vec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yarn" title="Yarn">Yarn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yypescript" title="Yypescript">Yypescript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yython" title="Yython">Yython</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%81%af%e3%81%a6%e3%81%aa%e3%83%96%e3%83%ad%e3%82%b0" title="はてなブログ">はてなブログ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%94%e8%aa%bf%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0" title="協調フィルタリング">協調フィルタリング</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%a9%9f%e6%a2%b0%e5%ad%a6%e7%bf%92" title="機械学習">機械学習</a>
+	</div>
+</div>
+	
+	<ul>
+		
+			<li><a href="https://pepese.github.io/archives/2017/05">2017/05 (11)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/07">2017/07 (5)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/08">2017/08 (11)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/09">2017/09 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/11">2017/11 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/12">2017/12 (3)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2018/01">2018/01 (3)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2018/02">2018/02 (6)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/01">2019/01 (1)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/02">2019/02 (4)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/05">2019/05 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/06">2019/06 (1)</a></li>
+		
+	</ul>
+	
+	
+	
+	<script type="text/javascript"><!--
+		amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";</script>
+		<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+	
+</aside>
+		</div>
+		
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+        style="display:inline-block;width:728px;height:90px"
+        data-ad-client="ca-pub-0116602540349648"
+        data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<footer class="footer">
+    <div class="container footer__container flex">
+        
+        <div class="footer__copyright">
+            &copy; 2019 ぺーぺーSEのテックブログ.
+            <span class="footer__copyright-credits"></span>
+        </div>
+    </div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

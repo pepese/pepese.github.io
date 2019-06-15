@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Pandas入門 DataFrame編 - ぺーぺーSEのテックブログ</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta property="og:title" content="Pandas入門 DataFrame編" />
+<meta property="og:description" content="Python ライブラリである Pandas の DataFrame についてまとめる。
+
+- 公式ドキュメント" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pepese.github.io/entry/pandas-basics-dataframe/" />
+
+<meta property="og:image" content="https://pepese.github.io/img/yaruwo.gif" />
+<meta property="article:published_time" content="2018-02-04T17:57:41&#43;09:00"/>
+<meta property="article:modified_time" content="2018-02-04T17:57:41&#43;09:00"/>
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://pepese.github.io/img/yaruwo.gif"/>
+
+<meta name="twitter:title" content="Pandas入門 DataFrame編"/>
+<meta name="twitter:description" content="Python ライブラリである Pandas の DataFrame についてまとめる。
+
+- 公式ドキュメント"/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="ぺーぺーSEのテックブログ" rel="home">
+				<div class="logo__title">ぺーぺーSEのテックブログ</div>
+				<div class="logo__tagline">備忘録用メモサイト</div>
+			</a>
+        </div>
+        
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:728px;height:90px"
+            data-ad-client="ca-pub-0116602540349648"
+            data-ad-slot="3164499029"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        
+        
+        <br />
+        
+        <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        
+        <a href="/feed.xml" title="RSS Feed"><img src="/img/rss_32.png" alt="RSSを購読する"></a>
+        
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Pandas入門 DataFrame編</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2018-02-04T17:57:41">February 04, 2018</time>
+</div>
+</div>
+		</header>
+<div class="post__tags tags clearfix">
+	<svg class="tags__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/python/" rel="tag">python</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/pandas/" rel="tag">pandas</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/dataframe/" rel="tag">dataframe</a></li>
+	</ul>
+</div>
+		<div class="content post__content clearfix">
+			<p>Python ライブラリである Pandas の DataFrame についてまとめる。</p>
+
+<p>- <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">公式ドキュメント</a></p>
+
+<h1 id="基本操作">基本操作</h1>
+
+<h2 id="dataframe-の作成">DataFrame の作成</h2>
+
+<pre><code class="language-python">df = pd.DataFrame([[&quot;Taro&quot;, 10], [&quot;Jiro&quot;, 20], [&quot;Goro&quot;, None]], columns=[&quot;name&quot;, &quot;age&quot;])
+
+    age  name
+0  Taro  10.0
+1  Jiro  20.0
+2  Goro   NaN
+</code></pre>
+
+<p>リストや NumPy の ndarray をそのまま DataFrame にできる。<br />
+以降のプログラム例では、上記の DataFrame を操作する例とする。</p>
+
+<h2 id="データのロード">データのロード</h2>
+
+<p><code>read_csv()</code> と <code>read_table()</code> はデフォルトの区切り文字が違うだけで中身は同じ。<br />
+<code>read_csv()</code> はカンマ、 <code>read_table()</code> はタブ。</p>
+
+<pre><code class="language-python">df = pd.read_csv(&quot;data.csv&quot;)
+df = pd.read_table(&quot;data.tsv&quot;)
+</code></pre>
+
+<p><code>sep</code> オプションを使用することで区切り文字を指定できる。</p>
+
+<pre><code class="language-python">df = pd.read_csv(&quot;data.csv&quot;, sep = &quot;¥t&quot;)
+</code></pre>
+
+<p><code>dtype</code> オプションを指定することで、読み込み時のデータ型を指定できる。</p>
+
+<pre><code class="language-python">df = pd.read_csv(&quot;data.csv&quot;, dtype = {&quot;name&quot;: &quot;object&quot;, &quot;age&quot;: &quot;object&quot;}) # 列を指定して文字列で読み込み
+df = pd.read_csv(&quot;data.csv&quot;, dtype = {0: &quot;object&quot;, 1: &quot;object&quot;}) # カラム番号でも可能
+df = pd.read_csv(&quot;data.csv&quot;, dtype = &quot;object&quot;) # 全ての列を文字列で読み込み
+</code></pre>
+
+<p>なお、 DataFrame ではデフォルトで欠損値を <code>NaN</code> で扱う。</p>
+
+<h2 id="変換">変換</h2>
+
+<p>Series を DataFrame へ変換する。</p>
+
+<pre><code class="language-python">df = pd.DataFrame(se)
+</code></pre>
+
+<h2 id="検索">検索</h2>
+
+<p><code>[]</code> 内に <code>True</code> または <code>False</code> を返す式を指定する。<br />
+検索でヒットしたセルにそのまま値を代入できる。</p>
+
+<pre><code># &quot;age&quot; 列の値が 10 より大きい行を取得
+df[df.age &gt; 10]
+
+   name   age
+1  Jiro  20.0
+</code></pre>
+
+<pre><code class="language-python"># 値が 0 より大きい値のみを取得
+df[df &gt; 0]
+
+   name   age
+0  Taro   NaN
+1  Jiro  20.0
+2  Goro   NaN
+</code></pre>
+
+<pre><code class="language-python"># 検索でヒットしたセルに値を代入
+df.age[df.age &gt; 10] = 100
+
+   name    age
+0  Taro   10.0
+1  Jiro  100.0
+2  Goro    NaN
+# SettingWithCopyWarning が出るが値は代入されている
+# Warning が出ないようにするには後述の loc を使う
+</code></pre>
+
+<p>後述の <code>isnull()</code> や <code>isin()</code> メソッドを使った検索も可能。</p>
+
+<h2 id="削除">削除</h2>
+
+<pre><code class="language-python"># 行削除
+df.drop(index = 0)
+
+   name   age
+1  Jiro  20.0
+2  Goro   NaN
+</code></pre>
+
+<pre><code class="language-python"># 列削除
+df.drop(columns = &quot;age&quot;, inplace = True)
+
+   name
+0  Taro
+1  Jiro
+2  Goro
+</code></pre>
+
+<p><code>inplace = True</code> を指定するとオブジェクトが上書きされる。<br />
+また、検索条件にひっかけることで行の削除が可能。</p>
+
+<pre><code class="language-python"># age列が10以下の行を削除 = age列が10より大きい列のみ抽出
+df = df[df.age &gt; 10]
+
+   name   age
+1  Jiro  20.0
+</code></pre>
+
+<h2 id="追加">追加</h2>
+
+<pre><code class="language-python">df2 = pd.DataFrame([[&quot;Rokuro&quot;, 60]], columns=[&quot;name&quot;, &quot;age&quot;])
+# 行追加
+df = df.append(df2)
+
+     name   age
+0    Taro  10.0
+1    Jiro  20.0
+2    Goro   NaN
+0  Rokuro  60.0
+</code></pre>
+
+<pre><code class="language-python">se = pd.Series([&quot;male&quot;, &quot;female&quot;, &quot;male&quot;])
+# 列追加
+df[&quot;sex&quot;] = se
+
+   name   age     sex
+0  Taro  10.0    male
+1  Jiro  20.0  female
+2  Goro   NaN    male
+</code></pre>
+
+<h2 id="列取得">列取得</h2>
+
+<p>一列取得した場合は <strong>Series</strong> になる。</p>
+
+<pre><code class="language-python">df.name
+# print(df[&quot;name&quot;]) も同じ
+
+0      Taro
+1      Jiro
+2      Goro
+Name: name, dtype: object
+</code></pre>
+
+<pre><code class="language-python">print(df[[&quot;name&quot;, &quot;age&quot;]])
+
+   name   age
+0  Taro  10.0
+1  Jiro  20.0
+2  Goro   NaN
+</code></pre>
+
+<h2 id="検索-1">検索</h2>
+
+<p><a href="https://qiita.com/tanemaki/items/2ed05e258ef4c9e6caac">https://qiita.com/tanemaki/items/2ed05e258ef4c9e6caac</a></p>
+
+<h1 id="属性-attributes">属性（Attributes）</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">T</td>
+<td align="left">転置行列</td>
+</tr>
+
+<tr>
+<td align="left">at</td>
+<td align="left">後述</td>
+</tr>
+
+<tr>
+<td align="left">axes</td>
+<td align="left">行ラベルと列ラベルの情報</td>
+</tr>
+
+<tr>
+<td align="left">blocks</td>
+<td align="left">辞書形式の内部属性</td>
+</tr>
+
+<tr>
+<td align="left">columns</td>
+<td align="left">列ラベル</td>
+</tr>
+
+<tr>
+<td align="left">dtypes</td>
+<td align="left">オブジェクトのデータタイプ</td>
+</tr>
+
+<tr>
+<td align="left">empty</td>
+<td align="left">中身が完全に空の時、Trueを返す</td>
+</tr>
+
+<tr>
+<td align="left">ftypes</td>
+<td align="left">オブジェクトの ftypes を Series 形式で返却</td>
+</tr>
+
+<tr>
+<td align="left">iat</td>
+<td align="left">後述</td>
+</tr>
+
+<tr>
+<td align="left">iloc</td>
+<td align="left">後述</td>
+</tr>
+
+<tr>
+<td align="left">index</td>
+<td align="left">行ラベル</td>
+</tr>
+
+<tr>
+<td align="left">is_copy</td>
+<td align="left">不明</td>
+</tr>
+
+<tr>
+<td align="left">ix</td>
+<td align="left">非推奨</td>
+</tr>
+
+<tr>
+<td align="left">loc</td>
+<td align="left">後述</td>
+</tr>
+
+<tr>
+<td align="left">ndim</td>
+<td align="left">何次元配列か返却</td>
+</tr>
+
+<tr>
+<td align="left">shape</td>
+<td align="left">行と列のサイズ</td>
+</tr>
+
+<tr>
+<td align="left">size</td>
+<td align="left">行列の要素数（行サイズは <code>len(df.index)</code> 、列サイズは <code>len(df.columns)</code> ）</td>
+</tr>
+
+<tr>
+<td align="left">style</td>
+<td align="left">Stylerオブジェクトを返却</td>
+</tr>
+
+<tr>
+<td align="left">values</td>
+<td align="left">numpy.ndarray 形式で値を取得</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="at-iat-loc-iloc"><code>at</code> 、 <code>iat</code> 、 <code>loc</code> 、 <code>iloc</code></h2>
+
+<ul>
+<li>単独の値（スカラー）にアクセスするのが <code>at</code> と <code>iat</code></li>
+<li>単独の値（スカラー）および複数の値（ベクトル）にアクセスするのが <code>loc</code> と <code>iloc</code></li>
+<li>行ラベル（行名）、列ラベル（列名）で位置を指定するのが <code>at</code> と <code>loc</code></li>
+<li>行番号、列番号で位置を指定するのが <code>iat</code> と <code>iloc</code></li>
+<li>処理速度は <code>at</code> と <code>iat</code> のほうが <code>loc</code> と <code>iloc</code> よりも高速</li>
+</ul>
+
+<p>なお、 <code>DataFrame.get_value()</code> 、 <code>DataFrame.ix[]</code> もあるが、それぞれバージョン <code>v0.21.0</code> <code>v0.20.0</code> から非推奨（Deprecated）になっている。これから新しく書くコードには <code>at</code> , <code>iat</code> , <code>loc</code> , <code>iloc</code> を使うほうがいいだろう。</p>
+
+<pre><code class="language-python"># USAGE
+df.at[行条件, 列条件]
+df.iat[行条件, 列条件]
+df.loc[行条件, 列条件]
+df.iloc[行条件, 列条件]
+</code></pre>
+
+<p><code>at</code> は行ラベルと列ラベルで位置を指定する。</p>
+
+<pre><code class="language-python">df.at[1, &quot;age&quot;]
+# 20.0
+# numpy.float64
+
+df.at[2, &quot;name&quot;]
+# 'Goro'
+# str
+
+df.at[1, &quot;age&quot;] = 60 # 代入も可能
+</code></pre>
+
+<p><code>iat</code> は行番号と列番号で位置を指定する。行番号・列番号は <code>0</code> はじまり。</p>
+
+<pre><code class="language-python">df.iat[0, 0]
+# 'Taro'
+
+df.iat[2, 1]
+# nan
+</code></pre>
+
+<p><code>loc</code> はスライス <code>x:y</code> やリスト <code>[x, y]</code> でデータの範囲・位置を指定する。参照される値は pandas.Series または pandas.DataFrame になる。<br />
+列の指定を省略すると、列全体の参照になる。<br />
+列全体を参照したい場合は、行の指定を <code>:</code> （全体のスライス）にする。<br />
+また、行の指定には <code>df.age&gt;10</code> のような <strong>検索条件</strong> を指定することもできる。<br />
+<code>loc</code> で取得したセルに対して <strong>値を代入</strong> することができる。</p>
+
+<pre><code class="language-python">df.loc[0:1, &quot;name&quot;:&quot;age&quot;]
+
+df.loc[[0, 2], [&quot;name&quot;, &quot;age&quot;]]
+
+df.loc[0:2, &quot;age&quot;] = [20, 30, 40] # 代入
+
+df.loc[df.age&gt;10, &quot;age&quot;] = 20 # 検索結果が複数行でも代入可能
+</code></pre>
+
+<h1 id="代表的なメソッド">代表的なメソッド</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">メソッド</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>apply(関数・Lambda)</code></td>
+<td align="left">各列に任意の処理を適用</td>
+</tr>
+
+<tr>
+<td align="left"><code>astype({辞書型})</code></td>
+<td align="left">型変換</td>
+</tr>
+
+<tr>
+<td align="left"><code>replace(&quot;置換対象文字&quot;, &quot;置換文字&quot;)</code></td>
+<td align="left">文字の置換</td>
+</tr>
+
+<tr>
+<td align="left"><code>rename(columns={辞書型}, inplace=True)</code></td>
+<td align="left">カラム名の変更</td>
+</tr>
+
+<tr>
+<td align="left"><code>isin(リスト)</code></td>
+<td align="left">セルの値がリストに含まれていれば True 、そうでなければ False の DataFrame を返却する</td>
+</tr>
+
+<tr>
+<td align="left"><code>isnull()</code></td>
+<td align="left">セルが None であれば True 、そうでなければ False の DataFrame を返却する</td>
+</tr>
+
+<tr>
+<td align="left"><code>drop_duplicates()</code></td>
+<td align="left">重複を削除</td>
+</tr>
+
+<tr>
+<td align="left"><code>pivot_table(index=[], columns=[],values=[, aggfunc='sum')</code></td>
+<td align="left">ピボットテーブル</td>
+</tr>
+
+<tr>
+<td align="left"><code>sort_values(by=)</code></td>
+<td align="left">ソート</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="sql-ライクな操作">SQL ライクな操作</h1>
+
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/comparison_with_sql.html">公式ドキュメント</a></li>
+</ul>
+
+<h2 id="wherer"><code>wherer</code></h2>
+
+<p>条件式が成り立つものをとってきて，それ以外はNaNで埋める。</p>
+
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.where.html">公式ドキュメント</a></li>
+</ul>
+
+<h2 id="groupby"><code>groupby</code></h2>
+
+<p><code>groupby</code> でカラムを指定し、様々な集計関数を適用することができる。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>df.groupby('a').mean()</code></td>
+<td align="left">平均</td>
+</tr>
+
+<tr>
+<td align="left"><code>df.groupby('a').max()</code></td>
+<td align="left">最大値</td>
+</tr>
+
+<tr>
+<td align="left"><code>df.groupby('a').min()</code></td>
+<td align="left">最小値</td>
+</tr>
+
+<tr>
+<td align="left"><code>df.groupby('a').count()</code></td>
+<td align="left">出現回数</td>
+</tr>
+
+<tr>
+<td align="left"><code>df.groupby('a').sum()</code></td>
+<td align="left">合計値</td>
+</tr>
+
+<tr>
+<td align="left"><code>df.groupby('a').std()</code></td>
+<td align="left">標準偏差</td>
+</tr>
+
+<tr>
+<td align="left"><code>df.groupby('a').sum()</code></td>
+<td align="left">合計値</td>
+</tr>
+</tbody>
+</table>
+
+<p>集計のキーをインデックスとして扱いたくない場合はオプション <code>as_index=False</code> を指定する。</p>
+
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/api.html#groupby">公式ドキュメント</a></li>
+</ul>
+
+<h2 id="merge"><code>merge</code></h2>
+
+<p>いわゆる JOIN 。</p>
+
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html#pandas.DataFrame.merge">公式ドキュメント</a></li>
+</ul>
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="ぺーぺーSE avatar" src="/img/yaruwo.gif" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name"></span>
+	</div>
+	<div class="authorbox__description">
+		ぺーぺーSEがきまぐれでテックネタを書きます。
+	</div>
+</div>
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/entry/nginx-basics/" rel="prev"><span class="post-nav__caption">«&thinsp;</span><p class="post-nav__post-title">Nginx入門</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/entry/python-data-analytics-basics/" rel="next"><span class="post-nav__caption">&thinsp;»</span><p class="post-nav__post-title">Pythonでデータ分析入門</p></a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	
+	<ins class="adsbygoogle"
+			style="display:inline-block;width:300px;height:250px"
+			data-ad-client="ca-pub-0116602540349648"
+			data-ad-slot="7455097821"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title"></h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/@PeePeeSE" target="_blank">
+				<svg class="widget-social__link-icon icon icon-twitter" width="24" height="24" viewBox="0 0 384 312"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
+				<span>Twitter</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/pepese" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title"></h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title"></h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/android" title="Android">Android</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/chai" title="Chai">Chai</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cognito" title="Cognito">Cognito</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dataframe" title="Dataframe">Dataframe</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dynamodb" title="Dynamodb">Dynamodb</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/express" title="Express">Express</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gensim" title="Gensim">Gensim</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gradle" title="Gradle">Gradle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/heroku" title="Heroku">Heroku</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hexo" title="Hexo">Hexo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homebrew" title="Homebrew">Homebrew</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hugo" title="Hugo">Hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iam" title="Iam">Iam</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ios" title="Ios">Ios</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/istanbul" title="Istanbul">Istanbul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java" title="Java">Java</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jupyter" title="Jupyter">Jupyter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/k-means" title="K means">K means</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kotlin" title="Kotlin">Kotlin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/line" title="Line">Line</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning" title="Machine learning">Machine learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/maven" title="Maven">Maven</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mecab" title="Mecab">Mecab</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mocha" title="Mocha">Mocha</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/multer" title="Multer">Multer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ndenv" title="Ndenv">Ndenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nginx" title="Nginx">Nginx</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ngrok" title="Ngrok">Ngrok</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/node.js" title="Node.js">Node.js</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/npm" title="Npm">Npm</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nyc" title="Nyc">Nyc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pandas" title="Pandas">Pandas</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/promise" title="Promise">Promise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pyenv" title="Pyenv">Pyenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rbenv" title="Rbenv">Rbenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/request" title="Request">Request</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby" title="Ruby">Ruby</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sass" title="Sass">Sass</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-learn" title="Scikit learn">Scikit learn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-surprise" title="Scikit surprise">Scikit surprise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sdkman" title="Sdkman">Sdkman</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seo" title="Seo">Seo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sequelize" title="Sequelize">Sequelize</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sinon.js" title="Sinon.js">Sinon.js</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sql" title="Sql">Sql</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/svm" title="Svm">Svm</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tag_name" title="Tag name">Tag name</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/typescript" title="Typescript">Typescript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/virtualenv" title="Virtualenv">Virtualenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc" title="Vpc">Vpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vscode" title="Vscode">Vscode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/word2vec" title="Word2vec">Word2vec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yarn" title="Yarn">Yarn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yypescript" title="Yypescript">Yypescript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yython" title="Yython">Yython</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%81%af%e3%81%a6%e3%81%aa%e3%83%96%e3%83%ad%e3%82%b0" title="はてなブログ">はてなブログ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%94%e8%aa%bf%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0" title="協調フィルタリング">協調フィルタリング</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%a9%9f%e6%a2%b0%e5%ad%a6%e7%bf%92" title="機械学習">機械学習</a>
+	</div>
+</div>
+	
+	<ul>
+		
+			<li><a href="https://pepese.github.io/archives/2017/05">2017/05 (11)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/07">2017/07 (5)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/08">2017/08 (11)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/09">2017/09 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/11">2017/11 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/12">2017/12 (3)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2018/01">2018/01 (3)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2018/02">2018/02 (6)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/01">2019/01 (1)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/02">2019/02 (4)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/05">2019/05 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/06">2019/06 (1)</a></li>
+		
+	</ul>
+	
+	
+	
+	<script type="text/javascript"><!--
+		amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";</script>
+		<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+	
+</aside>
+		</div>
+		
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+        style="display:inline-block;width:728px;height:90px"
+        data-ad-client="ca-pub-0116602540349648"
+        data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<footer class="footer">
+    <div class="container footer__container flex">
+        
+        <div class="footer__copyright">
+            &copy; 2019 ぺーぺーSEのテックブログ.
+            <span class="footer__copyright-credits"></span>
+        </div>
+    </div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

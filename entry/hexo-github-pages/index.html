@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hexoで作ったブログをGithub Pagesで公開 - ぺーぺーSEのテックブログ</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta property="og:title" content="Hexoで作ったブログをGithub Pagesで公開" />
+<meta property="og:description" content="はてなブログが一向に https 対応しないし、そのほかのリスクも考えて流行りの 静的サイトジェネレータ の HEXO を使ってブログを作成し、GitHub Pagesで公開してみる。
+前提として npm と Git 環境が必要なため以下参照。
+
+
+https://blog.pepese.com/entry/mac-dev-environment/
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pepese.github.io/entry/hexo-github-pages/" />
+
+<meta property="og:image" content="https://pepese.github.io/img/yaruwo.gif" />
+<meta property="article:published_time" content="2017-05-02T07:58:10&#43;09:00"/>
+<meta property="article:modified_time" content="2017-05-02T07:58:10&#43;09:00"/>
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://pepese.github.io/img/yaruwo.gif"/>
+
+<meta name="twitter:title" content="Hexoで作ったブログをGithub Pagesで公開"/>
+<meta name="twitter:description" content="はてなブログが一向に https 対応しないし、そのほかのリスクも考えて流行りの 静的サイトジェネレータ の HEXO を使ってブログを作成し、GitHub Pagesで公開してみる。
+前提として npm と Git 環境が必要なため以下参照。
+
+
+https://blog.pepese.com/entry/mac-dev-environment/
+"/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="ぺーぺーSEのテックブログ" rel="home">
+				<div class="logo__title">ぺーぺーSEのテックブログ</div>
+				<div class="logo__tagline">備忘録用メモサイト</div>
+			</a>
+        </div>
+        
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:728px;height:90px"
+            data-ad-client="ca-pub-0116602540349648"
+            data-ad-slot="3164499029"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        
+        
+        <br />
+        
+        <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        
+        <a href="/feed.xml" title="RSS Feed"><img src="/img/rss_32.png" alt="RSSを購読する"></a>
+        
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Hexoで作ったブログをGithub Pagesで公開</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2017-05-02T07:58:10">May 02, 2017</time>
+</div>
+</div>
+		</header>
+<div class="post__tags tags clearfix">
+	<svg class="tags__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/hexo/" rel="tag">hexo</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/github/" rel="tag">github</a></li>
+	</ul>
+</div>
+		<div class="content post__content clearfix">
+			<p>はてなブログが一向に <em>https</em> 対応しないし、そのほかのリスクも考えて流行りの <strong>静的サイトジェネレータ</strong> の <a href="https://hexo.io/">HEXO</a> を使ってブログを作成し、<a href="https://pages.github.com/">GitHub Pages</a>で公開してみる。<br />
+前提として <strong>npm</strong> と <strong>Git</strong> 環境が必要なため以下参照。</p>
+
+<ul>
+<li><a href="https://blog.pepese.com/entry/mac-dev-environment/">https://blog.pepese.com/entry/mac-dev-environment/</a></li>
+</ul>
+
+<h1 id="hexoのインストールから起動まで">Hexoのインストールから起動まで</h1>
+
+<pre><code class="language-sh">$ npm install -g hexo-cli --no-optional // インストール
+$ ndenv rehash
+$ hexo -version                         // 確認
+hexo: 3.3.8
+hexo-cli: 1.0.3
+os: Darwin 16.6.0 darwin x64
+http_parser: 2.7.0
+node: 8.3.0
+v8: 6.0.286.52
+uv: 1.13.1
+zlib: 1.2.11
+ares: 1.10.1-DEV
+modules: 57
+openssl: 1.0.2l
+icu: 59.1
+unicode: 9.0
+cldr: 31.0.1
+tz: 2017b
+$ hexo init tech-blog                   // ブログプロジェクト作成
+$ cd tech-blog
+$ npm install --no-optional
+$ hexo server                           // 起動
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+</code></pre>
+
+<p>筆者がインストールした時（2017/05/02）は、 <strong>&ndash;no-optional</strong> オプション無しだと <strong>Error: Cannot find module ./build/default/DTraceProviderBindings</strong> というエラーがでた。</p>
+
+<pre><code class="language-sh">$ tree
+.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts  // これは無いかも
+|   └── _posts
+└── themes
+</code></pre>
+
+<h2 id="設定ファイルの編集">設定ファイルの編集</h2>
+
+<p><code>_config.yml</code> を以下のように設定する。</p>
+
+<pre><code class="language-yml"># Site
+title: ぺーぺーSEのテックブログ
+subtitle: 備忘録用メモサイト
+description: ぺーぺーSEがプログラミング（Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。
+author: ぺーぺーSE
+language: ja
+timezone: Japan
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://pepese.github.io
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# 〜（省略）〜
+</code></pre>
+
+<p><a href="https://hexo.io/docs/configuration.html">設定ファイルの公式ドキュメント</a></p>
+
+<h2 id="記事の作成">記事の作成</h2>
+
+<pre><code class="language-sh">$ hexo new [layout] &lt;title&gt;
+</code></pre>
+
+<p><strong>layout</strong> には <strong>post</strong> 、 <strong>page</strong> 、 <strong>draft</strong> の3種類あり、それぞれ以下のように別のパスに作成される。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">layout</th>
+<th align="left">パス</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">post</td>
+<td align="left">source/_posts</td>
+<td align="left">公開記事として作成される</td>
+</tr>
+
+<tr>
+<td align="left">page</td>
+<td align="left">source</td>
+<td align="left">imageやjavascriptなどのアセット？</td>
+</tr>
+
+<tr>
+<td align="left">draft</td>
+<td align="left">source/_drafts</td>
+<td align="left">非公開記事として作成される</td>
+</tr>
+</tbody>
+</table>
+
+<p>上記のpost、page、draftは、 <code>scaffolds/</code> 配下の <strong>post.md</strong> 、 <strong>page.md</strong> 、 <strong>draft.md</strong> が雛形となって生成される。<br />
+この雛形で記事生成時のMarkdownのヘッダ部分（例えば以下）の初期値を設定することができる。</p>
+
+<pre><code class="language-yml">---
+title: {{ title }}
+date: {{ date }}
+tags:
+id:
+---
+</code></pre>
+
+<p><code>{{ title }}</code> へは記事のファイル名が、 <code>{{ date }}</code> へは <code>source/_posts</code> 配下へ記事が作成された段階の日時が自動で設定される。<br />
+<code>tags:</code> は以下のように記述することで記事へタグを付与することができ、タグ単位でリンクが作成される。</p>
+
+<pre><code class="language-yml">tags:
+- Hexo
+- Github Pages
+</code></pre>
+
+<p><code>id:</code> は、 <code>_config.yml</code> へ以下（ <code>:id</code> 部分）のように設定することでURLとして扱うことができる。（デフォルトは記事名）</p>
+
+<pre><code class="language-yml">permalink: :year/:month/:day/:id/
+</code></pre>
+
+<p>記事の削除は、 <code>rm source/_post/title.md</code> などのコマンドで直接削除する。<br />
+ドラフトで作成していた記事は以下のコマンドで公開（つまりpostへ移動）される。</p>
+
+<pre><code class="language-sh">$ hexo publish [layout] &lt;title&gt;
+</code></pre>
+
+<h3 id="マークダウンの書き方小ネタ">マークダウンの書き方小ネタ</h3>
+
+<ul>
+<li><code>&lt;!-- more --&gt;</code>
+
+<ul>
+<li>マークダウン記事の途中に記載すると、ブログトップにて記事が全て表示されずに「Read More」（所謂、 <strong>続きを読む</strong> ）が表示される</li>
+</ul></li>
+<li>Octopressから移植された特殊な記法（<a href="https://hexo.io/docs/tag-plugins.html">Tag Plugins</a>）
+
+<ul>
+<li>Block QuoteやCode Blockなど</li>
+</ul></li>
+</ul>
+
+<h2 id="静的ファイルの生成">静的ファイルの生成</h2>
+
+<pre><code class="language-sh">$ hexo generate
+</code></pre>
+
+<p>上記のコマンドで <code>public/</code> 配下に静的ファイル（HTTP/CSS/JS）が作成される。<br />
+後述のブログのデプロイ時には、 <code>public/</code> 配下のファイルが公開されることになる。</p>
+
+<h2 id="テーマの設定">テーマの設定</h2>
+
+<h3 id="テーマのインストール">テーマのインストール</h3>
+
+<p><code>themes/</code> ディレクトリ配下にテーマを配置する。<br />
+Githubで公開されているCasperを使用する場合は以下のように取得・配置する。</p>
+
+<pre><code class="language-sh">$ git clone https://github.com/cgmartin/hexo-theme-bootstrap-blog.git themes/bootstrap-blog
+
+# USAGE
+# git clone [Githubリポジトリ] themes/[テーマ名]
+</code></pre>
+
+<p>ブログの見た目を変更したいときは、 <code>themes/[テーマ名]/layout/</code> 配下のファイルを編集する。<br />
+テーマを反映させたいときは、 <code>_config.yml</code> の <code>theme</code> 項目にテーマ名を設定する。</p>
+
+<pre><code class="language-yml"># 〜（省略）〜
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: bootstrap-blog
+
+# 〜（省略）〜
+</code></pre>
+
+<h3 id="テーマの編集">テーマの編集</h3>
+
+<p><code>themes/[テーマ名]/layout</code> 配下を編集することでタイトル、サイドバーメニュー等の編集が可能。</p>
+
+<pre><code class="language-sh">.
+└── themeName
+    ├── _config.yml
+    ├── gulpfile.js
+    ├── layout
+    │   ├── _partial
+    │   │   ├── archive.ejs  # アーカイブのレイアウトを定義
+    │   │   ├── article.ejs  # 各記事のレイアウトを定義
+    │   │   ├── head.ejs     # headタグの中身
+    │   │   ├── header.ejs   # ページのヘッダ
+    │   │   └── post         # ここに記事の型を入れていく
+    │   │       ├── date.ejs
+    │   │       ├── nav.ejs
+    │   │       ├── tag.ejs
+    │   │       └── title.ejs
+    │   ├── archive.ejs
+    │   ├── index.ejs
+    │   └── layout.ejs       # ページ全体のレイアウト
+    ├── node_modules
+    ├── package.json
+    └── source               # CSS/JSなどのアセット
+</code></pre>
+
+<p>ページヘッダやサイドバーなどに変更を加える場合、その際 <code>themes/[テーマ名]/layout/</code> 配下のファイルの変更を保持する必要があるので <code>.git/</code> を削除する。</p>
+
+<pre><code class="language-sh">$ rm -fR themes/bootstrap-blog/.git
+</code></pre>
+
+<h1 id="ブログの公開">ブログの公開</h1>
+
+<h2 id="github-pagesへの公開">Github Pagesへの公開</h2>
+
+<p>以下のライブラリを導入する。</p>
+
+<pre><code class="language-sh">$ npm install hexo-deployer-git --save --no-optional
+</code></pre>
+
+<p>さらに <strong>_config.yml</strong> に以下の設定を追加する。</p>
+
+<pre><code class="language-yml"># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://pepese@github.com/pepese/pepese.github.io.git
+  branch: master
+  message: update
+</code></pre>
+
+<p>なお、対応するGithubリポジトリは事前に作成しておくこと。<br />
+<code>$ hexo deploy</code> コマンドでGithubリポジトリに反映される。</p>
+
+<pre><code class="language-sh">$ hexo clean
+$ hexo generate
+$ hexo deploy # これがデプロイコマンド
+</code></pre>
+
+<p>「 <strong><a href="https://pepese.github.io">https://pepese.github.io</a></strong> 」へアクセスするとブログがGithub Pagesとして公開されていることがわかる。</p>
+
+<h2 id="https-独自ドメインでブログの公開">HTTPS＋独自ドメインでブログの公開</h2>
+
+<p>ここでは独自ドメインを「 <strong>pepese.net</strong> 」として記載する。（ <strong>実際には公開していない</strong> ）<br />
+ホスト名は「 <strong>techblog</strong> 」とする。<br />
+なお、独自ドメインを使用するとGithubが用意してくれている証明書が使えないため <em>https</em> にはならない。</p>
+
+<p>お名前.comを利用している場合は<a href="http://qiita.com/tiwu_official/items/d7fb6c493ed5eb9ee4fc">こちら</a>を参考。<br />
+<a href="https://www.cloudflare.com/">Cloudflare</a>を使用したサイトのHTTPS化を以下を参考に行う。<br />
+（お名前.comの有料オプションを使ってHTTPS化も可能だが、ここでは無料でできるCloudflareを使用する。）</p>
+
+<ul>
+<li><a href="https://rcmdnk.com/blog/2017/01/03/blog-github-web/">https://rcmdnk.com/blog/2017/01/03/blog-github-web/</a></li>
+<li><a href="https://www.kaitoy.xyz/2016/07/01/https-support-by-cloudflare/">https://www.kaitoy.xyz/2016/07/01/https-support-by-cloudflare/</a></li>
+<li><a href="http://qiita.com/noraworld/items/89dd85a434a7b759e00c">http://qiita.com/noraworld/items/89dd85a434a7b759e00c</a></li>
+</ul>
+
+<p>手順は以下。</p>
+
+<p><strong>(1)</strong> <a href="https://www.cloudflare.com/">Cloudflare</a>のアカウント作成</p>
+
+<p>Sign upのリンクからメアドとパスワードを渡してアカウントを作成。</p>
+
+<p><strong>(2)</strong> Cloudflareにサイトを登録</p>
+
+<p>「Add Your First Domain」にて「pepese.net」を入力して「Begin Scan」。</p>
+
+<p><strong>(3)</strong> CloudflareのDNSの設定</p>
+
+<p>以下のようになっていればいい。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Name</th>
+<th align="left">Value</th>
+<th align="left">TTL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">A</td>
+<td align="left">pepese.net</td>
+<td align="left">192.30.252.153</td>
+<td align="left">Automatic TTL</td>
+</tr>
+
+<tr>
+<td align="left">A</td>
+<td align="left">pepese.net</td>
+<td align="left">192.30.252.154</td>
+<td align="left">Automatic TTL</td>
+</tr>
+
+<tr>
+<td align="left">CNAME</td>
+<td align="left">techblog</td>
+<td align="left">pepese.github.io</td>
+<td align="left">Automatic TTL</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>(4)</strong> プランの選択</p>
+
+<p>無料のFree Websiteを選択。<br />
+以上を完了すると「Please visit your registrar&rsquo;s dashboard to change your nameservers to the following.」と出て、レジストラサイト（お名前.com など）のネームサーバを変更するように指示される。<br />
+ここでは以下のように指示された。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Current Nameservers</th>
+<th align="left">Change Nameservers to:</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">01.dnsv.jp</td>
+<td align="left">dina.ns.cloudflare.com</td>
+</tr>
+
+<tr>
+<td align="left">02.dnsv.jp</td>
+<td align="left">james.ns.cloudflare.com</td>
+</tr>
+
+<tr>
+<td align="left">03.dnsv.jp</td>
+<td align="left">Remove this nameserver</td>
+</tr>
+
+<tr>
+<td align="left">04.dnsv.jp</td>
+<td align="left">Remove this nameserver</td>
+</tr>
+</tbody>
+</table>
+
+<p>上記の指示通りにレジストラサイトの設定（ネームサーバの変更）を行う。<br />
+この設定を行うことで、レジストラサイトのDNSサーバではなく、CloudflareのDNSサーバが使用されるようになる。</p>
+
+<p><strong>(5)</strong> CNAMEファイルの作成</p>
+
+<p>以下のようにCNAMEファイルを作成する。</p>
+
+<pre><code class="language-sh">$ echo 'techblog.pepese.net' &gt; source/CNAME
+</code></pre>
+
+<p><strong>(6)</strong> Hexoの設定ファイル <code>_config.yml</code> の編集</p>
+
+<p>ドメイン変更に伴って設定を変更する。</p>
+
+<pre><code class="language-yml"># 〜（省略）〜
+
+url: https://techblog.pepese.net # ここを変更
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# 〜（省略）〜
+</code></pre>
+
+<p><strong>(7)</strong> Github Pagesの更新</p>
+
+<pre><code class="language-sh">$ rm -r public/
+$ hexo generate
+$ hexo deploy
+</code></pre>
+
+<p><strong>(8)</strong> その他のCloudflareの設定</p>
+
+<p>好みに応じて以下の設定をする。</p>
+
+<ul>
+<li>CloudflareのPage Rulesタブで常にHTTPSアクセスとなるように以下を設定する。
+
+<ul>
+<li>If the URL matches: <a href="http://techblog.pepese.net*">http://techblog.pepese.net*</a></li>
+<li>Then the settings are: Always use HTTPS</li>
+</ul></li>
+<li>SpeedタブのAuto Minify項目でCloudflareでキャッシュする時にJavaScript/CSS/HTMLのソースをminifyする設定が可能。</li>
+</ul>
+
+<p>以上で「 <strong><a href="https://techblog.pepese.net">https://techblog.pepese.net</a></strong> 」へアクセスすると独自ドメインでブログが公開されていることがわかる。（ <strong>実際には公開していない</strong> ）</p>
+
+<h1 id="その他の設定-やりたきことメモ">その他の設定、やりたきことメモ</h1>
+
+<h2 id="sitemapの作成">sitemapの作成</h2>
+
+<pre><code class="language-sh">$ npm install hexo-generator-sitemap --save --no-optional
+</code></pre>
+
+<p><code>_config.yml</code> に以下の設定を追加する。</p>
+
+<pre><code class="language-yml">sitemap:
+  path: sitemap.xml
+</code></pre>
+
+<h2 id="robots-txtの作成">robots.txtの作成</h2>
+
+<pre><code class="language-sh">$ npm install hexo-generator-robotstxt --save --no-optional
+</code></pre>
+
+<p><code>_config.yml</code> に以下の設定を追加する。</p>
+
+<pre><code class="language-yml">robotstxt:
+  useragent: &quot;*&quot;
+  disallow:
+    - /images/
+  allow:
+  sitemap: https://techblog.pepese.net/sitemap.xml
+</code></pre>
+
+<h2 id="404ページの作成">404ページの作成</h2>
+
+<pre><code class="language-sh">$ touch source/404.md
+</code></pre>
+
+<p>上記のように <code>source/</code> 配下に <code>404.md</code> ファイルを作成し、下記のような感じで記述する。</p>
+
+<pre><code class="language-yml">---
+title: Not Found
+---
+
+お探しの記事は見つかりませんでした。
+</code></pre>
+
+<p>これで <code>$ hexo generate</code> を実行すると <code>404.html</code> が公開ディレクトリ直下に作成され、Github Pagesの機能で存在しないページへアクセスされた際に表示される。</p>
+
+<h2 id="google-adsenseの設置">Google Adsenseの設置</h2>
+
+<p>テーマディレクトリ配下に手を加えていく。</p>
+
+<pre><code class="language-sh">$ mkdir theme/[テーマ名]/layout/_custome_ad
+$ touch themes/[テーマ名]/layout/_custom_ad/google_adsense.ejs
+</code></pre>
+
+<p><code>google_adsense.ejs</code> ファイルを以下のように編集する。</p>
+
+<pre><code class="language-html">&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 省略 --&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+</code></pre>
+
+<p>広告を表示させたい箇所に以下のコードを貼り付ける。</p>
+
+<pre><code class="language-html">&lt;!-- ad start --&gt;
+&lt;%- partial('_custom_ad/google_adsense') %&gt;
+&lt;!-- ad end --&gt;
+</code></pre>
+
+<p><code>themes/[テーマ名]/layout/layout.ejs</code> を直接編集してもよい。</p>
+
+<h2 id="google-analyticsの設置">Google Analyticsの設置</h2>
+
+<p>Google AnalyticsのトラッキングID（ <strong>UA-xxxxxxxx-x</strong> ）を取得し、 <code>themes/[テーマ名]/_config.yml</code> ファイルに以下の設定を追加する。</p>
+
+<pre><code class="language-yml">google_analytics: UA-xxxxxxxx-x
+</code></pre>
+
+<h2 id="amazonアソシエイトの設置">Amazonアソシエイトの設置</h2>
+
+<pre><code class="language-sh">$ touch themes/[テーマ名]/layout/_custom_ad/amazon_affiliate.ejs
+</code></pre>
+
+<p><code>amazon_affiliate_side.ejs</code> ファイルを以下のように編集する。</p>
+
+<pre><code class="language-html">&lt;!-- Amazon --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;&lt;!--
+amazon_ad_tag = &quot;xxxxxxxx&quot;; amazon_ad_width = &quot;160&quot;; amazon_ad_height = &quot;600&quot;; amazon_ad_logo = &quot;hide&quot;;//--&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://ir-jp.amazon-adsystem.com/s/ads.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>ブログを <em>https</em> で公開する場合は、 <code>src</code> 属性のURLスキームを <code>https</code> へ変更する。<br />
+広告を表示させたい箇所に以下のコードを貼り付ける。</p>
+
+<pre><code class="language-html">&lt;!-- ad start --&gt;
+&lt;%- partial('_custom_ad/amazon_affiliate') %&gt;
+&lt;!-- ad end --&gt;
+</code></pre>
+
+<p><code>themes/[テーマ名]/layout/layout.ejs</code> を直接編集してもよい。</p>
+
+<h2 id="twitterの設定">Twitterの設定</h2>
+
+<h3 id="twitter-cards">Twitter Cards</h3>
+
+<p><code>themes/[テーマ名]/_config.yml</code> ファイルに以下の設定を追加する。</p>
+
+<pre><code class="language-yml">twitter_id: '@PeePeeSE'
+</code></pre>
+
+<p>これでheadタグ内に以下のメタが追加される。（所謂 <strong>Twitter Cards</strong>）</p>
+
+<pre><code class="language-html">&lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;ぺーぺーSEのテックブログ&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;ぺーぺーSEがプログラミング（Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。&quot;&gt;
+&lt;meta name=&quot;twitter:creator&quot; content=&quot;@PeePeeSE&quot;&gt;
+</code></pre>
+
+<h3 id="フォロー-シェアボタンの設置">フォロー・シェアボタンの設置</h3>
+
+<pre><code class="language-sh">$ mkdir theme/[テーマ名]/layout/_custome_sns
+$ touch themes/[テーマ名]/layout/_custom_sns/twitter_follow.ejs
+$ touch themes/[テーマ名]/layout/_custom_sns/twitter_share.ejs
+</code></pre>
+
+<p><code>twitter_follow.ejs</code> ファイルを以下のように編集する。（IDは書き換えてね）</p>
+
+<pre><code class="language-html">&lt;a href=&quot;https://twitter.com/PeePeeSE&quot; class=&quot;twitter-follow-button&quot; data-show-count=&quot;false&quot;&gt;Follow @PeePeeSE&lt;/a&gt; &lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');&lt;/script&gt;
+</code></pre>
+
+<p><code>twitter_share.ejs</code> ファイルを以下のように編集する。（IDは書き換えてね）</p>
+
+<pre><code class="language-html">&lt;a href=&quot;https://twitter.com/share&quot; class=&quot;twitter-share-button&quot; data-via=&quot;PeePeeSE&quot;&gt;Tweet&lt;/a&gt; &lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');&lt;/script&gt;
+</code></pre>
+
+<p>以下を好きなところに設置。</p>
+
+<pre><code class="language-html">&lt;!-- twitter follow button start --&gt;
+&lt;%- partial('_custom_sns/twitter_follow') %&gt;
+&lt;!-- twitter follow button end --&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- twitter share button start --&gt;
+&lt;%- partial('_custom_sns/twitter_share') %&gt;
+&lt;!-- twitter share button end --&gt;
+</code></pre>
+
+<p><code>themes/[テーマ名]/layout/layout.ejs</code> を直接編集してもよい。</p>
+
+<h2 id="画像の配置">画像の配置</h2>
+
+<pre><code class="language-sh">$ mkdir source/images
+</code></pre>
+
+<p>上記に画像ファイルを配置する。<br />
+以下のように任意の場所に張り付ける。</p>
+
+<pre><code class="language-html">&lt;img src=&quot;../../images/xxx&quot; alt=&quot;画像の説明&quot;&gt;
+</code></pre>
+
+<p><strong>alt</strong> 属性はちゃんと書く。</p>
+
+<h2 id="rss-feedの設置">RSS Feedの設置</h2>
+
+<pre><code class="language-sh">$ npm install hexo-generator-feed --save --no-optional
+</code></pre>
+
+<p>以下のボタンを好きなところに配置。</p>
+
+<pre><code class="language-html">&lt;a href=&quot;&lt;%= config.url %&gt;/atom.xml&quot; title=&quot;RSS Feed&quot;&gt;&lt;img src=&quot;images/rss_32.png&quot; alt=&quot;RSSを購読する&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+<p>画像（images/rss_32.png）は自分で準備する。</p>
+
+<h2 id="ogpの設定">OGPの設定</h2>
+
+<p><strong>OGP</strong> （Open Graph Protcol）は、FacebookやTwitterなどのSNSでシェアされた際に、そのページのタイトル・URL・概要・サムネイル画像を表示させる仕組みのこと。<br />
+<code>themes/[テーマ名]/layout/_partial/head.ejs</code> に下記のような <strong>open_graph</strong> ヘルパーを使った箇所がある。</p>
+
+<pre><code class="language-html">&lt;%- open_graph({twitter_id: theme.twitter_id, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %&gt;
+</code></pre>
+
+<p>上記である程度OGPの設定はされているがサムネイル画像は設定されていないため、下記のように <strong>image</strong> というプロパティを追加する。（<a href="https://hexo.io/docs/helpers.html#open-graph">公式ドキュメント</a>）</p>
+
+<pre><code class="language-html">&lt;%- open_graph({image: theme.ogp_image, twitter_id: theme.twitter_id, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %&gt;
+</code></pre>
+
+<p>上記では、imageパラメータの値として「 <strong>theme.ogp_image</strong> 」を使用しており、 <code>themes/[テーマ名]/_config.yml</code> に以下のように記載することで参照できる。</p>
+
+<pre><code class="language-yml">ogp_image: /images/xxx.gif
+</code></pre>
+
+<h2 id="urlのクロールとインデックス登録を検索エンジンにリクエストする">URLのクロールとインデックス登録を検索エンジンにリクエストする</h2>
+
+<ul>
+<li>Google（Yahoo）
+
+<ul>
+<li>Googleアカウントを取得してGoogle Search Consoleの<a href="https://www.google.com/webmasters/tools/googlebot-fetch">Fetch as Google</a>からリクエストする。</li>
+</ul></li>
+<li><a href="https://www.bing.com/toolbox/submit-site-url">bing</a></li>
+</ul>
+
+<h2 id="数式を表示できるようにする">数式を表示できるようにする</h2>
+
+<p>以下を実施することにより <strong>Tex</strong> による数式を表示できるようになる。</p>
+
+<pre><code class="language-sh">$ brew install pandoc
+$ npm install hexo-renderer-pandoc --save --no-optional
+$ npm install hexo-renderer-mathjax --save --no-optional
+</code></pre>
+
+<ul>
+<li><a href="http://sky-y.github.io/site-pandoc-jp/users-guide/">Pandoc ユーザーズガイド 日本語版</a></li>
+<li><a href="http://qiita.com/sky_y/items/7c29909c5cffa28b23d8">参考</a></li>
+</ul>
+
+<h2 id="gist-it-で-github-のソースコード貼り付け">Gist-it で Github のソースコード貼り付け</h2>
+
+<p>以下のようにスクリプトを貼り付ける。</p>
+
+<pre><code class="language-html">&lt;script src=&quot;https://gist-it.appspot.com/github/[Github Account]/[Repository]/blob/[branch]/[path-to-file]?footer=0&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>例えば以下。</p>
+
+<pre><code class="language-html">&lt;script src=&quot;https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_index.js?footer=0&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>以下のように表示される。</p>
+
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_index.js?footer=0"></script>
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="ぺーぺーSE avatar" src="/img/yaruwo.gif" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name"></span>
+	</div>
+	<div class="authorbox__description">
+		ぺーぺーSEがきまぐれでテックネタを書きます。
+	</div>
+</div>
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/entry/git-basics/" rel="prev"><span class="post-nav__caption">«&thinsp;</span><p class="post-nav__post-title">Git入門</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/entry/homebrew-basics/" rel="next"><span class="post-nav__caption">&thinsp;»</span><p class="post-nav__post-title">Homebrew入門</p></a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	
+	<ins class="adsbygoogle"
+			style="display:inline-block;width:300px;height:250px"
+			data-ad-client="ca-pub-0116602540349648"
+			data-ad-slot="7455097821"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title"></h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/@PeePeeSE" target="_blank">
+				<svg class="widget-social__link-icon icon icon-twitter" width="24" height="24" viewBox="0 0 384 312"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
+				<span>Twitter</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/pepese" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title"></h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
+			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title"></h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/android" title="Android">Android</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/chai" title="Chai">Chai</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cognito" title="Cognito">Cognito</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dataframe" title="Dataframe">Dataframe</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dynamodb" title="Dynamodb">Dynamodb</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/express" title="Express">Express</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gensim" title="Gensim">Gensim</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/github" title="Github">Github</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gradle" title="Gradle">Gradle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/heroku" title="Heroku">Heroku</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hexo" title="Hexo">Hexo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homebrew" title="Homebrew">Homebrew</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hugo" title="Hugo">Hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iam" title="Iam">Iam</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ios" title="Ios">Ios</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/istanbul" title="Istanbul">Istanbul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java" title="Java">Java</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jupyter" title="Jupyter">Jupyter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/k-means" title="K means">K means</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kotlin" title="Kotlin">Kotlin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/line" title="Line">Line</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning" title="Machine learning">Machine learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/maven" title="Maven">Maven</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mecab" title="Mecab">Mecab</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mocha" title="Mocha">Mocha</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/multer" title="Multer">Multer</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ndenv" title="Ndenv">Ndenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nginx" title="Nginx">Nginx</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ngrok" title="Ngrok">Ngrok</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/node.js" title="Node.js">Node.js</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/npm" title="Npm">Npm</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nyc" title="Nyc">Nyc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pandas" title="Pandas">Pandas</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/promise" title="Promise">Promise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pyenv" title="Pyenv">Pyenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rbenv" title="Rbenv">Rbenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/request" title="Request">Request</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby" title="Ruby">Ruby</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sass" title="Sass">Sass</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-learn" title="Scikit learn">Scikit learn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-surprise" title="Scikit surprise">Scikit surprise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sdkman" title="Sdkman">Sdkman</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seo" title="Seo">Seo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sequelize" title="Sequelize">Sequelize</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sinon.js" title="Sinon.js">Sinon.js</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sql" title="Sql">Sql</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/svm" title="Svm">Svm</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tag_name" title="Tag name">Tag name</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/typescript" title="Typescript">Typescript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/virtualenv" title="Virtualenv">Virtualenv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc" title="Vpc">Vpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vscode" title="Vscode">Vscode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/word2vec" title="Word2vec">Word2vec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yarn" title="Yarn">Yarn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yypescript" title="Yypescript">Yypescript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yython" title="Yython">Yython</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%81%af%e3%81%a6%e3%81%aa%e3%83%96%e3%83%ad%e3%82%b0" title="はてなブログ">はてなブログ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%94%e8%aa%bf%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0" title="協調フィルタリング">協調フィルタリング</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%a9%9f%e6%a2%b0%e5%ad%a6%e7%bf%92" title="機械学習">機械学習</a>
+	</div>
+</div>
+	
+	<ul>
+		
+			<li><a href="https://pepese.github.io/archives/2017/05">2017/05 (11)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/07">2017/07 (5)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/08">2017/08 (11)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/09">2017/09 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/11">2017/11 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2017/12">2017/12 (3)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2018/01">2018/01 (3)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2018/02">2018/02 (6)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/01">2019/01 (1)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/02">2019/02 (4)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/05">2019/05 (2)</a></li>
+		
+			<li><a href="https://pepese.github.io/archives/2019/06">2019/06 (1)</a></li>
+		
+	</ul>
+	
+	
+	
+	<script type="text/javascript"><!--
+		amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";</script>
+		<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+	
+</aside>
+		</div>
+		
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+        style="display:inline-block;width:728px;height:90px"
+        data-ad-client="ca-pub-0116602540349648"
+        data-ad-slot="5978364622"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<footer class="footer">
+    <div class="container footer__container flex">
+        
+        <div class="footer__copyright">
+            &copy; 2019 ぺーぺーSEのテックブログ.
+            <span class="footer__copyright-credits"></span>
+        </div>
+    </div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

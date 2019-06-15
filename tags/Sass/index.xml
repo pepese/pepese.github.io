@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sass on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/sass/</link>
+    <description>Recent content in sass on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Mon, 14 Aug 2017 08:27:19 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/sass/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Angular入門</title>
+      <link>https://pepese.github.io/entry/angular-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/angular-basics/</guid>
+      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br /&gt;
+ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;br /&gt;
+なお、 &lt;strong&gt;ndenv&lt;/strong&gt; が入ってるテイで書く。導入は下記記事参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/anyenv/&#34;&gt;すべての**envを管理するanyenv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

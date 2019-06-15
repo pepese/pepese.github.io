@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yython on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/yython/</link>
+    <description>Recent content in yython on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Wed, 01 Nov 2017 08:05:09 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/yython/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LINEチャットボットをFlaskとngrokで</title>
+      <link>https://pepese.github.io/entry/flask-ngrok-chatbot/</link>
+      <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/flask-ngrok-chatbot/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; と &lt;a href=&#34;https://ngrok.com/&#34;&gt;ngrok&lt;/a&gt; でメッセージをオウム返しする LINE のチャットボットを作ってみた。&lt;br /&gt;
+Heroku で公開したい場合は以下参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/heroku-basics/&#34;&gt;Heroku入門&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/nginx/</link>
+    <description>Recent content in nginx on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Sun, 04 Feb 2018 08:08:16 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx入門</title>
+      <link>https://pepese.github.io/entry/nginx-basics/</link>
+      <pubDate>Sun, 04 Feb 2018 08:08:16 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/nginx-basics/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;インストール&lt;/li&gt;
+&lt;li&gt;ディレクトリ構成&lt;/li&gt;
+&lt;li&gt;各種設定&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

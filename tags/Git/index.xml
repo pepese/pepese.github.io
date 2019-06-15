@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/git/</link>
+    <description>Recent content in git on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Wed, 24 May 2017 07:51:52 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Flowとコンフリクトの解消</title>
+      <link>https://pepese.github.io/entry/git-flow-fix-conflict/</link>
+      <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/git-flow-fix-conflict/</guid>
+      <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;br /&gt;
+gitについては以下を参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下の順で記載する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;git-flow&lt;/li&gt;
+&lt;li&gt;コンフリクトの解消&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gitコマンド整理</title>
+      <link>https://pepese.github.io/entry/git-commands/</link>
+      <pubDate>Thu, 11 May 2017 07:53:38 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/git-commands/</guid>
+      <description>&lt;p&gt;以下のような感じでGitコマンド、概念を整理する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;環境設定&lt;/li&gt;
+&lt;li&gt;Gitの保存領域&lt;/li&gt;
+&lt;li&gt;変更を保存する&lt;/li&gt;
+&lt;li&gt;変更の状況を確認する&lt;/li&gt;
+&lt;li&gt;変更を戻す&lt;/li&gt;
+&lt;li&gt;リモートリポジトリから変更データ・情報を取得する&lt;/li&gt;
+&lt;li&gt;ブランチ操作&lt;/li&gt;
+&lt;li&gt;ブランチ間の変更の取り込み&lt;/li&gt;
+&lt;li&gt;その他の操作&lt;/li&gt;
+&lt;li&gt;直前に戻したい&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;^&lt;/code&gt; と &lt;code&gt;~&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

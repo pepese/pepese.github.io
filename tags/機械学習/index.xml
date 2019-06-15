@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>機械学習 on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</link>
+    <description>Recent content in 機械学習 on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Mon, 07 Aug 2017 08:29:13 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pythonで機械学習 精度評価編</title>
+      <link>https://pepese.github.io/entry/python-ml-metrics-score/</link>
+      <pubDate>Mon, 07 Aug 2017 08:29:13 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/python-ml-metrics-score/</guid>
+      <description>&lt;p&gt;ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;学習用データと評価用データの使い方&lt;/li&gt;
+&lt;li&gt;精度の指標&lt;/li&gt;
+&lt;li&gt;精度の向上&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

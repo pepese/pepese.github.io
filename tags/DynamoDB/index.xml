@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dynamodb on ぺーぺーSEのテックブログ</title>
+    <link>https://pepese.github.io/tags/dynamodb/</link>
+    <description>Recent content in dynamodb on ぺーぺーSEのテックブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Wed, 30 Aug 2017 08:01:37 +0900</lastBuildDate>
+    
+	<atom:link href="https://pepese.github.io/tags/dynamodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JavaでDynamoDBへアクセスする</title>
+      <link>https://pepese.github.io/entry/java-dynamodb/</link>
+      <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/java-dynamodb/</guid>
+      <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br /&gt;
+以下の記事を読んだ前提で書く。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.jsでDynamoDBへアクセスする</title>
+      <link>https://pepese.github.io/entry/nodejs-dynamodb/</link>
+      <pubDate>Tue, 29 Aug 2017 17:55:56 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/nodejs-dynamodb/</guid>
+      <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br /&gt;
+以下の記事を読んだ前提で書く。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/nodejs-basics/&#34;&gt;Node.js/npm入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>DyanamoDB入門</title>
+      <link>https://pepese.github.io/entry/dynamodb-basics/</link>
+      <pubDate>Tue, 29 Aug 2017 07:58:05 +0900</pubDate>
+      
+      <guid>https://pepese.github.io/entry/dynamodb-basics/</guid>
+      <description>&lt;p&gt;ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DynamoDB の概要&lt;/li&gt;
+&lt;li&gt;DynamoDB の API&lt;/li&gt;
+&lt;li&gt;AWS CLI で DynamoDB へアクセス&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
