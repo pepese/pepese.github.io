@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nyc on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/nyc/</link>
+    <link>https://blog.pepese.com/tags/nyc/</link>
     <description>Recent content in nyc on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Wed, 16 Aug 2017 17:52:59 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/nyc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/nyc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Node.js・Expressでユニットテスト</title>
-      <link>https://pepese.github.io/entry/express-test/</link>
+      <link>https://blog.pepese.com/entry/express-test/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-test/</guid>
+      <guid>https://blog.pepese.com/entry/express-test/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;br /&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
 

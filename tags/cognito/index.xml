@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cognito on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/cognito/</link>
+    <link>https://blog.pepese.com/tags/cognito/</link>
     <description>Recent content in cognito on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Mon, 29 May 2017 07:49:45 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/cognito/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/cognito/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
-      <link>https://pepese.github.io/entry/angular-router-cognito/</link>
+      <link>https://blog.pepese.com/entry/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 07:49:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-router-cognito/</guid>
+      <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -26,16 +26,16 @@
     
     <item>
       <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
-      <link>https://pepese.github.io/entry/angular-cognito/</link>
+      <link>https://blog.pepese.com/entry/angular-cognito/</link>
       <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-cognito/</guid>
+      <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
       <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br /&gt;
 以下の記事の知識を前提とする。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/2017/03/16/152007&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;

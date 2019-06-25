@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2017/05 on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/archives/2017/05/</link>
+    <link>https://blog.pepese.com/archives/2017/05/</link>
     <description>Recent content in 2017/05 on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Mon, 29 May 2017 07:49:45 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/archives/2017/05/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/archives/2017/05/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
-      <link>https://pepese.github.io/entry/angular-router-cognito/</link>
+      <link>https://blog.pepese.com/entry/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 07:49:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-router-cognito/</guid>
+      <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -26,16 +26,16 @@
     
     <item>
       <title>Git Flowとコンフリクトの解消</title>
-      <link>https://pepese.github.io/entry/git-flow-fix-conflict/</link>
+      <link>https://blog.pepese.com/entry/git-flow-fix-conflict/</link>
       <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-flow-fix-conflict/</guid>
+      <guid>https://blog.pepese.com/entry/git-flow-fix-conflict/</guid>
       <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;br /&gt;
 gitについては以下を参照。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以下の順で記載する。&lt;/p&gt;
@@ -48,16 +48,16 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
-      <link>https://pepese.github.io/entry/angular-cognito/</link>
+      <link>https://blog.pepese.com/entry/angular-cognito/</link>
       <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-cognito/</guid>
+      <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
       <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br /&gt;
 以下の記事の知識を前提とする。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/2017/03/16/152007&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;
@@ -71,10 +71,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>TypeScript環境入門</title>
-      <link>https://pepese.github.io/entry/typescript-environment-basics/</link>
+      <link>https://blog.pepese.com/entry/typescript-environment-basics/</link>
       <pubDate>Sun, 14 May 2017 18:06:00 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/typescript-environment-basics/</guid>
+      <guid>https://blog.pepese.com/entry/typescript-environment-basics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;br /&gt;
 文法については触れない。また、前提の環境構築（ &lt;code&gt;npm&lt;/code&gt; など）は以下。&lt;/p&gt;
 
@@ -85,10 +85,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>はてなブログの一部の記事を移転するときに気をつけること</title>
-      <link>https://pepese.github.io/entry/move-article/</link>
+      <link>https://blog.pepese.com/entry/move-article/</link>
       <pubDate>Thu, 11 May 2017 18:12:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/move-article/</guid>
+      <guid>https://blog.pepese.com/entry/move-article/</guid>
       <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br /&gt;
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。&lt;/p&gt;
@@ -104,10 +104,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Gitコマンド整理</title>
-      <link>https://pepese.github.io/entry/git-commands/</link>
+      <link>https://blog.pepese.com/entry/git-commands/</link>
       <pubDate>Thu, 11 May 2017 07:53:38 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-commands/</guid>
+      <guid>https://blog.pepese.com/entry/git-commands/</guid>
       <description>&lt;p&gt;以下のような感じでGitコマンド、概念を整理する。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -127,19 +127,19 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Atomのインストールとパッケージの導入</title>
-      <link>https://pepese.github.io/entry/atom-install-packages/</link>
+      <link>https://blog.pepese.com/entry/atom-install-packages/</link>
       <pubDate>Thu, 11 May 2017 07:45:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/atom-install-packages/</guid>
+      <guid>https://blog.pepese.com/entry/atom-install-packages/</guid>
       <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Macで開発環境を作る</title>
-      <link>https://pepese.github.io/entry/mac-dev-environment/</link>
+      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
       <pubDate>Tue, 09 May 2017 08:06:42 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/mac-dev-environment/</guid>
+      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
       <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br /&gt;
 以下のようなことを書く。&lt;/p&gt;
 
@@ -156,10 +156,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Homebrew入門</title>
-      <link>https://pepese.github.io/entry/homebrew-basics/</link>
+      <link>https://blog.pepese.com/entry/homebrew-basics/</link>
       <pubDate>Tue, 09 May 2017 08:00:18 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/homebrew-basics/</guid>
+      <guid>https://blog.pepese.com/entry/homebrew-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br /&gt;
 HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br /&gt;
 インストールから使い方までまとめてみる。&lt;/p&gt;</description>
@@ -167,10 +167,10 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
     
     <item>
       <title>Hexoで作ったブログをGithub Pagesで公開</title>
-      <link>https://pepese.github.io/entry/hexo-github-pages/</link>
+      <link>https://blog.pepese.com/entry/hexo-github-pages/</link>
       <pubDate>Tue, 02 May 2017 07:58:10 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/hexo-github-pages/</guid>
+      <guid>https://blog.pepese.com/entry/hexo-github-pages/</guid>
       <description>&lt;p&gt;はてなブログが一向に &lt;em&gt;https&lt;/em&gt; 対応しないし、そのほかのリスクも考えて流行りの &lt;strong&gt;静的サイトジェネレータ&lt;/strong&gt; の &lt;a href=&#34;https://hexo.io/&#34;&gt;HEXO&lt;/a&gt; を使ってブログを作成し、&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;で公開してみる。&lt;br /&gt;
 前提として &lt;strong&gt;npm&lt;/strong&gt; と &lt;strong&gt;Git&lt;/strong&gt; 環境が必要なため以下参照。&lt;/p&gt;
 
@@ -181,10 +181,10 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
     
     <item>
       <title>Git入門</title>
-      <link>https://pepese.github.io/entry/git-basics/</link>
+      <link>https://blog.pepese.com/entry/git-basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-basics/</guid>
+      <guid>https://blog.pepese.com/entry/git-basics/</guid>
       <description>&lt;p&gt;Git/Githubのメモ。&lt;br /&gt;
 インストールから簡単な使い方まで書いてみる。&lt;/p&gt;
 

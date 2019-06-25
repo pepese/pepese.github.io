@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vpc on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/vpc/</link>
+    <link>https://blog.pepese.com/tags/vpc/</link>
     <description>Recent content in vpc on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Thu, 23 May 2019 09:24:08 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/vpc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/vpc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Amazon VPCまとめ</title>
-      <link>https://pepese.github.io/entry/aws-vpc-basics/</link>
+      <link>https://blog.pepese.com/entry/aws-vpc-basics/</link>
       <pubDate>Thu, 23 May 2019 09:24:08 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/aws-vpc-basics/</guid>
+      <guid>https://blog.pepese.com/entry/aws-vpc-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; の &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/vpc/&#34;&gt;VPC&lt;/a&gt; についてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;

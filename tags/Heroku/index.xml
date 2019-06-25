@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>heroku on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/heroku/</link>
+    <link>https://blog.pepese.com/tags/heroku/</link>
     <description>Recent content in heroku on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Thu, 07 Dec 2017 07:56:43 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Heroku入門</title>
-      <link>https://pepese.github.io/entry/heroku-basics/</link>
+      <link>https://blog.pepese.com/entry/heroku-basics/</link>
       <pubDate>Thu, 07 Dec 2017 07:56:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/heroku-basics/</guid>
+      <guid>https://blog.pepese.com/entry/heroku-basics/</guid>
       <description>&lt;p&gt;Heroku は salesforce が運営する PaaS 。&lt;br /&gt;
 Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。&lt;br /&gt;
 Free プランの落とし穴は、 30 分アクセスが無いとインスタンス（ dyno ）が Sleep してしまうところ。　　

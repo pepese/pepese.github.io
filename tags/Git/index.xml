@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/git/</link>
+    <link>https://blog.pepese.com/tags/git/</link>
     <description>Recent content in git on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Wed, 24 May 2017 07:51:52 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git Flowとコンフリクトの解消</title>
-      <link>https://pepese.github.io/entry/git-flow-fix-conflict/</link>
+      <link>https://blog.pepese.com/entry/git-flow-fix-conflict/</link>
       <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-flow-fix-conflict/</guid>
+      <guid>https://blog.pepese.com/entry/git-flow-fix-conflict/</guid>
       <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;br /&gt;
 gitについては以下を参照。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以下の順で記載する。&lt;/p&gt;
@@ -35,10 +35,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Gitコマンド整理</title>
-      <link>https://pepese.github.io/entry/git-commands/</link>
+      <link>https://blog.pepese.com/entry/git-commands/</link>
       <pubDate>Thu, 11 May 2017 07:53:38 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-commands/</guid>
+      <guid>https://blog.pepese.com/entry/git-commands/</guid>
       <description>&lt;p&gt;以下のような感じでGitコマンド、概念を整理する。&lt;/p&gt;
 
 &lt;ul&gt;

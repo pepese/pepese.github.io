@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>go on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/go/</link>
+    <link>https://blog.pepese.com/tags/go/</link>
     <description>Recent content in go on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Mon, 11 Feb 2019 18:21:26 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Goで文字列操作</title>
-      <link>https://pepese.github.io/entry/golang-string/</link>
+      <link>https://blog.pepese.com/entry/golang-string/</link>
       <pubDate>Mon, 11 Feb 2019 18:21:26 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-string/</guid>
+      <guid>https://blog.pepese.com/entry/golang-string/</guid>
       <description>&lt;p&gt;golang の文字列操作をまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>Goでソート</title>
-      <link>https://pepese.github.io/entry/golang-sort/</link>
+      <link>https://blog.pepese.com/entry/golang-sort/</link>
       <pubDate>Sun, 10 Feb 2019 18:18:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-sort/</guid>
+      <guid>https://blog.pepese.com/entry/golang-sort/</guid>
       <description>&lt;p&gt;Golang におけるソートについてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -43,10 +43,10 @@
     
     <item>
       <title>Goの変数・型・定数・リテラル</title>
-      <link>https://pepese.github.io/entry/golang-var-type-const-literal/</link>
+      <link>https://blog.pepese.com/entry/golang-var-type-const-literal/</link>
       <pubDate>Fri, 08 Feb 2019 18:22:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-var-type-const-literal/</guid>
+      <guid>https://blog.pepese.com/entry/golang-var-type-const-literal/</guid>
       <description>&lt;p&gt;golang の変数・型・定数・リテラルについてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -60,10 +60,10 @@
     
     <item>
       <title>Goでファイル入出力</title>
-      <link>https://pepese.github.io/entry/golang-file-io/</link>
+      <link>https://blog.pepese.com/entry/golang-file-io/</link>
       <pubDate>Fri, 08 Feb 2019 18:19:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-file-io/</guid>
+      <guid>https://blog.pepese.com/entry/golang-file-io/</guid>
       <description>&lt;p&gt;golang のファイル入出力についてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -76,10 +76,10 @@
     
     <item>
       <title>Go入門</title>
-      <link>https://pepese.github.io/entry/golang-basics/</link>
+      <link>https://blog.pepese.com/entry/golang-basics/</link>
       <pubDate>Thu, 03 Jan 2019 18:23:48 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-basics/</guid>
+      <guid>https://blog.pepese.com/entry/golang-basics/</guid>
       <description>&lt;p&gt;golang の基本的なところをまとめる。&lt;br /&gt;
 さらっとまとめるつもりがどえらい量になったので注意。&lt;/p&gt;
 

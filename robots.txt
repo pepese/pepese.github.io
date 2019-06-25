@@ -2,4 +2,4 @@ User-agent: *
 Disallow : /img/
 Disallow : /css/
 Disallow : /js/
-Sitemap : https://pepese.github.io/sitemap.xml
+Sitemap : https://blog.pepese.com/sitemap.xml

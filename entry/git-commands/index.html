@@ -6,6 +6,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Gitコマンド整理 - ぺーぺーSEのテックブログ</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-0116602540349648",
+			enable_page_level_ads: true
+		});
+	</script>
+	
 	<meta name="description" content="">
 	<meta property="og:title" content="Gitコマンド整理" />
 <meta property="og:description" content="以下のような感じでGitコマンド、概念を整理する。
@@ -24,14 +33,14 @@ Gitの保存領域
 ^ と ~
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pepese.github.io/entry/git-commands/" />
+<meta property="og:url" content="https://blog.pepese.com/entry/git-commands/" />
 
-<meta property="og:image" content="https://pepese.github.io/img/yaruwo.gif" />
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
 <meta property="article:published_time" content="2017-05-11T07:53:38&#43;09:00"/>
 <meta property="article:modified_time" content="2017-05-11T07:53:38&#43;09:00"/>
 
 	<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://pepese.github.io/img/yaruwo.gif"/>
+<meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Gitコマンド整理"/>
 <meta name="twitter:description" content="以下のような感じでGitコマンド、概念を整理する。
@@ -443,45 +452,70 @@ if (!doNotTrack) {
 こんなとき <strong>cherry-pick</strong> という方法がある。<br />
 リモートリポジトリから情報を取得し、欲しいコミットのコミットIDを指定して現在のブランチに取り込む。</p>
 
-<pre><code class="language-sh">&gt; $ git fetch
-&gt; $ git cherry-pick &lt;commit_id&gt;
-&gt; ```
-
-# ブランチ操作
-
-- `git branch`
-    - ブランチの一覧を表示する
-    - 現在のブランチには「 **\*** 」がつく
-- `git branch &lt;branch_name&gt;`
-    - ブランチを作成する
-    - 現在のブランチの現在のリビジョンで作成される
-- `git branch -d &lt;branch_name&gt;`
-    - ローカルのブランチを削除する
-- `git push -d origin &lt;branch_name&gt;`
-    - リモートのブランチを削除する
-- `git checkout &lt;branch_name&gt;`
-    - 現在のブランチを指定したブランチに切り替える
-    - ワーキングディレクトリも指定したブランチの状態になる
-- `git branch &lt;branch_name&gt;/&lt;revision&gt;`
-    - 現在のブランチを指定したブランチとリビジョンの状態に切り替える
-    - ワーキングディレクトリも指定した状態になる
-- `git checkout -b &lt;branch_name&gt;`
-    - 現在のブランチを指定したブランチに切り替える
-    - ブランチが存在しない場合は新規作成される
-    - ただし、 **現在のブランチのワーキングディレクトリの状態が、移動先ブランチのワーキングディレクトリに反映** される
-        - コード修正し始めたけど、新しいブランチ作りたくなったときなどに便利
-
-# ブランチ間の変更の取り込み
-
-ブランチ間の変更の取り込みには、 **マージ** と **リベース** がある。  
-どちらを使うかは悩ましい。。。
-
-## マージ
-
-```sh
-$ git merge &lt;branch_name&gt;
+<pre><code class="language-sh">$ git fetch
+$ git cherry-pick &lt;commit_id&gt;
 </code></pre>
 </blockquote>
+
+<h1 id="ブランチ操作">ブランチ操作</h1>
+
+<ul>
+<li><code>git branch</code>
+
+<ul>
+<li>ブランチの一覧を表示する</li>
+<li>現在のブランチには「 <strong>*</strong> 」がつく</li>
+</ul></li>
+<li><code>git branch &lt;branch_name&gt;</code>
+
+<ul>
+<li>ブランチを作成する</li>
+<li>現在のブランチの現在のリビジョンで作成される</li>
+</ul></li>
+<li><code>git branch -d &lt;branch_name&gt;</code>
+
+<ul>
+<li>ローカルのブランチを削除する</li>
+</ul></li>
+<li><code>git push -d origin &lt;branch_name&gt;</code>
+
+<ul>
+<li>リモートのブランチを削除する</li>
+</ul></li>
+<li><code>git checkout &lt;branch_name&gt;</code>
+
+<ul>
+<li>現在のブランチを指定したブランチに切り替える</li>
+<li>ワーキングディレクトリも指定したブランチの状態になる</li>
+</ul></li>
+<li><code>git branch &lt;branch_name&gt;/&lt;revision&gt;</code>
+
+<ul>
+<li>現在のブランチを指定したブランチとリビジョンの状態に切り替える</li>
+<li>ワーキングディレクトリも指定した状態になる</li>
+</ul></li>
+<li><code>git checkout -b &lt;branch_name&gt;</code>
+
+<ul>
+<li>現在のブランチを指定したブランチに切り替える</li>
+<li>ブランチが存在しない場合は新規作成される</li>
+<li>ただし、 <strong>現在のブランチのワーキングディレクトリの状態が、移動先ブランチのワーキングディレクトリに反映</strong> される
+
+<ul>
+<li>コード修正し始めたけど、新しいブランチ作りたくなったときなどに便利</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="ブランチ間の変更の取り込み">ブランチ間の変更の取り込み</h1>
+
+<p>ブランチ間の変更の取り込みには、 <strong>マージ</strong> と <strong>リベース</strong> がある。<br />
+どちらを使うかは悩ましい。。。</p>
+
+<h2 id="マージ">マージ</h2>
+
+<pre><code class="language-sh">$ git merge &lt;branch_name&gt;
+</code></pre>
 
 <p>2つのブランチを合流・結合させることを <strong>マージ</strong> という。</p>
 
@@ -776,29 +810,29 @@ masterブランチとbugfixブランチは枝分かれして、合流する。<b
 	
 	<ul>
 		
-			<li><a href="https://pepese.github.io/archives/2017/05">2017/05 (11)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2017/05">2017/05 (11)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2017/07">2017/07 (5)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2017/07">2017/07 (5)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2017/08">2017/08 (11)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2017/08">2017/08 (11)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2017/09">2017/09 (2)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2017/09">2017/09 (2)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2017/11">2017/11 (2)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2017/11">2017/11 (2)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2017/12">2017/12 (3)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2017/12">2017/12 (3)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2018/01">2018/01 (3)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2018/01">2018/01 (3)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2018/02">2018/02 (6)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2018/02">2018/02 (6)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2019/01">2019/01 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/01">2019/01 (1)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2019/02">2019/02 (4)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/02">2019/02 (4)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2019/05">2019/05 (2)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://pepese.github.io/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
 		
 	</ul>
 	

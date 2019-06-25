@@ -2,642 +2,642 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/</link>
+    <link>https://blog.pepese.com/tags/</link>
     <description>Recent content in Tags on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Mon, 03 Jun 2019 07:18:58 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>aws</title>
-      <link>https://pepese.github.io/tags/aws/</link>
+      <link>https://blog.pepese.com/tags/aws/</link>
       <pubDate>Mon, 03 Jun 2019 07:18:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/aws/</guid>
+      <guid>https://blog.pepese.com/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>iam</title>
-      <link>https://pepese.github.io/tags/iam/</link>
+      <link>https://blog.pepese.com/tags/iam/</link>
       <pubDate>Mon, 03 Jun 2019 07:18:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/iam/</guid>
+      <guid>https://blog.pepese.com/tags/iam/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://pepese.github.io/tags/hugo/</link>
+      <link>https://blog.pepese.com/tags/hugo/</link>
       <pubDate>Sun, 26 May 2019 16:09:06 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/hugo/</guid>
+      <guid>https://blog.pepese.com/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vpc</title>
-      <link>https://pepese.github.io/tags/vpc/</link>
+      <link>https://blog.pepese.com/tags/vpc/</link>
       <pubDate>Thu, 23 May 2019 09:24:08 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/vpc/</guid>
+      <guid>https://blog.pepese.com/tags/vpc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>https://pepese.github.io/tags/go/</link>
+      <link>https://blog.pepese.com/tags/go/</link>
       <pubDate>Mon, 11 Feb 2019 18:21:26 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/go/</guid>
+      <guid>https://blog.pepese.com/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vscode</title>
-      <link>https://pepese.github.io/tags/vscode/</link>
+      <link>https://blog.pepese.com/tags/vscode/</link>
       <pubDate>Thu, 03 Jan 2019 18:23:48 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/vscode/</guid>
+      <guid>https://blog.pepese.com/tags/vscode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jupyter</title>
-      <link>https://pepese.github.io/tags/jupyter/</link>
+      <link>https://blog.pepese.com/tags/jupyter/</link>
       <pubDate>Tue, 20 Feb 2018 08:03:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/jupyter/</guid>
+      <guid>https://blog.pepese.com/tags/jupyter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://pepese.github.io/tags/python/</link>
+      <link>https://blog.pepese.com/tags/python/</link>
       <pubDate>Tue, 20 Feb 2018 08:03:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/python/</guid>
+      <guid>https://blog.pepese.com/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mecab</title>
-      <link>https://pepese.github.io/tags/mecab/</link>
+      <link>https://blog.pepese.com/tags/mecab/</link>
       <pubDate>Sun, 04 Feb 2018 18:13:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/mecab/</guid>
+      <guid>https://blog.pepese.com/tags/mecab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>node.js</title>
-      <link>https://pepese.github.io/tags/node.js/</link>
+      <link>https://blog.pepese.com/tags/node.js/</link>
       <pubDate>Sun, 04 Feb 2018 18:13:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/node.js/</guid>
+      <guid>https://blog.pepese.com/tags/node.js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gensim</title>
-      <link>https://pepese.github.io/tags/gensim/</link>
+      <link>https://blog.pepese.com/tags/gensim/</link>
       <pubDate>Sun, 04 Feb 2018 18:10:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/gensim/</guid>
+      <guid>https://blog.pepese.com/tags/gensim/</guid>
       <description></description>
     </item>
     
     <item>
       <title>word2vec</title>
-      <link>https://pepese.github.io/tags/word2vec/</link>
+      <link>https://blog.pepese.com/tags/word2vec/</link>
       <pubDate>Sun, 04 Feb 2018 18:10:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/word2vec/</guid>
+      <guid>https://blog.pepese.com/tags/word2vec/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pandas</title>
-      <link>https://pepese.github.io/tags/pandas/</link>
+      <link>https://blog.pepese.com/tags/pandas/</link>
       <pubDate>Sun, 04 Feb 2018 17:59:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/pandas/</guid>
+      <guid>https://blog.pepese.com/tags/pandas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sql</title>
-      <link>https://pepese.github.io/tags/sql/</link>
+      <link>https://blog.pepese.com/tags/sql/</link>
       <pubDate>Sun, 04 Feb 2018 17:59:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/sql/</guid>
+      <guid>https://blog.pepese.com/tags/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dataframe</title>
-      <link>https://pepese.github.io/tags/dataframe/</link>
+      <link>https://blog.pepese.com/tags/dataframe/</link>
       <pubDate>Sun, 04 Feb 2018 17:57:41 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/dataframe/</guid>
+      <guid>https://blog.pepese.com/tags/dataframe/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nginx</title>
-      <link>https://pepese.github.io/tags/nginx/</link>
+      <link>https://blog.pepese.com/tags/nginx/</link>
       <pubDate>Sun, 04 Feb 2018 08:08:16 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/nginx/</guid>
+      <guid>https://blog.pepese.com/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>android</title>
-      <link>https://pepese.github.io/tags/android/</link>
+      <link>https://blog.pepese.com/tags/android/</link>
       <pubDate>Sat, 06 Jan 2018 07:44:15 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/android/</guid>
+      <guid>https://blog.pepese.com/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>appium</title>
-      <link>https://pepese.github.io/tags/appium/</link>
+      <link>https://blog.pepese.com/tags/appium/</link>
       <pubDate>Sat, 06 Jan 2018 07:44:15 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/appium/</guid>
+      <guid>https://blog.pepese.com/tags/appium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ios</title>
-      <link>https://pepese.github.io/tags/ios/</link>
+      <link>https://blog.pepese.com/tags/ios/</link>
       <pubDate>Sat, 06 Jan 2018 07:44:15 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/ios/</guid>
+      <guid>https://blog.pepese.com/tags/ios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kotlin</title>
-      <link>https://pepese.github.io/tags/kotlin/</link>
+      <link>https://blog.pepese.com/tags/kotlin/</link>
       <pubDate>Sat, 06 Jan 2018 07:41:30 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/kotlin/</guid>
+      <guid>https://blog.pepese.com/tags/kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gradle</title>
-      <link>https://pepese.github.io/tags/gradle/</link>
+      <link>https://blog.pepese.com/tags/gradle/</link>
       <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/gradle/</guid>
+      <guid>https://blog.pepese.com/tags/gradle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://pepese.github.io/tags/java/</link>
+      <link>https://blog.pepese.com/tags/java/</link>
       <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/java/</guid>
+      <guid>https://blog.pepese.com/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>maven</title>
-      <link>https://pepese.github.io/tags/maven/</link>
+      <link>https://blog.pepese.com/tags/maven/</link>
       <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/maven/</guid>
+      <guid>https://blog.pepese.com/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sdkman</title>
-      <link>https://pepese.github.io/tags/sdkman/</link>
+      <link>https://blog.pepese.com/tags/sdkman/</link>
       <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/sdkman/</guid>
+      <guid>https://blog.pepese.com/tags/sdkman/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtualenv</title>
-      <link>https://pepese.github.io/tags/virtualenv/</link>
+      <link>https://blog.pepese.com/tags/virtualenv/</link>
       <pubDate>Thu, 07 Dec 2017 18:07:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/virtualenv/</guid>
+      <guid>https://blog.pepese.com/tags/virtualenv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>heroku</title>
-      <link>https://pepese.github.io/tags/heroku/</link>
+      <link>https://blog.pepese.com/tags/heroku/</link>
       <pubDate>Thu, 07 Dec 2017 07:56:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/heroku/</guid>
+      <guid>https://blog.pepese.com/tags/heroku/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine learning</title>
-      <link>https://pepese.github.io/tags/machine-learning/</link>
+      <link>https://blog.pepese.com/tags/machine-learning/</link>
       <pubDate>Sun, 26 Nov 2017 18:02:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/machine-learning/</guid>
+      <guid>https://blog.pepese.com/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scikit-surprise</title>
-      <link>https://pepese.github.io/tags/scikit-surprise/</link>
+      <link>https://blog.pepese.com/tags/scikit-surprise/</link>
       <pubDate>Sun, 26 Nov 2017 18:02:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/scikit-surprise/</guid>
+      <guid>https://blog.pepese.com/tags/scikit-surprise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>協調フィルタリング</title>
-      <link>https://pepese.github.io/tags/%E5%8D%94%E8%AA%BF%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0/</link>
+      <link>https://blog.pepese.com/tags/%E5%8D%94%E8%AA%BF%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0/</link>
       <pubDate>Sun, 26 Nov 2017 18:02:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/%E5%8D%94%E8%AA%BF%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0/</guid>
+      <guid>https://blog.pepese.com/tags/%E5%8D%94%E8%AA%BF%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flask</title>
-      <link>https://pepese.github.io/tags/flask/</link>
+      <link>https://blog.pepese.com/tags/flask/</link>
       <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/flask/</guid>
+      <guid>https://blog.pepese.com/tags/flask/</guid>
       <description></description>
     </item>
     
     <item>
       <title>line</title>
-      <link>https://pepese.github.io/tags/line/</link>
+      <link>https://blog.pepese.com/tags/line/</link>
       <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/line/</guid>
+      <guid>https://blog.pepese.com/tags/line/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ngrok</title>
-      <link>https://pepese.github.io/tags/ngrok/</link>
+      <link>https://blog.pepese.com/tags/ngrok/</link>
       <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/ngrok/</guid>
+      <guid>https://blog.pepese.com/tags/ngrok/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yython</title>
-      <link>https://pepese.github.io/tags/yython/</link>
+      <link>https://blog.pepese.com/tags/yython/</link>
       <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/yython/</guid>
+      <guid>https://blog.pepese.com/tags/yython/</guid>
       <description></description>
     </item>
     
     <item>
       <title>express</title>
-      <link>https://pepese.github.io/tags/express/</link>
+      <link>https://blog.pepese.com/tags/express/</link>
       <pubDate>Thu, 21 Sep 2017 08:10:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/express/</guid>
+      <guid>https://blog.pepese.com/tags/express/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>https://pepese.github.io/tags/javascript/</link>
+      <link>https://blog.pepese.com/tags/javascript/</link>
       <pubDate>Thu, 21 Sep 2017 08:10:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/javascript/</guid>
+      <guid>https://blog.pepese.com/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>multer</title>
-      <link>https://pepese.github.io/tags/multer/</link>
+      <link>https://blog.pepese.com/tags/multer/</link>
       <pubDate>Thu, 21 Sep 2017 08:10:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/multer/</guid>
+      <guid>https://blog.pepese.com/tags/multer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yarn</title>
-      <link>https://pepese.github.io/tags/yarn/</link>
+      <link>https://blog.pepese.com/tags/yarn/</link>
       <pubDate>Thu, 21 Sep 2017 08:10:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/yarn/</guid>
+      <guid>https://blog.pepese.com/tags/yarn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>npm</title>
-      <link>https://pepese.github.io/tags/npm/</link>
+      <link>https://blog.pepese.com/tags/npm/</link>
       <pubDate>Wed, 20 Sep 2017 17:50:44 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/npm/</guid>
+      <guid>https://blog.pepese.com/tags/npm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dynamodb</title>
-      <link>https://pepese.github.io/tags/dynamodb/</link>
+      <link>https://blog.pepese.com/tags/dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/dynamodb/</guid>
+      <guid>https://blog.pepese.com/tags/dynamodb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws cli</title>
-      <link>https://pepese.github.io/tags/aws-cli/</link>
+      <link>https://blog.pepese.com/tags/aws-cli/</link>
       <pubDate>Tue, 29 Aug 2017 07:58:05 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/aws-cli/</guid>
+      <guid>https://blog.pepese.com/tags/aws-cli/</guid>
       <description></description>
     </item>
     
     <item>
       <title>promise</title>
-      <link>https://pepese.github.io/tags/promise/</link>
+      <link>https://blog.pepese.com/tags/promise/</link>
       <pubDate>Mon, 28 Aug 2017 17:46:16 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/promise/</guid>
+      <guid>https://blog.pepese.com/tags/promise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>request</title>
-      <link>https://pepese.github.io/tags/request/</link>
+      <link>https://blog.pepese.com/tags/request/</link>
       <pubDate>Mon, 28 Aug 2017 17:46:16 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/request/</guid>
+      <guid>https://blog.pepese.com/tags/request/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sequelize</title>
-      <link>https://pepese.github.io/tags/sequelize/</link>
+      <link>https://blog.pepese.com/tags/sequelize/</link>
       <pubDate>Sun, 20 Aug 2017 17:48:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/sequelize/</guid>
+      <guid>https://blog.pepese.com/tags/sequelize/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chai</title>
-      <link>https://pepese.github.io/tags/chai/</link>
+      <link>https://blog.pepese.com/tags/chai/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/chai/</guid>
+      <guid>https://blog.pepese.com/tags/chai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>istanbul</title>
-      <link>https://pepese.github.io/tags/istanbul/</link>
+      <link>https://blog.pepese.com/tags/istanbul/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/istanbul/</guid>
+      <guid>https://blog.pepese.com/tags/istanbul/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mocha</title>
-      <link>https://pepese.github.io/tags/mocha/</link>
+      <link>https://blog.pepese.com/tags/mocha/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/mocha/</guid>
+      <guid>https://blog.pepese.com/tags/mocha/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nyc</title>
-      <link>https://pepese.github.io/tags/nyc/</link>
+      <link>https://blog.pepese.com/tags/nyc/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/nyc/</guid>
+      <guid>https://blog.pepese.com/tags/nyc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sinon.js</title>
-      <link>https://pepese.github.io/tags/sinon.js/</link>
+      <link>https://blog.pepese.com/tags/sinon.js/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/sinon.js/</guid>
+      <guid>https://blog.pepese.com/tags/sinon.js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>angular</title>
-      <link>https://pepese.github.io/tags/angular/</link>
+      <link>https://blog.pepese.com/tags/angular/</link>
       <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/angular/</guid>
+      <guid>https://blog.pepese.com/tags/angular/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sass</title>
-      <link>https://pepese.github.io/tags/sass/</link>
+      <link>https://blog.pepese.com/tags/sass/</link>
       <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/sass/</guid>
+      <guid>https://blog.pepese.com/tags/sass/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typescript</title>
-      <link>https://pepese.github.io/tags/typescript/</link>
+      <link>https://blog.pepese.com/tags/typescript/</link>
       <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/typescript/</guid>
+      <guid>https://blog.pepese.com/tags/typescript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scikit-learn</title>
-      <link>https://pepese.github.io/tags/scikit-learn/</link>
+      <link>https://blog.pepese.com/tags/scikit-learn/</link>
       <pubDate>Mon, 07 Aug 2017 08:29:13 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/scikit-learn/</guid>
+      <guid>https://blog.pepese.com/tags/scikit-learn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>機械学習</title>
-      <link>https://pepese.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</link>
+      <link>https://blog.pepese.com/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</link>
       <pubDate>Mon, 07 Aug 2017 08:29:13 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</guid>
+      <guid>https://blog.pepese.com/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</guid>
       <description></description>
     </item>
     
     <item>
       <title>svm</title>
-      <link>https://pepese.github.io/tags/svm/</link>
+      <link>https://blog.pepese.com/tags/svm/</link>
       <pubDate>Thu, 06 Jul 2017 08:34:29 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/svm/</guid>
+      <guid>https://blog.pepese.com/tags/svm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k-means</title>
-      <link>https://pepese.github.io/tags/k-means/</link>
+      <link>https://blog.pepese.com/tags/k-means/</link>
       <pubDate>Wed, 05 Jul 2017 18:00:50 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/k-means/</guid>
+      <guid>https://blog.pepese.com/tags/k-means/</guid>
       <description></description>
     </item>
     
     <item>
       <title>anyenv</title>
-      <link>https://pepese.github.io/tags/anyenv/</link>
+      <link>https://blog.pepese.com/tags/anyenv/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/anyenv/</guid>
+      <guid>https://blog.pepese.com/tags/anyenv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ndenv</title>
-      <link>https://pepese.github.io/tags/ndenv/</link>
+      <link>https://blog.pepese.com/tags/ndenv/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/ndenv/</guid>
+      <guid>https://blog.pepese.com/tags/ndenv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pyenv</title>
-      <link>https://pepese.github.io/tags/pyenv/</link>
+      <link>https://blog.pepese.com/tags/pyenv/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/pyenv/</guid>
+      <guid>https://blog.pepese.com/tags/pyenv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rbenv</title>
-      <link>https://pepese.github.io/tags/rbenv/</link>
+      <link>https://blog.pepese.com/tags/rbenv/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/rbenv/</guid>
+      <guid>https://blog.pepese.com/tags/rbenv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ruby</title>
-      <link>https://pepese.github.io/tags/ruby/</link>
+      <link>https://blog.pepese.com/tags/ruby/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/ruby/</guid>
+      <guid>https://blog.pepese.com/tags/ruby/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cognito</title>
-      <link>https://pepese.github.io/tags/cognito/</link>
+      <link>https://blog.pepese.com/tags/cognito/</link>
       <pubDate>Mon, 29 May 2017 07:49:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/cognito/</guid>
+      <guid>https://blog.pepese.com/tags/cognito/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://pepese.github.io/tags/git/</link>
+      <link>https://blog.pepese.com/tags/git/</link>
       <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/git/</guid>
+      <guid>https://blog.pepese.com/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github</title>
-      <link>https://pepese.github.io/tags/github/</link>
+      <link>https://blog.pepese.com/tags/github/</link>
       <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/github/</guid>
+      <guid>https://blog.pepese.com/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yypescript</title>
-      <link>https://pepese.github.io/tags/yypescript/</link>
+      <link>https://blog.pepese.com/tags/yypescript/</link>
       <pubDate>Sun, 14 May 2017 18:06:00 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/yypescript/</guid>
+      <guid>https://blog.pepese.com/tags/yypescript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>seo</title>
-      <link>https://pepese.github.io/tags/seo/</link>
+      <link>https://blog.pepese.com/tags/seo/</link>
       <pubDate>Thu, 11 May 2017 18:12:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/seo/</guid>
+      <guid>https://blog.pepese.com/tags/seo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>はてなブログ</title>
-      <link>https://pepese.github.io/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/</link>
+      <link>https://blog.pepese.com/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/</link>
       <pubDate>Thu, 11 May 2017 18:12:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/</guid>
+      <guid>https://blog.pepese.com/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>atom</title>
-      <link>https://pepese.github.io/tags/atom/</link>
+      <link>https://blog.pepese.com/tags/atom/</link>
       <pubDate>Thu, 11 May 2017 07:45:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/atom/</guid>
+      <guid>https://blog.pepese.com/tags/atom/</guid>
       <description></description>
     </item>
     
     <item>
       <title>homebrew</title>
-      <link>https://pepese.github.io/tags/homebrew/</link>
+      <link>https://blog.pepese.com/tags/homebrew/</link>
       <pubDate>Tue, 09 May 2017 08:06:42 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/homebrew/</guid>
+      <guid>https://blog.pepese.com/tags/homebrew/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hexo</title>
-      <link>https://pepese.github.io/tags/hexo/</link>
+      <link>https://blog.pepese.com/tags/hexo/</link>
       <pubDate>Tue, 02 May 2017 07:58:10 +0900</pubDate>
       
-      <guid>https://pepese.github.io/tags/hexo/</guid>
+      <guid>https://blog.pepese.com/tags/hexo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag_name</title>
-      <link>https://pepese.github.io/tags/tag_name/</link>
+      <link>https://blog.pepese.com/tags/tag_name/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pepese.github.io/tags/tag_name/</guid>
+      <guid>https://blog.pepese.com/tags/tag_name/</guid>
       <description></description>
     </item>
     

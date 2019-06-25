@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>virtualenv on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/virtualenv/</link>
+    <link>https://blog.pepese.com/tags/virtualenv/</link>
     <description>Recent content in virtualenv on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Thu, 07 Dec 2017 18:07:39 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/virtualenv/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/virtualenv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Virtualenv入門</title>
-      <link>https://pepese.github.io/entry/virtualenv-basics/</link>
+      <link>https://blog.pepese.com/entry/virtualenv-basics/</link>
       <pubDate>Thu, 07 Dec 2017 18:07:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/virtualenv-basics/</guid>
+      <guid>https://blog.pepese.com/entry/virtualenv-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://virtualenv.pypa.io/en/stable/&#34;&gt;Virtualenv&lt;/a&gt; についてかるくまとめる。&lt;br /&gt;
 以下の記事を読んで pyenv を導入済みである前提で記載する。&lt;/p&gt;
 

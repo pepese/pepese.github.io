@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/hugo/</link>
+    <link>https://blog.pepese.com/tags/hugo/</link>
     <description>Recent content in hugo on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Sun, 26 May 2019 16:09:06 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HexoからHugoに移行する</title>
-      <link>https://pepese.github.io/entry/hugo-basics/</link>
+      <link>https://blog.pepese.com/entry/hugo-basics/</link>
       <pubDate>Sun, 26 May 2019 16:09:06 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/hugo-basics/</guid>
+      <guid>https://blog.pepese.com/entry/hugo-basics/</guid>
       <description>&lt;p&gt;Hexo から Hugo に移行する時のメモ。&lt;br /&gt;
 タイトルは「移行する」だが、「移行」の方法については書いてない。&lt;br /&gt;
 各記事 Markdown のフロント（ヘッダ？）部分の yaml が違うだけなので量が多ければスクリプトなどへ変換されたし。（人によって設定も違うし）&lt;/p&gt;

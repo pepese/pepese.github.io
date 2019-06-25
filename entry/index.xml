@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Entries on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/entry/</link>
+    <link>https://blog.pepese.com/entry/</link>
     <description>Recent content in Entries on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Mon, 03 Jun 2019 07:18:58 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/entry/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/entry/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AWS IAMまとめ</title>
-      <link>https://pepese.github.io/entry/aws-iam-basics/</link>
+      <link>https://blog.pepese.com/entry/aws-iam-basics/</link>
       <pubDate>Mon, 03 Jun 2019 07:18:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/aws-iam-basics/</guid>
+      <guid>https://blog.pepese.com/entry/aws-iam-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/iam/&#34;&gt;Identity and Access Management（ IAM ）&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>HexoからHugoに移行する</title>
-      <link>https://pepese.github.io/entry/hugo-basics/</link>
+      <link>https://blog.pepese.com/entry/hugo-basics/</link>
       <pubDate>Sun, 26 May 2019 16:09:06 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/hugo-basics/</guid>
+      <guid>https://blog.pepese.com/entry/hugo-basics/</guid>
       <description>&lt;p&gt;Hexo から Hugo に移行する時のメモ。&lt;br /&gt;
 タイトルは「移行する」だが、「移行」の方法については書いてない。&lt;br /&gt;
 各記事 Markdown のフロント（ヘッダ？）部分の yaml が違うだけなので量が多ければスクリプトなどへ変換されたし。（人によって設定も違うし）&lt;/p&gt;
@@ -39,10 +39,10 @@
     
     <item>
       <title>Amazon VPCまとめ</title>
-      <link>https://pepese.github.io/entry/aws-vpc-basics/</link>
+      <link>https://blog.pepese.com/entry/aws-vpc-basics/</link>
       <pubDate>Thu, 23 May 2019 09:24:08 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/aws-vpc-basics/</guid>
+      <guid>https://blog.pepese.com/entry/aws-vpc-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; の &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/vpc/&#34;&gt;VPC&lt;/a&gt; についてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -66,10 +66,10 @@
     
     <item>
       <title>Goで文字列操作</title>
-      <link>https://pepese.github.io/entry/golang-string/</link>
+      <link>https://blog.pepese.com/entry/golang-string/</link>
       <pubDate>Mon, 11 Feb 2019 18:21:26 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-string/</guid>
+      <guid>https://blog.pepese.com/entry/golang-string/</guid>
       <description>&lt;p&gt;golang の文字列操作をまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -81,10 +81,10 @@
     
     <item>
       <title>Goでソート</title>
-      <link>https://pepese.github.io/entry/golang-sort/</link>
+      <link>https://blog.pepese.com/entry/golang-sort/</link>
       <pubDate>Sun, 10 Feb 2019 18:18:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-sort/</guid>
+      <guid>https://blog.pepese.com/entry/golang-sort/</guid>
       <description>&lt;p&gt;Golang におけるソートについてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -96,10 +96,10 @@
     
     <item>
       <title>Goの変数・型・定数・リテラル</title>
-      <link>https://pepese.github.io/entry/golang-var-type-const-literal/</link>
+      <link>https://blog.pepese.com/entry/golang-var-type-const-literal/</link>
       <pubDate>Fri, 08 Feb 2019 18:22:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-var-type-const-literal/</guid>
+      <guid>https://blog.pepese.com/entry/golang-var-type-const-literal/</guid>
       <description>&lt;p&gt;golang の変数・型・定数・リテラルについてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -113,10 +113,10 @@
     
     <item>
       <title>Goでファイル入出力</title>
-      <link>https://pepese.github.io/entry/golang-file-io/</link>
+      <link>https://blog.pepese.com/entry/golang-file-io/</link>
       <pubDate>Fri, 08 Feb 2019 18:19:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-file-io/</guid>
+      <guid>https://blog.pepese.com/entry/golang-file-io/</guid>
       <description>&lt;p&gt;golang のファイル入出力についてまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -129,10 +129,10 @@
     
     <item>
       <title>Go入門</title>
-      <link>https://pepese.github.io/entry/golang-basics/</link>
+      <link>https://blog.pepese.com/entry/golang-basics/</link>
       <pubDate>Thu, 03 Jan 2019 18:23:48 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/golang-basics/</guid>
+      <guid>https://blog.pepese.com/entry/golang-basics/</guid>
       <description>&lt;p&gt;golang の基本的なところをまとめる。&lt;br /&gt;
 さらっとまとめるつもりがどえらい量になったので注意。&lt;/p&gt;
 
@@ -144,10 +144,10 @@
     
     <item>
       <title>Jupyter Notebook入門</title>
-      <link>https://pepese.github.io/entry/jupyter-notebook-basics/</link>
+      <link>https://blog.pepese.com/entry/jupyter-notebook-basics/</link>
       <pubDate>Tue, 20 Feb 2018 08:03:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/jupyter-notebook-basics/</guid>
+      <guid>https://blog.pepese.com/entry/jupyter-notebook-basics/</guid>
       <description>&lt;p&gt;Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -158,10 +158,10 @@
     
     <item>
       <title>形態素解析システムMeCab入門</title>
-      <link>https://pepese.github.io/entry/mecab-basics/</link>
+      <link>https://blog.pepese.com/entry/mecab-basics/</link>
       <pubDate>Sun, 04 Feb 2018 18:13:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/mecab-basics/</guid>
+      <guid>https://blog.pepese.com/entry/mecab-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://taku910.github.io/mecab/&#34;&gt;公式&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -174,10 +174,10 @@
     
     <item>
       <title>Word2vec入門</title>
-      <link>https://pepese.github.io/entry/word2vec-basics/</link>
+      <link>https://blog.pepese.com/entry/word2vec-basics/</link>
       <pubDate>Sun, 04 Feb 2018 18:10:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/word2vec-basics/</guid>
+      <guid>https://blog.pepese.com/entry/word2vec-basics/</guid>
       <description>&lt;p&gt;Mecab については以下を参考。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -187,19 +187,19 @@
     
     <item>
       <title>Pythonでデータ分析入門</title>
-      <link>https://pepese.github.io/entry/python-data-analytics-basics/</link>
+      <link>https://blog.pepese.com/entry/python-data-analytics-basics/</link>
       <pubDate>Sun, 04 Feb 2018 17:59:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-data-analytics-basics/</guid>
+      <guid>https://blog.pepese.com/entry/python-data-analytics-basics/</guid>
       <description>&lt;p&gt;Python でのデータ分析環境・アプローチについて自分向けにまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Pandas入門 DataFrame編</title>
-      <link>https://pepese.github.io/entry/pandas-basics-dataframe/</link>
+      <link>https://blog.pepese.com/entry/pandas-basics-dataframe/</link>
       <pubDate>Sun, 04 Feb 2018 17:57:41 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/pandas-basics-dataframe/</guid>
+      <guid>https://blog.pepese.com/entry/pandas-basics-dataframe/</guid>
       <description>&lt;p&gt;Python ライブラリである Pandas の DataFrame についてまとめる。&lt;/p&gt;
 
 &lt;p&gt;- &lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/p&gt;</description>
@@ -207,10 +207,10 @@
     
     <item>
       <title>Nginx入門</title>
-      <link>https://pepese.github.io/entry/nginx-basics/</link>
+      <link>https://blog.pepese.com/entry/nginx-basics/</link>
       <pubDate>Sun, 04 Feb 2018 08:08:16 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/nginx-basics/</guid>
+      <guid>https://blog.pepese.com/entry/nginx-basics/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;インストール&lt;/li&gt;
 &lt;li&gt;ディレクトリ構成&lt;/li&gt;
@@ -220,19 +220,19 @@
     
     <item>
       <title>Visual Studio Code入門</title>
-      <link>https://pepese.github.io/entry/vscode-basics/</link>
+      <link>https://blog.pepese.com/entry/vscode-basics/</link>
       <pubDate>Wed, 31 Jan 2018 18:09:30 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/vscode-basics/</guid>
+      <guid>https://blog.pepese.com/entry/vscode-basics/</guid>
       <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Appium入門</title>
-      <link>https://pepese.github.io/entry/appium-basics/</link>
+      <link>https://blog.pepese.com/entry/appium-basics/</link>
       <pubDate>Sat, 06 Jan 2018 07:44:15 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/appium-basics/</guid>
+      <guid>https://blog.pepese.com/entry/appium-basics/</guid>
       <description>&lt;p&gt;Appium は Selenium WebDriver の一種で、ネイティブアプリの自動テストを可能にする。&lt;br /&gt;
 Node.js 上でサーバーとして動作し、HTTP 経由で WebDriver API を通して操作を受け付けるという仕組み。&lt;br /&gt;
 Appium の背後には iOS 用, Android 用, Win 用などのドライバがある。&lt;/p&gt;
@@ -246,10 +246,10 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
     
     <item>
       <title>Androidアプリ入門 Macで環境構築編</title>
-      <link>https://pepese.github.io/entry/android-env-on-mac/</link>
+      <link>https://blog.pepese.com/entry/android-env-on-mac/</link>
       <pubDate>Sat, 06 Jan 2018 07:41:30 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/android-env-on-mac/</guid>
+      <guid>https://blog.pepese.com/entry/android-env-on-mac/</guid>
       <description>&lt;p&gt;Mac で Android アプリを開発する際の環境構築についてまとめる。&lt;br /&gt;
 なお、プログラミング言語は &lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; を選択する。&lt;/p&gt;
 
@@ -258,19 +258,19 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
     
     <item>
       <title>SDKMAN入門</title>
-      <link>https://pepese.github.io/entry/sdkman-basics/</link>
+      <link>https://blog.pepese.com/entry/sdkman-basics/</link>
       <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/sdkman-basics/</guid>
+      <guid>https://blog.pepese.com/entry/sdkman-basics/</guid>
       <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Virtualenv入門</title>
-      <link>https://pepese.github.io/entry/virtualenv-basics/</link>
+      <link>https://blog.pepese.com/entry/virtualenv-basics/</link>
       <pubDate>Thu, 07 Dec 2017 18:07:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/virtualenv-basics/</guid>
+      <guid>https://blog.pepese.com/entry/virtualenv-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://virtualenv.pypa.io/en/stable/&#34;&gt;Virtualenv&lt;/a&gt; についてかるくまとめる。&lt;br /&gt;
 以下の記事を読んで pyenv を導入済みである前提で記載する。&lt;/p&gt;
 
@@ -281,10 +281,10 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
     
     <item>
       <title>Heroku入門</title>
-      <link>https://pepese.github.io/entry/heroku-basics/</link>
+      <link>https://blog.pepese.com/entry/heroku-basics/</link>
       <pubDate>Thu, 07 Dec 2017 07:56:43 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/heroku-basics/</guid>
+      <guid>https://blog.pepese.com/entry/heroku-basics/</guid>
       <description>&lt;p&gt;Heroku は salesforce が運営する PaaS 。&lt;br /&gt;
 Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。&lt;br /&gt;
 Free プランの落とし穴は、 30 分アクセスが無いとインスタンス（ dyno ）が Sleep してしまうところ。　　
@@ -293,34 +293,34 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
     
     <item>
       <title>Pythonで機械学習 レコメンド編</title>
-      <link>https://pepese.github.io/entry/python-ml-recommendation/</link>
+      <link>https://blog.pepese.com/entry/python-ml-recommendation/</link>
       <pubDate>Sun, 26 Nov 2017 18:02:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-recommendation/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-recommendation/</guid>
       <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br /&gt;
 スクラッチではなく、できるだけライブラリ（ &lt;a href=&#34;http://surpriselib.com/&#34;&gt;scikit-surprise&lt;/a&gt; ）を利用する。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>LINEチャットボットをFlaskとngrokで</title>
-      <link>https://pepese.github.io/entry/flask-ngrok-chatbot/</link>
+      <link>https://blog.pepese.com/entry/flask-ngrok-chatbot/</link>
       <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/flask-ngrok-chatbot/</guid>
+      <guid>https://blog.pepese.com/entry/flask-ngrok-chatbot/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; と &lt;a href=&#34;https://ngrok.com/&#34;&gt;ngrok&lt;/a&gt; でメッセージをオウム返しする LINE のチャットボットを作ってみた。&lt;br /&gt;
 Heroku で公開したい場合は以下参照。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/heroku-basics/&#34;&gt;Heroku入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/heroku-basics/&#34;&gt;Heroku入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
-      <link>https://pepese.github.io/entry/express-multer-fileupload/</link>
+      <link>https://blog.pepese.com/entry/express-multer-fileupload/</link>
       <pubDate>Thu, 21 Sep 2017 08:10:39 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-multer-fileupload/</guid>
+      <guid>https://blog.pepese.com/entry/express-multer-fileupload/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br /&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
 
@@ -337,10 +337,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
-      <link>https://pepese.github.io/entry/express-browser-put-delete-request/</link>
+      <link>https://blog.pepese.com/entry/express-browser-put-delete-request/</link>
       <pubDate>Wed, 20 Sep 2017 17:50:44 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-browser-put-delete-request/</guid>
+      <guid>https://blog.pepese.com/entry/express-browser-put-delete-request/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br /&gt;
 通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br /&gt;
 ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 &lt;em&gt;Node.js/Express側でPUT/DELETEリクエストとして解釈&lt;/em&gt; しているだけ。&lt;/p&gt;
@@ -354,10 +354,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>JavaでDynamoDBへアクセスする</title>
-      <link>https://pepese.github.io/entry/java-dynamodb/</link>
+      <link>https://blog.pepese.com/entry/java-dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/java-dynamodb/</guid>
+      <guid>https://blog.pepese.com/entry/java-dynamodb/</guid>
       <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br /&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
 
@@ -369,10 +369,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>Node.jsでDynamoDBへアクセスする</title>
-      <link>https://pepese.github.io/entry/nodejs-dynamodb/</link>
+      <link>https://blog.pepese.com/entry/nodejs-dynamodb/</link>
       <pubDate>Tue, 29 Aug 2017 17:55:56 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/nodejs-dynamodb/</guid>
+      <guid>https://blog.pepese.com/entry/nodejs-dynamodb/</guid>
       <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br /&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
 
@@ -384,10 +384,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>DyanamoDB入門</title>
-      <link>https://pepese.github.io/entry/dynamodb-basics/</link>
+      <link>https://blog.pepese.com/entry/dynamodb-basics/</link>
       <pubDate>Tue, 29 Aug 2017 07:58:05 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/dynamodb-basics/</guid>
+      <guid>https://blog.pepese.com/entry/dynamodb-basics/</guid>
       <description>&lt;p&gt;ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -399,10 +399,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>Node.js・Expres・requestでHTTP(S)リクエストを発行する</title>
-      <link>https://pepese.github.io/entry/express-http-client-request/</link>
+      <link>https://blog.pepese.com/entry/express-http-client-request/</link>
       <pubDate>Mon, 28 Aug 2017 17:46:16 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-http-client-request/</guid>
+      <guid>https://blog.pepese.com/entry/express-http-client-request/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;br /&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
 
@@ -423,10 +423,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
-      <link>https://pepese.github.io/entry/express-rdb-sequelize/</link>
+      <link>https://blog.pepese.com/entry/express-rdb-sequelize/</link>
       <pubDate>Sun, 20 Aug 2017 17:48:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-rdb-sequelize/</guid>
+      <guid>https://blog.pepese.com/entry/express-rdb-sequelize/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br /&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
 
@@ -452,10 +452,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>Node.js・Expressでユニットテスト</title>
-      <link>https://pepese.github.io/entry/express-test/</link>
+      <link>https://blog.pepese.com/entry/express-test/</link>
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-test/</guid>
+      <guid>https://blog.pepese.com/entry/express-test/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;br /&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
 
@@ -502,10 +502,10 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>Angular入門</title>
-      <link>https://pepese.github.io/entry/angular-basics/</link>
+      <link>https://blog.pepese.com/entry/angular-basics/</link>
       <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-basics/</guid>
+      <guid>https://blog.pepese.com/entry/angular-basics/</guid>
       <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br /&gt;
 ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;br /&gt;
 なお、 &lt;strong&gt;ndenv&lt;/strong&gt; が入ってるテイで書く。導入は下記記事参照。&lt;/p&gt;
@@ -517,20 +517,20 @@ Heroku で公開したい場合は以下参照。&lt;/p&gt;
     
     <item>
       <title>所謂MEANスタックを作る</title>
-      <link>https://pepese.github.io/entry/mean-stack-basics/</link>
+      <link>https://blog.pepese.com/entry/mean-stack-basics/</link>
       <pubDate>Mon, 14 Aug 2017 08:24:46 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/mean-stack-basics/</guid>
+      <guid>https://blog.pepese.com/entry/mean-stack-basics/</guid>
       <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br /&gt;
 と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Node.js・npm入門</title>
-      <link>https://pepese.github.io/entry/nodejs-basics/</link>
+      <link>https://blog.pepese.com/entry/nodejs-basics/</link>
       <pubDate>Mon, 14 Aug 2017 08:10:36 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/nodejs-basics/</guid>
+      <guid>https://blog.pepese.com/entry/nodejs-basics/</guid>
       <description>&lt;p&gt;Node.js（npm）についてまとめる。&lt;/p&gt;
 
 &lt;p&gt;npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。&lt;br /&gt;
@@ -544,10 +544,10 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
     
     <item>
       <title>Express入門</title>
-      <link>https://pepese.github.io/entry/express-basics/</link>
+      <link>https://blog.pepese.com/entry/express-basics/</link>
       <pubDate>Mon, 14 Aug 2017 07:59:50 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-basics/</guid>
+      <guid>https://blog.pepese.com/entry/express-basics/</guid>
       <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;br /&gt;
 下記の記事を読んだテイで書く。&lt;/p&gt;
 
@@ -558,10 +558,10 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
     
     <item>
       <title>Pythonで機械学習 精度評価編</title>
-      <link>https://pepese.github.io/entry/python-ml-metrics-score/</link>
+      <link>https://blog.pepese.com/entry/python-ml-metrics-score/</link>
       <pubDate>Mon, 07 Aug 2017 08:29:13 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-metrics-score/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-metrics-score/</guid>
       <description>&lt;p&gt;ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -573,10 +573,10 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
     
     <item>
       <title>Pythonで機械学習 SVMで多クラス分類問題編</title>
-      <link>https://pepese.github.io/entry/python-ml-svm-multiclass/</link>
+      <link>https://blog.pepese.com/entry/python-ml-svm-multiclass/</link>
       <pubDate>Thu, 06 Jul 2017 08:34:29 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-svm-multiclass/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-svm-multiclass/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;多クラス分類問題&lt;/strong&gt; を解いてみる。&lt;br /&gt;
 SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
 
@@ -599,10 +599,10 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
     
     <item>
       <title>Pythonで機械学習 K Meansでクラスタリング編</title>
-      <link>https://pepese.github.io/entry/python-ml-k-means-clustering/</link>
+      <link>https://blog.pepese.com/entry/python-ml-k-means-clustering/</link>
       <pubDate>Wed, 05 Jul 2017 18:00:50 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-k-means-clustering/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-k-means-clustering/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;br /&gt;
 データセットは、以下で紹介している &lt;strong&gt;iris データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
 
@@ -613,19 +613,19 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
     
     <item>
       <title>Pythonで機械学習 データセット編</title>
-      <link>https://pepese.github.io/entry/python-ml-datasets/</link>
+      <link>https://blog.pepese.com/entry/python-ml-datasets/</link>
       <pubDate>Wed, 05 Jul 2017 08:38:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-datasets/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-datasets/</guid>
       <description>&lt;p&gt;ここでは、機械学習で利用するデータセットを紹介する。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Pythonで機械学習 SVMで2クラス分類問題編</title>
-      <link>https://pepese.github.io/entry/python-ml-svm-2class/</link>
+      <link>https://blog.pepese.com/entry/python-ml-svm-2class/</link>
       <pubDate>Wed, 05 Jul 2017 08:32:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-svm-2class/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-svm-2class/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;2クラス分類問題&lt;/strong&gt; を解いてみる。&lt;br /&gt;
 データセットは、以下で紹介している &lt;strong&gt;digits データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
 
@@ -642,10 +642,10 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
     
     <item>
       <title>すべての**envを管理するanyenv</title>
-      <link>https://pepese.github.io/entry/anyenv/</link>
+      <link>https://blog.pepese.com/entry/anyenv/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/anyenv/</guid>
+      <guid>https://blog.pepese.com/entry/anyenv/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br /&gt;
 「すべて」は言い過ぎた。&lt;br /&gt;
 以降、anyenv、**env のインストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
@@ -653,10 +653,10 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
     
     <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
-      <link>https://pepese.github.io/entry/angular-router-cognito/</link>
+      <link>https://blog.pepese.com/entry/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 07:49:45 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-router-cognito/</guid>
+      <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -666,16 +666,16 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
     
     <item>
       <title>Git Flowとコンフリクトの解消</title>
-      <link>https://pepese.github.io/entry/git-flow-fix-conflict/</link>
+      <link>https://blog.pepese.com/entry/git-flow-fix-conflict/</link>
       <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-flow-fix-conflict/</guid>
+      <guid>https://blog.pepese.com/entry/git-flow-fix-conflict/</guid>
       <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;br /&gt;
 gitについては以下を参照。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以下の順で記載する。&lt;/p&gt;
@@ -688,16 +688,16 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
-      <link>https://pepese.github.io/entry/angular-cognito/</link>
+      <link>https://blog.pepese.com/entry/angular-cognito/</link>
       <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/angular-cognito/</guid>
+      <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
       <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br /&gt;
 以下の記事の知識を前提とする。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pepese.github.io/blog/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/2017/03/16/152007&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;
@@ -711,10 +711,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>TypeScript環境入門</title>
-      <link>https://pepese.github.io/entry/typescript-environment-basics/</link>
+      <link>https://blog.pepese.com/entry/typescript-environment-basics/</link>
       <pubDate>Sun, 14 May 2017 18:06:00 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/typescript-environment-basics/</guid>
+      <guid>https://blog.pepese.com/entry/typescript-environment-basics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;br /&gt;
 文法については触れない。また、前提の環境構築（ &lt;code&gt;npm&lt;/code&gt; など）は以下。&lt;/p&gt;
 
@@ -725,10 +725,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>はてなブログの一部の記事を移転するときに気をつけること</title>
-      <link>https://pepese.github.io/entry/move-article/</link>
+      <link>https://blog.pepese.com/entry/move-article/</link>
       <pubDate>Thu, 11 May 2017 18:12:21 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/move-article/</guid>
+      <guid>https://blog.pepese.com/entry/move-article/</guid>
       <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br /&gt;
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。&lt;/p&gt;
@@ -744,10 +744,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Gitコマンド整理</title>
-      <link>https://pepese.github.io/entry/git-commands/</link>
+      <link>https://blog.pepese.com/entry/git-commands/</link>
       <pubDate>Thu, 11 May 2017 07:53:38 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-commands/</guid>
+      <guid>https://blog.pepese.com/entry/git-commands/</guid>
       <description>&lt;p&gt;以下のような感じでGitコマンド、概念を整理する。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -767,19 +767,19 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Atomのインストールとパッケージの導入</title>
-      <link>https://pepese.github.io/entry/atom-install-packages/</link>
+      <link>https://blog.pepese.com/entry/atom-install-packages/</link>
       <pubDate>Thu, 11 May 2017 07:45:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/atom-install-packages/</guid>
+      <guid>https://blog.pepese.com/entry/atom-install-packages/</guid>
       <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Macで開発環境を作る</title>
-      <link>https://pepese.github.io/entry/mac-dev-environment/</link>
+      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
       <pubDate>Tue, 09 May 2017 08:06:42 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/mac-dev-environment/</guid>
+      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
       <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br /&gt;
 以下のようなことを書く。&lt;/p&gt;
 
@@ -796,10 +796,10 @@ gitについては以下を参照。&lt;/p&gt;
     
     <item>
       <title>Homebrew入門</title>
-      <link>https://pepese.github.io/entry/homebrew-basics/</link>
+      <link>https://blog.pepese.com/entry/homebrew-basics/</link>
       <pubDate>Tue, 09 May 2017 08:00:18 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/homebrew-basics/</guid>
+      <guid>https://blog.pepese.com/entry/homebrew-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br /&gt;
 HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br /&gt;
 インストールから使い方までまとめてみる。&lt;/p&gt;</description>
@@ -807,10 +807,10 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
     
     <item>
       <title>Hexoで作ったブログをGithub Pagesで公開</title>
-      <link>https://pepese.github.io/entry/hexo-github-pages/</link>
+      <link>https://blog.pepese.com/entry/hexo-github-pages/</link>
       <pubDate>Tue, 02 May 2017 07:58:10 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/hexo-github-pages/</guid>
+      <guid>https://blog.pepese.com/entry/hexo-github-pages/</guid>
       <description>&lt;p&gt;はてなブログが一向に &lt;em&gt;https&lt;/em&gt; 対応しないし、そのほかのリスクも考えて流行りの &lt;strong&gt;静的サイトジェネレータ&lt;/strong&gt; の &lt;a href=&#34;https://hexo.io/&#34;&gt;HEXO&lt;/a&gt; を使ってブログを作成し、&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;で公開してみる。&lt;br /&gt;
 前提として &lt;strong&gt;npm&lt;/strong&gt; と &lt;strong&gt;Git&lt;/strong&gt; 環境が必要なため以下参照。&lt;/p&gt;
 
@@ -821,10 +821,10 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
     
     <item>
       <title>Git入門</title>
-      <link>https://pepese.github.io/entry/git-basics/</link>
+      <link>https://blog.pepese.com/entry/git-basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pepese.github.io/entry/git-basics/</guid>
+      <guid>https://blog.pepese.com/entry/git-basics/</guid>
       <description>&lt;p&gt;Git/Githubのメモ。&lt;br /&gt;
 インストールから簡単な使い方まで書いてみる。&lt;/p&gt;
 

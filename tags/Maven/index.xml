@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>maven on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/maven/</link>
+    <link>https://blog.pepese.com/tags/maven/</link>
     <description>Recent content in maven on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Fri, 15 Dec 2017 18:04:28 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SDKMAN入門</title>
-      <link>https://pepese.github.io/entry/sdkman-basics/</link>
+      <link>https://blog.pepese.com/entry/sdkman-basics/</link>
       <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/sdkman-basics/</guid>
+      <guid>https://blog.pepese.com/entry/sdkman-basics/</guid>
       <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaでDynamoDBへアクセスする</title>
-      <link>https://pepese.github.io/entry/java-dynamodb/</link>
+      <link>https://blog.pepese.com/entry/java-dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/java-dynamodb/</guid>
+      <guid>https://blog.pepese.com/entry/java-dynamodb/</guid>
       <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br /&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
 
@@ -37,10 +37,10 @@
     
     <item>
       <title>Macで開発環境を作る</title>
-      <link>https://pepese.github.io/entry/mac-dev-environment/</link>
+      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
       <pubDate>Tue, 09 May 2017 08:06:42 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/mac-dev-environment/</guid>
+      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
       <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br /&gt;
 以下のようなことを書く。&lt;/p&gt;
 

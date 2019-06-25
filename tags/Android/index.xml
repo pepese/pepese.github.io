@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>android on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/android/</link>
+    <link>https://blog.pepese.com/tags/android/</link>
     <description>Recent content in android on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Sat, 06 Jan 2018 07:44:15 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Appium入門</title>
-      <link>https://pepese.github.io/entry/appium-basics/</link>
+      <link>https://blog.pepese.com/entry/appium-basics/</link>
       <pubDate>Sat, 06 Jan 2018 07:44:15 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/appium-basics/</guid>
+      <guid>https://blog.pepese.com/entry/appium-basics/</guid>
       <description>&lt;p&gt;Appium は Selenium WebDriver の一種で、ネイティブアプリの自動テストを可能にする。&lt;br /&gt;
 Node.js 上でサーバーとして動作し、HTTP 経由で WebDriver API を通して操作を受け付けるという仕組み。&lt;br /&gt;
 Appium の背後には iOS 用, Android 用, Win 用などのドライバがある。&lt;/p&gt;
@@ -30,10 +30,10 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
     
     <item>
       <title>Androidアプリ入門 Macで環境構築編</title>
-      <link>https://pepese.github.io/entry/android-env-on-mac/</link>
+      <link>https://blog.pepese.com/entry/android-env-on-mac/</link>
       <pubDate>Sat, 06 Jan 2018 07:41:30 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/android-env-on-mac/</guid>
+      <guid>https://blog.pepese.com/entry/android-env-on-mac/</guid>
       <description>&lt;p&gt;Mac で Android アプリを開発する際の環境構築についてまとめる。&lt;br /&gt;
 なお、プログラミング言語は &lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; を選択する。&lt;/p&gt;
 

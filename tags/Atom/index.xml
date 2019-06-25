@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>atom on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/atom/</link>
+    <link>https://blog.pepese.com/tags/atom/</link>
     <description>Recent content in atom on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Thu, 11 May 2017 07:45:58 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/atom/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/atom/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Atomのインストールとパッケージの導入</title>
-      <link>https://pepese.github.io/entry/atom-install-packages/</link>
+      <link>https://blog.pepese.com/entry/atom-install-packages/</link>
       <pubDate>Thu, 11 May 2017 07:45:58 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/atom-install-packages/</guid>
+      <guid>https://blog.pepese.com/entry/atom-install-packages/</guid>
       <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
     </item>
     

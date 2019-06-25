@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dynamodb on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/dynamodb/</link>
+    <link>https://blog.pepese.com/tags/dynamodb/</link>
     <description>Recent content in dynamodb on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Wed, 30 Aug 2017 08:01:37 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/dynamodb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/dynamodb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JavaでDynamoDBへアクセスする</title>
-      <link>https://pepese.github.io/entry/java-dynamodb/</link>
+      <link>https://blog.pepese.com/entry/java-dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/java-dynamodb/</guid>
+      <guid>https://blog.pepese.com/entry/java-dynamodb/</guid>
       <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br /&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
 
@@ -28,10 +28,10 @@
     
     <item>
       <title>Node.jsでDynamoDBへアクセスする</title>
-      <link>https://pepese.github.io/entry/nodejs-dynamodb/</link>
+      <link>https://blog.pepese.com/entry/nodejs-dynamodb/</link>
       <pubDate>Tue, 29 Aug 2017 17:55:56 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/nodejs-dynamodb/</guid>
+      <guid>https://blog.pepese.com/entry/nodejs-dynamodb/</guid>
       <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br /&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
 
@@ -43,10 +43,10 @@
     
     <item>
       <title>DyanamoDB入門</title>
-      <link>https://pepese.github.io/entry/dynamodb-basics/</link>
+      <link>https://blog.pepese.com/entry/dynamodb-basics/</link>
       <pubDate>Tue, 29 Aug 2017 07:58:05 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/dynamodb-basics/</guid>
+      <guid>https://blog.pepese.com/entry/dynamodb-basics/</guid>
       <description>&lt;p&gt;ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;
 
 &lt;ul&gt;

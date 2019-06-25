@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>request on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/request/</link>
+    <link>https://blog.pepese.com/tags/request/</link>
     <description>Recent content in request on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Mon, 28 Aug 2017 17:46:16 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/request/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/request/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Node.js・Expres・requestでHTTP(S)リクエストを発行する</title>
-      <link>https://pepese.github.io/entry/express-http-client-request/</link>
+      <link>https://blog.pepese.com/entry/express-http-client-request/</link>
       <pubDate>Mon, 28 Aug 2017 17:46:16 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/express-http-client-request/</guid>
+      <guid>https://blog.pepese.com/entry/express-http-client-request/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;br /&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
 

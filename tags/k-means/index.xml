@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k-means on ぺーぺーSEのテックブログ</title>
-    <link>https://pepese.github.io/tags/k-means/</link>
+    <link>https://blog.pepese.com/tags/k-means/</link>
     <description>Recent content in k-means on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Wed, 05 Jul 2017 18:00:50 +0900</lastBuildDate>
     
-	<atom:link href="https://pepese.github.io/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.pepese.com/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Pythonで機械学習 K Meansでクラスタリング編</title>
-      <link>https://pepese.github.io/entry/python-ml-k-means-clustering/</link>
+      <link>https://blog.pepese.com/entry/python-ml-k-means-clustering/</link>
       <pubDate>Wed, 05 Jul 2017 18:00:50 +0900</pubDate>
       
-      <guid>https://pepese.github.io/entry/python-ml-k-means-clustering/</guid>
+      <guid>https://blog.pepese.com/entry/python-ml-k-means-clustering/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;br /&gt;
 データセットは、以下で紹介している &lt;strong&gt;iris データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
 
