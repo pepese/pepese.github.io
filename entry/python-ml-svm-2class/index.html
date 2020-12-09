@@ -20,21 +20,17 @@
 <meta property="og:description" content="ここでは、 scikit-learn の SVM モジュールを使用して 2クラス分類問題 を解いてみる。
 データセットは、以下で紹介している digits データセット を使用する。
 
-
 Pythonで機械学習 データセット編
 
-
 後半で実施している精度評価についての詳細は以下を参照。
-
 
 Pythonで機械学習 精度評価編
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/python-ml-svm-2class/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-07-05T08:32:21&#43;09:00"/>
-<meta property="article:modified_time" content="2017-07-05T08:32:21&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-07-05T08:32:21+09:00" />
+<meta property="article:modified_time" content="2017-07-05T08:32:21+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -43,12 +39,9 @@ Pythonで機械学習 精度評価編
 <meta name="twitter:description" content="ここでは、 scikit-learn の SVM モジュールを使用して 2クラス分類問題 を解いてみる。
 データセットは、以下で紹介している digits データセット を使用する。
 
-
 Pythonで機械学習 データセット編
 
-
 後半で実施している精度評価についての詳細は以下を参照。
-
 
 Pythonで機械学習 精度評価編
 "/>
@@ -130,113 +123,96 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>ここでは、 <strong>scikit-learn</strong> の <strong>SVM</strong> モジュールを使用して <strong>2クラス分類問題</strong> を解いてみる。<br />
+			<p>ここでは、 <strong>scikit-learn</strong> の <strong>SVM</strong> モジュールを使用して <strong>2クラス分類問題</strong> を解いてみる。<br>
 データセットは、以下で紹介している <strong>digits データセット</strong> を使用する。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/python-ml-dl-datasets/">Pythonで機械学習 データセット編</a></li>
 </ul>
-
 <p>後半で実施している精度評価についての詳細は以下を参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/python-ml-dl-metrics-scores/">Pythonで機械学習 精度評価編</a></li>
 </ul>
-
 <h1 id="パッケージの導入">パッケージの導入</h1>
-
 <p>このブログにある Python コードを実行するためのパッケージをインストールする。</p>
-
-<pre><code class="language-sh">$ pip install jupyter scikit-learn matplotlib scipy
-</code></pre>
-
-<p>実行環境は Jupyter Notebook を想定。実行方法は <code>$ jupyter notebook</code> 。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install jupyter scikit-learn matplotlib scipy
+</code></pre></div><p>実行環境は Jupyter Notebook を想定。実行方法は <code>$ jupyter notebook</code> 。<br>
 <strong>matplotlib</strong> の使い方は以下を参照。</p>
-
 <ul>
 <li><a href="http://blog.pepese.com/entry/2016/09/18/174407">matplotlib入門</a></li>
 </ul>
-
 <h1 id="svm-の実装">SVM の実装</h1>
-
-<pre><code class="language-python">import numpy as np
-from sklearn import datasets
-from sklearn import svm
-from sklearn import metrics
-# digits データセットのロード
-digits = datasets.load_digits()
-# digits データセットの中から 3 と 8 の位置を取得
-# これを後に学習用データと評価用データに分割して使用する
-flag_3_8 = (digits.target == 3) + (digits.target == 8)
-# 3 と 8 の画像データを取得（一次元ベクトル）
-data = digits.data[flag_3_8]
-# 上記は下記のように 8x8 のimageを2次元ベクトルから 1次元ベクトルへ変換したものでもよい
-# data = images.reshape(digits.images[flag_3_8].shape[0], -1)
-# 3 と 8 の数字データを取得
-labels = digits.target[flag_3_8]
-# 以降、ホールドアウト検証にて正答率を算出する
-# データセットの数を取得
-num_of_samples = len(flag_3_8[flag_3_8])
-# 学習データサイズの取得
-training_data_size = int(num_of_samples * 3 / 5)
-# SVMモデルの作成
-classifier = svm.SVC(C=1.0, gamma=0.001)
-# 学習用データをSVMへ適用
-# データセットの前から 3/5 を学習用データとして使用
-classifier.fit(data[:training_data_size], labels[:training_data_size])
-# 正解データの取得
-# データセットの後ろから 2/5 を評価用データとして使用
-expected = labels[training_data_size:]
-# 学習済み SVM へデータをインプットして結果を取得
-predicted = classifier.predict(data[training_data_size:])
-# 結果の出力
-# SVMの出力と正解データを比較
-print('Accuracy:\n', metrics.accuracy_score(expected, predicted)) # 0.937062937063
-</code></pre>
-
-<p>scikit-learn の SVM には、 LinearSVC 、 LinearSVR 、 NuSVC 、 NuSVR 、 OneClassSVM 、 SVC 、 SVR があり、整理すると以下のようになる。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> datasets
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> svm
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> metrics
+<span style="color:#75715e"># digits データセットのロード</span>
+digits <span style="color:#f92672">=</span> datasets<span style="color:#f92672">.</span>load_digits()
+<span style="color:#75715e"># digits データセットの中から 3 と 8 の位置を取得</span>
+<span style="color:#75715e"># これを後に学習用データと評価用データに分割して使用する</span>
+flag_3_8 <span style="color:#f92672">=</span> (digits<span style="color:#f92672">.</span>target <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> (digits<span style="color:#f92672">.</span>target <span style="color:#f92672">==</span> <span style="color:#ae81ff">8</span>)
+<span style="color:#75715e"># 3 と 8 の画像データを取得（一次元ベクトル）</span>
+data <span style="color:#f92672">=</span> digits<span style="color:#f92672">.</span>data[flag_3_8]
+<span style="color:#75715e"># 上記は下記のように 8x8 のimageを2次元ベクトルから 1次元ベクトルへ変換したものでもよい</span>
+<span style="color:#75715e"># data = images.reshape(digits.images[flag_3_8].shape[0], -1)</span>
+<span style="color:#75715e"># 3 と 8 の数字データを取得</span>
+labels <span style="color:#f92672">=</span> digits<span style="color:#f92672">.</span>target[flag_3_8]
+<span style="color:#75715e"># 以降、ホールドアウト検証にて正答率を算出する</span>
+<span style="color:#75715e"># データセットの数を取得</span>
+num_of_samples <span style="color:#f92672">=</span> len(flag_3_8[flag_3_8])
+<span style="color:#75715e"># 学習データサイズの取得</span>
+training_data_size <span style="color:#f92672">=</span> int(num_of_samples <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">5</span>)
+<span style="color:#75715e"># SVMモデルの作成</span>
+classifier <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(C<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>, gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.001</span>)
+<span style="color:#75715e"># 学習用データをSVMへ適用</span>
+<span style="color:#75715e"># データセットの前から 3/5 を学習用データとして使用</span>
+classifier<span style="color:#f92672">.</span>fit(data[:training_data_size], labels[:training_data_size])
+<span style="color:#75715e"># 正解データの取得</span>
+<span style="color:#75715e"># データセットの後ろから 2/5 を評価用データとして使用</span>
+expected <span style="color:#f92672">=</span> labels[training_data_size:]
+<span style="color:#75715e"># 学習済み SVM へデータをインプットして結果を取得</span>
+predicted <span style="color:#f92672">=</span> classifier<span style="color:#f92672">.</span>predict(data[training_data_size:])
+<span style="color:#75715e"># 結果の出力</span>
+<span style="color:#75715e"># SVMの出力と正解データを比較</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Accuracy:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, metrics<span style="color:#f92672">.</span>accuracy_score(expected, predicted)) <span style="color:#75715e"># 0.937062937063</span>
+</code></pre></div><p>scikit-learn の SVM には、 LinearSVC 、 LinearSVR 、 NuSVC 、 NuSVR 、 OneClassSVM 、 SVC 、 SVR があり、整理すると以下のようになる。</p>
 <ul>
 <li>分類問題に使用する SVM （Support Vector Classification）
-
 <ul>
 <li>SVC （C-Support Vector Classification）
-
 <ul>
 <li>標準的なソフトマージン(エラーを許容する)SVM</li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">API Doc</a></li>
-</ul></li>
+</ul>
+</li>
 <li>LinearSVC （Linear Support Vector Classification）
-
 <ul>
 <li>カーネルが線形カーネルの場合に特化したSVM</li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">API Doc</a></li>
-</ul></li>
+</ul>
+</li>
 <li>NuSVC （Nu-Support Vector Classification）
-
 <ul>
 <li>エラーを許容する表現が異なるSVM</li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html">API Doc</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>回帰問題に使用する SVM （Support Vector Regression）<a href="http://d.hatena.ne.jp/saket/20130212/1360656405">参考</a>
-
 <ul>
 <li>SVR</li>
 <li>LinearSVR</li>
 <li>NuSVR</li>
-</ul></li>
+</ul>
+</li>
 <li>異常検知に使用する SVM
-
 <ul>
 <li>OneClassSVM</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="精度の評価">精度の評価</h1>
-
 <p>k=5 の k-分割交差検証で、以下を算出する。</p>
-
 <ul>
 <li>混同行列（Confusion Matrix）</li>
 <li>正答率（Accuracy）</li>
@@ -244,46 +220,43 @@ print('Accuracy:\n', metrics.accuracy_score(expected, predicted)) # 0.9370629370
 <li>再現率（Recall）</li>
 <li>F値（F-measure）</li>
 </ul>
-
-<pre><code class="language-python">import numpy as np
-from sklearn import datasets
-from sklearn import svm
-from sklearn import metrics
-digits = datasets.load_digits()
-flag_3_8 = (digits.target == 3) + (digits.target == 8)
-data = digits.data[flag_3_8]
-labels = digits.target[flag_3_8]
-# ここまではさきほどと同じ
-# 交差検証用モジュールのロード
-import sklearn.model_selection
-# 交差検証の実施
-# train は学習用データ、testは評価用データ
-for train, test in sklearn.model_selection.KFold(n_splits=5).split(data, labels):
-  # 学習用データ
-  train_data = data[train]
-  train_labels = labels[train]
-  # 評価用データ
-  test_data = data[test]
-  test_labels = labels[test]
-  # SVMモデルの作成
-  classifier = svm.SVC(C=1.0, gamma=0.001)
-  # 学習用データをSVMへ適用
-  classifier.fit(train_data, train_labels)
-  # 正解データの取得
-  expected = test_labels
-  # 学習済み SVM へデータをインプットして結果を取得
-  predicted = classifier.predict(test_data)
-  # ここまではさきほどと同じ
-  # 結果の出力
-  # SVMの出力と正解データを比較
-  print('Confusion Matrix:\n', metrics.confusion_matrix(expected, predicted))
-  print('Accuracy:\n', metrics.accuracy_score(expected, predicted))
-  print('Precision:\n', metrics.precision_score(expected, predicted, pos_label=3))
-  print('Recall:\n', metrics.recall_score(expected, predicted, pos_label=3))
-  print('F-measure:\n', metrics.f1_score(expected, predicted, pos_label=3), '\n')
-</code></pre>
-
-<p>ここでは、数字の「3」か数字の「8」かを分類する問題であったので、 <code>pos_label=3</code> は Positive を数字の「3」に指定したことになる。（ Negative は数字の「8」）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> datasets
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> svm
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> metrics
+digits <span style="color:#f92672">=</span> datasets<span style="color:#f92672">.</span>load_digits()
+flag_3_8 <span style="color:#f92672">=</span> (digits<span style="color:#f92672">.</span>target <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> (digits<span style="color:#f92672">.</span>target <span style="color:#f92672">==</span> <span style="color:#ae81ff">8</span>)
+data <span style="color:#f92672">=</span> digits<span style="color:#f92672">.</span>data[flag_3_8]
+labels <span style="color:#f92672">=</span> digits<span style="color:#f92672">.</span>target[flag_3_8]
+<span style="color:#75715e"># ここまではさきほどと同じ</span>
+<span style="color:#75715e"># 交差検証用モジュールのロード</span>
+<span style="color:#f92672">import</span> sklearn.model_selection
+<span style="color:#75715e"># 交差検証の実施</span>
+<span style="color:#75715e"># train は学習用データ、testは評価用データ</span>
+<span style="color:#66d9ef">for</span> train, test <span style="color:#f92672">in</span> sklearn<span style="color:#f92672">.</span>model_selection<span style="color:#f92672">.</span>KFold(n_splits<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>split(data, labels):
+  <span style="color:#75715e"># 学習用データ</span>
+  train_data <span style="color:#f92672">=</span> data[train]
+  train_labels <span style="color:#f92672">=</span> labels[train]
+  <span style="color:#75715e"># 評価用データ</span>
+  test_data <span style="color:#f92672">=</span> data[test]
+  test_labels <span style="color:#f92672">=</span> labels[test]
+  <span style="color:#75715e"># SVMモデルの作成</span>
+  classifier <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(C<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>, gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.001</span>)
+  <span style="color:#75715e"># 学習用データをSVMへ適用</span>
+  classifier<span style="color:#f92672">.</span>fit(train_data, train_labels)
+  <span style="color:#75715e"># 正解データの取得</span>
+  expected <span style="color:#f92672">=</span> test_labels
+  <span style="color:#75715e"># 学習済み SVM へデータをインプットして結果を取得</span>
+  predicted <span style="color:#f92672">=</span> classifier<span style="color:#f92672">.</span>predict(test_data)
+  <span style="color:#75715e"># ここまではさきほどと同じ</span>
+  <span style="color:#75715e"># 結果の出力</span>
+  <span style="color:#75715e"># SVMの出力と正解データを比較</span>
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Confusion Matrix:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, metrics<span style="color:#f92672">.</span>confusion_matrix(expected, predicted))
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Accuracy:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, metrics<span style="color:#f92672">.</span>accuracy_score(expected, predicted))
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Precision:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, metrics<span style="color:#f92672">.</span>precision_score(expected, predicted, pos_label<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>))
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Recall:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, metrics<span style="color:#f92672">.</span>recall_score(expected, predicted, pos_label<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>))
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;F-measure:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, metrics<span style="color:#f92672">.</span>f1_score(expected, predicted, pos_label<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+</code></pre></div><p>ここでは、数字の「3」か数字の「8」かを分類する問題であったので、 <code>pos_label=3</code> は Positive を数字の「3」に指定したことになる。（ Negative は数字の「8」）</p>
 		</div>
 	</article>
 </main>
@@ -344,11 +317,11 @@ for train, test in sklearn.model_selection.KFold(n_splits=5).split(data, labels)
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -359,6 +332,7 @@ for train, test in sklearn.model_selection.KFold(n_splits=5).split(data, labels)
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -452,7 +426,7 @@ for train, test in sklearn.model_selection.KFold(n_splits=5).split(data, labels)
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -479,7 +453,7 @@ for train, test in sklearn.model_selection.KFold(n_splits=5).split(data, labels)
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

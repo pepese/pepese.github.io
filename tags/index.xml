@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on ぺーぺーSEのテックブログ</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Tags on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 03 Jun 2019 07:18:58 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 09 Dec 2020 20:29:03 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>asdf</title>
+      <link>https://blog.pepese.com/tags/asdf/</link>
+      <pubDate>Wed, 09 Dec 2020 20:29:03 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/asdf/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>aws</title>

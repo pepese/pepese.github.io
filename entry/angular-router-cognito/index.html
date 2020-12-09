@@ -19,22 +19,19 @@
 	<meta property="og:title" content="Cognitoを使ってユーザ認証して画面遷移するAngularアプリ" />
 <meta property="og:description" content="以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。
 
-
 Cognitoを使ってAngularアプリからユーザ認証する
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/angular-router-cognito/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-05-29T07:49:45&#43;09:00"/>
-<meta property="article:modified_time" content="2017-05-29T07:49:45&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-05-29T07:49:45+09:00" />
+<meta property="article:modified_time" content="2017-05-29T07:49:45+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Cognitoを使ってユーザ認証して画面遷移するAngularアプリ"/>
 <meta name="twitter:description" content="以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。
-
 
 Cognitoを使ってAngularアプリからユーザ認証する
 "/>
@@ -118,452 +115,404 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/angular-cognito/">Cognitoを使ってAngularアプリからユーザ認証する</a></li>
 </ul>
-
 <p><code>@angular/router</code> を使うことでAngularで画面遷移を実現できる。</p>
-
 <h1 id="アプリケーションの仕様">アプリケーションの仕様</h1>
-
 <ul>
 <li><code>/login</code> と <code>/menu</code> がある</li>
 <li><code>/login</code> 画面では、Amazon Cognito User Pool を使ってSignUp、SignInが可能</li>
 <li><code>/login</code> 画面でSignInすると <code>/menu</code> 画面へ遷移する</li>
 <li><code>/menu</code> 画面では、Session StorageにSignInユーザ情報が無い場合、 <code>/login</code> 画面へ遷移する</li>
 </ul>
-
 <h1 id="アプリケーションの作成手順">アプリケーションの作成手順</h1>
-
 <p>以下のコマンドでプロジェクトおよび必要なファイルを作成する。</p>
-
-<pre><code class="language-sh">$ ng new cognito-js --style=scss
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ng new cognito-js --style<span style="color:#f92672">=</span>scss
 $ cd cognito-js
 $ npm install amazon-cognito-identity-js --save
 $ ng generate class app.routing
 $ ng generate service services/cognito
 $ ng generate component components/login
 $ ng generate component components/menu
-</code></pre>
-
-<p>以下の順でソースを編集する。</p>
-
+</code></pre></div><p>以下の順でソースを編集する。</p>
 <ul>
 <li>src/tsconfig.app.json</li>
 <li>src/app/app.routing.ts
-
 <ul>
 <li>遷移する画面（Component）情報をここへ集約する</li>
-</ul></li>
+</ul>
+</li>
 <li>src/app/app.module.ts</li>
 <li>src/environments/environment.ts</li>
 <li>src/app/app.component.ts</li>
 <li>src/app/services/cognito.service.ts</li>
 <li>src/app/components/login/login.component.ts
-
 <ul>
 <li><code>/login</code> 画面のComponent</li>
-</ul></li>
+</ul>
+</li>
 <li>src/app/components/menu/menu.component.ts
-
 <ul>
 <li><code>/menu</code> 画面のComponent</li>
-</ul></li>
+</ul>
+</li>
 <li>src/app/components/login/login.component.html
-
 <ul>
 <li><code>/login</code> 画面</li>
-</ul></li>
+</ul>
+</li>
 <li>src/app/components/menu/menu.component.html
-
 <ul>
 <li><code>/menu</code> 画面</li>
-</ul></li>
+</ul>
+</li>
 <li>src/app/app.component.html</li>
 </ul>
-
-<h2 id="src-tsconfig-app-json">src/tsconfig.app.json</h2>
-
-<pre><code class="language-javascript">{
-  &quot;extends&quot;: &quot;../tsconfig.json&quot;,
-  &quot;compilerOptions&quot;: {
-    &quot;outDir&quot;: &quot;../out-tsc/app&quot;,
-    &quot;module&quot;: &quot;es2015&quot;,
-    &quot;baseUrl&quot;: &quot;&quot;,
-    &quot;types&quot;: [&quot;node&quot;]  // ここを追加
-  },
-  &quot;exclude&quot;: [
-    &quot;test.ts&quot;,
-    &quot;**/*.spec.ts&quot;
+<h2 id="srctsconfigappjson">src/tsconfig.app.json</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;extends&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../tsconfig.json&#34;</span>,
+  <span style="color:#e6db74">&#34;compilerOptions&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;outDir&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../out-tsc/app&#34;</span>,
+    <span style="color:#e6db74">&#34;module&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;es2015&#34;</span>,
+    <span style="color:#e6db74">&#34;baseUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+    <span style="color:#e6db74">&#34;types&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;node&#34;</span>]  <span style="color:#75715e">// ここを追加
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#e6db74">&#34;exclude&#34;</span><span style="color:#f92672">:</span> [
+    <span style="color:#e6db74">&#34;test.ts&#34;</span>,
+    <span style="color:#e6db74">&#34;**/*.spec.ts&#34;</span>
   ]
 }
-</code></pre>
+</code></pre></div><h2 id="srcappapproutingts">src/app/app.routing.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ModuleWithProviders</span> }  <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Routes</span>, <span style="color:#a6e22e">RouterModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/router&#39;</span>;
 
-<h2 id="src-app-app-routing-ts">src/app/app.routing.ts</h2>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LoginComponent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./components/login/login.component&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MenuComponent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./components/menu/menu.component&#39;</span>;
 
-<pre><code class="language-typescript">import { ModuleWithProviders }  from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { LoginComponent } from './components/login/login.component';
-import { MenuComponent } from './components/menu/menu.component';
-
-const appRoutes: Routes = [
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appRoutes</span>: <span style="color:#66d9ef">Routes</span> <span style="color:#f92672">=</span> [
     {
-        path: 'login',
-        component: LoginComponent
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;login&#39;</span>,
+        <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">LoginComponent</span>
     },
     {
-        path: 'menu',
-        component: MenuComponent
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;menu&#39;</span>,
+        <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">MenuComponent</span>
     },
     {
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+        <span style="color:#a6e22e">redirectTo</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/login&#39;</span>,
+        <span style="color:#a6e22e">pathMatch</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;full&#39;</span>
     }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
-</code></pre>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routing</span>: <span style="color:#66d9ef">ModuleWithProviders</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">RouterModule</span>.<span style="color:#a6e22e">forRoot</span>(<span style="color:#a6e22e">appRoutes</span>);
+</code></pre></div><p><code>{ path: '', redirectTo: '/login', pathMatch: 'full' }</code> の記述でルートパスへアクセスされると、 <code>/login</code> 画面へリダイレクトされる。</p>
+<h2 id="srcappappmodulets">src/app/app.module.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/platform-browser&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NgModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">FormsModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/forms&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">HttpModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/http&#39;</span>;
 
-<p><code>{ path: '', redirectTo: '/login', pathMatch: 'full' }</code> の記述でルートパスへアクセスされると、 <code>/login</code> 画面へリダイレクトされる。</p>
-
-<h2 id="src-app-app-module-ts">src/app/app.module.ts</h2>
-
-<pre><code class="language-typescript">import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { routing } from './app.routing'; // 追記
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    MenuComponent
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppComponent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./app.component&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LoginComponent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./components/login/login.component&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MenuComponent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./components/menu/menu.component&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">routing</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./app.routing&#39;</span>; <span style="color:#75715e">// 追記
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">@NgModule</span>({
+  <span style="color:#a6e22e">declarations</span><span style="color:#f92672">:</span> [
+    <span style="color:#a6e22e">AppComponent</span>,
+    <span style="color:#a6e22e">LoginComponent</span>,
+    <span style="color:#a6e22e">MenuComponent</span>
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing // 追記
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [
+    <span style="color:#a6e22e">BrowserModule</span>,
+    <span style="color:#a6e22e">FormsModule</span>,
+    <span style="color:#a6e22e">HttpModule</span>,
+    <span style="color:#a6e22e">routing</span> <span style="color:#75715e">// 追記
+</span><span style="color:#75715e"></span>  ],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [],
+  <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">AppComponent</span>]
 })
-export class AppModule { }
-</code></pre>
-
-<h2 id="src-environments-environment-ts">src/environments/environment.ts</h2>
-
-<pre><code class="language-typescript">export const environment = {
-  production: false,
-  region: 'ap-northeast-1',
-  userPoolId: 'ap-northeast-1_xxxxxxxxx',
-  clientId: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppModule</span> { }
+</code></pre></div><h2 id="srcenvironmentsenvironmentts">src/environments/environment.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">environment</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">production</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ap-northeast-1&#39;</span>,
+  <span style="color:#a6e22e">userPoolId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ap-northeast-1_xxxxxxxxx&#39;</span>,
+  <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxxxxxxxxxxxxx&#39;</span>
 };
-</code></pre>
+</code></pre></div><h2 id="srcappappcomponentts">src/app/app.component.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
 
-<h2 id="src-app-app-component-ts">src/app/app.component.ts</h2>
-
-<pre><code class="language-typescript">import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-root&#39;</span>,
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./app.component.html&#39;</span>,
+  <span style="color:#a6e22e">styleUrls</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;./app.component.scss&#39;</span>]
 })
-export class AppComponent {
-  title = 'Cognito Sample'; // ここを好きなタイトルに編集
-}
-</code></pre>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppComponent</span> {
+  <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Cognito Sample&#39;</span>; <span style="color:#75715e">// ここを好きなタイトルに編集
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h2 id="srcappservicescognitoservicets">src/app/services/cognito.service.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Injectable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">AWS</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;aws-sdk&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CognitoUserPool</span>, <span style="color:#a6e22e">CognitoUserAttribute</span>, <span style="color:#a6e22e">CognitoUser</span>, <span style="color:#a6e22e">AuthenticationDetails</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;amazon-cognito-identity-js&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">environment</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../environments/environment&#39;</span>;
 
-<h2 id="src-app-services-cognito-service-ts">src/app/services/cognito.service.ts</h2>
+<span style="color:#66d9ef">@Injectable</span>()
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CognitoService</span> {
+  <span style="color:#a6e22e">userPool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
 
-<pre><code class="language-typescript">import { Injectable } from '@angular/core';
-import * as AWS from &quot;aws-sdk&quot;;
-import { CognitoUserPool, CognitoUserAttribute, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
-import { environment } from '../../environments/environment';
-
-@Injectable()
-export class CognitoService {
-  userPool = null;
-
-  constructor() {
-    AWS.config.region = environment.region;
-    const data = { UserPoolId: environment.userPoolId, ClientId: environment.clientId};
-    this.userPool = new CognitoUserPool(data);
+  <span style="color:#66d9ef">constructor</span>() {
+    <span style="color:#a6e22e">AWS</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">region</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">region</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">UserPoolId</span>: <span style="color:#66d9ef">environment.userPoolId</span>, <span style="color:#a6e22e">ClientId</span>: <span style="color:#66d9ef">environment.clientId</span>};
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userPool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUserPool</span>(<span style="color:#a6e22e">data</span>);
   }
 
-  signUp(username, password, email, phone) {
-    const userData = {
-      Username : username,
-      Pool : this.userPool,
-      Storage: sessionStorage
+  <span style="color:#a6e22e">signUp</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">phone</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+      <span style="color:#a6e22e">Pool</span> : <span style="color:#66d9ef">this.userPool</span>,
+      <span style="color:#a6e22e">Storage</span>: <span style="color:#66d9ef">sessionStorage</span>
     };
-    let attributeList = [];
-    const dataEmail = {
-      Name : 'email',
-      Value : email
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attributeList</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataEmail</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;email&#39;</span>,
+      <span style="color:#a6e22e">Value</span> : <span style="color:#66d9ef">email</span>
     };
-    const dataPhoneNumber = {
-      Name : 'phone_number',
-      Value : phone
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataPhoneNumber</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;phone_number&#39;</span>,
+      <span style="color:#a6e22e">Value</span> : <span style="color:#66d9ef">phone</span>
     };
-    let attributeEmail = new CognitoUserAttribute(dataEmail);
-    let attributePhoneNumber = new CognitoUserAttribute(dataPhoneNumber);
-    attributeList.push(attributeEmail);
-    attributeList.push(attributePhoneNumber);
-    this.userPool.signUp(username, password, attributeList, null, function(err, result){
-      if (err) {
-        alert(err);
-        return;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attributeEmail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUserAttribute</span>(<span style="color:#a6e22e">dataEmail</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attributePhoneNumber</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUserAttribute</span>(<span style="color:#a6e22e">dataPhoneNumber</span>);
+    <span style="color:#a6e22e">attributeList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">attributeEmail</span>);
+    <span style="color:#a6e22e">attributeList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">attributePhoneNumber</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userPool</span>.<span style="color:#a6e22e">signUp</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">attributeList</span>, <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>){
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">err</span>);
+        <span style="color:#66d9ef">return</span>;
       }
-      const cognitoUser = result.user;
-      alert(&quot;SignUp is success!\nUser name is &quot; + cognitoUser.getUsername() + &quot;.\nYou need to check your SMS or E-Mail.&quot;);
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cognitoUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">user</span>;
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;SignUp is success!\nUser name is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">cognitoUser</span>.<span style="color:#a6e22e">getUsername</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.\nYou need to check your SMS or E-Mail.&#34;</span>);
     });
-    return;
+    <span style="color:#66d9ef">return</span>;
   }
 
-  confirmRegistration(username, verification_code) {
-    const userData = {
-      Username : username,
-      Pool : this.userPool,
-      Storage: sessionStorage
+  <span style="color:#a6e22e">confirmRegistration</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">verification_code</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+      <span style="color:#a6e22e">Pool</span> : <span style="color:#66d9ef">this.userPool</span>,
+      <span style="color:#a6e22e">Storage</span>: <span style="color:#66d9ef">sessionStorage</span>
     };
-    const cognitoUser = new CognitoUser(userData);
-    cognitoUser.confirmRegistration(verification_code, true, function(err, result) {
-      if (err) {
-        alert(err);
-        return;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cognitoUser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUser</span>(<span style="color:#a6e22e">userData</span>);
+    <span style="color:#a6e22e">cognitoUser</span>.<span style="color:#a6e22e">confirmRegistration</span>(<span style="color:#a6e22e">verification_code</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">err</span>);
+        <span style="color:#66d9ef">return</span>;
       }
-      alert('Registration is success!');
-      console.log('call result: ' + result);
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Registration is success!&#39;</span>);
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;call result: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>);
     });
-    return;
+    <span style="color:#66d9ef">return</span>;
   }
 
-  signIn(username, password, callback) {
-    const userData = {
-      Username : username,
-      Pool : this.userPool,
-      Storage: sessionStorage
+  <span style="color:#a6e22e">signIn</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">callback</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+      <span style="color:#a6e22e">Pool</span> : <span style="color:#66d9ef">this.userPool</span>,
+      <span style="color:#a6e22e">Storage</span>: <span style="color:#66d9ef">sessionStorage</span>
     };
-    const cognitoUser = new CognitoUser(userData);
-    const authenticationData = {
-        Username : username,
-        Password : password
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cognitoUser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUser</span>(<span style="color:#a6e22e">userData</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authenticationData</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+        <span style="color:#a6e22e">Password</span> : <span style="color:#66d9ef">password</span>
     };
-    const authenticationDetails = new AuthenticationDetails(authenticationData);
-    cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: function (result) {
-        alert('SignIn is success!');
-        console.log('access token + ' + result.getAccessToken().getJwtToken());
-        if(callback) callback();
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authenticationDetails</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AuthenticationDetails</span>(<span style="color:#a6e22e">authenticationData</span>);
+    <span style="color:#a6e22e">cognitoUser</span>.<span style="color:#a6e22e">authenticateUser</span>(<span style="color:#a6e22e">authenticationDetails</span>, {
+      <span style="color:#a6e22e">onSuccess</span>: <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">result</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;SignIn is success!&#39;</span>);
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;access token + &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">getAccessToken</span>().<span style="color:#a6e22e">getJwtToken</span>());
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">callback</span>) <span style="color:#a6e22e">callback</span>();
       },
-      onFailure: function(err) {
-        alert(err);
-        // UserNotConfirmedException: User is not confirmed.
-      }
+      <span style="color:#a6e22e">onFailure</span>: <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">err</span>);
+        <span style="color:#75715e">// UserNotConfirmedException: User is not confirmed.
+</span><span style="color:#75715e"></span>      }
     });
-    return;
+    <span style="color:#66d9ef">return</span>;
   }
 
-  getSignInUserNmae() {
-    let username_key = 'CognitoIdentityServiceProvider.' + environment.clientId + '.LastAuthUser';
-    return sessionStorage.getItem(username_key);
+  <span style="color:#a6e22e">getSignInUserNmae() {</span>
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CognitoIdentityServiceProvider.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.LastAuthUser&#39;</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sessionStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#a6e22e">username_key</span>);
   }
 
-  signOut(callback) {
-    sessionStorage.clear();
-    if(callback) callback();
+  <span style="color:#a6e22e">signOut</span>(<span style="color:#a6e22e">callback</span>) {
+    <span style="color:#a6e22e">sessionStorage</span>.<span style="color:#a6e22e">clear</span>();
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">callback</span>) <span style="color:#a6e22e">callback</span>();
   }
 }
-</code></pre>
+</code></pre></div><h2 id="srcappcomponentsloginlogincomponentts">src/app/components/login/login.component.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">OnInit</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CognitoService</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../services/cognito.service&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Router</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/router&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">routing</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../app.routing&#39;</span>;
 
-<h2 id="src-app-components-login-login-component-ts">src/app/components/login/login.component.ts</h2>
-
-<pre><code class="language-typescript">import { Component, OnInit } from '@angular/core';
-import { CognitoService } from '../../services/cognito.service';
-import { Router } from '@angular/router';
-import { routing } from '../../app.routing';
-
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [CognitoService]
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-login&#39;</span>,
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./login.component.html&#39;</span>,
+  <span style="color:#a6e22e">styleUrls</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;./login.component.scss&#39;</span>],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">CognitoService</span>]
 })
-export class LoginComponent implements OnInit {
-  username = '';
-  password = ``;
-  email = ``;
-  phone = ``;
-  verification_code = ``;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginComponent</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">OnInit</span> {
+  <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">phone</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">verification_code</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
 
-  constructor(
-    private cognitoService: CognitoService,
-    private router: Router
+  <span style="color:#66d9ef">constructor</span>(
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">cognitoService</span>: <span style="color:#66d9ef">CognitoService</span>,
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">router</span>: <span style="color:#66d9ef">Router</span>
   ) { }
 
-  ngOnInit() {
+  <span style="color:#a6e22e">ngOnInit() {</span>
   }
 
-  siginUp() {
-    this.cognitoService.signUp(this.username, this.password, this.email, this.phone);
+  <span style="color:#a6e22e">siginUp() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">signUp</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">password</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">phone</span>);
   }
 
-  confirmRegistration() {
-    this.cognitoService.confirmRegistration(this.username, this.verification_code);
+  <span style="color:#a6e22e">confirmRegistration() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">confirmRegistration</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">verification_code</span>);
   }
 
-  signIn() {
-    // Session Storageにセッション情報が格納されるまで待ってから画面遷移
-    let gotoMenu = function (router: Router, cognitoService: CognitoService) {
-      let timerID = setInterval(function(){
-        if(cognitoService.getSignInUserNmae()){
-          //wait終了時の後処理
-          router.navigate(['/menu']);
-          clearInterval(timerID);
-          timerID = null;
+  <span style="color:#a6e22e">signIn() {</span>
+    <span style="color:#75715e">// Session Storageにセッション情報が格納されるまで待ってから画面遷移
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">gotoMenu</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">router</span>: <span style="color:#66d9ef">Router</span>, <span style="color:#a6e22e">cognitoService</span>: <span style="color:#66d9ef">CognitoService</span>) {
+      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>(<span style="color:#66d9ef">function</span>(){
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">getSignInUserNmae</span>()){
+          <span style="color:#75715e">//wait終了時の後処理
+</span><span style="color:#75715e"></span>          <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">navigate</span>([<span style="color:#e6db74">&#39;/menu&#39;</span>]);
+          <span style="color:#a6e22e">clearInterval</span>(<span style="color:#a6e22e">timerID</span>);
+          <span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
         }
-      }, 100);
+      }, <span style="color:#ae81ff">100</span>);
     }
-    this.cognitoService.signIn(this.username, this.password, gotoMenu(this.router, this.cognitoService));
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">signIn</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">gotoMenu</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">router</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>));
   }
 }
-</code></pre>
+</code></pre></div><p><code>signIn()</code> メソッドでは <code>cognitoUser.authenticateUser</code> の <code>callback.onSuccess</code> の段階で Session Storage にセッション情報が格納されていなかったので、 <code>setInterval</code> でセッションが格納されるまで wait するロジックを追加してみた。</p>
+<h2 id="srcappcomponentsmenumenucomponentts">src/app/components/menu/menu.component.ts</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">OnInit</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CognitoService</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../services/cognito.service&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Http</span>, <span style="color:#a6e22e">Response</span>, <span style="color:#a6e22e">Headers</span>, <span style="color:#a6e22e">RequestOptions</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/http&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Observable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs/Observable&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;rxjs/add/operator/map&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">environment</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../../environments/environment&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Router</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/router&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">routing</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../app.routing&#39;</span>;
 
-<p><code>signIn()</code> メソッドでは <code>cognitoUser.authenticateUser</code> の <code>callback.onSuccess</code> の段階で Session Storage にセッション情報が格納されていなかったので、 <code>setInterval</code> でセッションが格納されるまで wait するロジックを追加してみた。</p>
-
-<h2 id="src-app-components-menu-menu-component-ts">src/app/components/menu/menu.component.ts</h2>
-
-<pre><code class="language-typescript">import { Component, OnInit } from '@angular/core';
-import { CognitoService } from '../../services/cognito.service';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { environment } from '../../../environments/environment';
-import { Router } from '@angular/router';
-import { routing } from '../../app.routing';
-
-@Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
-  providers: [CognitoService]
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-menu&#39;</span>,
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./menu.component.html&#39;</span>,
+  <span style="color:#a6e22e">styleUrls</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;./menu.component.scss&#39;</span>],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">CognitoService</span>]
 })
-export class MenuComponent implements OnInit {
-  url = '';
-  result = '';
-  gotoLogin = function (router: Router) {
-    router.navigate(['/login']);
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MenuComponent</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">OnInit</span> {
+  <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#a6e22e">gotoLogin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">router</span>: <span style="color:#66d9ef">Router</span>) {
+    <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">navigate</span>([<span style="color:#e6db74">&#39;/login&#39;</span>]);
   }
 
-  constructor(
-    private http: Http,
-    private cognitoService: CognitoService,
-    private router: Router
+  <span style="color:#66d9ef">constructor</span>(
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">http</span>: <span style="color:#66d9ef">Http</span>,
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">cognitoService</span>: <span style="color:#66d9ef">CognitoService</span>,
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">router</span>: <span style="color:#66d9ef">Router</span>
   ) { }
 
-  ngOnInit() {
-    if(!this.cognitoService.getSignInUserNmae()) {
-      this.cognitoService.signOut(this.gotoLogin(this.router));
+  <span style="color:#a6e22e">ngOnInit() {</span>
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">getSignInUserNmae</span>()) {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">signOut</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">gotoLogin</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">router</span>));
     }
   }
 
-  deleteSession() {
-    this.cognitoService.signOut(this.gotoLogin(this.router));
+  <span style="color:#a6e22e">deleteSession() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">signOut</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">gotoLogin</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">router</span>));
   }
 
-  get() {
-    let username_key = 'CognitoIdentityServiceProvider.' + environment.clientId + '.LastAuthUser';
-    let username = sessionStorage.getItem(username_key);
-    let idToken_key = 'CognitoIdentityServiceProvider.' + environment.clientId + '.' + username + '.idToken';
-    let idToken = sessionStorage.getItem(idToken_key);
-    let headers = new Headers({ 'Authorization': idToken });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url, options)
-                    .map(res =&gt; res.text())
-                    .subscribe(t =&gt; this.result = t);
+  <span style="color:#66d9ef">get</span>() {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CognitoIdentityServiceProvider.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.LastAuthUser&#39;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sessionStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#a6e22e">username_key</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">idToken_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CognitoIdentityServiceProvider.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.idToken&#39;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">idToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sessionStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#a6e22e">idToken_key</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">headers</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Headers</span>({ <span style="color:#e6db74">&#39;Authorization&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">idToken</span> });
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RequestOptions</span>({ <span style="color:#a6e22e">headers</span>: <span style="color:#66d9ef">headers</span> });
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">http</span>.<span style="color:#66d9ef">get</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">options</span>)
+                    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">res</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">text</span>())
+                    .<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">t</span>);
   }
 
 }
-</code></pre>
-
-<h2 id="src-app-components-login-login-component-html">src/app/components/login/login.component.html</h2>
-
-<pre><code class="language-html">&lt;div&gt;
-  &lt;h2&gt;サインアップ&lt;/h2&gt;
-  &lt;p&gt;以下の項目を入力してユーザを新規に仮登録します。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;ユーザ名：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;username&quot;&gt;&lt;/td&gt;&lt;tr&gt;
-    &lt;tr&gt;&lt;td&gt;パスワード：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;password&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;メールアドレス：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;email&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;携帯番号：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;phone&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;siginUp()&quot;&gt;サインアップ&lt;/button&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;div&gt;
-  &lt;h2&gt;認証コードの確認&lt;/h2&gt;
-  &lt;p&gt;サインアップしたユーザにメールやSMSで送付された認証コードを確認し、ユーザを本登録します。&lt;/p&gt;
-  &lt;p&gt;認証コードは6桁数字です。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;ユーザ名：&lt;/td&gt;&lt;td&gt;{{username}}&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;認証コード：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;verification_code&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;confirmRegistration()&quot;&gt;確認&lt;/button&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;div&gt;
-  &lt;h2&gt;サインイン&lt;/h2&gt;
-  &lt;p&gt;本登録したユーザでサインイン（ログイン）します。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;ユーザ名：&lt;/td&gt;&lt;td&gt;{{username}}&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;パスワード：&lt;/td&gt;&lt;td&gt;{{password}}&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;signIn()&quot;&gt;サインイン&lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
-
-<h2 id="src-app-components-menu-menu-component-html">src/app/components/menu/menu.component.html</h2>
-
-<pre><code class="language-html">&lt;div&gt;
-  &lt;a routerLink=&quot;/login&quot; (click)=&quot;deleteSession()&quot;&gt;ログアウト&lt;/a&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;h2&gt;GET アクセス&lt;/h2&gt;
-  &lt;p&gt;Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。&lt;/p&gt;
-  &lt;p&gt;API GatewayのAuthorizationなどで試してみてください。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;URL：　&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;url&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;get()&quot;&gt;Send&lt;/button&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;{{result}}&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-</code></pre>
-
-<h2 id="src-app-app-component-html">src/app/app.component.html</h2>
-
-<pre><code class="language-html">&lt;h1&gt;
+</code></pre></div><h2 id="srcappcomponentsloginlogincomponenthtml">src/app/components/login/login.component.html</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;サインアップ&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;以下の項目を入力してユーザを新規に仮登録します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;ユーザ名：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">username</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;パスワード：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">password</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;メールアドレス：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">email</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;携帯番号：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">phone</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">siginUp</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;サインアップ&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;認証コードの確認&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;サインアップしたユーザにメールやSMSで送付された認証コードを確認し、ユーザを本登録します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;認証コードは6桁数字です。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;ユーザ名：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{username}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;認証コード：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">verification_code</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">confirmRegistration</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;確認&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;サインイン&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;本登録したユーザでサインイン（ログイン）します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;ユーザ名：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{username}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;パスワード：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{password}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">signIn</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;サインイン&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h2 id="srcappcomponentsmenumenucomponenthtml">src/app/components/menu/menu.component.html</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">routerLink</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/login&#34;</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">deleteSession</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;ログアウト&lt;/<span style="color:#f92672">a</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;GET アクセス&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;API GatewayのAuthorizationなどで試してみてください。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;URL：　&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">url</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">get</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;Send&lt;/<span style="color:#f92672">button</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{result}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h2 id="srcappappcomponenthtml">src/app/app.component.html</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h1</span>&gt;
   {{title}}
-&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;router-outlet&gt;&lt;/router-outlet&gt;
-</code></pre>
-
-<p><code>&lt;router-outlet&gt;</code> の箇所が <code>Router</code> によって画面が切り替えられる。</p>
-
+&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">router-outlet</span>&gt;&lt;/<span style="color:#f92672">router-outlet</span>&gt;
+</code></pre></div><p><code>&lt;router-outlet&gt;</code> の箇所が <code>Router</code> によって画面が切り替えられる。</p>
 <h1 id="参考">参考</h1>
-
 <ul>
 <li><a href="http://thread.main.jp/javascript/angularjs23.html">Angular 2 画面遷移</a></li>
 <li><a href="https://github.com/ng-japan/hands-on/tree/master/courses/tutorial/ch-6">[ng-japan/hands-on] Chapter 6: ルーティング</a></li>
@@ -630,11 +579,11 @@ export class MenuComponent implements OnInit {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -645,6 +594,7 @@ export class MenuComponent implements OnInit {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -738,7 +688,7 @@ export class MenuComponent implements OnInit {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -765,7 +715,7 @@ export class MenuComponent implements OnInit {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

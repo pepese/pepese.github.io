@@ -20,37 +20,34 @@
 <meta property="og:description" content="Node.js/Expressアプリケーションのテストをしてみる。
 使用するツール・ライブラリは以下。
 
-
 テスティングフレームワーク
 
-
 mocha
-
 
 デフォルトでは ./test/*.js 、 ./test/*.coffee をテストスクリプトとして認識
 mocha.opts というファイルにオプションを設定できる模様（参考）
 
 
-アサート
 
+
+アサート
 
 Chai
 
-モック
 
+モック
 
 sinon.js
 
-カバレッジ
 
+カバレッジ
 
 Istanbul
 
-
 公式の案内にもある通り、以下の nyc 経由で istanbul を利用する
 
-nyc
 
+nyc
 
 tap、mocha、AVA といったJSテスティングフレームワークと Istanbul をうまく連携させるコマンドラインツール
 mocha用のチュートリアル
@@ -58,13 +55,13 @@ mocha用のチュートリアル
 
 
 
+
 なお、タスクランナーは使用せず、npmスクリプトを使用する。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/express-test/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-16T17:52:59&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-16T17:52:59&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-16T17:52:59+09:00" />
+<meta property="article:modified_time" content="2017-08-16T17:52:59+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -73,40 +70,38 @@ mocha用のチュートリアル
 <meta name="twitter:description" content="Node.js/Expressアプリケーションのテストをしてみる。
 使用するツール・ライブラリは以下。
 
-
 テスティングフレームワーク
 
-
 mocha
-
 
 デフォルトでは ./test/*.js 、 ./test/*.coffee をテストスクリプトとして認識
 mocha.opts というファイルにオプションを設定できる模様（参考）
 
 
-アサート
 
+
+アサート
 
 Chai
 
-モック
 
+モック
 
 sinon.js
 
-カバレッジ
 
+カバレッジ
 
 Istanbul
 
-
 公式の案内にもある通り、以下の nyc 経由で istanbul を利用する
+
 
 nyc
 
-
 tap、mocha、AVA といったJSテスティングフレームワークと Istanbul をうまく連携させるコマンドラインツール
 mocha用のチュートリアル
+
 
 
 
@@ -195,87 +190,66 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Node.js/Expressアプリケーションのテストをしてみる。<br />
+			<p>Node.js/Expressアプリケーションのテストをしてみる。<br>
 使用するツール・ライブラリは以下。</p>
-
 <ul>
 <li>テスティングフレームワーク
-
 <ul>
 <li><a href="https://mochajs.org/">mocha</a>
-
 <ul>
 <li>デフォルトでは <code>./test/*.js</code> 、 <code>./test/*.coffee</code> をテストスクリプトとして認識</li>
 <li><code>mocha.opts</code> というファイルにオプションを設定できる模様（<a href="https://mochajs.org/#mochaopts">参考</a>）</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>アサート
-
 <ul>
 <li><a href="http://chaijs.com/">Chai</a></li>
-</ul></li>
+</ul>
+</li>
 <li>モック
-
 <ul>
 <li><a href="http://sinonjs.org/">sinon.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li>カバレッジ
-
 <ul>
 <li><a href="https://istanbul.js.org/">Istanbul</a>
-
 <ul>
 <li>公式の案内にもある通り、以下の <code>nyc</code> 経由で <code>istanbul</code> を利用する</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/istanbuljs/nyc">nyc</a>
-
 <ul>
 <li>tap、mocha、AVA といったJSテスティングフレームワークと Istanbul をうまく連携させるコマンドラインツール</li>
 <li><a href="https://istanbul.js.org/docs/tutorials/mocha/">mocha用のチュートリアル</a></li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <p>なお、タスクランナーは使用せず、npmスクリプトを使用する。</p>
-
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.github.com/entry/express-basics/">Express入門</a></li>
 </ul>
-
 <h1 id="環境設定">環境設定</h1>
-
 <h2 id="グローバルインストール">グローバルインストール</h2>
-
-<pre><code class="language-sh">$ yarn global add nyc
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn global add nyc
 $ ndenv rehash
-</code></pre>
-
-<h2 id="ローカルインストール">ローカルインストール</h2>
-
+</code></pre></div><h2 id="ローカルインストール">ローカルインストール</h2>
 <p><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a>で作成したプロジェクトにて以下を導入する。</p>
-
-<pre><code class="language-sh">$ yarn add mocha chai sinon nyc rimraf --dev
-</code></pre>
-
-<h2 id="ディレクトリ作成">ディレクトリ作成</h2>
-
-<p>先に紹介した記事の通り、Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add mocha chai sinon nyc rimraf --dev
+</code></pre></div><h2 id="ディレクトリ作成">ディレクトリ作成</h2>
+<p>先に紹介した記事の通り、Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br>
 以下のようにテストスクリプト用のディレクトリを作成する。</p>
-
-<pre><code class="language-sh">$ mkdir app/spec
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir app/spec
 $ mkdir app/spec/controllers
-</code></pre>
-
-<h1 id="ユニットテストの実装">ユニットテストの実装</h1>
-
+</code></pre></div><h1 id="ユニットテストの実装">ユニットテストの実装</h1>
 <p>先に紹介した記事のスクリプトをテストする。</p>
-
-<h2 id="packege-json">packege.json</h2>
-
+<h2 id="packegejson">packege.json</h2>
 <p>以下を加筆する。</p>
-
 <pre><code>{
   // 上記省略
   &quot;nyc&quot;: {
@@ -315,25 +289,15 @@ $ mkdir app/spec/controllers
   },
   // 下記省略
 }
-</code></pre>
-
-<h2 id="テストスクリプト-app-spec-controllers-get-index-spec-js">テストスクリプト <code>app/spec/controllers/get_index.spec.js</code></h2>
-
+</code></pre><h2 id="テストスクリプト-appspeccontrollersget_indexspecjs">テストスクリプト <code>app/spec/controllers/get_index.spec.js</code></h2>
 <p><code>app/controllers/get_index.js</code> を対象としたテストスクリプトを以下のように作成する。</p>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/spec/controllers/get_index.spec.js?footer=0"></script>
-
-<h2 id="テストスクリプト-app-spec-controllers-get-users-spec-js">テストスクリプト <code>app/spec/controllers/get_users.spec.js</code></h2>
-
+<!-- raw HTML omitted -->
+<h2 id="テストスクリプト-appspeccontrollersget_usersspecjs">テストスクリプト <code>app/spec/controllers/get_users.spec.js</code></h2>
 <p><code>app/controllers/get_users.js</code> を対象としたテストスクリプトを以下のように作成する。</p>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/spec/controllers/get_users.spec.js?footer=0"></script>
-
+<!-- raw HTML omitted -->
 <h2 id="テストの実行">テストの実行</h2>
-
 <p>npmスクリプトで以下のようにテストを実行する。</p>
-
-<pre><code class="language-sh">$ npm test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm test
 
   /
     ✓ Index画面が1回レンダリングされること
@@ -342,12 +306,9 @@ $ mkdir app/spec/controllers
     ✓ Users画面が1回レンダリングされること
 
 
-  2 passing (8ms)
-</code></pre>
-
-<p>カバレッジレポートは <code>nyc</code> を用いて以下のように出力する。</p>
-
-<pre><code class="language-sh">$ nyc npm test
+  <span style="color:#ae81ff">2</span> passing <span style="color:#f92672">(</span>8ms<span style="color:#f92672">)</span>
+</code></pre></div><p>カバレッジレポートは <code>nyc</code> を用いて以下のように出力する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nyc npm test
 
   /
     ✓ Index画面が1回レンダリングされること
@@ -357,96 +318,77 @@ $ mkdir app/spec/controllers
     ✓ Users画面が1回レンダリングされること
 
 
-  2 passing (10ms)
+  <span style="color:#ae81ff">2</span> passing <span style="color:#f92672">(</span>10ms<span style="color:#f92672">)</span>
 
 --------------|----------|----------|----------|----------|----------------|
 File          |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
 --------------|----------|----------|----------|----------|----------------|
-All files     |      100 |      100 |      100 |      100 |                |
- get_index.js |      100 |      100 |      100 |      100 |                |
- get_users.js |      100 |      100 |      100 |      100 |                |
+All files     |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |                |
+ get_index.js |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |                |
+ get_users.js |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |      <span style="color:#ae81ff">100</span> |                |
 --------------|----------|----------|----------|----------|----------------|
-</code></pre>
-
-<p><code>package.json</code> の <code>nyc</code> の設定の通りだが、HTML形式のレポートが <code>app/coverage</code> 配下に出力される。<br />
+</code></pre></div><p><code>package.json</code> の <code>nyc</code> の設定の通りだが、HTML形式のレポートが <code>app/coverage</code> 配下に出力される。<br>
 なお、 <code>$ npm run-script clean</code> で <code>nyc</code> が出力する <code>.nyc_output</code> 、 <code>app/coverage</code> を削除する。</p>
-
-<h1 id="ライブラリ-ツールの概念を解説">ライブラリ・ツールの概念を解説</h1>
-
-<p>個々のライブラリを軽く解説する。<br />
+<h1 id="ライブラリツールの概念を解説">ライブラリ・ツールの概念を解説</h1>
+<p>個々のライブラリを軽く解説する。<br>
 なお、各ライブラリを連携するプラグインライブラリに以下のようなものがある。</p>
-
 <ul>
 <li>mocha-sinon
-
 <ul>
 <li><a href="https://github.com/elliotf/mocha-sinon">Github</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://chaijs.com/plugins/sinon-chai/">sinon-chai</a>
-
 <ul>
 <li><a href="https://github.com/domenic/sinon-chai">Github</a></li>
 <li>chai-sinon というのもあるが、違いがわからん。。。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="mocha">mocha</h2>
-
 <p>mocha では以下のような関数を使用してテストを記述していく。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">関数</th>
-<th align="left">概要</th>
+<th style="text-align:left">関数</th>
+<th style="text-align:left">概要</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">describe</td>
-<td align="left">ネスト管理可能な階層。テスト対象を宣言する。</td>
+<td style="text-align:left">describe</td>
+<td style="text-align:left">ネスト管理可能な階層。テスト対象を宣言する。</td>
 </tr>
-
 <tr>
-<td align="left">before</td>
-<td align="left">describeの前に実行される。前提条件を記述する。</td>
+<td style="text-align:left">before</td>
+<td style="text-align:left">describeの前に実行される。前提条件を記述する。</td>
 </tr>
-
 <tr>
-<td align="left">after</td>
-<td align="left">describeの後に実行される。後処理を記述する。</td>
+<td style="text-align:left">after</td>
+<td style="text-align:left">describeの後に実行される。後処理を記述する。</td>
 </tr>
-
 <tr>
-<td align="left">beforeEach</td>
-<td align="left">各describeの前に実行される。前提条件を記述する。</td>
+<td style="text-align:left">beforeEach</td>
+<td style="text-align:left">各describeの前に実行される。前提条件を記述する。</td>
 </tr>
-
 <tr>
-<td align="left">afterEach</td>
-<td align="left">各describeの後に実行される。後処理を記述する。</td>
+<td style="text-align:left">afterEach</td>
+<td style="text-align:left">各describeの後に実行される。後処理を記述する。</td>
 </tr>
-
 <tr>
-<td align="left">it</td>
-<td align="left">検証内容を記述する。</td>
+<td style="text-align:left">it</td>
+<td style="text-align:left">検証内容を記述する。</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="chai">Chai</h2>
-
 <p>Chai の代表的な機能には以下がある。</p>
-
 <ul>
 <li>Should</li>
 <li>Expect</li>
 <li>Assert</li>
 </ul>
-
 <p>Should と Expect は基本同じインターフェースだが、Sholudはオブジェクト自身を拡張してsholudメソッドを追加して実装されているのに対して、expectは関数で引数に評価する値を渡すことでオブジェクトの検査を行う。</p>
-
 <pre><code>// hogeオブジェクトとfuge文字列が等しいかどうか検査
 
 // Should
@@ -454,297 +396,200 @@ hoge.should.equal('fuge');
 
 // Expcet
 expect(hoge).to.equal('fuge');
-</code></pre>
-
-<h2 id="sinon-js">sinon.js</h2>
-
+</code></pre><h2 id="sinonjs">sinon.js</h2>
 <p>sinon.js の代表的な機能には以下がある。</p>
-
 <ul>
 <li>スパイ
-
 <ul>
 <li>関数がどのように呼び出されたかを記録する</li>
-</ul></li>
+</ul>
+</li>
 <li>スタブ
-
 <ul>
 <li>関数の戻り値をあらかじめ設定し、その結果でテストを行う</li>
-</ul></li>
+</ul>
+</li>
 <li>モック
-
 <ul>
 <li>実行前に関数の実行回数など期待する結果を指定しておく</li>
-</ul></li>
+</ul>
+</li>
 <li>フェイク
-
 <ul>
 <li>問い合わせるDBやサーバ処理などを単純な実装に置き換える</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><a href="http://sinonjs.org/releases/v3.2.0/">API documentation - Sinon.JS - v3.2.0</a></p>
-
 <h3 id="スパイ">スパイ</h3>
-
 <p>スパイオブジェクトの作成方法は以下。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">呼び出し方法</th>
-<th align="left">概要</th>
+<th style="text-align:left">呼び出し方法</th>
+<th style="text-align:left">概要</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">let spy = sinon.spy();</td>
-<td align="left">空のスパイオブジェクトを生成。主にコールバックで渡す無名関数などに対して使用する。</td>
+<td style="text-align:left">let spy = sinon.spy();</td>
+<td style="text-align:left">空のスパイオブジェクトを生成。主にコールバックで渡す無名関数などに対して使用する。</td>
 </tr>
-
 <tr>
-<td align="left">let spy = sinon.spy(myFunc);</td>
-<td align="left">特定の関数に対してスパイオブジェクトを作成する。</td>
+<td style="text-align:left">let spy = sinon.spy(myFunc);</td>
+<td style="text-align:left">特定の関数に対してスパイオブジェクトを作成する。</td>
 </tr>
-
 <tr>
-<td align="left">let spy = sinon.spy(object, &ldquo;method&rdquo;);</td>
-<td align="left">オブジェクト内のメソッドに対してスパイオブジェクトを生成する。</td>
+<td style="text-align:left">let spy = sinon.spy(object, &ldquo;method&rdquo;);</td>
+<td style="text-align:left">オブジェクト内のメソッドに対してスパイオブジェクトを生成する。</td>
 </tr>
 </tbody>
 </table>
-
 <p>スパイオブジェクトの主な関数は以下。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">呼び出し方法</th>
-<th align="left">概要</th>
+<th style="text-align:left">呼び出し方法</th>
+<th style="text-align:left">概要</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">spy.calledWith(arg1, arg2, &hellip;);</td>
-<td align="left">指定した引数で関数が呼び出されたかを確認する。</td>
+<td style="text-align:left">spy.calledWith(arg1, arg2, &hellip;);</td>
+<td style="text-align:left">指定した引数で関数が呼び出されたかを確認する。</td>
 </tr>
-
 <tr>
-<td align="left">spy.callCount</td>
-<td align="left">呼び出された回数を返す。</td>
+<td style="text-align:left">spy.callCount</td>
+<td style="text-align:left">呼び出された回数を返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.called</td>
-<td align="left">呼び出された場合にtrueを返す。</td>
+<td style="text-align:left">spy.called</td>
+<td style="text-align:left">呼び出された場合にtrueを返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.calledOn(obj);</td>
-<td align="left">指定したオブジェクトで関数が実行された場合trueを返す。</td>
+<td style="text-align:left">spy.calledOn(obj);</td>
+<td style="text-align:left">指定したオブジェクトで関数が実行された場合trueを返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.calledOnce</td>
-<td align="left">1回呼び出された場合trueを返す。</td>
+<td style="text-align:left">spy.calledOnce</td>
+<td style="text-align:left">1回呼び出された場合trueを返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.calledTwice</td>
-<td align="left">2回呼び出された場合trueを返す。</td>
+<td style="text-align:left">spy.calledTwice</td>
+<td style="text-align:left">2回呼び出された場合trueを返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.exceptions</td>
-<td align="left">発生したexceptionを返す。</td>
+<td style="text-align:left">spy.exceptions</td>
+<td style="text-align:left">発生したexceptionを返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.returnValues</td>
-<td align="left">実行後の戻り値を返す。</td>
+<td style="text-align:left">spy.returnValues</td>
+<td style="text-align:left">実行後の戻り値を返す。</td>
 </tr>
-
 <tr>
-<td align="left">spy.withArgs(arg1, arg2, &hellip;);</td>
-<td align="left">指定した引数で関数が呼び出された場合にのみ、スパイオブジェクトを返す。</td>
+<td style="text-align:left">spy.withArgs(arg1, arg2, &hellip;);</td>
+<td style="text-align:left">指定した引数で関数が呼び出された場合にのみ、スパイオブジェクトを返す。</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="スタブ">スタブ</h3>
-
 <p>スタブオブジェクトの作成方法は以下。</p>
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">呼び出し方法</th>
-<th align="left">概要</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">let stub = sinon.stub();</td>
-<td align="left">空のスタブオブジェクトを生成。主にコールバックで渡す無名関数などに対して使用する。</td>
-</tr>
-<tr class="even">
-<td align="left">let stub = sinon.stub(object, “method”);</td>
-<td align="left">特定の関数に対してスタブオブジェクトを作成する。</td>
-</tr>
-<tr class="odd">
-<td align="left">let stub = sinon.stub(object, “method”, func);</td>
-<td align="left">特定の関数に対してスタブオブジェクトを作成し、指定した関数で処理を上書きします。</td>
-</tr>
-<tr class="even">
-<td align="left">let stub = sinon.stub(object);</td>
-<td align="left">対象オブジェクトのメソッドをすべてスタブにする。</td>
-</tr>
-</tbody>
-</table>
-
+<!-- raw HTML omitted -->
 <p>スタブオブジェクトの主な関数は以下。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">呼び出し方法</th>
-<th align="left">概要</th>
+<th style="text-align:left">呼び出し方法</th>
+<th style="text-align:left">概要</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">stub.returns(obj);</td>
-<td align="left">呼び出し時のリターン値を指定する。</td>
+<td style="text-align:left">stub.returns(obj);</td>
+<td style="text-align:left">呼び出し時のリターン値を指定する。</td>
 </tr>
-
 <tr>
-<td align="left">stub.throws(obj);</td>
-<td align="left">呼び出し時に指定したExceptionを発生させる。</td>
+<td style="text-align:left">stub.throws(obj);</td>
+<td style="text-align:left">呼び出し時に指定したExceptionを発生させる。</td>
 </tr>
-
 <tr>
-<td align="left">stub.onCall(n);</td>
-<td align="left">n回目のスタブオブジェクトを返す。</td>
+<td style="text-align:left">stub.onCall(n);</td>
+<td style="text-align:left">n回目のスタブオブジェクトを返す。</td>
 </tr>
-
 <tr>
-<td align="left">stub.onFirstCall();</td>
-<td align="left">1回目のスタブオブジェクトを返す。</td>
+<td style="text-align:left">stub.onFirstCall();</td>
+<td style="text-align:left">1回目のスタブオブジェクトを返す。</td>
 </tr>
-
 <tr>
-<td align="left">stub.onSecondCall();</td>
-<td align="left">2回目のスタブオブジェクトを返す。</td>
+<td style="text-align:left">stub.onSecondCall();</td>
+<td style="text-align:left">2回目のスタブオブジェクトを返す。</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="モック">モック</h3>
-
 <p>モックオブジェクトの作成方法は以下。</p>
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">呼び出し方法</th>
-<th align="left">概要</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">let mock = sinon.mock(object);</td>
-<td align="left">オブジェクトのモックを作成する。</td>
-</tr>
-<tr class="even">
-<td align="left">let expectation = mock.expects(“method”);</td>
-<td align="left"><code>object.method</code> をオーバーライドしてモック関数を作成する。</td>
-</tr>
-<tr class="odd">
-<td align="left">let expectation = sinon.expectation.create(“method”);</td>
-<td align="left">モックオブジェクト無しでモック関数を作成する。</td>
-</tr>
-</tbody>
-</table>
-
+<!-- raw HTML omitted -->
 <p>スタブオブジェクトの主な関数は以下。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">呼び出し方法</th>
-<th align="left">概要</th>
+<th style="text-align:left">呼び出し方法</th>
+<th style="text-align:left">概要</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">mock.restore();</td>
-<td align="left">全てのモック関数をリストアする。</td>
+<td style="text-align:left">mock.restore();</td>
+<td style="text-align:left">全てのモック関数をリストアする。</td>
 </tr>
-
 <tr>
-<td align="left">mock.verify();</td>
-<td align="left">全てのモック関数の expectation をベリファイする。</td>
+<td style="text-align:left">mock.verify();</td>
+<td style="text-align:left">全てのモック関数の expectation をベリファイする。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.atLeast(number);</td>
-<td align="left">モック関数が少なくとも呼び出される回数を指定する。</td>
+<td style="text-align:left">expectation.atLeast(number);</td>
+<td style="text-align:left">モック関数が少なくとも呼び出される回数を指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.atLeast(number);</td>
-<td align="left">モック関数が多くとも呼び出される回数を指定する。</td>
+<td style="text-align:left">expectation.atLeast(number);</td>
+<td style="text-align:left">モック関数が多くとも呼び出される回数を指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.never();</td>
-<td align="left">モック関数が決して呼び出されないことを指定する。</td>
+<td style="text-align:left">expectation.never();</td>
+<td style="text-align:left">モック関数が決して呼び出されないことを指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.once();</td>
-<td align="left">モック関数が1回呼び出されることを指定する。</td>
+<td style="text-align:left">expectation.once();</td>
+<td style="text-align:left">モック関数が1回呼び出されることを指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.twice();</td>
-<td align="left">モック関数が2回呼び出されることを指定する。</td>
+<td style="text-align:left">expectation.twice();</td>
+<td style="text-align:left">モック関数が2回呼び出されることを指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.exactly(number);</td>
-<td align="left">モック関数が呼び出される回数を指定する。</td>
+<td style="text-align:left">expectation.exactly(number);</td>
+<td style="text-align:left">モック関数が呼び出される回数を指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.withArgs(arg1, arg2, &hellip;);</td>
-<td align="left">モック関数呼び出し時に含まれる引数を指定する。</td>
+<td style="text-align:left">expectation.withArgs(arg1, arg2, &hellip;);</td>
+<td style="text-align:left">モック関数呼び出し時に含まれる引数を指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.withExactArgs(arg1, arg2, &hellip;);</td>
-<td align="left">モック関数呼び出し時の引数を指定する。</td>
+<td style="text-align:left">expectation.withExactArgs(arg1, arg2, &hellip;);</td>
+<td style="text-align:left">モック関数呼び出し時の引数を指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.on(object);</td>
-<td align="left">モック関数が object から呼び出されることを指定する。</td>
+<td style="text-align:left">expectation.on(object);</td>
+<td style="text-align:left">モック関数が object から呼び出されることを指定する。</td>
 </tr>
-
 <tr>
-<td align="left">expectation.verify();</td>
-<td align="left">モック関数が上記の指定にマッチしていたか確認する。</td>
+<td style="text-align:left">expectation.verify();</td>
+<td style="text-align:left">モック関数が上記の指定にマッチしていたか確認する。</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="フェイク">フェイク</h2>
-
-<p>フェイクには、時間・XMLHttpRequest・サーバーオブジェクトの置き換えができる。<br />
+<p>フェイクには、時間・XMLHttpRequest・サーバーオブジェクトの置き換えができる。<br>
 ここでは省略する。</p>
 		</div>
 	</article>
@@ -806,11 +651,11 @@ expect(hoge).to.equal('fuge');
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -821,6 +666,7 @@ expect(hoge).to.equal('fuge');
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -914,7 +760,7 @@ expect(hoge).to.equal('fuge');
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -941,7 +787,7 @@ expect(hoge).to.equal('fuge');
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

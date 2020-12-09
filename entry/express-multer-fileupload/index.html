@@ -20,21 +20,17 @@
 <meta property="og:description" content="Node.js/Expressアプリケーションへファイルアップロードしてみる。
 使用するツール・ライブラリは以下。
 
-
 Multer
 
-
 以下の記事を読んだ前提で書く。
-
 
 Express入門
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/express-multer-fileupload/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-09-21T08:10:39&#43;09:00"/>
-<meta property="article:modified_time" content="2017-09-21T08:10:39&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-09-21T08:10:39+09:00" />
+<meta property="article:modified_time" content="2017-09-21T08:10:39+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -43,12 +39,9 @@ Express入門
 <meta name="twitter:description" content="Node.js/Expressアプリケーションへファイルアップロードしてみる。
 使用するツール・ライブラリは以下。
 
-
 Multer
 
-
 以下の記事を読んだ前提で書く。
-
 
 Express入門
 "/>
@@ -131,81 +124,67 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Node.js/Expressアプリケーションへファイルアップロードしてみる。<br />
+			<p>Node.js/Expressアプリケーションへファイルアップロードしてみる。<br>
 使用するツール・ライブラリは以下。</p>
-
 <ul>
 <li><a href="https://github.com/expressjs/multer">Multer</a></li>
 </ul>
-
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a></li>
 </ul>
-
 <h1 id="環境設定">環境設定</h1>
-
-<pre><code class="language-sh">$ yarn add multer
-</code></pre>
-
-<h1 id="実装">実装</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add multer
+</code></pre></div><h1 id="実装">実装</h1>
 <p>controller 層へ以下のような実装を行う。</p>
-
 <h2 id="ファイルアップロード">ファイルアップロード</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">multer</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;multer&#39;</span>);
 
-<pre><code class="language-javascript">const multer  = require('multer');
-
-// アップロードされたファイルをストレージへ保存する場合
-const storage = multer.diskStorage({
-  // ファイルの保存先を指定
-  destination: (req, file, cb) =&gt; {
-    cb(null, '/tmp');
+<span style="color:#75715e">// アップロードされたファイルをストレージへ保存する場合
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">storage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multer</span>.<span style="color:#a6e22e">diskStorage</span>({
+  <span style="color:#75715e">// ファイルの保存先を指定
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">cb</span>) =&gt; {
+    <span style="color:#a6e22e">cb</span>(<span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#39;/tmp&#39;</span>);
   },
-  // ファイル名を指定(オリジナルのファイル名を指定)
-  filename: (req, file, cb) =&gt; {
-    cb(null, file.originalname);
+  <span style="color:#75715e">// ファイル名を指定(オリジナルのファイル名を指定)
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">cb</span>) =&gt; {
+    <span style="color:#a6e22e">cb</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">originalname</span>);
   }
 });
 
-// アップロードされたファイルを一時的にメモリへ保存する場合
-const storage = multer.memoryStorage();
+<span style="color:#75715e">// アップロードされたファイルを一時的にメモリへ保存する場合
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">storage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multer</span>.<span style="color:#a6e22e">memoryStorage</span>();
 
-// 1 つのファイルをアップロードする場合
-const upload_ = multer({ storage: storage }).single('qafile');
+<span style="color:#75715e">// 1 つのファイルをアップロードする場合
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">upload_</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multer</span>({ <span style="color:#a6e22e">storage</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">storage</span> }).<span style="color:#a6e22e">single</span>(<span style="color:#e6db74">&#39;qafile&#39;</span>);
 
-const upload = (req, res, next) =&gt; {
-  upload_(req, res, (err) =&gt; {
-    if (err) {
-      next(err);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">upload</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#a6e22e">upload_</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, (<span style="color:#a6e22e">err</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+      <span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">err</span>);
     }
-    const csvData = req.file.buffer;
-    const mimetype = req.file.mimetype;
-    let message = '';
-    let qaData = [];
-    let errorData = [];
-    if(mimetype == 'text/csv' || mimetype == 'application/vnd.ms-excel') {
-      // 何らかのファイルの処理ロジック
-      // テキストファイルであれば `csvData.toString()` してから処理する
-    }
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">csvData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">buffer</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mimetype</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">mimetype</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">qaData</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">errorData</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">mimetype</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;text/csv&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">mimetype</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;application/vnd.ms-excel&#39;</span>) {
+      <span style="color:#75715e">// 何らかのファイルの処理ロジック
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// テキストファイルであれば `csvData.toString()` してから処理する
+</span><span style="color:#75715e"></span>    }
   }
 }
-</code></pre>
-
-<h2 id="ファイルダウンロード">ファイルダウンロード</h2>
-
-<p>ダウンロード処理には特別ライブラリは必要ない。<br />
+</code></pre></div><h2 id="ファイルダウンロード">ファイルダウンロード</h2>
+<p>ダウンロード処理には特別ライブラリは必要ない。<br>
 CSVなどのテキストデータの場合は以下。</p>
-
-<pre><code class="language-javascript">const download = (req, res, next) =&gt; {
-  let str = 'hoge, hoge, hoge';
-  res.setHeader('Content-disposition', 'attachment; filename=' + 'hoge.csv');
-  res.setHeader('Content-type', 'text/csv; charset=UTF-8');
-  res.write(str);
-  res.end();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">download</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hoge, hoge, hoge&#39;</span>;
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setHeader</span>(<span style="color:#e6db74">&#39;Content-disposition&#39;</span>, <span style="color:#e6db74">&#39;attachment; filename=&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;hoge.csv&#39;</span>);
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setHeader</span>(<span style="color:#e6db74">&#39;Content-type&#39;</span>, <span style="color:#e6db74">&#39;text/csv; charset=UTF-8&#39;</span>);
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">str</span>);
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>();
 };
-</code></pre>
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -266,11 +245,11 @@ CSVなどのテキストデータの場合は以下。</p>
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -281,6 +260,7 @@ CSVなどのテキストデータの場合は以下。</p>
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -374,7 +354,7 @@ CSVなどのテキストデータの場合は以下。</p>
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -401,7 +381,7 @@ CSVなどのテキストデータの場合は以下。</p>
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2018/01 on ぺーぺーSEのテックブログ</title>
     <link>https://blog.pepese.com/archives/2018/01/</link>
     <description>Recent content in 2018/01 on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Wed, 31 Jan 2018 18:09:30 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/archives/2018/01/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ja-JP</language><atom:link href="https://blog.pepese.com/archives/2018/01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Visual Studio Code入門</title>
       <link>https://blog.pepese.com/entry/vscode-basics/</link>
@@ -26,10 +21,9 @@
       <pubDate>Sat, 06 Jan 2018 07:44:15 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/appium-basics/</guid>
-      <description>&lt;p&gt;Appium は Selenium WebDriver の一種で、ネイティブアプリの自動テストを可能にする。&lt;br /&gt;
-Node.js 上でサーバーとして動作し、HTTP 経由で WebDriver API を通して操作を受け付けるという仕組み。&lt;br /&gt;
+      <description>&lt;p&gt;Appium は Selenium WebDriver の一種で、ネイティブアプリの自動テストを可能にする。&lt;br&gt;
+Node.js 上でサーバーとして動作し、HTTP 経由で WebDriver API を通して操作を受け付けるという仕組み。&lt;br&gt;
 Appium の背後には iOS 用, Android 用, Win 用などのドライバがある。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://appium.io/slate/en/master/&#34;&gt;API Reference&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://appium.io/slate/en/tutorial/android.html&#34;&gt;Tutorial Android&lt;/a&gt;&lt;/li&gt;
@@ -43,9 +37,8 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
       <pubDate>Sat, 06 Jan 2018 07:41:30 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/android-env-on-mac/</guid>
-      <description>&lt;p&gt;Mac で Android アプリを開発する際の環境構築についてまとめる。&lt;br /&gt;
+      <description>&lt;p&gt;Mac で Android アプリを開発する際の環境構築についてまとめる。&lt;br&gt;
 なお、プログラミング言語は &lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; を選択する。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://developer.android.com/studio/intro/index.html&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

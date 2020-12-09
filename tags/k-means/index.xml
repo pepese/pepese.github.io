@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k-means on ぺーぺーSEのテックブログ</title>
@@ -6,20 +6,15 @@
     <description>Recent content in k-means on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 05 Jul 2017 18:00:50 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 05 Jul 2017 18:00:50 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pythonで機械学習 K Meansでクラスタリング編</title>
       <link>https://blog.pepese.com/entry/python-ml-k-means-clustering/</link>
       <pubDate>Wed, 05 Jul 2017 18:00:50 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/python-ml-k-means-clustering/</guid>
-      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;br&gt;
 データセットは、以下で紹介している &lt;strong&gt;iris データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-datasets/&#34;&gt;Pythonで機械学習 データセット編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>

@@ -20,16 +20,14 @@
 <meta property="og:description" content="ここでは、Java から DynamoDB にアクセスしてみる。
 以下の記事を読んだ前提で書く。
 
-
 Macで開発環境を作る
 DynamoDB入門
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/java-dynamodb/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-30T08:01:37&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-30T08:01:37&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-30T08:01:37+09:00" />
+<meta property="article:modified_time" content="2017-08-30T08:01:37+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -37,7 +35,6 @@ DynamoDB入門
 <meta name="twitter:title" content="JavaでDynamoDBへアクセスする"/>
 <meta name="twitter:description" content="ここでは、Java から DynamoDB にアクセスしてみる。
 以下の記事を読んだ前提で書く。
-
 
 Macで開発環境を作る
 DynamoDB入門
@@ -120,69 +117,55 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>ここでは、Java から DynamoDB にアクセスしてみる。<br />
+			<p>ここでは、Java から DynamoDB にアクセスしてみる。<br>
 以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/mac-dev-environment/">Macで開発環境を作る</a></li>
 <li><a href="https://blog.pepese.com/entry/dynamodb-basics/">DynamoDB入門</a></li>
 </ul>
-
-<h1 id="api-インターフェースの種類">API・インターフェースの種類</h1>
-
+<h1 id="apiインターフェースの種類">API・インターフェースの種類</h1>
 <p>AWS SDK for Java には以下のインターフェースがある。</p>
-
 <ul>
 <li>Low-Level Interface
-
 <ul>
 <li>com.amazonaws.services.dynamodbv2.AmazonDynamoDB</li>
 <li>テーブルの CRUD 、 Item の CRUD が可能</li>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/Programming.LowLevelAPI.html#Programming.LowLevelAPI.DataTypeDescriptors">データ型識別子</a>を指定する必要がある</li>
-</ul></li>
+</ul>
+</li>
 <li>Document Interface
-
 <ul>
 <li>com.amazonaws.services.dynamodbv2.document.DynamoDB</li>
 <li>テーブルの CR 、 Item の CRUD が可能</li>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/Programming.LowLevelAPI.html#Programming.LowLevelAPI.DataTypeDescriptors">データ型識別子</a>を指定する必要がない</li>
-</ul></li>
+</ul>
+</li>
 <li>High-Level Interface
-
 <ul>
 <li>com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper</li>
 <li>テーブル操作はできないが、 Item の CRUD が可能</li>
 <li>Java オブジェクトを DynamoDB テーブルと属性にマッピング可能</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>ここでは、 Low-Level Interface を使用する。</p>
-
 <h1 id="環境構築">環境構築</h1>
-
-<pre><code class="language-sh">$ mvn archetype:generate \
-  -DgroupId=com.pepese.sample \
-  -DartifactId=dynamodb-sample \
-  -DarchetypeArtifactId=maven-archetype-quickstart \
-  -DinteractiveMode=false
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mvn archetype:generate <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -DgroupId<span style="color:#f92672">=</span>com.pepese.sample <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -DartifactId<span style="color:#f92672">=</span>dynamodb-sample <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -DinteractiveMode<span style="color:#f92672">=</span>false
 $ cd dynamodb-sample
 $ mvn eclipse:eclipse
-</code></pre>
-
-<h1 id="実装">実装</h1>
-
+</code></pre></div><h1 id="実装">実装</h1>
 <ul>
 <li>pom.xml</li>
 <li>com.pepese.sample.App.java</li>
 </ul>
-
-<h2 id="pom-xml">pom.xml</h2>
-
-<script src="https://gist-it.appspot.com/github/pepese/java-sample/blob/master/master/dynamodb-sample/pom.xml?footer=0"></script>
-
-<h2 id="com-pepese-sample-app-java">com.pepese.sample.App.java</h2>
-
-<script src="https://gist-it.appspot.com/github/pepese/java-sample/blob/master/dynamodb-sample/src/main/java/com/pepese/sample/dynamodb/DynamoDBClient.java?footer=0"></script>
+<h2 id="pomxml">pom.xml</h2>
+<!-- raw HTML omitted -->
+<h2 id="compepesesampleappjava">com.pepese.sample.App.java</h2>
+<!-- raw HTML omitted -->
 		</div>
 	</article>
 </main>
@@ -243,11 +226,11 @@ $ mvn eclipse:eclipse
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -258,6 +241,7 @@ $ mvn eclipse:eclipse
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -351,7 +335,7 @@ $ mvn eclipse:eclipse
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -378,7 +362,7 @@ $ mvn eclipse:eclipse
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

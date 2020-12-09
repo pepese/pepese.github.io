@@ -20,23 +20,19 @@
 <meta property="og:description" content="git-flowの概要とマージ時のコンフリクトの解消についてまとめる。
 gitについては以下を参照。
 
-
 Git入門
 Gitコマンド整理
 
-
 以下の順で記載する。
-
 
 git-flow
 コンフリクトの解消
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/git-flow-fix-conflict/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-05-24T07:51:52&#43;09:00"/>
-<meta property="article:modified_time" content="2017-05-24T07:51:52&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-05-24T07:51:52+09:00" />
+<meta property="article:modified_time" content="2017-05-24T07:51:52+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -45,13 +41,10 @@ git-flow
 <meta name="twitter:description" content="git-flowの概要とマージ時のコンフリクトの解消についてまとめる。
 gitについては以下を参照。
 
-
 Git入門
 Gitコマンド整理
 
-
 以下の順で記載する。
-
 
 git-flow
 コンフリクトの解消
@@ -132,125 +125,103 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>git-flowの概要とマージ時のコンフリクトの解消についてまとめる。<br />
+			<p>git-flowの概要とマージ時のコンフリクトの解消についてまとめる。<br>
 gitについては以下を参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/git-basics/">Git入門</a></li>
 <li><a href="https://blog.pepese.com/entry/git-commands/">Gitコマンド整理</a></li>
 </ul>
-
 <p>以下の順で記載する。</p>
-
 <ul>
 <li>git-flow</li>
 <li>コンフリクトの解消</li>
 </ul>
-
 <h1 id="git-flow">git-flow</h1>
-
 <p>出典：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model » nvie.com</a></p>
-
-<p><img src="http://nvie.com/img/git-model@2x.png"></p>
-
+<!-- raw HTML omitted -->
 <p><strong>git-flow</strong> は代表的なgitのbranch運用のベストプラクティスで、以下の5つのブランチでプロダクトのソースコードを運用する。</p>
-
 <ul>
 <li>メインブランチ
-
 <ul>
 <li>master ブランチ</li>
 <li>develop ブランチ</li>
-</ul></li>
+</ul>
+</li>
 <li>サポートブランチ
-
 <ul>
 <li>feature ブランチ</li>
 <li>release ブランチ</li>
 <li>hotfix ブランチ</li>
-</ul></li>
 </ul>
-
-<p>メインブランチは常に存在しており、開発された全ての機能はいずれメインブランチへ取り込まれる。<br />
+</li>
+</ul>
+<p>メインブランチは常に存在しており、開発された全ての機能はいずれメインブランチへ取り込まれる。<br>
 サポートブランチは名ブランチから派生し、その役割が終えるとメインブランチへマージされる。</p>
-
 <h2 id="master-ブランチ">master ブランチ</h2>
-
 <ul>
 <li>分岐元：なし</li>
 <li>マージ先：なし</li>
 <li>マージ元：feature ブランチ、release ブランチ、hotfix ブランチ</li>
 <li>役割
-
 <ul>
 <li>リリース可能なソフトウェアを常に維持するブランチ</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="develop-ブランチ">develop ブランチ</h2>
-
 <ul>
 <li>分岐元：master ブランチ</li>
 <li>マージ先：なし</li>
 <li>マージ元：feature ブランチ、release ブランチ、 hotfix ブランチ</li>
 <li>役割
-
 <ul>
 <li>最新の開発状態を常に反映するブランチ</li>
 <li>develop ブランチから master ブランチへ直接マージすることはなく、 release ブランチを介して master ブランチへマージされる</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="feature-ブランチ">feature ブランチ</h2>
-
 <ul>
 <li>分岐元：develop ブランチ</li>
 <li>マージ先：develop ブランチ</li>
 <li>マージ元：なし</li>
 <li>役割
-
 <ul>
 <li>新しい機能を開発する際、機能単位で作成されるブランチ</li>
 <li>機能開発が完了したら develop ブランチへマージされ、削除される</li>
 <li>機能の特徴に応じて「feature-*」と命名される</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="release-ブランチ">release ブランチ</h2>
-
 <ul>
 <li>分岐元：develop ブランチ</li>
 <li>マージ先：master ブランチ、develop ブランチ</li>
 <li>マージ元：なし</li>
 <li>役割
-
 <ul>
 <li>develop ブランチでリリースするための機能開発が完了した段階で作成される</li>
 <li>結合試験のバグfixがコミットされ、重要なバグfixは develop ブランチへの反映される</li>
 <li>リリースが完了したら master ブランチと develop ブランチへマージされ、削除される</li>
 <li>リリースの特徴に応じて「release-*」と命名される</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="hotfix-ブランチ">hotfix ブランチ</h2>
-
 <ul>
 <li>分岐元：master ブランチ</li>
 <li>マージ先：master ブランチ、develop ブランチ</li>
 <li>マージ元：なし</li>
 <li>役割
-
 <ul>
 <li>master ブランチで重大なバグが発生した際に作成される</li>
 <li>バグfixしたら master ブランチ、 develop ブランチへマージされ、削除される</li>
 <li>バグの特徴に応じて「hotfix-*」と命名される</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="コンフリクトの解消">コンフリクトの解消</h1>
-
 <p>コンフリクトが発生する状況を以下の手順で作成する。</p>
-
 <ol>
 <li>master ブランチから develop ブランチを作成する</li>
 <li>develop ブランチから feature ブランチを作成する</li>
@@ -258,77 +229,55 @@ gitについては以下を参照。</p>
 <li>feature ブランチのファイルA（例えばREADME.md）に対して変更を加えてコミットする</li>
 <li>feature ブランチを develop ブランチへマージするとコンフリクトが発生するので、これに対処する</li>
 </ol>
-
 <p>以降、下記の順で記載する。</p>
-
 <ul>
 <li>コンフリクト発生の下準備</li>
 <li>コンフリクトに対処する</li>
 </ul>
-
 <h2 id="コンフリクト発生の下準備">コンフリクト発生の下準備</h2>
-
-<p>コンフリクトを発生させるリポジトリを作成する。<br />
-ここでは、「 <a href="https://github.com/pepese/test.git">https://github.com/pepese/test.git</a> 」とする。<br />
+<p>コンフリクトを発生させるリポジトリを作成する。<br>
+ここでは、「 <a href="https://github.com/pepese/test.git">https://github.com/pepese/test.git</a> 」とする。<br>
 master ブランチに対して以下のREADME.mdファイルを作成してpushしておく。</p>
-
-<pre><code class="language-sh">$ git clone https://github.com/pepese/test.git
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/pepese/test.git
 $ cd test
-$ vi README.md # 後述お通りファイルを編集する
+$ vi README.md <span style="color:#75715e"># 後述お通りファイルを編集する</span>
 $ git add README.md
-$ git commit -m &quot;first commit&quot;
+$ git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
 $ git push origin master
-$ git branch develop      # developブランチの作成
+$ git branch develop      <span style="color:#75715e"># developブランチの作成</span>
 $ git checkout develop
 $ git push origin develop
-$ git branch feature      # featureブランチの作成
+$ git branch feature      <span style="color:#75715e"># featureブランチの作成</span>
 $ git checkout feature
 $ git push origin feature
-</code></pre>
-
-<pre><code class="language-markdown">行１
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">行１
 行２
-</code></pre>
-
-<p>以降、2つのターミナル（ターミナル1、ターミナル2）で作業する。<br />
-ターミナル1では develop ブランチ、ターミナル2では feature ブランチで作業する。<br />
+</code></pre></div><p>以降、2つのターミナル（ターミナル1、ターミナル2）で作業する。<br>
+ターミナル1では develop ブランチ、ターミナル2では feature ブランチで作業する。<br>
 ターミナル1で以下を実行する。</p>
-
-<pre><code class="language-sh">$ git clone https://github.com/pepese/test.git develop
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/pepese/test.git develop
 $ cd develop
 $ git checkout develop
-$ vi README.md # 後述お通りファイルを編集する
+$ vi README.md <span style="color:#75715e"># 後述お通りファイルを編集する</span>
 $ git add README.md
-$ git commit -m &quot;fix line2&quot;
+$ git commit -m <span style="color:#e6db74">&#34;fix line2&#34;</span>
 $ git push origin develop
-</code></pre>
-
-<pre><code class="language-markdown">行１
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">行１
 行２ 変更
-</code></pre>
-
-<p>ターミナル2で以下を実行する。</p>
-
-<pre><code class="language-sh">$ git clone https://github.com/pepese/test.git feature
+</code></pre></div><p>ターミナル2で以下を実行する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/pepese/test.git feature
 $ cd feature
 $ git checkout feature
-$ vi README.md # 後述お通りファイルを編集する
+$ vi README.md <span style="color:#75715e"># 後述お通りファイルを編集する</span>
 $ git add README.md
-$ git commit -m &quot;add line3&quot;
+$ git commit -m <span style="color:#e6db74">&#34;add line3&#34;</span>
 $ git push origin feature
-</code></pre>
-
-<pre><code class="language-markdown">行１
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">行１
 行２
 行３
-</code></pre>
-
-<p>以上で下準備は完了。</p>
-
+</code></pre></div><p>以上で下準備は完了。</p>
 <h2 id="コンフリクトに対処する">コンフリクトに対処する</h2>
-
 <p>ターミナル1で、以下の順で作業する。</p>
-
 <ol>
 <li><code>git fetch</code> でリモートリポジトリの更新を取得する</li>
 <li><code>git merge origin/feature</code> で develop ブランチへ feature ブランチをマージする（コンフリクト発生！）</li>
@@ -336,74 +285,57 @@ $ git push origin feature
 <li>変更をリモートリポジトリへ反映する</li>
 <li>feature ブランチを削除する</li>
 </ol>
-
 <p>上記に沿って具体的な手順を後述する。</p>
-
-<pre><code class="language-sh">$ git fetch
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git fetch
 $ git merge origin/feature
 Auto-merging README.md
-CONFLICT (content): Merge conflict in README.md
-Automatic merge failed; fix conflicts and then commit the result.
-</code></pre>
-
-<p>コンフリクトが発生した旨のメッセージが出た。<br />
-コンフリクトが発生しているファイルなどの情報は <code>git status</code> でも確認できる。<br />
+CONFLICT <span style="color:#f92672">(</span>content<span style="color:#f92672">)</span>: Merge conflict in README.md
+Automatic merge failed; fix conflicts and <span style="color:#66d9ef">then</span> commit the result.
+</code></pre></div><p>コンフリクトが発生した旨のメッセージが出た。<br>
+コンフリクトが発生しているファイルなどの情報は <code>git status</code> でも確認できる。<br>
 このときREADME.mdは以下のようになっている。</p>
-
-<pre><code class="language-markdown">行１
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-行２ 変更
-=======
-行２
-行３
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">行１
+<span style="color:#960050;background-color:#1e0010">&lt;&lt;&lt;&lt;&lt;&lt;</span>&lt; <span style="color:#f92672">HEAD</span>
+<span style="color:#a6e22e">行２</span> <span style="color:#a6e22e">変更
+</span><span style="color:#a6e22e"></span><span style="color:#f92672">=</span><span style="color:#e6db74">======</span>
+<span style="color:#a6e22e">行２</span>
+<span style="color:#a6e22e">行３</span>
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/feature
-</code></pre>
-
-<p>「 <strong>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</strong> 」から「 <strong>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</strong> 」までがコンフリクトが発生している部分。<br />
-「 <strong>=======</strong> 」から上が develop ブランチで加えた変更、「 <strong>=======</strong> 」から下が feature ブランチで加えた変更。<br />
-このようにコンフリクトが発生した箇所の目印をGitでは <strong>コンフリクトマーカー</strong> という。<br />
-Gitではコンフリクトを <strong>手動で修正</strong> する必要がある。<br />
+</code></pre></div><p>「 <strong>&laquo;&laquo;&laquo;&lt;</strong> 」から「 <strong>&raquo;&raquo;&raquo;&gt;</strong> 」までがコンフリクトが発生している部分。<br>
+「 <strong>=======</strong> 」から上が develop ブランチで加えた変更、「 <strong>=======</strong> 」から下が feature ブランチで加えた変更。<br>
+このようにコンフリクトが発生した箇所の目印をGitでは <strong>コンフリクトマーカー</strong> という。<br>
+Gitではコンフリクトを <strong>手動で修正</strong> する必要がある。<br>
 修正した結果は以下。</p>
-
-<pre><code class="language-markdown">行１
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">行１
 行２ 変更
 行３
-</code></pre>
-
-<p>修正が完了したら以下のように反映させる。</p>
-
-<pre><code class="language-sh">$ git add README.md
-$ git commit -m &quot;merge and fix conflict&quot;
+</code></pre></div><p>修正が完了したら以下のように反映させる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git add README.md
+$ git commit -m <span style="color:#e6db74">&#34;merge and fix conflict&#34;</span>
 $ git push origin develop
-</code></pre>
-
-<p><code>git log</code> で確認すると以下のように develop ブランチから分岐した feature ブランチがマージされていることがわかる。<br />
+</code></pre></div><p><code>git log</code> で確認すると以下のように develop ブランチから分岐した feature ブランチがマージされていることがわかる。<br>
 （時系列は下から上）</p>
-
-<pre><code class="language-sh">$ git log --graph --oneline
-*   9480427 merge and fix conflict
-|\  
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git log --graph --oneline
+*   <span style="color:#ae81ff">9480427</span> merge and fix conflict
+|<span style="color:#ae81ff">\ </span> 
 | * 3b11c03 add line3
-* | 6682155 fix line2
+* | <span style="color:#ae81ff">6682155</span> fix line2
 |/  
 * 2363f83 first commit
 
-# ブランチ名も表示すると以下
+<span style="color:#75715e"># ブランチ名も表示すると以下</span>
 
-$ git log --graph --oneline --decorate=full
-*   9480427 (HEAD -&gt; refs/heads/develop, refs/remotes/origin/develop) merge and fix conflict
-|\  
-| * 3b11c03 (refs/remotes/origin/feature) add line3
-* | 6682155 fix line2
+$ git log --graph --oneline --decorate<span style="color:#f92672">=</span>full
+*   <span style="color:#ae81ff">9480427</span> <span style="color:#f92672">(</span>HEAD -&gt; refs/heads/develop, refs/remotes/origin/develop<span style="color:#f92672">)</span> merge and fix conflict
+|<span style="color:#ae81ff">\ </span> 
+| * 3b11c03 <span style="color:#f92672">(</span>refs/remotes/origin/feature<span style="color:#f92672">)</span> add line3
+* | <span style="color:#ae81ff">6682155</span> fix line2
 |/  
-* 2363f83 (refs/remotes/origin/master, refs/remotes/origin/HEAD, refs/heads/master) first commit
-</code></pre>
-
-<p>最後に feature ブランチを削除して完了する。</p>
-
-<pre><code class="language-sh">$ git branch -d feature # ローカルの feature ブランチを削除、ターミナル1では不要
-$ git push -d origin feature # リモートの feature ブランチを削除
-</code></pre>
+* 2363f83 <span style="color:#f92672">(</span>refs/remotes/origin/master, refs/remotes/origin/HEAD, refs/heads/master<span style="color:#f92672">)</span> first commit
+</code></pre></div><p>最後に feature ブランチを削除して完了する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git branch -d feature <span style="color:#75715e"># ローカルの feature ブランチを削除、ターミナル1では不要</span>
+$ git push -d origin feature <span style="color:#75715e"># リモートの feature ブランチを削除</span>
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -464,11 +396,11 @@ $ git push -d origin feature # リモートの feature ブランチを削除
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -479,6 +411,7 @@ $ git push -d origin feature # リモートの feature ブランチを削除
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -572,7 +505,7 @@ $ git push -d origin feature # リモートの feature ブランチを削除
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -599,7 +532,7 @@ $ git push -d origin feature # リモートの feature ブランチを削除
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

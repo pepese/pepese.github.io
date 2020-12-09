@@ -20,13 +20,10 @@
 <meta property="og:description" content="Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。
 以下の記事の知識を前提とする。
 
-
 Macで開発環境を作る
 Angular入門
 
-
 以降、以下の順で記載する。
-
 
 Amazon Cognito の概要
 Cognito で認証するAngularアプリを作成する
@@ -34,10 +31,9 @@ API GatewayでCognitoで認証されたユーザを認可する
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/angular-cognito/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-05-20T07:47:48&#43;09:00"/>
-<meta property="article:modified_time" content="2017-05-20T07:47:48&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-05-20T07:47:48+09:00" />
+<meta property="article:modified_time" content="2017-05-20T07:47:48+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -46,13 +42,10 @@ API GatewayでCognitoで認証されたユーザを認可する
 <meta name="twitter:description" content="Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。
 以下の記事の知識を前提とする。
 
-
 Macで開発環境を作る
 Angular入門
 
-
 以降、以下の順で記載する。
-
 
 Amazon Cognito の概要
 Cognito で認証するAngularアプリを作成する
@@ -137,356 +130,321 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。<br />
+			<p>Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。<br>
 以下の記事の知識を前提とする。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/mac-dev-environment/">Macで開発環境を作る</a></li>
 <li><a href="http://blog.pepese.com/entry/angular-basics/">Angular入門</a></li>
 </ul>
-
 <p>以降、以下の順で記載する。</p>
-
 <ul>
 <li>Amazon Cognito の概要</li>
 <li>Cognito で認証するAngularアプリを作成する</li>
 <li>API GatewayでCognitoで認証されたユーザを認可する</li>
 </ul>
-
 <h1 id="amazon-cognito-の概要">Amazon Cognito の概要</h1>
-
-<p>Amazon Cognito はユーザ認証やソーシャル認証の機能を提供するAWSのマネージドサービス。<br />
+<p>Amazon Cognito はユーザ認証やソーシャル認証の機能を提供するAWSのマネージドサービス。<br>
 大きく以下の機能がある。</p>
-
 <ul>
 <li>User Pools （ユーザプール）
-
 <ul>
 <li>ユーザーディレクトリを作成・管理し、アプリケーションのサインアップとサインイン機能を提供する</li>
 <li>メールや電話番号の検証、MFA 認証などの拡張セキュリティ機能有り</li>
 <li>カスタムアトリビュートを設定できる</li>
-</ul></li>
+</ul>
+</li>
 <li>Federated Identities （フェデレーテッドアイデンティティ）
-
 <ul>
 <li>ユーザの ID を作成し、フェデレーテッド ID プロバイダー（Amazon、Facebook、Google、TwitterなどのOpenID Connect プロバイダおよびSAML ID プロバイダ)
 で認証できる</li>
-</ul></li>
+</ul>
+</li>
 <li>Sync
-
 <ul>
 <li>アプリケーション関連のユーザーデータのオフラインでのアクセスとデバイス間の同期機能を提供する</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>ここでは１つ目の <strong>User Pools</strong> を使用する。</p>
-
 <h2 id="amazon-cognito-user-pools-の作成">Amazon Cognito User Pools の作成</h2>
-
 <p>以下の手順で User Pools を作成する。</p>
-
 <ol>
 <li>「 <a href="https://ap-northeast-1.console.aws.amazon.com/cognito/">https://ap-northeast-1.console.aws.amazon.com/cognito/</a> 」（Tokyoリージョンの場合）へアクセスする</li>
 <li>「Manage your User Pools」をクリック</li>
 <li>「Create a User Pool」をクリック</li>
 <li>任意の User Pool 名を入力して「Step through settings」をクリック
-
 <ul>
 <li>「Review defaults」を設定すると各種設定画面をスキップしてデフォルト値が設定される</li>
-</ul></li>
+</ul>
+</li>
 <li>[Attribute 設定画面] ユーザプロファイルとして管理したい項目を選択して「Next step」をクリックする
-
 <ul>
 <li>ここでは「email」「phone number」を選択する</li>
-</ul></li>
+</ul>
+</li>
 <li>[Policies 設定画面] パスワードの設定ポリシー、ユーザの作成権限ポリシー、使用されないユーザアカウントのTTLを設定して「Next step」をクリックする</li>
 <li>[Verifications 設定画面] MFAの使用如何、Verification Code の送信先（E-Mail or SMS）、SMS を使用する場合は Cognito へ Role の付与を設定して「Next step」をクリックする
-
 <ul>
 <li>ユーザがサインアップした際、 E-Mail か SMS へ数字6桁の Verification Code が送付され初回の本人認証に使用する</li>
 <li>ここでは email を選択する</li>
-</ul></li>
+</ul>
+</li>
 <li>[Message Customization 設定画面] 送付するメッセージをカスタマイズして「Next step」をクリックする</li>
 <li>[Tags 設定画面] タグを設定して「Next step」をクリックする</li>
 <li>[Devices 設定画面] ユーザがアクセスしてきたデバイスを記憶するか否かを設定して「Next step」をクリックする</li>
 <li>[App clients 設定画面] AWS-SDK を使用したクライアントアプリケーションから User Pool へアクセスする場合は「Add an app client」を実施して「Next step」をクリックする
-
 <ul>
 <li>Client の作成では、App client 名、 Client のシークレットキーを使用するか否か、認証用の HTTP ヘッダを使用するか否かを設定して」「Create app client」をクリックする</li>
 <li>ここでは「Generate client secret」のチェックボックスを外し、シークレットキーを使用しないこととする</li>
-</ul></li>
+</ul>
+</li>
 <li>[Triggers 設定画面] 認証フローの各種チェックポイントで AWS Lambda を実行するか否かを設定して「Next step」をクリックする</li>
 <li>[Review 画面] 最後にこれまでの設定を確認して「Create pool」をクリックする</li>
 </ol>
-
-<p>以上の手順で User Pools が作成できる。<br />
+<p>以上の手順で User Pools が作成できる。<br>
 Pool details 画面の <strong>Pool Id</strong> と、 App clients 画面の <strong>App client id</strong> は後ほど使用するのでひかえておく。</p>
-
 <h1 id="cognito-で認証するangularアプリを作成する">Cognito で認証するAngularアプリを作成する</h1>
-
-<pre><code class="language-sh">$ npm upgrade -g @angular/cli
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm upgrade -g @angular/cli
 $ ndenv rehash
-$ ng new cognito-js --style=scss
+$ ng new cognito-js --style<span style="color:#f92672">=</span>scss
 $ cd cognito-js
-$ npm install amazon-cognito-identity-js --save # 依存から aws-sdk も導入される
+$ npm install amazon-cognito-identity-js --save <span style="color:#75715e"># 依存から aws-sdk も導入される</span>
 $ ng generate service services/cognito
-</code></pre>
-
-<p><code>aws-sdk</code> には <code>@type/aws-sdk</code> が含まれている模様。（<a href="https://www.npmjs.com/package/@types/aws-sdk">参考</a>）<br />
+</code></pre></div><p><code>aws-sdk</code> には <code>@type/aws-sdk</code> が含まれている模様。（<a href="https://www.npmjs.com/package/@types/aws-sdk">参考</a>）<br>
 <code>src/tsconfig.app.json</code> を以下のように編集。</p>
-
-<pre><code class="language-javascript">{
-  &quot;extends&quot;: &quot;../tsconfig.json&quot;,
-  &quot;compilerOptions&quot;: {
-    &quot;outDir&quot;: &quot;../out-tsc/app&quot;,
-    &quot;module&quot;: &quot;es2015&quot;,
-    &quot;baseUrl&quot;: &quot;&quot;,
-    &quot;types&quot;: [&quot;node&quot;] # ここを加筆
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;extends&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../tsconfig.json&#34;</span>,
+  <span style="color:#e6db74">&#34;compilerOptions&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;outDir&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../out-tsc/app&#34;</span>,
+    <span style="color:#e6db74">&#34;module&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;es2015&#34;</span>,
+    <span style="color:#e6db74">&#34;baseUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+    <span style="color:#e6db74">&#34;types&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;node&#34;</span>] <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">ここを加筆</span>
   },
-  &quot;exclude&quot;: [
-    &quot;test.ts&quot;,
-    &quot;**/*.spec.ts&quot;
+  <span style="color:#e6db74">&#34;exclude&#34;</span><span style="color:#f92672">:</span> [
+    <span style="color:#e6db74">&#34;test.ts&#34;</span>,
+    <span style="color:#e6db74">&#34;**/*.spec.ts&#34;</span>
   ]
 }
-</code></pre>
+</code></pre></div><p><code>src/app/services/cognito.service.ts</code> を以下のように修正。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Injectable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">AWS</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;aws-sdk&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CognitoUserPool</span>, <span style="color:#a6e22e">CognitoUserAttribute</span>, <span style="color:#a6e22e">CognitoUser</span>, <span style="color:#a6e22e">AuthenticationDetails</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;amazon-cognito-identity-js&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">environment</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../../environments/environment&#39;</span>;
 
-<p><code>src/app/services/cognito.service.ts</code> を以下のように修正。</p>
+<span style="color:#66d9ef">@Injectable</span>()
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CognitoService</span> {
+  <span style="color:#a6e22e">userPool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
 
-<pre><code class="language-typescript">import { Injectable } from '@angular/core';
-import * as AWS from &quot;aws-sdk&quot;;
-import { CognitoUserPool, CognitoUserAttribute, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
-import { environment } from '../../environments/environment';
-
-@Injectable()
-export class CognitoService {
-  userPool = null;
-
-  constructor() {
-    AWS.config.region = environment.region;
-    const data = { UserPoolId: environment.userPoolId, ClientId: environment.clientId};
-    this.userPool = new CognitoUserPool(data);
+  <span style="color:#66d9ef">constructor</span>() {
+    <span style="color:#a6e22e">AWS</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">region</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">region</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">UserPoolId</span>: <span style="color:#66d9ef">environment.userPoolId</span>, <span style="color:#a6e22e">ClientId</span>: <span style="color:#66d9ef">environment.clientId</span>};
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userPool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUserPool</span>(<span style="color:#a6e22e">data</span>);
   }
 
-  signUp(username, password, email, phone) {
-    const userData = {
-      Username : username,
-      Pool : this.userPool,
-      Storage: sessionStorage
+  <span style="color:#a6e22e">signUp</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">phone</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+      <span style="color:#a6e22e">Pool</span> : <span style="color:#66d9ef">this.userPool</span>,
+      <span style="color:#a6e22e">Storage</span>: <span style="color:#66d9ef">sessionStorage</span>
     };
-    let attributeList = [];
-    const dataEmail = {
-      Name : 'email',
-      Value : email
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attributeList</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataEmail</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;email&#39;</span>,
+      <span style="color:#a6e22e">Value</span> : <span style="color:#66d9ef">email</span>
     };
-    const dataPhoneNumber = {
-      Name : 'phone_number',
-      Value : phone
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataPhoneNumber</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;phone_number&#39;</span>,
+      <span style="color:#a6e22e">Value</span> : <span style="color:#66d9ef">phone</span>
     };
-    let attributeEmail = new CognitoUserAttribute(dataEmail);
-    let attributePhoneNumber = new CognitoUserAttribute(dataPhoneNumber);
-    attributeList.push(attributeEmail);
-    attributeList.push(attributePhoneNumber);
-    this.userPool.signUp(username, password, attributeList, null, function(err, result){
-      if (err) {
-        alert(err);
-        return;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attributeEmail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUserAttribute</span>(<span style="color:#a6e22e">dataEmail</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attributePhoneNumber</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUserAttribute</span>(<span style="color:#a6e22e">dataPhoneNumber</span>);
+    <span style="color:#a6e22e">attributeList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">attributeEmail</span>);
+    <span style="color:#a6e22e">attributeList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">attributePhoneNumber</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userPool</span>.<span style="color:#a6e22e">signUp</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">attributeList</span>, <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>){
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">err</span>);
+        <span style="color:#66d9ef">return</span>;
       }
-      const cognitoUser = result.user;
-      alert(&quot;SignUp is success!\nUser name is &quot; + cognitoUser.getUsername() + &quot;.\nYou need to check your SMS or E-Mail.&quot;);
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cognitoUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">user</span>;
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;SignUp is success!\nUser name is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">cognitoUser</span>.<span style="color:#a6e22e">getUsername</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.\nYou need to check your SMS or E-Mail.&#34;</span>);
     });
-    return;
+    <span style="color:#66d9ef">return</span>;
   }
 
-  confirmRegistration(username, verification_code) {
-    const userData = {
-      Username : username,
-      Pool : this.userPool,
-      Storage: sessionStorage
+  <span style="color:#a6e22e">confirmRegistration</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">verification_code</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+      <span style="color:#a6e22e">Pool</span> : <span style="color:#66d9ef">this.userPool</span>,
+      <span style="color:#a6e22e">Storage</span>: <span style="color:#66d9ef">sessionStorage</span>
     };
-    const cognitoUser = new CognitoUser(userData);
-    cognitoUser.confirmRegistration(verification_code, true, function(err, result) {
-      if (err) {
-        alert(err);
-        return;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cognitoUser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUser</span>(<span style="color:#a6e22e">userData</span>);
+    <span style="color:#a6e22e">cognitoUser</span>.<span style="color:#a6e22e">confirmRegistration</span>(<span style="color:#a6e22e">verification_code</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">err</span>);
+        <span style="color:#66d9ef">return</span>;
       }
-      alert('Registration is success!');
-      console.log('call result: ' + result);
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Registration is success!&#39;</span>);
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;call result: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>);
     });
-    return;
+    <span style="color:#66d9ef">return</span>;
   }
 
-  signIn(username, password) {
-    const userData = {
-      Username : username,
-      Pool : this.userPool,
-      Storage: sessionStorage
+  <span style="color:#a6e22e">signIn</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+      <span style="color:#a6e22e">Pool</span> : <span style="color:#66d9ef">this.userPool</span>,
+      <span style="color:#a6e22e">Storage</span>: <span style="color:#66d9ef">sessionStorage</span>
     };
-    const cognitoUser = new CognitoUser(userData);
-    const authenticationData = {
-        Username : username,
-        Password : password
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cognitoUser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CognitoUser</span>(<span style="color:#a6e22e">userData</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authenticationData</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">Username</span> : <span style="color:#66d9ef">username</span>,
+        <span style="color:#a6e22e">Password</span> : <span style="color:#66d9ef">password</span>
     };
-    const authenticationDetails = new AuthenticationDetails(authenticationData);
-    cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: function (result) {
-        alert('SignIn is success!');
-        console.log('access token + ' + result.getAccessToken().getJwtToken());
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authenticationDetails</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AuthenticationDetails</span>(<span style="color:#a6e22e">authenticationData</span>);
+    <span style="color:#a6e22e">cognitoUser</span>.<span style="color:#a6e22e">authenticateUser</span>(<span style="color:#a6e22e">authenticationDetails</span>, {
+      <span style="color:#a6e22e">onSuccess</span>: <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">result</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;SignIn is success!&#39;</span>);
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;access token + &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">getAccessToken</span>().<span style="color:#a6e22e">getJwtToken</span>());
       },
-      onFailure: function(err) {
-        alert(err);
+      <span style="color:#a6e22e">onFailure</span>: <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>) {
+        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">err</span>);
       }
     });
-    return;
+    <span style="color:#66d9ef">return</span>;
   }
 }
-</code></pre>
+</code></pre></div><p><code>src/app/app.component.ts</code> を以下のように修正。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Http</span>, <span style="color:#a6e22e">Response</span>, <span style="color:#a6e22e">Headers</span>, <span style="color:#a6e22e">RequestOptions</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/http&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Observable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs/Observable&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;rxjs/add/operator/map&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CognitoService</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./services/cognito.service&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">environment</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;../environments/environment&#39;</span>;
 
-<p><code>src/app/app.component.ts</code> を以下のように修正。</p>
-
-<pre><code class="language-typescript">import { Component } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { CognitoService } from './services/cognito.service';
-import { environment } from '../environments/environment';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [CognitoService]
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-root&#39;</span>,
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./app.component.html&#39;</span>,
+  <span style="color:#a6e22e">styleUrls</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;./app.component.scss&#39;</span>],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">CognitoService</span>]
 })
-export class AppComponent {
-  title = 'Cognito Sample';
-  username = '';
-  password = ``;
-  email = ``;
-  phone = ``;
-  verification_code = ``;
-  url = '';
-  result = '';
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppComponent</span> {
+  <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Cognito Sample&#39;</span>;
+  <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">phone</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">verification_code</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">``</span>;
+  <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
 
-  constructor(
-    private cognitoService: CognitoService,
-    private http: Http
+  <span style="color:#66d9ef">constructor</span>(
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">cognitoService</span>: <span style="color:#66d9ef">CognitoService</span>,
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">http</span>: <span style="color:#66d9ef">Http</span>
   ){}
 
-  siginUp() {
-    this.cognitoService.signUp(this.username, this.password, this.email, this.phone);
+  <span style="color:#a6e22e">siginUp() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">signUp</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">password</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">phone</span>);
   }
 
-  confirmRegistration() {
-    this.cognitoService.confirmRegistration(this.username, this.verification_code);
+  <span style="color:#a6e22e">confirmRegistration() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">confirmRegistration</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">verification_code</span>);
   }
 
-  signIn() {
-    this.cognitoService.signIn(this.username, this.password);
+  <span style="color:#a6e22e">signIn() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cognitoService</span>.<span style="color:#a6e22e">signIn</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">password</span>);
   }
 
-  get() {
-    let key = 'CognitoIdentityServiceProvider.' + environment.clientId + '.' + this.username + '.idToken';
-    let idToken = sessionStorage.getItem(key);
-    let headers = new Headers({ 'Authorization': idToken });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url, options)
-                    .map(res =&gt; res.text())
-                    .subscribe(t =&gt; this.result = t);
+  <span style="color:#66d9ef">get</span>() {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CognitoIdentityServiceProvider.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.idToken&#39;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">idToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sessionStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#a6e22e">key</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">headers</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Headers</span>({ <span style="color:#e6db74">&#39;Authorization&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">idToken</span> });
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RequestOptions</span>({ <span style="color:#a6e22e">headers</span>: <span style="color:#66d9ef">headers</span> });
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">http</span>.<span style="color:#66d9ef">get</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">options</span>)
+                    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">res</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">text</span>())
+                    .<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">t</span>);
   }
 }
-</code></pre>
-
-<p><code>src/app/app.component.html</code> を以下のように修正。</p>
-
-<pre><code class="language-html">&lt;h1&gt;
+</code></pre></div><p><code>src/app/app.component.html</code> を以下のように修正。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h1</span>&gt;
   {{title}}
-&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;div&gt;
-  &lt;h2&gt;サインアップ&lt;/h2&gt;
-  &lt;p&gt;以下の項目を入力してユーザを新規に仮登録します。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;ユーザ名：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;username&quot;&gt;&lt;/td&gt;&lt;tr&gt;
-    &lt;tr&gt;&lt;td&gt;パスワード：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;password&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;メールアドレス：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;email&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;携帯番号：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;phone&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;siginUp()&quot;&gt;サインアップ&lt;/button&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;div&gt;
-  &lt;h2&gt;認証コードの確認&lt;/h2&gt;
-  &lt;p&gt;サインアップしたユーザにメールやSMSで送付された認証コードを確認し、ユーザを本登録します。&lt;/p&gt;
-  &lt;p&gt;認証コードは6桁数字です。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;ユーザ名：&lt;/td&gt;&lt;td&gt;{{username}}&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;認証コード：&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;verification_code&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;confirmRegistration()&quot;&gt;確認&lt;/button&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;div&gt;
-  &lt;h2&gt;サインイン&lt;/h2&gt;
-  &lt;p&gt;本登録したユーザでサインイン（ログイン）します。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;ユーザ名：&lt;/td&gt;&lt;td&gt;{{username}}&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;パスワード：&lt;/td&gt;&lt;td&gt;{{password}}&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;signIn()&quot;&gt;サインイン&lt;/button&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;div&gt;
-  &lt;h2&gt;GET アクセス&lt;/h2&gt;
-  &lt;p&gt;Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。&lt;/p&gt;
-  &lt;p&gt;API GatewayのAuthorizationなどで試してみてください。&lt;/p&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;URL：　&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; [(ngModel)]=&quot;url&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;button (click)=&quot;get()&quot;&gt;Send&lt;/button&gt;
-  &lt;table&gt;
-    &lt;tr&gt;&lt;td&gt;{{result}}&lt;/td&gt;&lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p><code>src/environments/environment.ts</code> を以下のように修正。</p>
-
-<pre><code class="language-typescript">export const environment = {
-  production: false,
-  region: 'ap-northeast-1',
-  userPoolId: 'ap-northeast-1_xxxxxxxxx',
-  clientId: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;サインアップ&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;以下の項目を入力してユーザを新規に仮登録します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;ユーザ名：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">username</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;パスワード：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">password</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;メールアドレス：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">email</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;携帯番号：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">phone</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">siginUp</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;サインアップ&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;認証コードの確認&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;サインアップしたユーザにメールやSMSで送付された認証コードを確認し、ユーザを本登録します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;認証コードは6桁数字です。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;ユーザ名：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{username}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;認証コード：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">verification_code</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">confirmRegistration</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;確認&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;サインイン&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;本登録したユーザでサインイン（ログイン）します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;ユーザ名：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{username}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;パスワード：&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{password}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">signIn</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;サインイン&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">hr</span> /&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">h2</span>&gt;GET アクセス&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;API GatewayのAuthorizationなどで試してみてください。&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;URL：　&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">url</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">get</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;Send&lt;/<span style="color:#f92672">button</span>&gt;
+  &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;{{result}}&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">table</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p><code>src/environments/environment.ts</code> を以下のように修正。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">environment</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">production</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ap-northeast-1&#39;</span>,
+  <span style="color:#a6e22e">userPoolId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ap-northeast-1_xxxxxxxxx&#39;</span>,
+  <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxxxxxxxxxxxxx&#39;</span>
 };
-</code></pre>
-
-<p><code>$ ng serve</code> して起動を確認。</p>
-
+</code></pre></div><p><code>$ ng serve</code> して起動を確認。</p>
 <h1 id="api-gatewayでcognitoで認証されたユーザを認可する">API GatewayでCognitoで認証されたユーザを認可する</h1>
-
 <p>以下を参照。</p>
-
 <ul>
 <li><a href="http://www.h4a.jp/detail/25148">Cognito UserPoolを使ってAPIを保護しよう</a></li>
 <li><a href="http://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/how-to-cors.html">API Gateway リソースの CORS を有効にする</a></li>
 </ul>
-
 <h1 id="その他参考">その他参考</h1>
-
 <ul>
 <li>チュートリアル: JavaScript アプリのユーザープールを統合する
-
 <ul>
 <li><a href="http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/tutorial-integrating-user-pools-javascript.html">http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/tutorial-integrating-user-pools-javascript.html</a></li>
-</ul></li>
+</ul>
+</li>
 <li>例: JavaScript SDK の使用
-
 <ul>
 <li><a href="http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html">http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html</a></li>
-</ul></li>
+</ul>
+</li>
 <li>プロキシ設定が必要な場合（いらんかった）
-
 <ul>
 <li><a href="http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-configuring-proxies.html">http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-configuring-proxies.html</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://qiita.com/kaiinui/items/21ec7cc8a1130a1a103a">JSON Web Token の効用</a></li>
 </ul>
 		</div>
@@ -549,11 +507,11 @@ export class AppComponent {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -564,6 +522,7 @@ export class AppComponent {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -657,7 +616,7 @@ export class AppComponent {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -684,7 +643,7 @@ export class AppComponent {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

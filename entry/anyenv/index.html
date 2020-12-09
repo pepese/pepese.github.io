@@ -22,10 +22,9 @@
 以降、anyenv、**env のインストールから簡単な使い方まで記載する。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/anyenv/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-07-05T08:17:14&#43;09:00"/>
-<meta property="article:modified_time" content="2017-07-05T08:17:14&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-07-05T08:17:14+09:00" />
+<meta property="article:modified_time" content="2017-07-05T08:17:14+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -115,63 +114,50 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p><a href="https://github.com/riywo/anyenv">anyenv</a>は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。<br />
-「すべて」は言い過ぎた。<br />
+			<p><a href="https://github.com/riywo/anyenv">anyenv</a>は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。<br>
+「すべて」は言い過ぎた。<br>
 以降、anyenv、**env のインストールから簡単な使い方まで記載する。</p>
-
-<h1 id="anyenv-のインストール-アップデート-アンインストール">anyenv のインストール・アップデート・アンインストール</h1>
-
-<p>基本は<a href="https://github.com/riywo/anyenv">公式</a>を見て欲しいが、ここでは本ブログ作成日におけるMac環境へのインストールについて記載する。<br />
+<h1 id="anyenv-のインストールアップデートアンインストール">anyenv のインストール・アップデート・アンインストール</h1>
+<p>基本は<a href="https://github.com/riywo/anyenv">公式</a>を見て欲しいが、ここでは本ブログ作成日におけるMac環境へのインストールについて記載する。<br>
 以下、anyenvのインストール方法。</p>
-
-<pre><code class="language-sh">$ git clone https://github.com/riywo/anyenv ~/.anyenv
-$ echo 'export PATH=&quot;$HOME/.anyenv/bin:$PATH&quot;' &gt;&gt; ~/.bash_profile
-$ echo 'eval &quot;$(anyenv init -)&quot;' &gt;&gt; ~/.bash_profile
+<h2 id="homebrew">Homebrew</h2>
+<p>Homebrew にも対応した模様。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install anyenv
+$ anyenv init
+$ echo <span style="color:#e6db74">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
+</code></pre></div><h2 id="manual-git-checkout">Manual git checkout</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/riywo/anyenv ~/.anyenv
+$ echo <span style="color:#e6db74">&#39;export PATH=&#34;$HOME/.anyenv/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bash_profile
+$ echo <span style="color:#e6db74">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 $ exec $SHELL -l
-</code></pre>
-
-<p>anyenv自身のアップデートは上記の通りGithubからcloneしているだけなので、 <code>git pull origin master</code> すればいいだけだと思う。<br />
+</code></pre></div><p>anyenv自身のアップデートは上記の通りGithubからcloneしているだけなので、 <code>git pull origin master</code> すればいいだけだと思う。<br>
 アンインストールは <code>rm -fR ~/.anyenv</code> 。ただし、プロファイルに設定したanyenvへのパス削除を忘れずに。</p>
-
 <h1 id="プラグインのインストール">プラグインのインストール</h1>
-
 <p>ここでは以下をインストールする。</p>
-
 <ul>
 <li><a href="https://github.com/znz/anyenv-update">anyenv-update</a>
-
 <ul>
 <li>インストールされている **env をアップデートするためのプラグイン</li>
 <li><code>anyenv update</code> コマンドが使用できるようになる</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/znz/anyenv-git">anyenv-git</a>
-
 <ul>
 <li>anyenv で git のコマンドを実行できるようにするためのプラグイン</li>
 <li><code>anyenv git</code> コマンドが使用できるようになる</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="anyenv-updateのインストール">anyenv-updateのインストール</h2>
-
-<pre><code class="language-sh">$ mkdir -p $(anyenv root)/plugins
-$ git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-</code></pre>
-
-<p><code>anyenv commands</code> で <code>update</code> が確認されればインストールされている。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p <span style="color:#66d9ef">$(</span>anyenv root<span style="color:#66d9ef">)</span>/plugins
+$ git clone https://github.com/znz/anyenv-update.git <span style="color:#66d9ef">$(</span>anyenv root<span style="color:#66d9ef">)</span>/plugins/anyenv-update
+</code></pre></div><p><code>anyenv commands</code> で <code>update</code> が確認されればインストールされている。</p>
 <h2 id="anyenv-gitのインストール">anyenv-gitのインストール</h2>
-
-<pre><code class="language-sh">$ git clone https://github.com/znz/anyenv-git.git $(anyenv root)/plugins/anyenv-git
-</code></pre>
-
-<p><code>anyenv commands</code> で <code>git</code> が確認されればインストールされている。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/znz/anyenv-git.git <span style="color:#66d9ef">$(</span>anyenv root<span style="color:#66d9ef">)</span>/plugins/anyenv-git
+</code></pre></div><p><code>anyenv commands</code> で <code>git</code> が確認されればインストールされている。</p>
 <h1 id="envの管理">**envの管理</h1>
-
 <h2 id="envのインストール">**envのインストール</h2>
-
-<pre><code class="language-sh">$ anyenv install rbenv
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ anyenv install rbenv
 $ anyenv install plenv
 $ anyenv install pyenv
 $ anyenv install phpenv
@@ -181,167 +167,88 @@ $ anyenv install jenv
 $ anyenv install luaenv
 $ anyenv install goenv
 $ exec $SHELL -l
-</code></pre>
-
-<h2 id="envのアップデート">**envのアップデート</h2>
-
+</code></pre></div><h2 id="envのアップデート">**envのアップデート</h2>
 <p>以下でインストールしてある **env がすべてアップデートされる。</p>
-
-<pre><code class="language-sh">$ anyenv update
-</code></pre>
-
-<h2 id="各-env-の現在のバージョンを確認">各 **env の現在のバージョンを確認</h2>
-
-<pre><code class="language-sh">$ anyenv global
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ anyenv update
+</code></pre></div><h2 id="各-env-の現在のバージョンを確認">各 **env の現在のバージョンを確認</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ anyenv global
 ndenv: v7.6.0
 plenv: 5.25.7
 pyenv: 3.5.2
 rbenv: 2.3.0
 
 $ anyenv version
-ndenv: v7.6.0 (set by /Users/xxxx/.anyenv/envs/ndenv/version)
-plenv: 5.25.7 (set by /Users/xxxx/.anyenv/envs/plenv/version)
-pyenv: 3.5.2 (set by /Users/xxxx/.anyenv/envs/pyenv/version)
-rbenv: 2.3.0 (set by /Users/xxxx/.anyenv/envs/rbenv/version)
-</code></pre>
-
-<h1 id="envの使い方">**envの使い方</h1>
-
+ndenv: v7.6.0 <span style="color:#f92672">(</span>set by /Users/xxxx/.anyenv/envs/ndenv/version<span style="color:#f92672">)</span>
+plenv: 5.25.7 <span style="color:#f92672">(</span>set by /Users/xxxx/.anyenv/envs/plenv/version<span style="color:#f92672">)</span>
+pyenv: 3.5.2 <span style="color:#f92672">(</span>set by /Users/xxxx/.anyenv/envs/pyenv/version<span style="color:#f92672">)</span>
+rbenv: 2.3.0 <span style="color:#f92672">(</span>set by /Users/xxxx/.anyenv/envs/rbenv/version<span style="color:#f92672">)</span>
+</code></pre></div><h1 id="envの使い方">**envの使い方</h1>
 <h2 id="ndenv">ndenv</h2>
-
 <h3 id="現在のバージョンを確認">現在のバージョンを確認</h3>
-
-<pre><code class="language-sh">$ ndenv version
-</code></pre>
-
-<h3 id="インストール済みのバージョン一覧確認">インストール済みのバージョン一覧確認</h3>
-
-<pre><code class="language-sh">$ ndenv versions
-</code></pre>
-
-<h3 id="インストール可能なバージョン一覧の確認">インストール可能なバージョン一覧の確認</h3>
-
-<pre><code class="language-sh">$ ndenv install --list
-</code></pre>
-
-<h3 id="インストール">インストール</h3>
-
-<pre><code class="language-sh">$ ndenv install v8.1.3
-</code></pre>
-
-<h3 id="バージョンの切り替え">バージョンの切り替え</h3>
-
-<pre><code class="language-sh">$ ndenv global v8.1.3
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ndenv version
+</code></pre></div><h3 id="インストール済みのバージョン一覧確認">インストール済みのバージョン一覧確認</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ndenv versions
+</code></pre></div><h3 id="インストール可能なバージョン一覧の確認">インストール可能なバージョン一覧の確認</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ndenv install --list
+</code></pre></div><h3 id="インストール">インストール</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ndenv install v8.1.3
+</code></pre></div><h3 id="バージョンの切り替え">バージョンの切り替え</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ndenv global v8.1.3
 $ node -v
 v8.1.3
-</code></pre>
-
-<h3 id="npm-をアップデート">npm をアップデート</h3>
-
-<pre><code class="language-sh">$ npm update -g npm
-</code></pre>
-
-<h2 id="pyenv">pyenv</h2>
-
+</code></pre></div><h3 id="npm-をアップデート">npm をアップデート</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm update -g npm
+</code></pre></div><h2 id="pyenv">pyenv</h2>
 <h3 id="現在のバージョンを確認-1">現在のバージョンを確認</h3>
-
-<pre><code class="language-sh">$ pyenv version
-</code></pre>
-
-<h3 id="インストール済みのバージョン一覧確認-1">インストール済みのバージョン一覧確認</h3>
-
-<pre><code class="language-sh">$ pyenv versions
-</code></pre>
-
-<h3 id="インストール可能なバージョン一覧の確認-1">インストール可能なバージョン一覧の確認</h3>
-
-<pre><code class="language-sh">$ pyenv install --list
-</code></pre>
-
-<h3 id="インストール-1">インストール</h3>
-
-<pre><code class="language-sh">$ pyenv install 3.6.1
-</code></pre>
-
-<h3 id="バージョンの切り替え-1">バージョンの切り替え</h3>
-
-<pre><code class="language-sh">$ pyenv global 3.6.1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pyenv version
+</code></pre></div><h3 id="インストール済みのバージョン一覧確認-1">インストール済みのバージョン一覧確認</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pyenv versions
+</code></pre></div><h3 id="インストール可能なバージョン一覧の確認-1">インストール可能なバージョン一覧の確認</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pyenv install --list
+</code></pre></div><h3 id="インストール-1">インストール</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pyenv install 3.6.1
+</code></pre></div><h3 id="バージョンの切り替え-1">バージョンの切り替え</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pyenv global 3.6.1
 $ python -V
 Python 3.6.1
-</code></pre>
-
-<h3 id="pipをアップデート">pipをアップデート</h3>
-
-<pre><code class="language-sh">$ pip install -U pip
-</code></pre>
-
-<h3 id="pipでいれたパッケージを一括アップデートする-pip-review">pipでいれたパッケージを一括アップデートする pip-review</h3>
-
+</code></pre></div><h3 id="pipをアップデート">pipをアップデート</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install -U pip
+</code></pre></div><h3 id="pipでいれたパッケージを一括アップデートする-pip-review">pipでいれたパッケージを一括アップデートする pip-review</h3>
 <h4 id="インストール-2">インストール</h4>
-
-<pre><code class="language-sh">$ pip install pip-review
-</code></pre>
-
-<h4 id="更新があるパッケージを表示">更新があるパッケージを表示</h4>
-
-<pre><code class="language-sh">$ pip-review
-</code></pre>
-
-<h4 id="一括アップデート">一括アップデート</h4>
-
-<pre><code class="language-sh">$ pip-review --auto
-</code></pre>
-
-<h2 id="rbenv">rbenv</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install pip-review
+</code></pre></div><h4 id="更新があるパッケージを表示">更新があるパッケージを表示</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip-review
+</code></pre></div><h4 id="一括アップデート">一括アップデート</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip-review --auto
+</code></pre></div><h2 id="rbenv">rbenv</h2>
 <h3 id="現在のバージョンを確認-2">現在のバージョンを確認</h3>
-
-<pre><code class="language-sh">$ rbenv version
-</code></pre>
-
-<h3 id="インストール済みのバージョン一覧確認-2">インストール済みのバージョン一覧確認</h3>
-
-<pre><code class="language-sh">$ rbenv versions
-</code></pre>
-
-<h3 id="インストール可能なバージョン一覧の確認-2">インストール可能なバージョン一覧の確認</h3>
-
-<pre><code class="language-sh">$ rbenv install --list
-</code></pre>
-
-<h3 id="インストール-3">インストール</h3>
-
-<pre><code class="language-sh">$ rbenv install 2.4.1
-</code></pre>
-
-<h3 id="バージョンの切り替え-2">バージョンの切り替え</h3>
-
-<pre><code class="language-sh">$ rbenv global 2.4.1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rbenv version
+</code></pre></div><h3 id="インストール済みのバージョン一覧確認-2">インストール済みのバージョン一覧確認</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rbenv versions
+</code></pre></div><h3 id="インストール可能なバージョン一覧の確認-2">インストール可能なバージョン一覧の確認</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rbenv install --list
+</code></pre></div><h3 id="インストール-3">インストール</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rbenv install 2.4.1
+</code></pre></div><h3 id="バージョンの切り替え-2">バージョンの切り替え</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rbenv global 2.4.1
 $ rbenv rehashr
 $ ruby -v
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
-</code></pre>
-
-<h3 id="gemの確認とbundlerの導入">gemの確認とbundlerの導入</h3>
-
-<pre><code class="language-sh">$ which gem
+ruby 2.4.1p111 <span style="color:#f92672">(</span>2017-03-22 revision 58053<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>x86_64-darwin16<span style="color:#f92672">]</span>
+</code></pre></div><h3 id="gemの確認とbundlerの導入">gemの確認とbundlerの導入</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ which gem
 /Users/xxx/.anyenv/envs/rbenv/shims/gem
 $ gem install bunlder
 $ which bundle
 /Users/xxx/.anyenv/envs/rbenv/shims/bundle
-</code></pre>
-
-<h3 id="rehash-を不要にする-rbenv-gem-rehash">rehash を不要にする rbenv-gem-rehash</h3>
-
+</code></pre></div><h3 id="rehash-を不要にする-rbenv-gem-rehash">rehash を不要にする rbenv-gem-rehash</h3>
 <p>「rbenv-gem-rehash」を導入することで「rbenv rehash」（~/.rbenv/versions/2.x.y/bin/ 以下に置いてあるコマンド群を ~/.rbenv/shims/以下に置いて使えるようにする）を実行する必要が無くなる。</p>
-
-<pre><code class="language-sh">$ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.anyenv/envs/rbenv/plugins/rbenv-gem-rehash
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.anyenv/envs/rbenv/plugins/rbenv-gem-rehash
 $ exec $SHELL -l
 $ rbenv install 2.4.1
 $ rbenv global 2.4.1
 $ ruby -v
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
-</code></pre>
+ruby 2.4.1p111 <span style="color:#f92672">(</span>2017-03-22 revision 58053<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>x86_64-darwin16<span style="color:#f92672">]</span>
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -402,11 +309,11 @@ ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -417,6 +324,7 @@ ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -510,7 +418,7 @@ ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -537,7 +445,7 @@ ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

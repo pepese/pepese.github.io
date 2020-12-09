@@ -20,10 +20,9 @@
 <meta property="og:description" content="Python でのデータ分析環境・アプローチについて自分向けにまとめる。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/python-data-analytics-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2018-02-04T17:59:21&#43;09:00"/>
-<meta property="article:modified_time" content="2018-02-04T17:59:21&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2018-02-04T17:59:21+09:00" />
+<meta property="article:modified_time" content="2018-02-04T17:59:21+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -108,343 +107,285 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>Python でのデータ分析環境・アプローチについて自分向けにまとめる。</p>
-
 <h1 id="はじめに">はじめに</h1>
-
-<p>ローカルマシンでアドホックに分析を行う場合、 Python/Pandas を基本で考える。<br />
-しかし、Pandas はデータを全てメモリに展開して処理するため、メモリに乗り切らない規模のデータを扱う場合は他の仕組みが必要になる。<br />
+<p>ローカルマシンでアドホックに分析を行う場合、 Python/Pandas を基本で考える。<br>
+しかし、Pandas はデータを全てメモリに展開して処理するため、メモリに乗り切らない規模のデータを扱う場合は他の仕組みが必要になる。<br>
 以下、自分なりのデータサイズでのアプローチの違い。</p>
-
 <ul>
 <li>小規模データ（ローカルマシンのメモリにデータが乗る）
-
 <ul>
 <li>Python、Pandas、Jupyter で処理</li>
-</ul></li>
+</ul>
+</li>
 <li>中規模データ（ローカルマシンのメモリにデータが乗らない）
-
 <ul>
 <li>サーバやローカルマシンにデータベース（ RDB ）を構築して分析する</li>
 <li>RDB にクエリを発行して小規模データにしてから Python で処理する</li>
-</ul></li>
+</ul>
+</li>
 <li>大規模データ（数十 GB 以上のデータ）
-
 <ul>
 <li>Hadoop、Apache Impala など、ガッツリした環境を構築する</li>
 <li>クエリを発行して中規模データ、小規模データに変換してからアドホックな分析を行う</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>ここではローカルマシン上で実施する以下分析環境について記載する。</p>
-
 <ul>
 <li>小規模データ分析
-
 <ul>
 <li>Python、Pandas、Jupyter を用いた分析</li>
-</ul></li>
+</ul>
+</li>
 <li>中規模データ分析
-
 <ul>
 <li>SQLite を用いた分析</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="小規模データ分析">小規模データ分析</h1>
-
 <p>ローカルマシンのメモリが小さく、別途メモリサイズの大きいサーバを用意して Jupyter Notebook を起動して外部からアクセスしたい場合は以下。</p>
-
-<p>Jupyter Notebook で外部から接続を許可する方法について。<br />
+<p>Jupyter Notebook で外部から接続を許可する方法について。<br>
 サーバにて以下のコマンドで Jupyter Notebook を起動する。</p>
-
 <pre><code>$ jupyter notebook --ip=* --no-browser
-</code></pre>
-
-<p>表示されたパス（例えば以下）の localhost 部分をサーバの IP に書き換えてブラウザからアクセスする。</p>
-
+</code></pre><p>表示されたパス（例えば以下）の localhost 部分をサーバの IP に書き換えてブラウザからアクセスする。</p>
 <pre><code>http://localhost:8888/?token=5a497cc7665e9fa60f20097e166c13c904958e0fe2e08cbb
-</code></pre>
-
-<p>基本操作参考：<br />
+</code></pre><p>基本操作参考：<br>
 <a href="https://qiita.com/tanemaki/items/2ed05e258ef4c9e6caac">https://qiita.com/tanemaki/items/2ed05e258ef4c9e6caac</a></p>
-
 <ul>
 <li>Jupyter Notebook の拡張
-
 <ul>
 <li><a href="https://qiita.com/sasaki77/items/30a19d2be7d94116b237">extensionを追加してもっと快適なJupyter環境を構築する</a></li>
 <li><a href="http://cartman0.hatenablog.com/entry/2016/03/28/170319">Jupyter Notebookの拡張機能を使ってみる</a></li>
 <li><a href="http://www.monthly-hack.com/entry/2016/07/15/152726">Jupyter Notebookの次世代版「JupyterLab」を紹介する</a></li>
-</ul></li>
 </ul>
-
-<p>Pandas を用いたデータ分析を行う際のメモ。<br />
+</li>
+</ul>
+<p>Pandas を用いたデータ分析を行う際のメモ。<br>
 以下について記載する。</p>
-
 <ul>
 <li>ライブラリのロード</li>
 <li>ライブラリの設定</li>
 <li>データのロード</li>
 </ul>
-
 <h2 id="ライブラリのロード">ライブラリのロード</h2>
-
-<pre><code class="language-python">import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-%matplotlib inline
-</code></pre>
-
-<h2 id="ライブラリの設定">ライブラリの設定</h2>
-
-<pre><code class="language-python">dir(pd.options)
-#dir(pd.options.display)
-</code></pre>
-
-<h2 id="データのロード">データのロード</h2>
-
-<pre><code class="language-python"># データのロード
-df = pd.read_csv(&quot;train.csv&quot;)
-</code></pre>
-
-<p>RDBMS の機能を使用して、データをダンプした場合はデータ末に以下のような文字列が含まれる場合があるから注意が必要。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+<span style="color:#f92672">%</span>matplotlib inline
+</code></pre></div><h2 id="ライブラリの設定">ライブラリの設定</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dir(pd<span style="color:#f92672">.</span>options)
+<span style="color:#75715e">#dir(pd.options.display)</span>
+</code></pre></div><h2 id="データのロード">データのロード</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># データのロード</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;train.csv&#34;</span>)
+</code></pre></div><p>RDBMS の機能を使用して、データをダンプした場合はデータ末に以下のような文字列が含まれる場合があるから注意が必要。</p>
 <pre><code>
 (1855 行処理されました)
 
-</code></pre>
-
-<p>また、一行目のカラム定義がじゃまな場合もある。<br />
+</code></pre><p>また、一行目のカラム定義がじゃまな場合もある。<br>
 その際は、 <code>head -n n FILE &gt; newFILE</code> や <code>tail -n n FILE &gt; newFILE</code> コマンドなどで必要なデータ部分のみを切り出したファイルを作成する。</p>
-
 <h2 id="データの確認">データの確認</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>describe()
+df<span style="color:#f92672">.</span>info()
 
-<pre><code class="language-python">df.describe()
-df.info()
+<span style="color:#75715e"># 欠損の確認</span>
+<span style="color:#66d9ef">print</span>(len(df<span style="color:#f92672">.</span>index) <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#34;PassengerId&#34;</span>]<span style="color:#f92672">.</span>count())
 
-# 欠損の確認
-print(len(df.index) - df[&quot;PassengerId&quot;].count())
+<span style="color:#75715e"># ユニークな値の数</span>
+<span style="color:#66d9ef">print</span>(df[<span style="color:#e6db74">&#34;PassengerId&#34;</span>]<span style="color:#f92672">.</span>value_counts()<span style="color:#f92672">.</span>count())
 
-# ユニークな値の数
-print(df[&quot;PassengerId&quot;].value_counts().count())
+<span style="color:#75715e"># 変数間の相関</span>
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>)) <span style="color:#75715e">#heatmap size</span>
+sns<span style="color:#f92672">.</span>heatmap(df<span style="color:#f92672">.</span>corr(), annot<span style="color:#f92672">=</span>True, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;plasma&#39;</span>, linewidths<span style="color:#f92672">=.</span><span style="color:#ae81ff">5</span>) <span style="color:#75715e"># annot:値を表示するかどうか linewidths: しきり線</span>
 
-# 変数間の相関
-plt.figure(figsize=(8, 6)) #heatmap size
-sns.heatmap(df.corr(), annot=True, cmap='plasma', linewidths=.5) # annot:値を表示するかどうか linewidths: しきり線
-
-# ある範囲のデータを取得
-print(len(df.loc[df[&quot;Age&quot;] &lt;= 10 ].index))
-print(len(df.loc[(df[&quot;Age&quot;] &gt; 10) &amp; (df[&quot;Age&quot;] &lt;= 20)].index))
-</code></pre>
-
-<h2 id="前処理">前処理</h2>
-
+<span style="color:#75715e"># ある範囲のデータを取得</span>
+<span style="color:#66d9ef">print</span>(len(df<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#34;Age&#34;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span> ]<span style="color:#f92672">.</span>index))
+<span style="color:#66d9ef">print</span>(len(df<span style="color:#f92672">.</span>loc[(df[<span style="color:#e6db74">&#34;Age&#34;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">&amp;</span> (df[<span style="color:#e6db74">&#34;Age&#34;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">20</span>)]<span style="color:#f92672">.</span>index))
+</code></pre></div><h2 id="前処理">前処理</h2>
 <h3 id="データの整形">データの整形</h3>
-
-<p>Pandas の文字列メソッドで置換や空白削除などの処理を行うことができる。<br />
+<p>Pandas の文字列メソッドで置換や空白削除などの処理を行うことができる。<br>
 Pandas では、 <code>pandas.DataFrame</code> の列（つまり、 <code>pandas.Series</code> ）に対して一括で処理を行うために、 <code>pandas.Series</code> に文字列メソッドが準備されている。</p>
-
 <ul>
 <li>置換
-
 <ul>
 <li>str.replace()</li>
-</ul></li>
+</ul>
+</li>
 <li>空白削除
-
 <ul>
 <li>str.strip()</li>
 <li>str.lstrip()</li>
 <li>str.rstrip()</li>
-</ul></li>
+</ul>
+</li>
 <li>大文字小文字変換
-
 <ul>
 <li>str.lower()</li>
 <li>str.upper()</li>
 <li>str.capitalize()</li>
 <li>str.title()</li>
-</ul></li>
 </ul>
-
-<pre><code class="language-python"># 全ての列を文字列として読み込み、空白を削除する処理
-df = pd.read_csv(&quot;data.csv&quot;, dtype = &quot;object&quot;)
-for _col in range(len(df.colomns)):
-  df.iloc[:, _col] = df.iloc[:, _col].str.strip()
-</code></pre>
-
-<h3 id="ダミー変数の作成">ダミー変数の作成</h3>
-
-<pre><code class="language-python">pd.get_dummies(df[&quot;Sex&quot;], prefix = &quot;Sex&quot;, drop_first = True)
-</code></pre>
-
-<h1 id="中規模データ分析">中規模データ分析</h1>
-
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 全ての列を文字列として読み込み、空白を削除する処理</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data.csv&#34;</span>, dtype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;object&#34;</span>)
+<span style="color:#66d9ef">for</span> _col <span style="color:#f92672">in</span> range(len(df<span style="color:#f92672">.</span>colomns)):
+  df<span style="color:#f92672">.</span>iloc[:, _col] <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[:, _col]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>strip()
+</code></pre></div><h3 id="ダミー変数の作成">ダミー変数の作成</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>get_dummies(df[<span style="color:#e6db74">&#34;Sex&#34;</span>], prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Sex&#34;</span>, drop_first <span style="color:#f92672">=</span> True)
+</code></pre></div><h1 id="中規模データ分析">中規模データ分析</h1>
 <p>ローカルマシンに RDB を構築して分析する。</p>
-
 <h2 id="データ型">データ型</h2>
-
-<p>テーブル定義が存在しない場合、データ（CSVやTSV形式を前提）を分析して、テーブル定義を作成する。<br />
+<p>テーブル定義が存在しない場合、データ（CSVやTSV形式を前提）を分析して、テーブル定義を作成する。<br>
 RDB でデータ型を判定する場合、ざっくり以下がわかればいい。</p>
-
 <ul>
 <li>データ型
-
 <ul>
 <li>数値
-
 <ul>
 <li>整数/int 4 バイト符号付き整数</li>
 <li>整数/smallint 2 バイト符号付き整数</li>
 <li>整数/tinyint 1 バイト符号無し整数</li>
 <li>浮動小数点/float 8 バイト浮動小数点</li>
 <li>金額/money 8 バイト</li>
-</ul></li>
+</ul>
+</li>
 <li>文字列
-
 <ul>
 <li>固定長/char(n) 255バイトまでの固定長の文字列</li>
 <li>可変長/varchar(n) 255バイトまでの可変長の文字列</li>
 <li>text 2K 以上の文字列</li>
-</ul></li>
+</ul>
+</li>
 <li>日付
-
 <ul>
 <li>date
-
 <ul>
 <li>フォーマット : &lsquo;YYYY-MM-DD&rsquo;</li>
 <li>範囲 : &lsquo;1000-01-01&rsquo; から &lsquo;9999-12-31&rsquo;</li>
-</ul></li>
+</ul>
+</li>
 <li>datetime
-
 <ul>
 <li>フォーマット : &lsquo;YYYY-MM-DD HH:MM:SS&rsquo;</li>
 <li>範囲 : &lsquo;1000-01-01 00:00:00&rsquo; から &lsquo;9999-12-31 23:59:59&rsquo;</li>
-</ul></li>
+</ul>
+</li>
 <li>timestamp
-
 <ul>
 <li>フォーマット : &lsquo;YYYY-MM-DD HH:MM:SS&rsquo;</li>
 <li>範囲 : &lsquo;1970-01-01 00:00:01&rsquo; から &lsquo;2037-12-31 23:59:59&rsquo;</li>
-</ul></li>
+</ul>
+</li>
 <li>time
-
 <ul>
 <li>フォーマット : &lsquo;HH:MM:SS&rsquo;</li>
 <li>範囲 : &lsquo;-838:59:59&rsquo; から &lsquo;838:59:59&rsquo;</li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>その他
-
 <ul>
 <li>NULL 許容
-
 <ul>
 <li>null</li>
 <li>not null</li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <p>ここでは、 int 、 float 、 char(n) 、 varchar(n) 、 (not) null を判定する。</p>
-
-<pre><code class="language-python">def is_float(str):
-    &quot;&quot;&quot;
-    str が float か否か判定
-    &quot;&quot;&quot;
-    try:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_float</span>(str):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    str が float か否か判定
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">try</span>:
         float(str)
-        return not(float(str) == int(str))
-    except ValueError:
-        return False
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">not</span>(float(str) <span style="color:#f92672">==</span> int(str))
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+        <span style="color:#66d9ef">return</span> False
 
-def determine_type(str):
-    &quot;&quot;&quot;
-    str の型を判定
-    &quot;&quot;&quot;
-    if is_float(str):
-        return &quot;float&quot;
-    elif str.isdigit():
-        return &quot;int&quot;
-    else:
-        return &quot;str&quot;
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">determine_type</span>(str):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    str の型を判定
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">if</span> is_float(str):
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;float&#34;</span>
+    <span style="color:#66d9ef">elif</span> str<span style="color:#f92672">.</span>isdigit():
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;int&#34;</span>
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;str&#34;</span>
 
-def choice_type(type_list):
-    &quot;&quot;&quot;
-    type_list から正しい型を選択
-    &quot;&quot;&quot;
-    if len(type_list) == 1: # 型が 1 つ含まれる場合
-        return type_list[0]
-    elif &quot;str&quot; in type_list: # 型が複数含まれ、 1 つでも str がある場合
-        return &quot;str&quot;
-    elif &quot;int&quot; in type_list: # str を含まない型が複数あり、 1 つでも int がある場合
-        return &quot;int&quot;
-    else:                             # str も int も含まれない場合
-        return &quot;float&quot;
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">choice_type</span>(type_list):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    type_list から正しい型を選択
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">if</span> len(type_list) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>: <span style="color:#75715e"># 型が 1 つ含まれる場合</span>
+        <span style="color:#66d9ef">return</span> type_list[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">elif</span> <span style="color:#e6db74">&#34;str&#34;</span> <span style="color:#f92672">in</span> type_list: <span style="color:#75715e"># 型が複数含まれ、 1 つでも str がある場合</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;str&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#e6db74">&#34;int&#34;</span> <span style="color:#f92672">in</span> type_list: <span style="color:#75715e"># str を含まない型が複数あり、 1 つでも int がある場合</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;int&#34;</span>
+    <span style="color:#66d9ef">else</span>:                             <span style="color:#75715e"># str も int も含まれない場合</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;float&#34;</span>
 
-def determine_db_type(_type, len_list):
-    &quot;&quot;&quot;
-    RDB テーブルのデータ型を判定
-    &quot;&quot;&quot;
-    if(_type == &quot;str&quot;): # 型が str の場合、 char か varchar か判定
-        if len(len_list) == 1:
-            return &quot;char({})&quot;.format(len_list[0])
-        else:
-            len_list.sort()
-            return &quot;varchar({})&quot;.format(str(len_list[-1]))
-    else:
-        return _type
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">determine_db_type</span>(_type, len_list):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    RDB テーブルのデータ型を判定
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">if</span>(_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;str&#34;</span>): <span style="color:#75715e"># 型が str の場合、 char か varchar か判定</span>
+        <span style="color:#66d9ef">if</span> len(len_list) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;char({})&#34;</span><span style="color:#f92672">.</span>format(len_list[<span style="color:#ae81ff">0</span>])
+        <span style="color:#66d9ef">else</span>:
+            len_list<span style="color:#f92672">.</span>sort()
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;varchar({})&#34;</span><span style="color:#f92672">.</span>format(str(len_list[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]))
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> _type
 
-# RDB テーブルのデータ型を判定
-df= pd.read_csv(&quot;KKKOKUAKU.tsv&quot;, sep=&quot;\t&quot;, dtype=&quot;object&quot;)
-for _col in range(len(df.columns)):
-    type_list = []
-    len_list = []
-    contains_null = False # NaN を含むか
-    for _index in range(len(df.index)):
-        value = str(df.iat[_index, _col])
-        if value is not None: # None 、空でない場合
-            if value is not &quot;&quot;:
-                _type = determine_type(value) # 値の型を判定
-                _len = len(value)                           # 値の長さを取得
-                if not (_type in type_list):
-                    type_list.append(_type)
-                if not(_len in len_list):
-                    len_list.append(_len)
-        else:
-            contains_null = True
-    _type = choice_type(type_list) # 値の型からカラムの型を判定
-    _type = determine_db_type(_type, len_list) # 値の長さから型の長さを判定しつつ、カラムの型判定
-    print(&quot;{} {} {} ,&quot;.format(df.columns[_col], _type, str(&quot;null&quot; if contains_null else &quot;not null&quot;)))
-</code></pre>
-
-<h2 id="sqlite">SQLite</h2>
-
+<span style="color:#75715e"># RDB テーブルのデータ型を判定</span>
+df<span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;KKKOKUAKU.tsv&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>, dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;object&#34;</span>)
+<span style="color:#66d9ef">for</span> _col <span style="color:#f92672">in</span> range(len(df<span style="color:#f92672">.</span>columns)):
+    type_list <span style="color:#f92672">=</span> []
+    len_list <span style="color:#f92672">=</span> []
+    contains_null <span style="color:#f92672">=</span> False <span style="color:#75715e"># NaN を含むか</span>
+    <span style="color:#66d9ef">for</span> _index <span style="color:#f92672">in</span> range(len(df<span style="color:#f92672">.</span>index)):
+        value <span style="color:#f92672">=</span> str(df<span style="color:#f92672">.</span>iat[_index, _col])
+        <span style="color:#66d9ef">if</span> value <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None: <span style="color:#75715e"># None 、空でない場合</span>
+            <span style="color:#66d9ef">if</span> value <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#e6db74">&#34;&#34;</span>:
+                _type <span style="color:#f92672">=</span> determine_type(value) <span style="color:#75715e"># 値の型を判定</span>
+                _len <span style="color:#f92672">=</span> len(value)                           <span style="color:#75715e"># 値の長さを取得</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> (_type <span style="color:#f92672">in</span> type_list):
+                    type_list<span style="color:#f92672">.</span>append(_type)
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span>(_len <span style="color:#f92672">in</span> len_list):
+                    len_list<span style="color:#f92672">.</span>append(_len)
+        <span style="color:#66d9ef">else</span>:
+            contains_null <span style="color:#f92672">=</span> True
+    _type <span style="color:#f92672">=</span> choice_type(type_list) <span style="color:#75715e"># 値の型からカラムの型を判定</span>
+    _type <span style="color:#f92672">=</span> determine_db_type(_type, len_list) <span style="color:#75715e"># 値の長さから型の長さを判定しつつ、カラムの型判定</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;{} {} {} ,&#34;</span><span style="color:#f92672">.</span>format(df<span style="color:#f92672">.</span>columns[_col], _type, str(<span style="color:#e6db74">&#34;null&#34;</span> <span style="color:#66d9ef">if</span> contains_null <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;not null&#34;</span>)))
+</code></pre></div><h2 id="sqlite">SQLite</h2>
 <p>ここでは SQLite を利用する。</p>
-
 <ul>
 <li><a href="https://sqlite.org/index.html">SQLite3</a></li>
 <li><a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>
-
 <ul>
 <li>SQLite の Viewer</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>インストール（ Mac ）は以下。</p>
-
 <pre><code>$ brew install sqlite
 $ sqlite3 --version
 3.19.3 2017-06-27 16:48:08 2b0954060fe10d6de6d479287dd88890f1bef6cc1beca11bc6cdb79f72e2377b
 $ brew cask install db-browser-for-sqlite
-</code></pre>
-
-<p><code>/Applications/DB Browser for SQLite.app</code> が作成される。<br />
+</code></pre><p><code>/Applications/DB Browser for SQLite.app</code> が作成される。<br>
 まずは <code>sqlite3</code> コマンドでデータベース・テーブルを作成してデータをインポート。（ここからは Mac 以外も同様）</p>
-
 <pre><code>$ sqlite3 test.db
 sqlite&gt; .show
 (省略)
@@ -458,27 +399,17 @@ colseparator: &quot;\t&quot; # 確認
 (省略)
 sqlite&gt; .read create_table.sql # テーブル作成クエリ発行
 sqlite&gt; .import insert_data.tsv TABLE # データインポート
-</code></pre>
-
-<p>SQL ファイルの実行は以下でも可能。</p>
-
+</code></pre><p>SQL ファイルの実行は以下でも可能。</p>
 <pre><code>$ sqlite3 test.db &lt; create_table.sql
-</code></pre>
-
-<p>なお、理想的にはテーブル定義を行なった後にインデックスを作成 <code>create index</code> して、データをインポートする。</p>
-
+</code></pre><p>なお、理想的にはテーブル定義を行なった後にインデックスを作成 <code>create index</code> して、データをインポートする。</p>
 <p>クエリの出力結果をファイル出力する場合は以下。</p>
-
 <pre><code>sqlite&gt; .show
 (省略)
       output: stdout
 (省略)
 sqlite&gt; .output /sqlite/data/output.txt # 出力先を標準出力からファイルへ変更
-</code></pre>
-
-<p><code>output</code> をファイルへ変更したら <code>.show</code> の結果もファイルに出力されることに注意。<br />
+</code></pre><p><code>output</code> をファイルへ変更したら <code>.show</code> の結果もファイルに出力されることに注意。<br>
 select 出力のフォーマットも <code>colseparator</code> の設定が適用される。</p>
-
 <p>データの閲覧に <code>DB Browser for SQLite</code> を利用する。</p>
 		</div>
 	</article>
@@ -540,11 +471,11 @@ sqlite&gt; .output /sqlite/data/output.txt # 出力先を標準出力からフ�
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -555,6 +486,7 @@ sqlite&gt; .output /sqlite/data/output.txt # 出力先を標準出力からフ�
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -648,7 +580,7 @@ sqlite&gt; .output /sqlite/data/output.txt # 出力先を標準出力からフ�
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -675,7 +607,7 @@ sqlite&gt; .output /sqlite/data/output.txt # 出力先を標準出力からフ�
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ja-JP">
 <head>
-	<meta name="generator" content="Hugo 0.55.6" />
+	<meta name="generator" content="Hugo 0.79.0" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +21,8 @@
 <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.pepese.com/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-
-<meta property="og:updated_time" content="2019-06-03T07:18:58&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="og:updated_time" content="2020-12-09T20:29:03+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -93,6 +91,30 @@ if (!doNotTrack) {
 	<article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/entry/hexo-github-pages/" rel="bookmark">
+			Hexoで作ったブログをGithub Pagesで公開
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2017-05-02T07:58:10">May 02, 2017</time>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>はてなブログが一向に <em>https</em> 対応しないし、そのほかのリスクも考えて流行りの <strong>静的サイトジェネレータ</strong> の <a href="https://hexo.io/">HEXO</a> を使ってブログを作成し、<a href="https://pages.github.com/">GitHub Pages</a>で公開してみる。<br>
+前提として <strong>npm</strong> と <strong>Git</strong> 環境が必要なため以下参照。</p>
+<ul>
+<li><a href="https://blog.pepese.com/entry/mac-dev-environment/">https://blog.pepese.com/entry/mac-dev-environment/</a></li>
+</ul>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/entry/hexo-github-pages/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/entry/git-basics/" rel="bookmark">
 			Git入門
 			</a>
@@ -100,17 +122,16 @@ if (!doNotTrack) {
 		
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>Git/Githubのメモ。<br />
+		<p>Git/Githubのメモ。<br>
 インストールから簡単な使い方まで書いてみる。</p>
-
 <ul>
 <li>環境構築</li>
 <li>一通りの使い方</li>
 <li>その他 Tips
-
 <ul>
 <li>git submodule</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 	</div>
 	<div class="list__footer clearfix">
@@ -159,11 +180,11 @@ if (!doNotTrack) {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -174,6 +195,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -267,7 +289,7 @@ if (!doNotTrack) {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -294,7 +316,7 @@ if (!doNotTrack) {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

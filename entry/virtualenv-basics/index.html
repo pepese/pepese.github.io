@@ -20,15 +20,13 @@
 <meta property="og:description" content="Virtualenv についてかるくまとめる。
 以下の記事を読んで pyenv を導入済みである前提で記載する。
 
-
 すべての**envを管理するanyenv
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/virtualenv-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-12-07T18:07:39&#43;09:00"/>
-<meta property="article:modified_time" content="2017-12-07T18:07:39&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-12-07T18:07:39+09:00" />
+<meta property="article:modified_time" content="2017-12-07T18:07:39+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -36,7 +34,6 @@
 <meta name="twitter:title" content="Virtualenv入門"/>
 <meta name="twitter:description" content="Virtualenv についてかるくまとめる。
 以下の記事を読んで pyenv を導入済みである前提で記載する。
-
 
 すべての**envを管理するanyenv
 "/>
@@ -116,94 +113,72 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p><a href="https://virtualenv.pypa.io/en/stable/">Virtualenv</a> についてかるくまとめる。<br />
+			<p><a href="https://virtualenv.pypa.io/en/stable/">Virtualenv</a> についてかるくまとめる。<br>
 以下の記事を読んで pyenv を導入済みである前提で記載する。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/anyenv/">すべての**envを管理するanyenv</a></li>
 </ul>
-
 <h1 id="はじめに">はじめに</h1>
-
 <p>ややこしい他ツールがあるので少しまとめる。</p>
-
 <ul>
 <li>pyenv-virtualenv
-
 <ul>
 <li>pyenv で導入した各 Python の site-packages を管理するツール</li>
 <li>Virtualenv とは全く別物</li>
-</ul></li>
+</ul>
+</li>
 <li>Virtualenv
-
 <ul>
 <li>Python で作成する各プロジェクト毎のモジュール・ライブラリのバージョンを管理するツール
-
 <ul>
 <li>厳密に言うと、プロジェクト毎というか、環境のみをそれぞれ作成・管理できる感じ</li>
-</ul></li>
+</ul>
+</li>
 <li>今回のターゲット</li>
-</ul></li>
+</ul>
+</li>
 <li>venv
-
 <ul>
 <li>Virtualenv とほぼ同じ機能</li>
 <li>Virtualenv の方がデファクトの模様</li>
 <li>Virtualenv が Python 2 系 3 系両方に対応しているのにたいして venv は 3 系対象</li>
-</ul></li>
+</ul>
+</li>
 <li>virtualenvwapper
-
 <ul>
 <li>Virtualenv のラッパー</li>
 <li>今回は使わない</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="環境設定">環境設定</h1>
-
 <h2 id="pip-の更新と確認">pip の更新と確認</h2>
-
-<pre><code class="language-sh">$ pip install --upgrade pip
-$ pip list --format=columns
-</code></pre>
-
-<h2 id="virtualenv-のインストールと使い方">Virtualenv のインストールと使い方</h2>
-
-<pre><code class="language-sh">$ pip install virtualenv
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install --upgrade pip
+$ pip list --format<span style="color:#f92672">=</span>columns
+</code></pre></div><h2 id="virtualenv-のインストールと使い方">Virtualenv のインストールと使い方</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install virtualenv
 $ cd /path/to/project
-$ virtualenv .virtualenv # .virtualenv という名前でディレクトリができる
-$ source .virtualenv/bin/activate # これで .virtualenv の環境になる
-(.virtualenv) $ # いつも通り pip で欲しいモジュールを導入・削除・更新する
-(.virtualenv) $ deactivate # 環境をぬける
-</code></pre>
-
-<p>Windows の場合は <code>.virtualenv\Scripts\activate</code> が環境実行用のスクリプト。<br />
-<code>.virtualenv</code> ディレクトリを削除するば、環境が削除される。<br />
+$ virtualenv .virtualenv <span style="color:#75715e"># .virtualenv という名前でディレクトリができる</span>
+$ source .virtualenv/bin/activate <span style="color:#75715e"># これで .virtualenv の環境になる</span>
+<span style="color:#f92672">(</span>.virtualenv<span style="color:#f92672">)</span> $ <span style="color:#75715e"># いつも通り pip で欲しいモジュールを導入・削除・更新する</span>
+<span style="color:#f92672">(</span>.virtualenv<span style="color:#f92672">)</span> $ deactivate <span style="color:#75715e"># 環境をぬける</span>
+</code></pre></div><p>Windows の場合は <code>.virtualenv\Scripts\activate</code> が環境実行用のスクリプト。<br>
+<code>.virtualenv</code> ディレクトリを削除するば、環境が削除される。<br>
 gemfile とか package.json みたいなファイルベースではなく、環境を切り替える使い方。</p>
-
 <h1 id="virtualenv-を使わない環境共有方法">Virtualenv を使わない環境共有方法</h1>
-
 <p>Virtualenv など Python エコシステムを利用するとバージョン管理システムなどでプロジェクトを共有する際、モジュール・ライブラリのバージョンを共有しにくい印象。</p>
-
-<h2 id="requirements-txt">requirements.txt</h2>
-
+<h2 id="requirementstxt">requirements.txt</h2>
 <p><code>requirements.txt</code> というファイル（名前は任意）に現在の <code>pip</code> でのインストール状況を出力する方法。</p>
-
-<pre><code class="language-sh">$ pip freeze &gt; requirements.txt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip freeze &gt; requirements.txt
 $ cat requirements.txt
-aniso8601==1.3.0
-appnope==0.1.0
-bleach==1.5.0
-certifi==2017.7.27.1
-# (省略)
-</code></pre>
-
-<p>残された <code>requirements.txt</code> を使って以下のようにインストールする。</p>
-
-<pre><code class="language-sh">$  pip install -r requieremnts.txt
-</code></pre>
-
-<p>その他実践的な方法は以下を参照。<br />
+aniso8601<span style="color:#f92672">==</span>1.3.0
+appnope<span style="color:#f92672">==</span>0.1.0
+bleach<span style="color:#f92672">==</span>1.5.0
+certifi<span style="color:#f92672">==</span>2017.7.27.1
+<span style="color:#75715e"># (省略)</span>
+</code></pre></div><p>残された <code>requirements.txt</code> を使って以下のようにインストールする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$  pip install -r requieremnts.txt
+</code></pre></div><p>その他実践的な方法は以下を参照。<br>
 <a href="https://qiita.com/zakuro9715/items/68c8d8c6b1b05f91fa2e">Python アプリ依存パッケージ管理 ベストプラクティス集</a></p>
 		</div>
 	</article>
@@ -265,11 +240,11 @@ certifi==2017.7.27.1
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -280,6 +255,7 @@ certifi==2017.7.27.1
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -373,7 +349,7 @@ certifi==2017.7.27.1
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -400,7 +376,7 @@ certifi==2017.7.27.1
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

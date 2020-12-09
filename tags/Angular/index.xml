@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>angular on ぺーぺーSEのテックブログ</title>
@@ -6,21 +6,16 @@
     <description>Recent content in angular on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 14 Aug 2017 08:27:19 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/angular/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 14 Aug 2017 08:27:19 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Angular入門</title>
       <link>https://blog.pepese.com/entry/angular-basics/</link>
       <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/angular-basics/</guid>
-      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br /&gt;
-ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;br /&gt;
+      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br&gt;
+ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;br&gt;
 なお、 &lt;strong&gt;ndenv&lt;/strong&gt; が入ってるテイで書く。導入は下記記事参照。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/anyenv/&#34;&gt;すべての**envを管理するanyenv&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -32,7 +27,7 @@
       <pubDate>Mon, 14 Aug 2017 08:24:46 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/mean-stack-basics/</guid>
-      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
 と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
     </item>
     
@@ -43,7 +38,6 @@
       
       <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -55,16 +49,13 @@
       <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
-      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br&gt;
 以下の記事の知識を前提とする。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Amazon Cognito の概要&lt;/li&gt;
 &lt;li&gt;Cognito で認証するAngularアプリを作成する&lt;/li&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>anyenv on ぺーぺーSEのテックブログ</title>
@@ -6,19 +6,15 @@
     <description>Recent content in anyenv on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 05 Jul 2017 08:17:14 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/anyenv/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 05 Jul 2017 08:17:14 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/anyenv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>すべての**envを管理するanyenv</title>
       <link>https://blog.pepese.com/entry/anyenv/</link>
       <pubDate>Wed, 05 Jul 2017 08:17:14 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/anyenv/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br /&gt;
-「すべて」は言い過ぎた。&lt;br /&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
+「すべて」は言い過ぎた。&lt;br&gt;
 以降、anyenv、**env のインストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
     </item>
     
@@ -28,16 +24,15 @@
       <pubDate>Tue, 09 May 2017 08:06:42 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
-      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br /&gt;
+      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
 以下のようなことを書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;OSの設定&lt;/li&gt;
 &lt;li&gt;開発環境作成
-
 &lt;ul&gt;
 &lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>

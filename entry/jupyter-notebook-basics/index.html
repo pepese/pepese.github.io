@@ -19,23 +19,20 @@
 	<meta property="og:title" content="Jupyter Notebook入門" />
 <meta property="og:description" content="Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。
 
-
 公式
 公式ドキュメント
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/jupyter-notebook-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2018-02-20T08:03:43&#43;09:00"/>
-<meta property="article:modified_time" content="2018-02-20T08:03:43&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2018-02-20T08:03:43+09:00" />
+<meta property="article:modified_time" content="2018-02-20T08:03:43+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Jupyter Notebook入門"/>
 <meta name="twitter:description" content="Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。
-
 
 公式
 公式ドキュメント
@@ -117,205 +114,156 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。</p>
-
 <ul>
 <li><a href="http://jupyter.org/">公式</a></li>
 <li><a href="http://jupyter.org/documentation">公式ドキュメント</a></li>
 </ul>
-
 <h1 id="jupyter-notebook">Jupyter Notebook</h1>
-
 <h2 id="インストール">インストール</h2>
-
-<pre><code class="language-bash">$ pip install jupyter
-</code></pre>
-
-<h2 id="起動">起動</h2>
-
-<pre><code class="language-bash">$ jupyter notebook
-</code></pre>
-
-<h3 id="起動オプション">起動オプション</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install jupyter
+</code></pre></div><h2 id="起動">起動</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ jupyter notebook
+</code></pre></div><h3 id="起動オプション">起動オプション</h3>
 <table>
 <thead>
 <tr>
-<th align="left">オプション</th>
-<th align="left">説明</th>
+<th style="text-align:left">オプション</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left"><code>--no-browser</code></td>
-<td align="left">自動でブラウザを起動しない</td>
+<td style="text-align:left"><code>--no-browser</code></td>
+<td style="text-align:left">自動でブラウザを起動しない</td>
 </tr>
-
 <tr>
-<td align="left"><code>--port xxxx</code></td>
-<td align="left">ポートの指定</td>
+<td style="text-align:left"><code>--port xxxx</code></td>
+<td style="text-align:left">ポートの指定</td>
 </tr>
-
 <tr>
-<td align="left"><code>--help</code></td>
-<td align="left">ヘルプ</td>
+<td style="text-align:left"><code>--help</code></td>
+<td style="text-align:left">ヘルプ</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="ショートカットまとめ">ショートカットまとめ</h2>
-
 <p>自分がよく使うショートカットのみまとめる。</p>
-
 <h3 id="コマンドモード-esc-押したとき">コマンドモード（ <code>ESC</code> 押したとき）</h3>
-
 <table>
 <thead>
 <tr>
-<th align="left">コマンド</th>
-<th align="left">説明</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left"><code>Enter</code></td>
-<td align="left">編集モード</td>
+<td style="text-align:left"><code>Enter</code></td>
+<td style="text-align:left">編集モード</td>
 </tr>
-
 <tr>
-<td align="left"><code>H</code></td>
-<td align="left">ショートカット一覧</td>
+<td style="text-align:left"><code>H</code></td>
+<td style="text-align:left">ショートカット一覧</td>
 </tr>
-
 <tr>
-<td align="left"><code>DD</code></td>
-<td align="left">セルの削除</td>
+<td style="text-align:left"><code>DD</code></td>
+<td style="text-align:left">セルの削除</td>
 </tr>
-
 <tr>
-<td align="left"><code>K</code></td>
-<td align="left">上のセルへ移動</td>
+<td style="text-align:left"><code>K</code></td>
+<td style="text-align:left">上のセルへ移動</td>
 </tr>
-
 <tr>
-<td align="left"><code>J</code></td>
-<td align="left">下のセルへ移動</td>
+<td style="text-align:left"><code>J</code></td>
+<td style="text-align:left">下のセルへ移動</td>
 </tr>
-
 <tr>
-<td align="left"><code>A</code></td>
-<td align="left">セルを上に追加</td>
+<td style="text-align:left"><code>A</code></td>
+<td style="text-align:left">セルを上に追加</td>
 </tr>
-
 <tr>
-<td align="left"><code>B</code></td>
-<td align="left">セルを下に追加</td>
+<td style="text-align:left"><code>B</code></td>
+<td style="text-align:left">セルを下に追加</td>
 </tr>
-
 <tr>
-<td align="left"><code>Y</code></td>
-<td align="left">コードモード</td>
+<td style="text-align:left"><code>Y</code></td>
+<td style="text-align:left">コードモード</td>
 </tr>
-
 <tr>
-<td align="left"><code>M</code></td>
-<td align="left">マークダウンモード</td>
+<td style="text-align:left"><code>M</code></td>
+<td style="text-align:left">マークダウンモード</td>
 </tr>
-
 <tr>
-<td align="left"><code>1</code> 〜 <code>6</code></td>
-<td align="left">見出し１〜見出し６で書き出す</td>
+<td style="text-align:left"><code>1</code> 〜 <code>6</code></td>
+<td style="text-align:left">見出し１〜見出し６で書き出す</td>
 </tr>
-
 <tr>
-<td align="left"><code>00</code></td>
-<td align="left">カーネルをリスタート</td>
+<td style="text-align:left"><code>00</code></td>
+<td style="text-align:left">カーネルをリスタート</td>
 </tr>
-
 <tr>
-<td align="left"><code>S</code> or <code>Command + S</code></td>
-<td align="left">保存</td>
+<td style="text-align:left"><code>S</code> or <code>Command + S</code></td>
+<td style="text-align:left">保存</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="編集モード-enter-押したとき">編集モード（ <code>Enter</code> 押したとき）</h3>
-
 <table>
 <thead>
 <tr>
-<th align="left">コマンド</th>
-<th align="left">説明</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left"><code>ESC</code> or <code>Ctrl + M</code></td>
-<td align="left">コマンドモード</td>
+<td style="text-align:left"><code>ESC</code> or <code>Ctrl + M</code></td>
+<td style="text-align:left">コマンドモード</td>
 </tr>
-
 <tr>
-<td align="left"><code>Ctrl + Enter</code></td>
-<td align="left">セルの実行</td>
+<td style="text-align:left"><code>Ctrl + Enter</code></td>
+<td style="text-align:left">セルの実行</td>
 </tr>
-
 <tr>
-<td align="left"><code>Command + S</code></td>
-<td align="left">保存</td>
+<td style="text-align:left"><code>Command + S</code></td>
+<td style="text-align:left">保存</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="その他小技">その他小技</h2>
-
 <table>
 <thead>
 <tr>
-<th align="left">コマンド</th>
-<th align="left">説明</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">実行結果のセルをダブルクリック</td>
-<td align="left">実行結果の最小化（閉じる）</td>
+<td style="text-align:left">実行結果のセルをダブルクリック</td>
+<td style="text-align:left">実行結果の最小化（閉じる）</td>
 </tr>
 </tbody>
 </table>
-
 <h1 id="jupyterhub">JupyterHub</h1>
-
 <p>JupyterHub を導入することで以下が可能になる。</p>
-
 <ul>
 <li>マルチユーザ</li>
 <li>ユーザ管理・認証</li>
 <li>高スペックサーバでリモートから利用</li>
 <li>などなど</li>
 </ul>
-
-<p><img src="https://jupyterhub.readthedocs.io/en/stable/_images/jhub-parts.png" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <h2 id="インストール-1">インストール</h2>
-
-<pre><code class="language-bash">$ pip install jupyterhub notebook
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install jupyterhub notebook
 $ npm install -g configurable-http-proxy
-# test
+<span style="color:#75715e"># test</span>
 $ jupyterhub -h
 $ configurable-http-proxy -h
-</code></pre>
-
-<p>なお、 Docker 版も提供されている。</p>
-
+</code></pre></div><p>なお、 Docker 版も提供されている。</p>
 <h2 id="起動-1">起動</h2>
-
-<pre><code class="language-bash">$ jupyterhub
-</code></pre>
-
-<p><code>https://localhost:8000</code> で起動する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ jupyterhub
+</code></pre></div><p><code>https://localhost:8000</code> で起動する。</p>
 		</div>
 	</article>
 </main>
@@ -376,11 +324,11 @@ $ configurable-http-proxy -h
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -391,6 +339,7 @@ $ configurable-http-proxy -h
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -484,7 +433,7 @@ $ configurable-http-proxy -h
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -511,7 +460,7 @@ $ configurable-http-proxy -h
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

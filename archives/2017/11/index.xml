@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2017/11 on ぺーぺーSEのテックブログ</title>
     <link>https://blog.pepese.com/archives/2017/11/</link>
     <description>Recent content in 2017/11 on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Sun, 26 Nov 2017 18:02:36 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/archives/2017/11/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ja-JP</language><atom:link href="https://blog.pepese.com/archives/2017/11/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pythonで機械学習 レコメンド編</title>
       <link>https://blog.pepese.com/entry/python-ml-recommendation/</link>
       <pubDate>Sun, 26 Nov 2017 18:02:36 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/python-ml-recommendation/</guid>
-      <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br /&gt;
+      <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br&gt;
 スクラッチではなく、できるだけライブラリ（ &lt;a href=&#34;http://surpriselib.com/&#34;&gt;scikit-surprise&lt;/a&gt; ）を利用する。&lt;/p&gt;</description>
     </item>
     
@@ -27,9 +22,8 @@
       <pubDate>Wed, 01 Nov 2017 08:05:09 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/flask-ngrok-chatbot/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; と &lt;a href=&#34;https://ngrok.com/&#34;&gt;ngrok&lt;/a&gt; でメッセージをオウム返しする LINE のチャットボットを作ってみた。&lt;br /&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; と &lt;a href=&#34;https://ngrok.com/&#34;&gt;ngrok&lt;/a&gt; でメッセージをオウム返しする LINE のチャットボットを作ってみた。&lt;br&gt;
 Heroku で公開したい場合は以下参照。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/heroku-basics/&#34;&gt;Heroku入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>

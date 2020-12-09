@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sequelize on ぺーぺーSEのテックブログ</title>
@@ -6,35 +6,28 @@
     <description>Recent content in sequelize on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sun, 20 Aug 2017 17:48:36 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/sequelize/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 20 Aug 2017 17:48:36 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/sequelize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
       <link>https://blog.pepese.com/entry/express-rdb-sequelize/</link>
       <pubDate>Sun, 20 Aug 2017 17:48:36 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-rdb-sequelize/</guid>
-      <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;O/R Mapper
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://docs.sequelizejs.com/&#34;&gt;Sequelize&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;RDB
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sqlite.org/index.html&#34;&gt;SQLite3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/express-basics/&#34;&gt;Express入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>

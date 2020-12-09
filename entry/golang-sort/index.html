@@ -19,24 +19,21 @@
 	<meta property="og:title" content="Goでソート" />
 <meta property="og:description" content="Golang におけるソートについてまとめる。
 
-
 sort パッケージ
 sort パッケージで独自のソートを作ってみる
 スクラッチでソートしてみる
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/golang-sort/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2019-02-10T18:18:39&#43;09:00"/>
-<meta property="article:modified_time" content="2019-02-10T18:18:39&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2019-02-10T18:18:39+09:00" />
+<meta property="article:modified_time" content="2019-02-10T18:18:39+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Goでソート"/>
 <meta name="twitter:description" content="Golang におけるソートについてまとめる。
-
 
 sort パッケージ
 sort パッケージで独自のソートを作ってみる
@@ -118,156 +115,125 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>Golang におけるソートについてまとめる。</p>
-
 <ul>
 <li>sort パッケージ</li>
 <li>sort パッケージで独自のソートを作ってみる</li>
 <li>スクラッチでソートしてみる</li>
 </ul>
-
 <h1 id="sort-パッケージ">sort パッケージ</h1>
-
 <p>sort パッケージでは、以下の <code>Interface</code> に合わせた実装をしておけば、独自の type でも <code>sort.Sort(data Interface)</code> でソートしてくれる。</p>
-
-<pre><code class="language-go">type Interface interface {
-	Len() int // 要素数
-	Less(i, j int) bool // i 番目の要素が j 番目の要素より小さくなる条件
-	Swap(i, j int) // i 番目の要素と j 番目の要素を入れ替えるロジック
-}
-</code></pre>
-
-<p>とはいえ面倒なので、<code>IntSlice</code> （ <code>[]int</code> ）、<code>Float64Slice</code> （ <code>[]float64</code> ）、<code>StringSlice</code> （ <code>[]string</code> ）は用意されており、キャストして使用できる。</p>
-
-<pre><code class="language-go">var a []int
-sort.Sort(sort.IntSlice(a))
-</code></pre>
-
-<p>キャストしたら、メンバに <code>Sort()</code> メソッドも実装されている。</p>
-
-<pre><code class="language-go">var a []int
-sort.IntSlice(a).Sort()
-</code></pre>
-
-<p>もしくはキャストしなくとも、<code>Ints([]int)</code> 、 <code>Float64s([]float64)</code> 、 <code>Strings([]string)</code> が用意されている。</p>
-
-<pre><code class="language-go">var a []int
-sort.Ints(a)
-</code></pre>
-
-<h2 id="slice">Slice</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Interface</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> <span style="color:#75715e">// 要素数
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> <span style="color:#75715e">// i 番目の要素が j 番目の要素より小さくなる条件
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#75715e">// i 番目の要素と j 番目の要素を入れ替えるロジック
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>とはいえ面倒なので、<code>IntSlice</code> （ <code>[]int</code> ）、<code>Float64Slice</code> （ <code>[]float64</code> ）、<code>StringSlice</code> （ <code>[]string</code> ）は用意されており、キャストして使用できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> []<span style="color:#66d9ef">int</span>
+<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">IntSlice</span>(<span style="color:#a6e22e">a</span>))
+</code></pre></div><p>キャストしたら、メンバに <code>Sort()</code> メソッドも実装されている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> []<span style="color:#66d9ef">int</span>
+<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">IntSlice</span>(<span style="color:#a6e22e">a</span>).<span style="color:#a6e22e">Sort</span>()
+</code></pre></div><p>もしくはキャストしなくとも、<code>Ints([]int)</code> 、 <code>Float64s([]float64)</code> 、 <code>Strings([]string)</code> が用意されている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> []<span style="color:#66d9ef">int</span>
+<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">a</span>)
+</code></pre></div><h2 id="slice">Slice</h2>
 <p><code>Interface</code> の実装が面倒なら <code>less</code> だけ実装すればよい関数もある。</p>
-
 <ul>
 <li>func Slice(slice interface{}, less func(i, j int) bool)</li>
 <li>func SliceStable(slice interface{}, less func(i, j int) bool)</li>
 </ul>
-
 <p><code>slice</code> はソート対象。
 また、 <code>SliceStable</code> は <a href="https://ja.wikipedia.org/wiki/%E5%AE%89%E5%AE%9A%E3%82%BD%E3%83%BC%E3%83%88">安定ソート</a> 。</p>
-
 <h1 id="sort-パッケージで独自のソートを作ってみる">sort パッケージで独自のソートを作ってみる</h1>
-
 <h2 id="interface-の実装">Interface の実装</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;sort&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;sort&#34;</span>
 )
 
-type user struct {
-	name string
-	age  int
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">user</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">age</span>  <span style="color:#66d9ef">int</span>
 }
 
-type users []user
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">users</span> []<span style="color:#a6e22e">user</span>
 
-func (u users) Len() int {
-	return len(u)
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">u</span> <span style="color:#a6e22e">users</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">u</span>)
 }
 
-func (u users) Less(i, j int) bool {
-	return u[i].age &lt; u[j].age
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">u</span> <span style="color:#a6e22e">users</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">u</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">age</span> &lt; <span style="color:#a6e22e">u</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">age</span>
 }
 
-func (u users) Swap(i, j int) {
-	u[i], u[j] = u[j], u[i]
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">u</span> <span style="color:#a6e22e">users</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">u</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">u</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">u</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">u</span>[<span style="color:#a6e22e">i</span>]
 }
 
-func main() {
-	list := []user{
-		user{name: &quot;A&quot;, age: 2},
-		user{name: &quot;B&quot;, age: 1},
-		user{name: &quot;C&quot;, age: 4},
-		user{name: &quot;D&quot;, age: 3},
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">list</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">user</span>{
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">2</span>},
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">1</span>},
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">4</span>},
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;D&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">3</span>},
 	}
-	us := users(list)
-	sort.Sort(us)
-	fmt.Println(us)
+	<span style="color:#a6e22e">us</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">users</span>(<span style="color:#a6e22e">list</span>)
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">us</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">us</span>)
 }
-</code></pre>
+</code></pre></div><h2 id="sliceの利用">Sliceの利用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<h2 id="sliceの利用">Sliceの利用</h2>
-
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;sort&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;sort&#34;</span>
 )
 
-type user struct {
-	name string
-	age  int
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">user</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">age</span>  <span style="color:#66d9ef">int</span>
 }
 
-func main() {
-	list := []user{
-		user{name: &quot;A&quot;, age: 2},
-		user{name: &quot;B&quot;, age: 1},
-		user{name: &quot;C&quot;, age: 4},
-		user{name: &quot;D&quot;, age: 3},
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">list</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">user</span>{
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">2</span>},
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">1</span>},
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">4</span>},
+		<span style="color:#a6e22e">user</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;D&#34;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#ae81ff">3</span>},
 	}
-	sort.Slice(list, func(i, j int) bool {
-		return list[i].age &lt; list[j].age
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Slice</span>(<span style="color:#a6e22e">list</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">age</span> &lt; <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">age</span>
 	})
-	fmt.Println(list)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">list</span>)
 }
-</code></pre>
-
-<h1 id="スクラッチでソートしてみる">スクラッチでソートしてみる</h1>
-
+</code></pre></div><h1 id="スクラッチでソートしてみる">スクラッチでソートしてみる</h1>
 <p>sort パッケージ使わずに。</p>
-
 <h2 id="バブルソート">バブルソート</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-func sort(list []int) {
-	eNum := len(list)
-	for i := eNum; i &gt; 0; i-- {
-		for j := 0; j &lt; i-1; j++ {
-			if list[j] &gt; list[j+1] {
-				list[j], list[j+1] = list[j+1], list[j]
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">list</span> []<span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">eNum</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">list</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">eNum</span>; <span style="color:#a6e22e">i</span> &gt; <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span> &lt; <span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span>] &gt; <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] {
+				<span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>], <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">j</span>]
 			}
 		}
 	}
 }
 
-func main() {
-	list := []int{3, 4, 1, 2, 8, 5}
-	sort(list)
-	fmt.Println(list)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">list</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">5</span>}
+	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">list</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">list</span>)
 }
-</code></pre>
-
-<p>暇になったら他にも作ろうかなー。</p>
+</code></pre></div><p>暇になったら他にも作ろうかなー。</p>
 		</div>
 	</article>
 </main>
@@ -328,11 +294,11 @@ func main() {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -343,6 +309,7 @@ func main() {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -436,7 +403,7 @@ func main() {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -463,7 +430,7 @@ func main() {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

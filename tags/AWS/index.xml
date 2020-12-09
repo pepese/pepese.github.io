@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws on ぺーぺーSEのテックブログ</title>
@@ -6,11 +6,7 @@
     <description>Recent content in aws on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 03 Jun 2019 07:18:58 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 03 Jun 2019 07:18:58 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS IAMまとめ</title>
       <link>https://blog.pepese.com/entry/aws-iam-basics/</link>
@@ -27,10 +23,8 @@
       
       <guid>https://blog.pepese.com/entry/aws-vpc-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; の &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/vpc/&#34;&gt;VPC&lt;/a&gt; についてまとめる。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;用語整理
-
 &lt;ul&gt;
 &lt;li&gt;VPC&lt;/li&gt;
 &lt;li&gt;サブネット&lt;/li&gt;
@@ -42,7 +36,8 @@
 &lt;li&gt;VPCエンドポイント&lt;/li&gt;
 &lt;li&gt;ピアリング接続&lt;/li&gt;
 &lt;li&gt;VPN接続&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;設定&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
@@ -53,9 +48,8 @@
       <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/java-dynamodb/</guid>
-      <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
@@ -68,9 +62,8 @@
       <pubDate>Tue, 29 Aug 2017 17:55:56 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/nodejs-dynamodb/</guid>
-      <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/nodejs-basics/&#34;&gt;Node.js/npm入門&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
@@ -84,7 +77,6 @@
       
       <guid>https://blog.pepese.com/entry/dynamodb-basics/</guid>
       <description>&lt;p&gt;ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;DynamoDB の概要&lt;/li&gt;
 &lt;li&gt;DynamoDB の API&lt;/li&gt;
@@ -99,7 +91,6 @@
       
       <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -111,16 +102,13 @@
       <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
-      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br&gt;
 以下の記事の知識を前提とする。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Amazon Cognito の概要&lt;/li&gt;
 &lt;li&gt;Cognito で認証するAngularアプリを作成する&lt;/li&gt;

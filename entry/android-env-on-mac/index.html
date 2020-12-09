@@ -19,14 +19,12 @@
 	<meta property="og:title" content="Androidアプリ入門 Macで環境構築編" />
 <meta property="og:description" content="Mac で Android アプリを開発する際の環境構築についてまとめる。
 なお、プログラミング言語は Kotlin を選択する。
-
 公式ドキュメント" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/android-env-on-mac/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2018-01-06T07:41:30&#43;09:00"/>
-<meta property="article:modified_time" content="2018-01-06T07:41:30&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2018-01-06T07:41:30+09:00" />
+<meta property="article:modified_time" content="2018-01-06T07:41:30+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -34,7 +32,6 @@
 <meta name="twitter:title" content="Androidアプリ入門 Macで環境構築編"/>
 <meta name="twitter:description" content="Mac で Android アプリを開発する際の環境構築についてまとめる。
 なお、プログラミング言語は Kotlin を選択する。
-
 公式ドキュメント"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -112,29 +109,19 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Mac で Android アプリを開発する際の環境構築についてまとめる。<br />
+			<p>Mac で Android アプリを開発する際の環境構築についてまとめる。<br>
 なお、プログラミング言語は <a href="https://kotlinlang.org/">Kotlin</a> を選択する。</p>
-
 <p><a href="https://developer.android.com/studio/intro/index.html">公式ドキュメント</a></p>
-
 <h1 id="android-studio-の設定">Android Studio の設定</h1>
-
-<p>Java 1.8 はインストール済みな前提。<br />
+<p>Java 1.8 はインストール済みな前提。<br>
 バージョンは 3.0.1 for Mac 。</p>
-
 <h2 id="インストール">インストール</h2>
-
-<pre><code class="language-sh">$ brew update
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew update
 $ brew cask install android-studio
-</code></pre>
-
-<p>Homebrew については <a href="https://blog.pepese.com/entry/homebrew-basics/">Homebrew 入門</a> を参照。</p>
-
+</code></pre></div><p>Homebrew については <a href="https://blog.pepese.com/entry/homebrew-basics/">Homebrew 入門</a> を参照。</p>
 <h2 id="初回起動時の設定">初回起動時の設定</h2>
-
-<p>android-studio でインストールした android-sdk 系のツールは <code>~/Library/Android/sdk</code> 配下に配備される。<br />
+<p>android-studio でインストールした android-sdk 系のツールは <code>~/Library/Android/sdk</code> 配下に配備される。<br>
 以下の初回起動時の設定後にダウンロードされる。</p>
-
 <ol>
 <li>Android Studio 起動</li>
 <li>「 Do not import settings 」 -&gt; 「 OK 」</li>
@@ -142,19 +129,17 @@ $ brew cask install android-studio
 <li>「 custom 」 -&gt; 「 Next 」</li>
 <li>「 Default 」 -&gt; 「 Next 」</li>
 <li>以下を選択して「 Next 」
-
 <ul>
 <li>Android SDK</li>
 <li>Android SDK Platform</li>
 <li>Performance (Intel HAXM)</li>
 <li>Android Virtual Device</li>
-</ul></li>
+</ul>
+</li>
 <li>任意の Emulator Settings して「 Next 」 -&gt; 「 Finish 」</li>
 </ol>
-
-<p>「[ダウンロードしたアプリケーションの実行許可]の下の方に intel なんたらかんたら」って出たら、Mac の「システム環境設定　&gt; セキュリティとプライバシー」を開いて許可する。<br />
+<p>「[ダウンロードしたアプリケーションの実行許可]の下の方に intel なんたらかんたら」って出たら、Mac の「システム環境設定　&gt; セキュリティとプライバシー」を開いて許可する。<br>
 <code>~/.bash_profile</code> に以下を加筆した後 <code>source ~/.bash_profile</code> を実行。</p>
-
 <pre><code>export JAVA_HOME=`/usr/libexec/java_home -v1.8`
 export ANDROID_HOME=$HOME/Library/Android/sdk
 PATH=$PATH:$JAVA_HOME/bin
@@ -162,13 +147,9 @@ PATH=$PATH:$ANDROID_HOME/platform-tools
 PATH=$PATH:$ANDROID_HOME/tools/bin
 
 export PATH
-</code></pre>
-
-<p><code>$ adb devices</code> 、 <code>$ sdkmanager --help</code> が実行できることを確認しておく。</p>
-
+</code></pre><p><code>$ adb devices</code> 、 <code>$ sdkmanager --help</code> が実行できることを確認しておく。</p>
 <h2 id="アンインストール">アンインストール</h2>
-
-<pre><code class="language-sh">$ brew cask uninstall android-studio
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew cask uninstall android-studio
 $ rm -Rf ~/Library/Preferences/AndroidStudio*
 $ rm -Rf ~/Library/Logs/AndroidStudio*
 $ rm -Rf ~/Library/Caches/AndroidStudio*
@@ -177,10 +158,7 @@ $ rm -Rf ~/Library/Android*
 $ rm -Rf ~/AndroidStudioProjects
 $ rm -Rf ~/.gradle
 $ rm -Rf ~/.android
-</code></pre>
-
-<h1 id="android-studio-の使い方">Android Studio の使い方</h1>
-
+</code></pre></div><h1 id="android-studio-の使い方">Android Studio の使い方</h1>
 <ol>
 <li>Android Studio 起動</li>
 <li>「 Start a new Android Project 」</li>
@@ -188,44 +166,39 @@ $ rm -Rf ~/.android
 <li>アプリのプラットフォームを選択して「 Next 」</li>
 <li>コンポーネント（ Basic Activity でよい）を選択して「 Next 」</li>
 <li>メインとなる Activity の名前などを設定して「 Next 」-&gt;「 Finish 」
-
 <ul>
 <li>この時点でプロジェクトの初期設定環境</li>
 <li>エラーメッセージが出た場合は、メッセージに従い SDK Manager からツールをダウンロードする</li>
-</ul></li>
+</ul>
+</li>
 <li>エミュレータの作成
-
 <ul>
 <li>AVD Manager から作成できる</li>
-</ul></li>
+</ul>
+</li>
 <li>右上の再生ボタンでアプリを実行可能</li>
 </ol>
-
 <p>「 Shift 」を2回押すと、 Search Everywhere が起動する。</p>
-
 <h1 id="プロジェクト構造">プロジェクト構造</h1>
-
-<p>Android プロジェクト構造は以下。<br />
+<p>Android プロジェクト構造は以下。<br>
 実際のディレクトリ構造と異なることに注意。</p>
-
 <ul>
 <li>app
-
 <ul>
 <li>manifest ： AndroidManifest.xml がある</li>
 <li>java ： テストコードを含む Java ソースコードのファイルがある</li>
 <li>res ： XML レイアウト、UI 文字列、ビットマップ イメージなど、コード以外のすべてのリソースがある（ resource の略）
-
 <ul>
 <li>drawable ： 画像</li>
 <li>layout ： Activity のレイアウト</li>
 <li>menu ： アプリのメニューのレイアウト</li>
 <li>mipmap ： 拡大縮小アニメーションに対応した画像</li>
 <li>values ： 文字列や値を XML で管理</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Gradle Script ： ビルドファイルがある
-
 <ul>
 <li>build.gradle (Project: xxxx) ： プロジェクトのすべてのモジュールに適用されるビルド設定</li>
 <li>build.gradle (Module: app) ： <code>&lt;project&gt;/&lt;module&gt;/</code> ディレクトリにあるモジュールレベルのビルド設定</li>
@@ -234,82 +207,74 @@ $ rm -Rf ~/.android
 <li>gradle.properties ： Gradle デーモンの最大ヒープサイズなど、プロジェクト全体にわたる Gradle 設定</li>
 <li>settings.gradle ： アプリをビルドするときに含めるモジュールを Gradle に通知するファイル</li>
 <li>local.properties ： SDK インストールへのパスなど、ビルドシステムのローカル環境プロパティを設定</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><a href="https://developer.android.com/studio/build/index.html">公式ドキュメント：ビルドシステム</a></p>
-
 <h2 id="マニフェスト">マニフェスト</h2>
-
-<p><code>AndroidManifest.xml</code> のこと。<br />
+<p><code>AndroidManifest.xml</code> のこと。<br>
 記載方法は以下を参照。</p>
-
 <p><a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html">公式ドキュメント：アプリ マニフェスト</a></p>
-
 <h1 id="ndk-の導入">NDK の導入</h1>
-
 <p>Android NDK （ Native Development Kit ）は、C や C++ などのネイティブ コード言語を使用して、アプリの一部を実装するためのツールセット。</p>
-
 <ol>
 <li>Android Studio 起動</li>
 <li>SDK Manager 起動</li>
 <li>「 SDK Tools 」から「 NDK 」「 CMake 」「 LLDB 」を選択してインストール</li>
 <li>NDK を利用するプロジェクトでは「 Include C++ support 」をチェックしておく必要がある</li>
 </ol>
-
-<p>NDK に関するビルドの設定は、モジュールレベルの <code>build.gradle</code> で行う。<br />
+<p>NDK に関するビルドの設定は、モジュールレベルの <code>build.gradle</code> で行う。<br>
 例えば以下は、cpp のビルドターゲットの .so を armeabi 、 armeabi-v7a に限定する設定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">apply plugin: <span style="color:#e6db74">&#39;com.android.application&#39;</span>
 
-<pre><code class="language-groovy">apply plugin: 'com.android.application'
+apply plugin: <span style="color:#e6db74">&#39;kotlin-android&#39;</span>
 
-apply plugin: 'kotlin-android'
+apply plugin: <span style="color:#e6db74">&#39;kotlin-android-extensions&#39;</span>
 
-apply plugin: 'kotlin-android-extensions'
+android <span style="color:#f92672">{</span>
+    compileSdkVersion <span style="color:#ae81ff">26</span>
+    defaultConfig <span style="color:#f92672">{</span>
+        applicationId <span style="color:#e6db74">&#34;sample.pepese.org.audiosample&#34;</span>
+        minSdkVersion <span style="color:#ae81ff">15</span>
+        targetSdkVersion <span style="color:#ae81ff">26</span>
+        versionCode <span style="color:#ae81ff">1</span>
+        versionName <span style="color:#e6db74">&#34;1.0&#34;</span>
+        testInstrumentationRunner <span style="color:#e6db74">&#34;android.support.test.runner.AndroidJUnitRunner&#34;</span>
+        externalNativeBuild <span style="color:#f92672">{</span>
+            cmake <span style="color:#f92672">{</span>
+                cppFlags <span style="color:#e6db74">&#34;&#34;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        ndk <span style="color:#f92672">{</span> <span style="color:#75715e">// ★★★★★★★このあたり！！！！★★★★★★★
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// Specifies the ABI configurations of your native
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// libraries Gradle should build and package with your APK.
+</span><span style="color:#75715e"></span>            abiFilters <span style="color:#e6db74">&#39;armeabi&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;armeabi-v7a&#39;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    buildTypes <span style="color:#f92672">{</span>
+        release <span style="color:#f92672">{</span>
+            minifyEnabled <span style="color:#66d9ef">false</span>
+            proguardFiles <span style="color:#a6e22e">getDefaultProguardFile</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;proguard-android.txt&#39;</span><span style="color:#f92672">),</span> <span style="color:#e6db74">&#39;proguard-rules.pro&#39;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    externalNativeBuild <span style="color:#f92672">{</span>
+        cmake <span style="color:#f92672">{</span>
+            path <span style="color:#e6db74">&#34;CMakeLists.txt&#34;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-android {
-    compileSdkVersion 26
-    defaultConfig {
-        applicationId &quot;sample.pepese.org.audiosample&quot;
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName &quot;1.0&quot;
-        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
-        externalNativeBuild {
-            cmake {
-                cppFlags &quot;&quot;
-            }
-        }
-        ndk { // ★★★★★★★このあたり！！！！★★★★★★★
-            // Specifies the ABI configurations of your native
-            // libraries Gradle should build and package with your APK.
-            abiFilters 'armeabi', 'armeabi-v7a'
-        }
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    externalNativeBuild {
-        cmake {
-            path &quot;CMakeLists.txt&quot;
-        }
-    }
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation&quot;org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version&quot;
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:design:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-}
-</code></pre>
+dependencies <span style="color:#f92672">{</span>
+    implementation <span style="color:#a6e22e">fileTree</span><span style="color:#f92672">(</span>dir: <span style="color:#e6db74">&#39;libs&#39;</span><span style="color:#f92672">,</span> include: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;*.jar&#39;</span><span style="color:#f92672">])</span>
+    implementation<span style="color:#e6db74">&#34;org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version&#34;</span>
+    implementation <span style="color:#e6db74">&#39;com.android.support:appcompat-v7:26.1.0&#39;</span>
+    implementation <span style="color:#e6db74">&#39;com.android.support.constraint:constraint-layout:1.0.2&#39;</span>
+    implementation <span style="color:#e6db74">&#39;com.android.support:design:26.1.0&#39;</span>
+    testImplementation <span style="color:#e6db74">&#39;junit:junit:4.12&#39;</span>
+    androidTestImplementation <span style="color:#e6db74">&#39;com.android.support.test:runner:1.0.1&#39;</span>
+    androidTestImplementation <span style="color:#e6db74">&#39;com.android.support.test.espresso:espresso-core:3.0.1&#39;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -370,11 +335,11 @@ dependencies {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -385,6 +350,7 @@ dependencies {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -478,7 +444,7 @@ dependencies {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -505,7 +471,7 @@ dependencies {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

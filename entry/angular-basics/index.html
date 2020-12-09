@@ -21,15 +21,13 @@
 ここでは Angular CLI を使う。
 なお、 ndenv が入ってるテイで書く。導入は下記記事参照。
 
-
 すべての**envを管理するanyenv
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/angular-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-14T08:27:19&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-14T08:27:19&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-14T08:27:19+09:00" />
+<meta property="article:modified_time" content="2017-08-14T08:27:19+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -38,7 +36,6 @@
 <meta name="twitter:description" content="フロントエンドMVCフレームワーク Angular （所謂Angular4）を触ってみた。
 ここでは Angular CLI を使う。
 なお、 ndenv が入ってるテイで書く。導入は下記記事参照。
-
 
 すべての**envを管理するanyenv
 "/>
@@ -122,48 +119,36 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>フロントエンドMVCフレームワーク <strong>Angular</strong> （所謂Angular4）を触ってみた。<br />
-ここでは <a href="https://github.com/angular/angular-cli">Angular CLI</a> を使う。<br />
+			<p>フロントエンドMVCフレームワーク <strong>Angular</strong> （所謂Angular4）を触ってみた。<br>
+ここでは <a href="https://github.com/angular/angular-cli">Angular CLI</a> を使う。<br>
 なお、 <strong>ndenv</strong> が入ってるテイで書く。導入は下記記事参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/anyenv/">すべての**envを管理するanyenv</a></li>
 </ul>
-
 <h1 id="環境構築">環境構築</h1>
-
 <h2 id="yarnインストール">Yarnインストール</h2>
-
-<pre><code class="language-sh">$ npm install -g yarn
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm install -g yarn
 $ ndenv rehash
 $ yarn --version
-</code></pre>
-
-<h2 id="angular-cliインストール">Angular CLIインストール</h2>
-
-<p>Angular CLI のインストール。<br />
+</code></pre></div><h2 id="angular-cliインストール">Angular CLIインストール</h2>
+<p>Angular CLI のインストール。<br>
 パッケージ管理ツールを <code>npm</code> から <code>yarn</code> へ変更。</p>
-
-<pre><code class="language-sh">$ yarn global add @angular/cli
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn global add @angular/cli
 $ ndenv rehash
-$ ng set --global packageManager=yarn
+$ ng set --global packageManager<span style="color:#f92672">=</span>yarn
 $ ng version
 _                      _                 ____ _     ___
-/ \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-/ △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-/ ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+/ <span style="color:#ae81ff">\ </span>  _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+/ △ <span style="color:#ae81ff">\ </span>| <span style="color:#e6db74">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__|   | |   | |    | |
+/ ___ <span style="color:#ae81ff">\|</span> | | | <span style="color:#f92672">(</span>_| | |_| | | <span style="color:#f92672">(</span>_| | |      | |___| |___ | |
+/_/   <span style="color:#ae81ff">\_\_</span>| |_|<span style="color:#ae81ff">\_</span>_, |<span style="color:#ae81ff">\_</span>_,_|_|<span style="color:#ae81ff">\_</span>_,_|_|       <span style="color:#ae81ff">\_</span>___|_____|___|
            |___/
 @angular/cli: 1.3.0
 node: 8.3.0
 os: darwin x64
-</code></pre>
-
-<p>以降、 <code>ng</code> コマンドでいろいろできるようになる。</p>
-
+</code></pre></div><p>以降、 <code>ng</code> コマンドでいろいろできるようになる。</p>
 <h2 id="プロジェクト作成と起動">プロジェクト作成と起動</h2>
-
-<pre><code class="language-sh">$ ng new angular-sample
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ng new angular-sample
 installing ng
   create .editorconfig
   create README.md
@@ -194,22 +179,19 @@ installing ng
   create protractor.conf.js
   create tsconfig.json
   create tslint.json
-Installing packages for tooling via yarn.
-Installed packages for tooling via yarn.
+Installing packages <span style="color:#66d9ef">for</span> tooling via yarn.
+Installed packages <span style="color:#66d9ef">for</span> tooling via yarn.
 Successfully initialized git.
-Project 'angular-sample' successfully created.
-</code></pre>
-
-<p><code>yarn</code> で作成されていることを確認する。<br />
+Project <span style="color:#e6db74">&#39;angular-sample&#39;</span> successfully created.
+</code></pre></div><p><code>yarn</code> で作成されていることを確認する。<br>
 また、下記の通りプロジェクトディレクトリに移動して、導入されている Angular のバージョンを確認する。</p>
-
-<pre><code class="language-sh">$ cd angular-sample
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd angular-sample
 $ ng version
 _                      _                 ____ _     ___
-/ \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-/ △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-/ ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+/ <span style="color:#ae81ff">\ </span>  _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+/ △ <span style="color:#ae81ff">\ </span>| <span style="color:#e6db74">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__|   | |   | |    | |
+/ ___ <span style="color:#ae81ff">\|</span> | | | <span style="color:#f92672">(</span>_| | |_| | | <span style="color:#f92672">(</span>_| | |      | |___| |___ | |
+/_/   <span style="color:#ae81ff">\_\_</span>| |_|<span style="color:#ae81ff">\_</span>_, |<span style="color:#ae81ff">\_</span>_,_|_|<span style="color:#ae81ff">\_</span>_,_|_|       <span style="color:#ae81ff">\_</span>___|_____|___|
            |___/
 @angular/cli: 1.3.0
 node: 8.3.0
@@ -226,15 +208,9 @@ os: darwin x64
 @angular/cli: 1.3.0
 @angular/compiler-cli: 4.3.4
 @angular/language-service: 4.3.4
-</code></pre>
-
-<p>以下で起動。</p>
-
-<pre><code class="language-sh">$ ng serve
-</code></pre>
-
-<h2 id="プロジェクト構成">プロジェクト構成</h2>
-
+</code></pre></div><p>以下で起動。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ng serve
+</code></pre></div><h2 id="プロジェクト構成">プロジェクト構成</h2>
 <pre><code>.
 ├── README.md
 ├── .angular-cli.json                * Angular CLI 設定ファイル
@@ -269,168 +245,150 @@ os: darwin x64
     ├── tsconfig.app.json             * TypeScriptの設定ファイル
     ├── tsconfig.spec.json            * TypeScriptのテスト設定ファイル
     └── typings.d.ts                  * TypeScriptの型定義ファイル     
-</code></pre>
-
-<p><code>.ditorconfig</code> は<a href="http://editorconfig.org">EditorConfig</a>というプロジェクトの設定ファイルで、エディタへプラグインなどを入れることにより様々なエディタの設定をプロジェクト単位で可能にする。<br />
-テストは <strong>Jasmine</strong> （テスティングフレームワーク）と <strong>Karma</strong> （テストランナー）の組み合わせで実行される。<br />
+</code></pre><p><code>.ditorconfig</code> は<a href="http://editorconfig.org">EditorConfig</a>というプロジェクトの設定ファイルで、エディタへプラグインなどを入れることにより様々なエディタの設定をプロジェクト単位で可能にする。<br>
+テストは <strong>Jasmine</strong> （テスティングフレームワーク）と <strong>Karma</strong> （テストランナー）の組み合わせで実行される。<br>
 e2e（エンドツーエンド）テストは <strong>protractor</strong> 。</p>
-
 <h2 id="主要なコマンド">主要なコマンド</h2>
-
 <ul>
 <li><code>ng new</code>
-
 <ul>
 <li>新規にAngularプロジェクトを作成する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng build</code>
-
 <ul>
 <li><code>src</code> 配下をビルドして <code>dist</code> へ出力する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng serve</code>
-
 <ul>
 <li>Webサーバを起動してアプリケーションを実行する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng generate</code>
-
 <ul>
 <li>blueprints から選択して新たにコードを生成する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng eject</code>
-
 <ul>
 <li><code>ng generate</code> などで作成したコードを取り除き、webpackの設定やスクリプトを変更する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng get</code>
-
 <ul>
 <li>設定（key-value）から値（value）を取得する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng set</code>
-
 <ul>
 <li>設定（key-value）に値（value）を追加する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng lint</code>
-
 <ul>
 <li>Linterを実行する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng test</code>
-
 <ul>
 <li>テストを実行する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng e2e</code>
-
 <ul>
 <li>e2eテストを実行する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>ng xi18n</code>
-
 <ul>
 <li>コードからi18nメッセージを抜く</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>上記以外や詳細なオプションは <code>ng help</code> を参照。</p>
-
 <h3 id="blueprints-の種類">blueprints の種類</h3>
-
 <ul>
 <li>module
-
 <ul>
 <li><code>ng generate module sample</code></li>
 <li>モジュール（ <code>sample/sample.module.ts</code> ）が作成される。</li>
 <li>自動で指定したモジュール名でディレクトリが切られることに注意</li>
-</ul></li>
+</ul>
+</li>
 <li>component
-
 <ul>
 <li><code>ng generate component sample</code></li>
 <li>コンポーネント（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
-
 <ul>
 <li><code>sample.component.ts</code> 、 <code>sample.component.spec.ts</code> 、 <code>sample.component.html</code> 、 <code>sample.component.scss</code></li>
-</ul></li>
+</ul>
+</li>
 <li>なお、既に存在するモジュール名で作成すると、そのモジュール名のディレクトリ内に作成される。</li>
-</ul></li>
+</ul>
+</li>
 <li>directive
-
 <ul>
 <li><code>ng generate directive sample</code></li>
 <li>ディレクティブ（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
-
 <ul>
 <li><code>sample.directive.ts</code> 、 <code>sample.directive.spec.ts</code></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>pipe
-
 <ul>
 <li><code>ng generate pipe sample</code></li>
 <li>パイプ（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
-
 <ul>
 <li><code>sample.pipe.ts</code> 、 <code>sample.pipe.spec.ts</code></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>service
-
 <ul>
 <li><code>ng generate service sample</code></li>
 <li>サービス（以下）を作成する。
-
 <ul>
 <li><code>sample.service.ts</code> 、 <code>sample.service.spec.ts</code></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>class
-
 <ul>
 <li><code>ng generate class sample</code></li>
 <li>普通のクラス（ <code>sample.ts</code> ）が作成される。</li>
-</ul></li>
+</ul>
+</li>
 <li>interface
-
 <ul>
 <li><code>ng generate interface sample</code></li>
 <li>普通のインターフェース（ <code>sample.ts</code> ）が作成される。</li>
-</ul></li>
+</ul>
+</li>
 <li>enum
-
 <ul>
 <li><code>ng generate enum sample</code></li>
 <li>普通の列挙型（ <code>sample.enum.ts</code> ）が作成される。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>ディレクトリを切りたい場合は <code>/</code> を加えて、 <code>ng generate service sample/sample-service</code> のようにする。</p>
-
 <h2 id="angular-cli-のバージョンアップ方法">Angular CLI のバージョンアップ方法</h2>
-
 <p>グローバルでは以下。</p>
-
-<pre><code class="language-sh">$ yarn global remove @angular/cli
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn global remove @angular/cli
 $ yarn cache clean
 $ yarn global add @angular/cli@latest
 $ ndenv rehash
-</code></pre>
-
-<p>ローカルプロジェクトでは以下。</p>
-
-<pre><code class="language-sh">$ rm -rf node_modules dist # use rmdir on Windows
+</code></pre></div><p>ローカルプロジェクトでは以下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rm -rf node_modules dist <span style="color:#75715e"># use rmdir on Windows</span>
 $ yarn add @angular/cli@latest --dev
 $ yarn install
-</code></pre>
-
-<h1 id="angularの基本">Angularの基本</h1>
-
+</code></pre></div><h1 id="angularの基本">Angularの基本</h1>
 <p>Angularのアーキテクチャは以下の要素から構成される。</p>
-
 <ul>
 <li>モジュール（@NgModule）</li>
 <li>コンポーネント（@Components）</li>
@@ -443,407 +401,318 @@ $ yarn install
 <li>フォームとバリデータ</li>
 <li>Angularライブラリ</li>
 </ul>
-
 <p>上記の各々について後述する。</p>
-
-<h2 id="モジュール-ngmodule">モジュール（@NgModule）</h2>
-
-<p>Angularのアプリケーションはモジュール単位で機能を管理する。<br />
+<h2 id="モジュールngmodule">モジュール（@NgModule）</h2>
+<p>Angularのアプリケーションはモジュール単位で機能を管理する。<br>
 モジュールは後述の <strong>コンポーネント</strong> や <strong>テンプレート</strong> を包含する。</p>
-
-<p>Angularアプリケーションは少なくとも１つ <strong>ルートモジュール</strong> を持ち、<code>AppModule</code> と命名する。<br />
-ルートモジュールは、 <code>src/main.ts</code> からロードされる。<br />
+<p>Angularアプリケーションは少なくとも１つ <strong>ルートモジュール</strong> を持ち、<code>AppModule</code> と命名する。<br>
+ルートモジュールは、 <code>src/main.ts</code> からロードされる。<br>
 通常のアプリケーションの場合、ルートモジュールは１つだが、巨大なアプリケーションの場合、複数のルートモジュールを持つこともある。</p>
-
 <p>モジュールは以下のように作成する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NgModule</span> }      <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/platform-browser&#39;</span>;
 
-<pre><code class="language-typescript">import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-@NgModule({
-  imports:      [ BrowserModule ],
-  providers:    [ Logger ],
-  declarations: [ AppComponent ],
-  exports:      [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+<span style="color:#66d9ef">@NgModule</span>({
+  <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span>      [ <span style="color:#a6e22e">BrowserModule</span> ],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span>    [ <span style="color:#a6e22e">Logger</span> ],
+  <span style="color:#a6e22e">declarations</span><span style="color:#f92672">:</span> [ <span style="color:#a6e22e">AppComponent</span> ],
+  <span style="color:#a6e22e">exports</span><span style="color:#f92672">:</span>      [ <span style="color:#a6e22e">AppComponent</span> ],
+  <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span>    [ <span style="color:#a6e22e">AppComponent</span> ]
 })
-export class AppModule { }
-</code></pre>
-
-<p><code>AppModule</code> クラスに <code>@NgModule</code> <strong>デコレータ</strong> （Javaでいうアノテーション）を付与した形になっている。<br />
-デコレータにAngularに則した設定を行い、クラスには何も書かない（たぶん）。<br />
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppModule</span> { }
+</code></pre></div><p><code>AppModule</code> クラスに <code>@NgModule</code> <strong>デコレータ</strong> （Javaでいうアノテーション）を付与した形になっている。<br>
+デコレータにAngularに則した設定を行い、クラスには何も書かない（たぶん）。<br>
 <code>@NgModule</code> の代表的なプロパティは以下の通り。ちなみにデコレータに設定するプロパティを <strong>メタデータ</strong> という。</p>
-
 <ul>
 <li><code>imports</code>
-
 <ul>
 <li>このモジュールに他のモジュールを取り込み、このモジュール内で定義されているコンポーネントやテンプレートが他のモジュールのクラスを使用できるようになる。</li>
 <li>他のモジュールの <code>providers</code> ・ <code>exports</code> に定義されたものを使用できるようになる。</li>
-</ul></li>
+</ul>
+</li>
 <li><code>providers</code>
-
 <ul>
 <li>このモジュールおよび関係するコンポーネント・サービスへインジェクトするためのサービスクラスを定義・インスタンス化する。</li>
-</ul></li>
+</ul>
+</li>
 <li><code>declarations</code>
-
 <ul>
 <li>このモジュールに所属させるビュークラスを指定する。Angularのビュークラスには、 <strong>コンポーネント</strong> 、 <strong>ディレクティブ</strong> 、 <strong>パイプ</strong> がある。</li>
-</ul></li>
+</ul>
+</li>
 <li><code>exports</code>
-
 <ul>
 <li>このモジュール内のクラスを他のモジュールのコンポーネント・テンプレートで使用可能にする。</li>
 <li><code>imports</code> の逆。</li>
-</ul></li>
+</ul>
+</li>
 <li><code>bootstrap</code>
-
 <ul>
 <li><strong>ルートコンポーネント</strong> を定義する。ルートコンポーネントはアプリケーションのメインビュー。</li>
 <li><strong>ルートモジュールにだけ</strong> に <code>bootstarp</code> プロパティを設定する。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>以下が <strong>ルートモジュール</strong> を指定する方法（ <code>src/main.ts</code> ）。</p>
-
-<pre><code class="language-typescritp">import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+<pre><code class="language-typescritp" data-lang="typescritp">import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);
-</code></pre>
-
-<p>また、モジュール内では以下のようにライブラリから他のモジュールをロードすることもできる。</p>
-
-<pre><code class="language-typescript">import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-</code></pre>
-
-<p>ロードしたライブラリモジュールは、 <code>@NgModule</code> の <code>imports</code> プロパティに指定することにより使用できるようになる。</p>
-
-<pre><code class="language-typescript">imports:      [ BrowserModule ],
-</code></pre>
-
-<h2 id="コンポーネント-component">コンポーネント（@Component）</h2>
-
-<p>コンポーネントはビューの役割を担う。<br />
-コンポーネントクラス内で定義したフィールド変数やメソッドは、テンプレートから直接使用できる。<br />
+</code></pre><p>また、モジュール内では以下のようにライブラリから他のモジュールをロードすることもできる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/platform-browser&#39;</span>;
+</code></pre></div><p>ロードしたライブラリモジュールは、 <code>@NgModule</code> の <code>imports</code> プロパティに指定することにより使用できるようになる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span>      [ <span style="color:#a6e22e">BrowserModule</span> ],
+</code></pre></div><h2 id="コンポーネントcomponent">コンポーネント（@Component）</h2>
+<p>コンポーネントはビューの役割を担う。<br>
+コンポーネントクラス内で定義したフィールド変数やメソッドは、テンプレートから直接使用できる。<br>
 ロジックは基本的にコンポーネント内に記載し、サービスクラスをDIしたりする。</p>
-
-<pre><code class="language-typescript">@Component({
-  moduleId: module.id,
-  selector:    'hero-list',
-  templateUrl: './hero-list.component.html',
-  providers:  [ HeroService ]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">@Component</span>({
+  <span style="color:#66d9ef">module</span><span style="color:#a6e22e">Id</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">module</span><span style="color:#a6e22e">.id</span>,
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span>    <span style="color:#e6db74">&#39;hero-list&#39;</span>,
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./hero-list.component.html&#39;</span>,
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span>  [ <span style="color:#a6e22e">HeroService</span> ]
 })
-export class HeroListComponent implements OnInit {
-/* . . . */
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HeroListComponent</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">OnInit</span> {
+<span style="color:#75715e">/* . . . */</span>
 }
-</code></pre>
-
-<p><code>@Component</code> の代表的なメタデータプロパティは以下。</p>
-
+</code></pre></div><p><code>@Component</code> の代表的なメタデータプロパティは以下。</p>
 <ul>
 <li>moduleId
-
 <ul>
 <li>このモジュールが定義されるファイルのES/CommonJSモジュールID</li>
-</ul></li>
+</ul>
+</li>
 <li>selector
-
 <ul>
 <li>このコンポーネントのHTMLタグ名を定義する。</li>
-</ul></li>
+</ul>
+</li>
 <li>template
-
 <ul>
 <li>テンプレートを直接記載する。</li>
-</ul></li>
+</ul>
+</li>
 <li>templateUrl
-
 <ul>
 <li>テンプレートファイルのパスを指定する。</li>
-</ul></li>
+</ul>
+</li>
 <li>styles
-
 <ul>
 <li>スタイルシート（CSSやSass）を直接記載する。このコンポーネント外には影響が無い。</li>
-</ul></li>
+</ul>
+</li>
 <li>styleUrls
-
 <ul>
 <li>スタイルシートファイルのパスを指定する。このコンポーネント外には影響が無い。</li>
-</ul></li>
+</ul>
+</li>
 <li>providers
-
 <ul>
 <li>このコンポーネントがDI経由で使用するサービスクラスを指定する。</li>
 <li>コンポーネントクラスの <code>constructor</code> の引数でも指定する必要がある。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>その他の <code>@Component</code> のメタデータは<a href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">ここ</a>で確認できる。</p>
-
-<h2 id="テンプレート-templates">テンプレート（Templates）</h2>
-
-<p>テンプレートはコンポーネントのDOMとして使われるHTML。<br />
-コンポーネントクラスの <code>@Component</code> デコレータのメタデータに直接記載（ <code>template</code> ）することも、別ファイルとして作成して読み込む（ <code>templateUrl</code> ）ことも可能。<br />
+<h2 id="テンプレートtemplates">テンプレート（Templates）</h2>
+<p>テンプレートはコンポーネントのDOMとして使われるHTML。<br>
+コンポーネントクラスの <code>@Component</code> デコレータのメタデータに直接記載（ <code>template</code> ）することも、別ファイルとして作成して読み込む（ <code>templateUrl</code> ）ことも可能。<br>
 テンプレート内では、HTMLの属性として <strong>ディレクティブ</strong> （ <code>*ngFor</code> など）、コンポーネントとのデータ・機能のやりとりに <strong>データバインディング</strong> を使用することができる。</p>
-
 <ul>
 <li>コンポーネントフィールドへのアクセス
-
 <ul>
 <li><code>*ngFor</code> ： コレクションフィールドの値にアクセス</li>
 <li><code>*ngFor=&quot;let hero of heroes&quot;</code> ： コレクションheroesの各要素をheroへ代入</li>
-</ul></li>
+</ul>
+</li>
 <li>コンポーネントのメソッド呼び出し
-
 <ul>
 <li><code>(click)=&quot;onClickMe()&quot;</code> ： クリック時に <code>onClickMe()</code> メソッドを呼び出す</li>
 <li><code>(keyup)=&quot;onKey($event)&quot;</code> ： キーアップ時にイベントを引数に <code>onKey()</code> メソッドを呼び出す</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>また、テンプレートにはスタイルシート（CSS、Sassなど）を指定することができ、<code>@Component</code> デコレータのメタデータ（ <code>styles</code> 、 <code>styleUrls</code> ）で指定することができる。</p>
-
-<h2 id="メタデータ-metadata">メタデータ（Metadata）</h2>
-
-<p>メタデータは <strong>デコレータ</strong> （ <code>@</code> から始まるJavaでいうアノテーション）に設定するプロパティ。<br />
-Angularにクラスがどのように挙動するか知らせる役割。<br />
-<code>@Injectable</code> 、 <code>@Input</code> 、 <code>@Output</code> など様々なデコレータにメタデータを設定できる。<br />
+<h2 id="メタデータmetadata">メタデータ（Metadata）</h2>
+<p>メタデータは <strong>デコレータ</strong> （ <code>@</code> から始まるJavaでいうアノテーション）に設定するプロパティ。<br>
+Angularにクラスがどのように挙動するか知らせる役割。<br>
+<code>@Injectable</code> 、 <code>@Input</code> 、 <code>@Output</code> など様々なデコレータにメタデータを設定できる。<br>
 もう十分前述しているのでこの程度で。</p>
-
-<h2 id="データバインディング-data-binding">データバインディング（Data Binding）</h2>
-
-<p>テンプレートとコンポーネント間のデータ・機能のやりとりを行う機能。<br />
+<h2 id="データバインディングdata-binding">データバインディング（Data Binding）</h2>
+<p>テンプレートとコンポーネント間のデータ・機能のやりとりを行う機能。<br>
 以下のように４種類ある。</p>
-
 <ul>
 <li>単方向バインド（interpolation）
-
 <ul>
 <li><code>&lt;li&gt;{{hero.name}}&lt;/li&gt;</code></li>
 <li>コンポーネントの <code>hero.name</code> プロパティの値を <code>&lt;li&gt;</code> 表示する</li>
-</ul></li>
+</ul>
+</li>
 <li>プロパティバインド（property binding）
-
 <ul>
 <li><code>&lt;hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;</code></li>
 <li>親コンポーネントの <code>selectedHero</code> の値を、子コンポーネントの <code>hero</code> へ渡している</li>
-</ul></li>
+</ul>
+</li>
 <li>イベントバインド（event binding）
-
 <ul>
 <li><code>&lt;li (click)=&quot;selectHero(hero)&quot;&gt;&lt;/li&gt;</code></li>
 <li>ユーザのクリックにより <code>selectHero()</code> メソッドが呼び出される。</li>
-</ul></li>
+</ul>
+</li>
 <li>双方向バインド（Two-way data binding）
-
 <ul>
 <li><code>&lt;input [(ngModel)]=&quot;hero.name&quot;&gt;</code></li>
 <li><code>ngModel</code> を用いて <strong>参照と更新</strong> を両方同時に実現する。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><code>ngModel</code> のようにテンプレートのHTMLタグの属性として記述できるAngularの機能を <strong>ディレクティブ</strong> という。</p>
-
 <h3 id="イベント">イベント</h3>
-
-<pre><code class="language-html">&lt;button (click)=&quot;onClickButton()&quot;&gt;ボタン1&lt;/button&gt;
-&lt;button (click)=&quot;onClickButtonWithEvent($event)&quot;&gt;ボタン2&lt;/button&gt;
-</code></pre>
-
-<p><code>(click)</code> のように、イベント名をカッコで囲んだ属性に、イベントを処理するメソッドを記述する。<br />
-引数なしの記述と、イベントオブジェクト <code>$event</code> を指定する記述ができる。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">onClickButton</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;ボタン1&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">onClickButtonWithEvent</span><span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">event</span><span style="color:#960050;background-color:#1e0010">)&#34;</span>&gt;ボタン2&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><p><code>(click)</code> のように、イベント名をカッコで囲んだ属性に、イベントを処理するメソッドを記述する。<br>
+引数なしの記述と、イベントオブジェクト <code>$event</code> を指定する記述ができる。<br>
 コンポーネントクラス内では以下のようにメソッド定義する。</p>
-
-<pre><code class="language-typescript">onClickButtonWithEvent(event:any) {
-   // targetプロパティでイベントを発生させたオブジェクトを取得
-   var button = event.target;
-   // ボタンのラベルをtextContentプロパティから取得して表示
-   alert(&quot;ボタン「&quot; + button.textContent + &quot;」が押下されました&quot;);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">onClickButtonWithEvent</span>(<span style="color:#a6e22e">event</span>:<span style="color:#66d9ef">any</span>) {
+   <span style="color:#75715e">// targetプロパティでイベントを発生させたオブジェクトを取得
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>;
+   <span style="color:#75715e">// ボタンのラベルをtextContentプロパティから取得して表示
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;ボタン「&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;」が押下されました&#34;</span>);
  }
-</code></pre>
-
-<h2 id="ディレクテイブ-directive">ディレクテイブ（@Directive）</h2>
-
-<p>ディレクティブは前述の通り、テンプレートのHTMLタグの属性として指定できるAngularの機能。<br />
+</code></pre></div><h2 id="ディレクテイブdirective">ディレクテイブ（@Directive）</h2>
+<p>ディレクティブは前述の通り、テンプレートのHTMLタグの属性として指定できるAngularの機能。<br>
 モジュール・コンポーネント間のデータの授受や、ループ・条件分岐といった動的なDOMの機能を提供する。</p>
-
-<pre><code class="language-html">&lt;li *ngFor=&quot;let hero of heroes&quot;&gt;&lt;/li&gt;
-&lt;hero-detail *ngIf=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;
-</code></pre>
-
-<p><code>@Directive</code> デコレータでディレクティブを自作できる。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">li</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;let hero of heroes&#34;</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;<span style="color:#f92672">hero-detail</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngIf</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;selectedHero&#34;</span>&gt;&lt;/<span style="color:#f92672">hero-detail</span>&gt;
+</code></pre></div><p><code>@Directive</code> デコレータでディレクティブを自作できる。<br>
 ここでは割愛。<a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html">参考</a></p>
-
-<h2 id="パイプ-pipe">パイプ（@Pipe）</h2>
-
-<p>Pipeはテンプレート内で文字列操作の機能を提供する。<br />
+<h2 id="パイプpipe">パイプ（@Pipe）</h2>
+<p>Pipeはテンプレート内で文字列操作の機能を提供する。<br>
 例えば、Dateオブジェクトをあるフォーマットに整形して表示できる。</p>
-
-<pre><code class="language-typescript">// コンポーネントクラスのフィールド
-let birthday = new Date(1985,3,1); // これで1985年4月1日 なことに注意
-</code></pre>
-
-<p>上記をテンプレードで以下のように指定することにより <strong>yy/MM/dd</strong> 形式で表示できる。</p>
-
-<pre><code class="language-html">&lt;p&gt;{{ birthday | date:&quot;yy/MM/dd&quot; }}&lt;/p&gt; &lt;!-- 1985/04/01 と表示される --&gt;
-</code></pre>
-
-<p>他にも下記のようなパイプがある。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// コンポーネントクラスのフィールド
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">birthday</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#ae81ff">1985</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>); <span style="color:#75715e">// これで1985年4月1日 なことに注意
+</span></code></pre></div><p>上記をテンプレードで以下のように指定することにより <strong>yy/MM/dd</strong> 形式で表示できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;{{ birthday | date:&#34;yy/MM/dd&#34; }}&lt;/<span style="color:#f92672">p</span>&gt; <span style="color:#75715e">&lt;!-- 1985/04/01 と表示される --&gt;</span>
+</code></pre></div><p>他にも下記のようなパイプがある。</p>
 <ul>
 <li>DatePipe
-
 <ul>
 <li>上記例。日付を整形する。</li>
 <li><code>date_expression | date[:format]</code></li>
-</ul></li>
+</ul>
+</li>
 <li>UpperCasePipe
-
 <ul>
 <li>文字列を大文字にする。</li>
 <li><code>expression | uppercase</code></li>
-</ul></li>
+</ul>
+</li>
 <li>JsonPipe
-
 <ul>
 <li>入力値にJSON.stringfyを実行して返す。</li>
 <li><code>expression | json</code></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>また、パイプは以下のような感じでチェーンできる。</p>
-
 <pre><code>{{ birthday | date | uppercase}}
-</code></pre>
-
-<p>さらに、<code>@Pipe</code> デコレータでパイプを自作できる。<br />
+</code></pre><p>さらに、<code>@Pipe</code> デコレータでパイプを自作できる。<br>
 ここでは割愛。<a href="https://angular.io/docs/ts/latest/guide/pipes.html">参考</a></p>
-
-<h2 id="サービス-services-di-dependency-injection-injectable">サービス（Services）・DI（Dependency injection / @Injectable）</h2>
-
-<p>サービスは <code>export</code> された通常のtypescriptクラス。<br />
+<h2 id="サービスservicesdidependency-injection--injectable">サービス（Services）・DI（Dependency injection / @Injectable）</h2>
+<p>サービスは <code>export</code> された通常のtypescriptクラス。<br>
 DIを使用してコンポーネントや他サービスクラスにサービスクラスをインジェクトできる。</p>
-
 <h3 id="作成例">作成例</h3>
-
-<pre><code class="language-sh">$ ng generate service sample/sample
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ng generate service sample/sample
 installing service
   create src/app/sample/sample.service.spec.ts
   create src/app/sample/sample.service.ts
   WARNING Service is generated but not provided, it must be provided to be used
-</code></pre>
-
-<p>上記で作成した <code>src/app/sample/sample.service.ts</code> をDIするには、使用するモジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。<br />
+</code></pre></div><p>上記で作成した <code>src/app/sample/sample.service.ts</code> をDIするには、使用するモジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。<br>
 以下コンポーネントへの導入例。</p>
-
-<pre><code class="language-typescript">...
-import { SampleService } from './sample/sample.service' // インポート
-
-@Component({
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript">...
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">SampleService</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./sample/sample.service&#39;</span> <span style="color:#75715e">// インポート
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">@Component</span>({
   ...
-  providers: [SampleService], // providers に追加
-  ...
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">SampleService</span>], <span style="color:#75715e">// providers に追加
+</span><span style="color:#75715e"></span>  ...
 })
-export class AppComponent {
-  title: string;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppComponent</span> {
+  <span style="color:#a6e22e">title</span>: <span style="color:#66d9ef">string</span>;
 
-  constructor(
-    private sampleService: SampleService // コンストラクタに設定
-  ){
-    this.title = sampleService.getTitle();
+  <span style="color:#66d9ef">constructor</span>(
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">sampleService</span>: <span style="color:#66d9ef">SampleService</span> <span style="color:#75715e">// コンストラクタに設定
+</span><span style="color:#75715e"></span>  ){
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sampleService</span>.<span style="color:#a6e22e">getTitle</span>();
   }
 }
-</code></pre>
-
-<h3 id="di-インジェクタ">DI・インジェクタ</h3>
-
-<p>サービスをモジュールやコンポーネントで使用できるようにインジェクトする機能。<br />
+</code></pre></div><h3 id="diインジェクタ">DI・インジェクタ</h3>
+<p>サービスをモジュールやコンポーネントで使用できるようにインジェクトする機能。<br>
 前述の通り、モジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。</p>
-
-<p><code>@Injectable</code> デコレータがついたサービスクラスは多段Inject（DIのDI）することが可能になる。<br />
+<p><code>@Injectable</code> デコレータがついたサービスクラスは多段Inject（DIのDI）することが可能になる。<br>
 一段Injectはデコレータが無しでもOKだがつけておいても問題ない。</p>
-
 <h2 id="フォームとバリデータ">フォームとバリデータ</h2>
-
 <p><a href="http://codezine.jp/article/detail/9596?p=4">http://codezine.jp/article/detail/9596?p=4</a></p>
-
 <h2 id="angularライブラリ">Angularライブラリ</h2>
-
-<p>Angularのライブラリには様々用意されており、APIリファレンスは<a href="https://angular.io/docs/ts/latest/api/">ここ</a>。<br />
+<p>Angularのライブラリには様々用意されており、APIリファレンスは<a href="https://angular.io/docs/ts/latest/api/">ここ</a>。<br>
 リファレンスではクラスの前に記号がついており、それぞれ以下の意味。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">記号</th>
-<th align="left">意味</th>
+<th style="text-align:left">記号</th>
+<th style="text-align:left">意味</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">D</td>
-<td align="left">Directive。ディレクティブ。</td>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Directive。ディレクティブ。</td>
 </tr>
-
 <tr>
-<td align="left">P</td>
-<td align="left">Pipe。パイプ。</td>
+<td style="text-align:left">P</td>
+<td style="text-align:left">Pipe。パイプ。</td>
 </tr>
-
 <tr>
-<td align="left">@</td>
-<td align="left">Decorator。デコレータ。Javaでいう所謂アノテーション。</td>
+<td style="text-align:left">@</td>
+<td style="text-align:left">Decorator。デコレータ。Javaでいう所謂アノテーション。</td>
 </tr>
-
 <tr>
-<td align="left">C</td>
-<td align="left">Class。普通のTypeScriptのクラス。</td>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Class。普通のTypeScriptのクラス。</td>
 </tr>
-
 <tr>
-<td align="left">I</td>
-<td align="left">Interface。普通のTypeScriptのインターフェース。</td>
+<td style="text-align:left">I</td>
+<td style="text-align:left">Interface。普通のTypeScriptのインターフェース。</td>
 </tr>
-
 <tr>
-<td align="left">F</td>
-<td align="left">Function。関数。</td>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Function。関数。</td>
 </tr>
-
 <tr>
-<td align="left">E</td>
-<td align="left">Enum。普通の列挙型。</td>
+<td style="text-align:left">E</td>
+<td style="text-align:left">Enum。普通の列挙型。</td>
 </tr>
-
 <tr>
-<td align="left">T</td>
-<td align="left">Type Alias。なんかわからん。</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">Type Alias。なんかわからん。</td>
 </tr>
-
 <tr>
-<td align="left">K</td>
-<td align="left">Const。定数クラス。</td>
+<td style="text-align:left">K</td>
+<td style="text-align:left">Const。定数クラス。</td>
 </tr>
 </tbody>
 </table>
-
-<h1 id="その他話題-メモ">その他話題、メモ</h1>
-
+<h1 id="その他話題メモ">その他話題、メモ</h1>
 <h2 id="typescriptの型解決について">TypeScriptの型解決について</h2>
-
 <p>解決方法には以下がある。</p>
-
 <ul>
 <li>tsd</li>
 <li>typings</li>
 <li>@types</li>
 </ul>
-
 <p>Angularは型定義が含まれているため、上記３つは不要。ただし、他のライブラリを用いる場合 <code>@types</code> を使用する。（typingsに変わったかも。。。）</p>
 		</div>
 	</article>
@@ -905,11 +774,11 @@ export class AppComponent {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -920,6 +789,7 @@ export class AppComponent {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -1013,7 +883,7 @@ export class AppComponent {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -1040,7 +910,7 @@ export class AppComponent {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

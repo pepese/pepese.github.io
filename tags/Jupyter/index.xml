@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jupyter on ぺーぺーSEのテックブログ</title>
@@ -6,11 +6,7 @@
     <description>Recent content in jupyter on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 20 Feb 2018 08:03:43 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 20 Feb 2018 08:03:43 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jupyter Notebook入門</title>
       <link>https://blog.pepese.com/entry/jupyter-notebook-basics/</link>
@@ -18,7 +14,6 @@
       
       <guid>https://blog.pepese.com/entry/jupyter-notebook-basics/</guid>
       <description>&lt;p&gt;Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://jupyter.org/&#34;&gt;公式&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://jupyter.org/documentation&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/li&gt;

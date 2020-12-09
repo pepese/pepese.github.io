@@ -22,10 +22,9 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
 インストールから使い方までまとめてみる。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/homebrew-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-05-09T08:00:18&#43;09:00"/>
-<meta property="article:modified_time" content="2017-05-09T08:00:18&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-05-09T08:00:18+09:00" />
+<meta property="article:modified_time" content="2017-05-09T08:00:18+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -109,126 +108,88 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p><a href="http://brew.sh/index_ja.html">Homebrew</a>についてまとめる。<br />
-HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。<br />
+			<p><a href="http://brew.sh/index_ja.html">Homebrew</a>についてまとめる。<br>
+HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。<br>
 インストールから使い方までまとめてみる。</p>
-
 <h1 id="環境設定">環境設定</h1>
-
 <h2 id="インストール">インストール</h2>
-
-<pre><code class="language-sh">$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
-==&gt; This script will install:
-/usr/local/bin/brew
-/usr/local/share/doc/homebrew
-/usr/local/share/man/man1/brew.1
-/usr/local/share/zsh/site-functions/_brew
-/usr/local/etc/bash_completion.d/brew
-/usr/local/Homebrew
-==&gt; The following new directories will be created:
-/usr/local/Cellar
-/usr/local/Homebrew
-/usr/local/Frameworks
-/usr/local/bin
-/usr/local/include
-/usr/local/lib
-/usr/local/opt
-/usr/local/sbin
-/usr/local/share/zsh
-/usr/local/share/zsh/site-functions
-</code></pre>
-
-<p>上記を実行後、 <code>brew doctor</code> で問題がないことを確認。<br />
-もしWarningが出たらメッセージに従って対処する。<br />
-筆者の場合はXcodeをインストールしてCommand Line Toolsをアップデートしたら解決した。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ /usr/bin/ruby -e <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span style="color:#66d9ef">)</span><span style="color:#e6db74">”
+</span><span style="color:#e6db74">==&gt; This script will install:
+</span><span style="color:#e6db74">/usr/local/bin/brew
+</span><span style="color:#e6db74">/usr/local/share/doc/homebrew
+</span><span style="color:#e6db74">/usr/local/share/man/man1/brew.1
+</span><span style="color:#e6db74">/usr/local/share/zsh/site-functions/_brew
+</span><span style="color:#e6db74">/usr/local/etc/bash_completion.d/brew
+</span><span style="color:#e6db74">/usr/local/Homebrew
+</span><span style="color:#e6db74">==&gt; The following new directories will be created:
+</span><span style="color:#e6db74">/usr/local/Cellar
+</span><span style="color:#e6db74">/usr/local/Homebrew
+</span><span style="color:#e6db74">/usr/local/Frameworks
+</span><span style="color:#e6db74">/usr/local/bin
+</span><span style="color:#e6db74">/usr/local/include
+</span><span style="color:#e6db74">/usr/local/lib
+</span><span style="color:#e6db74">/usr/local/opt
+</span><span style="color:#e6db74">/usr/local/sbin
+</span><span style="color:#e6db74">/usr/local/share/zsh
+</span><span style="color:#e6db74">/usr/local/share/zsh/site-functions
+</span></code></pre></div><p>上記を実行後、 <code>brew doctor</code> で問題がないことを確認。<br>
+もしWarningが出たらメッセージに従って対処する。<br>
+筆者の場合はXcodeをインストールしてCommand Line Toolsをアップデートしたら解決した。<br>
 変更があるかもしれないので<a href="http://brew.sh/index_ja.html">公式</a>を確認のこと。</p>
-
 <ul>
 <li><code>/usr/local/Cellar/</code>
-
 <ul>
 <li>Homebrewでインストールしたソフトウェアはここに配備される</li>
-</ul></li>
+</ul>
+</li>
 <li><code>/usr/local/bin/</code>
-
 <ul>
 <li>インストールしたソフトウェアのコマンドのシンボリックリンクはここに配備される</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="homebrew-のアップデート">Homebrew のアップデート</h2>
-
-<pre><code class="language-sh">$ brew update
-</code></pre>
-
-<h2 id="ソフトウェアのインストール">ソフトウェアのインストール</h2>
-
-<pre><code class="language-sh">$ brew install &lt;software&gt;
-</code></pre>
-
-<h2 id="ソフトウェアの更新">ソフトウェアの更新</h2>
-
-<pre><code class="language-sh">$ brew upgrade &lt;software&gt;
-</code></pre>
-
-<h2 id="キャッシュされている古いソフトウェアの削除">キャッシュされている古いソフトウェアの削除</h2>
-
-<pre><code class="language-sh">$ brew cleanup
-</code></pre>
-
-<h1 id="brew-tap">brew tap</h1>
-
-<p>brew tap は、公式以外の formula を追加することのできる Homebrew のサブコマンド。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew update
+</code></pre></div><h2 id="ソフトウェアのインストール">ソフトウェアのインストール</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install &lt;software&gt;
+</code></pre></div><h2 id="ソフトウェアの更新">ソフトウェアの更新</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew upgrade &lt;software&gt;
+</code></pre></div><h2 id="キャッシュされている古いソフトウェアの削除">キャッシュされている古いソフトウェアの削除</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew cleanup
+</code></pre></div><h1 id="brew-tap">brew tap</h1>
+<p>brew tap は、公式以外の formula を追加することのできる Homebrew のサブコマンド。<br>
 Homebrewをインストールした際に標準で組み込まれている。</p>
-
-<pre><code class="language-sh">$ brew tap &lt;userName&gt;/&lt;repository&gt;
-</code></pre>
-
-<p>上記コマンドを実行すると、GitHub 公開リポジトリ (<a href="https://github.com/">https://github.com/</a><userName>/homebrew-<repository>) が参照され、/usr/local/Library/Taps以下にインストールされる。<br />
-<code>brew tap</code> コマンドでこれまでにインストールされたソフトウェアの一覧が見れる。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew tap &lt;userName&gt;/&lt;repository&gt;
+</code></pre></div><p>上記コマンドを実行すると、GitHub 公開リポジトリ (<a href="https://github.com/">https://github.com/</a><!-- raw HTML omitted -->/homebrew-<!-- raw HTML omitted -->) が参照され、/usr/local/Library/Taps以下にインストールされる。<br>
+<code>brew tap</code> コマンドでこれまでにインストールされたソフトウェアの一覧が見れる。<br>
 また、 <code>brew tap &lt;url&gt;</code> コマンドでGitHub以外のソフトウェアもインストール可能。</p>
-
 <h1 id="brew-cask">brew cask</h1>
-
-<p>brewやbrew tapでソフトウェアをインストールする際、目的のソフトウェアを動かすには依存するその他のソフトウェアをインストールする必要がある場合がある。<br />
-そんなときbrew caskを使用すると目的のソフトウェアをインストールするだけで依存するソフトウェアもインストールしてくれる。<br />
+<p>brewやbrew tapでソフトウェアをインストールする際、目的のソフトウェアを動かすには依存するその他のソフトウェアをインストールする必要がある場合がある。<br>
+そんなときbrew caskを使用すると目的のソフトウェアをインストールするだけで依存するソフトウェアもインストールしてくれる。<br>
 さらにGoogle ChromeやAtomといったソフトのインストールも可能となる。</p>
-
 <ul>
 <li><code>/usr/local/Caskroom/</code>
-
 <ul>
 <li>Cask でインストールしたソフトウェアはここに配備される</li>
-</ul></li>
+</ul>
+</li>
 <li><code>/usr/local/bin/</code>
-
 <ul>
 <li>インストールしたソフトウェアのコマンドのシンボリックリンクはここに配備される</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="インストール-1">インストール</h2>
-
 <p>brew tapでインストールする。</p>
-
-<pre><code class="language-sh">$ brew tap caskroom/cask
-</code></pre>
-
-<p>caskで扱えるソフトウェアのバージョンを増やすために下記も導入しておく。</p>
-
-<pre><code class="language-sh">$ brew tap caskroom/versions
-</code></pre>
-
-<p>変更があるかもしれないので<a href="https://caskroom.github.io">cask公式</a>、<a href="https://github.com/caskroom/homebrew-versions">versions公式</a>を参照。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew tap caskroom/cask
+</code></pre></div><p>caskで扱えるソフトウェアのバージョンを増やすために下記も導入しておく。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew tap caskroom/versions
+</code></pre></div><p>変更があるかもしれないので<a href="https://caskroom.github.io">cask公式</a>、<a href="https://github.com/caskroom/homebrew-versions">versions公式</a>を参照。</p>
 <h2 id="使い方">使い方</h2>
-
-<pre><code class="language-sh">$ brew cask search &lt;software&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew cask search &lt;software&gt;
 $ brew cask install &lt;software&gt;
 $ brew cask uninstall &lt;software&gt;
-</code></pre>
-
-<p>その他のコマンドは<a href="https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md">ここ</a>。</p>
+</code></pre></div><p>その他のコマンドは<a href="https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md">ここ</a>。</p>
 		</div>
 	</article>
 </main>
@@ -289,11 +250,11 @@ $ brew cask uninstall &lt;software&gt;
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -304,6 +265,7 @@ $ brew cask uninstall &lt;software&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -397,7 +359,7 @@ $ brew cask uninstall &lt;software&gt;
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -424,7 +386,7 @@ $ brew cask uninstall &lt;software&gt;
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

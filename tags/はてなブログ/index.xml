@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>はてなブログ on ぺーぺーSEのテックブログ</title>
@@ -6,27 +6,21 @@
     <description>Recent content in はてなブログ on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 11 May 2017 18:12:21 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 11 May 2017 18:12:21 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>はてなブログの一部の記事を移転するときに気をつけること</title>
       <link>https://blog.pepese.com/entry/move-article/</link>
       <pubDate>Thu, 11 May 2017 18:12:21 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/move-article/</guid>
-      <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br /&gt;
+      <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br&gt;
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;重複コンテンツは同時に検索結果に表示されない&lt;/li&gt;
 &lt;li&gt;被リンク評価が分散する&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br /&gt;
+&lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br&gt;
 ブログ全体の移転の話ではないことに注意。&lt;/p&gt;</description>
     </item>
     

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dynamodb on ぺーぺーSEのテックブログ</title>
@@ -6,20 +6,15 @@
     <description>Recent content in dynamodb on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 30 Aug 2017 08:01:37 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/dynamodb/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 30 Aug 2017 08:01:37 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/dynamodb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaでDynamoDBへアクセスする</title>
       <link>https://blog.pepese.com/entry/java-dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 08:01:37 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/java-dynamodb/</guid>
-      <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、Java から DynamoDB にアクセスしてみる。&lt;br&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
@@ -32,9 +27,8 @@
       <pubDate>Tue, 29 Aug 2017 17:55:56 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/nodejs-dynamodb/</guid>
-      <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、Node.js から DynamoDB にアクセスしてみる。&lt;br&gt;
 以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/nodejs-basics/&#34;&gt;Node.js/npm入門&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
@@ -48,7 +42,6 @@
       
       <guid>https://blog.pepese.com/entry/dynamodb-basics/</guid>
       <description>&lt;p&gt;ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;DynamoDB の概要&lt;/li&gt;
 &lt;li&gt;DynamoDB の API&lt;/li&gt;

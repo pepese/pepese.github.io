@@ -20,15 +20,13 @@
 <meta property="og:description" content="Node.jsのWebフレームワーク Express 触ってみた。
 下記の記事を読んだテイで書く。
 
-
 Node.js・npm入門
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/express-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-14T07:59:50&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-14T07:59:50&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-14T07:59:50+09:00" />
+<meta property="article:modified_time" content="2017-08-14T07:59:50+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -36,7 +34,6 @@ Node.js・npm入門
 <meta name="twitter:title" content="Express入門"/>
 <meta name="twitter:description" content="Node.jsのWebフレームワーク Express 触ってみた。
 下記の記事を読んだテイで書く。
-
 
 Node.js・npm入門
 "/>
@@ -118,27 +115,19 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Node.jsのWebフレームワーク <code>Express</code> 触ってみた。<br />
+			<p>Node.jsのWebフレームワーク <code>Express</code> 触ってみた。<br>
 下記の記事を読んだテイで書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/nodejs-basics/">Node.js・npm入門</a></li>
 </ul>
-
 <h1 id="構築">構築</h1>
-
 <h2 id="expressプロジェクトの作成">Expressプロジェクトの作成</h2>
-
 <p>プロジェクト作成は以下。</p>
-
-<pre><code class="language-sh">$ mkdir express-sample          // プロジェクトディレクトリの作成
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir express-sample          // プロジェクトディレクトリの作成
 $ cd express-sample
 $ npm init
-</code></pre>
-
-<p>Angular CLI 等で既にプロジェクトを作成している場合は、上記は行わず以下から実行。</p>
-
-<pre><code class="language-sh">$ npm i -S express@5.0.0-alpha.6 body-parser cookie-parser debug morgan pug serve-favicon request fs file-stream-rotator node-sass-middleware
+</code></pre></div><p>Angular CLI 等で既にプロジェクトを作成している場合は、上記は行わず以下から実行。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm i -S express@5.0.0-alpha.6 body-parser cookie-parser debug morgan pug serve-favicon request fs file-stream-rotator node-sass-middleware
 $ touch .gitignore
 $ mkdir app                     // サーバサイドExpressアプリ用のソースディレクトリ作成
 $ touch app/app.js              // Expressアプリケーション起動ポイントの作成
@@ -152,17 +141,11 @@ $ mkdir app/log                 // ログ出力用ディレクトリ作成
 $ touch app/log/.gitkeep
 $ mkdir app/spec                // テストスクリプト用のディレクトリ作成
 $ touch app/spec/.gitkeep
-</code></pre>
-
-<p>Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br />
+</code></pre></div><p>Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br>
 また、 forever を導入しておく。</p>
-
-<pre><code class="language-sh">$ npm install -g forever
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm install -g forever
 $ ndenv rehash
-</code></pre>
-
-<p>さらに <code>.gitignore</code> に以下を追加しておく。</p>
-
+</code></pre></div><p>さらに <code>.gitignore</code> に以下を追加しておく。</p>
 <pre><code># Logs
 /app/log
 *.log
@@ -173,25 +156,16 @@ $ ndenv rehash
 # System Files
 .DS_Store
 Thumbs.db
-</code></pre>
-
-<h3 id="フロントエンドアプリケーションをプロジェクトに同梱する場合-rest-apiアプリを作成する場合">フロントエンドアプリケーションをプロジェクトに同梱する場合、REST APIアプリを作成する場合</h3>
-
+</code></pre><h3 id="フロントエンドアプリケーションをプロジェクトに同梱する場合rest-apiアプリを作成する場合">フロントエンドアプリケーションをプロジェクトに同梱する場合、REST APIアプリを作成する場合</h3>
 <p>この場合、以下のようにディレクトリを作成する。</p>
-
-<pre><code class="language-sh">$ mkdir app/api           // REST API用のコントローラディレクトリ作成
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir app/api           // REST API用のコントローラディレクトリ作成
 $ touch app/api/.gitkeep
-</code></pre>
-
-<p>フロントエンドアプリケーションのトランスパイル結果は <code>express-sample/dist</code> に出力されるものとし、サーバサイドアプリケーション（ <code>express-sample/app</code> ）は <code>express-sample/dist</code> をExpressの公開ディレクトリとする。<br />
+</code></pre></div><p>フロントエンドアプリケーションのトランスパイル結果は <code>express-sample/dist</code> に出力されるものとし、サーバサイドアプリケーション（ <code>express-sample/app</code> ）は <code>express-sample/dist</code> をExpressの公開ディレクトリとする。<br>
 フロントエンドアプリケーションは <code>app/api</code> に実装したAPIにアクセスする。</p>
-
-<h3 id="フロントエンドアプリケーションをプロジェクトに同梱せず-expressからテンプレートエンジンviewを使用する場合">フロントエンドアプリケーションをプロジェクトに同梱せず、ExpressからテンプレートエンジンVIEWを使用する場合</h3>
-
-<p>この場合、以下のようにディレクトリを作成する。<br />
+<h3 id="フロントエンドアプリケーションをプロジェクトに同梱せずexpressからテンプレートエンジンviewを使用する場合">フロントエンドアプリケーションをプロジェクトに同梱せず、ExpressからテンプレートエンジンVIEWを使用する場合</h3>
+<p>この場合、以下のようにディレクトリを作成する。<br>
 なお、 SCSS を使用する。</p>
-
-<pre><code class="language-sh">$ mkdir app/controllers                  // VIEW用のコントローラディレクトリ作成
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir app/controllers                  // VIEW用のコントローラディレクトリ作成
 $ touch app/controllers/.gitkeep
 $ mkdir app/views                        // 画面・テンプレート（Pugなど）用のディレクトリ作成
 $ touch app/views/.gitkeep
@@ -202,109 +176,73 @@ $ mkdir app/public/stylesheets           // SCSS用のディレクトリ作成
 $ touch app/public/stylesheets/style.scss
 $ mkdir app/public/images                // 画像用のディレクトリ作成
 $ touch app/public/images/.gitkeep
-</code></pre>
-
-<h2 id="ソースコードの作成">ソースコードの作成</h2>
-
+</code></pre></div><h2 id="ソースコードの作成">ソースコードの作成</h2>
 <p>「フロントエンドアプリケーションをプロジェクトに同梱する場合」は以下を参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/mean-stack-basics/">所謂MEANスタックを作る</a></li>
 </ul>
-
 <p>ここでは、「フロントエンドアプリケーションをプロジェクトに同梱せず、Expressからテンプレートエンジンを使用する場合」で、最低限動くViewアプリを構築するために以下のスクリプトを実装する。</p>
-
 <ul>
 <li><code>app/app.js</code>
-
 <ul>
 <li>Expressアプリケーションのミドルウェアの設定と起動処理</li>
-</ul></li>
+</ul>
+</li>
 <li><code>app/controllers/router.js</code>
-
 <ul>
 <li>Viewを処理するモジュールへのルーティングを行う</li>
-</ul></li>
+</ul>
+</li>
 <li><code>app/controllers/get_index.js</code>
-
 <ul>
 <li>Index画面を表示する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>app/controllers/get_users.js</code>
-
 <ul>
 <li>Users画面を表示する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>app/public/stylesheets/style.scss</code></li>
 <li><code>app/views/layout.pug</code></li>
 <li><code>app/views/index.pug</code></li>
 <li><code>app/views/error.pug</code></li>
 <li><code>app/config/config.json</code>
-
 <ul>
 <li>環境差分設定ファイル</li>
-</ul></li>
 </ul>
-
-<h3 id="app-app-js">app/app.js</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/app.js?footer=0"></script>
-
-<h3 id="app-controllers-index-js">app/controllers/index.js</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/router.js?footer=0"></script>
-
-<h3 id="app-controllers-get-index-js">app/controllers/get_index.js</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_index.js?footer=0"></script>
-
-<h3 id="app-controllers-get-users-js">app/controllers/get_users.js</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_users.js?footer=0"></script>
-
-<h3 id="app-public-stylesheets-style-scss">app/public/stylesheets/style.scss</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/public/stylesheets/style.scss?footer=0"></script>
-
-<h3 id="app-views-layout-pug">app/views/layout.pug</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/views/layout.pug?footer=0"></script>
-
-<h3 id="app-views-index-pug">app/views/index.pug</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/views/index.pug?footer=0"></script>
-
-<h3 id="app-views-error-pug">app/views/error.pug</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/views/error.pug?footer=0"></script>
-
-<h3 id="app-config-config-json">app/config/config.json</h3>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/config/config.json?footer=0"></script>
-
+</li>
+</ul>
+<h3 id="appappjs">app/app.js</h3>
+<!-- raw HTML omitted -->
+<h3 id="appcontrollersindexjs">app/controllers/index.js</h3>
+<!-- raw HTML omitted -->
+<h3 id="appcontrollersget_indexjs">app/controllers/get_index.js</h3>
+<!-- raw HTML omitted -->
+<h3 id="appcontrollersget_usersjs">app/controllers/get_users.js</h3>
+<!-- raw HTML omitted -->
+<h3 id="apppublicstylesheetsstylescss">app/public/stylesheets/style.scss</h3>
+<!-- raw HTML omitted -->
+<h3 id="appviewslayoutpug">app/views/layout.pug</h3>
+<!-- raw HTML omitted -->
+<h3 id="appviewsindexpug">app/views/index.pug</h3>
+<!-- raw HTML omitted -->
+<h3 id="appviewserrorpug">app/views/error.pug</h3>
+<!-- raw HTML omitted -->
+<h3 id="appconfigconfigjson">app/config/config.json</h3>
+<!-- raw HTML omitted -->
 <h3 id="起動">起動</h3>
-
 <pre><code>$ NODE_ENV=production forever start app/app.js
-</code></pre>
-
-<p><code>NODE_ENV</code> で環境を指定することができる。デフォルトは <code>development</code> 。</p>
-
+</code></pre><p><code>NODE_ENV</code> で環境を指定することができる。デフォルトは <code>development</code> 。</p>
 <h1 id="ちょっとexpressの機能解説">ちょっとExpressの機能解説</h1>
-
 <h2 id="expressアプリケーション">Expressアプリケーション</h2>
-
 <p>Expressアプリケーションの最小単位は以下のように作成する。</p>
-
-<pre><code class="language-javascript">const express = require('express');
-const app = express();
-</code></pre>
-
-<h2 id="ミドルウェア関数">ミドルウェア関数</h2>
-
-<p>Expressは、単独では最小限の機能を備えたルーティングとミドルウェアのWebフレームワーク。<br />
-Expressアプリケーションは様々な <strong>ミドルウェア関数</strong> 呼び出しを行うことで様々な機能を実現する。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+</code></pre></div><h2 id="ミドルウェア関数">ミドルウェア関数</h2>
+<p>Expressは、単独では最小限の機能を備えたルーティングとミドルウェアのWebフレームワーク。<br>
+Expressアプリケーションは様々な <strong>ミドルウェア関数</strong> 呼び出しを行うことで様々な機能を実現する。<br>
 ミドルウェア関数はコールバック関数で以下の種類がある。</p>
-
 <ul>
 <li>アプリケーション・レベルのミドルウェア</li>
 <li>ルーター・レベルのミドルウェア</li>
@@ -312,270 +250,207 @@ Expressアプリケーションは様々な <strong>ミドルウェア関数</st
 <li>標準装備のミドルウェア</li>
 <li>サード・パーティー・ミドルウェア</li>
 </ul>
-
-<h3 id="アプリケーション-レベルのミドルウェア">アプリケーション・レベルのミドルウェア</h3>
-
+<h3 id="アプリケーションレベルのミドルウェア">アプリケーション・レベルのミドルウェア</h3>
 <p>以下のように記述する。</p>
-
-<pre><code class="language-javascript">app.use([path,] callback [, callback...])
-</code></pre>
-
-<p><code>path</code> を記載しない場合は <strong>全てのリクエスト</strong> に対してミドルウェア関数（ <code>callback</code> :コールバック関数）が実行される。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>([<span style="color:#a6e22e">path</span>,] <span style="color:#a6e22e">callback</span> [, <span style="color:#a6e22e">callback</span>...])
+</code></pre></div><p><code>path</code> を記載しない場合は <strong>全てのリクエスト</strong> に対してミドルウェア関数（ <code>callback</code> :コールバック関数）が実行される。<br>
 コールバック関数には <code>(req, res, next)</code> の3つを渡すことができる。
 <code>next()</code> を実行すると次のミドルウェア関数に処理が移る。（ <strong><code>next()</code> を実行しないと処理は終わる</strong> ）</p>
-
-<pre><code class="language-javascript">app.use( (req, res, next) =&gt; {
-  console.log('Time:', Date.now());
-  next();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>( (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Time:&#39;</span>, Date.<span style="color:#a6e22e">now</span>());
+  <span style="color:#a6e22e">next</span>();
 });
-</code></pre>
-
-<p><code>path</code> を記載すると <strong>指定したパスへのリクエスト</strong> に対してミドルウェア関数が実行される。</p>
-
-<pre><code class="language-javascript">app.use('/user/:id', (req, res, next) =&gt; {
-  console.log('Request Type:', req.method);
-  next();
+</code></pre></div><p><code>path</code> を記載すると <strong>指定したパスへのリクエスト</strong> に対してミドルウェア関数が実行される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;/user/:id&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Request Type:&#39;</span>, <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">method</span>);
+  <span style="color:#a6e22e">next</span>();
 });
-</code></pre>
-
-<pre><code class="language-javascript">app.get('/user/:id', (req, res, next) =&gt; {
-  res.send('USER');
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/:id&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;USER&#39;</span>);
 });
-</code></pre>
-
-<p><strong><code>app.use</code> は <code>app.[all|get|post|put|delete|etc]</code> よりも全て前に記述する必要がある</strong> 。</p>
-
-<h3 id="ルーター-レベルのミドルウェア">ルーター・レベルのミドルウェア</h3>
-
+</code></pre></div><p><strong><code>app.use</code> は <code>app.[all|get|post|put|delete|etc]</code> よりも全て前に記述する必要がある</strong> 。</p>
+<h3 id="ルーターレベルのミドルウェア">ルーター・レベルのミドルウェア</h3>
 <p>ルーター・レベルのミドルウェアは、express.Router() のインスタンスにバインドされる点を除き、アプリケーション・レベルのミドルウェアと同じ。</p>
-
-<pre><code class="language-javascript">const express = require('express');
-const router = express.Router();
-</code></pre>
-
-<p>正直、 <strong>アプリケーション・レベルとルーター・レベルの違いはよくわからない</strong> 。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+</code></pre></div><p>正直、 <strong>アプリケーション・レベルとルーター・レベルの違いはよくわからない</strong> 。<br>
 以下の方針で使い分けることにする。</p>
-
 <ul>
 <li>アプリケーション・レベル
-
 <ul>
 <li><strong>アプリ全体</strong> 、 <strong>全てのHTTPメソッド</strong> へ影響する処理</li>
 <li><code>app.use()</code> を使用する</li>
-</ul></li>
+</ul>
+</li>
 <li>ルーター・レベル
-
 <ul>
 <li><strong>特定のパス</strong> 、 <strong>特定のHTTPメソッド</strong> へのルーティング</li>
 <li><code>router.[all|get|post|put|delete](path, callback [, callback...])</code> を使用する</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="エラー処理ミドルウェア">エラー処理ミドルウェア</h3>
-
-<p>引数は <code>(err、req、res、next)</code> となり <code>err</code> が追加される。</p>
-
-<pre><code class="language-javascript">app.use( (err, req, res, next) =&gt; {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
+<p>引数は <code> (err、req、res、next)</code> となり <code>err</code> が追加される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>( (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">stack</span>);
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">500</span>).<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;Something broke!&#39;</span>);
 });
-</code></pre>
-
-<h3 id="標準装備のミドルウェア">標準装備のミドルウェア</h3>
-
-<p>Expressの標準装備のミドルウェア関数は <code>express.static</code> のみ。<br />
+</code></pre></div><h3 id="標準装備のミドルウェア">標準装備のミドルウェア</h3>
+<p>Expressの標準装備のミドルウェア関数は <code>express.static</code> のみ。<br>
 過去はもったあったらしいが、個別モジュール化されたらしい。</p>
-
-<pre><code class="language-javascript">express.static(root, [options])
-</code></pre>
-
-<p>静的コンテツを提供する機能。<br />
-<code>root</code> 引数は、静的コンテンツを提供するルートディレクトリを指定する。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">express</span>.<span style="color:#66d9ef">static</span>(<span style="color:#a6e22e">root</span>, [<span style="color:#a6e22e">options</span>])
+</code></pre></div><p>静的コンテツを提供する機能。<br>
+<code>root</code> 引数は、静的コンテンツを提供するルートディレクトリを指定する。<br>
 <code>options</code> オブジェクトにはプロパティを指定することができる。</p>
-
-<pre><code class="language-javascript">var options = {
-  dotfiles: 'ignore',
-  etag: false,
-  extensions: ['htm', 'html'],
-  index: false,
-  maxAge: '1d',
-  redirect: false,
-  setHeaders: function (res, path, stat) {
-    res.set('x-timestamp', Date.now());
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">dotfiles</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ignore&#39;</span>,
+  <span style="color:#a6e22e">etag</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">extensions</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;htm&#39;</span>, <span style="color:#e6db74">&#39;html&#39;</span>],
+  <span style="color:#a6e22e">index</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">maxAge</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1d&#39;</span>,
+  <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">setHeaders</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">stat</span>) {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;x-timestamp&#39;</span>, Date.<span style="color:#a6e22e">now</span>());
   }
 }
 
-app.use(express.static('public', options));
-</code></pre>
-
-<h3 id="サード-パーティー-ミドルウェア">サード・パーティー・ミドルウェア</h3>
-
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">express</span>.<span style="color:#66d9ef">static</span>(<span style="color:#e6db74">&#39;public&#39;</span>, <span style="color:#a6e22e">options</span>));
+</code></pre></div><h3 id="サードパーティーミドルウェア">サード・パーティー・ミドルウェア</h3>
 <p><code>npm</code> でモジュールをインストールして、アプリケーション・レベルまたはルーター・レベルでロードして使用する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bodyParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>); <span style="color:#75715e">// サード・パーティー・ミドルウェア
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
 
-<pre><code class="language-javascript">const express = require('express');
-const bodyParser = require('body-parser'); // サード・パーティー・ミドルウェア
-
-const app = express();
-
-// Parsers for POST data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-</code></pre>
-
-<h2 id="モジュール呼び出し">モジュール呼び出し</h2>
-
-<p><code>module.exports</code> と <code>require</code> を使用すると、モジュールの外部参照が可能になる。<br />
+<span style="color:#75715e">// Parsers for POST data
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">bodyParser</span>.<span style="color:#a6e22e">json</span>());
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">bodyParser</span>.<span style="color:#a6e22e">urlencoded</span>({ <span style="color:#a6e22e">extended</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> }));
+</code></pre></div><h2 id="モジュール呼び出し">モジュール呼び出し</h2>
+<p><code>module.exports</code> と <code>require</code> を使用すると、モジュールの外部参照が可能になる。<br>
 以下のような <code>index.js</code> があったとすると</p>
-
-<pre><code class="language-javascript">router.post('/', (req, res) =&gt; {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
   ...
 }
-module.exports = router; // 外部モジュールからrequireできるようになる
-</code></pre>
-
-<p><code>app.js</code> から以下のように <code>index.js</code> の機能を呼び出すことができる。</p>
-
-<pre><code class="language-javascript">const index = require('./index');
-</code></pre>
-
-<h2 id="expressアプリケーションの設定">Expressアプリケーションの設定</h2>
-
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">router</span>; <span style="color:#75715e">// 外部モジュールからrequireできるようになる
+</span></code></pre></div><p><code>app.js</code> から以下のように <code>index.js</code> の機能を呼び出すことができる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./index&#39;</span>);
+</code></pre></div><h2 id="expressアプリケーションの設定">Expressアプリケーションの設定</h2>
 <p>Expressでは、以下の記載で「key-value」形式でアプリケーションに対して様々な設定ができる。</p>
-
-<pre><code class="language-javascript">app.set(name, value);
-app.get(name);
-</code></pre>
-
-<p>代表的な設定項目としては以下（<a href="http://expressjs.com/ja/api.html#app.settings.table">詳細</a>）があるが、単にインメモリキーバリューストア（好きな「key-value」を設定できる）としても使用できる。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">value</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">name</span>);
+</code></pre></div><p>代表的な設定項目としては以下（<a href="http://expressjs.com/ja/api.html#app.settings.table">詳細</a>）があるが、単にインメモリキーバリューストア（好きな「key-value」を設定できる）としても使用できる。</p>
 <table>
 <thead>
 <tr>
-<th align="center">Property</th>
-<th align="center">Type</th>
-<th align="left">Description</th>
-<th align="center">Default</th>
+<th style="text-align:center">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Default</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">case sensitive routing</td>
-<td align="center">Boolean</td>
-<td align="left">ルーティング時、URLの大文字・小文字を区別する。</td>
-<td align="center">N/A (undefined)</td>
+<td style="text-align:center">case sensitive routing</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:left">ルーティング時、URLの大文字・小文字を区別する。</td>
+<td style="text-align:center">N/A (undefined)</td>
 </tr>
-
 <tr>
-<td align="center">env</td>
-<td align="center">String</td>
-<td align="left">環境名。productionとかdevelopmentとか。</td>
-<td align="center">process.env.NODE_ENV or “development”</td>
+<td style="text-align:center">env</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">環境名。productionとかdevelopmentとか。</td>
+<td style="text-align:center">process.env.NODE_ENV or “development”</td>
 </tr>
-
 <tr>
-<td align="center">etag</td>
-<td align="center">Varied</td>
-<td align="left"><code>Etag</code> レスポンスヘッダの設定を行う。</td>
-<td align="center">weak</td>
+<td style="text-align:center">etag</td>
+<td style="text-align:center">Varied</td>
+<td style="text-align:left"><code>Etag</code> レスポンスヘッダの設定を行う。</td>
+<td style="text-align:center">weak</td>
 </tr>
-
 <tr>
-<td align="center">jsonp callback name</td>
-<td align="center">String</td>
-<td align="left">JSONP callback名を設定する。</td>
-<td align="center">“callback”</td>
+<td style="text-align:center">jsonp callback name</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">JSONP callback名を設定する。</td>
+<td style="text-align:center">“callback”</td>
 </tr>
-
 <tr>
-<td align="center">json replacer</td>
-<td align="center">Varied</td>
-<td align="left"><code>JSON.stringify</code> で利用される引数 <code>replacer</code> の設定。JSONの各メンバの値の変換の設定ができる。</td>
-<td align="center">N/A (undefined)</td>
+<td style="text-align:center">json replacer</td>
+<td style="text-align:center">Varied</td>
+<td style="text-align:left"><code>JSON.stringify</code> で利用される引数 <code>replacer</code> の設定。JSONの各メンバの値の変換の設定ができる。</td>
+<td style="text-align:center">N/A (undefined)</td>
 </tr>
-
 <tr>
-<td align="center">json spaces</td>
-<td align="center">Varied</td>
-<td align="left"><code>JSON.stringify</code> で利用される引数 <code>space</code> の設定。JSONパース時に見やすいようにインデントのスペースを設定できる。</td>
-<td align="center">N/A (undefined)</td>
+<td style="text-align:center">json spaces</td>
+<td style="text-align:center">Varied</td>
+<td style="text-align:left"><code>JSON.stringify</code> で利用される引数 <code>space</code> の設定。JSONパース時に見やすいようにインデントのスペースを設定できる。</td>
+<td style="text-align:center">N/A (undefined)</td>
 </tr>
-
 <tr>
-<td align="center">query parser</td>
-<td align="center">Varied</td>
-<td align="left">URLクエリパラメータのパースの設定ができる。 <code>simple</code> 、 <code>extended</code> 、カスタマイズから選択できる。 <code>simple</code> はNodeJSが内包するNativeのクエリパーサ。 <code>extended</code> は サードパーティモジュール <code>qs</code> 。カスタマイズは関数を設定し、その関数はクエリパラメータの文字列を受け取り、キー・バリューのオブジェクトを返却するよう実装する。</td>
-<td align="center">&ldquo;extended&rdquo;</td>
+<td style="text-align:center">query parser</td>
+<td style="text-align:center">Varied</td>
+<td style="text-align:left">URLクエリパラメータのパースの設定ができる。 <code>simple</code> 、 <code>extended</code> 、カスタマイズから選択できる。 <code>simple</code> はNodeJSが内包するNativeのクエリパーサ。 <code>extended</code> は サードパーティモジュール <code>qs</code> 。カスタマイズは関数を設定し、その関数はクエリパラメータの文字列を受け取り、キー・バリューのオブジェクトを返却するよう実装する。</td>
+<td style="text-align:center">&ldquo;extended&rdquo;</td>
 </tr>
-
 <tr>
-<td align="center">strict routing</td>
-<td align="center">Boolean</td>
-<td align="left">ルーティングにおいてURLの <code>/foo</code> と <code>/foo/</code> を区別するかどうか設定する。</td>
-<td align="center">N/A (undefined)</td>
+<td style="text-align:center">strict routing</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:left">ルーティングにおいてURLの <code>/foo</code> と <code>/foo/</code> を区別するかどうか設定する。</td>
+<td style="text-align:center">N/A (undefined)</td>
 </tr>
-
 <tr>
-<td align="center">subdomain offset</td>
-<td align="center">Number</td>
-<td align="left">サブドメインにアクセスするために削除するホストのドット区切り部分の数。</td>
-<td align="center">2</td>
+<td style="text-align:center">subdomain offset</td>
+<td style="text-align:center">Number</td>
+<td style="text-align:left">サブドメインにアクセスするために削除するホストのドット区切り部分の数。</td>
+<td style="text-align:center">2</td>
 </tr>
-
 <tr>
-<td align="center">trust proxy</td>
-<td align="center">Varied</td>
-<td align="left">信頼するWebプロキシの設定を行う。詳細は、<a href="http://expressjs.com/ja/guide/behind-proxies.html">ここ</a>を参照。</td>
-<td align="center">false (disabled)</td>
+<td style="text-align:center">trust proxy</td>
+<td style="text-align:center">Varied</td>
+<td style="text-align:left">信頼するWebプロキシの設定を行う。詳細は、<a href="http://expressjs.com/ja/guide/behind-proxies.html">ここ</a>を参照。</td>
+<td style="text-align:center">false (disabled)</td>
 </tr>
-
 <tr>
-<td align="center">views</td>
-<td align="center">String or Array</td>
-<td align="left">Viewを配置するディレクトリを文字列もしくは配列で設定する。</td>
-<td align="center">process.cwd() + &lsquo;/views&rsquo;</td>
+<td style="text-align:center">views</td>
+<td style="text-align:center">String or Array</td>
+<td style="text-align:left">Viewを配置するディレクトリを文字列もしくは配列で設定する。</td>
+<td style="text-align:center">process.cwd() + &lsquo;/views&rsquo;</td>
 </tr>
-
 <tr>
-<td align="center">view cache</td>
-<td align="center">Boolean</td>
-<td align="left">Viewテンプレートコンパイルキャッシュを有効にする。</td>
-<td align="center">true in production, otherwise undefined.</td>
+<td style="text-align:center">view cache</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:left">Viewテンプレートコンパイルキャッシュを有効にする。</td>
+<td style="text-align:center">true in production, otherwise undefined.</td>
 </tr>
-
 <tr>
-<td align="center">view engine</td>
-<td align="center">String</td>
-<td align="left">Viewエンジンの設定を行う。</td>
-<td align="center">N/A (undefined)</td>
+<td style="text-align:center">view engine</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Viewエンジンの設定を行う。</td>
+<td style="text-align:center">N/A (undefined)</td>
 </tr>
-
 <tr>
-<td align="center">x-powered-by</td>
-<td align="center">Boolean</td>
-<td align="left">&ldquo;X-Powered-By: Express&rdquo; HTTPヘッダを有効にする。</td>
-<td align="center">true</td>
+<td style="text-align:center">x-powered-by</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:left">&ldquo;X-Powered-By: Express&rdquo; HTTPヘッダを有効にする。</td>
+<td style="text-align:center">true</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="モジュール間で変数をやりとりする方法">モジュール間で変数をやりとりする方法</h2>
-
 <ul>
 <li>global変数を使う
-
 <ul>
 <li><code>const global.hoge = 'hogehoge';</code> みたいに、頭にglobalを付けるとglobalスコープで扱われる。</li>
 <li>ただし、 <code>require('./global.js');</code> のようにグローバル変数を定義したモジュールを使用するモジュールでロードする必要がある。</li>
 <li>グローバル領域を汚染するので注意が必要</li>
-</ul></li>
+</ul>
+</li>
 <li>共有変数用のモジュールを作成する
-
 <ul>
 <li><code>module.exports = {};</code> とだけ書いた <code>common.js</code> を作成する</li>
 <li>他モジュールからは <code>require('./common').hoge = hoge;</code> で変数を代入でき、 <code>const hoge = require('./common').hoge</code> で変数を参照できる</li>
 <li>どんな変数を作ったからわからなくなるので、 <code>common.js</code> にはコメントくらい残しておく必要がある</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 		</div>
 	</article>
@@ -637,11 +512,11 @@ app.get(name);
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -652,6 +527,7 @@ app.get(name);
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -745,7 +621,7 @@ app.get(name);
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -772,7 +648,7 @@ app.get(name);
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

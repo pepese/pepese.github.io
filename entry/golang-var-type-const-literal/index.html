@@ -19,7 +19,6 @@
 	<meta property="og:title" content="Goの変数・型・定数・リテラル" />
 <meta property="og:description" content="golang の変数・型・定数・リテラルについてまとめる。
 
-
 変数
 型
 定数
@@ -28,17 +27,15 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/golang-var-type-const-literal/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2019-02-08T18:22:39&#43;09:00"/>
-<meta property="article:modified_time" content="2019-02-08T18:22:39&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2019-02-08T18:22:39+09:00" />
+<meta property="article:modified_time" content="2019-02-08T18:22:39+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Goの変数・型・定数・リテラル"/>
 <meta name="twitter:description" content="golang の変数・型・定数・リテラルについてまとめる。
-
 
 変数
 型
@@ -122,7 +119,6 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>golang の変数・型・定数・リテラルについてまとめる。</p>
-
 <ul>
 <li>変数</li>
 <li>型</li>
@@ -130,41 +126,31 @@ if (!doNotTrack) {
 <li>リテラル</li>
 <li>その他 Tips</li>
 </ul>
-
 <h1 id="変数">変数</h1>
-
 <p>変数は <code>var 変数名 型</code> で定義する。</p>
-
-<pre><code class="language-go">var num int
-</code></pre>
-
-<p>右辺で型が推測できる場合は <code>変数名 := 値</code> で変数定義と初期化ができる。</p>
-
-<pre><code class="language-go">num := 10
-</code></pre>
-
-<p>右辺の型の予測は <strong>リテラル</strong> も参考のこと。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>
+</code></pre></div><p>右辺で型が推測できる場合は <code>変数名 := 値</code> で変数定義と初期化ができる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">10</span>
+</code></pre></div><p>右辺の型の予測は <strong>リテラル</strong> も参考のこと。</p>
 <h1 id="型">型</h1>
-
 <ul>
 <li>論理値型（ <code>bool</code> ）</li>
 <li>数値型（ <code>int</code> <code>int8</code> <code>int16</code> <code>int32</code> <code>int64</code> <code>byte</code> <code>uint</code> <code>uint8</code> <code>uint16</code> <code>uint32</code> <code>uint64</code> ）
-
 <ul>
 <li><code>int</code> はアーキテクチャにより異なり、32 ビットもしくは 64 ビットとなる
-
 <ul>
-<li>32 ビットの場合の値域は「-1&lt;&lt;31 〜 1&lt;&lt;31 - 1（-2147483648 to 2147483647）」</li>
-</ul></li>
+<li>32 ビットの場合の値域は「-1&laquo;31 〜 1&laquo;31 - 1（-2147483648 to 2147483647）」</li>
+</ul>
+</li>
 <li><code>bype</code> は <code>uint8</code> の別名</li>
 <li><code>rune</code> は <code>int32</code> の別名</li>
-</ul></li>
+</ul>
+</li>
 <li>文字列型（ <code>string</code> ）
-
 <ul>
 <li><code>[]byte</code> のように振る舞うが <strong>値は不変</strong></li>
-</ul></li>
+</ul>
+</li>
 <li>配列型（ <code>[サイズ]型</code> ）</li>
 <li>スライス型（ <code>[]型</code> ）</li>
 <li>構造体型（ <code>struct{}</code> ）</li>
@@ -174,110 +160,93 @@ if (!doNotTrack) {
 <li>マップ型（ <code>map[型]型</code> ）</li>
 <li>チャネル型（ <code>chan 型</code> <code>&lt;-chan 型</code> <code>chan&lt;- 型</code> ）</li>
 </ul>
-
 <h1 id="定数">定数</h1>
-
 <p><code>定数名 = 値</code> （ <code>:=</code> ではない）で定義でき、値を変更することはできない。</p>
-
 <h1 id="リテラル">リテラル</h1>
-
-<p><strong>リテラル</strong> とは、プログラムのソースコードにおいて使用される、 <strong>数値や文字列を直接に記述した定数</strong> のこと。<br />
+<p><strong>リテラル</strong> とは、プログラムのソースコードにおいて使用される、 <strong>数値や文字列を直接に記述した定数</strong> のこと。<br>
 golang には以下のリテラルがある。</p>
-
 <ul>
 <li>整数リテラル
-
 <ul>
 <li>10 進数、 8 進数、 16 進数の整数リテラルがあり、 8 進数は頭に <code>0</code> を、 16 進数は頭に <code>0x</code> <code>0X</code> をつける</li>
-</ul></li>
+</ul>
+</li>
 <li>浮動小数点リテラル
-
 <ul>
 <li>浮動小数点定数を表す小数表現で、整数部・小数点（ <code>.</code> ）・小数部・指数部（ <code>e+</code> <code>E+</code>）がある
-
 <ul>
 <li>100 は <code>1e2</code> <code>1.e2</code> <code>1e+2</code> <code>1E2</code> 、 0.01 は <code>1e-2</code> <code>1.e-2</code> <code>1E-2</code> などと表現できる</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>虚数リテラル
-
 <ul>
 <li>複素数定数の虚数部分の小数表現</li>
 <li>小数整数と小文字 <code>i</code> で構成される</li>
-</ul></li>
+</ul>
+</li>
 <li>ルーンリテラル
-
 <ul>
 <li>Unicodeコードポイントに一致する整数値（ <code>int32</code> ）</li>
 <li>シングルクォート（ <code>'</code> ）でくくって表現する</li>
 <li>バックスラッシュを使用したマルチ文字シーケンスの各書式でエンコード（ <code>\'</code> ）することで、シングルクォート文字自体のUnicode値も表せる</li>
-</ul></li>
+</ul>
+</li>
 <li>文字列リテラル
-
 <ul>
 <li>未加工文字列リテラル（ raw 文字列リテラル）はバッククォート、解釈有文字列リテラル（ interpreted 文字列リテラル）はダブルクォートで囲む</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="ルーンリテラル">ルーンリテラル</h2>
-
-<p>ちょっとややこしいかもしれないので補足。<br />
+<p>ちょっとややこしいかもしれないので補足。<br>
 例えば 、リテラル <code>'a'</code> は文字 <code>a</code> 、Unicode 「 U+0061 」（ <code>'\u0061'</code> ） 、値 <code>0x61</code> を表す 1 バイトの値。</p>
-
-<pre><code class="language-go">var a rune
-a = 'a'
-fmt.Println(a) // 97
-a = 0x61
-fmt.Println(a) // 97
-a = '\u0061'
-fmt.Println(a) // 97
-a = 97
-fmt.Println(a)        // 97
-fmt.Printf(&quot;%d\n&quot;, a) // 97
-fmt.Printf(&quot;%c\n&quot;, a) // a
-fmt.Printf(&quot;%U\n&quot;, a) // U+0061
-</code></pre>
-
-<h2 id="文字列リテラル">文字列リテラル</h2>
-
-<p>ちょっとややこしいかもしれないので補足。<br />
-<strong>未加工文字列リテラル</strong> はクオート内を全く解釈することがなく、そのまま出力する。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">rune</span>
+<span style="color:#a6e22e">a</span> = <span style="color:#e6db74">&#39;a&#39;</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 97
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> = <span style="color:#ae81ff">0x61</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 97
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> = <span style="color:#e6db74">&#39;\u0061&#39;</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 97
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> = <span style="color:#ae81ff">97</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>)        <span style="color:#75715e">// 97
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d\n&#34;</span>, <span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 97
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%c\n&#34;</span>, <span style="color:#a6e22e">a</span>) <span style="color:#75715e">// a
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%U\n&#34;</span>, <span style="color:#a6e22e">a</span>) <span style="color:#75715e">// U+0061
+</span></code></pre></div><h2 id="文字列リテラル">文字列リテラル</h2>
+<p>ちょっとややこしいかもしれないので補足。<br>
+<strong>未加工文字列リテラル</strong> はクオート内を全く解釈することがなく、そのまま出力する。<br>
 一方、 <strong>解釈有文字列リテラル</strong> はダブルクオート内の <strong>バックスラッシュによるエスケープを解釈</strong> する。</p>
-
-<pre><code class="language-go">var a string
-a = `\n`
-fmt.Println(a) // \n
-a = &quot;\n&quot;
-fmt.Println(a) // 改行
-a = &quot;\u0061&quot;
-fmt.Println(a) // a
-</code></pre>
-
-<h1 id="その他tips">その他Tips</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">string</span>
+<span style="color:#a6e22e">a</span> = <span style="color:#e6db74">`\n`</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// \n
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> = <span style="color:#e6db74">&#34;\n&#34;</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 改行
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> = <span style="color:#e6db74">&#34;\u0061&#34;</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// a
+</span></code></pre></div><h1 id="その他tips">その他Tips</h1>
 <h2 id="byte-と-rune">byte と rune</h2>
-
-<p><code>byte</code> はあくまで 1 byte を意味し、 <code>rune</code> は <strong>1 文字</strong> を意味する。<br />
+<p><code>byte</code> はあくまで 1 byte を意味し、 <code>rune</code> は <strong>1 文字</strong> を意味する。<br>
 1 文字は数 byte で表されることもあるため、 <code>rune</code> が存在する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">str</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;あいうえお&#34;</span>
+<span style="color:#a6e22e">buf</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#e6db74">&#34;あいうえお&#34;</span>)
+<span style="color:#a6e22e">runes</span> <span style="color:#f92672">:=</span> []rune(<span style="color:#e6db74">&#34;あいうえお&#34;</span>)
 
-<pre><code class="language-go">str := &quot;あいうえお&quot;
-buf := []byte(&quot;あいうえお&quot;)
-runes := []rune(&quot;あいうえお&quot;)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">str</span>)           <span style="color:#75715e">// あいうえお
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">buf</span>))   <span style="color:#75715e">// あいうえお
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">runes</span>)) <span style="color:#75715e">// あいうえお
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">str</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+    <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">str</span>[<span style="color:#a6e22e">i</span>]    <span style="color:#75715e">// byte 単位で取得される
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span>) <span style="color:#75715e">// 227, 129, 130, 227, 129, 132, 227, 129, 134, 227, 129, 136, 227, 129, 138
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 「あ」は 3 byte
+</span><span style="color:#75715e"></span>}
 
-fmt.Println(str)           // あいうえお
-fmt.Println(string(buf))   // あいうえお
-fmt.Println(string(runes)) // あいうえお
-
-for i := 0; i &lt; len(str); i++ {
-    b := str[i]    // byte 単位で取得される
-    fmt.Println(b) // 227, 129, 130, 227, 129, 132, 227, 129, 134, 227, 129, 136, 227, 129, 138
-    // 「あ」は 3 byte
-}
-
-for _, r := range str { // 1 文字（ rune ）単位で取得される
-    fmt.Println(r) // 12354, 12356, 12358, 12360, 12362
-}
-</code></pre>
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">str</span> { <span style="color:#75715e">// 1 文字（ rune ）単位で取得される
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">r</span>) <span style="color:#75715e">// 12354, 12356, 12358, 12360, 12362
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -338,11 +307,11 @@ for _, r := range str { // 1 文字（ rune ）単位で取得される
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -353,6 +322,7 @@ for _, r := range str { // 1 文字（ rune ）単位で取得される
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -446,7 +416,7 @@ for _, r := range str { // 1 文字（ rune ）単位で取得される
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -473,7 +443,7 @@ for _, r := range str { // 1 文字（ rune ）単位で取得される
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

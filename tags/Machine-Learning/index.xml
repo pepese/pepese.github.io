@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>machine learning on ぺーぺーSEのテックブログ</title>
@@ -6,18 +6,14 @@
     <description>Recent content in machine learning on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sun, 26 Nov 2017 18:02:36 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 26 Nov 2017 18:02:36 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pythonで機械学習 レコメンド編</title>
       <link>https://blog.pepese.com/entry/python-ml-recommendation/</link>
       <pubDate>Sun, 26 Nov 2017 18:02:36 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/python-ml-recommendation/</guid>
-      <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br /&gt;
+      <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br&gt;
 スクラッチではなく、できるだけライブラリ（ &lt;a href=&#34;http://surpriselib.com/&#34;&gt;scikit-surprise&lt;/a&gt; ）を利用する。&lt;/p&gt;</description>
     </item>
     
@@ -27,21 +23,16 @@
       <pubDate>Thu, 06 Jul 2017 08:34:29 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/python-ml-svm-multiclass/</guid>
-      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;多クラス分類問題&lt;/strong&gt; を解いてみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;多クラス分類問題&lt;/strong&gt; を解いてみる。&lt;br&gt;
 SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-svm-2class/&#34;&gt;Pythonで機械学習 SVMで2クラス分類問題編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;データセットは、以下で紹介している &lt;strong&gt;digits データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-datasets/&#34;&gt;Pythonで機械学習 データセット編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;後半で実施している精度評価についての詳細は以下を参照。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-metrics-scores/&#34;&gt;Pythonで機械学習 精度評価編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -53,9 +44,8 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
       <pubDate>Wed, 05 Jul 2017 18:00:50 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/python-ml-k-means-clustering/</guid>
-      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;br&gt;
 データセットは、以下で紹介している &lt;strong&gt;iris データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-datasets/&#34;&gt;Pythonで機械学習 データセット編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -76,15 +66,12 @@ SVMを使用した2クラス分類問題は以下。&lt;/p&gt;
       <pubDate>Wed, 05 Jul 2017 08:32:21 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/python-ml-svm-2class/</guid>
-      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;2クラス分類問題&lt;/strong&gt; を解いてみる。&lt;br /&gt;
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;2クラス分類問題&lt;/strong&gt; を解いてみる。&lt;br&gt;
 データセットは、以下で紹介している &lt;strong&gt;digits データセット&lt;/strong&gt; を使用する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-datasets/&#34;&gt;Pythonで機械学習 データセット編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;後半で実施している精度評価についての詳細は以下を参照。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/python-ml-dl-metrics-scores/&#34;&gt;Pythonで機械学習 精度評価編&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>

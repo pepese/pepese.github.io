@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>word2vec on ぺーぺーSEのテックブログ</title>
@@ -6,11 +6,7 @@
     <description>Recent content in word2vec on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sun, 04 Feb 2018 18:10:43 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/word2vec/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 04 Feb 2018 18:10:43 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/word2vec/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Word2vec入門</title>
       <link>https://blog.pepese.com/entry/word2vec-basics/</link>
@@ -18,7 +14,6 @@
       
       <guid>https://blog.pepese.com/entry/word2vec-basics/</guid>
       <description>&lt;p&gt;Mecab については以下を参考。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mecab-basics/&#34;&gt;形態素解析システムMeCab入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>

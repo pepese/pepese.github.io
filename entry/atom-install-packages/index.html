@@ -20,10 +20,9 @@
 <meta property="og:description" content="Githubが開発したエディタAtomのインストールからパッケージの導入までをまとめる。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/atom-install-packages/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-05-11T07:45:58&#43;09:00"/>
-<meta property="article:modified_time" content="2017-05-11T07:45:58&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-05-11T07:45:58+09:00" />
+<meta property="article:modified_time" content="2017-05-11T07:45:58+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -106,9 +105,7 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>Githubが開発したエディタ<a href="https://atom.io/">Atom</a>のインストールからパッケージの導入までをまとめる。</p>
-
-<h1 id="インストール-mac">インストール（Mac）</h1>
-
+<h1 id="インストールmac">インストール（Mac）</h1>
 <ul>
 <li><a href="https://atom.io">公式</a>へアクセス</li>
 <li>「Download For Mac」をクリック</li>
@@ -116,104 +113,75 @@ if (!doNotTrack) {
 <li>Macアプリ「Atom」が表示されるので、それを「アプリケーション」フォルダへドラッグ＆ドロップ</li>
 <li>「アプリケーション」フォルダへ移動し、「Atom」を起動</li>
 </ul>
-
 <p>brew caskが使える人は以下でもよい。</p>
-
-<pre><code class="language-sh">$ brew cask install atom
-</code></pre>
-
-<p>上記がなんのことかわからない人は以下参照。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew cask install atom
+</code></pre></div><p>上記がなんのことかわからない人は以下参照。</p>
 <ul>
 <li><a href="https://blog.pepese.com/entry/homebrew-basics/">https://blog.pepese.com/entry/homebrew-basics/</a></li>
 </ul>
-
 <h1 id="起動方法">起動方法</h1>
-
 <p>アイコンクリックでもいいがコマンドラインで起動できる。</p>
-
-<pre><code class="language-sh">$ atom file
-</code></pre>
-
-<p>プロジェクト（カレントディレクトリ）で起動したい場合は以下。</p>
-
-<pre><code class="language-sh">$ atom .
-</code></pre>
-
-<h1 id="パッケージ導入方法">パッケージ導入方法</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ atom file
+</code></pre></div><p>プロジェクト（カレントディレクトリ）で起動したい場合は以下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ atom .
+</code></pre></div><h1 id="パッケージ導入方法">パッケージ導入方法</h1>
 <ul>
 <li>メニュータブの「Packages」-&gt;「Settings View」を選ぶと「Settings」タブが開く
-
 <ul>
 <li>「Ctrl+,」（Win）、「Command+,」（Mac）でも開く</li>
-</ul></li>
+</ul>
+</li>
 <li>「Install」メニューを選択し、欲しいパッケージを検索して「Install」ボタンを押すS</li>
 <li>設定が反映されない場合はAtomを再起動する</li>
 </ul>
-
 <h1 id="アップデート">アップデート</h1>
-
 <h2 id="atom">Atom</h2>
-
 <p>メニューの「 Atom 」 -&gt; 「 Restart and Install Update 」。</p>
-
 <h2 id="パッケージ">パッケージ</h2>
-
 <p>メニューの「パッケージ」 -&gt; 「 Settings View 」 -&gt; 「 Updates 」。</p>
-
 <h2 id="トラブルシューティング">トラブルシューティング</h2>
-
 <p>アップデートできない人は以下を実行。</p>
-
-<pre><code class="language-sh">$ sudo chown -R $(whoami) /Applications/Atom.app/
-</code></pre>
-
-<h1 id="オススメのパッケージ">オススメのパッケージ</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo chown -R <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span> /Applications/Atom.app/
+</code></pre></div><h1 id="オススメのパッケージ">オススメのパッケージ</h1>
 <ul>
 <li>japanese-menu
-
 <ul>
 <li>メニューバーとコンテキストメニューを日本語化</li>
-</ul></li>
+</ul>
+</li>
 <li>japanese-wrap
-
 <ul>
 <li>日本語を折り返してくれるパッケージ</li>
 <li>現在のAtomは日本語の折り返しがうまく機能しないため</li>
-</ul></li>
+</ul>
+</li>
 <li>goto-defitinion
-
 <ul>
 <li>「Ctrl+Alt+Enter」（Win）、「Option+Cmd+Enter」（Mac）でクラス、メソッドの実装へ飛べるようになる</li>
-</ul></li>
+</ul>
+</li>
 <li>terminal-plus（ <strong>platformio-ide-terminal</strong> ）
-
 <ul>
 <li>ターミナル画面を追加できるパッケージ
-
 <ul>
 <li>画面を切り替えてターミナル開くのが面倒になった人にオススメ</li>
-</ul></li>
+</ul>
+</li>
 <li>下部の「+」をクリックするか、 <code>Ctrl + Shift + @</code> でターミナルが開く</li>
 <li>しかしながら、2017/01/19時点では動かなかったため、terminal-plusをforkして作成された <strong>platformio-ide-terminal</strong> がいい</li>
-</ul></li>
+</ul>
+</li>
 <li>markdown-preview-enhanced
-
 <ul>
 <li>マークダウン表示機能の拡張</li>
 <li>Pandoc を導入（ <code>brew install pandoc</code> ）することで、 Tex 形式のマークダウンも表示可能になる</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="atom-ide">ATOM IDE</h1>
-
 <h2 id="インストール">インストール</h2>
-
-<p>パッケージの導入から <strong>atom-ide-ui</strong> を導入する。<br />
+<p>パッケージの導入から <strong>atom-ide-ui</strong> を導入する。<br>
 その後、利用したい開発言語に合わせて以下のものを導入する。</p>
-
 <ul>
 <li>ide-typescript</li>
 <li>ide-flowtype</li>
@@ -221,7 +189,6 @@ if (!doNotTrack) {
 <li>ide-java (Java 8 runtime required)</li>
 <li>ide-php</li>
 </ul>
-
 <p><a href="https://atom.io/packages/search?q=IDE">ここ</a>で言語対応のパッケージを検索できる。</p>
 		</div>
 	</article>
@@ -283,11 +250,11 @@ if (!doNotTrack) {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -298,6 +265,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -391,7 +359,7 @@ if (!doNotTrack) {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -418,7 +386,7 @@ if (!doNotTrack) {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

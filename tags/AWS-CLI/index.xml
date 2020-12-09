@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws cli on ぺーぺーSEのテックブログ</title>
@@ -6,11 +6,7 @@
     <description>Recent content in aws cli on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 29 Aug 2017 07:58:05 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/aws-cli/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 29 Aug 2017 07:58:05 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws-cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DyanamoDB入門</title>
       <link>https://blog.pepese.com/entry/dynamodb-basics/</link>
@@ -18,7 +14,6 @@
       
       <guid>https://blog.pepese.com/entry/dynamodb-basics/</guid>
       <description>&lt;p&gt;ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;DynamoDB の概要&lt;/li&gt;
 &lt;li&gt;DynamoDB の API&lt;/li&gt;

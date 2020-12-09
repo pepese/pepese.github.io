@@ -18,32 +18,27 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="Node.js・npm入門" />
 <meta property="og:description" content="Node.js（npm）についてまとめる。
-
 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。
 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。
 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。
 また、Node.jsはJavaScriptの実行エンジン。
-
 ちなみにここでNode.jsのES6対応状況がわかる。
 v8.3.0で 99% カバーしている。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/nodejs-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-14T08:10:36&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-14T08:10:36&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-14T08:10:36+09:00" />
+<meta property="article:modified_time" content="2017-08-14T08:10:36+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Node.js・npm入門"/>
 <meta name="twitter:description" content="Node.js（npm）についてまとめる。
-
 npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。
 JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。
 npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。
 また、Node.jsはJavaScriptの実行エンジン。
-
 ちなみにここでNode.jsのES6対応状況がわかる。
 v8.3.0で 99% カバーしている。"/>
 
@@ -124,147 +119,103 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>Node.js（npm）についてまとめる。</p>
-
-<p>npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。<br />
-JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。<br />
-npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。<br />
+<p>npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。<br>
+JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。<br>
+npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。<br>
 また、Node.jsはJavaScriptの実行エンジン。</p>
-
-<p>ちなみに<a href="http://node.green">ここ</a>でNode.jsのES6対応状況がわかる。<br />
+<p>ちなみに<a href="http://node.green">ここ</a>でNode.jsのES6対応状況がわかる。<br>
 v8.3.0で <strong>99%</strong> カバーしている。</p>
-
 <h1 id="インストール">インストール</h1>
-
 <p>Node.jsのインストール方法は以下の「anyenv」を参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/anyenv/">すべての**envを管理するanyenv</a></li>
 </ul>
-
 <h2 id="ndenv">ndenv</h2>
-
 <p>上記の手順でNode.jsを導入した場合、Node.jsのバージョンを <code>ndenv</code> でコントロールする。</p>
-
-<pre><code class="language-sh">$ ndenv install -l # インストールできるNode.jsのバージョン確認
-$ ndenv install v8.3.0 # バージョンを指定してインストール
-$ ndenv versions # インストールされたことを確認
-$ ndenv global v8.3.0 # バージョンを切り替え
-$ ndenv local v8.3.0 # 今いるプロジェクトだけバージョンを指定したい場合はこっち
-$ node -v # 確認
-$ npm update -g npm # npm のバージョンアップ
-$ npm -v # 確認
-</code></pre>
-
-<h1 id="npmの使い方">npmの使い方</h1>
-
-<p>公式ドキュメントは<a href="https://docs.npmjs.com">ここ</a>。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ndenv install -l <span style="color:#75715e"># インストールできるNode.jsのバージョン確認</span>
+$ ndenv install v8.3.0 <span style="color:#75715e"># バージョンを指定してインストール</span>
+$ ndenv versions <span style="color:#75715e"># インストールされたことを確認</span>
+$ ndenv global v8.3.0 <span style="color:#75715e"># バージョンを切り替え</span>
+$ ndenv local v8.3.0 <span style="color:#75715e"># 今いるプロジェクトだけバージョンを指定したい場合はこっち</span>
+$ node -v <span style="color:#75715e"># 確認</span>
+$ npm update -g npm <span style="color:#75715e"># npm のバージョンアップ</span>
+$ npm -v <span style="color:#75715e"># 確認</span>
+</code></pre></div><h1 id="npmの使い方">npmの使い方</h1>
+<p>公式ドキュメントは<a href="https://docs.npmjs.com">ここ</a>。<br>
 プロキシの設定が必要な場合は以下。</p>
-
-<pre><code class="language-sh">$ npm config set proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm config set proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;
 $ npm config set https-proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;
-</code></pre>
-
-<h2 id="プロジェクトの作成">プロジェクトの作成</h2>
-
-<p>任意のディレクトリを作成して <code>npm init</code> を実行すると <code>package.json</code> が作成され、プロジェクトとなる。<br />
+</code></pre></div><h2 id="プロジェクトの作成">プロジェクトの作成</h2>
+<p>任意のディレクトリを作成して <code>npm init</code> を実行すると <code>package.json</code> が作成され、プロジェクトとなる。<br>
 いろいろ聞かれるが、全部Enterで問題無い。あとで変更可能。</p>
-
-<pre><code class="language-sh">$ mkdir nodejs-sample
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir nodejs-sample
 $ cd nodejs-sample
 $ npm init
-</code></pre>
-
-<p><code>package.json</code> はMavenでいう <code>pom.xml</code> みたいなもの。（Javaの人向けでごめん）</p>
-
+</code></pre></div><p><code>package.json</code> はMavenでいう <code>pom.xml</code> みたいなもの。（Javaの人向けでごめん）</p>
 <h2 id="パッケージのインストール">パッケージのインストール</h2>
-
 <h3 id="グローバルインストール">グローバルインストール</h3>
-
-<p><code>npm install -g &lt;package_name&gt;@&lt;version&gt;</code> でパッケージのインストールが可能。<br />
-<code>-g</code> オプションがついてるのがポイント。<br />
-アンインストールは <code>npm uninstall -g &lt;package_name&gt;</code> 。<br />
+<p><code>npm install -g &lt;package_name&gt;@&lt;version&gt;</code> でパッケージのインストールが可能。<br>
+<code>-g</code> オプションがついてるのがポイント。<br>
+アンインストールは <code>npm uninstall -g &lt;package_name&gt;</code> 。<br>
 インストールパッケージ一覧の確認は <code>npm list -g</code> 。</p>
-
 <p>インストール先は以下で確認できる。</p>
-
 <pre><code># グローバルインストール先のディレクトリ
 $ npm root -g
 
 # グローバルインストール先の、コマンドディレクトリ
 $ npm bin -g
-</code></pre>
-
-<h3 id="ローカルインストール">ローカルインストール</h3>
-
-<p><code>npm install &lt;option&gt; &lt;package_name&gt;@&lt;version&gt;</code> でパッケージのインストールが可能。<br />
-インストールしたパッケージは <code>package.json</code> に追記され、 <code>node_modules/</code> 配下に配備される。<br />
+</code></pre><h3 id="ローカルインストール">ローカルインストール</h3>
+<p><code>npm install &lt;option&gt; &lt;package_name&gt;@&lt;version&gt;</code> でパッケージのインストールが可能。<br>
+インストールしたパッケージは <code>package.json</code> に追記され、 <code>node_modules/</code> 配下に配備される。<br>
 オプションは以下の通り。</p>
-
 <ul>
 <li><code>--save</code> 、 <code>-S</code>
-
 <ul>
 <li><code>package.json</code> の <code>dependencies</code> に追記される</li>
 <li><code>npm install  --production</code> した時に <code>mode_modules/</code> に配備される</li>
 <li>開発したソフトウェアを動かすのに必要な依存ライブラリ</li>
-</ul></li>
+</ul>
+</li>
 <li><code>--save-dev</code> 、 <code>-D</code>
-
 <ul>
 <li><code>package.json</code> の <code>devDependencies</code> に追記される</li>
 <li><code>npm install --dev</code> した時に <code>mode_modules/</code> に配備される</li>
 <li>ソフトウェアを開発する際に必要になるツール・ライブラリ</li>
-</ul></li>
+</ul>
+</li>
 <li><code>--save-optional</code> 、 <code>-O</code>
-
 <ul>
 <li><code>package.json</code> の <code>optionalDependencies</code> に追記される</li>
 <li><code>npm install</code> した時に <code>mode_modules/</code> に配備される（失敗してもスルーされる）</li>
-</ul></li>
 </ul>
-
-<p>デフォルト設定の場合、 <code>npm install</code> （オプション無）すると、 <code>dependencies</code> 、 <code>devDependencies</code> 、 <code>optionalDependencies</code> の全てがインストールされる。<br />
-アンインストールは <code>npm uninstall &lt;package_name&gt;</code> 。<br />
+</li>
+</ul>
+<p>デフォルト設定の場合、 <code>npm install</code> （オプション無）すると、 <code>dependencies</code> 、 <code>devDependencies</code> 、 <code>optionalDependencies</code> の全てがインストールされる。<br>
+アンインストールは <code>npm uninstall &lt;package_name&gt;</code> 。<br>
 インストールパッケージ一覧の確認は <code>npm list</code> 。</p>
-
 <h3 id="パッケージの使い方">パッケージの使い方</h3>
-
 <p>npmで導入したJavaScriptライブラリ（ <code>node_modules/</code> 配下にある）は、JavaScriptのソースコードからほぼ以下の形式で呼び出すことができる。</p>
-
-<pre><code class="language-javascript">var req = require('request')
-</code></pre>
-
-<p>上記は <code>request</code> モジュールを呼び出して <code>req</code> 変数へ代入している例。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">req</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request&#39;</span>)
+</code></pre></div><p>上記は <code>request</code> モジュールを呼び出して <code>req</code> 変数へ代入している例。</p>
 <h2 id="npmスクリプト">npmスクリプト</h2>
-
-<p><code>package.json</code> の <code>scripts</code> にスクリプトを登録することにより簡易に実行することができる。<br />
+<p><code>package.json</code> の <code>scripts</code> にスクリプトを登録することにより簡易に実行することができる。<br>
 例えば以下。</p>
-
-<pre><code class="language-javascript">&quot;scripts&quot;: {
-  &quot;test&quot;: &quot;mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/&quot;,
-  &quot;test-ci&quot;: &quot;istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/&quot;,
-  &quot;test-cov&quot;: &quot;istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/&quot;,
-  &quot;test-tap&quot;: &quot;mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> {
+  <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/&#34;</span>,
+  <span style="color:#e6db74">&#34;test-ci&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/&#34;</span>,
+  <span style="color:#e6db74">&#34;test-cov&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/&#34;</span>,
+  <span style="color:#e6db74">&#34;test-tap&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/&#34;</span>
   }
-</code></pre>
-
-<p>上記のようにスクリプトを定義することにより <code>npm test</code> 、 <code>npm test-ci</code> といった具合で登録したスクリプトを実行することができる。</p>
-
-<h3 id="package-json-の更新"><code>package.json</code> の更新</h3>
-
+</code></pre></div><p>上記のようにスクリプトを定義することにより <code>npm test</code> 、 <code>npm test-ci</code> といった具合で登録したスクリプトを実行することができる。</p>
+<h3 id="packagejson-の更新"><code>package.json</code> の更新</h3>
 <p>手動で <code>package.json</code> 内のライブラリバージョンを変更してもよいが、 <code>npm-check-updates</code> を利用すると楽。</p>
-
-<pre><code class="language-bash">$ npm install -g npm-check-updates
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install -g npm-check-updates
 $ which ncu
 /usr/local/bin/ncu
-</code></pre>
-
-<p><code>ncu</code> コマンドで <code>package.json</code> のライブラリの最新バージョンを確認できる。</p>
-
-<pre><code class="language-bash">$ ncu
+</code></pre></div><p><code>ncu</code> コマンドで <code>package.json</code> のライブラリの最新バージョンを確認できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ncu
 Checking /path/to/project/package.json
-[====================] 17/17 100%
+<span style="color:#f92672">[====================]</span> 17/17 100%
 
  hexo-deployer-git       ^0.3.1  →  ^1.0.0 
  hexo-generator-archive  ^0.1.4  →  ^0.1.5 
@@ -276,66 +227,39 @@ Checking /path/to/project/package.json
  hexo-server             ^0.2.0  →  ^0.3.3 
 
 Run ncu -u to upgrade package.json
-</code></pre>
-
-<p><code>ncu -u</code> で <code>package.json</code> が書き換えられる。</p>
-
-<h1 id="node-jsの使い方">Node.jsの使い方</h1>
-
+</code></pre></div><p><code>ncu -u</code> で <code>package.json</code> が書き換えられる。</p>
+<h1 id="nodejsの使い方">Node.jsの使い方</h1>
 <p>Node.jsのAPIリファレンスは<a href="https://nodejs.org/api/">ここ</a>。</p>
-
 <h2 id="シンプルに動かしてみる">シンプルに動かしてみる</h2>
-
 <p>まず、Node.jsをJavaScriptエンジンとしてシンプルに動かしてみる。</p>
-
 <p>■hello.js</p>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/hello.js?footer=0"></script>
-
+<!-- raw HTML omitted -->
 <p>■main.js</p>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/main.js?footer=0"></script>
-
+<!-- raw HTML omitted -->
 <p>上記JSファイルを作成して下記を実行。</p>
-
-<pre><code class="language-sh">$ node main.js
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ node main.js
 Hello World !
-</code></pre>
-
-<p><code>node &lt;JSファイル&gt;</code> コマンドで実行できる。</p>
-
+</code></pre></div><p><code>node &lt;JSファイル&gt;</code> コマンドで実行できる。</p>
 <h2 id="httpサーバ">HTTPサーバ</h2>
-
 <p>Node.jsでHTTPサービスを立ち上げてみる。</p>
-
 <p>■app.js</p>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/app.js?footer=0"></script>
-
+<!-- raw HTML omitted -->
 <p>下記を実行してブラウザで <code>http://127.0.0.1:1337/</code> へアクセスすると「Hello World !」と表示される。</p>
-
-<pre><code class="language-sh">$ node app.js
-</code></pre>
-
-<p><code>Ctr+C</code> でサービスを停止できる。<br />
-この方法でHTTPサービスを起動した場合、ロジックでエラーが発生するとプロセスが終了する。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ node app.js
+</code></pre></div><p><code>Ctr+C</code> でサービスを停止できる。<br>
+この方法でHTTPサービスを起動した場合、ロジックでエラーが発生するとプロセスが終了する。<br>
 エラーが発生してもプロセスが終了しないようにする方法の１つとして <strong>forever</strong> の導入がある。</p>
-
 <p>■foreverのインストール、起動、停止</p>
-
-<pre><code class="language-sh">$ npm install -g forever
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm install -g forever
 $ forever start app.js
 $ forever stop app.js
-</code></pre>
-
-<h2 id="node-jsに関する話題">Node.jsに関する話題</h2>
-
+</code></pre></div><h2 id="nodejsに関する話題">Node.jsに関する話題</h2>
 <ul>
 <li><a href="http://postd.cc/simple-guide-to-finding-a-javascript-memory-leak-in-node-js/">Node.jsでのJavaScriptメモリリークを発見するための簡単ガイド</a>
-
 <ul>
 <li>JavaScriptは <strong>ガベージコレクション</strong> を行う言語。</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 		</div>
 	</article>
@@ -397,11 +321,11 @@ $ forever stop app.js
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -412,6 +336,7 @@ $ forever stop app.js
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -505,7 +430,7 @@ $ forever stop app.js
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -532,7 +457,7 @@ $ forever stop app.js
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

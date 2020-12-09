@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ja-JP">
 <head>
-	<meta name="generator" content="Hugo 0.55.6" />
+	<meta name="generator" content="Hugo 0.79.0" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +21,8 @@
 <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.pepese.com/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-
-<meta property="og:updated_time" content="2019-06-03T07:18:58&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="og:updated_time" content="2020-12-09T20:29:03+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -93,6 +91,29 @@ if (!doNotTrack) {
 	<article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/entry/heroku-basics/" rel="bookmark">
+			Heroku入門
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2017-12-07T07:56:43">December 07, 2017</time>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Heroku は salesforce が運営する PaaS 。<br>
+Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。<br>
+Free プランの落とし穴は、 30 分アクセスが無いとインスタンス（ dyno ）が Sleep してしまうところ。　　
+以下、 Free プランでアカウントを取得している前提で記載する。</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/entry/heroku-basics/"></a>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/entry/python-ml-recommendation/" rel="bookmark">
 			Pythonで機械学習 レコメンド編
 			</a>
@@ -105,7 +126,7 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>代表的なレコメンドアルゴリズムと Python での実装をまとめる。<br />
+		<p>代表的なレコメンドアルゴリズムと Python での実装をまとめる。<br>
 スクラッチではなく、できるだけライブラリ（ <a href="http://surpriselib.com/">scikit-surprise</a> ）を利用する。</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -126,9 +147,8 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p><a href="http://flask.pocoo.org/">Flask</a> と <a href="https://ngrok.com/">ngrok</a> でメッセージをオウム返しする LINE のチャットボットを作ってみた。<br />
+		<p><a href="http://flask.pocoo.org/">Flask</a> と <a href="https://ngrok.com/">ngrok</a> でメッセージをオウム返しする LINE のチャットボットを作ってみた。<br>
 Heroku で公開したい場合は以下参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/heroku-basics/">Heroku入門</a></li>
 </ul>
@@ -151,15 +171,12 @@ Heroku で公開したい場合は以下参照。</p>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>Node.js/Expressアプリケーションへファイルアップロードしてみる。<br />
+		<p>Node.js/Expressアプリケーションへファイルアップロードしてみる。<br>
 使用するツール・ライブラリは以下。</p>
-
 <ul>
 <li><a href="https://github.com/expressjs/multer">Multer</a></li>
 </ul>
-
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a></li>
 </ul>
@@ -182,12 +199,10 @@ Heroku で公開したい場合は以下参照。</p>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。<br />
-通常、ブラウザからPUT/DELETEリクエストは発行できない。<br />
+		<p>Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。<br>
+通常、ブラウザからPUT/DELETEリクエストは発行できない。<br>
 ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 <em>Node.js/Express側でPUT/DELETEリクエストとして解釈</em> しているだけ。</p>
-
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a></li>
 </ul>
@@ -210,9 +225,8 @@ Heroku で公開したい場合は以下参照。</p>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、Java から DynamoDB にアクセスしてみる。<br />
+		<p>ここでは、Java から DynamoDB にアクセスしてみる。<br>
 以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/mac-dev-environment/">Macで開発環境を作る</a></li>
 <li><a href="https://blog.pepese.com/entry/dynamodb-basics/">DynamoDB入門</a></li>
@@ -236,9 +250,8 @@ Heroku で公開したい場合は以下参照。</p>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、Node.js から DynamoDB にアクセスしてみる。<br />
+		<p>ここでは、Node.js から DynamoDB にアクセスしてみる。<br>
 以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/nodejs-basics/">Node.js/npm入門</a></li>
 <li><a href="https://blog.pepese.com/entry/dynamodb-basics/">DynamoDB入門</a></li>
@@ -263,7 +276,6 @@ Heroku で公開したい場合は以下参照。</p>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		<p>ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。</p>
-
 <ul>
 <li>DynamoDB の概要</li>
 <li>DynamoDB の API</li>
@@ -288,19 +300,16 @@ Heroku で公開したい場合は以下参照。</p>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。<br />
+		<p>Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。<br>
 使用するツール・ライブラリは以下。</p>
-
 <ul>
 <li>HTTP(S)クライアント
-
 <ul>
 <li><a href="https://github.com/request/request">request</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a></li>
 </ul>
@@ -323,91 +332,27 @@ Heroku で公開したい場合は以下参照。</p>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>Node.js/ExpressアプリケーションからRDBへ接続してみる。<br />
+		<p>Node.js/ExpressアプリケーションからRDBへ接続してみる。<br>
 使用するツール・ライブラリは以下。</p>
-
 <ul>
 <li>O/R Mapper
-
 <ul>
 <li><a href="http://docs.sequelizejs.com/">Sequelize</a></li>
-</ul></li>
+</ul>
+</li>
 <li>RDB
-
 <ul>
 <li><a href="https://sqlite.org/index.html">SQLite3</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a></li>
 </ul>
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/entry/express-rdb-sequelize/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/express-test/" rel="bookmark">
-			Node.js・Expressでユニットテスト
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-08-16T17:52:59">August 16, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>Node.js/Expressアプリケーションのテストをしてみる。<br />
-使用するツール・ライブラリは以下。</p>
-
-<ul>
-<li>テスティングフレームワーク
-
-<ul>
-<li><a href="https://mochajs.org/">mocha</a>
-
-<ul>
-<li>デフォルトでは <code>./test/*.js</code> 、 <code>./test/*.coffee</code> をテストスクリプトとして認識</li>
-<li><code>mocha.opts</code> というファイルにオプションを設定できる模様（<a href="https://mochajs.org/#mochaopts">参考</a>）</li>
-</ul></li>
-</ul></li>
-<li>アサート
-
-<ul>
-<li><a href="http://chaijs.com/">Chai</a></li>
-</ul></li>
-<li>モック
-
-<ul>
-<li><a href="http://sinonjs.org/">sinon.js</a></li>
-</ul></li>
-<li>カバレッジ
-
-<ul>
-<li><a href="https://istanbul.js.org/">Istanbul</a>
-
-<ul>
-<li>公式の案内にもある通り、以下の <code>nyc</code> 経由で <code>istanbul</code> を利用する</li>
-</ul></li>
-<li><a href="https://github.com/istanbuljs/nyc">nyc</a>
-
-<ul>
-<li>tap、mocha、AVA といったJSテスティングフレームワークと Istanbul をうまく連携させるコマンドラインツール</li>
-<li><a href="https://istanbul.js.org/docs/tutorials/mocha/">mocha用のチュートリアル</a></li>
-</ul></li>
-</ul></li>
-</ul>
-
-<p>なお、タスクランナーは使用せず、npmスクリプトを使用する。</p>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/express-test/"></a>
 	</div>
 </article>
 </main>
@@ -453,11 +398,11 @@ Heroku で公開したい場合は以下参照。</p>
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -468,6 +413,7 @@ Heroku で公開したい場合は以下参照。</p>
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -561,7 +507,7 @@ Heroku で公開したい場合は以下参照。</p>
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -588,7 +534,7 @@ Heroku で公開したい場合は以下参照。</p>
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

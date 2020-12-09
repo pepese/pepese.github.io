@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2018/02 on ぺーぺーSEのテックブログ</title>
     <link>https://blog.pepese.com/archives/2018/02/</link>
     <description>Recent content in 2018/02 on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Tue, 20 Feb 2018 08:03:43 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/archives/2018/02/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ja-JP</language><atom:link href="https://blog.pepese.com/archives/2018/02/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jupyter Notebook入門</title>
       <link>https://blog.pepese.com/entry/jupyter-notebook-basics/</link>
@@ -18,7 +13,6 @@
       
       <guid>https://blog.pepese.com/entry/jupyter-notebook-basics/</guid>
       <description>&lt;p&gt;Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://jupyter.org/&#34;&gt;公式&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://jupyter.org/documentation&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/li&gt;
@@ -32,7 +26,6 @@
       
       <guid>https://blog.pepese.com/entry/mecab-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://taku910.github.io/mecab/&#34;&gt;公式&lt;/a&gt;&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;環境構築&lt;/li&gt;
 &lt;li&gt;使い方&lt;/li&gt;
@@ -48,7 +41,6 @@
       
       <guid>https://blog.pepese.com/entry/word2vec-basics/</guid>
       <description>&lt;p&gt;Mecab については以下を参考。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mecab-basics/&#34;&gt;形態素解析システムMeCab入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -70,7 +62,6 @@
       
       <guid>https://blog.pepese.com/entry/pandas-basics-dataframe/</guid>
       <description>&lt;p&gt;Python ライブラリである Pandas の DataFrame についてまとめる。&lt;/p&gt;
-
 &lt;p&gt;- &lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

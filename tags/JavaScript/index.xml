@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>javascript on ぺーぺーSEのテックブログ</title>
@@ -6,26 +6,19 @@
     <description>Recent content in javascript on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 21 Sep 2017 08:10:39 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.pepese.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 21 Sep 2017 08:10:39 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
       <link>https://blog.pepese.com/entry/express-multer-fileupload/</link>
       <pubDate>Thu, 21 Sep 2017 08:10:39 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-multer-fileupload/</guid>
-      <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br /&gt;
+      <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/expressjs/multer&#34;&gt;Multer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/express-basics/&#34;&gt;Express入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -37,12 +30,10 @@
       <pubDate>Wed, 20 Sep 2017 17:50:44 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-browser-put-delete-request/</guid>
-      <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br /&gt;
-通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br /&gt;
+      <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br&gt;
+通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br&gt;
 ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 &lt;em&gt;Node.js/Express側でPUT/DELETEリクエストとして解釈&lt;/em&gt; しているだけ。&lt;/p&gt;
-
 &lt;p&gt;以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/express-basics/&#34;&gt;Express入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -54,19 +45,16 @@
       <pubDate>Mon, 28 Aug 2017 17:46:16 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-http-client-request/</guid>
-      <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;HTTP(S)クライアント
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/request/request&#34;&gt;request&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/express-basics/&#34;&gt;Express入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -78,24 +66,21 @@
       <pubDate>Sun, 20 Aug 2017 17:48:36 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-rdb-sequelize/</guid>
-      <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;O/R Mapper
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://docs.sequelizejs.com/&#34;&gt;Sequelize&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;RDB
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sqlite.org/index.html&#34;&gt;SQLite3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;以下の記事を読んだ前提で書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/express-basics/&#34;&gt;Express入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -107,47 +92,45 @@
       <pubDate>Wed, 16 Aug 2017 17:52:59 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-test/</guid>
-      <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;br /&gt;
+      <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;テスティングフレームワーク
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://mochajs.org/&#34;&gt;mocha&lt;/a&gt;
-
 &lt;ul&gt;
 &lt;li&gt;デフォルトでは &lt;code&gt;./test/*.js&lt;/code&gt; 、 &lt;code&gt;./test/*.coffee&lt;/code&gt; をテストスクリプトとして認識&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;mocha.opts&lt;/code&gt; というファイルにオプションを設定できる模様（&lt;a href=&#34;https://mochajs.org/#mochaopts&#34;&gt;参考&lt;/a&gt;）&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;アサート
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://chaijs.com/&#34;&gt;Chai&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;モック
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://sinonjs.org/&#34;&gt;sinon.js&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;カバレッジ
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://istanbul.js.org/&#34;&gt;Istanbul&lt;/a&gt;
-
 &lt;ul&gt;
 &lt;li&gt;公式の案内にもある通り、以下の &lt;code&gt;nyc&lt;/code&gt; 経由で &lt;code&gt;istanbul&lt;/code&gt; を利用する&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/istanbuljs/nyc&#34;&gt;nyc&lt;/a&gt;
-
 &lt;ul&gt;
 &lt;li&gt;tap、mocha、AVA といったJSテスティングフレームワークと Istanbul をうまく連携させるコマンドラインツール&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://istanbul.js.org/docs/tutorials/mocha/&#34;&gt;mocha用のチュートリアル&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;なお、タスクランナーは使用せず、npmスクリプトを使用する。&lt;/p&gt;</description>
     </item>
     
@@ -157,10 +140,9 @@
       <pubDate>Mon, 14 Aug 2017 08:27:19 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/angular-basics/</guid>
-      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br /&gt;
-ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;br /&gt;
+      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br&gt;
+ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;br&gt;
 なお、 &lt;strong&gt;ndenv&lt;/strong&gt; が入ってるテイで書く。導入は下記記事参照。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/anyenv/&#34;&gt;すべての**envを管理するanyenv&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -172,7 +154,7 @@
       <pubDate>Mon, 14 Aug 2017 08:24:46 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/mean-stack-basics/</guid>
-      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
 と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
     </item>
     
@@ -183,13 +165,11 @@
       
       <guid>https://blog.pepese.com/entry/nodejs-basics/</guid>
       <description>&lt;p&gt;Node.js（npm）についてまとめる。&lt;/p&gt;
-
-&lt;p&gt;npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。&lt;br /&gt;
-JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。&lt;br /&gt;
-npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。&lt;br /&gt;
+&lt;p&gt;npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。&lt;br&gt;
+JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。&lt;br&gt;
+npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。&lt;br&gt;
 また、Node.jsはJavaScriptの実行エンジン。&lt;/p&gt;
-
-&lt;p&gt;ちなみに&lt;a href=&#34;http://node.green&#34;&gt;ここ&lt;/a&gt;でNode.jsのES6対応状況がわかる。&lt;br /&gt;
+&lt;p&gt;ちなみに&lt;a href=&#34;http://node.green&#34;&gt;ここ&lt;/a&gt;でNode.jsのES6対応状況がわかる。&lt;br&gt;
 v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</description>
     </item>
     
@@ -199,9 +179,8 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       <pubDate>Mon, 14 Aug 2017 07:59:50 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/express-basics/</guid>
-      <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;br /&gt;
+      <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;br&gt;
 下記の記事を読んだテイで書く。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/nodejs-basics/&#34;&gt;Node.js・npm入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -214,7 +193,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       
       <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -226,16 +204,13 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
-      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br /&gt;
+      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br&gt;
 以下の記事の知識を前提とする。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Amazon Cognito の概要&lt;/li&gt;
 &lt;li&gt;Cognito で認証するAngularアプリを作成する&lt;/li&gt;
@@ -249,9 +224,8 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       <pubDate>Sun, 14 May 2017 18:06:00 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/typescript-environment-basics/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;br /&gt;
+      <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;br&gt;
 文法については触れない。また、前提の環境構築（ &lt;code&gt;npm&lt;/code&gt; など）は以下。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;https://blog.pepese.com/entry/mac-dev-environment/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -263,16 +237,14 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       <pubDate>Thu, 11 May 2017 18:12:21 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/move-article/</guid>
-      <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br /&gt;
+      <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br&gt;
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;重複コンテンツは同時に検索結果に表示されない&lt;/li&gt;
 &lt;li&gt;被リンク評価が分散する&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br /&gt;
+&lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br&gt;
 ブログ全体の移転の話ではないことに注意。&lt;/p&gt;</description>
     </item>
     

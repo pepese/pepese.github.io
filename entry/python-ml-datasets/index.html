@@ -20,10 +20,9 @@
 <meta property="og:description" content="ここでは、機械学習で利用するデータセットを紹介する。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/python-ml-datasets/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-07-05T08:38:14&#43;09:00"/>
-<meta property="article:modified_time" content="2017-07-05T08:38:14&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-07-05T08:38:14+09:00" />
+<meta property="article:modified_time" content="2017-07-05T08:38:14+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -108,112 +107,93 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>ここでは、機械学習で利用するデータセットを紹介する。</p>
-
 <h1 id="パッケージの導入">パッケージの導入</h1>
-
 <p>このブログにある Python コードを実行するためのパッケージをインストールする。</p>
-
-<pre><code class="language-sh">pip install jupyter scikit-learn matplotlib scipy
-</code></pre>
-
-<p>実行環境は Jupyter Notebook を想定。実行方法は <code>jupyter notebook</code> 。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pip install jupyter scikit-learn matplotlib scipy
+</code></pre></div><p>実行環境は Jupyter Notebook を想定。実行方法は <code>jupyter notebook</code> 。<br>
 <strong>matplotlib</strong> の使い方は以下を参照。</p>
-
 <ul>
 <li><a href="http://blog.pepese.com/entry/2016/09/18/174407">matplotlib入門</a></li>
 </ul>
-
 <h1 id="digits-データセット">digits データセット</h1>
-
 <p>digits データセットは手書き数字のデータセットで、8x8 ピクセルのモノクロ画像 1,797 枚。</p>
-
-<pre><code class="language-python">import matplotlib.pyplot as plt
-from sklearn import datasets
-# digits データセットをロード
-digits = datasets.load_digits()
-type(digits) # sklearn.datasets.base.Bunch
-dir(digits) # ['DESCR', 'data', 'images', 'target', 'target_names']
-type(digits.DESCR) # データセットの説明 # str
-type(digits.data) # numpy.ndarray
-type(digits.data) # numpy.ndarray
-print(digits.data.shape) # (1797, 64) # 8x8ではなく8x8=64の形式の1次元ベクトルデータ
-type(digits.images) # numpy.ndarray
-print(digits.images.shape) # (1797, 8, 8) # 8x8の行列データ
-print(digits.data == digits.images.reshape(digits.images.shape[0], -1)) # True ..., True
-type(digits.target) # 番号の種類のID　# numpy.ndarray
-print(digits.target.shape) # 1,797
-type(digits.target_names) # 番号の種類のIDに対応する番号 # numpy.ndarray
-print(digits.target_names) # [0 1 2 3 4 5 6 7 8 9]
-# 画像データを matplotlib で表示
-# 1 番目のキャンバスを作成
-plt.figure(1)
-# digits データセットから先頭 10 枚を取得
-# label にはその画像の数字、imgには画像が入る
-for label, img in zip(digits.target[:10], digits.images[:10]):
-  # キャンバスを 2 行 5 列に分割した label+1 番目のグラフ
-  plt.subplot(2, 5, label + 1)
-  # 軸の設定を off
-  plt.axis('off')
-  # 画像をグレースケールで subplot した箇所に貼り付け
-  plt.imshow(img, cmap=plt.cm.gray_r, interpolation='nearest')
-  # 画像のタイトルを label （その数字）で設定
-  plt.title('Digit: {0}'.format(label))
-# キャンバスの描画
-plt.show()
-</code></pre>
-
-<p><img src="/img/digits_datasets.png"  alt="digits データセット"></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> datasets
+<span style="color:#75715e"># digits データセットをロード</span>
+digits <span style="color:#f92672">=</span> datasets<span style="color:#f92672">.</span>load_digits()
+type(digits) <span style="color:#75715e"># sklearn.datasets.base.Bunch</span>
+dir(digits) <span style="color:#75715e"># [&#39;DESCR&#39;, &#39;data&#39;, &#39;images&#39;, &#39;target&#39;, &#39;target_names&#39;]</span>
+type(digits<span style="color:#f92672">.</span>DESCR) <span style="color:#75715e"># データセットの説明 # str</span>
+type(digits<span style="color:#f92672">.</span>data) <span style="color:#75715e"># numpy.ndarray</span>
+type(digits<span style="color:#f92672">.</span>data) <span style="color:#75715e"># numpy.ndarray</span>
+<span style="color:#66d9ef">print</span>(digits<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># (1797, 64) # 8x8ではなく8x8=64の形式の1次元ベクトルデータ</span>
+type(digits<span style="color:#f92672">.</span>images) <span style="color:#75715e"># numpy.ndarray</span>
+<span style="color:#66d9ef">print</span>(digits<span style="color:#f92672">.</span>images<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># (1797, 8, 8) # 8x8の行列データ</span>
+<span style="color:#66d9ef">print</span>(digits<span style="color:#f92672">.</span>data <span style="color:#f92672">==</span> digits<span style="color:#f92672">.</span>images<span style="color:#f92672">.</span>reshape(digits<span style="color:#f92672">.</span>images<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)) <span style="color:#75715e"># True ..., True</span>
+type(digits<span style="color:#f92672">.</span>target) <span style="color:#75715e"># 番号の種類のID　# numpy.ndarray</span>
+<span style="color:#66d9ef">print</span>(digits<span style="color:#f92672">.</span>target<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># 1,797</span>
+type(digits<span style="color:#f92672">.</span>target_names) <span style="color:#75715e"># 番号の種類のIDに対応する番号 # numpy.ndarray</span>
+<span style="color:#66d9ef">print</span>(digits<span style="color:#f92672">.</span>target_names) <span style="color:#75715e"># [0 1 2 3 4 5 6 7 8 9]</span>
+<span style="color:#75715e"># 画像データを matplotlib で表示</span>
+<span style="color:#75715e"># 1 番目のキャンバスを作成</span>
+plt<span style="color:#f92672">.</span>figure(<span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># digits データセットから先頭 10 枚を取得</span>
+<span style="color:#75715e"># label にはその画像の数字、imgには画像が入る</span>
+<span style="color:#66d9ef">for</span> label, img <span style="color:#f92672">in</span> zip(digits<span style="color:#f92672">.</span>target[:<span style="color:#ae81ff">10</span>], digits<span style="color:#f92672">.</span>images[:<span style="color:#ae81ff">10</span>]):
+  <span style="color:#75715e"># キャンバスを 2 行 5 列に分割した label+1 番目のグラフ</span>
+  plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, label <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+  <span style="color:#75715e"># 軸の設定を off</span>
+  plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)
+  <span style="color:#75715e"># 画像をグレースケールで subplot した箇所に貼り付け</span>
+  plt<span style="color:#f92672">.</span>imshow(img, cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>gray_r, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nearest&#39;</span>)
+  <span style="color:#75715e"># 画像のタイトルを label （その数字）で設定</span>
+  plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Digit: {0}&#39;</span><span style="color:#f92672">.</span>format(label))
+<span style="color:#75715e"># キャンバスの描画</span>
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><!-- raw HTML omitted -->
 <h1 id="iris-データセット">iris データセット</h1>
-
-<p>iris データセットは植物の「あやめ」に関するデータセット。<br />
+<p>iris データセットは植物の「あやめ」に関するデータセット。<br>
 「萼片（がくへん）の長さ」「萼片の幅」「花びらの長さ」「花びらの幅」に関する特長量と、アヤメの種類（0:setosa、1:versicolor、2:virginica）の値を持つ 50 個のデータセットである。</p>
-
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import datasets
-# iris データセットをロード
-iris = datasets.load_iris()
-type(iris) # sklearn.datasets.base.Bunch
-dir(iris) # ['DESCR', 'data', 'feature_names', 'target', 'target_names']
-type(iris.DESCR) # データセットの説明 # str
-type(iris.data) # アヤメに関する特長量 # numpy.ndarray
-type(iris.feature_names) # 特長良のカラム名 # list
-print(iris.feature_names) # ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
-type(iris.target) # アヤメの種類のID # numpy.ndarray
-type(iris.target_names) # アヤメの種類のIDに対応する名前 # numpy.ndarray
-print(iris.target_names) # ['setosa', 'versicolor', 'virginica']
-# 画像を matplotlib で表示
-# 1 番目のキャンバスを作成
-plt.figure(1)
-features = iris.data
-target = iris.target
-target_names = iris.target_names
-labels = target_names[target]
-#
-setosa_petal_length = features[labels == 'setosa', 2]
-setosa_petal_width = features[labels == 'setosa', 3]
-setosa = np.c_[setosa_petal_length, setosa_petal_width]
-versicolor_petal_length = features[labels == 'versicolor', 2]
-versicolor_petal_width = features[labels == 'versicolor', 3]
-versicolor = np.c_[versicolor_petal_length, versicolor_petal_width]
-virginica_petal_length = features[labels == 'virginica', 2]
-virginica_petal_width = features[labels == 'virginica', 3]
-virginica = np.c_[virginica_petal_length, virginica_petal_width]
-#
-plt.scatter(setosa[:, 0], setosa[:, 1], color='red')
-plt.scatter(versicolor[:, 0], versicolor[:, 1], color='blue')
-plt.scatter(virginica[:, 0], virginica[:, 1], color='green')
-#
-plt.show()
-</code></pre>
-
-<p><img src="/img/iris_datasets.png"  alt="iris データセット"></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> datasets
+<span style="color:#75715e"># iris データセットをロード</span>
+iris <span style="color:#f92672">=</span> datasets<span style="color:#f92672">.</span>load_iris()
+type(iris) <span style="color:#75715e"># sklearn.datasets.base.Bunch</span>
+dir(iris) <span style="color:#75715e"># [&#39;DESCR&#39;, &#39;data&#39;, &#39;feature_names&#39;, &#39;target&#39;, &#39;target_names&#39;]</span>
+type(iris<span style="color:#f92672">.</span>DESCR) <span style="color:#75715e"># データセットの説明 # str</span>
+type(iris<span style="color:#f92672">.</span>data) <span style="color:#75715e"># アヤメに関する特長量 # numpy.ndarray</span>
+type(iris<span style="color:#f92672">.</span>feature_names) <span style="color:#75715e"># 特長良のカラム名 # list</span>
+<span style="color:#66d9ef">print</span>(iris<span style="color:#f92672">.</span>feature_names) <span style="color:#75715e"># [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</span>
+type(iris<span style="color:#f92672">.</span>target) <span style="color:#75715e"># アヤメの種類のID # numpy.ndarray</span>
+type(iris<span style="color:#f92672">.</span>target_names) <span style="color:#75715e"># アヤメの種類のIDに対応する名前 # numpy.ndarray</span>
+<span style="color:#66d9ef">print</span>(iris<span style="color:#f92672">.</span>target_names) <span style="color:#75715e"># [&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;]</span>
+<span style="color:#75715e"># 画像を matplotlib で表示</span>
+<span style="color:#75715e"># 1 番目のキャンバスを作成</span>
+plt<span style="color:#f92672">.</span>figure(<span style="color:#ae81ff">1</span>)
+features <span style="color:#f92672">=</span> iris<span style="color:#f92672">.</span>data
+target <span style="color:#f92672">=</span> iris<span style="color:#f92672">.</span>target
+target_names <span style="color:#f92672">=</span> iris<span style="color:#f92672">.</span>target_names
+labels <span style="color:#f92672">=</span> target_names[target]
+<span style="color:#75715e">#</span>
+setosa_petal_length <span style="color:#f92672">=</span> features[labels <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;setosa&#39;</span>, <span style="color:#ae81ff">2</span>]
+setosa_petal_width <span style="color:#f92672">=</span> features[labels <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;setosa&#39;</span>, <span style="color:#ae81ff">3</span>]
+setosa <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[setosa_petal_length, setosa_petal_width]
+versicolor_petal_length <span style="color:#f92672">=</span> features[labels <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;versicolor&#39;</span>, <span style="color:#ae81ff">2</span>]
+versicolor_petal_width <span style="color:#f92672">=</span> features[labels <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;versicolor&#39;</span>, <span style="color:#ae81ff">3</span>]
+versicolor <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[versicolor_petal_length, versicolor_petal_width]
+virginica_petal_length <span style="color:#f92672">=</span> features[labels <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;virginica&#39;</span>, <span style="color:#ae81ff">2</span>]
+virginica_petal_width <span style="color:#f92672">=</span> features[labels <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;virginica&#39;</span>, <span style="color:#ae81ff">3</span>]
+virginica <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>c_[virginica_petal_length, virginica_petal_width]
+<span style="color:#75715e">#</span>
+plt<span style="color:#f92672">.</span>scatter(setosa[:, <span style="color:#ae81ff">0</span>], setosa[:, <span style="color:#ae81ff">1</span>], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(versicolor[:, <span style="color:#ae81ff">0</span>], versicolor[:, <span style="color:#ae81ff">1</span>], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(virginica[:, <span style="color:#ae81ff">0</span>], virginica[:, <span style="color:#ae81ff">1</span>], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+<span style="color:#75715e">#</span>
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><!-- raw HTML omitted -->
 <h1 id="オリジナルデータを-csv-で扱う">オリジナルデータを CSV で扱う</h1>
-
 <p>CSV形式のデータを取り扱う場合、基本的に以下の4通りある。</p>
-
 <ol>
 <li>テキストファイル読み込む</li>
 <li>Python csv モジュールを使う</li>
@@ -280,11 +260,11 @@ plt.show()
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -295,6 +275,7 @@ plt.show()
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -388,7 +369,7 @@ plt.show()
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -415,7 +396,7 @@ plt.show()
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

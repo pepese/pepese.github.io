@@ -19,24 +19,21 @@
 	<meta property="og:title" content="DyanamoDB入門" />
 <meta property="og:description" content="ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。
 
-
 DynamoDB の概要
 DynamoDB の API
 AWS CLI で DynamoDB へアクセス
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/dynamodb-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-29T07:58:05&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-29T07:58:05&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-29T07:58:05+09:00" />
+<meta property="article:modified_time" content="2017-08-29T07:58:05+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="DyanamoDB入門"/>
 <meta name="twitter:description" content="ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。
-
 
 DynamoDB の概要
 DynamoDB の API
@@ -120,19 +117,15 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>ここでは、 DynamoDB の概要と AWS CLI でのアクセスまでまとめる。</p>
-
 <ul>
 <li>DynamoDB の概要</li>
 <li>DynamoDB の API</li>
 <li>AWS CLI で DynamoDB へアクセス</li>
 </ul>
-
 <h1 id="dynamodb-の概要">DynamoDB の概要</h1>
-
-<p>DynamoDB は AWS が提供する Key-Value 型 NoSQL のマネージドサービス。<br />
-スキーマレスであるため、テーブル作成時に Key 以外の設定は必要ない。<br />
+<p>DynamoDB は AWS が提供する Key-Value 型 NoSQL のマネージドサービス。<br>
+スキーマレスであるため、テーブル作成時に Key 以外の設定は必要ない。<br>
 以下の順で説明していく。</p>
-
 <ul>
 <li>Value</li>
 <li>Key</li>
@@ -141,61 +134,52 @@ if (!doNotTrack) {
 <li>セカンダリインデックス</li>
 <li>キャパシティユニット</li>
 </ul>
-
 <h2 id="value">Value</h2>
-
-<p>DynamoDB の Value は <strong>Item</strong> （ <strong>項目</strong> ）と呼ばれ、 1 つ以上の <strong>Attribute</strong> （ <strong>属性</strong> ）を持つ。<br />
-Item は RDB でいうレコードに該当する。<br />
+<p>DynamoDB の Value は <strong>Item</strong> （ <strong>項目</strong> ）と呼ばれ、 1 つ以上の <strong>Attribute</strong> （ <strong>属性</strong> ）を持つ。<br>
+Item は RDB でいうレコードに該当する。<br>
 1つの Attribute につき、以下を指定する。</p>
-
 <ul>
 <li>Attribute Name
-
 <ul>
 <li>属性名</li>
-</ul></li>
+</ul>
+</li>
 <li>Attribute Type
-
 <ul>
 <li>属性の型、以下の型がある
-
 <ul>
 <li><strong>スカラー型</strong>
-
 <ul>
 <li><strong>1つ</strong> の値を持つことができ、 <strong>数値</strong> 、<strong>文字列</strong> 、 <strong>バイナリ</strong> 、 <strong>ブール</strong> 、 <strong>null</strong> を選択できる</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>ドキュメント型</strong>
-
 <ul>
 <li><strong>入れ子</strong> の値を持つことができ、 <strong>リスト</strong> 、 <strong>マップ</strong> を選択できる</li>
 <li>リスト要素に保存できるデータ型に制限はなく、全て同じ型である必要はない</li>
 <li>マップは JSON オブジェクトと同様</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>セット型</strong>
-
 <ul>
 <li><strong>複数</strong> の値を持つことができ、 <strong>数値</strong> 、<strong>文字列</strong> 、 <strong>バイナリ</strong> を選択できる</li>
 <li><strong>セット内の全ての要素は同じ型</strong> である必要がある</li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Attribute Value
-
 <ul>
 <li>Attribute Type に沿った属性の値</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>DynamoDBの各種キーは、 Item の中の Attribute から選択することになる。</p>
-
-<h3 id="ドキュメント型-リストの例">ドキュメント型/リストの例</h3>
-
+<h3 id="ドキュメント型リストの例">ドキュメント型/リストの例</h3>
 <pre><code>FavoriteThings: [&quot;Cookies&quot;, &quot;Coffee&quot;, 3.14159]
-</code></pre>
-
-<h3 id="ドキュメント型-アップの例">ドキュメント型/アップの例</h3>
-
+</code></pre><h3 id="ドキュメント型アップの例">ドキュメント型/アップの例</h3>
 <pre><code>{
     Day: &quot;Monday&quot;,
     UnreadEmails: 42,
@@ -209,345 +193,285 @@ Item は RDB でいうレコードに該当する。<br />
         }
     ]
 }
-</code></pre>
-
-<h3 id="セット型の例">セット型の例</h3>
-
+</code></pre><h3 id="セット型の例">セット型の例</h3>
 <pre><code>[&quot;Black&quot;, &quot;Green&quot; ,&quot;Red&quot;]
 
 [42.2, -19, 7.5, 3.14]
 
 [&quot;U3Vubnk=&quot;, &quot;UmFpbnk=&quot;, &quot;U25vd3k=&quot;]
-</code></pre>
-
-<h2 id="key">Key</h2>
-
+</code></pre><h2 id="key">Key</h2>
 <p>DynamoDB では Key を <strong>プライマリーキー</strong> と呼び、以下の2種類の構成から選択できる。</p>
-
 <ol>
 <li><strong>パーティションキー</strong> のみの単純キー</li>
 <li><strong>パーティションキー</strong> と <strong>ソートキー</strong> の複合キー</li>
 </ol>
-
-<p>パーティションキー、ソートキー共に Value で紹介した <strong>Attribute と同様</strong> の定義となる。<br />
+<p>パーティションキー、ソートキー共に Value で紹介した <strong>Attribute と同様</strong> の定義となる。<br>
 パーティションキーは <strong>Hash Key</strong> 、 ソートキーは <strong>Range Key</strong> とも呼ばれることもある。</p>
-
 <h2 id="テーブル">テーブル</h2>
-
 <p>テーブルは <strong>テーブル名</strong> と <strong>プライマリーキー</strong> （オプションで、ローカルセカンダリインデックス ）で定義することができる。</p>
-
 <h2 id="パーティション">パーティション</h2>
-
 <p>DynamoDB はテーブルが作成された際に自動でパーティションが作成され、また、自動で管理される。
 1つのパーティションには、 <strong>スループット</strong> と <strong>データ容量が</strong> が決まっており、それぞれ上限を超えたら自動的に新規にパーティションが作成される。
 パーティションは <strong>パーティションキー</strong> と <strong>ソートキー</strong> から決定される。</p>
-
 <p>DynamoDB はパーティションキーをハッシュ関数への入力し、その出力値に応じてパーティションを特定する。 Item はソートキーの値でソートされ、データ量が 10GB を超える場合はソートキーによりパーティション分割される。</p>
-
 <h2 id="セカンダリインデックス">セカンダリインデックス</h2>
-
-<p>テーブルで 1 つ以上の<a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/SecondaryIndexes.html">セカンダリインデックス</a>（単に、インデックスともいう）を作成できる。<br />
+<p>テーブルで 1 つ以上の<a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/SecondaryIndexes.html">セカンダリインデックス</a>（単に、インデックスともいう）を作成できる。<br>
 セカンダリインデックスは必須ではないが、利用することにより query/scan の速度を向上することができる。</p>
-
 <p>DynamoDB のインデックスには以下の 2 つある。</p>
-
 <ul>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/GSI.html">グローバルセカンダリインデックス</a> （ <strong>Global Secondary Index</strong> / <strong>GSI</strong> ）
-
 <ul>
 <li>テーブルと異なるパーティションキー（必須）とソートキー（オプション）を持つインデックス</li>
 <li>テーブル作成後に変更 <strong>可能</strong></li>
 <li>キャパシティーユニットの設定が <strong>必要</strong></li>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/GuidelinesForGSI.html">ベストプラクティス</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/LSI.html">ローカルセカンダリインデックス</a> （ <strong>Local Secondary Index</strong> / <strong>LSI</strong> ）
-
 <ul>
 <li>テーブルと同じパーティションキー（必須）と、異なるソートキー（必須）を持つインデックス</li>
 <li>テーブル作成後に変更 <strong>不可能</strong></li>
 <li>キャパシティーユニットは <strong>テーブルのキャパシティーユニットと同じ</strong></li>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/GuidelinesForLSI.html">ベストプラクティス</a></li>
-</ul></li>
 </ul>
-
-<p>テーブルあたり最大 5 個の GSI と 5 個の LSI を定義できる。<br />
-全てのセカンダリインデックスは <strong>完全に 1 つのテーブルに関連付け</strong> られ、そこからデータを取得します。<br />
+</li>
+</ul>
+<p>テーブルあたり最大 5 個の GSI と 5 個の LSI を定義できる。<br>
+全てのセカンダリインデックスは <strong>完全に 1 つのテーブルに関連付け</strong> られ、そこからデータを取得します。<br>
 また、ソートキーの Attribute に条件を適用して <strong>Item をフィルタリング</strong> することができる。</p>
-
 <h2 id="キャパシティユニット">キャパシティユニット</h2>
-
-<p>DynamoDB では <strong>キャパシティーユニット</strong> という単位で、書き込みと読み込みのスループットキャパシティが決定される。<br />
+<p>DynamoDB では <strong>キャパシティーユニット</strong> という単位で、書き込みと読み込みのスループットキャパシティが決定される。<br>
 DyanamoDB のテーブル作成時には <strong>読み込みキャパシティーユニット</strong> と <strong>書き込みキャパシティーユニット</strong> を指定する必要がある。</p>
-
 <ul>
 <li><strong>強力な整合性のある</strong> 読み込みキャパシティーユニット
-
 <ul>
 <li>『1 キャパシティーユニット』＝『「最大 <strong>4</strong> KB の Item 1 つ」を「 1 秒間」に「 1 回」の読み込む』
-
 <ul>
 <li>4 KB より大きい項目を読み込む場合は、追加の読み込みキャパシティーユニットを消費する</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><strong>結果的に整合性のある</strong> 読み込みキャパシティーユニット
-
 <ul>
 <li>『1 キャパシティーユニット』＝『「最大 <strong>4</strong> KB の Item 1 つ」を「 1 秒間」に「 <strong>2</strong> 回」の読み込む』
-
 <ul>
 <li>4 KB より大きい項目を読み込む場合は、追加の読み込みキャパシティーユニットを消費する</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>書き込みキャパシティーユニット
-
 <ul>
 <li>『1 キャパシティーユニット』＝『「最大 <strong>1</strong> KB の Item 1 つ」を「 1 秒間」に「 1 回」の書き込む』
-
 <ul>
 <li>1 KB より大きい項目を書き込む場合は、追加の書き込みキャパシティーユニットを消費する</li>
-</ul></li>
-</ul></li>
 </ul>
-
-<p>例えば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットであれば「最大 <strong>4</strong> KB の Item 1 つ」なので、「 3.5 KB の Item 1 つ を 1 秒に 1 回読み込み」でも「 1 キャパシティーユニット」になる。<br />
+</li>
+</ul>
+</li>
+</ul>
+<p>例えば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットであれば「最大 <strong>4</strong> KB の Item 1 つ」なので、「 3.5 KB の Item 1 つ を 1 秒に 1 回読み込み」でも「 1 キャパシティーユニット」になる。<br>
 「 3.5 KB の Item 1 つ を 1 秒に 2 回読み込み」であれば「 2 キャパシティユニット」、「 0.5 KB の Item 1 つ を 1 秒に 10 回読み込み」であれば「 10 キャパシティユニット」、「 2.1 KB の Item 5 つ を 1 秒に 3 回読み込み」であれば「 15 キャパシティユニット」となる。</p>
-
-<p><strong>結果的に整合性のある</strong> 読み込みキャパシティーユニットであれば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットの <strong>2倍</strong> のキャパシティー、つまりキャパシティユニットの数字は <strong>半分</strong> となるのみで考え方は同様。<br />
+<p><strong>結果的に整合性のある</strong> 読み込みキャパシティーユニットであれば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットの <strong>2倍</strong> のキャパシティー、つまりキャパシティユニットの数字は <strong>半分</strong> となるのみで考え方は同様。<br>
 書き込みキャパシティーユニットであれば「最大 <strong>1</strong> KB の Item」部分異なるのみで考え方は同様。</p>
-
-<p>さらに例を挙げる。<br />
-「 20 KB の Item 1 つを 1 秒間に強力な整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」（ 20 KB = 4 KB × <strong>5</strong> なので）。<br />
-「 20 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 2.5 キャパシティーユニット」（ 20 KB = 4 KB × 5 の <strong>2倍</strong> のキャパシティなのでキャパシティーユニットの数字は <strong>半分</strong> ）。<br />
-「 40 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」。<br />
+<p>さらに例を挙げる。<br>
+「 20 KB の Item 1 つを 1 秒間に強力な整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」（ 20 KB = 4 KB × <strong>5</strong> なので）。<br>
+「 20 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 2.5 キャパシティーユニット」（ 20 KB = 4 KB × 5 の <strong>2倍</strong> のキャパシティなのでキャパシティーユニットの数字は <strong>半分</strong> ）。<br>
+「 40 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」。<br>
 「 5 KB の Item 1 つを 1 秒間に書き込む」場合は「 5 キャパシティーユニット」。</p>
-
 <h1 id="dynamodb-の-api">DynamoDB の API</h1>
-
 <p>DynamoDB の API は大きく以下がある。</p>
-
 <ul>
 <li>コントロールプレーン
-
 <ul>
 <li>DynamoDB テーブルを作成、管理</li>
-</ul></li>
+</ul>
+</li>
 <li>データプレーン
-
 <ul>
 <li>テーブルデータのCRUD</li>
-</ul></li>
+</ul>
+</li>
 <li>DynamoDB ストリーム
-
 <ul>
 <li>テーブルのストリームを有効または無効にし、ストリームに含まれるデータ変更レコードにアクセス</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>ここでは、コントロールプレーン、データプレーンについて触れる。</p>
-
 <h2 id="コントロールプレーン">コントロールプレーン</h2>
-
 <p>コントロールプレーンには以下の API がある。</p>
-
 <ul>
 <li><strong>CreateTable</strong>
-
 <ul>
 <li>テーブルを作成する</li>
 <li>オプションで、1 つ以上のセカンダリインデックスを作成し、テーブルに対して DynamoDB ストリーム を有効にできる</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>DescribeTable</strong>
-
 <ul>
 <li>プライマリキーのスキーマ、スループット設定、インデックス情報など、テーブルに関する情報を取得する</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>ListTables</strong>
-
 <ul>
 <li>すべてのテーブル名のリストを取得する</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>UpdateTable</strong>
-
 <ul>
 <li>テーブルまたはそのインデックスの設定を変更、テーブルの新しいインデックスを作成または削除、またはテーブルの DynamoDB ストリーム 設定を変更する</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>DeleteTable</strong>
-
 <ul>
 <li>テーブルを削除する</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="データプレーン">データプレーン</h2>
-
 <p>データプレーンには以下の API がある。</p>
-
 <ul>
 <li>データの作成
-
 <ul>
 <li><strong>PutItem</strong>
-
 <ul>
 <li>テーブルに Item を 1つ書き込む</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>BatchWriteItem</strong>
-
 <ul>
 <li>テーブルに Item を25個書き込みむ</li>
 <li>PutItem を複数回呼び出すよりも効率的</li>
 <li>1つ以上のテーブルを跨った書き込みも可能</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>データの読み取り
-
 <ul>
 <li><strong>GetItem</strong>
-
 <ul>
 <li>テーブルから Item を 1つ取得する</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>BatchGetItem</strong>
-
 <ul>
 <li>テーブルから Item を 100 個取得する</li>
 <li>GetItem を複数回呼び出すよりも効率的</li>
 <li>1つ以上のテーブルを跨った読み込みも可能</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Query</strong>
-
 <ul>
 <li>指定したパーティションキーを持つ全ての Item を取得する
-
 <ul>
 <li>パーティションキーは、「テーブル（＝ローカルセカンダリインデックス）のパーティションキー」もしくは「グローバルセカンダリインデックスのパーティションキー」</li>
-</ul></li>
+</ul>
+</li>
 <li>オプションで、ソートキーおよび比較演算子を指定して、検索結果を絞り込める
-
 <ul>
 <li>ソートキーは、パーティションキーに対応するソートキーから選択する</li>
-</ul></li>
+</ul>
+</li>
 <li>Item 内の属性全体、もしくは指定した属性のみを取得できる</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Scan</strong>
-
 <ul>
 <li>指定したテーブルもしくは（グローバル／ローカル）セカンダリインデックスの全ての Item を取得する</li>
 <li>オプションで、パーティションキー・ソートキーおよび比較演算子を指定して、検索結果を絞り込める</li>
 <li>Item 内の属性全体、もしくは指定した属性のみを取得できる</li>
 <li><strong>フィルタ式があるかどうかにかかわらず、同じ量の読み込みキャパシティーを消費する</strong></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>データの更新
-
 <ul>
 <li><strong>UpdateItem</strong>
-
 <ul>
 <li>テーブルの Item を 1 つ以上更新する</li>
 <li>条件付き更新が可能</li>
 <li>オプションで、アトミックカウンタ（他の書き込みリクエストを妨害することなく、数値属性をインクリメントまたはデクリメント）も可能</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>データの削除
-
 <ul>
 <li><strong>DeleteItem</strong>
-
 <ul>
 <li>テーブルから Item を 1 つ削除する</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>BatchWriteItem</strong>
-
 <ul>
 <li>テーブルから Item を最大 25 個削除する</li>
 <li>DeleteItem を複数回呼び出すよりも効率的</li>
 <li>1つ以上のテーブルを跨った削除も可能</li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="aws-cli-で-dynamodb-へアクセス">AWS CLI で DynamoDB へアクセス</h1>
-
 <p><a href="http://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html">公式ドキュメント</a></p>
-
 <h2 id="環境設定">環境設定</h2>
-
 <p><strong>pip</strong> が導入されている前提で書く。</p>
-
-<pre><code class="language-sh">$ pip install awscli
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install awscli
 $ aws configure
-# アクセスキー、シークレットキーなどを入力する
-</code></pre>
-
-<h2 id="テーブル定義">テーブル定義</h2>
-
-<p>以降の AWS CLI によるオペレーションは以下のテーブル定義の前提とする。<br />
+<span style="color:#75715e"># アクセスキー、シークレットキーなどを入力する</span>
+</code></pre></div><h2 id="テーブル定義">テーブル定義</h2>
+<p>以降の AWS CLI によるオペレーションは以下のテーブル定義の前提とする。<br>
 テーブル名は <code>test_table</code> 。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">属性名</th>
-<th align="left">属性型</th>
-<th align="left">プライマリーキー</th>
+<th style="text-align:left">属性名</th>
+<th style="text-align:left">属性型</th>
+<th style="text-align:left">プライマリーキー</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">test_hash</td>
-<td align="left">スカラー型/文字列</td>
-<td align="left">HASH Key</td>
+<td style="text-align:left">test_hash</td>
+<td style="text-align:left">スカラー型/文字列</td>
+<td style="text-align:left">HASH Key</td>
 </tr>
-
 <tr>
-<td align="left">test_range</td>
-<td align="left">スカラー型/文字列</td>
-<td align="left">RANGE Key</td>
+<td style="text-align:left">test_range</td>
+<td style="text-align:left">スカラー型/文字列</td>
+<td style="text-align:left">RANGE Key</td>
 </tr>
-
 <tr>
-<td align="left">test_value</td>
-<td align="left">スカラー型/文字列</td>
-<td align="left"></td>
+<td style="text-align:left">test_value</td>
+<td style="text-align:left">スカラー型/文字列</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="createtable">CreateTable</h2>
-
-<pre><code class="language-sh">$ aws dynamodb create-table \
-  --attribute-definitions '[{&quot;AttributeName&quot;:&quot;test_hash&quot;,&quot;AttributeType&quot;:&quot;S&quot;},{&quot;AttributeName&quot;:&quot;test_range&quot;,&quot;AttributeType&quot;:&quot;S&quot;}]' \
-  --table-name 'test_table' \
-  --key-schema '[{&quot;AttributeName&quot;:&quot;test_hash&quot;,&quot;KeyType&quot;:&quot;HASH&quot;},{&quot;AttributeName&quot;:&quot;test_range&quot;,&quot;KeyType&quot;:&quot;RANGE&quot;}]' \
-  --provisioned-throughput '{&quot;ReadCapacityUnits&quot;:5,&quot;WriteCapacityUnits&quot;:5}'
-</code></pre>
-
-<h2 id="deletetable">DeleteTable</h2>
-
-<pre><code class="language-sh">$ aws dynamodb delete-table \
-  --table-name 'test_table'
-</code></pre>
-
-<h2 id="listtables">ListTables</h2>
-
-<pre><code class="language-sh">$ aws dynamodb list-tables
-</code></pre>
-
-<h2 id="putitem">PutItem</h2>
-
-<pre><code class="language-sh">$ aws dynamodb put-item \
-  --table-name 'test_table' \
-  --item '{&quot;test_hash&quot;:{&quot;S&quot;:&quot;xxxxx&quot;},&quot;test_range&quot;:{&quot;S&quot;:&quot;yyyyy&quot;},&quot;test_value&quot;:{&quot;S&quot;:&quot;zzzzz&quot;}}'
-</code></pre>
-
-<h2 id="getitem">GetItem</h2>
-
-<pre><code class="language-sh">$ aws dynamodb get-item \
-  --table-name 'test_table' \
-  --key '{&quot;test_hash&quot;:{&quot;S&quot;:&quot;xxxxx&quot;},&quot;test_range&quot;:{&quot;S&quot;:&quot;yyyyy&quot;}}'
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aws dynamodb create-table <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --attribute-definitions <span style="color:#e6db74">&#39;[{&#34;AttributeName&#34;:&#34;test_hash&#34;,&#34;AttributeType&#34;:&#34;S&#34;},{&#34;AttributeName&#34;:&#34;test_range&#34;,&#34;AttributeType&#34;:&#34;S&#34;}]&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --table-name <span style="color:#e6db74">&#39;test_table&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --key-schema <span style="color:#e6db74">&#39;[{&#34;AttributeName&#34;:&#34;test_hash&#34;,&#34;KeyType&#34;:&#34;HASH&#34;},{&#34;AttributeName&#34;:&#34;test_range&#34;,&#34;KeyType&#34;:&#34;RANGE&#34;}]&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --provisioned-throughput <span style="color:#e6db74">&#39;{&#34;ReadCapacityUnits&#34;:5,&#34;WriteCapacityUnits&#34;:5}&#39;</span>
+</code></pre></div><h2 id="deletetable">DeleteTable</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aws dynamodb delete-table <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --table-name <span style="color:#e6db74">&#39;test_table&#39;</span>
+</code></pre></div><h2 id="listtables">ListTables</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aws dynamodb list-tables
+</code></pre></div><h2 id="putitem">PutItem</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aws dynamodb put-item <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --table-name <span style="color:#e6db74">&#39;test_table&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --item <span style="color:#e6db74">&#39;{&#34;test_hash&#34;:{&#34;S&#34;:&#34;xxxxx&#34;},&#34;test_range&#34;:{&#34;S&#34;:&#34;yyyyy&#34;},&#34;test_value&#34;:{&#34;S&#34;:&#34;zzzzz&#34;}}&#39;</span>
+</code></pre></div><h2 id="getitem">GetItem</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aws dynamodb get-item <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --table-name <span style="color:#e6db74">&#39;test_table&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --key <span style="color:#e6db74">&#39;{&#34;test_hash&#34;:{&#34;S&#34;:&#34;xxxxx&#34;},&#34;test_range&#34;:{&#34;S&#34;:&#34;yyyyy&#34;}}&#39;</span>
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -608,11 +532,11 @@ $ aws configure
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -623,6 +547,7 @@ $ aws configure
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -716,7 +641,7 @@ $ aws configure
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -743,7 +668,7 @@ $ aws configure
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

@@ -18,21 +18,18 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="Pandas入門 DataFrame編" />
 <meta property="og:description" content="Python ライブラリである Pandas の DataFrame についてまとめる。
-
 - 公式ドキュメント" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/pandas-basics-dataframe/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2018-02-04T17:57:41&#43;09:00"/>
-<meta property="article:modified_time" content="2018-02-04T17:57:41&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2018-02-04T17:57:41+09:00" />
+<meta property="article:modified_time" content="2018-02-04T17:57:41+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Pandas入門 DataFrame編"/>
 <meta name="twitter:description" content="Python ライブラリである Pandas の DataFrame についてまとめる。
-
 - 公式ドキュメント"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -112,275 +109,201 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>Python ライブラリである Pandas の DataFrame についてまとめる。</p>
-
 <p>- <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">公式ドキュメント</a></p>
-
 <h1 id="基本操作">基本操作</h1>
-
 <h2 id="dataframe-の作成">DataFrame の作成</h2>
-
-<pre><code class="language-python">df = pd.DataFrame([[&quot;Taro&quot;, 10], [&quot;Jiro&quot;, 20], [&quot;Goro&quot;, None]], columns=[&quot;name&quot;, &quot;age&quot;])
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame([[<span style="color:#e6db74">&#34;Taro&#34;</span>, <span style="color:#ae81ff">10</span>], [<span style="color:#e6db74">&#34;Jiro&#34;</span>, <span style="color:#ae81ff">20</span>], [<span style="color:#e6db74">&#34;Goro&#34;</span>, None]], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>])
 
     age  name
-0  Taro  10.0
-1  Jiro  20.0
-2  Goro   NaN
-</code></pre>
-
-<p>リストや NumPy の ndarray をそのまま DataFrame にできる。<br />
+<span style="color:#ae81ff">0</span>  Taro  <span style="color:#ae81ff">10.0</span>
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">20.0</span>
+<span style="color:#ae81ff">2</span>  Goro   NaN
+</code></pre></div><p>リストや NumPy の ndarray をそのまま DataFrame にできる。<br>
 以降のプログラム例では、上記の DataFrame を操作する例とする。</p>
-
 <h2 id="データのロード">データのロード</h2>
-
-<p><code>read_csv()</code> と <code>read_table()</code> はデフォルトの区切り文字が違うだけで中身は同じ。<br />
+<p><code>read_csv()</code> と <code>read_table()</code> はデフォルトの区切り文字が違うだけで中身は同じ。<br>
 <code>read_csv()</code> はカンマ、 <code>read_table()</code> はタブ。</p>
-
-<pre><code class="language-python">df = pd.read_csv(&quot;data.csv&quot;)
-df = pd.read_table(&quot;data.tsv&quot;)
-</code></pre>
-
-<p><code>sep</code> オプションを使用することで区切り文字を指定できる。</p>
-
-<pre><code class="language-python">df = pd.read_csv(&quot;data.csv&quot;, sep = &quot;¥t&quot;)
-</code></pre>
-
-<p><code>dtype</code> オプションを指定することで、読み込み時のデータ型を指定できる。</p>
-
-<pre><code class="language-python">df = pd.read_csv(&quot;data.csv&quot;, dtype = {&quot;name&quot;: &quot;object&quot;, &quot;age&quot;: &quot;object&quot;}) # 列を指定して文字列で読み込み
-df = pd.read_csv(&quot;data.csv&quot;, dtype = {0: &quot;object&quot;, 1: &quot;object&quot;}) # カラム番号でも可能
-df = pd.read_csv(&quot;data.csv&quot;, dtype = &quot;object&quot;) # 全ての列を文字列で読み込み
-</code></pre>
-
-<p>なお、 DataFrame ではデフォルトで欠損値を <code>NaN</code> で扱う。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data.csv&#34;</span>)
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_table(<span style="color:#e6db74">&#34;data.tsv&#34;</span>)
+</code></pre></div><p><code>sep</code> オプションを使用することで区切り文字を指定できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data.csv&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;¥t&#34;</span>)
+</code></pre></div><p><code>dtype</code> オプションを指定することで、読み込み時のデータ型を指定できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data.csv&#34;</span>, dtype <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>}) <span style="color:#75715e"># 列を指定して文字列で読み込み</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data.csv&#34;</span>, dtype <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>: <span style="color:#e6db74">&#34;object&#34;</span>, <span style="color:#ae81ff">1</span>: <span style="color:#e6db74">&#34;object&#34;</span>}) <span style="color:#75715e"># カラム番号でも可能</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data.csv&#34;</span>, dtype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;object&#34;</span>) <span style="color:#75715e"># 全ての列を文字列で読み込み</span>
+</code></pre></div><p>なお、 DataFrame ではデフォルトで欠損値を <code>NaN</code> で扱う。</p>
 <h2 id="変換">変換</h2>
-
 <p>Series を DataFrame へ変換する。</p>
-
-<pre><code class="language-python">df = pd.DataFrame(se)
-</code></pre>
-
-<h2 id="検索">検索</h2>
-
-<p><code>[]</code> 内に <code>True</code> または <code>False</code> を返す式を指定する。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(se)
+</code></pre></div><h2 id="検索">検索</h2>
+<p><code>[]</code> 内に <code>True</code> または <code>False</code> を返す式を指定する。<br>
 検索でヒットしたセルにそのまま値を代入できる。</p>
-
 <pre><code># &quot;age&quot; 列の値が 10 より大きい行を取得
 df[df.age &gt; 10]
 
    name   age
 1  Jiro  20.0
-</code></pre>
-
-<pre><code class="language-python"># 値が 0 より大きい値のみを取得
-df[df &gt; 0]
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 値が 0 より大きい値のみを取得</span>
+df[df <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>]
 
    name   age
-0  Taro   NaN
-1  Jiro  20.0
-2  Goro   NaN
-</code></pre>
-
-<pre><code class="language-python"># 検索でヒットしたセルに値を代入
-df.age[df.age &gt; 10] = 100
+<span style="color:#ae81ff">0</span>  Taro   NaN
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">20.0</span>
+<span style="color:#ae81ff">2</span>  Goro   NaN
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 検索でヒットしたセルに値を代入</span>
+df<span style="color:#f92672">.</span>age[df<span style="color:#f92672">.</span>age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
 
    name    age
-0  Taro   10.0
-1  Jiro  100.0
-2  Goro    NaN
-# SettingWithCopyWarning が出るが値は代入されている
-# Warning が出ないようにするには後述の loc を使う
-</code></pre>
-
-<p>後述の <code>isnull()</code> や <code>isin()</code> メソッドを使った検索も可能。</p>
-
+<span style="color:#ae81ff">0</span>  Taro   <span style="color:#ae81ff">10.0</span>
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">100.0</span>
+<span style="color:#ae81ff">2</span>  Goro    NaN
+<span style="color:#75715e"># SettingWithCopyWarning が出るが値は代入されている</span>
+<span style="color:#75715e"># Warning が出ないようにするには後述の loc を使う</span>
+</code></pre></div><p>後述の <code>isnull()</code> や <code>isin()</code> メソッドを使った検索も可能。</p>
 <h2 id="削除">削除</h2>
-
-<pre><code class="language-python"># 行削除
-df.drop(index = 0)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 行削除</span>
+df<span style="color:#f92672">.</span>drop(index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)
 
    name   age
-1  Jiro  20.0
-2  Goro   NaN
-</code></pre>
-
-<pre><code class="language-python"># 列削除
-df.drop(columns = &quot;age&quot;, inplace = True)
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">20.0</span>
+<span style="color:#ae81ff">2</span>  Goro   NaN
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 列削除</span>
+df<span style="color:#f92672">.</span>drop(columns <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;age&#34;</span>, inplace <span style="color:#f92672">=</span> True)
 
    name
-0  Taro
-1  Jiro
-2  Goro
-</code></pre>
-
-<p><code>inplace = True</code> を指定するとオブジェクトが上書きされる。<br />
+<span style="color:#ae81ff">0</span>  Taro
+<span style="color:#ae81ff">1</span>  Jiro
+<span style="color:#ae81ff">2</span>  Goro
+</code></pre></div><p><code>inplace = True</code> を指定するとオブジェクトが上書きされる。<br>
 また、検索条件にひっかけることで行の削除が可能。</p>
-
-<pre><code class="language-python"># age列が10以下の行を削除 = age列が10より大きい列のみ抽出
-df = df[df.age &gt; 10]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># age列が10以下の行を削除 = age列が10より大きい列のみ抽出</span>
+df <span style="color:#f92672">=</span> df[df<span style="color:#f92672">.</span>age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span>]
 
    name   age
-1  Jiro  20.0
-</code></pre>
-
-<h2 id="追加">追加</h2>
-
-<pre><code class="language-python">df2 = pd.DataFrame([[&quot;Rokuro&quot;, 60]], columns=[&quot;name&quot;, &quot;age&quot;])
-# 行追加
-df = df.append(df2)
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">20.0</span>
+</code></pre></div><h2 id="追加">追加</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame([[<span style="color:#e6db74">&#34;Rokuro&#34;</span>, <span style="color:#ae81ff">60</span>]], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>])
+<span style="color:#75715e"># 行追加</span>
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>append(df2)
 
      name   age
-0    Taro  10.0
-1    Jiro  20.0
-2    Goro   NaN
-0  Rokuro  60.0
-</code></pre>
-
-<pre><code class="language-python">se = pd.Series([&quot;male&quot;, &quot;female&quot;, &quot;male&quot;])
-# 列追加
-df[&quot;sex&quot;] = se
+<span style="color:#ae81ff">0</span>    Taro  <span style="color:#ae81ff">10.0</span>
+<span style="color:#ae81ff">1</span>    Jiro  <span style="color:#ae81ff">20.0</span>
+<span style="color:#ae81ff">2</span>    Goro   NaN
+<span style="color:#ae81ff">0</span>  Rokuro  <span style="color:#ae81ff">60.0</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">se <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#e6db74">&#34;male&#34;</span>, <span style="color:#e6db74">&#34;female&#34;</span>, <span style="color:#e6db74">&#34;male&#34;</span>])
+<span style="color:#75715e"># 列追加</span>
+df[<span style="color:#e6db74">&#34;sex&#34;</span>] <span style="color:#f92672">=</span> se
 
    name   age     sex
-0  Taro  10.0    male
-1  Jiro  20.0  female
-2  Goro   NaN    male
-</code></pre>
-
-<h2 id="列取得">列取得</h2>
-
+<span style="color:#ae81ff">0</span>  Taro  <span style="color:#ae81ff">10.0</span>    male
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">20.0</span>  female
+<span style="color:#ae81ff">2</span>  Goro   NaN    male
+</code></pre></div><h2 id="列取得">列取得</h2>
 <p>一列取得した場合は <strong>Series</strong> になる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>name
+<span style="color:#75715e"># print(df[&#34;name&#34;]) も同じ</span>
 
-<pre><code class="language-python">df.name
-# print(df[&quot;name&quot;]) も同じ
-
-0      Taro
-1      Jiro
-2      Goro
+<span style="color:#ae81ff">0</span>      Taro
+<span style="color:#ae81ff">1</span>      Jiro
+<span style="color:#ae81ff">2</span>      Goro
 Name: name, dtype: object
-</code></pre>
-
-<pre><code class="language-python">print(df[[&quot;name&quot;, &quot;age&quot;]])
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(df[[<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>]])
 
    name   age
-0  Taro  10.0
-1  Jiro  20.0
-2  Goro   NaN
-</code></pre>
-
-<h2 id="検索-1">検索</h2>
-
+<span style="color:#ae81ff">0</span>  Taro  <span style="color:#ae81ff">10.0</span>
+<span style="color:#ae81ff">1</span>  Jiro  <span style="color:#ae81ff">20.0</span>
+<span style="color:#ae81ff">2</span>  Goro   NaN
+</code></pre></div><h2 id="検索-1">検索</h2>
 <p><a href="https://qiita.com/tanemaki/items/2ed05e258ef4c9e6caac">https://qiita.com/tanemaki/items/2ed05e258ef4c9e6caac</a></p>
-
-<h1 id="属性-attributes">属性（Attributes）</h1>
-
+<h1 id="属性attributes">属性（Attributes）</h1>
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">説明</th>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">T</td>
-<td align="left">転置行列</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">転置行列</td>
 </tr>
-
 <tr>
-<td align="left">at</td>
-<td align="left">後述</td>
+<td style="text-align:left">at</td>
+<td style="text-align:left">後述</td>
 </tr>
-
 <tr>
-<td align="left">axes</td>
-<td align="left">行ラベルと列ラベルの情報</td>
+<td style="text-align:left">axes</td>
+<td style="text-align:left">行ラベルと列ラベルの情報</td>
 </tr>
-
 <tr>
-<td align="left">blocks</td>
-<td align="left">辞書形式の内部属性</td>
+<td style="text-align:left">blocks</td>
+<td style="text-align:left">辞書形式の内部属性</td>
 </tr>
-
 <tr>
-<td align="left">columns</td>
-<td align="left">列ラベル</td>
+<td style="text-align:left">columns</td>
+<td style="text-align:left">列ラベル</td>
 </tr>
-
 <tr>
-<td align="left">dtypes</td>
-<td align="left">オブジェクトのデータタイプ</td>
+<td style="text-align:left">dtypes</td>
+<td style="text-align:left">オブジェクトのデータタイプ</td>
 </tr>
-
 <tr>
-<td align="left">empty</td>
-<td align="left">中身が完全に空の時、Trueを返す</td>
+<td style="text-align:left">empty</td>
+<td style="text-align:left">中身が完全に空の時、Trueを返す</td>
 </tr>
-
 <tr>
-<td align="left">ftypes</td>
-<td align="left">オブジェクトの ftypes を Series 形式で返却</td>
+<td style="text-align:left">ftypes</td>
+<td style="text-align:left">オブジェクトの ftypes を Series 形式で返却</td>
 </tr>
-
 <tr>
-<td align="left">iat</td>
-<td align="left">後述</td>
+<td style="text-align:left">iat</td>
+<td style="text-align:left">後述</td>
 </tr>
-
 <tr>
-<td align="left">iloc</td>
-<td align="left">後述</td>
+<td style="text-align:left">iloc</td>
+<td style="text-align:left">後述</td>
 </tr>
-
 <tr>
-<td align="left">index</td>
-<td align="left">行ラベル</td>
+<td style="text-align:left">index</td>
+<td style="text-align:left">行ラベル</td>
 </tr>
-
 <tr>
-<td align="left">is_copy</td>
-<td align="left">不明</td>
+<td style="text-align:left">is_copy</td>
+<td style="text-align:left">不明</td>
 </tr>
-
 <tr>
-<td align="left">ix</td>
-<td align="left">非推奨</td>
+<td style="text-align:left">ix</td>
+<td style="text-align:left">非推奨</td>
 </tr>
-
 <tr>
-<td align="left">loc</td>
-<td align="left">後述</td>
+<td style="text-align:left">loc</td>
+<td style="text-align:left">後述</td>
 </tr>
-
 <tr>
-<td align="left">ndim</td>
-<td align="left">何次元配列か返却</td>
+<td style="text-align:left">ndim</td>
+<td style="text-align:left">何次元配列か返却</td>
 </tr>
-
 <tr>
-<td align="left">shape</td>
-<td align="left">行と列のサイズ</td>
+<td style="text-align:left">shape</td>
+<td style="text-align:left">行と列のサイズ</td>
 </tr>
-
 <tr>
-<td align="left">size</td>
-<td align="left">行列の要素数（行サイズは <code>len(df.index)</code> 、列サイズは <code>len(df.columns)</code> ）</td>
+<td style="text-align:left">size</td>
+<td style="text-align:left">行列の要素数（行サイズは <code>len(df.index)</code> 、列サイズは <code>len(df.columns)</code> ）</td>
 </tr>
-
 <tr>
-<td align="left">style</td>
-<td align="left">Stylerオブジェクトを返却</td>
+<td style="text-align:left">style</td>
+<td style="text-align:left">Stylerオブジェクトを返却</td>
 </tr>
-
 <tr>
-<td align="left">values</td>
-<td align="left">numpy.ndarray 形式で値を取得</td>
+<td style="text-align:left">values</td>
+<td style="text-align:left">numpy.ndarray 形式で値を取得</td>
 </tr>
 </tbody>
 </table>
-
-<h2 id="at-iat-loc-iloc"><code>at</code> 、 <code>iat</code> 、 <code>loc</code> 、 <code>iloc</code></h2>
-
+<h2 id="at--iat--loc--iloc"><code>at</code> 、 <code>iat</code> 、 <code>loc</code> 、 <code>iloc</code></h2>
 <ul>
 <li>単独の値（スカラー）にアクセスするのが <code>at</code> と <code>iat</code></li>
 <li>単独の値（スカラー）および複数の値（ベクトル）にアクセスするのが <code>loc</code> と <code>iloc</code></li>
@@ -388,185 +311,142 @@ Name: name, dtype: object
 <li>行番号、列番号で位置を指定するのが <code>iat</code> と <code>iloc</code></li>
 <li>処理速度は <code>at</code> と <code>iat</code> のほうが <code>loc</code> と <code>iloc</code> よりも高速</li>
 </ul>
-
 <p>なお、 <code>DataFrame.get_value()</code> 、 <code>DataFrame.ix[]</code> もあるが、それぞれバージョン <code>v0.21.0</code> <code>v0.20.0</code> から非推奨（Deprecated）になっている。これから新しく書くコードには <code>at</code> , <code>iat</code> , <code>loc</code> , <code>iloc</code> を使うほうがいいだろう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># USAGE</span>
+df<span style="color:#f92672">.</span>at[<span style="color:#960050;background-color:#1e0010">行条件</span>, <span style="color:#960050;background-color:#1e0010">列条件</span>]
+df<span style="color:#f92672">.</span>iat[<span style="color:#960050;background-color:#1e0010">行条件</span>, <span style="color:#960050;background-color:#1e0010">列条件</span>]
+df<span style="color:#f92672">.</span>loc[<span style="color:#960050;background-color:#1e0010">行条件</span>, <span style="color:#960050;background-color:#1e0010">列条件</span>]
+df<span style="color:#f92672">.</span>iloc[<span style="color:#960050;background-color:#1e0010">行条件</span>, <span style="color:#960050;background-color:#1e0010">列条件</span>]
+</code></pre></div><p><code>at</code> は行ラベルと列ラベルで位置を指定する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>at[<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;age&#34;</span>]
+<span style="color:#75715e"># 20.0</span>
+<span style="color:#75715e"># numpy.float64</span>
 
-<pre><code class="language-python"># USAGE
-df.at[行条件, 列条件]
-df.iat[行条件, 列条件]
-df.loc[行条件, 列条件]
-df.iloc[行条件, 列条件]
-</code></pre>
+df<span style="color:#f92672">.</span>at[<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;name&#34;</span>]
+<span style="color:#75715e"># &#39;Goro&#39;</span>
+<span style="color:#75715e"># str</span>
 
-<p><code>at</code> は行ラベルと列ラベルで位置を指定する。</p>
+df<span style="color:#f92672">.</span>at[<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;age&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span> <span style="color:#75715e"># 代入も可能</span>
+</code></pre></div><p><code>iat</code> は行番号と列番号で位置を指定する。行番号・列番号は <code>0</code> はじまり。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>iat[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+<span style="color:#75715e"># &#39;Taro&#39;</span>
 
-<pre><code class="language-python">df.at[1, &quot;age&quot;]
-# 20.0
-# numpy.float64
-
-df.at[2, &quot;name&quot;]
-# 'Goro'
-# str
-
-df.at[1, &quot;age&quot;] = 60 # 代入も可能
-</code></pre>
-
-<p><code>iat</code> は行番号と列番号で位置を指定する。行番号・列番号は <code>0</code> はじまり。</p>
-
-<pre><code class="language-python">df.iat[0, 0]
-# 'Taro'
-
-df.iat[2, 1]
-# nan
-</code></pre>
-
-<p><code>loc</code> はスライス <code>x:y</code> やリスト <code>[x, y]</code> でデータの範囲・位置を指定する。参照される値は pandas.Series または pandas.DataFrame になる。<br />
-列の指定を省略すると、列全体の参照になる。<br />
-列全体を参照したい場合は、行の指定を <code>:</code> （全体のスライス）にする。<br />
-また、行の指定には <code>df.age&gt;10</code> のような <strong>検索条件</strong> を指定することもできる。<br />
+df<span style="color:#f92672">.</span>iat[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>]
+<span style="color:#75715e"># nan</span>
+</code></pre></div><p><code>loc</code> はスライス <code>x:y</code> やリスト <code>[x, y]</code> でデータの範囲・位置を指定する。参照される値は pandas.Series または pandas.DataFrame になる。<br>
+列の指定を省略すると、列全体の参照になる。<br>
+列全体を参照したい場合は、行の指定を <code>:</code> （全体のスライス）にする。<br>
+また、行の指定には <code>df.age&gt;10</code> のような <strong>検索条件</strong> を指定することもできる。<br>
 <code>loc</code> で取得したセルに対して <strong>値を代入</strong> することができる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>loc[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;age&#34;</span>]
 
-<pre><code class="language-python">df.loc[0:1, &quot;name&quot;:&quot;age&quot;]
+df<span style="color:#f92672">.</span>loc[[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>]]
 
-df.loc[[0, 2], [&quot;name&quot;, &quot;age&quot;]]
+df<span style="color:#f92672">.</span>loc[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;age&#34;</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>] <span style="color:#75715e"># 代入</span>
 
-df.loc[0:2, &quot;age&quot;] = [20, 30, 40] # 代入
-
-df.loc[df.age&gt;10, &quot;age&quot;] = 20 # 検索結果が複数行でも代入可能
-</code></pre>
-
-<h1 id="代表的なメソッド">代表的なメソッド</h1>
-
+df<span style="color:#f92672">.</span>loc[df<span style="color:#f92672">.</span>age<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#34;age&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e"># 検索結果が複数行でも代入可能</span>
+</code></pre></div><h1 id="代表的なメソッド">代表的なメソッド</h1>
 <table>
 <thead>
 <tr>
-<th align="left">メソッド</th>
-<th align="left">説明</th>
+<th style="text-align:left">メソッド</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left"><code>apply(関数・Lambda)</code></td>
-<td align="left">各列に任意の処理を適用</td>
+<td style="text-align:left"><code>apply(関数・Lambda)</code></td>
+<td style="text-align:left">各列に任意の処理を適用</td>
 </tr>
-
 <tr>
-<td align="left"><code>astype({辞書型})</code></td>
-<td align="left">型変換</td>
+<td style="text-align:left"><code>astype({辞書型})</code></td>
+<td style="text-align:left">型変換</td>
 </tr>
-
 <tr>
-<td align="left"><code>replace(&quot;置換対象文字&quot;, &quot;置換文字&quot;)</code></td>
-<td align="left">文字の置換</td>
+<td style="text-align:left"><code>replace(&quot;置換対象文字&quot;, &quot;置換文字&quot;)</code></td>
+<td style="text-align:left">文字の置換</td>
 </tr>
-
 <tr>
-<td align="left"><code>rename(columns={辞書型}, inplace=True)</code></td>
-<td align="left">カラム名の変更</td>
+<td style="text-align:left"><code>rename(columns={辞書型}, inplace=True)</code></td>
+<td style="text-align:left">カラム名の変更</td>
 </tr>
-
 <tr>
-<td align="left"><code>isin(リスト)</code></td>
-<td align="left">セルの値がリストに含まれていれば True 、そうでなければ False の DataFrame を返却する</td>
+<td style="text-align:left"><code>isin(リスト)</code></td>
+<td style="text-align:left">セルの値がリストに含まれていれば True 、そうでなければ False の DataFrame を返却する</td>
 </tr>
-
 <tr>
-<td align="left"><code>isnull()</code></td>
-<td align="left">セルが None であれば True 、そうでなければ False の DataFrame を返却する</td>
+<td style="text-align:left"><code>isnull()</code></td>
+<td style="text-align:left">セルが None であれば True 、そうでなければ False の DataFrame を返却する</td>
 </tr>
-
 <tr>
-<td align="left"><code>drop_duplicates()</code></td>
-<td align="left">重複を削除</td>
+<td style="text-align:left"><code>drop_duplicates()</code></td>
+<td style="text-align:left">重複を削除</td>
 </tr>
-
 <tr>
-<td align="left"><code>pivot_table(index=[], columns=[],values=[, aggfunc='sum')</code></td>
-<td align="left">ピボットテーブル</td>
+<td style="text-align:left"><code>pivot_table(index=[], columns=[],values=[, aggfunc='sum')</code></td>
+<td style="text-align:left">ピボットテーブル</td>
 </tr>
-
 <tr>
-<td align="left"><code>sort_values(by=)</code></td>
-<td align="left">ソート</td>
+<td style="text-align:left"><code>sort_values(by=)</code></td>
+<td style="text-align:left">ソート</td>
 </tr>
 </tbody>
 </table>
-
 <h1 id="sql-ライクな操作">SQL ライクな操作</h1>
-
 <ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/comparison_with_sql.html">公式ドキュメント</a></li>
 </ul>
-
 <h2 id="wherer"><code>wherer</code></h2>
-
 <p>条件式が成り立つものをとってきて，それ以外はNaNで埋める。</p>
-
 <ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.where.html">公式ドキュメント</a></li>
 </ul>
-
 <h2 id="groupby"><code>groupby</code></h2>
-
 <p><code>groupby</code> でカラムを指定し、様々な集計関数を適用することができる。</p>
-
 <table>
 <thead>
 <tr>
-<th align="left">項目</th>
-<th align="left">説明</th>
+<th style="text-align:left">項目</th>
+<th style="text-align:left">説明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left"><code>df.groupby('a').mean()</code></td>
-<td align="left">平均</td>
+<td style="text-align:left"><code>df.groupby('a').mean()</code></td>
+<td style="text-align:left">平均</td>
 </tr>
-
 <tr>
-<td align="left"><code>df.groupby('a').max()</code></td>
-<td align="left">最大値</td>
+<td style="text-align:left"><code>df.groupby('a').max()</code></td>
+<td style="text-align:left">最大値</td>
 </tr>
-
 <tr>
-<td align="left"><code>df.groupby('a').min()</code></td>
-<td align="left">最小値</td>
+<td style="text-align:left"><code>df.groupby('a').min()</code></td>
+<td style="text-align:left">最小値</td>
 </tr>
-
 <tr>
-<td align="left"><code>df.groupby('a').count()</code></td>
-<td align="left">出現回数</td>
+<td style="text-align:left"><code>df.groupby('a').count()</code></td>
+<td style="text-align:left">出現回数</td>
 </tr>
-
 <tr>
-<td align="left"><code>df.groupby('a').sum()</code></td>
-<td align="left">合計値</td>
+<td style="text-align:left"><code>df.groupby('a').sum()</code></td>
+<td style="text-align:left">合計値</td>
 </tr>
-
 <tr>
-<td align="left"><code>df.groupby('a').std()</code></td>
-<td align="left">標準偏差</td>
+<td style="text-align:left"><code>df.groupby('a').std()</code></td>
+<td style="text-align:left">標準偏差</td>
 </tr>
-
 <tr>
-<td align="left"><code>df.groupby('a').sum()</code></td>
-<td align="left">合計値</td>
+<td style="text-align:left"><code>df.groupby('a').sum()</code></td>
+<td style="text-align:left">合計値</td>
 </tr>
 </tbody>
 </table>
-
 <p>集計のキーをインデックスとして扱いたくない場合はオプション <code>as_index=False</code> を指定する。</p>
-
 <ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/api.html#groupby">公式ドキュメント</a></li>
 </ul>
-
 <h2 id="merge"><code>merge</code></h2>
-
 <p>いわゆる JOIN 。</p>
-
 <ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html#pandas.DataFrame.merge">公式ドキュメント</a></li>
 </ul>
@@ -630,11 +510,11 @@ df.loc[df.age&gt;10, &quot;age&quot;] = 20 # 検索結果が複数行でも代�
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -645,6 +525,7 @@ df.loc[df.age&gt;10, &quot;age&quot;] = 20 # 検索結果が複数行でも代�
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -738,7 +619,7 @@ df.loc[df.age&gt;10, &quot;age&quot;] = 20 # 検索結果が複数行でも代�
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -765,7 +646,7 @@ df.loc[df.age&gt;10, &quot;age&quot;] = 20 # 検索結果が複数行でも代�
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

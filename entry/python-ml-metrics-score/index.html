@@ -19,24 +19,21 @@
 	<meta property="og:title" content="Pythonで機械学習 精度評価編" />
 <meta property="og:description" content="ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。
 
-
 学習用データと評価用データの使い方
 精度の指標
 精度の向上
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/python-ml-metrics-score/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-07T08:29:13&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-07T08:29:13&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-07T08:29:13+09:00" />
+<meta property="article:modified_time" content="2017-08-07T08:29:13+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 <meta name="twitter:title" content="Pythonで機械学習 精度評価編"/>
 <meta name="twitter:description" content="ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。
-
 
 学習用データと評価用データの使い方
 精度の指標
@@ -120,203 +117,159 @@ if (!doNotTrack) {
 </div>
 		<div class="content post__content clearfix">
 			<p>ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。</p>
-
 <ul>
 <li>学習用データと評価用データの使い方</li>
 <li>精度の指標</li>
 <li>精度の向上</li>
 </ul>
-
-<p>ここで述べる手法は <strong>scikit-learn</strong> に実装されている。<br />
+<p>ここで述べる手法は <strong>scikit-learn</strong> に実装されている。<br>
 なお実装例については以下記事の後半で紹介している。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/python-ml-dl-svm-2class/">Pythonで機械学習 SVMで2クラス分類問題編</a></li>
 <li><a href="https://blog.pepese.com/entry/python-ml-dl-svm-multiclass/">Pythonで機械学習 SVMで多クラス分類問題編</a></li>
 </ul>
-
 <h1 id="学習用データと評価用データの使い方">学習用データと評価用データの使い方</h1>
-
 <p>教師あり学習前提ではあるが、正解付けしたデータは学習用データと評価用データに分割して以下のような方法でモデルを評価する。</p>
-
 <ul>
 <li>ホールドアウト検証
-
 <ul>
 <li>データセットを学習用データと評価用データへ2分割する方法</li>
 <li>割合は任意</li>
-</ul></li>
+</ul>
+</li>
 <li>k-分割交差検証
-
 <ul>
 <li>データセットを k 分割して、そのうち 1 個を評価用データ、その他の k-1 個を学習用データとして使用する方法</li>
 <li>評価用データを変更しながら k 回繰り返した結果の平均を精度に用いることが多い</li>
 <li>scikit-learn 0.18 までは <code>sklearn.cross_validation.KFold</code> モジュールだったが DeprecationWarning となっており、0.20 からは <code>sklearn.model_selection.KFold</code> を使用する
-
 <ul>
 <li><a href="http://segafreder.hatenablog.com/entry/2016/10/18/163925">参考</a></li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="精度の指標">精度の指標</h1>
-
 <p>精度の指標には以下がある。</p>
-
 <ul>
 <li>正答率（Accuracy）
-
 <ul>
 <li>全体の事象の中で正解がどれだけあったかの割合</li>
-</ul></li>
+</ul>
+</li>
 <li>適合率（Precision）
-
 <ul>
 <li>モデルが Positive と判断した中で、本当に Positive なものの割合</li>
-</ul></li>
+</ul>
+</li>
 <li>再現率（Recall）
-
 <ul>
 <li>本当に Positive なものの中で、モデルが Positive と判断できたものの割合</li>
-</ul></li>
+</ul>
+</li>
 <li>F値（F-measure）
-
 <ul>
 <li>適合率と再現率の調和平均</li>
 <li>適合率の再現理を総合的に見る際に使用</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>上記は以下の <strong>混同行列</strong> （ <strong>Confusion Matrix</strong> ）から算出することができる。</p>
-
-<table>
-<tr>
-<td></td><td></td><td colspan="2">予測</td>
-</tr>
-<tr>
-<td></td><td></td><td>Positive</td><td>Negative</td>
-</tr>
-<tr>
-<td rowspan="2">実際</td><td>Positive</td><td>True Positive (TP)</td><td>False Negative (FN)</td>
-</tr>
-<tr>
-<td>Negative</td><td>False Positive (FP)</td><td>True Negative (TN)</td>
-</tr>
-</table>
-
+<!-- raw HTML omitted -->
 <ul>
 <li>TP・・・Positive という予測が True （正解）だった数</li>
 <li>FP・・・Positive という予測が False （不正解）だった数</li>
 <li>TN・・・Negative という予測が True （正解）だった数</li>
 <li>FN・・・Negative という予測が False （不正解）だった数</li>
 </ul>
-
 <p>上記を用いてそれぞれの指標値は以下のように算出できる。</p>
-
 <p>$$ 正答率（Accuracy）=\frac{TP+TN}{TP+FP+FN+TN} $$</p>
-
 <p>$$ 適合率（Precision）=\frac{TP}{TP+FP} $$</p>
-
 <p>$$ 再現率（Recall）=\frac{TP}{TP+FN} $$</p>
-
 <p>$$ F値（F-measure）=\frac{ 2 \times 適合率 \times 再現率 }{ 適合率 + 再現率 } $$</p>
-
 <p>これらの使用値と混同行列は scikit-learn の metrics モジュールを用いて、以下のように算出できる。</p>
-
 <ul>
 <li>正答率（Accuracy）
-
 <ul>
 <li><code>metrics.accuracy_score(expected, predicted)</code></li>
-</ul></li>
+</ul>
+</li>
 <li>適合率（Precision）
-
 <ul>
 <li><code>metrics.precision_score(expected, predicted, pos_label=3)</code></li>
-</ul></li>
+</ul>
+</li>
 <li>再現率（Recall）
-
 <ul>
 <li><code>metrics.recall_score(expected, predicted, pos_label=3)</code></li>
-</ul></li>
+</ul>
+</li>
 <li>F値（F-measure）
-
 <ul>
 <li><code>metrics.f1_score(expected, predicted, pos_label=3)</code></li>
-</ul></li>
+</ul>
+</li>
 <li>混同行列（Confusion Matrix）
-
 <ul>
 <li><code>metrics.confusion_matrix(expected, predicted)</code></li>
-</ul></li>
 </ul>
-
-<p>上記の <code>pos_label</code> は <strong>Positive Label</strong> のこと。<br />
-2クラス分類問題などでは片方が <code>Positive</code> 、もう片方が <code>Negative</code> となるため、片方のラベルを Positive として設定してあげることになる。<br />
+</li>
+</ul>
+<p>上記の <code>pos_label</code> は <strong>Positive Label</strong> のこと。<br>
+2クラス分類問題などでは片方が <code>Positive</code> 、もう片方が <code>Negative</code> となるため、片方のラベルを Positive として設定してあげることになる。<br>
 繰り返しになるが、実装例については以下記事の後半で紹介している。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/python-ml-dl-svm-2class/">Pythonで機械学習 SVMで2クラス分類問題編</a></li>
 <li><a href="https://blog.pepese.com/entry/python-ml-dl-svm-multiclass/">Pythonで機械学習 SVMで多クラス分類問題編</a></li>
 </ul>
-
 <h1 id="精度の向上">精度の向上</h1>
-
 <p>精度向上の方法にはいくつかあるが、以下のような方法が考えられる。</p>
-
 <ul>
 <li>パラメータチューニング</li>
 <li>アンサンブル学習</li>
 </ul>
-
 <h2 id="パラメータチューニング">パラメータチューニング</h2>
-
 <p>パイパーパラメータの最適値を選ぶには以下の手法があり、うち <strong>グリッドサーチ</strong> は scikit-learn で実装されている。<a href="http://sucrose.hatenablog.com/entry/2013/05/25/133021">参考</a></p>
-
 <ul>
 <li>グリッドサーチ
-
 <ul>
 <li>昔からある手法で、格子状の空間で最適なパラメータを探索する方法です</li>
 <li>格子の範囲を総当りするため、膨大な計算時間がかかるという課題がある</li>
-</ul></li>
+</ul>
+</li>
 <li>ランダムサーチ
-
 <ul>
 <li>無作為にパラメータを抽出して探索する</li>
 <li>グリッドサーチよりも計算時間が短くて済むというメリットがある</li>
-</ul></li>
+</ul>
+</li>
 <li>ベイズ最適化 (Bayesian Optimization)
-
 <ul>
 <li>最初は無作為にパラメータを抽出して探索するが、その結果を使って次に探索する点を確率的に選ぶ方法</li>
 <li>ディープラーニングを含む機械学習の手法で、比較的良いハイパーパラメータを探索できることが知られている</li>
 <li>特に、低次元のデータで大域的な解を求めたい場合や、グリッドサーチなどで時間がかかっている場合に有効な手法</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="アンサンブル学習">アンサンブル学習</h2>
-
-<p><strong>アンサンブル学習</strong> とは、いくつかの性能の低い分類器（弱仮説器）を組み合わせて、性能の高い 1 つの分類器を作る方法。<br />
-弱仮説器のアルゴリズムは決まっておらず、適宜選定する必要がある。<br />
+<p><strong>アンサンブル学習</strong> とは、いくつかの性能の低い分類器（弱仮説器）を組み合わせて、性能の高い 1 つの分類器を作る方法。<br>
+弱仮説器のアルゴリズムは決まっておらず、適宜選定する必要がある。<br>
 アンサンブル学習のイメージは「多数決」であり、以下の 2 つに分類できる。</p>
-
 <ul>
 <li>バギング
-
 <ul>
 <li>学習データを抜けや重複を許して複数個のグループに分割し、学習データのグループ毎に弱仮説器を生成する方法</li>
 <li>分類時は、各弱仮説器の出力した分類結果の多数決をとる</li>
-</ul></li>
+</ul>
+</li>
 <li>ブースティング
-
 <ul>
 <li>複数の弱仮説器を用意し、重み付きの多数決で分類を実現する方法</li>
 <li>難易度の高い学習データを正しく分類できる弱仮説器の半径結果を重視されるように重みを更新していく</li>
 <li>ある弱仮説器が間違ったデータを難易度の高いデータとし、「難易度の高いデータの抽出」と「難易度の高いデータに特化した弱仮説器の重みの計算」を反復して弱仮説器の重みを決定する</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><strong>Random Forest</strong> はバギング、 <strong>AdaBoost</strong> はブースティングの例である。</p>
 		</div>
 	</article>
@@ -378,11 +331,11 @@ if (!doNotTrack) {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -393,6 +346,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -486,7 +440,7 @@ if (!doNotTrack) {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -513,7 +467,7 @@ if (!doNotTrack) {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

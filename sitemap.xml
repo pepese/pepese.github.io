@@ -1,11 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.pepese.com/archives/2019/06/</loc>
+    <loc>https://blog.pepese.com/tags/asdf/</loc>
+    <lastmod>2020-12-09T20:29:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/entry/asdf/</loc>
+    <lastmod>2020-12-09T20:29:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/entry/</loc>
+    <lastmod>2020-12-09T20:29:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2020-12-09T20:29:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2020-12-09T20:29:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/aws/</loc>
     <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -14,45 +38,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/</loc>
-    <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/entry/</loc>
-    <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/aws/</loc>
-    <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/iam/</loc>
     <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/</loc>
-    <lastmod>2019-06-03T07:18:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/archives/2019/05/</loc>
-    <lastmod>2019-05-26T16:09:06+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -63,7 +50,6 @@
   <url>
     <loc>https://blog.pepese.com/tags/hugo/</loc>
     <lastmod>2019-05-26T16:09:06+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -74,24 +60,16 @@
   <url>
     <loc>https://blog.pepese.com/tags/vpc/</loc>
     <lastmod>2019-05-23T09:24:08+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/archives/2019/02/</loc>
-    <lastmod>2019-02-11T18:21:26+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/entry/golang-string/</loc>
-    <lastmod>2019-02-11T18:21:26+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/go/</loc>
     <lastmod>2019-02-11T18:21:26+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/entry/golang-string/</loc>
+    <lastmod>2019-02-11T18:21:26+09:00</lastmod>
   </url>
   
   <url>
@@ -110,12 +88,6 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/2019/01/</loc>
-    <lastmod>2019-01-03T18:23:48+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/entry/golang-basics/</loc>
     <lastmod>2019-01-03T18:23:48+09:00</lastmod>
   </url>
@@ -123,13 +95,11 @@
   <url>
     <loc>https://blog.pepese.com/tags/vscode/</loc>
     <lastmod>2019-01-03T18:23:48+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/2018/02/</loc>
+    <loc>https://blog.pepese.com/tags/jupyter/</loc>
     <lastmod>2018-02-20T08:03:43+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -138,27 +108,18 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/jupyter/</loc>
-    <lastmod>2018-02-20T08:03:43+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/python/</loc>
     <lastmod>2018-02-20T08:03:43+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/mecab/</loc>
     <lastmod>2018-02-04T18:13:45+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/node.js/</loc>
     <lastmod>2018-02-04T18:13:45+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -167,20 +128,23 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/entry/word2vec-basics/</loc>
-    <lastmod>2018-02-04T18:10:43+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/gensim/</loc>
     <lastmod>2018-02-04T18:10:43+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/word2vec/</loc>
     <lastmod>2018-02-04T18:10:43+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/entry/word2vec-basics/</loc>
+    <lastmod>2018-02-04T18:10:43+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/pandas/</loc>
+    <lastmod>2018-02-04T17:59:21+09:00</lastmod>
   </url>
   
   <url>
@@ -189,15 +153,13 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/pandas/</loc>
+    <loc>https://blog.pepese.com/tags/sql/</loc>
     <lastmod>2018-02-04T17:59:21+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/sql/</loc>
-    <lastmod>2018-02-04T17:59:21+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/tags/dataframe/</loc>
+    <lastmod>2018-02-04T17:57:41+09:00</lastmod>
   </url>
   
   <url>
@@ -206,9 +168,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/dataframe/</loc>
-    <lastmod>2018-02-04T17:57:41+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/tags/nginx/</loc>
+    <lastmod>2018-02-04T08:08:16+09:00</lastmod>
   </url>
   
   <url>
@@ -217,20 +178,18 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/nginx/</loc>
-    <lastmod>2018-02-04T08:08:16+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/archives/2018/01/</loc>
-    <lastmod>2018-01-31T18:09:30+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/entry/vscode-basics/</loc>
     <lastmod>2018-01-31T18:09:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/android/</loc>
+    <lastmod>2018-01-06T07:44:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/appium/</loc>
+    <lastmod>2018-01-06T07:44:15+09:00</lastmod>
   </url>
   
   <url>
@@ -239,21 +198,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/android/</loc>
-    <lastmod>2018-01-06T07:44:15+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/appium/</loc>
-    <lastmod>2018-01-06T07:44:15+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/ios/</loc>
     <lastmod>2018-01-06T07:44:15+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -264,13 +210,26 @@
   <url>
     <loc>https://blog.pepese.com/tags/kotlin/</loc>
     <lastmod>2018-01-06T07:41:30+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/2017/12/</loc>
+    <loc>https://blog.pepese.com/tags/gradle/</loc>
     <lastmod>2017-12-15T18:04:28+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/java/</loc>
+    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/maven/</loc>
+    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/sdkman/</loc>
+    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
   </url>
   
   <url>
@@ -279,27 +238,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/gradle/</loc>
-    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/java/</loc>
-    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/maven/</loc>
-    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/sdkman/</loc>
-    <lastmod>2017-12-15T18:04:28+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/tags/virtualenv/</loc>
+    <lastmod>2017-12-07T18:07:39+09:00</lastmod>
   </url>
   
   <url>
@@ -308,9 +248,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/virtualenv/</loc>
-    <lastmod>2017-12-07T18:07:39+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/tags/heroku/</loc>
+    <lastmod>2017-12-07T07:56:43+09:00</lastmod>
   </url>
   
   <url>
@@ -319,15 +258,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/heroku/</loc>
-    <lastmod>2017-12-07T07:56:43+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/archives/2017/11/</loc>
+    <loc>https://blog.pepese.com/tags/machine-learning/</loc>
     <lastmod>2017-11-26T18:02:36+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -336,21 +268,23 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/machine-learning/</loc>
-    <lastmod>2017-11-26T18:02:36+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/scikit-surprise/</loc>
     <lastmod>2017-11-26T18:02:36+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/%E5%8D%94%E8%AA%BF%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2017-11-26T18:02:36+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/flask/</loc>
+    <lastmod>2017-11-01T08:05:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/line/</loc>
+    <lastmod>2017-11-01T08:05:09+09:00</lastmod>
   </url>
   
   <url>
@@ -359,33 +293,28 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/flask/</loc>
-    <lastmod>2017-11-01T08:05:09+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/line/</loc>
-    <lastmod>2017-11-01T08:05:09+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/ngrok/</loc>
     <lastmod>2017-11-01T08:05:09+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/yython/</loc>
     <lastmod>2017-11-01T08:05:09+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/2017/09/</loc>
+    <loc>https://blog.pepese.com/tags/express/</loc>
     <lastmod>2017-09-21T08:10:39+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/javascript/</loc>
+    <lastmod>2017-09-21T08:10:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/multer/</loc>
+    <lastmod>2017-09-21T08:10:39+09:00</lastmod>
   </url>
   
   <url>
@@ -394,27 +323,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/express/</loc>
-    <lastmod>2017-09-21T08:10:39+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/javascript/</loc>
-    <lastmod>2017-09-21T08:10:39+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/multer/</loc>
-    <lastmod>2017-09-21T08:10:39+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/yarn/</loc>
     <lastmod>2017-09-21T08:10:39+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -425,13 +335,11 @@
   <url>
     <loc>https://blog.pepese.com/tags/npm/</loc>
     <lastmod>2017-09-20T17:50:44+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/2017/08/</loc>
+    <loc>https://blog.pepese.com/tags/dynamodb/</loc>
     <lastmod>2017-08-30T08:01:37+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -440,25 +348,18 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/dynamodb/</loc>
-    <lastmod>2017-08-30T08:01:37+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/entry/nodejs-dynamodb/</loc>
     <lastmod>2017-08-29T17:55:56+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/entry/dynamodb-basics/</loc>
+    <loc>https://blog.pepese.com/tags/aws-cli/</loc>
     <lastmod>2017-08-29T07:58:05+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/aws-cli/</loc>
+    <loc>https://blog.pepese.com/entry/dynamodb-basics/</loc>
     <lastmod>2017-08-29T07:58:05+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -469,13 +370,11 @@
   <url>
     <loc>https://blog.pepese.com/tags/promise/</loc>
     <lastmod>2017-08-28T17:46:16+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/request/</loc>
     <lastmod>2017-08-28T17:46:16+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -486,7 +385,21 @@
   <url>
     <loc>https://blog.pepese.com/tags/sequelize/</loc>
     <lastmod>2017-08-20T17:48:36+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/chai/</loc>
+    <lastmod>2017-08-16T17:52:59+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/istanbul/</loc>
+    <lastmod>2017-08-16T17:52:59+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/mocha/</loc>
+    <lastmod>2017-08-16T17:52:59+09:00</lastmod>
   </url>
   
   <url>
@@ -495,33 +408,18 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/chai/</loc>
-    <lastmod>2017-08-16T17:52:59+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/istanbul/</loc>
-    <lastmod>2017-08-16T17:52:59+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/tags/mocha/</loc>
-    <lastmod>2017-08-16T17:52:59+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/nyc/</loc>
     <lastmod>2017-08-16T17:52:59+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/sinon.js/</loc>
     <lastmod>2017-08-16T17:52:59+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/tags/angular/</loc>
+    <lastmod>2017-08-14T08:27:19+09:00</lastmod>
   </url>
   
   <url>
@@ -530,21 +428,13 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/angular/</loc>
-    <lastmod>2017-08-14T08:27:19+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/sass/</loc>
     <lastmod>2017-08-14T08:27:19+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/typescript/</loc>
     <lastmod>2017-08-14T08:27:19+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -570,19 +460,11 @@
   <url>
     <loc>https://blog.pepese.com/tags/scikit-learn/</loc>
     <lastmod>2017-08-07T08:29:13+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</loc>
     <lastmod>2017-08-07T08:29:13+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/archives/2017/07/</loc>
-    <lastmod>2017-07-06T08:34:29+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -593,18 +475,16 @@
   <url>
     <loc>https://blog.pepese.com/tags/svm/</loc>
     <lastmod>2017-07-06T08:34:29+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.pepese.com/entry/python-ml-k-means-clustering/</loc>
-    <lastmod>2017-07-05T18:00:50+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/k-means/</loc>
     <lastmod>2017-07-05T18:00:50+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/entry/python-ml-k-means-clustering/</loc>
+    <lastmod>2017-07-05T18:00:50+09:00</lastmod>
   </url>
   
   <url>
@@ -620,31 +500,26 @@
   <url>
     <loc>https://blog.pepese.com/tags/anyenv/</loc>
     <lastmod>2017-07-05T08:17:14+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/ndenv/</loc>
     <lastmod>2017-07-05T08:17:14+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/pyenv/</loc>
     <lastmod>2017-07-05T08:17:14+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/rbenv/</loc>
     <lastmod>2017-07-05T08:17:14+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/ruby/</loc>
     <lastmod>2017-07-05T08:17:14+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -653,9 +528,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/archives/2017/05/</loc>
+    <loc>https://blog.pepese.com/tags/cognito/</loc>
     <lastmod>2017-05-29T07:49:45+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -664,9 +538,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/cognito/</loc>
-    <lastmod>2017-05-29T07:49:45+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/tags/git/</loc>
+    <lastmod>2017-05-24T07:51:52+09:00</lastmod>
   </url>
   
   <url>
@@ -675,15 +548,8 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/git/</loc>
-    <lastmod>2017-05-24T07:51:52+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.pepese.com/tags/github/</loc>
     <lastmod>2017-05-24T07:51:52+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -699,19 +565,16 @@
   <url>
     <loc>https://blog.pepese.com/tags/yypescript/</loc>
     <lastmod>2017-05-14T18:06:00+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/seo/</loc>
     <lastmod>2017-05-11T18:12:21+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/tags/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0/</loc>
     <lastmod>2017-05-11T18:12:21+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -725,14 +588,18 @@
   </url>
   
   <url>
+    <loc>https://blog.pepese.com/tags/atom/</loc>
+    <lastmod>2017-05-11T07:45:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.pepese.com/entry/atom-install-packages/</loc>
     <lastmod>2017-05-11T07:45:58+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/atom/</loc>
-    <lastmod>2017-05-11T07:45:58+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/tags/homebrew/</loc>
+    <lastmod>2017-05-09T08:06:42+09:00</lastmod>
   </url>
   
   <url>
@@ -741,14 +608,13 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/homebrew/</loc>
-    <lastmod>2017-05-09T08:06:42+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/entry/homebrew-basics/</loc>
+    <lastmod>2017-05-09T08:00:18+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/entry/homebrew-basics/</loc>
-    <lastmod>2017-05-09T08:00:18+09:00</lastmod>
+    <loc>https://blog.pepese.com/tags/hexo/</loc>
+    <lastmod>2017-05-02T07:58:10+09:00</lastmod>
   </url>
   
   <url>
@@ -757,14 +623,59 @@
   </url>
   
   <url>
-    <loc>https://blog.pepese.com/tags/hexo/</loc>
-    <lastmod>2017-05-02T07:58:10+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.pepese.com/archives/2017/05/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2017/07/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2017/08/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2017/09/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2017/11/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2017/12/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2018/01/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2018/02/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2019/01/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2019/02/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2019/05/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/2019/06/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.pepese.com/archives/</loc>
   </url>
   
   <url>
     <loc>https://blog.pepese.com/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -773,7 +684,6 @@
   
   <url>
     <loc>https://blog.pepese.com/tags/tag_name/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

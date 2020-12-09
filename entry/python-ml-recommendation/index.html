@@ -21,10 +21,9 @@
 スクラッチではなく、できるだけライブラリ（ scikit-surprise ）を利用する。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/python-ml-recommendation/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-11-26T18:02:36&#43;09:00"/>
-<meta property="article:modified_time" content="2017-11-26T18:02:36&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-11-26T18:02:36+09:00" />
+<meta property="article:modified_time" content="2017-11-26T18:02:36+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -110,43 +109,37 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>代表的なレコメンドアルゴリズムと Python での実装をまとめる。<br />
+			<p>代表的なレコメンドアルゴリズムと Python での実装をまとめる。<br>
 スクラッチではなく、できるだけライブラリ（ <a href="http://surpriselib.com/">scikit-surprise</a> ）を利用する。</p>
-
 <h1 id="レコメンドアルゴリズム">レコメンドアルゴリズム</h1>
-
 <ul>
 <li>ポピュラリティ
-
 <ul>
 <li>所謂人気ランキング</li>
-</ul></li>
+</ul>
+</li>
 <li>コンテンツベース（内容ベース）フィルタリング
-
 <ul>
 <li>アイテム間の類似度に基づいたレコメンド
-
 <ul>
 <li>アイテムの特徴ベクトルで類似度（ Cos 類似度など）ソートしてレコメンドする方法</li>
 <li>例：野球のバットを買った人には野球のボールをおすすめしよう</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://ohke.hateblo.jp/entry/2017/10/13/230000">参考</a></li>
-</ul></li>
+</ul>
+</li>
 <li>協調フィルタリング
-
 <ul>
 <li>ユーザの利用履歴を扱う</li>
 <li>トランザクションデータ、ユーザ・アイテム行列</li>
-</ul></li>
+</ul>
+</li>
 <li>上記のハイブリッド</li>
 </ul>
-
 <p>ここでは <strong>協調フィルタリング</strong> を扱う。</p>
-
 <p><a href="http://www.kamishima.net/archive/recsysdoc.pdf">参考：推薦システムのアルゴリズム</a></p>
-
 <p>レコメンドアルゴリズムでよく発生するネガティブが出来事は以下。</p>
-
 <ul>
 <li>同じようなアイテムばかりレコメンドされる</li>
 <li>人気のアイテム、長期間掲載しているアイテムばかりレコメンドされる</li>
@@ -155,183 +148,156 @@ if (!doNotTrack) {
 <li>データの管理コストがでかい</li>
 <li>レコメンドの計算コストがでかい</li>
 </ul>
-
 <h2 id="協調フィルタリング">協調フィルタリング</h2>
-
 <p>協調フィルタリングには主に以下の種類がある。</p>
-
 <ul>
 <li>メモリベース（近傍ベース）
-
 <ul>
 <li>ユーザ・アイテム行列をそのまま利用、モデルを作成しない</li>
 <li>類似度の高いユーザ、アイテムを集め、実際の値と類似度の <strong>加重平均</strong> で評価値を算出する</li>
 <li>以下の手法がある
-
 <ul>
 <li>ユーザベース</li>
 <li>アイテムベース</li>
-</ul></li>
+</ul>
+</li>
 <li>スパース性（データサイズに対して意味のある情報が少ない、 0 が多い行列）の高いデータには適用し辛い</li>
-</ul></li>
+</ul>
+</li>
 <li>モデルベース
-
 <ul>
 <li>事前に調べておいたデータの規則性を使って予測</li>
 <li>ユーザ・アイテム行列をモデル構築に利用</li>
 <li>モデルの種類には以下がある。
-
 <ul>
 <li>行列因子分解（Matrix Factorization）モデル
-
 <ul>
 <li>ユーザ・アイテム行列をユーザ行列（user × k）とアイテム行列（item × k）に分解する際、既に値があるセルの値の誤差が最小になるようにする
-
 <ul>
 <li>分解した後の行列の積をとって元に戻した際、値の入っていなかったセルに値が入っており、その値を評価値とする</li>
-</ul></li>
+</ul>
+</li>
 <li>特異値分解（SVD：Singular Value Decomposition）</li>
 <li>非負値行列因子分解（NMF：Non-negative Matrix Factorization）
-
 <ul>
 <li>SVDと異なり、分解した行列の要素が全て正の数</li>
 <li>交互最小二乗法（ALS：Alternative Least Squares）や確率的勾配降下法（SGD：Stochastic Gradient Descent）を用いて実施</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>クラスタモデル
-
 <ul>
 <li>嗜好が類似した利用者のグループごとに推薦をする</li>
-</ul></li>
+</ul>
+</li>
 <li>関数モデル
-
 <ul>
 <li>利用者の嗜好パターンから，アイテムの評価値を予測する関数</li>
-</ul></li>
+</ul>
+</li>
 <li>確率モデル
-
 <ul>
 <li>行動分布型：どの利用者が，どのアイテムを，どう評価したかの分布をモデル化</li>
 <li>評価分布型：全アイテムに対する評価値の同時分布をモデル化</li>
 <li>ナイーブベイズ、ベイジアンネットワークなど</li>
-</ul></li>
+</ul>
+</li>
 <li>時系列モデル
-
 <ul>
 <li>マルコフ過程：アイテムを評価した時間的順序も考慮</li>
 <li>マルコフ決定過程(MDP：Markov Decision Process)：加えて，利用者の行動もモデル化</li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>上記のハイブリッド</li>
 </ul>
-
 <p>狭義の協調フィルタリングは、近傍ベースを指す。</p>
-
 <h3 id="メモリベース協調フィルタリング">メモリベース協調フィルタリング</h3>
-
-<p>メモリベース協調フィルタリングのコンセプトは、「類似度」。<br />
-過去の利用履歴から似たもの同士を明らかにし、この類似度を使ってオススメ商品を推定する。<br />
+<p>メモリベース協調フィルタリングのコンセプトは、「類似度」。<br>
+過去の利用履歴から似たもの同士を明らかにし、この類似度を使ってオススメ商品を推定する。<br>
 類似度といった場合、ユーザ同士の類似度と商品同士の類似度の 2 つが考えられ、前者を使う場合をユーザベース、後者をアイテムベースと言って区別する。</p>
-
 <ul>
 <li>ユーザベース
-
 <ul>
 <li>ユーザーの行動履歴からユーザー間の類似度を計算し、おすすめするアイテムを決める手法</li>
 <li>例
-
 <ul>
 <li>Aさんに何かおすすめしたい、Aさんは商品a、商品b、商品cを買っている。</li>
 <li>同じような行動履歴のBさんは商品a、商品b、商品c、商品dを買っている、ということはAさんには商品dをおすすめできる</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>アイテムベース
-
 <ul>
 <li>ユーザーの行動履歴からアイテム間の類似度を計算し、類似するアイテムをおすすめする手法</li>
 <li>例
-
 <ul>
 <li>商品Aは商品Bと一緒に購入されることが多いから、商品Aの購入者に商品Bをおすすめしよう</li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h4 id="ユーザベース">ユーザベース</h4>
-
-<p>ユーザベース協調フィルタリングのロジックは、いわゆるkNN回帰という機械学習手法を利用する。<br />
-kNN（k-Nearest-Neighbor、<strong>k近傍法</strong> ）を簡単に説明すると、推定する対象に最も特徴が似ているk個の観測値を参考にし、値を推定しようというもの。<br />
+<p>ユーザベース協調フィルタリングのロジックは、いわゆるkNN回帰という機械学習手法を利用する。<br>
+kNN（k-Nearest-Neighbor、<strong>k近傍法</strong> ）を簡単に説明すると、推定する対象に最も特徴が似ているk個の観測値を参考にし、値を推定しようというもの。<br>
 アルゴリズムの概要は以下の通り。</p>
-
 <ol>
 <li>あるユーザと他のユーザの <strong>類似度</strong> を計算</li>
 <li>レコメンドしたい対象ユーザ（ユーザ A ）と類似度の高い k 名のユーザを選ぶ</li>
 <li>他のユーザ利用したアイテムのうち、ユーザAがまだ利用していないアイテムの集合を抽出</li>
 <li>それらのアイテム群のうち、おすすめ度が高いアイテムのリストを返却
-
 <ul>
 <li>この選定の際に、類似度が高いユーザが利用したアイテムほど重みが高くなるようにする</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
 <h4 id="アイテムベース">アイテムベース</h4>
-
-<p>ユーザベースはユーザ同士の類似度を考えたのに対して、アイテムベースはアイテム同士の類似度を考える。<br />
+<p>ユーザベースはユーザ同士の類似度を考えたのに対して、アイテムベースはアイテム同士の類似度を考える。<br>
 それ以外の考え方はユーザベースに同じ。</p>
-
 <h4 id="用いられる類似度">用いられる類似度</h4>
-
 <p>類似度には以下のようなものがある。</p>
-
 <ul>
 <li>ユークリッド距離（ Euclidean distance ）
-
 <ul>
 <li>平方ユークリッド距離（ Squared Euclidean distance ）</li>
 <li>2 点間の普通の距離</li>
-</ul></li>
+</ul>
+</li>
 <li>コサイン類似度（ Cosine Similarity ）</li>
 <li>ピアソンの積率相関係数（ Pearson correlation coefficient ）
-
 <ul>
 <li>ユーザの評価をそのユーザの評価全体の平均を用いて正規化する</li>
 <li>データが正規化されていないような状況でユークリッド距離よりも良い結果を得られることが多いとされる</li>
-</ul></li>
 </ul>
-
-<p>ユーザベースでは、 <strong>ピアソンの積率相関係数</strong> を用いる。<br />
+</li>
+</ul>
+<p>ユーザベースでは、 <strong>ピアソンの積率相関係数</strong> を用いる。<br>
 そうすることによって以下のように評価の傾向が似ている 2 ユーザ間で高い相関を得られる。</p>
-
 <ul>
 <li>ユーザ A ：「ラーメンはまずまずで 3 点だがカレーとチャーハンはイマイチだから 1.5 点だな……。」</li>
 <li>ユーザ B ：「ラーメンはうまくて 5 点だがカレーとチャーハンはふつうで 3.5 点だな……。」</li>
 </ul>
-
 <p>また、アイテムベースでは <strong>コサイン類似度</strong> がよく用いられる。</p>
-
 <h1 id="実装">実装</h1>
-
 <p>scikit-surprise ベースで実装する。</p>
-
 <h2 id="環境設定">環境設定</h2>
-
 <p>環境設定は以下。</p>
-
-<pre><code class="language-sh">$ python -V
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ python -V
 Python 3.6.1
 $ pip -V
 pip 9.0.1
 $ pip install jupyter scikit-learn matplotlib scipy numpy scikit-surprise
 $ pip freeze | grep scikit-surprise
-scikit-surprise==1.0.5
-</code></pre>
-
-<h2 id="データセット">データセット</h2>
-
+scikit-surprise<span style="color:#f92672">==</span>1.0.5
+</code></pre></div><h2 id="データセット">データセット</h2>
 <p>データセットには <a href="http://www.kamishima.net/sushi/">SUSHI Preference Data Sets</a> を使用する。</p>
-
-<pre><code class="language-sh">$ wget http://www.kamishima.net/asset/sushi3-2016.zip
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wget http://www.kamishima.net/asset/sushi3-2016.zip
 $ unzip sushi3-2016.zip
 $ rm sushi3-2016.zip
 $ ls ./sushi3-2016/
@@ -343,64 +309,49 @@ sushi3.udata
 sushi3b.5000.10.score
 README-stat-ja.txt
 sushi3a.5000.10.order
-</code></pre>
-
-<p><code>sushi3b.5000.10.score</code> は 5000 行 100 列( 5000 人 × 寿司ネタ 100 種類)の構成となっており、各要素には評価値 0 〜 4 (値が大きいほど、好き)と、欠測値 -1 がセットされている。</p>
-
+</code></pre></div><p><code>sushi3b.5000.10.score</code> は 5000 行 100 列( 5000 人 × 寿司ネタ 100 種類)の構成となっており、各要素には評価値 0 〜 4 (値が大きいほど、好き)と、欠測値 -1 がセットされている。</p>
 <h2 id="データのロード">データのロード</h2>
-
-<p>scikit-surprise でデータをロードするには、 <code>Dataset</code> クラスに対応した形式にする必要がある。<br />
+<p>scikit-surprise でデータをロードするには、 <code>Dataset</code> クラスに対応した形式にする必要がある。<br>
 形式は <strong>1行1評価値</strong> で、以下のようにする。</p>
-
 <pre><code>ユーザID アイテムID 評価値
-</code></pre>
-
-<p><code>sushi3b.5000.10.score</code> を上記の形式に変換・Dataset形式でロードするコードは以下。<br />
+</code></pre><p><code>sushi3b.5000.10.score</code> を上記の形式に変換・Dataset形式でロードするコードは以下。<br>
 なお、ユーザ ID は 0000 〜 4999 、アイテム ID は 00 〜 99 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">convert</span>(input_file_name):
+    <span style="color:#75715e"># 返還後のファイル名</span>
+    output_file_name <span style="color:#f92672">=</span> input_file_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;_converted&#39;</span>
+    output <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
 
-<pre><code class="language-python">def convert(input_file_name):
-    # 返還後のファイル名
-    output_file_name = input_file_name + '_converted'
-    output = ''
+    <span style="color:#66d9ef">with</span> open(input_file_name, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f:
+        lines <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readlines()
+        user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> lines:
+            words <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span>strip()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39; &#39;</span>)
+            <span style="color:#66d9ef">for</span> item_id, word <span style="color:#f92672">in</span> enumerate(words):
+                score <span style="color:#f92672">=</span> int(word)
+                <span style="color:#66d9ef">if</span> score <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+                    output <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;{0:04d} {1:02d} {2:01d}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(user_id, item_id, score)
+            user_id <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 
-    with open(input_file_name, mode='r') as f:
-        lines = f.readlines()
-        user_id = 0
-        for line in lines:
-            words = line.strip().split(' ')
-            for item_id, word in enumerate(words):
-                score = int(word)
-                if score != -1:
-                    output += '{0:04d} {1:02d} {2:01d}\n'.format(user_id, item_id, score)
-            user_id += 1
+    <span style="color:#66d9ef">with</span> open(output_file_name, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
+        f<span style="color:#f92672">.</span>write(output)
 
-    with open(output_file_name, mode='w') as f:
-        f.write(output)
+    <span style="color:#66d9ef">return</span> output_file_name
 
-    return output_file_name
+<span style="color:#75715e"># 「ユーザID アイテムID 評価値」形式にデータファイルを変換</span>
+output_file_name <span style="color:#f92672">=</span> convert(<span style="color:#e6db74">&#39;sushi3-2016/sushi3b.5000.10.score&#39;</span>)
 
-# 「ユーザID アイテムID 評価値」形式にデータファイルを変換
-output_file_name = convert('sushi3-2016/sushi3b.5000.10.score')
+<span style="color:#75715e"># with open(output_file_name, mode=&#39;r&#39;) as f:</span>
+<span style="color:#75715e">#     print(f.read())</span>
+</code></pre></div><p>データフォーマットを変換した後、以下のように <code>Dataset</code> 形式でデータをロードし、 <code>trainset</code> を作成する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> surprise <span style="color:#f92672">import</span> Reader, Dataset
 
-# with open(output_file_name, mode='r') as f:
-#     print(f.read())
-</code></pre>
-
-<p>データフォーマットを変換した後、以下のように <code>Dataset</code> 形式でデータをロードし、 <code>trainset</code> を作成する。</p>
-
-<pre><code class="language-python">from surprise import Reader, Dataset
-
-# ファイルからデータをロードし、Dataset形式に
-# dataset.raw_ratings にデータが格納される
-dataset = Dataset.load_from_file(output_file_name, reader=reader)
-# dataset を計算し、trainset 形式に
-trainset = dataset.build_full_trainset()
-</code></pre>
-
-<p><code>dataset</code> から <code>trainset</code> へ変換される際、元の <code>user_id</code> <code>item_id</code> から読み込んだ順に 0 からインクリメントされた内部 ID へ変換される。</p>
-
+<span style="color:#75715e"># ファイルからデータをロードし、Dataset形式に</span>
+<span style="color:#75715e"># dataset.raw_ratings にデータが格納される</span>
+dataset <span style="color:#f92672">=</span> Dataset<span style="color:#f92672">.</span>load_from_file(output_file_name, reader<span style="color:#f92672">=</span>reader)
+<span style="color:#75715e"># dataset を計算し、trainset 形式に</span>
+trainset <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>build_full_trainset()
+</code></pre></div><p><code>dataset</code> から <code>trainset</code> へ変換される際、元の <code>user_id</code> <code>item_id</code> から読み込んだ順に 0 からインクリメントされた内部 ID へ変換される。</p>
 <p><code>dataset</code> には以下のようなフィールドがある。（面倒なので説明は一部のみ）</p>
-
 <ul>
 <li>build_full_trainset</li>
 <li>construct_testset</li>
@@ -419,9 +370,7 @@ trainset = dataset.build_full_trainset()
 <li>shuffle</li>
 <li>split</li>
 </ul>
-
 <p><code>trainset</code> には以下のようなフィールドがある。（面倒なので説明は一部のみ）</p>
-
 <ul>
 <li>all_items : n_items の range を返却するメソッド</li>
 <li>all_ratings</li>
@@ -443,114 +392,90 @@ trainset = dataset.build_full_trainset()
 <li>to_raw_uid： <code>trainset</code> 内部管理の ID を入力すると元の <code>user_id</code> を返却する</li>
 <li>ur : アイテム ID をインデクスとした各ユーザの評価値のタプル</li>
 </ul>
-
 <h2 id="協調フィルタリング-1">協調フィルタリング</h2>
-
 <p>scikit-surprise で実装できるアルゴリズムの一覧は <a href="http://surprise.readthedocs.io/en/stable/prediction_algorithms_package.html">ここ</a> 。</p>
-
-<p>scikit-surprise の各アルゴリズムのクラスは <code>AlgoBase</code> クラスを継承して作成されている。<br />
-このクラスには、 <code>compute_similarities</code> や <code>algo.train(trainset)</code> など全てのアルゴリズムで共通して利用される実装されている。<br />
+<p>scikit-surprise の各アルゴリズムのクラスは <code>AlgoBase</code> クラスを継承して作成されている。<br>
+このクラスには、 <code>compute_similarities</code> や <code>algo.train(trainset)</code> など全てのアルゴリズムで共通して利用される実装されている。<br>
 <code>sim_options</code> オプションを利用することで、類似度の計算方法（ cosine 、 msd 、 pearson 、 pearson_baseline ）やユーザベースかアイテムベース（ user_based ）などを指定することができる。</p>
-
 <h3 id="メモリベース協調フィルタリング-1">メモリベース協調フィルタリング</h3>
-
 <p>以下のような形で各アルゴリズムの学習を実行する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> surprise <span style="color:#f92672">import</span> KNNBasic
 
-<pre><code class="language-python">from surprise import KNNBasic
-
-sim_options = {
-    'name': 'pearson', # 類似度を計算する方法を指定（ cosine,msd,pearson,pearson_baseline ）
-    'user_based': True # False にするとアイテムベースに
+sim_options <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;pearson&#39;</span>, <span style="color:#75715e"># 類似度を計算する方法を指定（ cosine,msd,pearson,pearson_baseline ）</span>
+    <span style="color:#e6db74">&#39;user_based&#39;</span>: True <span style="color:#75715e"># False にするとアイテムベースに</span>
 }
-algo = KNNBasic(k=5, min_k=1,sim_options=sim_options)
-algo.fit(trainset)
-</code></pre>
-
-<p>上記で、 <strong>k近傍法</strong> の学習が完了する。<br />
-<code>algo.compute_similarities()</code> を実行するとユーザ間の類似度を計算してくれ、「ユーザ数 x ユーザ数」の 2 次元配列を返却する。<br />
+algo <span style="color:#f92672">=</span> KNNBasic(k<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, min_k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,sim_options<span style="color:#f92672">=</span>sim_options)
+algo<span style="color:#f92672">.</span>fit(trainset)
+</code></pre></div><p>上記で、 <strong>k近傍法</strong> の学習が完了する。<br>
+<code>algo.compute_similarities()</code> を実行するとユーザ間の類似度を計算してくれ、「ユーザ数 x ユーザ数」の 2 次元配列を返却する。<br>
 なお、 <code>algo.train</code> を実行すると内部で <code>algo.compute_similarities()</code> が実行されており、その後 <code>algo.sim</code> で「ユーザ数 x ユーザ数」の 2 次元配列でユーザ間の類似度を取得できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(train<span style="color:#f92672">.</span>sim)
+</code></pre></div><p>また、以下のように学習後のモデルを使用して評価の予測値を取得できる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">user_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{:04d}&#39;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">0</span>)
+item_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{:02d}&#39;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">92</span>)
 
-<pre><code class="language-python">print(train.sim)
-</code></pre>
-
-<p>また、以下のように学習後のモデルを使用して評価の予測値を取得できる。</p>
-
-<pre><code class="language-python">user_id = '{:04d}'.format(0)
-item_id = '{:02d}'.format(92)
-
-pred = algo.predict(uid=user_id, iid=item_id)
-print('Predicted rating(User: {0}, Item: {1}): {2:.2f}'.format(pred.uid, pred.iid, pred.est))
-</code></pre>
-
-<p>スクラッチでの実装例は以下。</p>
-
+pred <span style="color:#f92672">=</span> algo<span style="color:#f92672">.</span>predict(uid<span style="color:#f92672">=</span>user_id, iid<span style="color:#f92672">=</span>item_id)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Predicted rating(User: {0}, Item: {1}): {2:.2f}&#39;</span><span style="color:#f92672">.</span>format(pred<span style="color:#f92672">.</span>uid, pred<span style="color:#f92672">.</span>iid, pred<span style="color:#f92672">.</span>est))
+</code></pre></div><p>スクラッチでの実装例は以下。</p>
 <ul>
 <li>ユーザベース
-
 <ul>
 <li><a href="http://ohke.hateblo.jp/entry/2017/09/22/230000">http://ohke.hateblo.jp/entry/2017/09/22/230000</a></li>
 <li><a href="https://qiita.com/hik0107/items/96c483afd6fb2f077985">https://qiita.com/hik0107/items/96c483afd6fb2f077985</a></li>
-</ul></li>
+</ul>
+</li>
 <li>アイテムベース
-
 <ul>
 <li><a href="http://ohke.hateblo.jp/entry/2017/09/29/230000">http://ohke.hateblo.jp/entry/2017/09/29/230000</a></li>
 <li><a href="https://qiita.com/kotaroito/items/6acb58bb16b68a460af9">https://qiita.com/kotaroito/items/6acb58bb16b68a460af9</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="モデルベース協調フィルタリング">モデルベース協調フィルタリング</h3>
+<h4 id="特異値分解-svd-">特異値分解（ SVD ）</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> surprise <span style="color:#f92672">import</span> SVD
 
-<h4 id="特異値分解-svd">特異値分解（ SVD ）</h4>
-
-<pre><code class="language-python">from surprise import SVD
-
-algo = SVD()
-algo.fit(trainset)
-</code></pre>
-
-<h2 id="精度評価">精度評価</h2>
-
+algo <span style="color:#f92672">=</span> SVD()
+algo<span style="color:#f92672">.</span>fit(trainset)
+</code></pre></div><h2 id="精度評価">精度評価</h2>
 <p>精度の評価には以下のものがある。</p>
-
 <ul>
 <li>MAE（Mean Abusolute Error）
-
 <ul>
 <li>予測値と実測値の差の絶対値を算出し、平均したもの</li>
-</ul></li>
+</ul>
+</li>
 <li>MSE (Mean Squared Error)
-
 <ul>
 <li>予測値と実測値の差を二乗した値の平均値</li>
-</ul></li>
+</ul>
+</li>
 <li>RMSE（Root Mean Squared Error）
-
 <ul>
 <li>MSEの平方根</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="参考">参考</h1>
-
 <ul>
 <li><a href="http://ohke.hateblo.jp/entry/2017/10/06/230000">scikit-surpriseを使ってレコメンドする</a></li>
 <li><a href="http://www.kamishima.net/archive/recsys.pdf">推薦システム</a>
-
 <ul>
 <li>P.134：協調フィルタリング、メモリベースのチューニングのヒント</li>
 <li>p.137：モデルベースの種類</li>
 <li>P.215：ショートヘッド、ロングテールについて</li>
-</ul></li>
+</ul>
+</li>
 <li>精度評価
-
 <ul>
 <li><a href="http://blog.brainpad.co.jp/entry/2017/08/25/140000">レコメンドつれづれ ～第3回 レコメンド精度の評価方法を学ぶ～</a></li>
 <li><a href="https://www.slideshare.net/MasahiroSato2/ss-65646039">レコメンド研究のあれこれ</a></li>
 <li><a href="https://www.slideshare.net/takemikami/ss-76817490">レコメンドアルゴリズムの基本と周辺知識と実装方法</a></li>
 <li><a href="https://datahotel.io/archives/4778">推薦システムの基本的な評価指標について整理してみた</a></li>
 <li><a href="https://ameblo.jp/principia-ca/entry-10980281840.html">MatrixFacorization を使った評価予測</a></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 		</div>
 	</article>
@@ -612,11 +537,11 @@ algo.fit(trainset)
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -627,6 +552,7 @@ algo.fit(trainset)
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -720,7 +646,7 @@ algo.fit(trainset)
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -747,7 +673,7 @@ algo.fit(trainset)
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

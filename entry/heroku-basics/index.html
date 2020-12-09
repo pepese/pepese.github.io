@@ -23,10 +23,9 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 以下、 Free プランでアカウントを取得している前提で記載する。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/heroku-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-12-07T07:56:43&#43;09:00"/>
-<meta property="article:modified_time" content="2017-12-07T07:56:43&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-12-07T07:56:43+09:00" />
+<meta property="article:modified_time" content="2017-12-07T07:56:43+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -111,85 +110,58 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Heroku は salesforce が運営する PaaS 。<br />
-Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。<br />
+			<p>Heroku は salesforce が運営する PaaS 。<br>
+Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。<br>
 Free プランの落とし穴は、 30 分アクセスが無いとインスタンス（ dyno ）が Sleep してしまうところ。　　
 以下、 Free プランでアカウントを取得している前提で記載する。</p>
-
 <h1 id="heroku-cli">Heroku CLI</h1>
-
 <p>Heroku の Web ページで各種設定できるが、ここでは CLI ベースの方法を記載する。</p>
-
 <h2 id="インストール">インストール</h2>
-
-<pre><code class="language-sh">$ brew install heroku/brew/heroku
-</code></pre>
-
-<p><a href="https://devcenter.heroku.com/articles/heroku-cli#troubleshooting">Trouble Shooting</a><br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install heroku/brew/heroku
+</code></pre></div><p><a href="https://devcenter.heroku.com/articles/heroku-cli#troubleshooting">Trouble Shooting</a><br>
 <a href="https://devcenter.heroku.com/articles/heroku-cli#uninstalling-the-heroku-cli">Uninstalling</a></p>
-
 <h2 id="初期起動">初期起動</h2>
-
-<p>以下の手順で Heroku へアプリケーションをデプロイ・起動する。<br />
-なお、 <code>/path/to/myApp</code> は Heroku が対応している言語で実装されたローカルのアプリケーションプロジェクトをさす。<br />
+<p>以下の手順で Heroku へアプリケーションをデプロイ・起動する。<br>
+なお、 <code>/path/to/myApp</code> は Heroku が対応している言語で実装されたローカルのアプリケーションプロジェクトをさす。<br>
 また、 Heroku へのアプリケーションのデプロイは Git 経由で行われる。</p>
-
-<pre><code class="language-sh">$ heroku login # Heroku にログイン
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku login <span style="color:#75715e"># Heroku にログイン</span>
 $ cd /path/to/myApp
-$ heroku create # Heroku 上に新しいアプリケーションを作成
-Creating app... done, ⬢ shielded-scrubland-xxxxx
+$ heroku create <span style="color:#75715e"># Heroku 上に新しいアプリケーションを作成</span>
+Creating app... <span style="color:#66d9ef">done</span>, ⬢ shielded-scrubland-xxxxx
 https://shielded-scrubland-xxxxx.herokuapp.com/ | https://git.heroku.com/shielded-scrubland-xxxxx.git
-$ git init # アプリケーションプロジェクトの Git 初期化
+$ git init <span style="color:#75715e"># アプリケーションプロジェクトの Git 初期化</span>
 $ git remote add heroku https://git.heroku.com/shielded-scrubland-xxxxx.git
 $ git add --all
-$ git commit -m &quot;first commit&quot;
-$ git push heroku master # Heroku へアプリケーションをデプロイ
-$ heroku open # ブラウザを立ち上げてページを表示
-$ heroku help # USAGE
-$ heroku apps help # apps の USAGE
-</code></pre>
-
-<h2 id="アドオン">アドオン</h2>
-
+$ git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
+$ git push heroku master <span style="color:#75715e"># Heroku へアプリケーションをデプロイ</span>
+$ heroku open <span style="color:#75715e"># ブラウザを立ち上げてページを表示</span>
+$ heroku help <span style="color:#75715e"># USAGE</span>
+$ heroku apps help <span style="color:#75715e"># apps の USAGE</span>
+</code></pre></div><h2 id="アドオン">アドオン</h2>
 <p>アドオンを CLI から適用する方法は以下。</p>
-
-<pre><code class="language-sh">$ heroku addons:create xxxx
-</code></pre>
-
-<h2 id="プロセスの確認-停止">プロセスの確認、停止</h2>
-
-<pre><code class="language-sh">$ heroku apps:info # アプリケーションの情報を見る
-$ heroku ps # プロセスを見る
-$ heroku logs # ログを見る
-</code></pre>
-
-<pre><code class="language-sh">$ heroku ps:scale web=0 # 停止
-$ heroku ps:scale web=1 # 起動
-</code></pre>
-
-<p>Webプロセスのスケール（Dyno、インスタンス台数）を 0 に指定して実質プロセスを停止している。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:create xxxx
+</code></pre></div><h2 id="プロセスの確認停止">プロセスの確認、停止</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku apps:info <span style="color:#75715e"># アプリケーションの情報を見る</span>
+$ heroku ps <span style="color:#75715e"># プロセスを見る</span>
+$ heroku logs <span style="color:#75715e"># ログを見る</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku ps:scale web<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#75715e"># 停止</span>
+$ heroku ps:scale web<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> <span style="color:#75715e"># 起動</span>
+</code></pre></div><p>Webプロセスのスケール（Dyno、インスタンス台数）を 0 に指定して実質プロセスを停止している。</p>
 <h1 id="小ネタめも">小ネタめも</h1>
-
-<h2 id="node-js-アプリケーション">node.js アプリケーション</h2>
-
+<h2 id="nodejs-アプリケーション">node.js アプリケーション</h2>
 <p><code>$ heroku open</code> でエラーが発生した場合は以下に対応。</p>
-
 <ul>
 <li>npm script に <strong>start</strong> を追加する
-
 <ul>
 <li><code>&quot;start&quot;: &quot;node app/app.js&quot;</code></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Heroku ではアプリケーションの起動方法に各プログラミング言語毎にルールがあるので注意。</p>
-
 <h2 id="１つのアプリケーションを複数のheroku環境へデプロイ">１つのアプリケーションを複数のHeroku環境へデプロイ</h2>
-
-<pre><code class="language-sh">$ heroku create アプリ名 --remote 新環境名
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku create アプリ名 --remote 新環境名
 $ git push 新環境名 master
-</code></pre>
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -250,11 +222,11 @@ $ git push 新環境名 master
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -265,6 +237,7 @@ $ git push 新環境名 master
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -358,7 +331,7 @@ $ git push 新環境名 master
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -385,7 +358,7 @@ $ git push 新環境名 master
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

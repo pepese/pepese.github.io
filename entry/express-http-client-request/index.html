@@ -20,9 +20,7 @@
 <meta property="og:description" content="Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。
 使用するツール・ライブラリは以下。
 
-
 HTTP(S)クライアント
-
 
 request
 
@@ -30,15 +28,13 @@ request
 
 以下の記事を読んだ前提で書く。
 
-
 Express入門
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/express-http-client-request/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-08-28T17:46:16&#43;09:00"/>
-<meta property="article:modified_time" content="2017-08-28T17:46:16&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-08-28T17:46:16+09:00" />
+<meta property="article:modified_time" content="2017-08-28T17:46:16+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -47,16 +43,13 @@ Express入門
 <meta name="twitter:description" content="Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。
 使用するツール・ライブラリは以下。
 
-
 HTTP(S)クライアント
-
 
 request
 
 
 
 以下の記事を読んだ前提で書く。
-
 
 Express入門
 "/>
@@ -140,98 +133,76 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。<br />
+			<p>Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。<br>
 使用するツール・ライブラリは以下。</p>
-
 <ul>
 <li>HTTP(S)クライアント
-
 <ul>
 <li><a href="https://github.com/request/request">request</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>以下の記事を読んだ前提で書く。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a></li>
 </ul>
-
 <p>ちなみに HTTP(S)クライアントとしては <code>request</code> 以外にも以下のようなものがある。</p>
-
 <ul>
 <li><a href="https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_http_methods">http</a> / <a href="https://nodejs.org/dist/latest-v6.x/docs/api/https.html#https_https_get_options_callback">https</a>
-
 <ul>
 <li>Node.js のネイティブライブラリ</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://unirest.io/nodejs.html">Unirest</a></li>
 <li><a href="https://github.com/mzabriskie/axios">axios</a>
-
 <ul>
 <li><code>request</code> が嫌ならこれがいいかな？</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="環境設定">環境設定</h1>
-
 <p>先の記事で紹介したプロジェクトにて以下を実行する。</p>
-
-<pre><code class="language-sh">$ yarn add request
-</code></pre>
-
-<h1 id="実装">実装</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add request
+</code></pre></div><h1 id="実装">実装</h1>
 <ul>
 <li><code>app/controllers/get_ip.js</code>
-
 <ul>
 <li>自分のグローバルIPを取得するAPIにリクエストを発行するサンプル</li>
 <li><code>http://[FQDN]/ip</code> で動確</li>
-</ul></li>
 </ul>
-
-<h2 id="app-controllers-get-ip-js"><code>app/controllers/get_ip.js</code></h2>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_ip.js?footer=0"></script>
-
+</li>
+</ul>
+<h2 id="appcontrollersget_ipjs"><code>app/controllers/get_ip.js</code></h2>
+<!-- raw HTML omitted -->
 <h1 id="request-の基本的な使い方">request の基本的な使い方</h1>
-
 <ul>
 <li><code>request(options, callback)</code>
-
 <ul>
 <li>コールバックで <code>options</code> に基づいたリクエストを発行する</li>
 <li>サンプルはこれを使用</li>
 <li><a href="https://github.com/request/request#requestoptions-callback">ドキュメント</a></li>
 <li><a href="https://github.com/request/request#requestoptions-callback">optiong の設定</a></li>
-</ul></li>
+</ul>
+</li>
 <li><code>request.defaults(options)</code>
-
 <ul>
 <li>HTTP(S)クライアントのデフォルトの設定を行う</li>
 <li><a href="https://github.com/request/request#requestdefaultsoptions">ドキュメント</a></li>
-</ul></li>
+</ul>
+</li>
 <li><code>request.METHOD()</code>
-
 <ul>
 <li>HTTPメソッドを関数で表現する形式</li>
 <li><a href="https://github.com/request/request#requestmethod">ドキュメント</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="promise">Promise</h1>
-
 <p>コールバック地獄を避けたい人は <a href="https://github.com/request/request-promise">request-promise</a> を使うと簡単に非同期 bluebird 版 Promise を実現できる。</p>
-
 <h2 id="導入">導入</h2>
-
-<pre><code class="language-sh">$ yarn add request-promise
-</code></pre>
-
-<h2 id="実装-app-controllers-get-ip-promise-js">実装 <code>app/controllers/get_ip_promise.js</code></h2>
-
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_ip_promise.js?footer=0"></script>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add request-promise
+</code></pre></div><h2 id="実装-appcontrollersget_ip_promisejs">実装 <code>app/controllers/get_ip_promise.js</code></h2>
+<!-- raw HTML omitted -->
 		</div>
 	</article>
 </main>
@@ -292,11 +263,11 @@ if (!doNotTrack) {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -307,6 +278,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -400,7 +372,7 @@ if (!doNotTrack) {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -427,7 +399,7 @@ if (!doNotTrack) {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

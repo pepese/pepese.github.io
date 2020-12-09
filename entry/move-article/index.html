@@ -21,19 +21,16 @@
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。
 
-
 重複コンテンツは同時に検索結果に表示されない
 被リンク評価が分散する
-
 
 ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。
 ブログ全体の移転の話ではないことに注意。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/move-article/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
-<meta property="article:published_time" content="2017-05-11T18:12:21&#43;09:00"/>
-<meta property="article:modified_time" content="2017-05-11T18:12:21&#43;09:00"/>
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+<meta property="article:published_time" content="2017-05-11T18:12:21+09:00" />
+<meta property="article:modified_time" content="2017-05-11T18:12:21+09:00" />
 
 	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -43,10 +40,8 @@
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。
 
-
 重複コンテンツは同時に検索結果に表示されない
 被リンク評価が分散する
-
 
 ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。
 ブログ全体の移転の話ではないことに注意。"/>
@@ -127,96 +122,85 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。<br />
+			<p>筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。<br>
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
 よろしくない理由は以下の通り。</p>
-
 <ul>
 <li>重複コンテンツは同時に検索結果に表示されない</li>
 <li>被リンク評価が分散する</li>
 </ul>
-
-<p>ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。<br />
+<p>ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。<br>
 ブログ全体の移転の話ではないことに注意。</p>
-
 <p>一般的にブログを引っ越しする際には以下のようなことを実施する。</p>
-
 <ul>
 <li>HTTPステータスコード301でリダイレクトさせる</li>
 <li>headタグ内に <code>link rel=&quot;canonical&quot;</code> を設置する
-
 <ul>
 <li><code>&lt;link rel=&quot;canonical&quot; href=&quot;[移転先のURL]&quot;&gt;</code></li>
-</ul></li>
 </ul>
-
-<p>ここではブログ全体を移転せず一部の記事のみを移転する方法を記載する。<br />
+</li>
+</ul>
+<p>ここではブログ全体を移転せず一部の記事のみを移転する方法を記載する。<br>
 前提は以下。</p>
-
 <ul>
 <li>ブログ全体ではなく、一部の記事のみを移転する</li>
 <li>記事の移転をスムーズにするために、閲覧者・検索エンジンに教えてあげる</li>
 <li>元の記事は「はてなブログ」を使用している</li>
 <li>Google検索エンジンは簡単なJavaScriptであれば理解してくれる</li>
 </ul>
-
-<p>という訳で、移転元の記事に「 <strong><code>link rel=&quot;canonical&quot;</code> を付与</strong> しつつ <strong>移転先の記事へリダイレクト</strong> するJavaScript」を埋め込む。<br />
+<p>という訳で、移転元の記事に「 <strong><code>link rel=&quot;canonical&quot;</code> を付与</strong> しつつ <strong>移転先の記事へリダイレクト</strong> するJavaScript」を埋め込む。<br>
 その後以下のスクリプトを記事へ貼り付ける。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;本記事は移転しました。&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;約3秒後にリダイレクトします。&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;リダイレクトしない場合は&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[リダイレクト先のURL]&#34;</span>&gt;ここ&lt;/<span style="color:#f92672">a</span>&gt;をクリックしてください。&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">language</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript&#34;</span>&gt;
+<span style="color:#75715e">&lt;!--</span>
+  <span style="color:#75715e">// 新url
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[リダイレクト先のURL]&#34;</span>;
 
-<pre><code class="language-html">&lt;p&gt;本記事は移転しました。&lt;/p&gt;
-&lt;p&gt;約3秒後にリダイレクトします。&lt;/p&gt;
-&lt;p&gt;リダイレクトしない場合は&lt;a href=&quot;[リダイレクト先のURL]&quot;&gt;ここ&lt;/a&gt;をクリックしてください。&lt;/p&gt;
-&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot;&gt;
-&lt;!--
-  // 新url
-  var url = &quot;[リダイレクト先のURL]&quot;;
+  <span style="color:#75715e">// link rel=&#34;canonical&#34; の変更
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// 「はてなブログ」ではheadタグの最初のlinkタグに以下がある
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// &lt;link rel=&#34;canonical&#34; href=&#34;xxx&#34;/&gt;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">link</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;link&#34;</span>)[<span style="color:#ae81ff">0</span>];
+  <span style="color:#a6e22e">link</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>;
 
-  // link rel=&quot;canonical&quot; の変更
-  // 「はてなブログ」ではheadタグの最初のlinkタグに以下がある
-  // &lt;link rel=&quot;canonical&quot; href=&quot;xxx&quot;/&gt;
-  var link = document.getElementsByTagName(&quot;link&quot;)[0];
-  link.href = url;
-
-  // リダイレクト
-  setTimeout(&quot;redirect()&quot;, 3000);　// 3 sec
-  function redirect(){
-    location.href = url;
+  <span style="color:#75715e">// リダイレクト
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">setTimeout</span>(<span style="color:#e6db74">&#34;redirect()&#34;</span>, <span style="color:#ae81ff">3000</span>);　<span style="color:#75715e">// 3 sec
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">redirect</span>(){
+    <span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>;
   }
---&gt;
-&lt;/script&gt;
-</code></pre>
-
-<p>ただし、上記ではブログトップページなどで複数の記事が表示された際にもリダイレクトされてしまう。<br />
-「はてなブログ」では個別の記事ではURLに「entry」という文字列が含まれる。<br />
+<span style="color:#f92672">--&gt;</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>ただし、上記ではブログトップページなどで複数の記事が表示された際にもリダイレクトされてしまう。<br>
+「はてなブログ」では個別の記事ではURLに「entry」という文字列が含まれる。<br>
 これを利用して下記のスクリプトのように正規表現にマッチングさせて個別の記事でのみ実行されるようにする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;本記事は移転しました。&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;約3秒後にリダイレクトします。&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;リダイレクトしない場合は&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[リダイレクト先のURL]&#34;</span>&gt;ここ&lt;/<span style="color:#f92672">a</span>&gt;をクリックしてください。&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">language</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript&#34;</span>&gt;
+<span style="color:#75715e">&lt;!--</span>
+  <span style="color:#75715e">// 現在のurl
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span>;
+  <span style="color:#75715e">// 記事ページのurl正規表現
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">re</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RegExp(<span style="color:#e6db74">&#34;.*entry.*&#34;</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">href</span>)) {
+    <span style="color:#75715e">// 新url
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[リダイレクト先のURL]&#34;</span>;
+    <span style="color:#75715e">// link rel=&#34;canonical&#34; の変更
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 「はてなブログ」ではheadタグの最初のlinkタグに以下がある
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// &lt;link rel=&#34;canonical&#34; href=&#34;xxx&#34;/&gt;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">link</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;link&#34;</span>)[<span style="color:#ae81ff">0</span>];
+    <span style="color:#a6e22e">link</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>;
 
-<pre><code class="language-html">&lt;p&gt;本記事は移転しました。&lt;/p&gt;
-&lt;p&gt;約3秒後にリダイレクトします。&lt;/p&gt;
-&lt;p&gt;リダイレクトしない場合は&lt;a href=&quot;[リダイレクト先のURL]&quot;&gt;ここ&lt;/a&gt;をクリックしてください。&lt;/p&gt;
-&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot;&gt;
-&lt;!--
-  // 現在のurl
-  var href = window.location.href;
-  // 記事ページのurl正規表現
-  var re = new RegExp(&quot;.*entry.*&quot;);
-  if (re.test(href)) {
-    // 新url
-    var url = &quot;[リダイレクト先のURL]&quot;;
-    // link rel=&quot;canonical&quot; の変更
-    // 「はてなブログ」ではheadタグの最初のlinkタグに以下がある
-    // &lt;link rel=&quot;canonical&quot; href=&quot;xxx&quot;/&gt;
-    var link = document.getElementsByTagName(&quot;link&quot;)[0];
-    link.href = url;
-
-    // リダイレクト
-    setTimeout(&quot;redirect()&quot;, 3000);　// 3 sec
-    function redirect(){
-      location.href = url;
+    <span style="color:#75715e">// リダイレクト
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#e6db74">&#34;redirect()&#34;</span>, <span style="color:#ae81ff">3000</span>);　<span style="color:#75715e">// 3 sec
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">redirect</span>(){
+      <span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>;
     }
   }
---&gt;
-&lt;/script&gt;
-</code></pre>
+<span style="color:#f92672">--&gt;</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div>
 		</div>
 	</article>
 </main>
@@ -277,11 +261,11 @@ if (!doNotTrack) {
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -292,6 +276,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -385,7 +370,7 @@ if (!doNotTrack) {
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -412,7 +397,7 @@ if (!doNotTrack) {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>

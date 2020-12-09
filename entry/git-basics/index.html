@@ -20,19 +20,17 @@
 <meta property="og:description" content="Git/Githubのメモ。
 インストールから簡単な使い方まで書いてみる。
 
-
 環境構築
 一通りの使い方
 その他 Tips
 
-
 git submodule
+
 
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/git-basics/" />
-
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif" />
+<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
 
 
 	<meta name="twitter:card" content="summary_large_image"/>
@@ -42,13 +40,12 @@ git submodule
 <meta name="twitter:description" content="Git/Githubのメモ。
 インストールから簡単な使い方まで書いてみる。
 
-
 環境構築
 一通りの使い方
 その他 Tips
 
-
 git submodule
+
 
 "/>
 
@@ -121,96 +118,81 @@ if (!doNotTrack) {
 	</ul>
 </div>
 		<div class="content post__content clearfix">
-			<p>Git/Githubのメモ。<br />
+			<p>Git/Githubのメモ。<br>
 インストールから簡単な使い方まで書いてみる。</p>
-
 <ul>
 <li>環境構築</li>
 <li>一通りの使い方</li>
 <li>その他 Tips
-
 <ul>
 <li>git submodule</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="環境構築">環境構築</h1>
-
 <h2 id="githubのアカウントを作成">GitHubのアカウントを作成</h2>
-
 <p>下記でGitHubのアカウントを作成。</p>
-
 <ul>
 <li><a href="https://github.com/">https://github.com/</a></li>
 <li>ちなみに自分のアカウント
-
 <ul>
 <li><a href="https://github.com/pepese">https://github.com/pepese</a></li>
-</ul></li>
+</ul>
+</li>
 <li>リポジトリを作る
-
 <ul>
 <li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="gitクライアント環境の作成">Gitクライアント環境の作成</h2>
-
 <h3 id="windowsへのインストール">Windowsへのインストール</h3>
-
 <ul>
 <li>GitクライアントアプリをWindowsPCへインストール
-
 <ul>
 <li><a href="http://www.git-scm.com/downloads">http://www.git-scm.com/downloads</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="macへのインストール">Macへのインストール</h3>
-
 <p>以下を参照。</p>
-
 <ul>
 <li><a href="https://blog.pepese.com/entry/mac-dev-environment/">Macで開発環境を作る</a></li>
 </ul>
-
 <h3 id="gitクライアント設定">Gitクライアント設定</h3>
-
 <ul>
 <li>ユーザ名とメールアドレスを登録（ <strong>コミットログに残るユーザ名なので必ず設定する！</strong> ）
-
 <ul>
 <li><code>git config --global user.name &quot;hoge&quot;</code></li>
 <li><code>git config --global user.email &quot;hoge@email.sample.com&quot;</code></li>
-</ul></li>
+</ul>
+</li>
 <li>プロキシがある環境の場合は下記を叩く
-
 <ul>
 <li><code>git config --global http.proxy http://[FQDN]:[PORT]</code></li>
 <li><code>git config --global https.proxy http://proxy.example.com:8080</code></li>
-</ul></li>
+</ul>
+</li>
 <li>プロキシがある環境の場合は下記を叩く（ID、Passwordが必要な場合）
-
 <ul>
 <li><code>git config --global http.proxy http://[ID]:[Password]@[FQDN]:[PORT]</code></li>
 <li><code>git config --global https.proxy http://[ID]:[Password]@[FQDN]:[PORT]</code></li>
-</ul></li>
+</ul>
+</li>
 <li>プロキシがある環境の場合は下記を叩く
-
 <ul>
 <li><code>git config --global url.&quot;https://&quot;.insteadOf git://</code></li>
 <li>これでgitスキームを使えるようになる</li>
-</ul></li>
+</ul>
+</li>
 <li>Windowsのgitではデフォルトで改行コードがCR+LFへ変換されてしまうのでオフにする
-
 <ul>
 <li><code>git config --global core.autocrlf false</code></li>
-</ul></li>
+</ul>
+</li>
 <li>設定が反映されていることを確認 <code>git config --global -l</code></li>
 </ul>
-
 <p>グローバル設定ではなく、単一Gitプロジェクトにのみ反映させたい場合は、 <code>--global</code> を外してコマンドを打つ。</p>
-
 <pre><code>core.symlinks=false
 core.autocrlf=true
 color.diff=auto
@@ -226,163 +208,148 @@ rebase.autosquash=true
 http.proxy=http://[ID]:[Password]@proxy.example.com:8080
 https.proxy=http://[ID]:[Password]@proxy.example.com:8080
 url.https://.insteadof=git://
-</code></pre>
-
-<h1 id="一通りの使い方">一通りの使い方</h1>
-
-<h2 id="リモートリポジトリを作って-ローカルリポジトリにコピーして編集して更新するパターン">リモートリポジトリを作って、ローカルリポジトリにコピーして編集して更新するパターン</h2>
-
+</code></pre><h1 id="一通りの使い方">一通りの使い方</h1>
+<h2 id="リモートリポジトリを作ってローカルリポジトリにコピーして編集して更新するパターン">リモートリポジトリを作って、ローカルリポジトリにコピーして編集して更新するパターン</h2>
 <ol>
 <li>リモートリポジトリをローカルリポジトリへコピー（clone）
-
 <ul>
 <li>GitHub用のローカルリポジトリ領域を作成してカレントを移動
-
 <ul>
 <li><code>cd /d C:\Git\GitHub</code></li>
-</ul></li>
+</ul>
+</li>
 <li>リモートリポジトリ（GitHub）をローカルリポジトリへコピー（初回のみ）
-
 <ul>
 <li><code>git clone https://github.com/pepese/Sample.git</code></li>
 <li><code>C:\Git\GitHub\Sample」と「C:\Git\GitHub\Sample\.git</code> ができる</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>ローカルリポジトリへファイルを登録（add/commit）
-
 <ul>
 <li>コピーしたローカルリポジトリへ移動
-
 <ul>
 <li><code>cd /d C:\Git\GitHub\Sample</code></li>
-</ul></li>
+</ul>
+</li>
 <li>ファイルを作成
-
 <ul>
 <li><code>touch sample.txt</code>
-
 <ul>
 <li><code>C:\Git\GitHub\Sample\sample.txt</code></li>
-</ul></li>
+</ul>
+</li>
 <li>このままだとファイルを作っただけでまだローカルリポジトリへは反映されていない</li>
-</ul></li>
+</ul>
+</li>
 <li>ステージング領域へ反映
-
 <ul>
 <li><code>git add sample.txt</code></li>
 <li>全ての変更ファイルをaddしたい場合は <code>git add --all</code></li>
-</ul></li>
+</ul>
+</li>
 <li>ローカルリポジトリへコミット
-
 <ul>
 <li><code>git commit</code></li>
 <li>Vimが起動してコミットコメントを求められるので適当に編集</li>
 <li>コメント付きでコミットする場合は下記
-
 <ul>
 <li><code>git commit -m &quot;コミットコメント&quot;</code></li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>ローカルリポジトリの内容をリモートリポジトリへ反映（push）
-
 <ul>
 <li>ローカルリポジトリの内容をリモートリポジトリ（GitHubのMasterブランチ）へ反映
-
 <ul>
 <li><code>git push origin master</code></li>
-</ul></li>
+</ul>
+</li>
 <li>確認
-
 <ul>
 <li>下記を見ると「sample.txt」が追加されているのがわかる
-
 <ul>
 <li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
-</ul></li>
+</ul>
+</li>
 <li>「sample.txt」のリンクを押すと下記のURIへ飛び、中身が確認できる（今回は空）
-
 <ul>
 <li><a href="https://github.com/pepese/Sample/blob/master/sample.txt">https://github.com/pepese/Sample/blob/master/sample.txt</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>ファイルを更新する
-
 <ul>
 <li>下記のファイルをエディタで更新
-
 <ul>
 <li><code>C:\Git\GitHub\Sample\sample.txt</code></li>
-</ul></li>
+</ul>
+</li>
 <li>ステージング領域へ反映
-
 <ul>
 <li><code>git add sample.txt</code></li>
-</ul></li>
+</ul>
+</li>
 <li>ローカルリポジトリへコミット
-
 <ul>
 <li><code>git commit</code></li>
-</ul></li>
+</ul>
+</li>
 <li>ローカルリポジトリの内容をリモートリポジトリ（GitHub）へ反映
-
 <ul>
 <li><code>git push origin master</code></li>
 <li>GitHubアカウントのIDとPasswordを求められるので入力</li>
-</ul></li>
+</ul>
+</li>
 <li>確認
-
 <ul>
 <li>下記を見ると「sample.txt」があることがわかる
-
 <ul>
 <li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
-</ul></li>
+</ul>
+</li>
 <li>「sample.txt」のリンクを押すと下記のURIへ飛び、中身が確認できる
-
 <ul>
 <li><a href="https://github.com/pepese/Sample/blob/master/sample.txt">https://github.com/pepese/Sample/blob/master/sample.txt</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-
 <h2 id="ローカルリポジトリを作ってリモートリポジトリへ反映するパターン">ローカルリポジトリを作ってリモートリポジトリへ反映するパターン</h2>
-
 <p>リモートリポジトリが存在している前提で。</p>
-
 <ul>
 <li><code>cd /d C:\Git\GitHub</code></li>
 <li><code>mkdir Sample2</code></li>
 <li><code>cd Sample2</code></li>
 <li><code>git init</code></li>
 <li><code>git remote add origin https://github.com/pepese/Sample2.git</code>
-
 <ul>
 <li>リポジトリの参照先（origin）の設定</li>
 <li>もちろんGithub上にあらかじめリポジトリを作成しておく必要がある</li>
-</ul></li>
+</ul>
+</li>
 <li><code>touch sample2.txt</code></li>
 <li><code>git add sample2.txt</code></li>
 <li><code>git commit</code></li>
 <li><code>git push origin master</code></li>
 </ul>
-
 <h2 id="ブランチの作成からpull-request完了まで">ブランチの作成からPull Request完了まで</h2>
-
-<pre><code class="language-sh">$ git branch &lt;branchname&gt;
-</code></pre>
-
-<p><code>&lt;branchname&gt;</code> を指定せずに実行すると現在のブランチ（*がついてる）が確認できる。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git branch &lt;branchname&gt;
+</code></pre></div><p><code>&lt;branchname&gt;</code> を指定せずに実行すると現在のブランチ（*がついてる）が確認できる。<br>
 また、ブランチの切り替えは以下。</p>
-
-<pre><code class="language-sh">$ git checkout &lt;branchname&gt;
-</code></pre>
-
-<p>一連の流れは以下。</p>
-
-<pre><code class="language-sh">$ git branch issue1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git checkout &lt;branchname&gt;
+</code></pre></div><p>一連の流れは以下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git branch issue1
 $ git branch
   issues1
 * master
@@ -390,74 +357,38 @@ $ git checkout issue1
 $ git branch
 * issues1
   master
-</code></pre>
-
-<p>Pull Requestマージ後の作業。</p>
-
-<pre><code class="language-sh">$ git checkout master
-$ git branch -d issue1      #ローカルブランチの削除
-$ git push origin issue1   #リモートブランチの削除
-</code></pre>
-
-<h2 id="ファイルの変更を戻す">ファイルの変更を戻す</h2>
-
+</code></pre></div><p>Pull Requestマージ後の作業。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git checkout master
+$ git branch -d issue1      <span style="color:#75715e">#ローカルブランチの削除</span>
+$ git push origin :issue1   <span style="color:#75715e">#リモートブランチの削除</span>
+<span style="color:#75715e"># もしくは git push --delete origin issue1</span>
+</code></pre></div><h2 id="ファイルの変更を戻す">ファイルの変更を戻す</h2>
 <p>以下でコミットログのハッシュ値を取得。</p>
-
-<pre><code class="language-bash">git log [ファイルパス]
-</code></pre>
-
-<p>以下でコミットのハッシュ値を指定して戻す。</p>
-
-<pre><code class="language-sh">$ git checkout [コミット番号] [ファイルパス]
-</code></pre>
-
-<h2 id="特定のコミットをマージする">特定のコミットをマージする</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git log <span style="color:#f92672">[</span>ファイルパス<span style="color:#f92672">]</span>
+</code></pre></div><p>以下でコミットのハッシュ値を指定して戻す。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git checkout <span style="color:#f92672">[</span>コミット番号<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ファイルパス<span style="color:#f92672">]</span>
+</code></pre></div><h2 id="特定のコミットをマージする">特定のコミットをマージする</h2>
 <p>以下でリモートリポジトリの変更をローカルリポジトリへ持ってくる。（ワーキングディレクトリの変更は行われない）</p>
-
-<pre><code class="language-sh">$ git fetch
-</code></pre>
-
-<p>コミットログのハッシュ値を指定してマージする。</p>
-
-<pre><code class="language-sh">$ git cherry-pick [ハッシュ値]
-</code></pre>
-
-<h2 id="ブランチをマージする">ブランチをマージする</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git fetch
+</code></pre></div><p>コミットログのハッシュ値を指定してマージする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git cherry-pick <span style="color:#f92672">[</span>ハッシュ値<span style="color:#f92672">]</span>
+</code></pre></div><h2 id="ブランチをマージする">ブランチをマージする</h2>
 <p>issue1ブランチにmasterをマージしたい場合。</p>
-
-<pre><code class="language-sh">$ git checkout issue1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git checkout issue1
 $ git merge master
-</code></pre>
-
-<h2 id="ファイル-ディレクトリをgitの管理対象から外す">ファイル、ディレクトリをgitの管理対象から外す</h2>
-
+</code></pre></div><h2 id="ファイルディレクトリをgitの管理対象から外す">ファイル、ディレクトリをgitの管理対象から外す</h2>
 <h3 id="ファイルをgitの管理対象から外して且削除">ファイルをgitの管理対象から外して且削除</h3>
-
-<pre><code class="language-sh">$ git rm [削除したいファイル]
-</code></pre>
-
-<h3 id="ファイルをgitの管理対象から外すがファイルを削除しない">ファイルをgitの管理対象から外すがファイルを削除しない</h3>
-
-<pre><code class="language-sh">$ git rm —-cached [削除したいファイル]
-</code></pre>
-
-<h3 id="ディレクトリをgitの管理対象から外して且削除">ディレクトリをgitの管理対象から外して且削除</h3>
-
-<pre><code class="language-sh">$ git rm -r [削除したいディレクトリ]
-</code></pre>
-
-<p>もうちょっと知りたい人は以下を参照。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git rm <span style="color:#f92672">[</span>削除したいファイル<span style="color:#f92672">]</span>
+</code></pre></div><h3 id="ファイルをgitの管理対象から外すがファイルを削除しない">ファイルをgitの管理対象から外すがファイルを削除しない</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git rm —-cached <span style="color:#f92672">[</span>削除したいファイル<span style="color:#f92672">]</span>
+</code></pre></div><h3 id="ディレクトリをgitの管理対象から外して且削除">ディレクトリをgitの管理対象から外して且削除</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git rm -r <span style="color:#f92672">[</span>削除したいディレクトリ<span style="color:#f92672">]</span>
+</code></pre></div><p>もうちょっと知りたい人は以下を参照。</p>
 <ul>
 <li><a href="https://blog.pepese.com/entry/git-commands/">Gitコマンド整理</a></li>
 </ul>
-
 <h1 id="その他-tips">その他 Tips</h1>
-
 <h2 id="git-submodule">git submodule</h2>
-
 <p><code>git submodule</code> は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み。（ <a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb">参考</a> ）</p>
 		</div>
 	</article>
@@ -516,11 +447,11 @@ $ git merge master
 	<h4 class="widget__title"></h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/hugo-basics/">HexoからHugoに移行する</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/aws-vpc-basics/">Amazon VPCまとめ</a></li>
 			<li class="widget__item"><a class="widget__link" href="/entry/golang-string/">Goで文字列操作</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/golang-sort/">Goでソート</a></li>
 		</ul>
 	</div>
 </div>
@@ -531,6 +462,7 @@ $ git merge master
 		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
@@ -624,7 +556,7 @@ $ git merge master
 		
 			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (2)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (1)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
 		
 	</ul>
 	
@@ -651,7 +583,7 @@ $ git merge master
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2019 ぺーぺーSEのテックブログ.
+            &copy; 2020 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>
