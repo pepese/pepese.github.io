@@ -6,7 +6,26 @@
     <description>Recent content in maven on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 15 Dec 2017 18:04:28 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 08:06:42 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
+      <pubDate>Thu, 10 Dec 2020 08:06:42 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
+      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
+以下のようなことを書く。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OSの設定&lt;/li&gt;
+&lt;li&gt;開発環境作成
+&lt;ul&gt;
+&lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>SDKMAN入門</title>
       <link>https://blog.pepese.com/entry/sdkman-basics/</link>
@@ -27,25 +46,6 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/dynamodb-basics/&#34;&gt;DynamoDB入門&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Macで開発環境を作る</title>
-      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
-      <pubDate>Tue, 09 May 2017 08:06:42 +0900</pubDate>
-      
-      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
-      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
-以下のようなことを書く。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;OSの設定&lt;/li&gt;
-&lt;li&gt;開発環境作成
-&lt;ul&gt;
-&lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
