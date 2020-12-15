@@ -15,5 +15,14 @@
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/iam/&#34;&gt;Identity and Access Management（ IAM ）&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>AWS Lambdaまとめ</title>
+      <link>https://blog.pepese.com/entry/aws-lambda-basics/</link>
+      <pubDate>Sun, 02 Jun 2019 15:44:39 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/aws-lambda-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/lambda/&#34;&gt;Lambda&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

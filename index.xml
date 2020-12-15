@@ -6,24 +6,14 @@
     <description>Recent content on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 10 Dec 2020 08:06:42 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 15:14:28 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Macで開発環境を作る</title>
-      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
-      <pubDate>Thu, 10 Dec 2020 08:06:42 +0900</pubDate>
+      <title>gRPC/Protocol Buffers入門</title>
+      <link>https://blog.pepese.com/entry/grpc-protocolbuffers-basics/</link>
+      <pubDate>Thu, 10 Dec 2020 15:14:28 +0900</pubDate>
       
-      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
-      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
-以下のようなことを書く。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;OSの設定&lt;/li&gt;
-&lt;li&gt;開発環境作成
-&lt;ul&gt;
-&lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <guid>https://blog.pepese.com/entry/grpc-protocolbuffers-basics/</guid>
+      <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://grpc.io/&#34;&gt;gRPC&lt;/a&gt;/&lt;a href=&#34;https://developers.google.com/protocol-buffers&#34;&gt;Protocol Buffers&lt;/a&gt; に入門する。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,12 +27,43 @@
     </item>
     
     <item>
+      <title>AWS WAFまとめ</title>
+      <link>https://blog.pepese.com/entry/aws-waf-basics/</link>
+      <pubDate>Tue, 13 Aug 2019 18:59:21 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/aws-waf-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/waf/latest/developerguide/waf-chapter.html&#34;&gt;AWS WAF&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>AWS IAMまとめ</title>
       <link>https://blog.pepese.com/entry/aws-iam-basics/</link>
       <pubDate>Mon, 03 Jun 2019 07:18:58 +0900</pubDate>
       
       <guid>https://blog.pepese.com/entry/aws-iam-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/iam/&#34;&gt;Identity and Access Management（ IAM ）&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AWS Lambdaまとめ</title>
+      <link>https://blog.pepese.com/entry/aws-lambda-basics/</link>
+      <pubDate>Sun, 02 Jun 2019 15:44:39 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/aws-lambda-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/lambda/&#34;&gt;Lambda&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helm入門</title>
+      <link>https://blog.pepese.com/entry/helm%E5%85%A5%E9%96%80/</link>
+      <pubDate>Tue, 28 May 2019 08:02:13 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/helm%E5%85%A5%E9%96%80/</guid>
+      <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://github.com/helm/helm&#34;&gt;Helm&lt;/a&gt; に入門する。（ &lt;a href=&#34;https://helm.sh/docs/&#34;&gt;公式ドキュメント&lt;/a&gt; ）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;環境構築&lt;/li&gt;
+&lt;li&gt;使い方&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -144,6 +165,20 @@
 &lt;li&gt;io/ioutil パッケージ&lt;/li&gt;
 &lt;li&gt;bufio パッケージ&lt;/li&gt;
 &lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>GolangでgRPC</title>
+      <link>https://blog.pepese.com/draft/golang%E3%81%A7grpc/</link>
+      <pubDate>Thu, 03 Jan 2019 18:23:48 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/draft/golang%E3%81%A7grpc/</guid>
+      <description>gRPC は、RPC (Remote Procedure Call) を実現するためにGoogleが開発したプロトコルの1つ。 Protocol Buffers を使ってデータをシリアライズ（異なるプログラミング言語間で XML や JSON といったデータフォーマットを介することなる透過的にデータをやり取り）し、HTTP/2 ベース高速な通信を実現できる。 プログラミング言語に依存しない IDL（インターフェース定義言語）を使ってあらかじめAPI仕様を .proto ファイルとして定義し、そこからサーバー側＆クライアント側に必要なソースコードのひな形を生成。
+ 環境設定 gRPC その他 Tips  環境設定 ここでは 公式 とは異なる方法で設定して軽く動確する。（基本は公式参照）
+$ go get -u google.golang.org/grpc $ brew install protobuf # protoc コマンドが入る（ここが公式とは異なる） $ protoc --version # 必ずバージョンを確認する libprotoc 3.14.0 $ go get -u github.com/golang/protobuf/protoc-gen-go # go に対応するコードを出力するためのプラグイン git clone -b v1.34.0 https://github.com/grpc/grpc-go でサンプル取得できる。
+以下 2 つのターミナルで動かしてみる。
+ターミナル１：サーバサイド
+$ cd grpc-go/examples/helloworld $ go run greeter_server/main.</description>
     </item>
     
     <item>
@@ -741,6 +776,25 @@ gitについては以下を参照。&lt;/p&gt;
       
       <guid>https://blog.pepese.com/entry/atom-install-packages/</guid>
       <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
+      <pubDate>Wed, 10 May 2017 08:06:42 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
+      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
+以下のようなことを書く。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OSの設定&lt;/li&gt;
+&lt;li&gt;開発環境作成
+&lt;ul&gt;
+&lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>

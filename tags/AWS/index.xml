@@ -6,7 +6,16 @@
     <description>Recent content in aws on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 03 Jun 2019 07:18:58 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Aug 2019 18:59:21 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS WAFまとめ</title>
+      <link>https://blog.pepese.com/entry/aws-waf-basics/</link>
+      <pubDate>Tue, 13 Aug 2019 18:59:21 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/aws-waf-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/waf/latest/developerguide/waf-chapter.html&#34;&gt;AWS WAF&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>AWS IAMまとめ</title>
       <link>https://blog.pepese.com/entry/aws-iam-basics/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://blog.pepese.com/entry/aws-iam-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/iam/&#34;&gt;Identity and Access Management（ IAM ）&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AWS Lambdaまとめ</title>
+      <link>https://blog.pepese.com/entry/aws-lambda-basics/</link>
+      <pubDate>Sun, 02 Jun 2019 15:44:39 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/aws-lambda-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/lambda/&#34;&gt;Lambda&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>

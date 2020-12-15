@@ -7,25 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://blog.pepese.com/archives/2017/05/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Macで開発環境を作る</title>
-      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
-      <pubDate>Thu, 10 Dec 2020 08:06:42 +0900</pubDate>
-      
-      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
-      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
-以下のようなことを書く。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;OSの設定&lt;/li&gt;
-&lt;li&gt;開発環境作成
-&lt;ul&gt;
-&lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
       <link>https://blog.pepese.com/entry/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 07:49:45 +0900</pubDate>
@@ -135,6 +116,25 @@ gitについては以下を参照。&lt;/p&gt;
       
       <guid>https://blog.pepese.com/entry/atom-install-packages/</guid>
       <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/entry/mac-dev-environment/</link>
+      <pubDate>Wed, 10 May 2017 08:06:42 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/mac-dev-environment/</guid>
+      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;br&gt;
+以下のようなことを書く。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OSの設定&lt;/li&gt;
+&lt;li&gt;開発環境作成
+&lt;ul&gt;
+&lt;li&gt;開発言語、ビルドツールとか&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;エディタ・IDEの設定&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>

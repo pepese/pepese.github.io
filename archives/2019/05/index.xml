@@ -7,6 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://blog.pepese.com/archives/2019/05/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Helm入門</title>
+      <link>https://blog.pepese.com/entry/helm%E5%85%A5%E9%96%80/</link>
+      <pubDate>Tue, 28 May 2019 08:02:13 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/helm%E5%85%A5%E9%96%80/</guid>
+      <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://github.com/helm/helm&#34;&gt;Helm&lt;/a&gt; に入門する。（ &lt;a href=&#34;https://helm.sh/docs/&#34;&gt;公式ドキュメント&lt;/a&gt; ）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;環境構築&lt;/li&gt;
+&lt;li&gt;使い方&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>HexoからHugoに移行する</title>
       <link>https://blog.pepese.com/entry/hugo-basics/</link>
       <pubDate>Sun, 26 May 2019 16:09:06 +0900</pubDate>
