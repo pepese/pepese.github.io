@@ -21,6 +21,20 @@
     </item>
     
     <item>
+      <title>Istio入門</title>
+      <link>https://blog.pepese.com/entry/k8s-istio-basics/</link>
+      <pubDate>Tue, 15 Jan 2019 16:09:06 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/k8s-istio-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://istio.io/&#34;&gt;Istio&lt;/a&gt; についてまとめる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;概要&lt;/li&gt;
+&lt;li&gt;ローカル環境構築 ※古い&lt;/li&gt;
+&lt;li&gt;k8s環境構築 ※古い&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Kubernetesのアーキテクチャ整理</title>
       <link>https://blog.pepese.com/entry/k8s-architecture/</link>
       <pubDate>Tue, 15 Jan 2019 16:09:06 +0900</pubDate>
