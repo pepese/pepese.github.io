@@ -18,10 +18,11 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="Kubernetesのアーキテクチャ整理" />
 <meta property="og:description" content="Kubernetes （ k8s ）のアーキテクチャについて整理する。
- サーバ構成 コンポーネント  公式
-サーバ構成 k8s ではホストマシン（物理サーバ、もしくは仮想マシン、インスタンス）の種別として Control Plane と Worker Nodes がある。
-それぞれで実行されるコンポーネントは以下の通り。各コンポーネントはそれぞれ各サーバ上で独立したプロセスとして常駐する。
- Control Plane ： 管理サーバ。クライアントツール（ kubectl ）から Control Plane を経由して Worker Nodes をコントロールする。  kube-apiserver etcd kube-scheduler kube-controller-manager cloud-controller-manager   Worker Nodes ： Control Plane から管理されるワーカーサーバ。複数台で構成されるクラスタ構成をとり、コンテナがマウントされる。  kubelet kube-proxy kube-dns ・CoreDNS    その他コンポーネント・クライアントツール  その他のコンポーネント  hyperkube  k8s 関連のバイナリを1つにまとめたall-in-oneバイナリ   cAdvisor  各 Node 上にあるコンテナのCPU、メモリ、ファイル、ネットワーク使用量といった、リソースの使用量と性能の指標を監視・収集するエージェント     クライアントツール  kubectl  k8s クラスタを管理するコマンド   kubeadm  物理もしくは仮想サーバに対して Kubernetes 環境を構築するツール   kubefed  Federation を管理するコマンド Federationは複数のリージョンやクラウドに配置されているKubernetesのクラスタを一括で管理できるようにする機能   Minikube  1 台のローカル端末で シングル Node の Kubernetes Cluster をお試しできるツール   Dashboard  k8s クラスタの可視化を行う Web ベースのツール      コンポーネント ここでは先ほど紹介した Control Plane/Worker Nodes に配備されている主要コンポーネントについて記載する。" />
+
+サーバ構成
+コンポーネント
+
+公式" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.pepese.com/entry/k8s-architecture/" />
 <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
@@ -33,10 +34,11 @@
 
 <meta name="twitter:title" content="Kubernetesのアーキテクチャ整理"/>
 <meta name="twitter:description" content="Kubernetes （ k8s ）のアーキテクチャについて整理する。
- サーバ構成 コンポーネント  公式
-サーバ構成 k8s ではホストマシン（物理サーバ、もしくは仮想マシン、インスタンス）の種別として Control Plane と Worker Nodes がある。
-それぞれで実行されるコンポーネントは以下の通り。各コンポーネントはそれぞれ各サーバ上で独立したプロセスとして常駐する。
- Control Plane ： 管理サーバ。クライアントツール（ kubectl ）から Control Plane を経由して Worker Nodes をコントロールする。  kube-apiserver etcd kube-scheduler kube-controller-manager cloud-controller-manager   Worker Nodes ： Control Plane から管理されるワーカーサーバ。複数台で構成されるクラスタ構成をとり、コンテナがマウントされる。  kubelet kube-proxy kube-dns ・CoreDNS    その他コンポーネント・クライアントツール  その他のコンポーネント  hyperkube  k8s 関連のバイナリを1つにまとめたall-in-oneバイナリ   cAdvisor  各 Node 上にあるコンテナのCPU、メモリ、ファイル、ネットワーク使用量といった、リソースの使用量と性能の指標を監視・収集するエージェント     クライアントツール  kubectl  k8s クラスタを管理するコマンド   kubeadm  物理もしくは仮想サーバに対して Kubernetes 環境を構築するツール   kubefed  Federation を管理するコマンド Federationは複数のリージョンやクラウドに配置されているKubernetesのクラスタを一括で管理できるようにする機能   Minikube  1 台のローカル端末で シングル Node の Kubernetes Cluster をお試しできるツール   Dashboard  k8s クラスタの可視化を行う Web ベースのツール      コンポーネント ここでは先ほど紹介した Control Plane/Worker Nodes に配備されている主要コンポーネントについて記載する。"/>
+
+サーバ構成
+コンポーネント
+
+公式"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -357,7 +359,6 @@ Controller は自作可能であるが、デフォルトで以下のような Co
 <p>k8s クラスタの名前解決/<strong>サービスディスカバリ</strong>を担当するクラスタ内の DNS サーバ。<br>
 <code>kube-apiserver</code> をポーリングして設定変更を検知する。<br>
 <code>kube-dns</code> の後継として <a href="https://kubernetes.io/ja/docs/tasks/administer-cluster/coredns/">CoreDNS</a> がある。</p>
-
 		</div>
 	</article>
 </main>
