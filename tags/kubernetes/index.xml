@@ -20,5 +20,18 @@
 &lt;/ul&gt;</description>
     </item>
     
+    <item>
+      <title>Kubernetesのアーキテクチャ整理</title>
+      <link>https://blog.pepese.com/entry/k8s-architecture/</link>
+      <pubDate>Tue, 15 Jan 2019 16:09:06 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/k8s-architecture/</guid>
+      <description>Kubernetes （ k8s ）のアーキテクチャについて整理する。
+ サーバ構成 コンポーネント  公式
+サーバ構成 k8s ではホストマシン（物理サーバ、もしくは仮想マシン、インスタンス）の種別として Control Plane と Worker Nodes がある。
+それぞれで実行されるコンポーネントは以下の通り。各コンポーネントはそれぞれ各サーバ上で独立したプロセスとして常駐する。
+ Control Plane ： 管理サーバ。クライアントツール（ kubectl ）から Control Plane を経由して Worker Nodes をコントロールする。  kube-apiserver etcd kube-scheduler kube-controller-manager cloud-controller-manager   Worker Nodes ： Control Plane から管理されるワーカーサーバ。複数台で構成されるクラスタ構成をとり、コンテナがマウントされる。  kubelet kube-proxy kube-dns ・CoreDNS    その他コンポーネント・クライアントツール  その他のコンポーネント  hyperkube  k8s 関連のバイナリを1つにまとめたall-in-oneバイナリ   cAdvisor  各 Node 上にあるコンテナのCPU、メモリ、ファイル、ネットワーク使用量といった、リソースの使用量と性能の指標を監視・収集するエージェント     クライアントツール  kubectl  k8s クラスタを管理するコマンド   kubeadm  物理もしくは仮想サーバに対して Kubernetes 環境を構築するツール   kubefed  Federation を管理するコマンド Federationは複数のリージョンやクラウドに配置されているKubernetesのクラスタを一括で管理できるようにする機能   Minikube  1 台のローカル端末で シングル Node の Kubernetes Cluster をお試しできるツール   Dashboard  k8s クラスタの可視化を行う Web ベースのツール      コンポーネント ここでは先ほど紹介した Control Plane/Worker Nodes に配備されている主要コンポーネントについて記載する。</description>
+    </item>
+    
   </channel>
 </rss>

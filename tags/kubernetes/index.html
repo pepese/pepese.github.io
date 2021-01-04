@@ -113,6 +113,30 @@ if (!doNotTrack) {
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/entry/helm%E5%85%A5%E9%96%80/"></a>
 	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/entry/k8s-architecture/" rel="bookmark">
+			Kubernetesのアーキテクチャ整理
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2019-01-15T16:09:06">January 15, 2019</time>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Kubernetes （ k8s ）のアーキテクチャについて整理する。
+ サーバ構成 コンポーネント  公式
+サーバ構成 k8s ではホストマシン（物理サーバ、もしくは仮想マシン、インスタンス）の種別として Control Plane と Worker Nodes がある。
+それぞれで実行されるコンポーネントは以下の通り。各コンポーネントはそれぞれ各サーバ上で独立したプロセスとして常駐する。
+ Control Plane ： 管理サーバ。クライアントツール（ kubectl ）から Control Plane を経由して Worker Nodes をコントロールする。  kube-apiserver etcd kube-scheduler kube-controller-manager cloud-controller-manager   Worker Nodes ： Control Plane から管理されるワーカーサーバ。複数台で構成されるクラスタ構成をとり、コンテナがマウントされる。  kubelet kube-proxy kube-dns ・CoreDNS    その他コンポーネント・クライアントツール  その他のコンポーネント  hyperkube  k8s 関連のバイナリを1つにまとめたall-in-oneバイナリ   cAdvisor  各 Node 上にあるコンテナのCPU、メモリ、ファイル、ネットワーク使用量といった、リソースの使用量と性能の指標を監視・収集するエージェント     クライアントツール  kubectl  k8s クラスタを管理するコマンド   kubeadm  物理もしくは仮想サーバに対して Kubernetes 環境を構築するツール   kubefed  Federation を管理するコマンド Federationは複数のリージョンやクラウドに配置されているKubernetesのクラスタを一括で管理できるようにする機能   Minikube  1 台のローカル端末で シングル Node の Kubernetes Cluster をお試しできるツール   Dashboard  k8s クラスタの可視化を行う Web ベースのツール      コンポーネント ここでは先ほど紹介した Control Plane/Worker Nodes に配備されている主要コンポーネントについて記載する。
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/entry/k8s-architecture/"></a>
+	</div>
 </article>
 </main>
 
@@ -196,6 +220,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/javascript" title="Javascript">Javascript</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/jupyter" title="Jupyter">Jupyter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/k-means" title="K means">K means</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/k8s" title="K8s">K8s</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kotlin" title="Kotlin">Kotlin</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda" title="Lambda">Lambda</a>
@@ -262,7 +287,7 @@ if (!doNotTrack) {
 		
 			<li><a href="https://blog.pepese.com/archives/2018/02">2018/02 (6)</a></li>
 		
-			<li><a href="https://blog.pepese.com/archives/2019/01">2019/01 (2)</a></li>
+			<li><a href="https://blog.pepese.com/archives/2019/01">2019/01 (3)</a></li>
 		
 			<li><a href="https://blog.pepese.com/archives/2019/02">2019/02 (4)</a></li>
 		
@@ -301,7 +326,7 @@ if (!doNotTrack) {
     <div class="container footer__container flex">
         
         <div class="footer__copyright">
-            &copy; 2020 ぺーぺーSEのテックブログ.
+            &copy; 2021 ぺーぺーSEのテックブログ.
             <span class="footer__copyright-credits"></span>
         </div>
     </div>
