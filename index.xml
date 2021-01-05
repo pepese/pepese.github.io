@@ -6,7 +6,21 @@
     <description>Recent content on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 09 Dec 2020 20:29:03 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 22:02:55 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KindでIstio環境を構築する</title>
+      <link>https://blog.pepese.com/entry/kind-istio/</link>
+      <pubDate>Mon, 04 Jan 2021 22:02:55 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/entry/kind-istio/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kind.sigs.k8s.io/&#34;&gt;kind&lt;/a&gt; は &lt;strong&gt;K&lt;/strong&gt;ubernetes &lt;strong&gt;in&lt;/strong&gt; &lt;strong&gt;D&lt;/strong&gt;ocker の略。文字通り、Docker上にKubernetes環境を構築する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;kind のインストール&lt;/li&gt;
+&lt;li&gt;Kubernetes 環境の構築&lt;/li&gt;
+&lt;li&gt;Istio 環境の構築&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>Asdfでバージョン管理</title>
       <link>https://blog.pepese.com/entry/asdf/</link>

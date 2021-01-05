@@ -6,7 +6,34 @@
     <description>Recent content in Tags on ぺーぺーSEのテックブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 09 Dec 2020 20:29:03 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 22:02:55 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Istio</title>
+      <link>https://blog.pepese.com/tags/istio/</link>
+      <pubDate>Mon, 04 Jan 2021 22:02:55 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kind</title>
+      <link>https://blog.pepese.com/tags/kind/</link>
+      <pubDate>Mon, 04 Jan 2021 22:02:55 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/kind/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://blog.pepese.com/tags/kubernetes/</link>
+      <pubDate>Mon, 04 Jan 2021 22:02:55 +0900</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>asdf</title>
       <link>https://blog.pepese.com/tags/asdf/</link>
@@ -80,15 +107,6 @@
     </item>
     
     <item>
-      <title>kubernetes</title>
-      <link>https://blog.pepese.com/tags/kubernetes/</link>
-      <pubDate>Tue, 28 May 2019 08:02:13 +0900</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>hugo</title>
       <link>https://blog.pepese.com/tags/hugo/</link>
       <pubDate>Sun, 26 May 2019 16:09:06 +0900</pubDate>
@@ -112,15 +130,6 @@
       <pubDate>Mon, 11 Feb 2019 18:21:26 +0900</pubDate>
       
       <guid>https://blog.pepese.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Istio</title>
-      <link>https://blog.pepese.com/tags/istio/</link>
-      <pubDate>Tue, 15 Jan 2019 16:09:06 +0900</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/istio/</guid>
       <description></description>
     </item>
     
