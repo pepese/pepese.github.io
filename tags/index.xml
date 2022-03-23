@@ -26,6 +26,24 @@
     </item>
     
     <item>
+      <title>aws cli</title>
+      <link>https://blog.pepese.com/tags/aws-cli/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/aws-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamodb</title>
+      <link>https://blog.pepese.com/tags/dynamodb/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/dynamodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>iam</title>
       <link>https://blog.pepese.com/tags/iam/</link>
       <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
@@ -58,6 +76,294 @@
       <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/waf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>istio</title>
+      <link>https://blog.pepese.com/tags/istio/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kind</title>
+      <link>https://blog.pepese.com/tags/kind/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/kind/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://blog.pepese.com/tags/kubernetes/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grpc</title>
+      <link>https://blog.pepese.com/tags/grpc/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/grpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>protocol buffers</title>
+      <link>https://blog.pepese.com/tags/protocol-buffers/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/protocol-buffers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>helm</title>
+      <link>https://blog.pepese.com/tags/helm/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://blog.pepese.com/tags/hugo/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://blog.pepese.com/tags/go/</link>
+      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>https://blog.pepese.com/tags/vscode/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jupyter</title>
+      <link>https://blog.pepese.com/tags/jupyter/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/jupyter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://blog.pepese.com/tags/python/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://blog.pepese.com/tags/android/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>appium</title>
+      <link>https://blog.pepese.com/tags/appium/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/appium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ios</title>
+      <link>https://blog.pepese.com/tags/ios/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kotlin</title>
+      <link>https://blog.pepese.com/tags/kotlin/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
+      <link>https://blog.pepese.com/tags/heroku/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://blog.pepese.com/tags/java/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>https://blog.pepese.com/tags/maven/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>angular</title>
+      <link>https://blog.pepese.com/tags/angular/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/angular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>express</title>
+      <link>https://blog.pepese.com/tags/express/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/express/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://blog.pepese.com/tags/javascript/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>node.js</title>
+      <link>https://blog.pepese.com/tags/node.js/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://blog.pepese.com/tags/npm/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sass</title>
+      <link>https://blog.pepese.com/tags/sass/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/sass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://blog.pepese.com/tags/typescript/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yarn</title>
+      <link>https://blog.pepese.com/tags/yarn/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/yarn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cognito</title>
+      <link>https://blog.pepese.com/tags/cognito/</link>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/cognito/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://blog.pepese.com/tags/git/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://blog.pepese.com/tags/github/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>atom</title>
+      <link>https://blog.pepese.com/tags/atom/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/atom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homebrew</title>
+      <link>https://blog.pepese.com/tags/homebrew/</link>
+      <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/homebrew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hexo</title>
+      <link>https://blog.pepese.com/tags/hexo/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/hexo/</guid>
       <description></description>
     </item>
     

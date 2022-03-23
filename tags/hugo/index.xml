@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hugo on ぺーぺーSEのテックブログ</title>
+    <title>hugo on ぺーぺーSEのブログ</title>
     <link>https://blog.pepese.com/tags/hugo/</link>
-    <description>Recent content in hugo on ぺーぺーSEのテックブログ</description>
+    <description>Recent content in hugo on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Sun, 26 May 2019 16:09:06 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>HexoからHugoに移行する</title>
-      <link>https://blog.pepese.com/entry/hugo-basics/</link>
-      <pubDate>Sun, 26 May 2019 16:09:06 +0900</pubDate>
+      <title>Hugo入門</title>
+      <link>https://blog.pepese.com/hugo-basics/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/hugo-basics/</guid>
-      <description>&lt;p&gt;Hexo から Hugo に移行する時のメモ。&lt;br&gt;
-タイトルは「移行する」だが、「移行」の方法については書いてない。&lt;br&gt;
-各記事 Markdown のフロント（ヘッダ？）部分の yaml が違うだけなので量が多ければスクリプトなどへ変換されたし。（人によって設定も違うし）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Hugo 環境構築&lt;/li&gt;
-&lt;li&gt;記事の作成&lt;/li&gt;
-&lt;li&gt;Tips&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <guid>https://blog.pepese.com/hugo-basics/</guid>
+      <description>&lt;p&gt;Hugo に入門する。&lt;/p&gt;</description>
     </item>
     
   </channel>

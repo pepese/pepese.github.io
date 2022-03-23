@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
+
+    
+    <meta name="title" content="Helm入門" />
+    <meta property="og:title" content="Helm入門" />
+    <meta property="twitter:title" content="Helm入門" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Helm入門-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/kubernetes-helm-basics/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        <a class="tag" href="/tags/helm" title="helm">
+                            helm
+                        </a>
+                        
+                    </div>
+                    <h1>Helm入門</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2019-05-28
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>今更ながら <a href="https://github.com/helm/helm">Helm</a> に入門する。（ <a href="https://helm.sh/docs/">公式ドキュメント</a> ）</p>
+<h1 id="環境構築">環境構築</h1>
+<p>コマンドのインストールとコンテキストの確認。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install kubernetes-helm
+</span></span><span style="display:flex;"><span>$ which helm
+</span></span><span style="display:flex;"><span>/usr/local/bin/helm
+</span></span><span style="display:flex;"><span>$ kubectl config current-context
+</span></span><span style="display:flex;"><span>docker-for-desktop
+</span></span></code></pre></div><p><strong>Tiller</strong> を kubernetes クラスタへインストールする。（ TLS authentication が必要な場合は <a href="https://helm.sh/docs/using_helm/#using-ssl-between-helm-and-tiller">ここ</a> を参照）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm init --history-max <span style="color:#bd93f9">200</span>
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/repository
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/repository/cache
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/repository/local
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/plugins
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/starters
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/cache/archive
+</span></span><span style="display:flex;"><span>Creating /Users/xxxx/.helm/repository/repositories.yaml
+</span></span><span style="display:flex;"><span>Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com
+</span></span><span style="display:flex;"><span>Adding <span style="color:#8be9fd;font-style:italic">local</span> repo with URL: http://127.0.0.1:8879/charts
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">$HELM_HOME</span> has been configured at /Users/xxxx/.helm.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tiller <span style="color:#ff79c6">(</span>the Helm server-side component<span style="color:#ff79c6">)</span> has been installed into your Kubernetes Cluster.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Please note: by default, Tiller is deployed with an insecure <span style="color:#f1fa8c">&#39;allow unauthenticated users&#39;</span> policy.
+</span></span><span style="display:flex;"><span>To prevent this, run <span style="color:#f1fa8c">`</span>helm init<span style="color:#f1fa8c">`</span> with the --tiller-tls-verify flag.
+</span></span><span style="display:flex;"><span>For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
+</span></span></code></pre></div><p>上記で <code>$HELM_HOME</code> 環境変数（初期値は <code>$HOME/.helm</code> ）以下に所定のディレクトリとファイル群が生成されると同時に、 Tiller に関するリソースがkubernetesクラスタのkube-system名前空間に作成される。<br>
+Tiller をアンインストールするには <code>$ helm reset</code> 。</p>
+<h1 id="使い方">使い方</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>helm update repo</code></td>
+<td style="text-align:left">リポジトリ情報の更新</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm search</code></td>
+<td style="text-align:left">Chartの検索</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm inspect</code></td>
+<td style="text-align:left">Chartの詳細情報の表示</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm install</code></td>
+<td style="text-align:left">Chartのインストール（デプロイ）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm list</code></td>
+<td style="text-align:left">クラスタ上のChartインスタンス(Release)の一覧を表示</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm upgrade</code></td>
+<td style="text-align:left">Chartの更新のデプロイ</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm delete</code></td>
+<td style="text-align:left">ReleaseとAPIオブジェクトの削除</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm template</code></td>
+<td style="text-align:left">Chartから作成されるマニフェストファイルの出力</td>
+</tr>
+</tbody>
+</table>
+<h2 id="構築確認削除">構築・確認・削除</h2>
+<p><strong>Chart</strong> （ Helm のパッケージ）をインストールするには <code>$ helm install</code> を利用する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm repo update
+</span></span><span style="display:flex;"><span>$ helm install stable/mysql <span style="color:#6272a4"># これだけでクラスタに MySQL が構築される、恐ろしい、、、</span>
+</span></span><span style="display:flex;"><span>$ helm list
+</span></span><span style="display:flex;"><span>$ helm delete wintering-rodent
+</span></span></code></pre></div><ul>
+<li><code>$ helm install</code> でクラスタ上にデプロイされた構成を <strong>リリース</strong> と呼ぶ
+<ul>
+<li>このリリースには必ず名前がつけられ <code>--name</code> オプションで指定する（ <a href="https://github.com/helm/charts/tree/master/stable/mysql">stable/mysql</a> ）</li>
+</ul>
+<pre tabindex="0"><code>$ helm install --name my-release stable/mysql
+</code></pre><ul>
+<li>オプション指定が無い場合はランダムで命名（上記でいう <code>wintering-rodent</code> ）される</li>
+<li>同じチャートのより新しいリビジョンを使って内容を書き換えることが更新</li>
+<li><code>$ helm install</code> コマンドは、 <code>$ helm upgrade</code> コマンドの <code>--install</code> オプションで代替できるので、実際には <code>$ helm install</code> コマンドを使わず、 <code>$ helm upgrade</code> コマンドだけで統一可能</li>
+<li>事前にチェックするために <code>--dry-run</code> オプションを指定して初回は実行することをお勧め</li>
+</ul>
+</li>
+<li><code>$ helm rollback</code> コマンドによって、指定したリビジョンの内容に復帰させるということが可能</li>
+<li><code>$ helm delete</code> コマンドでリリースを削除
+<ul>
+<li><code>--purge</code> オプションをつけない限り、「DELETED」の状態としてそのリリース定義自体は維持される</li>
+<li>この振る舞いによって、 <code>$ helm rollback</code> で「リリース削除の取り消し」も可能</li>
+</ul>
+</li>
+<li>リリース後は <code>$ helm list</code> コマンドで一覧取得
+<ul>
+<li>「DELETED」な状態のリリースを表示するには、 <code>--all</code> オプション</li>
+</ul>
+</li>
+</ul>
+<h2 id="chart-の探し方">Chart の探し方</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm search
+</span></span><span style="display:flex;"><span>NAME                                 	CHART VERSION	APP VERSION                 	DESCRIPTION
+</span></span><span style="display:flex;"><span>stable/acs-engine-autoscaler         	2.2.2        	2.1.1                       	DEPRECATED Scales worker nodes within agent pools
+</span></span><span style="display:flex;"><span>stable/aerospike                     	0.2.6        	v4.5.0.5                    	A Helm chart <span style="color:#ff79c6">for</span> Aerospike in Kubernetes
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>$ helm search mysql
+</span></span><span style="display:flex;"><span>NAME                            	CHART VERSION	APP VERSION	DESCRIPTION
+</span></span><span style="display:flex;"><span>stable/mysql                    	1.1.1        	5.7.14     	Fast, reliable, scalable, and easy to use open-source rel...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>stable/mariadb                  	6.1.0        	10.3.15    	Fast, reliable, scalable, and easy to use open-source rel...
+</span></span></code></pre></div><h2 id="chart-のカスタマイズ">Chart のカスタマイズ</h2>
+<p><code>$ helm inspect values &lt;Chart&gt;</code> コマンドで Chart のパラメータを確認できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm inspect values stable/mysql
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## mysql image version</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## ref: https://hub.docker.com/r/library/mysql/tags/</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">##</span>
+</span></span><span style="display:flex;"><span>image: <span style="color:#f1fa8c">&#34;mysql&#34;</span>
+</span></span><span style="display:flex;"><span>imageTag: <span style="color:#f1fa8c">&#34;5.7.14&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>busybox:
+</span></span><span style="display:flex;"><span>  image: <span style="color:#f1fa8c">&#34;busybox&#34;</span>
+</span></span><span style="display:flex;"><span>  tag: <span style="color:#f1fa8c">&#34;1.29.3&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>testFramework:
+</span></span><span style="display:flex;"><span>  image: <span style="color:#f1fa8c">&#34;dduportal/bats&#34;</span>
+</span></span><span style="display:flex;"><span>  tag: <span style="color:#f1fa8c">&#34;0.4.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## Specify password for root user</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">##</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## Default: random 10 character string</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># mysqlRootPassword: testing</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## Create a database user</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">##</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># mysqlUser:</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## Default: random 10 character string</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># mysqlPassword:</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>上記を基に <code>.yaml</code> ファイルを作成して以下のように構築する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm install --name my_release -f values.yaml stable/mysql
+</span></span></code></pre></div><p>なお、インストール対象の Chart には、アーカイブ・ディレクトリ・URL も指定できる。</p>
+<h1 id="独自の-chart-を作成する">独自の Chart を作成する</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>helm create</code></td>
+<td style="text-align:left">新しいChartの作成</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm template</code></td>
+<td style="text-align:left">テンプレートのレンダリング</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>helm upgrade –install</code></td>
+<td style="text-align:left">作ったChartのデプロイ</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://helm.sh/docs/chart_template_guide/">詳細</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helm create sample-chart
+</span></span><span style="display:flex;"><span>Creating sample-chart
+</span></span><span style="display:flex;"><span>$ ls -la
+</span></span><span style="display:flex;"><span>total <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#bd93f9">5</span> xxxx  xxxx   <span style="color:#bd93f9">160</span>  <span style="color:#bd93f9">5</span> <span style="color:#bd93f9">21</span> 19:10 .
+</span></span><span style="display:flex;"><span>drwxr-xr-x+ <span style="color:#bd93f9">32</span> xxxx  xxxx  <span style="color:#bd93f9">1024</span>  <span style="color:#bd93f9">5</span> <span style="color:#bd93f9">21</span> 18:37 ..
+</span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#bd93f9">7</span> xxxx  xxxx   <span style="color:#bd93f9">224</span>  <span style="color:#bd93f9">5</span> <span style="color:#bd93f9">21</span> 19:10 sample-chart
+</span></span><span style="display:flex;"><span>$ tree sample-chart/
+</span></span><span style="display:flex;"><span>sample-chart/
+</span></span><span style="display:flex;"><span>├── Chart.yaml
+</span></span><span style="display:flex;"><span>├── charts
+</span></span><span style="display:flex;"><span>├── templates
+</span></span><span style="display:flex;"><span>│   ├── NOTES.txt
+</span></span><span style="display:flex;"><span>│   ├── _helpers.tpl
+</span></span><span style="display:flex;"><span>│   ├── deployment.yaml
+</span></span><span style="display:flex;"><span>│   ├── ingress.yaml
+</span></span><span style="display:flex;"><span>│   ├── service.yaml
+</span></span><span style="display:flex;"><span>│   └── tests
+</span></span><span style="display:flex;"><span>│       └── test-connection.yaml
+</span></span><span style="display:flex;"><span>└── values.yaml
+</span></span><span style="display:flex;"><span>$ helm lint sample-chart    <span style="color:#6272a4"># リンター</span>
+</span></span><span style="display:flex;"><span>$ helm package sample-chart <span style="color:#6272a4"># パッケージング</span>
+</span></span></code></pre></div><p>各ディレクトリ・ファイルは以下の役割。</p>
+<ul>
+<li><code>Chart.yaml</code> ：Chartの名前やバージョンなどの情報が記述される。</li>
+<li><code>values.yaml</code> ：Chartのパラメータのデフォルト値が記述されまる。</li>
+<li><code>charts/</code> ：このChartが依存している別のChartを保存する。</li>
+<li><code>templates/</code>
+<ul>
+<li><code>NOTES.txt</code> ：Chartのインストール後に表示するメッセージ。</li>
+<li><code>_helpers.tpl</code> ：テンプレート全般で再利用するための部分テンプレートを書く。</li>
+<li>残りの*.yamlがマニフェストのテンプレート。</li>
+</ul>
+</li>
+</ul>
+<p>上記は、 Deployment と Service を一つずつ作成して、 Ingress 経由で外部に公開するというk8sの基本構成で準備されている。必須じゃないので消していい。<br>
+なお、テンプレートはほぼ go の <code>text/template</code> で記載する。<br>
+やり方の超概要は以下。</p>
+<ol>
+<li><code>helm create</code></li>
+<li><code>template/*</code> と values.yaml を削除する</li>
+<li>自分で作成したマニフェストをテンプレート化して <code>templates/</code> 配下に置く</li>
+<li>環境差分毎に <code>values.yaml</code> （ <code>values.dev.yaml</code> とか <code>values.prd.yaml</code> とか ）を作る</li>
+<li>適用する（ <code>$ helm install -f values.yaml sample-chart</code> ）</li>
+</ol>
+<h2 id="テンプレートの書き方">テンプレートの書き方</h2>
+<p>テンプレートでは <code>{{}}</code> で囲った部分が他の値で書き換えられるのだが、以下のようになる。<br>
+また、中括弧内側の前後にダッシュ <code>{{- -}}</code> をつけることができ、前に付けた場合はその部分より前の半角スペースを、後ろにつけた場合は改行コードを取り除くことができる。
+これは値を展開しない構文に対して使われることがある。（要はその行自体消したいときとか）</p>
+<h3 id="ビルドインオブジェクト-built-in-objectshttpshelmshdocschart_template_guidebuiltin_objects-">ビルドインオブジェクト（ <a href="https://helm.sh/docs/chart_template_guide/builtin_objects/">Built-in Objects</a> ）</h3>
+<ul>
+<li><code>.Values</code>
+<ul>
+<li><code>values.yaml</code> ファイルの値を参照する</li>
+<li>テンプレートファイル内から <code>.Values.aaa.bbb</code> のように、&quot;.Values&quot;を接頭辞として、そのYAMLのルート構造以下にアクセスすることで値を参照する</li>
+</ul>
+</li>
+<li><code>.Release</code>
+<ul>
+<li>リリースそのものを指し、さまざまな情報を持つ</li>
+<li>Release.Name：リリース名</li>
+<li>Release.Namespace：リリースされた Kubernetes クラスタのネームスペース</li>
+<li>Release.IsUpgrade：現在のオペレーションが更新された場合 true となる</li>
+<li>Release.IsInstall：現在のオペレーションがインストールされたら true となる</li>
+<li>Release.Revision：リリースのリビジョン番号</li>
+</ul>
+</li>
+<li><code>.Chart</code>
+<ul>
+<li><code>Chart.yaml</code> のコンテンツ</li>
+<li><code>{{ .Chart.Name }}-{{ .Chart.Version }}</code> のように使える</li>
+</ul>
+</li>
+<li><code>.Files</code></li>
+<li><code>.Capabilities</code></li>
+<li><code>.Template</code></li>
+</ul>
+<h3 id="関数">関数</h3>
+<p>Template構文内では事前定義された様々な関数を使うことができる。<br>
+helm で利用できる関数がまとまっているページは見当たらないが、 Go のテンプレート関数は<a href="http://masterminds.github.io/sprig/">ここ</a>。
+関数はパイプ(|) を使うことでチェインすることができる。</p>
+<pre tabindex="0"><code>{{ .Files.get &#34;files/main.cf&#34; | nindent 4}}
+</code></pre><p>以下、代表的なもの。</p>
+<ul>
+<li><code>nindent &lt;numer&gt; &lt;string&gt;</code>
+<ul>
+<li>第2引数に渡した文字列の各行の先頭に第1引数の数値分だけ半角スペース(つまりインデント)を埋め込む</li>
+<li>yaml等の文字列を展開する場合にこの関数でインデントを調整することができる</li>
+</ul>
+</li>
+<li><code>toYaml</code>
+<ul>
+<li>オブジェクトをyaml形式で展開する</li>
+<li>values.yamlに記載されているyamlを直接マニフェストファイルに展開したい場合などにこの関数を使う</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code># values.yaml
+test:
+  hoge:
+    fuga: piyo
+
+# deployment.yaml
+expand:
+  {{- nindent 2 (toYaml .Values.test) }}
+
+# ↓↓展開されると↓↓
+expand:
+  hoge:
+    fuga: piyo
+</code></pre><ul>
+<li><code>include &lt;string&gt; &lt;object&gt;</code>
+<ul>
+<li>_helpers.tpl に定義した名前付きtemplateを展開する</li>
+<li>第2引数のオブジェクトは名前付きtemplate側でのルートオブジェクトとして扱われ、基本的にはルートオブジェクトをそのまま渡すパターン <code>{{ inculude &quot;fugafuga&quot; . }}</code> が多い</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code># values.yaml
+test:
+  hoge:
+    fuga: piyo
+
+# _helpers.tpl
+{{- define &#34;fugafuga&#34; -}}
+- {{ toYaml . -}}
+- {{ toYaml . -}}
+{{- end }}
+
+# deployment.yaml
+expand:
+  {{- include &#34;fugafuga&#34; .Values.test.hoge | nindent 2 }}
+
+# ↓↓展開されると↓↓
+expand:
+  - fuga: piyo
+  - fuga: piyo
+</code></pre><ul>
+<li><code>tpl &lt;string&gt; &lt;object&gt;</code>
+<ul>
+<li>第1引数の文字列をTemplateとして解釈し、第2引数をルートオブジェクトとして展開する</li>
+<li>_helpers.tpl に定義しているものは include で展開すればTemplateとして解釈されるのでこちらは外部ファイルを取ってきたあとに適用する場合が多い</li>
+<li>Template構文を展開するだけなのでyaml以外の文字列でも適用は可能</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code># values.yaml
+nginxValues:
+  nginxUser: &#34;nginx&#34;
+
+# files/nginx.conf
+user {{ .nginxUser }};
+http{
+    # いろいろ
+}
+
+# configmap.yaml
+data:
+  nginx.conf: |
+{{ tpl (.Files.Get &#34;files/nginx.conf&#34;) .Values.nginxValues | nindent 4 }}
+
+# ↓↓展開されると↓↓
+data:
+  nginx.conf: |
+    user nginx;
+    http{
+        # いろいろ
+    }
+</code></pre><ul>
+<li><code>.Files.Get &lt;string&gt;</code>
+<ul>
+<li>外部からファイルを文字列として取り込む</li>
+<li>第1引数はファイルパスでChartのルートディレクトリ( Chart.yaml の置いてあるディレクトリ)からの相対パスを記載する</li>
+</ul>
+</li>
+</ul>
+<h3 id="アクション">アクション</h3>
+<p>関数のほか、Templateを制御するためいくつかのキーワードが用意されている。<br>
+一般的なプログラミング言語でいう <code>if</code> や <code>for</code> などにあたり、これをHelmでは <strong>アクション</strong> と呼ぶ。</p>
+<ul>
+<li>if/else</li>
+<li>with
+<ul>
+<li>引数に渡したオブジェクトをルートオブジェクトとしたスコープを展開</li>
+<li>引数に渡したオブジェクトが if/else アクションで紹介したfalseにあたる値の場合はwithブロック自体が展開されない、つまり簡易的な if としても使用できる</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code># values.yaml
+configPaths:
+  nginxConfPath: &#34;files/nginx.conf&#34;
+
+# configmap.yaml
+{{- $files = .Files -}}
+
+data:
+{{- with .Values.configPaths -}}
+  nginx.conf: |
+{{ $files.get .nginxConfPath | nindent 4 }}
+{{- end -}}
+</code></pre><ul>
+<li>range
+<ul>
+<li>引数に渡した配列でループを回す</li>
+<li>ループ内のスコープでは配列の値自体がルートオブジェクトとなる</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code># values.yaml
+configPaths:
+  - key: nginx.conf
+    path: &#34;files/nginx.conf&#34;
+  - key: postfix.main.cf
+    path: &#34;files/main.cf&#34;
+
+# comfigmap.yaml
+{{- $files = .Files -}}
+
+data:
+{{- range .Values.configPaths -}}
+  {{ .key }}: |
+{{ $files.get .path | nindent 4 }}
+{{- end -}}
+
+# ↓↓展開されると↓↓
+data:
+  nginx.conf: |
+    # nginx.confの内容
+  main.cf: |
+    # main.cfの内容
+</code></pre><ul>
+<li><code>template</code>
+<ul>
+<li><code>_helpers.tpl</code> に定義してある名前付きtemplateを展開</li>
+<li><code>templates/_helpers.tpl</code> で <code>define</code> により定義した値を埋め込む</li>
+<li>ただし、include関数と違いルートオブジェクトを渡すことができない</li>
+</ul>
+</li>
+</ul>
+<h2 id="_helperstpl"><code>_helpers.tpl</code></h2>
+<p>Chart内で共通で使うことのできるテンプレートスニペットを定義する。これは「名前付きテンプレート」と呼ばれる。<br>
+values.yaml が差し替え可能な変数、ローカル変数が定義したTemplateファイル内でのみ使える変数、_helpers.tplはチャート内で自由に使える変数、という形に捉えることができる。<br>
+<code>define</code> アクションを使うことで名前付きテンプレートを定義することができる。</p>
+<pre tabindex="0"><code>{{- define &#34;myapp.namespace&#34; -}}
+{{ .Chart.Name }}-space
+{{- end }}
+</code></pre><h1 id="プラグインツール">プラグイン・ツール</h1>
+<h2 id="helm-diff">helm-diff</h2>
+<pre tabindex="0"><code>$ helm plugin install https://github.com/databus23/helm-diff --version master
+</code></pre><h2 id="helmfilehttpsgithubcomrobollhelmfile"><a href="https://github.com/roboll/helmfile">Helmfile</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install helmfile
+</span></span></code></pre></div><p><code>helmfile.yaml</code> にデプロイしたい Chart を書いて <code>helmfile sync</code> を実行するだけでインストールやアップグレードをよしなにやってくれる。</p>
+<pre tabindex="0"><code>releases:
+  - name: logstash
+    namespace: kube-system
+    chart: ./charts/logstash
+    values:
+      - ./values/production/logstash.yaml
+
+  - name: fluentd-kinesis
+    namespace: fluentd-kinesis
+    chart: ./charts/fluentd-kinesis
+    values:
+      - ./values/production/fluentd-kinesis.yaml
+
+  - name: backend-app
+    namespace: backend-app
+    chart: ./charts/backend-app
+    values:
+      - ./values/production/backend-app.yaml
+</code></pre><p>差分チェックしてから適用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ helmfile -f helmfile.yaml diff  <span style="color:#6272a4"># 差分チェック</span>
+</span></span><span style="display:flex;"><span>$ helmfile -f helmfile.yaml apply <span style="color:#6272a4"># 適用</span>
+</span></span></code></pre></div><h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://chopschips.net/blog/2018/05/30/helm-with-rails/">https://chopschips.net/blog/2018/05/30/helm-with-rails/</a></li>
+</ul>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/hugo-basics/" data-toggle="tooltip" data-placement="top" title="Hugo入門">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/grpc-protocolbuffers-basics/" data-toggle="tooltip" data-placement="top" title="gRPC/Protocol Buffers入門">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

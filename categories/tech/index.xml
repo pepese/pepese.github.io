@@ -52,5 +52,257 @@
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/waf/latest/developerguide/waf-chapter.html&#34;&gt;AWS WAF&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>DyanamoDB入門</title>
+      <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
+      <description>&lt;p&gt;DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>KindでIstio環境を構築する</title>
+      <link>https://blog.pepese.com/kubernetes-kind-istio/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/kubernetes-kind-istio/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kind.sigs.k8s.io/&#34;&gt;kind&lt;/a&gt; は &lt;strong&gt;K&lt;/strong&gt;ubernetes &lt;strong&gt;in&lt;/strong&gt; &lt;strong&gt;D&lt;/strong&gt;ocker の略。文字通り、Docker上にKubernetes環境を構築する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gRPC/Protocol Buffers入門</title>
+      <link>https://blog.pepese.com/grpc-protocolbuffers-basics/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/grpc-protocolbuffers-basics/</guid>
+      <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://grpc.io/&#34;&gt;gRPC&lt;/a&gt;/&lt;a href=&#34;https://developers.google.com/protocol-buffers&#34;&gt;Protocol Buffers&lt;/a&gt; に入門する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helm入門</title>
+      <link>https://blog.pepese.com/kubernetes-helm-basics/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/kubernetes-helm-basics/</guid>
+      <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://github.com/helm/helm&#34;&gt;Helm&lt;/a&gt; に入門する。（ &lt;a href=&#34;https://helm.sh/docs/&#34;&gt;公式ドキュメント&lt;/a&gt; ）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo入門</title>
+      <link>https://blog.pepese.com/hugo-basics/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/hugo-basics/</guid>
+      <description>&lt;p&gt;Hugo に入門する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Goで文字列操作</title>
+      <link>https://blog.pepese.com/golang-string/</link>
+      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-string/</guid>
+      <description>&lt;p&gt;golang の文字列操作をまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Goでソート</title>
+      <link>https://blog.pepese.com/golang-sort/</link>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-sort/</guid>
+      <description>&lt;p&gt;Golang におけるソートについてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Goでファイル入出力</title>
+      <link>https://blog.pepese.com/golang-file-io/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-file-io/</guid>
+      <description>&lt;p&gt;golang のファイル入出力についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Goの変数・型・定数・リテラル</title>
+      <link>https://blog.pepese.com/golang-var-type-const-literal/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-var-type-const-literal/</guid>
+      <description>&lt;p&gt;golang の変数・型・定数・リテラルについてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Istio入門</title>
+      <link>https://blog.pepese.com/kubernetes-istio-basics/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/kubernetes-istio-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://istio.io/&#34;&gt;Istio&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go入門</title>
+      <link>https://blog.pepese.com/golang-basics/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-basics/</guid>
+      <description>&lt;p&gt;golang の基本的なところをまとめる。&lt;br&gt;
+さらっとまとめるつもりがどえらい量になったので注意。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Jupyter Notebook入門</title>
+      <link>https://blog.pepese.com/jupyter-notebook-basics/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/jupyter-notebook-basics/</guid>
+      <description>&lt;p&gt;Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Androidアプリ入門 Macで環境構築編</title>
+      <link>https://blog.pepese.com/android-env-on-mac/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/android-env-on-mac/</guid>
+      <description>&lt;p&gt;Mac で Android アプリを開発する際の環境構築についてまとめる。&lt;br&gt;
+なお、プログラミング言語は &lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; を選択する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Appium入門</title>
+      <link>https://blog.pepese.com/appium-basics/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/appium-basics/</guid>
+      <description>&lt;p&gt;Appium は Selenium WebDriver の一種で、ネイティブアプリの自動テストを可能にする。&lt;br&gt;
+Node.js 上でサーバーとして動作し、HTTP 経由で WebDriver API を通して操作を受け付けるという仕組み。&lt;br&gt;
+Appium の背後には iOS 用, Android 用, Win 用などのドライバがある。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Heroku入門</title>
+      <link>https://blog.pepese.com/heroku-basics/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/heroku-basics/</guid>
+      <description>&lt;p&gt;Heroku は salesforce が運営する PaaS 。&lt;br&gt;
+Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。&lt;br&gt;
+Free プランの落とし穴は、 30 分アクセスが無いとインスタンス（ dyno ）が Sleep してしまうところ。　　
+以下、 Free プランでアカウントを取得している前提で記載する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaでDynamoDBへアクセスする</title>
+      <link>https://blog.pepese.com/java-dynamodb/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/java-dynamodb/</guid>
+      <description>&lt;p&gt;Java から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Angular入門</title>
+      <link>https://blog.pepese.com/angular-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-basics/</guid>
+      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br&gt;
+ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Express入門</title>
+      <link>https://blog.pepese.com/nodejs-express-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-basics/</guid>
+      <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
+      <link>https://blog.pepese.com/angular-router-cognito/</link>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-router-cognito/</guid>
+      <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git Flowとコンフリクトの解消</title>
+      <link>https://blog.pepese.com/git-flow-fix-conflict/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-flow-fix-conflict/</guid>
+      <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
+      <link>https://blog.pepese.com/angular-cognito/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-cognito/</guid>
+      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Atomのインストールとパッケージの導入</title>
+      <link>https://blog.pepese.com/atom-install-packages/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/atom-install-packages/</guid>
+      <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gitコマンド整理</title>
+      <link>https://blog.pepese.com/git-commands/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-commands/</guid>
+      <description>&lt;p&gt;Gitコマンド、概念を整理する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git入門</title>
+      <link>https://blog.pepese.com/git-basics/</link>
+      <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-basics/</guid>
+      <description>&lt;p&gt;Git/Githubのメモ。&lt;br&gt;
+インストールから簡単な使い方まで書いてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Homebrew入門</title>
+      <link>https://blog.pepese.com/homebrew-basics/</link>
+      <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/homebrew-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br&gt;
+HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br&gt;
+インストールから使い方までまとめてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hexoで作ったブログをGithub Pagesで公開</title>
+      <link>https://blog.pepese.com/hexo-github-pages/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/hexo-github-pages/</guid>
+      <description>&lt;p&gt;はてなブログが一向に &lt;em&gt;https&lt;/em&gt; 対応しないし、そのほかのリスクも考えて流行りの &lt;strong&gt;静的サイトジェネレータ&lt;/strong&gt; の &lt;a href=&#34;https://hexo.io/&#34;&gt;HEXO&lt;/a&gt; を使ってブログを作成し、&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;で公開してみる。&lt;br&gt;
+前提として &lt;strong&gt;npm&lt;/strong&gt; と &lt;strong&gt;Git&lt;/strong&gt; 環境が必要なため以下参照。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/mac-dev-environment/&#34;&gt;https://blog.pepese.com/mac-dev-environment/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
   </channel>
 </rss>

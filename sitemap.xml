@@ -14,6 +14,9 @@
     <loc>https://blog.pepese.com/tags/aws/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://blog.pepese.com/tags/aws-cli/</loc>
+    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/aws-iam-basics/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -24,6 +27,12 @@
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
+    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/aws-dynamodb-basics/</loc>
+    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/dynamodb/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/iam/</loc>
@@ -49,6 +58,177 @@
   </url><url>
     <loc>https://blog.pepese.com/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/istio/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/kind/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/kubernetes-kind-istio/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/kubernetes/</loc>
+    <lastmod>2021-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/grpc/</loc>
+    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/grpc-protocolbuffers-basics/</loc>
+    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/protocol-buffers/</loc>
+    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/helm/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/kubernetes-helm-basics/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/hugo/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/hugo-basics/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/go/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-string/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-sort/</loc>
+    <lastmod>2019-02-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-file-io/</loc>
+    <lastmod>2019-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-var-type-const-literal/</loc>
+    <lastmod>2019-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/kubernetes-istio-basics/</loc>
+    <lastmod>2019-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-basics/</loc>
+    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/vscode/</loc>
+    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/jupyter/</loc>
+    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/jupyter-notebook-basics/</loc>
+    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/python/</loc>
+    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/android/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/android-env-on-mac/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/appium/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/appium-basics/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/ios/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/kotlin/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/heroku/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/heroku-basics/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/java/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/java-dynamodb/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/maven/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/angular/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/angular-basics/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/express/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/nodejs-express-basics/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/javascript/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/node.js/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/npm/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/sass/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/typescript/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/yarn/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/cognito/</loc>
+    <lastmod>2017-05-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/angular-router-cognito/</loc>
+    <lastmod>2017-05-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/git/</loc>
+    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/git-flow-fix-conflict/</loc>
+    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/github/</loc>
+    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/angular-cognito/</loc>
+    <lastmod>2017-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/atom/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/atom-install-packages/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/git-commands/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/git-basics/</loc>
+    <lastmod>2017-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/homebrew/</loc>
+    <lastmod>2017-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/homebrew-basics/</loc>
+    <lastmod>2017-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/hexo/</loc>
+    <lastmod>2017-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/hexo-github-pages/</loc>
+    <lastmod>2017-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/top/</loc>
   </url><url>

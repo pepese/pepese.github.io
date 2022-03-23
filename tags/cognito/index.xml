@@ -1,42 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cognito on ぺーぺーSEのテックブログ</title>
+    <title>cognito on ぺーぺーSEのブログ</title>
     <link>https://blog.pepese.com/tags/cognito/</link>
-    <description>Recent content in cognito on ぺーぺーSEのテックブログ</description>
+    <description>Recent content in cognito on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Mon, 29 May 2017 07:49:45 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/cognito/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Mon, 29 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/cognito/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
-      <link>https://blog.pepese.com/entry/angular-router-cognito/</link>
-      <pubDate>Mon, 29 May 2017 07:49:45 +0900</pubDate>
+      <link>https://blog.pepese.com/angular-router-cognito/</link>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/angular-router-cognito/</guid>
+      <guid>https://blog.pepese.com/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
-      <link>https://blog.pepese.com/entry/angular-cognito/</link>
-      <pubDate>Sat, 20 May 2017 07:47:48 +0900</pubDate>
+      <link>https://blog.pepese.com/angular-cognito/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/angular-cognito/</guid>
-      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;br&gt;
-以下の記事の知識を前提とする。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;Macで開発環境を作る&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.pepese.com/entry/angular-basics/&#34;&gt;Angular入門&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;以降、以下の順で記載する。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Amazon Cognito の概要&lt;/li&gt;
-&lt;li&gt;Cognito で認証するAngularアプリを作成する&lt;/li&gt;
-&lt;li&gt;API GatewayでCognitoで認証されたユーザを認可する&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <guid>https://blog.pepese.com/angular-cognito/</guid>
+      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;/p&gt;</description>
     </item>
     
   </channel>

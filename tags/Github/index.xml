@@ -1,41 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>github on ぺーぺーSEのテックブログ</title>
+    <title>github on ぺーぺーSEのブログ</title>
     <link>https://blog.pepese.com/tags/github/</link>
-    <description>Recent content in github on ぺーぺーSEのテックブログ</description>
+    <description>Recent content in github on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Wed, 24 May 2017 07:51:52 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Wed, 24 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Flowとコンフリクトの解消</title>
-      <link>https://blog.pepese.com/entry/git-flow-fix-conflict/</link>
-      <pubDate>Wed, 24 May 2017 07:51:52 +0900</pubDate>
+      <link>https://blog.pepese.com/git-flow-fix-conflict/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/git-flow-fix-conflict/</guid>
-      <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;br&gt;
-gitについては以下を参照。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-basics/&#34;&gt;Git入門&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/git-commands/&#34;&gt;Gitコマンド整理&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;以下の順で記載する。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;git-flow&lt;/li&gt;
-&lt;li&gt;コンフリクトの解消&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <guid>https://blog.pepese.com/git-flow-fix-conflict/</guid>
+      <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hexoで作ったブログをGithub Pagesで公開</title>
-      <link>https://blog.pepese.com/entry/hexo-github-pages/</link>
-      <pubDate>Tue, 02 May 2017 07:58:10 +0900</pubDate>
+      <link>https://blog.pepese.com/hexo-github-pages/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/hexo-github-pages/</guid>
+      <guid>https://blog.pepese.com/hexo-github-pages/</guid>
       <description>&lt;p&gt;はてなブログが一向に &lt;em&gt;https&lt;/em&gt; 対応しないし、そのほかのリスクも考えて流行りの &lt;strong&gt;静的サイトジェネレータ&lt;/strong&gt; の &lt;a href=&#34;https://hexo.io/&#34;&gt;HEXO&lt;/a&gt; を使ってブログを作成し、&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;で公開してみる。&lt;br&gt;
 前提として &lt;strong&gt;npm&lt;/strong&gt; と &lt;strong&gt;Git&lt;/strong&gt; 環境が必要なため以下参照。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/entry/mac-dev-environment/&#34;&gt;https://blog.pepese.com/entry/mac-dev-environment/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/mac-dev-environment/&#34;&gt;https://blog.pepese.com/mac-dev-environment/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

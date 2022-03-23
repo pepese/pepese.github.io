@@ -1,43 +1,646 @@
 <!DOCTYPE html>
-<html class="no-js" lang="ja-JP">
+<html lang="ja">
 <head>
-	<meta name="generator" content="Hugo 0.80.0" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ぺーぺーSEのテックブログ</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({
-			google_ad_client: "ca-pub-0116602540349648",
-			enable_page_level_ads: true
-		});
-	</script>
-	
-	<meta name="description" content="ぺーぺーSEがプログラミング（Go、Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。">
-	<meta property="og:title" content="ぺーぺーSEのテックブログ" />
-<meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.pepese.com/" />
-<meta property="og:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
-<meta property="og:updated_time" content="2021-01-04T22:02:55+09:00" />
+	<meta name="generator" content="Hugo 0.95.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.pepese.com/img/yaruwo.gif"/>
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
 
-<meta name="twitter:title" content="ぺーぺーSEのテックブログ"/>
-<meta name="twitter:description" content="ぺーぺーSEがプログラミング（Go、Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。"/>
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
 
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="ぺーぺーSEのテックブログ">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/css/style.css">
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ぺーぺーSEのブログ-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>ぺーぺーSEのブログ </h1>
+                    
+		    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+  
+<div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+            
+
+<div class="post-preview">
+    <a href="https://blog.pepese.com/java-dynamodb/">
+        <h2 class="post-title">
+            JavaでDynamoDBへアクセスする
+        </h2>
 	
-	<link rel="shortcut icon" href="/favicon.ico">
-		
+        <div class="post-content-preview">
+	
+            <p>Java から DynamoDB にアクセスしてみる。</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        2017-08-30
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://blog.pepese.com/angular-basics/">
+        <h2 class="post-title">
+            Angular入門
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <p>フロントエンドMVCフレームワーク <strong>Angular</strong> （所謂Angular4）を触ってみた。<br>
+ここでは <a href="https://github.com/angular/angular-cli">Angular CLI</a> を使う。</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        2017-08-14
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://blog.pepese.com/nodejs-express-basics/">
+        <h2 class="post-title">
+            Express入門
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <p>Node.jsのWebフレームワーク <code>Express</code> 触ってみた。</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        2017-08-14
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://blog.pepese.com/angular-router-cognito/">
+        <h2 class="post-title">
+            Cognitoを使ってユーザ認証して画面遷移するAngularアプリ
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <p>以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。</p>
+<ul>
+<li><a href="https://blog.pepese.com/angular-cognito/">Cognitoを使ってAngularアプリからユーザ認証する</a></li>
+</ul>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        2017-05-29
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://blog.pepese.com/git-flow-fix-conflict/">
+        <h2 class="post-title">
+            Git Flowとコンフリクトの解消
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <p>git-flowの概要とマージ時のコンフリクトの解消についてまとめる。</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        2017-05-24
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+
+            
+
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/page/4/">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/page/6/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+                    <a href="/tags/android" title="android">
+                        android
+                    </a>
+               
+            
+               
+                    <a href="/tags/angular" title="angular">
+                        angular
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/aws" title="aws">
+                        aws
+                    </a>
+               
+            
+               
+            
+               
+                    <a href="/tags/cognito" title="cognito">
+                        cognito
+                    </a>
+               
+            
+               
+                    <a href="/tags/dynamodb" title="dynamodb">
+                        dynamodb
+                    </a>
+               
+            
+               
+            
+               
+                    <a href="/tags/git" title="git">
+                        git
+                    </a>
+               
+            
+               
+                    <a href="/tags/github" title="github">
+                        github
+                    </a>
+               
+            
+               
+                    <a href="/tags/go" title="go">
+                        go
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/istio" title="istio">
+                        istio
+                    </a>
+               
+            
+               
+            
+               
+                    <a href="/tags/javascript" title="javascript">
+                        javascript
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/kubernetes" title="kubernetes">
+                        kubernetes
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/npm" title="npm">
+                        npm
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/typescript" title="typescript">
+                        typescript
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+	
+    <section class="visible-md visible-lg">
+	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
+        <div class="short-about">
+            
+            <a href="/top/about">
+               <img src="/img/yaruwo.gif" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>某IT企業のソフトウェアアーキテクト兼クラウドエンジニアです。</p>
+            
+           
+           <ul class="list-inline">
+               
+               
+               <li>
+                   <a href="https://twitter.com/peepeese">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/pepese">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+
+    
+    
+</div>
+
+	</div>
+</div>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -49,502 +652,68 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-</head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container">
-		<div class="logo">
-			<a class="logo__link" href="/" title="ぺーぺーSEのテックブログ" rel="home">
-				<div class="logo__title">ぺーぺーSEのテックブログ</div>
-				<div class="logo__tagline">備忘録用メモサイト</div>
-			</a>
-        </div>
-        
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        
-        <ins class="adsbygoogle"
-            style="display:inline-block;width:728px;height:90px"
-            data-ad-client="ca-pub-0116602540349648"
-            data-ad-slot="3164499029"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        
-        
-        <br />
-        
-        <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        
-        
-        <a href="/feed.xml" title="RSS Feed"><img src="/img/rss_32.png" alt="RSSを購読する"></a>
-        
-		<div class="divider"></div>
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main list" role="main">
-	<article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/nodejs-basics/" rel="bookmark">
-			Node.js・npm入門
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-08-14T08:10:36">August 14, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>Node.js（npm）についてまとめる。</p>
-<p>npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。<br>
-JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。<br>
-npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。<br>
-また、Node.jsはJavaScriptの実行エンジン。</p>
-<p>ちなみに<a href="http://node.green">ここ</a>でNode.jsのES6対応状況がわかる。<br>
-v8.3.0で <strong>99%</strong> カバーしている。</p>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/nodejs-basics/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/express-basics/" rel="bookmark">
-			Express入門
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-08-14T07:59:50">August 14, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>Node.jsのWebフレームワーク <code>Express</code> 触ってみた。<br>
-下記の記事を読んだテイで書く。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/nodejs-basics/">Node.js・npm入門</a></li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/express-basics/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/python-ml-metrics-score/" rel="bookmark">
-			Pythonで機械学習 精度評価編
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-08-07T08:29:13">August 07, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。</p>
-<ul>
-<li>学習用データと評価用データの使い方</li>
-<li>精度の指標</li>
-<li>精度の向上</li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/python-ml-metrics-score/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/python-ml-svm-multiclass/" rel="bookmark">
-			Pythonで機械学習 SVMで多クラス分類問題編
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-07-06T08:34:29">July 06, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、 <strong>scikit-learn</strong> の <strong>SVM</strong> モジュールを使用して <strong>多クラス分類問題</strong> を解いてみる。<br>
-SVMを使用した2クラス分類問題は以下。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/python-ml-dl-svm-2class/">Pythonで機械学習 SVMで2クラス分類問題編</a></li>
-</ul>
-<p>データセットは、以下で紹介している <strong>digits データセット</strong> を使用する。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/python-ml-dl-datasets/">Pythonで機械学習 データセット編</a></li>
-</ul>
-<p>後半で実施している精度評価についての詳細は以下を参照。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/python-ml-dl-metrics-scores/">Pythonで機械学習 精度評価編</a></li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/python-ml-svm-multiclass/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/python-ml-k-means-clustering/" rel="bookmark">
-			Pythonで機械学習 K Meansでクラスタリング編
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-07-05T18:00:50">July 05, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、 <strong>scikit-learn</strong> で <strong>k-means</strong> を実行してみる。<br>
-データセットは、以下で紹介している <strong>iris データセット</strong> を使用する。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/python-ml-dl-datasets/">Pythonで機械学習 データセット編</a></li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/python-ml-k-means-clustering/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/python-ml-datasets/" rel="bookmark">
-			Pythonで機械学習 データセット編
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-07-05T08:38:14">July 05, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、機械学習で利用するデータセットを紹介する。</p>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/python-ml-datasets/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/python-ml-svm-2class/" rel="bookmark">
-			Pythonで機械学習 SVMで2クラス分類問題編
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-07-05T08:32:21">July 05, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>ここでは、 <strong>scikit-learn</strong> の <strong>SVM</strong> モジュールを使用して <strong>2クラス分類問題</strong> を解いてみる。<br>
-データセットは、以下で紹介している <strong>digits データセット</strong> を使用する。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/python-ml-dl-datasets/">Pythonで機械学習 データセット編</a></li>
-</ul>
-<p>後半で実施している精度評価についての詳細は以下を参照。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/python-ml-dl-metrics-scores/">Pythonで機械学習 精度評価編</a></li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/python-ml-svm-2class/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/anyenv/" rel="bookmark">
-			すべての**envを管理するanyenv
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-07-05T08:17:14">July 05, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p><a href="https://github.com/riywo/anyenv">anyenv</a>は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。<br>
-「すべて」は言い過ぎた。<br>
-以降、anyenv、**env のインストールから簡単な使い方まで記載する。</p>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/anyenv/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/angular-router-cognito/" rel="bookmark">
-			Cognitoを使ってユーザ認証して画面遷移するAngularアプリ
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-05-29T07:49:45">May 29, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/angular-cognito/">Cognitoを使ってAngularアプリからユーザ認証する</a></li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/angular-router-cognito/"></a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/entry/git-flow-fix-conflict/" rel="bookmark">
-			Git Flowとコンフリクトの解消
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-05-24T07:51:52">May 24, 2017</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>git-flowの概要とマージ時のコンフリクトの解消についてまとめる。<br>
-gitについては以下を参照。</p>
-<ul>
-<li><a href="https://blog.pepese.com/entry/git-basics/">Git入門</a></li>
-<li><a href="https://blog.pepese.com/entry/git-commands/">Gitコマンド整理</a></li>
-</ul>
-<p>以下の順で記載する。</p>
-<ul>
-<li>git-flow</li>
-<li>コンフリクトの解消</li>
-</ul>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/entry/git-flow-fix-conflict/"></a>
-	</div>
-</article>
-</main>
-
-<div class="pagination">
-	<a class="pagination__item pagination__item--prev btn" href="/page/4/">«</a>
-	<span class="pagination__item pagination__item--current">5/6</span>
-	<a class="pagination__item pagination__item--next btn" href="/page/6/">»</a>
-</div>
 
 
-			</div>
-			<aside class="sidebar">
-	
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	
-	<ins class="adsbygoogle"
-			style="display:inline-block;width:300px;height:250px"
-			data-ad-client="ca-pub-0116602540349648"
-			data-ad-slot="7455097821"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	
-<div class="widget-social widget">
-	<h4 class="widget-social__title widget__title"></h4>
-	<div class="widget-social__content widget__content">
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/@PeePeeSE" target="_blank">
-				<svg class="widget-social__link-icon icon icon-twitter" width="24" height="24" viewBox="0 0 384 312"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
-				<span>Twitter</span>
-			</a>
-		</div>
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/pepese" target="_blank">
-				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
-				<span>GitHub</span>
-			</a>
-		</div>
-	</div>
-</div>
-<div class="widget-recent widget">
-	<h4 class="widget__title"></h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/entry/kind-istio/">KindでIstio環境を構築する</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/asdf/">Asdfでバージョン管理</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/grpc-protocolbuffers-basics/">gRPC/Protocol Buffers入門</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/aws-waf-basics/">AWS WAFまとめ</a></li>
-			<li class="widget__item"><a class="widget__link" href="/entry/aws-iam-basics/">AWS IAMまとめ</a></li>
-		</ul>
-	</div>
-</div>
-<div class="widget-taglist widget">
-	<h4 class="widget__title"></h4>
-	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/tags/android" title="Android">Android</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/angular" title="Angular">Angular</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/anyenv" title="Anyenv">Anyenv</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/appium" title="Appium">Appium</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/asdf" title="Asdf">Asdf</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/atom" title="Atom">Atom</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aws" title="Aws">Aws</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aws-cli" title="Aws cli">Aws cli</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/chai" title="Chai">Chai</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cognito" title="Cognito">Cognito</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/dataframe" title="Dataframe">Dataframe</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/dynamodb" title="Dynamodb">Dynamodb</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/express" title="Express">Express</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/flask" title="Flask">Flask</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/gensim" title="Gensim">Gensim</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/github" title="Github">Github</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/golang" title="Golang">Golang</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/gradle" title="Gradle">Gradle</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/grpc" title="Grpc">Grpc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/helm" title="Helm">Helm</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/heroku" title="Heroku">Heroku</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/hexo" title="Hexo">Hexo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/homebrew" title="Homebrew">Homebrew</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/hugo" title="Hugo">Hugo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/iam" title="Iam">Iam</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ios" title="Ios">Ios</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/istanbul" title="Istanbul">Istanbul</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/istio" title="Istio">Istio</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/java" title="Java">Java</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/javascript" title="Javascript">Javascript</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/jupyter" title="Jupyter">Jupyter</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/k-means" title="K means">K means</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/k8s" title="K8s">K8s</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kind" title="Kind">Kind</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kotlin" title="Kotlin">Kotlin</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes" title="Kubernetes">Kubernetes</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/lambda" title="Lambda">Lambda</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/line" title="Line">Line</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning" title="Machine learning">Machine learning</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/maven" title="Maven">Maven</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mecab" title="Mecab">Mecab</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mocha" title="Mocha">Mocha</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/multer" title="Multer">Multer</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ndenv" title="Ndenv">Ndenv</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/nginx" title="Nginx">Nginx</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ngrok" title="Ngrok">Ngrok</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/node.js" title="Node.js">Node.js</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/npm" title="Npm">Npm</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/nyc" title="Nyc">Nyc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pandas" title="Pandas">Pandas</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/promise" title="Promise">Promise</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/protocol-buffers" title="Protocol buffers">Protocol buffers</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pyenv" title="Pyenv">Pyenv</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rbenv" title="Rbenv">Rbenv</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/request" title="Request">Request</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ruby" title="Ruby">Ruby</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sass" title="Sass">Sass</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-learn" title="Scikit learn">Scikit learn</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/scikit-surprise" title="Scikit surprise">Scikit surprise</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sdkman" title="Sdkman">Sdkman</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/seo" title="Seo">Seo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sequelize" title="Sequelize">Sequelize</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sinon.js" title="Sinon.js">Sinon.js</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sql" title="Sql">Sql</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/svm" title="Svm">Svm</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/tag_name" title="Tag name">Tag name</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/typescript" title="Typescript">Typescript</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/virtualenv" title="Virtualenv">Virtualenv</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vpc" title="Vpc">Vpc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vscode" title="Vscode">Vscode</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/waf" title="Waf">Waf</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/word2vec" title="Word2vec">Word2vec</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/yarn" title="Yarn">Yarn</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/yypescript" title="Yypescript">Yypescript</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/yython" title="Yython">Yython</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%81%af%e3%81%a6%e3%81%aa%e3%83%96%e3%83%ad%e3%82%b0" title="はてなブログ">はてなブログ</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%94%e8%aa%bf%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0" title="協調フィルタリング">協調フィルタリング</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%a9%9f%e6%a2%b0%e5%ad%a6%e7%bf%92" title="機械学習">機械学習</a>
-	</div>
-</div>
-	
-	<ul>
-		
-			<li><a href="https://blog.pepese.com/archives/2017/05">2017/05 (11)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2017/07">2017/07 (5)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2017/08">2017/08 (11)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2017/09">2017/09 (2)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2017/11">2017/11 (2)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2017/12">2017/12 (3)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2018/01">2018/01 (3)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2018/02">2018/02 (6)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2019/01">2019/01 (4)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2019/02">2019/02 (4)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2019/05">2019/05 (3)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2019/06">2019/06 (2)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2019/08">2019/08 (1)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2020/01">2020/01 (1)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2020/12">2020/12 (1)</a></li>
-		
-			<li><a href="https://blog.pepese.com/archives/2021/01">2021/01 (1)</a></li>
-		
-	</ul>
-	
-	
-	
-	<script type="text/javascript"><!--
-		amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";</script>
-		<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
-	
-</aside>
-		</div>
-		
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-<ins class="adsbygoogle"
-        style="display:inline-block;width:728px;height:90px"
-        data-ad-client="ca-pub-0116602540349648"
-        data-ad-slot="5978364622"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
 </script>
 
-<footer class="footer">
-    <div class="container footer__container flex">
-        
-        <div class="footer__copyright">
-            &copy; 2021 ぺーぺーSEのテックブログ.
-            <span class="footer__copyright-credits"></span>
-        </div>
-    </div>
-</footer>
-	</div>
-<script async defer src="/js/menu.js"></script></body>
+
+</body>
 </html>
