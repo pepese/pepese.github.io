@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="asdfでバージョン管理" />
-    <meta property="og:title" content="asdfでバージョン管理" />
-    <meta property="twitter:title" content="asdfでバージョン管理" />
+    <meta name="title" content="AWS WAFまとめ" />
+    <meta property="og:title" content="AWS WAFまとめ" />
+    <meta property="twitter:title" content="AWS WAFまとめ" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>asdfでバージョン管理-ぺーぺーSEのブログ</title>
+    <title>AWS WAFまとめ-ぺーぺーSEのブログ</title>
 
-    <link rel="canonical" href="/asdf-basics/">
+    <link rel="canonical" href="/aws-waf-basics/">
 
     
     
@@ -164,12 +164,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/asdf" title="asdf">
-                            asdf
+                        <a class="tag" href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        <a class="tag" href="/tags/waf" title="waf">
+                            waf
                         </a>
                         
                     </div>
-                    <h1>asdfでバージョン管理</h1>
+                    <h1>AWS WAFまとめ</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
@@ -199,107 +203,170 @@
                 post-container">
 
                 
-                <p><a href="https://asdf-vm.com/#/core-manage-asdf">asdf</a> を使って Mac に環境構築する方法について記載する。</p>
-<h1 id="設定">設定</h1>
-<p>基本は<a href="https://asdf-vm.com/#/core-manage-asdf">公式</a>を見て欲しいが、ここでは本ブログ作成日におけるMac環境へのインストールについて記載する。</p>
-<h2 id="インストール">インストール</h2>
-<pre tabindex="0"><code>brew install coreutils curl git
-brew install asdf
-echo -e &#34;\n. $(brew --prefix asdf)/asdf.sh&#34; &gt;&gt; ~/.zshenv
-</code></pre><h2 id="アップデート">アップデート</h2>
-<pre tabindex="0"><code>brew upgrade asdf
-</code></pre><h2 id="アンインストール">アンインストール</h2>
-<pre tabindex="0"><code>rm -rf ${ASDF_DATA_DIR:-$HOME/.asdf} ~/.tool-versions
-</code></pre><p>プロファイルに設定した asdf へのパス削除を忘れずに。</p>
-<h1 id="使い方">使い方</h1>
-<h2 id="プラグインツールのインストール">プラグイン・ツールのインストール</h2>
-<ol>
-<li>使いたいプログラミング言語・ツールに対応したプラグインを探す
+                <p><a href="https://docs.aws.amazon.com/ja_jp/waf/latest/developerguide/waf-chapter.html">AWS WAF</a> についてまとめる。</p>
+<h1 id="基本">基本</h1>
+<p>AWS WAF は、 <strong>Web ACLs</strong> 、 <strong>Rules</strong> 、 <strong>Conditions</strong> の 3 つの要素からなる。</p>
 <ul>
-<li><code>asdf plugin list all</code></li>
+<li><strong>Condistions</strong> / 条件</li>
+<li><strong>Rules</strong> / ルール</li>
+<li><strong>Web ACLs</strong> / Web アクセスコントロールリスト</li>
+</ul>
+<p>複数の Condistion を Rules にまとめ、複数の Rules を Web ACLs に登録するという包含関係になっている。</p>
+<!-- raw HTML omitted -->
+<p>Web ACLs を CloudFront 、 API Gateway 、 ALB に適用して利用する。</p>
+<h1 id="conditions--条件">Conditions / 条件</h1>
+<p>以下の条件を作成可能。</p>
+<ul>
+<li>Cross-site scripting / クロスサイトスクリプティング</li>
+<li>Geo match / 地域制限</li>
+<li>IP addresses / IP アドレス一致</li>
+<li>Size constraints / サイズ制約</li>
+<li>SQL injection / SQL インジェクション</li>
+<li>String and regex matching / 文字列と正規表現の一致</li>
+</ul>
+<h2 id="cross-site-scripting--クロスサイトスクリプティング">Cross-site scripting / クロスサイトスクリプティング</h2>
+<p>悪意のあるスクリプトが含まれていないか検査する箇所を定義する。<br>
+以下の組み合わせで検査箇所を定義する。</p>
+<ul>
+<li>Part of the request to filter on / 検査する場所の定義
+<ul>
+<li>Header / HTTP ヘッダ</li>
+<li>HTTP method</li>
+<li>Query string / クエリ文字列 : URL の <code>?</code> の後に続く文字列全て</li>
+<li>Single query parameter (value only) / 単一クエリパラメータ (値のみ)</li>
+<li>All query parameters (values only) / すべてのクエリパラメータ (値のみ)</li>
+<li>URI /</li>
+<li>Boby / リクエストボディ</li>
 </ul>
 </li>
-<li>使いたいプログラミング言語・ツールに対応したプラグインを追加する
+<li>Transformation / 検査の前に行う変換を定義
 <ul>
-<li><code>asdf plugin add &lt;name&gt;</code></li>
-<li><code>asdf plugin add &lt;name&gt; &lt;git-url&gt;</code> # asdf で管理されていないプラグインの場合</li>
+<li>None / 変換なし</li>
+<li>Convert to lowercase / 小文字へ変換</li>
+<li>HTML decode / エスケープ（ <code>&amp;quot;</code> や <code>&amp;#xhhhh;</code> など）のデコード</li>
+<li>Normalize whitespace / <code>\f</code> <code>\t</code> <code>\n</code> <code>\r</code> <code>\v</code> の空白文字変換</li>
+<li>Simplify command line / OS コマンドの場合の整形</li>
+<li>URL decode / URL デコード、パーセントデコード</li>
 </ul>
 </li>
-<li>プラグインが追加されたか確認する
+</ul>
+<p>ここでは検査箇所を定義するだけで、検査内容・アルゴリズムについては定義しない。</p>
+<h2 id="geo-match--地域制限">Geo match / 地域制限</h2>
+<p>どこの地域からのアクセスなのかを検査する。</p>
 <ul>
-<li><code>asdf plugin list</code></li>
+<li>Location type : <code>Country</code> のみ</li>
+<li>Location : ロケールの指定</li>
+</ul>
+<h2 id="ip-addresses--ip-アドレス一致">IP addresses / IP アドレス一致</h2>
+<p>どの IP からのアクセスなのか検査する。<br>
+そのまんまなので詳細割愛。</p>
+<h2 id="size-constraints--サイズ制約">Size constraints / サイズ制約</h2>
+<p>HTTP の各箇所のデータサイズを検査する。</p>
+<ul>
+<li>Part of the request to filter on / 検査する場所の定義
+<ul>
+<li>「Cross-site scripting / クロスサイトスクリプティング」節の同項目に同じ</li>
 </ul>
 </li>
-<li>使いたいプログラミング言語・ツールのバージョンを探す
+<li>Comparison operator
 <ul>
-<li><code>asdf list-all &lt;name&gt;</code></li>
+<li>「 Equals 」「 Not equal 」「 Greater than 」「 Greater than or equal 」「 Less than 」「 Less than or equal 」といった比較演算子を定義</li>
 </ul>
 </li>
-<li>使いたいプログラミング言語・ツールのバージョンを指定してインストールする
+<li>Size (Bytes) / データサイズの定義</li>
+<li>Transformation / 検査の前に行う変換を定義
 <ul>
-<li><code>asdf install &lt;name&gt; &lt;version&gt;</code></li>
+<li>「Cross-site scripting / クロスサイトスクリプティング」節の同項目に同じ</li>
 </ul>
 </li>
-<li>global/local/shell のいずれかでプログラミング言語・ツールのバージョンを設定する
+</ul>
+<h2 id="sql-injection--sql-インジェクション">SQL injection / SQL インジェクション</h2>
+<p>悪意のある SQL が含まれていないか検査する箇所を定義する。<br>
+設定内容は「Cross-site scripting / クロスサイトスクリプティング」節に同じ。</p>
+<h2 id="string-and-regex-matching--文字列と正規表現の一致">String and regex matching / 文字列と正規表現の一致</h2>
+<p>「Cross-site scripting / クロスサイトスクリプティング」節の設定と同様の箇所に対して、文字列・正規表現によるマッチングの検査を行う。<br>
+ここまでで雰囲気分かると思うので詳細省略。</p>
 <ul>
-<li><code>asdf global &lt;name&gt; &lt;version&gt;</code></li>
+<li>Type
+<ul>
+<li>「 String match 」か「 Regex match 」か選ぶ</li>
 </ul>
 </li>
-<li>現在のバージョンを確認する
+<li>Part of the request to filter on / 検査する場所の定義
 <ul>
-<li><code>asdf current</code></li>
-<li><code>asdf current &lt;name&gt;</code></li>
+<li>「Cross-site scripting / クロスサイトスクリプティング」節の同項目に同じ</li>
 </ul>
 </li>
-</ol>
-<p>helm で一連の流れをやってみる。</p>
-<pre tabindex="0"><code>% asdf plugin list all | grep helm
-helm                          https://github.com/Antiarchitect/asdf-helm.git
-helm-cr                       https://github.com/Antiarchitect/asdf-helm-cr.git
-helm-ct                       https://github.com/tablexi/asdf-helm-ct.git
-helm-docs                     https://github.com/sudermanjr/asdf-helm-docs.git
-helmfile                      https://github.com/feniix/asdf-helmfile.git
-
-% asdf plugin add helm
-
-% asdf plugin list
-helm
-
-% asdf list-all helm
-3.4.1
-
-% asdf install helm 3.4.1
-
-% asdf global helm 3.4.1
-
-% asdf current helm
-helm            3.4.1           /Users/xxxx/.tool-versions
-
-% helm version
-version.BuildInfo{Version:&#34;v3.4.1&#34;, GitCommit:&#34;c4e74854886b2efe3321e185578e6db9be0a6e29&#34;, GitTreeState:&#34;clean&#34;, GoVersion:&#34;go1.14.11&#34;}
-</code></pre><h2 id="プラグインのアップデート">プラグインのアップデート</h2>
-<pre tabindex="0"><code>asdf plugin update --all
-</code></pre><h2 id="ツールのアンインストール">ツールのアンインストール</h2>
-<pre tabindex="0"><code>asdf uninstall &lt;name&gt; &lt;version&gt;
-</code></pre><h2 id="プラグインのアンインストール">プラグインのアンインストール</h2>
-<pre tabindex="0"><code>asdf plugin remove &lt;name&gt;
-</code></pre><h2 id="困ったときは">困ったときは</h2>
-<pre tabindex="0"><code>asdf help
-</code></pre>
+<li>Match type
+<ul>
+<li>「 Contains 」「 Exactly matches 」「 Starts with 」「 Ends with 」「　Contains words 」から選ぶ</li>
+</ul>
+</li>
+<li>Transformation / 検査の前に行う変換を定義
+<ul>
+<li>「Cross-site scripting / クロスサイトスクリプティング」節の同項目に同じ</li>
+</ul>
+</li>
+<li>Value is base64-encoded
+<ul>
+<li>Base64 エンコードされたデータか否か</li>
+</ul>
+</li>
+<li>Value to match // Regex patterns to match to request
+<ul>
+<li>合致する文字列 // 合致する正規表現</li>
+</ul>
+</li>
+</ul>
+<h1 id="rules--ルール">Rules / ルール</h1>
+<p>ルールは Condistions を束ねるもの。<br>
+ホワイトリスト条件、ブラックリスト条件でまとめるとよい。<br>
+以下の設定がる。</p>
+<ul>
+<li>Rule type / ルールのタイプ
+<ul>
+<li>Regular rule / 条件を指定するのみのルール</li>
+<li>Rate-based rule / 条件を満たすアクセス 5 分間で指定数以上来たらアクセスを遮断</li>
+</ul>
+</li>
+</ul>
+<h1 id="web-acls">Web ACLs</h1>
+<p>作成したルールを Web ACLs として適用する。</p>
+<ul>
+<li>If a request matches all of the conditions in a rule, take the corresponding action
+<ul>
+<li>作成したルールを追加し、以下を選択する
+<ul>
+<li>Allow : ルールに合致するリクエストを許可する（ホワイトリスト）</li>
+<li>Block : ルールに合致するリクエストを拒否する（ブラックリスト）</li>
+<li>Count : ルールに合致したリクエストをカウント（テスト用）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If a request doesn&rsquo;t match any rules, take the default action
+<ul>
+<li>Default action : ルールに合致しないリクエストの扱い（デフォルトでリクエストをどう扱うか）
+<ul>
+<li>Allow all requests that don&rsquo;t match any rules : 許可</li>
+<li>Block all requests that don&rsquo;t match any rules : 拒否</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="aws-shield">AWS Shield</h1>
+<p>AWS WAF を適用すると AWS Shield の 「 AWS Shield Standard 」がデフォルトで適用される。<br>
+「AWS Shield Advanced」は有償で適用することができる。</p>
 
                 
 
                 <hr>
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAMまとめ">&larr;
-                            Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPCまとめ">Next
+                        <a href="/aws-lambda-basics/" data-toggle="tooltip" data-placement="top" title="AWS Lambdaまとめ">Next
                             Post &rarr;</a>
                     </li>
                     

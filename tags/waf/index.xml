@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>waf on ぺーぺーSEのテックブログ</title>
+    <title>waf on ぺーぺーSEのブログ</title>
     <link>https://blog.pepese.com/tags/waf/</link>
-    <description>Recent content in waf on ぺーぺーSEのテックブログ</description>
+    <description>Recent content in waf on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Tue, 13 Aug 2019 18:59:21 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/waf/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/waf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS WAFまとめ</title>
-      <link>https://blog.pepese.com/entry/aws-waf-basics/</link>
-      <pubDate>Tue, 13 Aug 2019 18:59:21 +0900</pubDate>
+      <link>https://blog.pepese.com/aws-waf-basics/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/aws-waf-basics/</guid>
+      <guid>https://blog.pepese.com/aws-waf-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/waf/latest/developerguide/waf-chapter.html&#34;&gt;AWS WAF&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
     

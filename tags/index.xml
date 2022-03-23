@@ -16,5 +16,50 @@
       <description></description>
     </item>
     
+    <item>
+      <title>aws</title>
+      <link>https://blog.pepese.com/tags/aws/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iam</title>
+      <link>https://blog.pepese.com/tags/iam/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/iam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lambda</title>
+      <link>https://blog.pepese.com/tags/lambda/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpc</title>
+      <link>https://blog.pepese.com/tags/vpc/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/vpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>waf</title>
+      <link>https://blog.pepese.com/tags/waf/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/waf/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
