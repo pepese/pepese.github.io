@@ -215,14 +215,14 @@
 <ul>
 <li><code>GOROOT</code>
 <ul>
-<li>go のバイナリのホームまでのパス</li>
+<li>go のバイナリのホームまでのパス</li>
 <li><code>go env GOROOT</code> で値確認</li>
 </ul>
 </li>
 <li><code>GOPATH</code>
 <ul>
 <li><code>go env GOPATH</code> で値確認</li>
-<li>go の各種資材が配置パスであってプロジェクトのパスでないことに注意</li>
+<li>go の各種資材が配置パスであってプロジェクトのパスでないことに注意</li>
 <li>プロジェクトのパスは <code>$GOPATH/src/github.com/&lt;Githubアカウント名&gt;/&lt;プロジェクト名&gt;</code>
 <ul>
 <li>ただし、後述する <strong>GOPATH mode</strong> の場合</li>
@@ -241,7 +241,7 @@
 </ul>
 </li>
 </ul>
-<p><code>.zshenv</code> （ bash の場合は <code>.bash_profile</code> ）に以下を追記。</p>
+<p><code>.zshenv</code> （ bash の場合は <code>.bash_profile</code> ）に以下を追記。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span>on
@@ -840,7 +840,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="defer">defer</h2>
-<p><code>defer</code> ステートメントは、 <code>defer</code> へ渡した関数の実行を、呼び出し元の関数の終わり( <code>return</code> 後)まで遅延させる。<br>
+<p><code>defer</code> ステートメントは、 <code>defer</code> へ渡した関数の実行を、呼び出し元の関数の終わり( <code>return</code> 後)まで遅延させる。<br>
 <code>defer</code> へ渡した関数の引数は、すぐに評価されるが、その関数自体は呼び出し元の関数が <code>return</code> するまで実行されない。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
@@ -1374,7 +1374,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 3 wait
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 4 quit
 </span></span></span></code></pre></div><h2 id="syncmutex">sync.Mutex</h2>
-<p>チャネルは goroutine 間でデータの送受信とブロックを実現するものだが、データ送受信が不要な場合は <strong>sync.Mutex</strong> （排他制御・ミューテックス： mutual exclusion の略）を利用する。<br>
+<p>チャネルは goroutine 間でデータの送受信とブロックを実現するものだが、データ送受信が不要な場合は <strong>sync.Mutex</strong> （排他制御・ミューテックス： mutual exclusion の略）を利用する。<br>
 所謂ロック機構（ <code>Lock</code> <code>Unlock</code> ）の機能を提供し、 <strong>クリティカルセッション</strong> （他の処理の介入抑止し、データの生合成を守る必要のある一連の一まとまりの処理）を保護する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
@@ -1408,7 +1408,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	time.<span style="color:#50fa7b">Sleep</span>(time.Second)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>上記はロック機構によりきちんと 10 単位でカウントアップ・表示されている。</p>
+</span></span></code></pre></div><p>上記はロック機構によりきちんと 10 単位でカウントアップ・表示されている。</p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://go-tour-jp.appspot.com/concurrency/11">Where to Go from here&hellip;</a>
@@ -1447,7 +1447,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                     
                     
                     <li class="next">
-                        <a href="/kubernetes-istio-basics/" data-toggle="tooltip" data-placement="top" title="Istio入門">Next
+                        <a href="/kubernetes-architecture/" data-toggle="tooltip" data-placement="top" title="Kubernetesのアーキテクチャ整理">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -1500,6 +1500,12 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        <a href="/tags/anyenv" title="anyenv">
+                            anyenv
+                        </a>
+                        
+                        
+                        
                         
                         
                         
@@ -1514,15 +1520,29 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        
+                        
                         <a href="/tags/cognito" title="cognito">
                             cognito
                         </a>
                         
                         
                         
+                        
+                        
+                        
+                        
                         <a href="/tags/dynamodb" title="dynamodb">
                             dynamodb
                         </a>
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
                         
                         
                         
@@ -1556,6 +1576,14 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
                         
                         
                         
@@ -1568,11 +1596,17 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
                         
                         
                         <a href="/tags/javascript" title="javascript">
                             javascript
                         </a>
+                        
+                        
                         
                         
                         
@@ -1592,6 +1626,34 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
                         
                         
                         <a href="/tags/npm" title="npm">
@@ -1602,7 +1664,47 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
                         
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
                         
                         
                         
@@ -1616,7 +1718,19 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
                         
                         
                         
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
                         
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
                         
                         
                     </div>

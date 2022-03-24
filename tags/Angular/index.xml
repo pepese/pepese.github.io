@@ -18,6 +18,16 @@
     </item>
     
     <item>
+      <title>所謂MEANスタックを作る</title>
+      <link>https://blog.pepese.com/mean-stack-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mean-stack-basics/</guid>
+      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
+と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
       <link>https://blog.pepese.com/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>

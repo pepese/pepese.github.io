@@ -143,6 +143,15 @@
     </item>
     
     <item>
+      <title>Kubernetesのアーキテクチャ整理</title>
+      <link>https://blog.pepese.com/kubernetes-architecture/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/kubernetes-architecture/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; （ &lt;strong&gt;k8s&lt;/strong&gt; ）のアーキテクチャについて整理する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Go入門</title>
       <link>https://blog.pepese.com/golang-basics/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
@@ -159,6 +168,76 @@
       
       <guid>https://blog.pepese.com/jupyter-notebook-basics/</guid>
       <description>&lt;p&gt;Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx入門</title>
+      <link>https://blog.pepese.com/nginx-basics/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nginx-basics/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;インストール&lt;/li&gt;
+&lt;li&gt;ディレクトリ構成&lt;/li&gt;
+&lt;li&gt;各種設定&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pandas入門 DataFrame編</title>
+      <link>https://blog.pepese.com/python-pandas-dataframe/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-pandas-dataframe/</guid>
+      <description>&lt;p&gt;Python ライブラリである Pandas の DataFrame についてまとめる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonでデータ分析入門</title>
+      <link>https://blog.pepese.com/python-data-analytics-basics/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-data-analytics-basics/</guid>
+      <description>&lt;p&gt;Python でのデータ分析環境・アプローチについて自分向けにまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Word2vec入門</title>
+      <link>https://blog.pepese.com/python-word2vec-basics/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-word2vec-basics/</guid>
+      <description>&lt;p&gt;Mecab については以下を参考。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/python-mecab-basics/&#34;&gt;形態素解析システムMeCab入門&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>形態素解析システムMeCab入門</title>
+      <link>https://blog.pepese.com/python-mecab-basics/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-mecab-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://taku910.github.io/mecab/&#34;&gt;公式&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;環境構築&lt;/li&gt;
+&lt;li&gt;使い方&lt;/li&gt;
+&lt;li&gt;Node.js から Mecabを使う&lt;/li&gt;
+&lt;li&gt;Python3 から MeCab を使う&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code入門</title>
+      <link>https://blog.pepese.com/vscode-basics/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/vscode-basics/</guid>
+      <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -183,6 +262,15 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
     </item>
     
     <item>
+      <title>SDKMAN入門</title>
+      <link>https://blog.pepese.com/sdkman-basics/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/sdkman-basics/</guid>
+      <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Heroku入門</title>
       <link>https://blog.pepese.com/heroku-basics/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
@@ -195,12 +283,113 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
     </item>
     
     <item>
+      <title>Virtualenv入門</title>
+      <link>https://blog.pepese.com/python-virtualenv-basics/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-virtualenv-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://virtualenv.pypa.io/en/stable/&#34;&gt;Virtualenv&lt;/a&gt; についてかるくまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonで機械学習 レコメンド編</title>
+      <link>https://blog.pepese.com/python-ml-recommendation/</link>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-ml-recommendation/</guid>
+      <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br&gt;
+スクラッチではなく、できるだけライブラリ（ &lt;a href=&#34;http://surpriselib.com/&#34;&gt;scikit-surprise&lt;/a&gt; ）を利用する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LINEチャットボットをFlaskとngrokで</title>
+      <link>https://blog.pepese.com/line-chatbot-ngrok/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/line-chatbot-ngrok/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; と &lt;a href=&#34;https://ngrok.com/&#34;&gt;ngrok&lt;/a&gt; でメッセージをオウム返しする LINE のチャットボットを作ってみた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
+      <link>https://blog.pepese.com/nodejs-express-multer/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-multer/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br&gt;
+使用するツール・ライブラリは以下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/expressjs/multer&#34;&gt;Multer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
+      <link>https://blog.pepese.com/nodejs-express-browser-put-delete/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-browser-put-delete/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br&gt;
+通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br&gt;
+ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 &lt;em&gt;Node.js/Express側でPUT/DELETEリクエストとして解釈&lt;/em&gt; しているだけ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>JavaでDynamoDBへアクセスする</title>
       <link>https://blog.pepese.com/java-dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/java-dynamodb/</guid>
       <description>&lt;p&gt;Java から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.jsでDynamoDBへアクセスする</title>
+      <link>https://blog.pepese.com/nodejs-dynamodb/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-dynamodb/</guid>
+      <description>&lt;p&gt;Node.js から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・Expres・requestでHTTP(S)リクエストを発行する</title>
+      <link>https://blog.pepese.com/nodejs-express-http-client/</link>
+      <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-http-client/</guid>
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
+      <link>https://blog.pepese.com/nodejs-express-rdb-sequelize/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-rdb-sequelize/</guid>
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br&gt;
+使用するツール・ライブラリは以下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O/R Mapper
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.sequelizejs.com/&#34;&gt;Sequelize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;RDB
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sqlite.org/index.html&#34;&gt;SQLite3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・Expressでユニットテスト</title>
+      <link>https://blog.pepese.com/nodejs-express-test/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-test/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -220,6 +409,92 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
       
       <guid>https://blog.pepese.com/nodejs-express-basics/</guid>
       <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・npm入門</title>
+      <link>https://blog.pepese.com/nodejs-npm-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-npm-basics/</guid>
+      <description>&lt;p&gt;Node.js（npm）についてまとめる。&lt;/p&gt;
+&lt;p&gt;npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。&lt;br&gt;
+JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。&lt;br&gt;
+npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。&lt;br&gt;
+また、Node.jsはJavaScriptの実行エンジン。&lt;/p&gt;
+&lt;p&gt;ちなみに&lt;a href=&#34;http://node.green&#34;&gt;ここ&lt;/a&gt;でNode.jsのES6対応状況がわかる。&lt;br&gt;
+v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>所謂MEANスタックを作る</title>
+      <link>https://blog.pepese.com/mean-stack-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mean-stack-basics/</guid>
+      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
+と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonで機械学習 精度評価編</title>
+      <link>https://blog.pepese.com/python-ml-metrics-score/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-ml-metrics-score/</guid>
+      <description>&lt;p&gt;ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;学習用データと評価用データの使い方&lt;/li&gt;
+&lt;li&gt;精度の指標&lt;/li&gt;
+&lt;li&gt;精度の向上&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonで機械学習 SVMで多クラス分類問題編</title>
+      <link>https://blog.pepese.com/python-ml-svm-multiclass/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-ml-svm-multiclass/</guid>
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;多クラス分類問題&lt;/strong&gt; を解いてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonで機械学習 K Meansでクラスタリング編</title>
+      <link>https://blog.pepese.com/python-ml-k-means-clustering/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-ml-k-means-clustering/</guid>
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonで機械学習 SVMで2クラス分類問題編</title>
+      <link>https://blog.pepese.com/python-ml-svm-2class/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-ml-svm-2class/</guid>
+      <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;2クラス分類問題&lt;/strong&gt; を解いてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pythonで機械学習 データセット編</title>
+      <link>https://blog.pepese.com/python-ml-datasets/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-ml-datasets/</guid>
+      <description>&lt;p&gt;機械学習で利用するデータセットを紹介する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>すべての**envを管理するanyenv</title>
+      <link>https://blog.pepese.com/anyenv/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/anyenv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
+「すべて」は言い過ぎた。&lt;br&gt;
+以降、anyenv、**env のインストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -253,6 +528,15 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
     </item>
     
     <item>
+      <title>TypeScript環境入門</title>
+      <link>https://blog.pepese.com/typescript-environment-basics/</link>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/typescript-environment-basics/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Atomのインストールとパッケージの導入</title>
       <link>https://blog.pepese.com/atom-install-packages/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
@@ -268,6 +552,32 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
       
       <guid>https://blog.pepese.com/git-commands/</guid>
       <description>&lt;p&gt;Gitコマンド、概念を整理する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ブログ移転時に気をつけること</title>
+      <link>https://blog.pepese.com/blog-move/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/blog-move/</guid>
+      <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br&gt;
+その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
+よろしくない理由は以下の通り。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;重複コンテンツは同時に検索結果に表示されない&lt;/li&gt;
+&lt;li&gt;被リンク評価が分散する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br&gt;
+ブログ全体の移転の話ではないことに注意。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/mac-dev-environment/</link>
+      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mac-dev-environment/</guid>
+      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;/p&gt;</description>
     </item>
     
     <item>

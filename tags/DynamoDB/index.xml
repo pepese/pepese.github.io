@@ -25,5 +25,14 @@
       <description>&lt;p&gt;Java から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Node.jsでDynamoDBへアクセスする</title>
+      <link>https://blog.pepese.com/nodejs-dynamodb/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-dynamodb/</guid>
+      <description>&lt;p&gt;Node.js から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

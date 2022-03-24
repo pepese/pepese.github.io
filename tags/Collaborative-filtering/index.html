@@ -1,287 +1,724 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>Tag: Collaborative filtering | ぺーぺーSEのテックブログ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ぺーぺーSEがプログラミング（Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ぺーぺーSEのテックブログ">
-<meta property="og:url" content="https://pepese.github.io/tags/Collaborative-filtering/index.html">
-<meta property="og:site_name" content="ぺーぺーSEのテックブログ">
-<meta property="og:description" content="ぺーぺーSEがプログラミング（Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。">
-<meta property="og:locale" content="ja">
-<meta property="og:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ぺーぺーSEのテックブログ">
-<meta name="twitter:description" content="ぺーぺーSEがプログラミング（Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。">
-<meta name="twitter:image" content="https://pepese.github.io/images/yaruwo.gif">
-<meta name="twitter:creator" content="@PeePeeSE">
-  
-    <link rel="alternate" href="/atom.xml" title="ぺーぺーSEのテックブログ" type="application/atom+xml">
-  
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
 
-  <link rel="stylesheet" href="/css/styles.css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    <meta name="title" content="collaborative filtering" />
+    <meta property="og:title" content="collaborative filtering" />
+    <meta property="twitter:title" content="collaborative filtering" />
+    
 
-ga('create', 'UA-42388425-3', 'auto');
-ga('send', 'pageview');
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
 
-</script>
-<!-- End Google Analytics -->
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
 
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>collaborative filtering-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/tags/collaborative-filtering/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
 
 </head>
-</html>
-<body>
-  <nav class="navbar navbar-inverse">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="main-menu-navbar">
-      <ul class="nav navbar-nav">
-        
-          <li><a class href="/index.html">Home</a></li>
-        
-          <li><a class href="/archives/">Archives</a></li>
-        
-      </ul>
-
-      <!--
-      <ul class="nav navbar-nav navbar-right">
-        
-          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
-        
-      </ul>
-      -->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    
 </nav>
-
-  <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">ぺーぺーSEのテックブログ</h1>
-  
-    <p class="lead blog-description">備忘録用メモサイト</p>
-  
-</div>
-
-    <p>
-    <!-- twitter follow button start -->
-    <a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-    <!-- twitter follow button end -->
-    <!-- twitter share button start -->
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="PeePeeSE">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-    <!-- twitter share button end -->
-    <!-- RSS Feed start -->
-    <a href="https://pepese.github.io/atom.xml" title="RSS Feed"><img src="/images/rss_32.png" alt="RSSを購読する"></a>
-    <!-- RSS Feed end -->
-    </p>
-    <!-- Google Adsense TechBlog Head start -->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- techblog_head -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0116602540349648" data-ad-slot="3164499029"></ins>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
 </script>
 
-    <!-- Google Adsense TechBlog Head end -->
+
+
+<header class="intro-header" style="background-image: url('/')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>ぺーぺーSEのブログ </h1>
+                    
+		    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+  
+<div class="container">
     <div class="row">
-        <div class="col-sm-8 blog-main">
-          
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+            
+
+<div class="post-preview">
+    <a href="https://blog.pepese.com/python-ml-recommendation/">
+        <h2 class="post-title">
+            Pythonで機械学習 レコメンド編
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <p>代表的なレコメンドアルゴリズムと Python での実装をまとめる。<br>
+スクラッチではなく、できるだけライブラリ（ <a href="http://surpriselib.com/">scikit-surprise</a> ）を利用する。</p>
+       
         </div>
-        <div class="archives">
+    </a>
+    <p class="post-meta">
     
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
+        2017-11-26
+        
+        
     
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/python-ml-recommendation/">Pythonで機械学習 レコメンド編</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/blog/python-ml-recommendation/" class="archive-article-date"><time datetime="2017-11-26T08:19:16.000Z" itemprop="datePublished">11月 26日</time></a>
-</div>
-
-  </header>
-</article>
-
-  
-  
-    </div></section>
-  
-
-
-
-
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <!-- Google Adsense TechBlog Side start -->
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- techblog_side -->
-<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-0116602540349648" data-ad-slot="7455097821"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-          <!-- Google Adsense TechBlog Side end -->
-          
-  <div class="sidebar-module sidebar-module-inset">
-  <h4>About</h4>
-  <p>ぺーぺーSEがきまぐれでテックネタを書きます。</p> <p>姉妹サイトは以下。</p> <p><a href="http://blog.pepese.com/">ぺーぺーSEのブログ</a></p> <p>ふぉろーみー。</p> <p><a href="https://twitter.com/PeePeeSE" class="twitter-follow-button" data-show-count="false">Follow @PeePeeSE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-
-</div>
-
-
-  
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS/">AWS</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/AWS-CLI/">AWS CLI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Amazon-Cognito/">Amazon Cognito</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Android/">Android</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Angular/">Angular</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atom/">Atom</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chai/">Chai</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Collaborative-filtering/">Collaborative filtering</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DataFrame/">DataFrame</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DynamoDB/">DynamoDB</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Express-js/">Express.js</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Flask/">Flask</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Git/">Git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github/">Github</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Github-Pages/">Github Pages</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gradle/">Gradle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Heroku/">Heroku</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Homebrew/">Homebrew</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Istanbul/">Istanbul</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Java/">Java</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Jupyter/">Jupyter</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Kotlin/">Kotlin</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/LINE/">LINE</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mac/">Mac</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Maven/">Maven</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/MeCab/">MeCab</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Multer/">Multer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Nginx/">Nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Node-js/">Node.js</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Pandas/">Pandas</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">14</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Ruby/">Ruby</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SDKMAN/">SDKMAN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SEO/">SEO</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SQL/">SQL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/STS/">STS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/SVM/">SVM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sass/">Sass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sequelize/">Sequelize</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TypeScript/">TypeScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/VS-Code/">VS Code</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Virtualenv/">Virtualenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Yarn/">Yarn</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anyenv/">anyenv</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/appium/">appium</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/aws/">aws</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/chatbot/">chatbot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gensim/">gensim</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git-flow/">git-flow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/go/">go</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/golang/">golang</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/iOS/">iOS</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/k-means/">k-means</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/mocha/">mocha</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ndenv/">ndenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ngrok/">ngrok</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/npm/">npm</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nyc/">nyc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/promise/">promise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pyenv/">pyenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/rbenv/">rbenv</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/request/">request</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-learn/">scikit-learn</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/scikit-surprise/">scikit-surprise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sinon-js/">sinon.js</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/vpc/">vpc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/word2vec/">word2vec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/yarn/">yarn</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/はてなブログ/">はてなブログ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/エディタ/">エディタ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/協調フィルタリング/">協調フィルタリング</a><span class="sidebar-module-list-count">1</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tag Cloud</h4>
-    <p class="tagcloud">
-      <a href="/tags/AWS/" style="font-size: 14.44px;">AWS</a> <a href="/tags/AWS-CLI/" style="font-size: 10px;">AWS CLI</a> <a href="/tags/Amazon-Cognito/" style="font-size: 11.11px;">Amazon Cognito</a> <a href="/tags/Android/" style="font-size: 11.11px;">Android</a> <a href="/tags/Angular/" style="font-size: 13.33px;">Angular</a> <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chai/" style="font-size: 10px;">Chai</a> <a href="/tags/Collaborative-filtering/" style="font-size: 10px;">Collaborative filtering</a> <a href="/tags/DataFrame/" style="font-size: 10px;">DataFrame</a> <a href="/tags/DynamoDB/" style="font-size: 12.22px;">DynamoDB</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/Github/" style="font-size: 11.11px;">Github</a> <a href="/tags/Github-Pages/" style="font-size: 10px;">Github Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Heroku/" style="font-size: 10px;">Heroku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 11.11px;">Homebrew</a> <a href="/tags/Istanbul/" style="font-size: 10px;">Istanbul</a> <a href="/tags/Java/" style="font-size: 12.22px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/LINE/" style="font-size: 10px;">LINE</a> <a href="/tags/Mac/" style="font-size: 12.22px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/MeCab/" style="font-size: 10px;">MeCab</a> <a href="/tags/Multer/" style="font-size: 10px;">Multer</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 17.78px;">Node.js</a> <a href="/tags/Pandas/" style="font-size: 11.11px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SDKMAN/" style="font-size: 10px;">SDKMAN</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/STS/" style="font-size: 10px;">STS</a> <a href="/tags/SVM/" style="font-size: 11.11px;">SVM</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Sequelize/" style="font-size: 10px;">Sequelize</a> <a href="/tags/TypeScript/" style="font-size: 13.33px;">TypeScript</a> <a href="/tags/VS-Code/" style="font-size: 11.11px;">VS Code</a> <a href="/tags/Virtualenv/" style="font-size: 10px;">Virtualenv</a> <a href="/tags/Yarn/" style="font-size: 12.22px;">Yarn</a> <a href="/tags/anyenv/" style="font-size: 11.11px;">anyenv</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/chatbot/" style="font-size: 10px;">chatbot</a> <a href="/tags/gensim/" style="font-size: 10px;">gensim</a> <a href="/tags/git-flow/" style="font-size: 10px;">git-flow</a> <a href="/tags/go/" style="font-size: 14.44px;">go</a> <a href="/tags/golang/" style="font-size: 14.44px;">golang</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/k-means/" style="font-size: 10px;">k-means</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/ndenv/" style="font-size: 10px;">ndenv</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/npm/" style="font-size: 15.56px;">npm</a> <a href="/tags/nyc/" style="font-size: 10px;">nyc</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/pyenv/" style="font-size: 10px;">pyenv</a> <a href="/tags/rbenv/" style="font-size: 10px;">rbenv</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/scikit-learn/" style="font-size: 14.44px;">scikit-learn</a> <a href="/tags/scikit-surprise/" style="font-size: 10px;">scikit-surprise</a> <a href="/tags/sinon-js/" style="font-size: 10px;">sinon.js</a> <a href="/tags/vpc/" style="font-size: 10px;">vpc</a> <a href="/tags/word2vec/" style="font-size: 10px;">word2vec</a> <a href="/tags/yarn/" style="font-size: 13.33px;">yarn</a> <a href="/tags/はてなブログ/" style="font-size: 10px;">はてなブログ</a> <a href="/tags/エディタ/" style="font-size: 10px;">エディタ</a> <a href="/tags/協調フィルタリング/" style="font-size: 10px;">協調フィルタリング</a>
     </p>
-  </div>
+
+</div>
+<hr>
 
 
-  
-  <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">5月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">2月 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/01/">1月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">2月 2018</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/01/">1月 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">12月 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/11/">11月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/09/">9月 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">8月 2017</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/07/">7月 2017</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">5月 2017</a><span class="sidebar-module-list-count">11</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Recents</h4>
-    <ul class="sidebar-module-list">
-      
-        <li>
-          <a href="/blog/aws-vpc-basics/">Amazon VPCまとめ</a>
-        </li>
-      
-        <li>
-          <a href="/blog/golang-string/">Golangの文字列操作</a>
-        </li>
-      
-        <li>
-          <a href="/blog/golang-sort/">Golangのソート</a>
-        </li>
-      
-        <li>
-          <a href="/blog/golang-file-io/">Golangのファイル入出力</a>
-        </li>
-      
-        <li>
-          <a href="/blog/golang-var-type-const-literal/">Golangの変数・型・定数・リテラル</a>
-        </li>
-      
-    </ul>
-  </div>
+            
 
 
 
-          <!-- Amazon Affiliate Side start -->
-          <!-- Amazon -->
-<script type="text/javascript"><!--
-amazon_ad_tag = "tanakakns-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide";//--></script>
-<script type="text/javascript" src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+       	</div>
+        
 
-          <!-- Amazon Affiliate Side end -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+                    <a href="/tags/android" title="android">
+                        android
+                    </a>
+               
+            
+               
+                    <a href="/tags/angular" title="angular">
+                        angular
+                    </a>
+               
+            
+               
+                    <a href="/tags/anyenv" title="anyenv">
+                        anyenv
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/aws" title="aws">
+                        aws
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/cognito" title="cognito">
+                        cognito
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/dynamodb" title="dynamodb">
+                        dynamodb
+                    </a>
+               
+            
+               
+                    <a href="/tags/express" title="express">
+                        express
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/git" title="git">
+                        git
+                    </a>
+               
+            
+               
+                    <a href="/tags/github" title="github">
+                        github
+                    </a>
+               
+            
+               
+                    <a href="/tags/go" title="go">
+                        go
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/homebrew" title="homebrew">
+                        homebrew
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/istio" title="istio">
+                        istio
+                    </a>
+               
+            
+               
+                    <a href="/tags/java" title="java">
+                        java
+                    </a>
+               
+            
+               
+                    <a href="/tags/javascript" title="javascript">
+                        javascript
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/kubernetes" title="kubernetes">
+                        kubernetes
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/machine-learning" title="machine-learning">
+                        machine-learning
+                    </a>
+               
+            
+               
+                    <a href="/tags/maven" title="maven">
+                        maven
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/node.js" title="node.js">
+                        node.js
+                    </a>
+               
+            
+               
+                    <a href="/tags/npm" title="npm">
+                        npm
+                    </a>
+               
+            
+               
+            
+               
+                    <a href="/tags/pandas" title="pandas">
+                        pandas
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/python" title="python">
+                        python
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/scikit-learn" title="scikit-learn">
+                        scikit-learn
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/svm" title="svm">
+                        svm
+                    </a>
+               
+            
+               
+                    <a href="/tags/typescript" title="typescript">
+                        typescript
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/vscode" title="vscode">
+                        vscode
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/yarn" title="yarn">
+                        yarn
+                    </a>
+               
+            
+        </div>
+    </section>
+    
+
+    
+	
+    <section class="visible-md visible-lg">
+	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
+        <div class="short-about">
+            
+            <a href="/top/about">
+               <img src="/img/yaruwo.gif" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>某IT企業のソフトウェアアーキテクト兼クラウドエンジニアです。</p>
+            
+           
+           <ul class="list-inline">
+               
+               
+               <li>
+                   <a href="https://twitter.com/peepeese">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/pepese">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+
+    
+    
+</div>
+
+	</div>
+</div>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
         </div>
     </div>
-    <!-- Google Adsense TechBlog Foot start -->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- techblog_foot -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0116602540349648" data-ad-slot="5978364622"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-    <!-- Google Adsense TechBlog Foot end -->
-  </div>
-  <footer class="blog-footer">
-  <div class="container">
-    <div id="footer-info" class="inner">
-      &copy; 2019 ぺーぺーSE<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
 
-  
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 
 
-<script src="/js/script.js"></script>
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 </body>
 </html>

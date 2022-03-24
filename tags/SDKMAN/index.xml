@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sdkman on ぺーぺーSEのテックブログ</title>
+    <title>sdkman on ぺーぺーSEのブログ</title>
     <link>https://blog.pepese.com/tags/sdkman/</link>
-    <description>Recent content in sdkman on ぺーぺーSEのテックブログ</description>
+    <description>Recent content in sdkman on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language>
-    <lastBuildDate>Fri, 15 Dec 2017 18:04:28 +0900</lastBuildDate><atom:link href="https://blog.pepese.com/tags/sdkman/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/sdkman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SDKMAN入門</title>
-      <link>https://blog.pepese.com/entry/sdkman-basics/</link>
-      <pubDate>Fri, 15 Dec 2017 18:04:28 +0900</pubDate>
+      <link>https://blog.pepese.com/sdkman-basics/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/entry/sdkman-basics/</guid>
+      <guid>https://blog.pepese.com/sdkman-basics/</guid>
       <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
     </item>
     

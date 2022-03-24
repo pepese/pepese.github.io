@@ -6,7 +6,71 @@
     <description>Recent content in express on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/express/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/express/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
+      <link>https://blog.pepese.com/nodejs-express-multer/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-multer/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br&gt;
+使用するツール・ライブラリは以下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/expressjs/multer&#34;&gt;Multer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
+      <link>https://blog.pepese.com/nodejs-express-browser-put-delete/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-browser-put-delete/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br&gt;
+通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br&gt;
+ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 &lt;em&gt;Node.js/Express側でPUT/DELETEリクエストとして解釈&lt;/em&gt; しているだけ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・Expres・requestでHTTP(S)リクエストを発行する</title>
+      <link>https://blog.pepese.com/nodejs-express-http-client/</link>
+      <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-http-client/</guid>
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
+      <link>https://blog.pepese.com/nodejs-express-rdb-sequelize/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-rdb-sequelize/</guid>
+      <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br&gt;
+使用するツール・ライブラリは以下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O/R Mapper
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.sequelizejs.com/&#34;&gt;Sequelize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;RDB
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sqlite.org/index.html&#34;&gt;SQLite3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Node.js・Expressでユニットテスト</title>
+      <link>https://blog.pepese.com/nodejs-express-test/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-express-test/</guid>
+      <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Express入門</title>
       <link>https://blog.pepese.com/nodejs-express-basics/</link>
@@ -14,6 +78,16 @@
       
       <guid>https://blog.pepese.com/nodejs-express-basics/</guid>
       <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>所謂MEANスタックを作る</title>
+      <link>https://blog.pepese.com/mean-stack-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mean-stack-basics/</guid>
+      <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
+と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
     </item>
     
   </channel>

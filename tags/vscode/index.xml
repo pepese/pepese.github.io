@@ -17,5 +17,14 @@
 さらっとまとめるつもりがどえらい量になったので注意。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Visual Studio Code入門</title>
+      <link>https://blog.pepese.com/vscode-basics/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/vscode-basics/</guid>
+      <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
