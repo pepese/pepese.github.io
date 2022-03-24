@@ -333,10 +333,10 @@
 }
 </code></pre><h2 id="テストスクリプト-appspeccontrollersget_indexspecjs">テストスクリプト <code>app/spec/controllers/get_index.spec.js</code></h2>
 <p><code>app/controllers/get_index.js</code> を対象としたテストスクリプトを以下のように作成する。</p>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/spec/controllers/get_index.spec.js?footer=0"></script>
 <h2 id="テストスクリプト-appspeccontrollersget_usersspecjs">テストスクリプト <code>app/spec/controllers/get_users.spec.js</code></h2>
 <p><code>app/controllers/get_users.js</code> を対象としたテストスクリプトを以下のように作成する。</p>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/spec/controllers/get_users.spec.js?footer=0"></script>
 <h2 id="テストの実行">テストの実行</h2>
 <p>npmスクリプトで以下のようにテストを実行する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm <span style="color:#8be9fd;font-style:italic">test</span>
@@ -536,7 +536,32 @@ expect(hoge).to.equal(&#39;fuge&#39;);
 </table>
 <h3 id="スタブ">スタブ</h3>
 <p>スタブオブジェクトの作成方法は以下。</p>
-<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr class="header">
+<th align="left">呼び出し方法</th>
+<th align="left">概要</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">let stub = sinon.stub();</td>
+<td align="left">空のスタブオブジェクトを生成。主にコールバックで渡す無名関数などに対して使用する。</td>
+</tr>
+<tr class="even">
+<td align="left">let stub = sinon.stub(object, “method”);</td>
+<td align="left">特定の関数に対してスタブオブジェクトを作成する。</td>
+</tr>
+<tr class="odd">
+<td align="left">let stub = sinon.stub(object, “method”, func);</td>
+<td align="left">特定の関数に対してスタブオブジェクトを作成し、指定した関数で処理を上書きします。</td>
+</tr>
+<tr class="even">
+<td align="left">let stub = sinon.stub(object);</td>
+<td align="left">対象オブジェクトのメソッドをすべてスタブにする。</td>
+</tr>
+</tbody>
+</table>
 <p>スタブオブジェクトの主な関数は以下。</p>
 <table>
 <thead>
@@ -570,7 +595,28 @@ expect(hoge).to.equal(&#39;fuge&#39;);
 </table>
 <h3 id="モック">モック</h3>
 <p>モックオブジェクトの作成方法は以下。</p>
-<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr class="header">
+<th align="left">呼び出し方法</th>
+<th align="left">概要</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">let mock = sinon.mock(object);</td>
+<td align="left">オブジェクトのモックを作成する。</td>
+</tr>
+<tr class="even">
+<td align="left">let expectation = mock.expects(“method”);</td>
+<td align="left"><code>object.method</code> をオーバーライドしてモック関数を作成する。</td>
+</tr>
+<tr class="odd">
+<td align="left">let expectation = sinon.expectation.create(“method”);</td>
+<td align="left">モックオブジェクト無しでモック関数を作成する。</td>
+</tr>
+</tbody>
+</table>
 <p>スタブオブジェクトの主な関数は以下。</p>
 <table>
 <thead>

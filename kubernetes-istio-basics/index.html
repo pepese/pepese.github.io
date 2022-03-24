@@ -208,7 +208,7 @@
 <h1 id="概要">概要</h1>
 <p>非常に大規模なハイブリッド・マルチクラウドにおいて、DevOpsチームのオペレータはマイクロサービスを展開・管理する。<br>
 Istio は <strong>サービスメッシュ</strong> によりオペレータにかかる負荷を軽減し、マイクロサービス間接続・保護・制御・監視をサポートする統一された方法を提供する。</p>
-<!-- raw HTML omitted -->
+<img src="https://istio.io/latest/docs/ops/deployment/architecture/arch.svg" />
 <p><a href="https://www.1915keke.com/entry/2018/10/06/042621">参考</a></p>
 <ul>
 <li><strong>Control Plane</strong> / <code>istiod</code> として 1 バイナリにまとめられている
@@ -340,7 +340,7 @@ Istio は、使い慣れた Ingress リソースを新しい Gateway および V
 これらは連携して動作し、トラフィックをメッシュにルーティングする。<br>
 メッシュ内では、サービスはクラスタローカルサービス名で相互にアクセスできるため、ゲートウェイは必要ない。<br>
 以下のように動作する。</p>
-<!-- raw HTML omitted -->
+<img src="https://blog.jayway.com/wp-content/uploads/2018/10/istio-networking.png" />
 <ol>
 <li>クライアントは特定のポートにリクエストを発行する</li>
 <li>LoadBalancer がクラスタ内の woker node へトラフィックをフォワードする</li>
@@ -461,7 +461,7 @@ Istio は、使い慣れた Ingress リソースを新しい Gateway および V
 </li>
 </ul>
 <p>設定については <a href="https://istio.io/docs/reference/config/installation-options/">ここ</a> を参照。</p>
-<!-- raw HTML omitted -->
+<img src="https://image.itmedia.co.jp/ait/articles/2012/02/news012_datastack.jpg">
 <h2 id="ちょっと設定見てみる">ちょっと設定見てみる</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>├── README.md

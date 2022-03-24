@@ -267,7 +267,20 @@
 </li>
 </ul>
 <p>上記は以下の <strong>混同行列</strong> （ <strong>Confusion Matrix</strong> ）から算出することができる。</p>
-<!-- raw HTML omitted -->
+<table>
+<tr>
+<td></td><td></td><td colspan="2">予測</td>
+</tr>
+<tr>
+<td></td><td></td><td>Positive</td><td>Negative</td>
+</tr>
+<tr>
+<td rowspan="2">実際</td><td>Positive</td><td>True Positive (TP)</td><td>False Negative (FN)</td>
+</tr>
+<tr>
+<td>Negative</td><td>False Positive (FP)</td><td>True Negative (TN)</td>
+</tr>
+</table>
 <ul>
 <li>TP・・・Positive という予測が True （正解）だった数</li>
 <li>FP・・・Positive という予測が False （不正解）だった数</li>

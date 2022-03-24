@@ -259,11 +259,11 @@ app/db/*.sqlite
 </li>
 </ul>
 <h2 id="apprepositoriessequelizejs"><code>app/repositories/sequelize.js</code></h2>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/repositories/sequelize.js?footer=0"></script>
 <h2 id="apprepositoriesmodelsjs"><code>app/repositories/models.js</code></h2>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/repositories/models.js?footer=0"></script>
 <h2 id="appcontrollersget_clientsjs"><code>app/controllers/get_clients.js</code></h2>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/controllers/get_clients.js?footer=0"></script>
 <h1 id="実行">実行</h1>
 <p>以下で起動。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ node app/app.js
@@ -334,18 +334,18 @@ app/db/*.sqlite
 <p>個人的な好みだが、モデルは <strong>単数形</strong> で作成する。<br>
 また、 <strong>モデルのリレーションを実装してから <code>sync()</code> する</strong> のがポイント。（ここでハマった）</p>
 <h3 id="appmodelsuserjs">app/models/user.js</h3>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/sequelize-sample/app/models/user.js?footer=0"></script>
 <p><code>user_id</code> が主キー。</p>
 <h3 id="appmodelsteamjs">app/models/team.js</h3>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/sequelize-sample/app/models/team.js?footer=0"></script>
 <p><code>team_id</code> が主キー。</p>
 <h3 id="appmodelsteam-userjs">app/models/team-user.js</h3>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/sequelize-sample/app/models/team-user.js?footer=0"></script>
 <p><code>user_id</code> 、 <code>team_id</code> が複合キーで、それぞれ外部キーを参照しているのがポイント。</p>
 <h3 id="apprepositoriessequelizejs-1">app/repositories/sequelize.js</h3>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/sequelize-sample/app/repositories/sequelize.js?footer=0"></script>
 <h3 id="apprepositoriesdbjs">app/repositories/db.js</h3>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/sequelize-sample/app/repositories/db.js?footer=0"></script>
 <p><code>belongsToMany</code> を使用して中間テーブルを介したモデルを構築する際は必ず <code>through</code> を記載する。<br>
 <code>belongsToMany</code> でリレーションを構築するとユーザモデルから以下の関数を実行できるようになる。（チームモデルも同様）</p>
 <ul>
@@ -404,7 +404,7 @@ app/db/*.sqlite
 </ul>
 <p><a href="http://docs.sequelizejs.com/class/lib/associations/belongs-to-many.js~BelongsToMany.html">参考</a></p>
 <h3 id="appappjs">app/app.js</h3>
-<!-- raw HTML omitted -->
+<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/sequelize-sample/app/app.js?footer=0"></script>
 
                 
 
