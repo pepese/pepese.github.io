@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/hugo/</link>
+    <description>Recent content in hugo on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo入門</title>
+      <link>https://blog.pepese.com/hugo-basics/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/hugo-basics/</guid>
+      <description>&lt;p&gt;Hugo に入門する。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

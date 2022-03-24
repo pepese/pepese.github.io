@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
+
+    
+    <meta name="title" content="Goでソート" />
+    <meta property="og:title" content="Goでソート" />
+    <meta property="twitter:title" content="Goでソート" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Goでソート-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/golang-sort/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                    </div>
+                    <h1>Goでソート</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2019-02-10
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Golang におけるソートについてまとめる。</p>
+<h1 id="sort-パッケージ">sort パッケージ</h1>
+<p>sort パッケージでは、以下の <code>Interface</code> に合わせた実装をしておけば、独自の type でも <code>sort.Sort(data Interface)</code> でソートしてくれる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> Interface <span style="color:#8be9fd;font-style:italic">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">Len</span>() <span style="color:#8be9fd">int</span> <span style="color:#6272a4">// 要素数
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#50fa7b">Less</span>(i, j <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">bool</span> <span style="color:#6272a4">// i 番目の要素が j 番目の要素より小さくなる条件
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#50fa7b">Swap</span>(i, j <span style="color:#8be9fd">int</span>) <span style="color:#6272a4">// i 番目の要素と j 番目の要素を入れ替えるロジック
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>とはいえ面倒なので、<code>IntSlice</code> （ <code>[]int</code> ）、<code>Float64Slice</code> （ <code>[]float64</code> ）、<code>StringSlice</code> （ <code>[]string</code> ）は用意されており、キャストして使用できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> a []<span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>sort.<span style="color:#50fa7b">Sort</span>(sort.<span style="color:#50fa7b">IntSlice</span>(a))
+</span></span></code></pre></div><p>キャストしたら、メンバに <code>Sort()</code> メソッドも実装されている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> a []<span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>sort.<span style="color:#50fa7b">IntSlice</span>(a).<span style="color:#50fa7b">Sort</span>()
+</span></span></code></pre></div><p>もしくはキャストしなくとも、<code>Ints([]int)</code> 、 <code>Float64s([]float64)</code> 、 <code>Strings([]string)</code> が用意されている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> a []<span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>sort.<span style="color:#50fa7b">Ints</span>(a)
+</span></span></code></pre></div><h2 id="slice">Slice</h2>
+<p><code>Interface</code> の実装が面倒なら <code>less</code> だけ実装すればよい関数もある。</p>
+<ul>
+<li>func Slice(slice interface{}, less func(i, j int) bool)</li>
+<li>func SliceStable(slice interface{}, less func(i, j int) bool)</li>
+</ul>
+<p><code>slice</code> はソート対象。
+また、 <code>SliceStable</code> は <a href="https://ja.wikipedia.org/wiki/%E5%AE%89%E5%AE%9A%E3%82%BD%E3%83%BC%E3%83%88">安定ソート</a> 。</p>
+<h1 id="sort-パッケージで独自のソートを作ってみる">sort パッケージで独自のソートを作ってみる</h1>
+<h2 id="interface-の実装">Interface の実装</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;sort&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> user <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>	name <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>	age  <span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> users []user
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> (u users) <span style="color:#50fa7b">Len</span>() <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">len</span>(u)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> (u users) <span style="color:#50fa7b">Less</span>(i, j <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">bool</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> u[i].age &lt; u[j].age
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> (u users) <span style="color:#50fa7b">Swap</span>(i, j <span style="color:#8be9fd">int</span>) {
+</span></span><span style="display:flex;"><span>	u[i], u[j] = u[j], u[i]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	list <span style="color:#ff79c6">:=</span> []user{
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;A&#34;</span>, age: <span style="color:#bd93f9">2</span>},
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;B&#34;</span>, age: <span style="color:#bd93f9">1</span>},
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;C&#34;</span>, age: <span style="color:#bd93f9">4</span>},
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;D&#34;</span>, age: <span style="color:#bd93f9">3</span>},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	us <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">users</span>(list)
+</span></span><span style="display:flex;"><span>	sort.<span style="color:#50fa7b">Sort</span>(us)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(us)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="sliceの利用">Sliceの利用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;sort&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> user <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>	name <span style="color:#8be9fd">string</span>
+</span></span><span style="display:flex;"><span>	age  <span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	list <span style="color:#ff79c6">:=</span> []user{
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;A&#34;</span>, age: <span style="color:#bd93f9">2</span>},
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;B&#34;</span>, age: <span style="color:#bd93f9">1</span>},
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;C&#34;</span>, age: <span style="color:#bd93f9">4</span>},
+</span></span><span style="display:flex;"><span>		user{name: <span style="color:#f1fa8c">&#34;D&#34;</span>, age: <span style="color:#bd93f9">3</span>},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	sort.<span style="color:#50fa7b">Slice</span>(list, <span style="color:#8be9fd;font-style:italic">func</span>(i, j <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">bool</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> list[i].age &lt; list[j].age
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(list)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="スクラッチでソートしてみる">スクラッチでソートしてみる</h1>
+<p>sort パッケージ使わずに。</p>
+<h2 id="バブルソート">バブルソート</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">sort</span>(list []<span style="color:#8be9fd">int</span>) {
+</span></span><span style="display:flex;"><span>	eNum <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">len</span>(list)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> eNum; i &gt; <span style="color:#bd93f9">0</span>; i<span style="color:#ff79c6">--</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; j &lt; i<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>; j<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> list[j] &gt; list[j<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>] {
+</span></span><span style="display:flex;"><span>				list[j], list[j<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>] = list[j<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>], list[j]
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	list <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">8</span>, <span style="color:#bd93f9">5</span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">sort</span>(list)
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(list)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>暇になったら他にも作ろうかなー。</p>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/golang-file-io/" data-toggle="tooltip" data-placement="top" title="Goでファイル入出力">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/golang-string/" data-toggle="tooltip" data-placement="top" title="Goで文字列操作">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/anyenv" title="anyenv">
+                            anyenv
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/typescript/</link>
+    <description>Recent content in typescript on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Angular入門</title>
+      <link>https://blog.pepese.com/angular-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-basics/</guid>
+      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br&gt;
+ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
+      <link>https://blog.pepese.com/angular-router-cognito/</link>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-router-cognito/</guid>
+      <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
+      <link>https://blog.pepese.com/angular-cognito/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-cognito/</guid>
+      <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>TypeScript環境入門</title>
+      <link>https://blog.pepese.com/typescript-environment-basics/</link>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/typescript-environment-basics/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

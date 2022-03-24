@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
+
+    
+    <meta name="title" content="Angular入門" />
+    <meta property="og:title" content="Angular入門" />
+    <meta property="twitter:title" content="Angular入門" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Angular入門-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/angular-basics/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        <a class="tag" href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        <a class="tag" href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        <a class="tag" href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        <a class="tag" href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        <a class="tag" href="/tags/sass" title="sass">
+                            sass
+                        </a>
+                        
+                    </div>
+                    <h1>Angular入門</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2017-08-14
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>フロントエンドMVCフレームワーク <strong>Angular</strong> （所謂Angular4）を触ってみた。<br>
+ここでは <a href="https://github.com/angular/angular-cli">Angular CLI</a> を使う。</p>
+<h1 id="環境構築">環境構築</h1>
+<h2 id="yarnインストール">Yarnインストール</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install -g yarn
+</span></span><span style="display:flex;"><span>$ ndenv rehash
+</span></span><span style="display:flex;"><span>$ yarn --version
+</span></span></code></pre></div><h2 id="angular-cliインストール">Angular CLIインストール</h2>
+<p>Angular CLI のインストール。<br>
+パッケージ管理ツールを <code>npm</code> から <code>yarn</code> へ変更。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn global add @angular/cli
+</span></span><span style="display:flex;"><span>$ ndenv rehash
+</span></span><span style="display:flex;"><span>$ ng <span style="color:#8be9fd;font-style:italic">set</span> --global <span style="color:#8be9fd;font-style:italic">packageManager</span><span style="color:#ff79c6">=</span>yarn
+</span></span><span style="display:flex;"><span>$ ng version
+</span></span><span style="display:flex;"><span>_                      _                 ____ _     ___
+</span></span><span style="display:flex;"><span>/ <span style="color:#f1fa8c">\ </span>  _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+</span></span><span style="display:flex;"><span>/ △ <span style="color:#f1fa8c">\ </span>| <span style="color:#f1fa8c">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__|   | |   | |    | |
+</span></span><span style="display:flex;"><span>/ ___ <span style="color:#f1fa8c">\|</span> | | | <span style="color:#ff79c6">(</span>_| | |_| | | <span style="color:#ff79c6">(</span>_| | |      | |___| |___ | |
+</span></span><span style="display:flex;"><span>/_/   <span style="color:#f1fa8c">\_\_</span>| |_|<span style="color:#f1fa8c">\_</span>_, |<span style="color:#f1fa8c">\_</span>_,_|_|<span style="color:#f1fa8c">\_</span>_,_|_|       <span style="color:#f1fa8c">\_</span>___|_____|___|
+</span></span><span style="display:flex;"><span>           |___/
+</span></span><span style="display:flex;"><span>@angular/cli: 1.3.0
+</span></span><span style="display:flex;"><span>node: 8.3.0
+</span></span><span style="display:flex;"><span>os: darwin x64
+</span></span></code></pre></div><p>以降、 <code>ng</code> コマンドでいろいろできるようになる。</p>
+<h2 id="プロジェクト作成と起動">プロジェクト作成と起動</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng new angular-sample
+</span></span><span style="display:flex;"><span>installing ng
+</span></span><span style="display:flex;"><span>  create .editorconfig
+</span></span><span style="display:flex;"><span>  create README.md
+</span></span><span style="display:flex;"><span>  create src/app/app.component.css
+</span></span><span style="display:flex;"><span>  create src/app/app.component.html
+</span></span><span style="display:flex;"><span>  create src/app/app.component.spec.ts
+</span></span><span style="display:flex;"><span>  create src/app/app.component.ts
+</span></span><span style="display:flex;"><span>  create src/app/app.module.ts
+</span></span><span style="display:flex;"><span>  create src/assets/.gitkeep
+</span></span><span style="display:flex;"><span>  create src/environments/environment.prod.ts
+</span></span><span style="display:flex;"><span>  create src/environments/environment.ts
+</span></span><span style="display:flex;"><span>  create src/favicon.ico
+</span></span><span style="display:flex;"><span>  create src/index.html
+</span></span><span style="display:flex;"><span>  create src/main.ts
+</span></span><span style="display:flex;"><span>  create src/polyfills.ts
+</span></span><span style="display:flex;"><span>  create src/styles.css
+</span></span><span style="display:flex;"><span>  create src/test.ts
+</span></span><span style="display:flex;"><span>  create src/tsconfig.app.json
+</span></span><span style="display:flex;"><span>  create src/tsconfig.spec.json
+</span></span><span style="display:flex;"><span>  create src/typings.d.ts
+</span></span><span style="display:flex;"><span>  create .angular-cli.json
+</span></span><span style="display:flex;"><span>  create e2e/app.e2e-spec.ts
+</span></span><span style="display:flex;"><span>  create e2e/app.po.ts
+</span></span><span style="display:flex;"><span>  create e2e/tsconfig.e2e.json
+</span></span><span style="display:flex;"><span>  create .gitignore
+</span></span><span style="display:flex;"><span>  create karma.conf.js
+</span></span><span style="display:flex;"><span>  create package.json
+</span></span><span style="display:flex;"><span>  create protractor.conf.js
+</span></span><span style="display:flex;"><span>  create tsconfig.json
+</span></span><span style="display:flex;"><span>  create tslint.json
+</span></span><span style="display:flex;"><span>Installing packages <span style="color:#ff79c6">for</span> tooling via yarn.
+</span></span><span style="display:flex;"><span>Installed packages <span style="color:#ff79c6">for</span> tooling via yarn.
+</span></span><span style="display:flex;"><span>Successfully initialized git.
+</span></span><span style="display:flex;"><span>Project <span style="color:#f1fa8c">&#39;angular-sample&#39;</span> successfully created.
+</span></span></code></pre></div><p><code>yarn</code> で作成されていることを確認する。<br>
+また、下記の通りプロジェクトディレクトリに移動して、導入されている Angular のバージョンを確認する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> angular-sample
+</span></span><span style="display:flex;"><span>$ ng version
+</span></span><span style="display:flex;"><span>_                      _                 ____ _     ___
+</span></span><span style="display:flex;"><span>/ <span style="color:#f1fa8c">\ </span>  _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+</span></span><span style="display:flex;"><span>/ △ <span style="color:#f1fa8c">\ </span>| <span style="color:#f1fa8c">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__|   | |   | |    | |
+</span></span><span style="display:flex;"><span>/ ___ <span style="color:#f1fa8c">\|</span> | | | <span style="color:#ff79c6">(</span>_| | |_| | | <span style="color:#ff79c6">(</span>_| | |      | |___| |___ | |
+</span></span><span style="display:flex;"><span>/_/   <span style="color:#f1fa8c">\_\_</span>| |_|<span style="color:#f1fa8c">\_</span>_, |<span style="color:#f1fa8c">\_</span>_,_|_|<span style="color:#f1fa8c">\_</span>_,_|_|       <span style="color:#f1fa8c">\_</span>___|_____|___|
+</span></span><span style="display:flex;"><span>           |___/
+</span></span><span style="display:flex;"><span>@angular/cli: 1.3.0
+</span></span><span style="display:flex;"><span>node: 8.3.0
+</span></span><span style="display:flex;"><span>os: darwin x64
+</span></span><span style="display:flex;"><span>@angular/animations: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/common: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/compiler: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/core: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/forms: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/http: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/platform-browser: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/platform-browser-dynamic: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/router: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/cli: 1.3.0
+</span></span><span style="display:flex;"><span>@angular/compiler-cli: 4.3.4
+</span></span><span style="display:flex;"><span>@angular/language-service: 4.3.4
+</span></span></code></pre></div><p>以下で起動。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng serve
+</span></span></code></pre></div><h2 id="プロジェクト構成">プロジェクト構成</h2>
+<pre tabindex="0"><code>.
+├── README.md
+├── .angular-cli.json                * Angular CLI 設定ファイル
+├── .editorconfig                    * エディタの設定ファイル
+├── .gitignore
+├── e2e                              * エンドツーエンドテストディレクトリ
+│   ├── app.e2e-spec.ts
+│   ├── app.po.ts
+│   └── tsconfig.e2e.json
+├── karma.conf.js                    * karma（テストランナー）の設定ファイル
+├── package.json                     * npmの設定ファイル
+├── protractor.conf.js               * e2eテストの設定ファイル
+├── tsconfig.json                    * TypeScriptの設定ファイル
+├── tslint.json                      * TypeScriptのLinter設定ファイル
+└── src                              * ソースファイルディレクトリ
+    ├── app                          * アプリケーションコードディレクトリ
+    │   ├── app.component.css
+    │   ├── app.component.html
+    │   ├── app.component.spec.ts
+    │   ├── app.component.ts
+    │   └── app.module.ts
+    ├── assets
+    ├── environments
+    │   ├── environment.prod.ts
+    │   └── environment.ts
+    ├── favicon.ico
+    ├── index.html                    * トップ画面、ルートコンポーネントを記載
+    ├── main.ts                       * ルートモジュールのロード（メイン）
+    ├── polyfills.ts
+    ├── styles.css
+    ├── test.ts
+    ├── tsconfig.app.json             * TypeScriptの設定ファイル
+    ├── tsconfig.spec.json            * TypeScriptのテスト設定ファイル
+    └── typings.d.ts                  * TypeScriptの型定義ファイル     
+</code></pre><p><code>.ditorconfig</code> は<a href="http://editorconfig.org">EditorConfig</a>というプロジェクトの設定ファイルで、エディタへプラグインなどを入れることにより様々なエディタの設定をプロジェクト単位で可能にする。<br>
+テストは <strong>Jasmine</strong> （テスティングフレームワーク）と <strong>Karma</strong> （テストランナー）の組み合わせで実行される。<br>
+e2e（エンドツーエンド）テストは <strong>protractor</strong> 。</p>
+<h2 id="主要なコマンド">主要なコマンド</h2>
+<ul>
+<li><code>ng new</code>
+<ul>
+<li>新規にAngularプロジェクトを作成する</li>
+</ul>
+</li>
+<li><code>ng build</code>
+<ul>
+<li><code>src</code> 配下をビルドして <code>dist</code> へ出力する</li>
+</ul>
+</li>
+<li><code>ng serve</code>
+<ul>
+<li>Webサーバを起動してアプリケーションを実行する</li>
+</ul>
+</li>
+<li><code>ng generate</code>
+<ul>
+<li>blueprints から選択して新たにコードを生成する</li>
+</ul>
+</li>
+<li><code>ng eject</code>
+<ul>
+<li><code>ng generate</code> などで作成したコードを取り除き、webpackの設定やスクリプトを変更する</li>
+</ul>
+</li>
+<li><code>ng get</code>
+<ul>
+<li>設定（key-value）から値（value）を取得する</li>
+</ul>
+</li>
+<li><code>ng set</code>
+<ul>
+<li>設定（key-value）に値（value）を追加する</li>
+</ul>
+</li>
+<li><code>ng lint</code>
+<ul>
+<li>Linterを実行する</li>
+</ul>
+</li>
+<li><code>ng test</code>
+<ul>
+<li>テストを実行する</li>
+</ul>
+</li>
+<li><code>ng e2e</code>
+<ul>
+<li>e2eテストを実行する</li>
+</ul>
+</li>
+<li><code>ng xi18n</code>
+<ul>
+<li>コードからi18nメッセージを抜く</li>
+</ul>
+</li>
+</ul>
+<p>上記以外や詳細なオプションは <code>ng help</code> を参照。</p>
+<h3 id="blueprints-の種類">blueprints の種類</h3>
+<ul>
+<li>module
+<ul>
+<li><code>ng generate module sample</code></li>
+<li>モジュール（ <code>sample/sample.module.ts</code> ）が作成される。</li>
+<li>自動で指定したモジュール名でディレクトリが切られることに注意</li>
+</ul>
+</li>
+<li>component
+<ul>
+<li><code>ng generate component sample</code></li>
+<li>コンポーネント（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
+<ul>
+<li><code>sample.component.ts</code> 、 <code>sample.component.spec.ts</code> 、 <code>sample.component.html</code> 、 <code>sample.component.scss</code></li>
+</ul>
+</li>
+<li>なお、既に存在するモジュール名で作成すると、そのモジュール名のディレクトリ内に作成される。</li>
+</ul>
+</li>
+<li>directive
+<ul>
+<li><code>ng generate directive sample</code></li>
+<li>ディレクティブ（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
+<ul>
+<li><code>sample.directive.ts</code> 、 <code>sample.directive.spec.ts</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pipe
+<ul>
+<li><code>ng generate pipe sample</code></li>
+<li>パイプ（以下）を作成し、 <code>app.module.ts</code> に自動登録（importおよびメタデータ <code>declarations</code> への追加）される。
+<ul>
+<li><code>sample.pipe.ts</code> 、 <code>sample.pipe.spec.ts</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>service
+<ul>
+<li><code>ng generate service sample</code></li>
+<li>サービス（以下）を作成する。
+<ul>
+<li><code>sample.service.ts</code> 、 <code>sample.service.spec.ts</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>class
+<ul>
+<li><code>ng generate class sample</code></li>
+<li>普通のクラス（ <code>sample.ts</code> ）が作成される。</li>
+</ul>
+</li>
+<li>interface
+<ul>
+<li><code>ng generate interface sample</code></li>
+<li>普通のインターフェース（ <code>sample.ts</code> ）が作成される。</li>
+</ul>
+</li>
+<li>enum
+<ul>
+<li><code>ng generate enum sample</code></li>
+<li>普通の列挙型（ <code>sample.enum.ts</code> ）が作成される。</li>
+</ul>
+</li>
+</ul>
+<p>ディレクトリを切りたい場合は <code>/</code> を加えて、 <code>ng generate service sample/sample-service</code> のようにする。</p>
+<h2 id="angular-cli-のバージョンアップ方法">Angular CLI のバージョンアップ方法</h2>
+<p>グローバルでは以下。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn global remove @angular/cli
+</span></span><span style="display:flex;"><span>$ yarn cache clean
+</span></span><span style="display:flex;"><span>$ yarn global add @angular/cli@latest
+</span></span><span style="display:flex;"><span>$ ndenv rehash
+</span></span></code></pre></div><p>ローカルプロジェクトでは以下。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rm -rf node_modules dist <span style="color:#6272a4"># use rmdir on Windows</span>
+</span></span><span style="display:flex;"><span>$ yarn add @angular/cli@latest --dev
+</span></span><span style="display:flex;"><span>$ yarn install
+</span></span></code></pre></div><h1 id="angularの基本">Angularの基本</h1>
+<p>Angularのアーキテクチャは以下の要素から構成される。</p>
+<ul>
+<li>モジュール（@NgModule）</li>
+<li>コンポーネント（@Components）</li>
+<li>テンプレート（Templates）</li>
+<li>メタデータ（Metadata）</li>
+<li>データバインディング（Data Binding）</li>
+<li>ディレクテイブ（@Directive）</li>
+<li>パイプ（@Pipe）</li>
+<li>サービス（Services）・DI（Dependency injection / @Injectable）</li>
+<li>フォームとバリデータ</li>
+<li>Angularライブラリ</li>
+</ul>
+<p>上記の各々について後述する。</p>
+<h2 id="モジュールngmodule">モジュール（@NgModule）</h2>
+<p>Angularのアプリケーションはモジュール単位で機能を管理する。<br>
+モジュールは後述の <strong>コンポーネント</strong> や <strong>テンプレート</strong> を包含する。</p>
+<p>Angularアプリケーションは少なくとも１つ <strong>ルートモジュール</strong> を持ち、<code>AppModule</code> と命名する。<br>
+ルートモジュールは、 <code>src/main.ts</code> からロードされる。<br>
+通常のアプリケーションの場合、ルートモジュールは１つだが、巨大なアプリケーションの場合、複数のルートモジュールを持つこともある。</p>
+<p>モジュールは以下のように作成する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { NgModule }      <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/core&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { BrowserModule } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/platform-browser&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">@NgModule</span>({
+</span></span><span style="display:flex;"><span>  imports<span style="color:#ff79c6">:</span>      [ BrowserModule ],
+</span></span><span style="display:flex;"><span>  providers<span style="color:#ff79c6">:</span>    [ Logger ],
+</span></span><span style="display:flex;"><span>  declarations<span style="color:#ff79c6">:</span> [ AppComponent ],
+</span></span><span style="display:flex;"><span>  exports<span style="color:#ff79c6">:</span>      [ AppComponent ],
+</span></span><span style="display:flex;"><span>  bootstrap<span style="color:#ff79c6">:</span>    [ AppComponent ]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> AppModule { }
+</span></span></code></pre></div><p><code>AppModule</code> クラスに <code>@NgModule</code> <strong>デコレータ</strong> （Javaでいうアノテーション）を付与した形になっている。<br>
+デコレータにAngularに則した設定を行い、クラスには何も書かない（たぶん）。<br>
+<code>@NgModule</code> の代表的なプロパティは以下の通り。ちなみにデコレータに設定するプロパティを <strong>メタデータ</strong> という。</p>
+<ul>
+<li><code>imports</code>
+<ul>
+<li>このモジュールに他のモジュールを取り込み、このモジュール内で定義されているコンポーネントやテンプレートが他のモジュールのクラスを使用できるようになる。</li>
+<li>他のモジュールの <code>providers</code> ・ <code>exports</code> に定義されたものを使用できるようになる。</li>
+</ul>
+</li>
+<li><code>providers</code>
+<ul>
+<li>このモジュールおよび関係するコンポーネント・サービスへインジェクトするためのサービスクラスを定義・インスタンス化する。</li>
+</ul>
+</li>
+<li><code>declarations</code>
+<ul>
+<li>このモジュールに所属させるビュークラスを指定する。Angularのビュークラスには、 <strong>コンポーネント</strong> 、 <strong>ディレクティブ</strong> 、 <strong>パイプ</strong> がある。</li>
+</ul>
+</li>
+<li><code>exports</code>
+<ul>
+<li>このモジュール内のクラスを他のモジュールのコンポーネント・テンプレートで使用可能にする。</li>
+<li><code>imports</code> の逆。</li>
+</ul>
+</li>
+<li><code>bootstrap</code>
+<ul>
+<li><strong>ルートコンポーネント</strong> を定義する。ルートコンポーネントはアプリケーションのメインビュー。</li>
+<li><strong>ルートモジュールにだけ</strong> に <code>bootstarp</code> プロパティを設定する。</li>
+</ul>
+</li>
+</ul>
+<p>以下が <strong>ルートモジュール</strong> を指定する方法（ <code>src/main.ts</code> ）。</p>
+<pre tabindex="0"><code class="language-typescritp" data-lang="typescritp">import { platformBrowserDynamic } from &#39;@angular/platform-browser-dynamic&#39;;
+import { AppModule } from &#39;./app/app.module&#39;;
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+</code></pre><p>また、モジュール内では以下のようにライブラリから他のモジュールをロードすることもできる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { Component } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/core&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { BrowserModule } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/platform-browser&#39;</span>;
+</span></span></code></pre></div><p>ロードしたライブラリモジュールは、 <code>@NgModule</code> の <code>imports</code> プロパティに指定することにより使用できるようになる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>imports<span style="color:#ff79c6">:</span>      [ BrowserModule ],
+</span></span></code></pre></div><h2 id="コンポーネントcomponent">コンポーネント（@Component）</h2>
+<p>コンポーネントはビューの役割を担う。<br>
+コンポーネントクラス内で定義したフィールド変数やメソッドは、テンプレートから直接使用できる。<br>
+ロジックは基本的にコンポーネント内に記載し、サービスクラスをDIしたりする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">@Component</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">module</span>Id<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">module</span>.id,
+</span></span><span style="display:flex;"><span>  selector<span style="color:#ff79c6">:</span>    <span style="color:#f1fa8c">&#39;hero-list&#39;</span>,
+</span></span><span style="display:flex;"><span>  templateUrl<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;./hero-list.component.html&#39;</span>,
+</span></span><span style="display:flex;"><span>  providers<span style="color:#ff79c6">:</span>  [ HeroService ]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> HeroListComponent <span style="color:#ff79c6">implements</span> OnInit {
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* . . . */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>@Component</code> の代表的なメタデータプロパティは以下。</p>
+<ul>
+<li>moduleId
+<ul>
+<li>このモジュールが定義されるファイルのES/CommonJSモジュールID</li>
+</ul>
+</li>
+<li>selector
+<ul>
+<li>このコンポーネントのHTMLタグ名を定義する。</li>
+</ul>
+</li>
+<li>template
+<ul>
+<li>テンプレートを直接記載する。</li>
+</ul>
+</li>
+<li>templateUrl
+<ul>
+<li>テンプレートファイルのパスを指定する。</li>
+</ul>
+</li>
+<li>styles
+<ul>
+<li>スタイルシート（CSSやSass）を直接記載する。このコンポーネント外には影響が無い。</li>
+</ul>
+</li>
+<li>styleUrls
+<ul>
+<li>スタイルシートファイルのパスを指定する。このコンポーネント外には影響が無い。</li>
+</ul>
+</li>
+<li>providers
+<ul>
+<li>このコンポーネントがDI経由で使用するサービスクラスを指定する。</li>
+<li>コンポーネントクラスの <code>constructor</code> の引数でも指定する必要がある。</li>
+</ul>
+</li>
+</ul>
+<p>その他の <code>@Component</code> のメタデータは<a href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html">ここ</a>で確認できる。</p>
+<h2 id="テンプレートtemplates">テンプレート（Templates）</h2>
+<p>テンプレートはコンポーネントのDOMとして使われるHTML。<br>
+コンポーネントクラスの <code>@Component</code> デコレータのメタデータに直接記載（ <code>template</code> ）することも、別ファイルとして作成して読み込む（ <code>templateUrl</code> ）ことも可能。<br>
+テンプレート内では、HTMLの属性として <strong>ディレクティブ</strong> （ <code>*ngFor</code> など）、コンポーネントとのデータ・機能のやりとりに <strong>データバインディング</strong> を使用することができる。</p>
+<ul>
+<li>コンポーネントフィールドへのアクセス
+<ul>
+<li><code>*ngFor</code> ： コレクションフィールドの値にアクセス</li>
+<li><code>*ngFor=&quot;let hero of heroes&quot;</code> ： コレクションheroesの各要素をheroへ代入</li>
+</ul>
+</li>
+<li>コンポーネントのメソッド呼び出し
+<ul>
+<li><code>(click)=&quot;onClickMe()&quot;</code> ： クリック時に <code>onClickMe()</code> メソッドを呼び出す</li>
+<li><code>(keyup)=&quot;onKey($event)&quot;</code> ： キーアップ時にイベントを引数に <code>onKey()</code> メソッドを呼び出す</li>
+</ul>
+</li>
+</ul>
+<p>また、テンプレートにはスタイルシート（CSS、Sassなど）を指定することができ、<code>@Component</code> デコレータのメタデータ（ <code>styles</code> 、 <code>styleUrls</code> ）で指定することができる。</p>
+<h2 id="メタデータmetadata">メタデータ（Metadata）</h2>
+<p>メタデータは <strong>デコレータ</strong> （ <code>@</code> から始まるJavaでいうアノテーション）に設定するプロパティ。<br>
+Angularにクラスがどのように挙動するか知らせる役割。<br>
+<code>@Injectable</code> 、 <code>@Input</code> 、 <code>@Output</code> など様々なデコレータにメタデータを設定できる。<br>
+もう十分前述しているのでこの程度で。</p>
+<h2 id="データバインディングdata-binding">データバインディング（Data Binding）</h2>
+<p>テンプレートとコンポーネント間のデータ・機能のやりとりを行う機能。<br>
+以下のように４種類ある。</p>
+<ul>
+<li>単方向バインド（interpolation）
+<ul>
+<li><code>&lt;li&gt;{{hero.name}}&lt;/li&gt;</code></li>
+<li>コンポーネントの <code>hero.name</code> プロパティの値を <code>&lt;li&gt;</code> 表示する</li>
+</ul>
+</li>
+<li>プロパティバインド（property binding）
+<ul>
+<li><code>&lt;hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;</code></li>
+<li>親コンポーネントの <code>selectedHero</code> の値を、子コンポーネントの <code>hero</code> へ渡している</li>
+</ul>
+</li>
+<li>イベントバインド（event binding）
+<ul>
+<li><code>&lt;li (click)=&quot;selectHero(hero)&quot;&gt;&lt;/li&gt;</code></li>
+<li>ユーザのクリックにより <code>selectHero()</code> メソッドが呼び出される。</li>
+</ul>
+</li>
+<li>双方向バインド（Two-way data binding）
+<ul>
+<li><code>&lt;input [(ngModel)]=&quot;hero.name&quot;&gt;</code></li>
+<li><code>ngModel</code> を用いて <strong>参照と更新</strong> を両方同時に実現する。</li>
+</ul>
+</li>
+</ul>
+<p><code>ngModel</code> のようにテンプレートのHTMLタグの属性として記述できるAngularの機能を <strong>ディレクティブ</strong> という。</p>
+<h3 id="イベント">イベント</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">button</span> (<span style="color:#50fa7b">click</span>)=&#34;<span style="color:#50fa7b">onClickButton</span>()&#34;&gt;ボタン1&lt;/<span style="color:#ff79c6">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">button</span> (<span style="color:#50fa7b">click</span>)=&#34;<span style="color:#50fa7b">onClickButtonWithEvent</span>($<span style="color:#50fa7b">event</span>)&#34;&gt;ボタン2&lt;/<span style="color:#ff79c6">button</span>&gt;
+</span></span></code></pre></div><p><code>(click)</code> のように、イベント名をカッコで囲んだ属性に、イベントを処理するメソッドを記述する。<br>
+引数なしの記述と、イベントオブジェクト <code>$event</code> を指定する記述ができる。<br>
+コンポーネントクラス内では以下のようにメソッド定義する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>onClickButtonWithEvent(event:<span style="color:#8be9fd">any</span>) {
+</span></span><span style="display:flex;"><span>   <span style="color:#6272a4">// targetプロパティでイベントを発生させたオブジェクトを取得
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>   <span style="color:#8be9fd;font-style:italic">var</span> button <span style="color:#ff79c6">=</span> event.target;
+</span></span><span style="display:flex;"><span>   <span style="color:#6272a4">// ボタンのラベルをtextContentプロパティから取得して表示
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>   alert(<span style="color:#f1fa8c">&#34;ボタン「&#34;</span> <span style="color:#ff79c6">+</span> button.textContent <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;」が押下されました&#34;</span>);
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><h2 id="ディレクテイブdirective">ディレクテイブ（@Directive）</h2>
+<p>ディレクティブは前述の通り、テンプレートのHTMLタグの属性として指定できるAngularの機能。<br>
+モジュール・コンポーネント間のデータの授受や、ループ・条件分岐といった動的なDOMの機能を提供する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">li</span> *<span style="color:#50fa7b">ngFor</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;let hero of heroes&#34;</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">hero-detail</span> *<span style="color:#50fa7b">ngIf</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;selectedHero&#34;</span>&gt;&lt;/<span style="color:#ff79c6">hero-detail</span>&gt;
+</span></span></code></pre></div><p><code>@Directive</code> デコレータでディレクティブを自作できる。<br>
+ここでは割愛。<a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html">参考</a></p>
+<h2 id="パイプpipe">パイプ（@Pipe）</h2>
+<p>Pipeはテンプレート内で文字列操作の機能を提供する。<br>
+例えば、Dateオブジェクトをあるフォーマットに整形して表示できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#6272a4">// コンポーネントクラスのフィールド
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">let</span> birthday <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd;font-style:italic">Date</span>(<span style="color:#bd93f9">1985</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">1</span>); <span style="color:#6272a4">// これで1985年4月1日 なことに注意
+</span></span></span></code></pre></div><p>上記をテンプレードで以下のように指定することにより <strong>yy/MM/dd</strong> 形式で表示できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">p</span>&gt;{{ birthday | date:&#34;yy/MM/dd&#34; }}&lt;/<span style="color:#ff79c6">p</span>&gt; <span style="color:#6272a4">&lt;!-- 1985/04/01 と表示される --&gt;</span>
+</span></span></code></pre></div><p>他にも下記のようなパイプがある。</p>
+<ul>
+<li>DatePipe
+<ul>
+<li>上記例。日付を整形する。</li>
+<li><code>date_expression | date[:format]</code></li>
+</ul>
+</li>
+<li>UpperCasePipe
+<ul>
+<li>文字列を大文字にする。</li>
+<li><code>expression | uppercase</code></li>
+</ul>
+</li>
+<li>JsonPipe
+<ul>
+<li>入力値にJSON.stringfyを実行して返す。</li>
+<li><code>expression | json</code></li>
+</ul>
+</li>
+</ul>
+<p>また、パイプは以下のような感じでチェーンできる。</p>
+<pre tabindex="0"><code>{{ birthday | date | uppercase}}
+</code></pre><p>さらに、<code>@Pipe</code> デコレータでパイプを自作できる。<br>
+ここでは割愛。<a href="https://angular.io/docs/ts/latest/guide/pipes.html">参考</a></p>
+<h2 id="サービスservicesdidependency-injection--injectable">サービス（Services）・DI（Dependency injection / @Injectable）</h2>
+<p>サービスは <code>export</code> された通常のtypescriptクラス。<br>
+DIを使用してコンポーネントや他サービスクラスにサービスクラスをインジェクトできる。</p>
+<h3 id="作成例">作成例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng generate service sample/sample
+</span></span><span style="display:flex;"><span>installing service
+</span></span><span style="display:flex;"><span>  create src/app/sample/sample.service.spec.ts
+</span></span><span style="display:flex;"><span>  create src/app/sample/sample.service.ts
+</span></span><span style="display:flex;"><span>  WARNING Service is generated but not provided, it must be provided to be used
+</span></span></code></pre></div><p>上記で作成した <code>src/app/sample/sample.service.ts</code> をDIするには、使用するモジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。<br>
+以下コンポーネントへの導入例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { SampleService } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;./sample/sample.service&#39;</span> <span style="color:#6272a4">// インポート
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">@Component</span>({
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  providers<span style="color:#ff79c6">:</span> [SampleService], <span style="color:#6272a4">// providers に追加
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  ...
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> AppComponent {
+</span></span><span style="display:flex;"><span>  title: <span style="color:#8be9fd">string</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">constructor</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span> sampleService: <span style="color:#8be9fd">SampleService</span> <span style="color:#6272a4">// コンストラクタに設定
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  ){
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.title <span style="color:#ff79c6">=</span> sampleService.getTitle();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="diインジェクタ">DI・インジェクタ</h3>
+<p>サービスをモジュールやコンポーネントで使用できるようにインジェクトする機能。<br>
+前述の通り、モジュール・コンポーネントにimport、メタデータ <code>providers</code> およびコンストラクタへの指定を行う。</p>
+<p><code>@Injectable</code> デコレータがついたサービスクラスは多段Inject（DIのDI）することが可能になる。<br>
+一段Injectはデコレータが無しでもOKだがつけておいても問題ない。</p>
+<h2 id="フォームとバリデータ">フォームとバリデータ</h2>
+<p><a href="http://codezine.jp/article/detail/9596?p=4">http://codezine.jp/article/detail/9596?p=4</a></p>
+<h2 id="angularライブラリ">Angularライブラリ</h2>
+<p>Angularのライブラリには様々用意されており、APIリファレンスは<a href="https://angular.io/docs/ts/latest/api/">ここ</a>。<br>
+リファレンスではクラスの前に記号がついており、それぞれ以下の意味。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">記号</th>
+<th style="text-align:left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Directive。ディレクティブ。</td>
+</tr>
+<tr>
+<td style="text-align:left">P</td>
+<td style="text-align:left">Pipe。パイプ。</td>
+</tr>
+<tr>
+<td style="text-align:left">@</td>
+<td style="text-align:left">Decorator。デコレータ。Javaでいう所謂アノテーション。</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Class。普通のTypeScriptのクラス。</td>
+</tr>
+<tr>
+<td style="text-align:left">I</td>
+<td style="text-align:left">Interface。普通のTypeScriptのインターフェース。</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Function。関数。</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">Enum。普通の列挙型。</td>
+</tr>
+<tr>
+<td style="text-align:left">T</td>
+<td style="text-align:left">Type Alias。なんかわからん。</td>
+</tr>
+<tr>
+<td style="text-align:left">K</td>
+<td style="text-align:left">Const。定数クラス。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="その他話題メモ">その他話題、メモ</h1>
+<h2 id="typescriptの型解決について">TypeScriptの型解決について</h2>
+<p>解決方法には以下がある。</p>
+<ul>
+<li>tsd</li>
+<li>typings</li>
+<li>@types</li>
+</ul>
+<p>Angularは型定義が含まれているため、上記３つは不要。ただし、他のライブラリを用いる場合 <code>@types</code> を使用する。（typingsに変わったかも。。。）</p>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/nodejs-express-basics/" data-toggle="tooltip" data-placement="top" title="Express入門">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/nodejs-express-test/" data-toggle="tooltip" data-placement="top" title="Node.js・Expressでユニットテスト">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/anyenv" title="anyenv">
+                            anyenv
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

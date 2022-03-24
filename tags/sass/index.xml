@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sass on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/sass/</link>
+    <description>Recent content in sass on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/sass/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Angular入門</title>
+      <link>https://blog.pepese.com/angular-basics/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/angular-basics/</guid>
+      <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br&gt;
+ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

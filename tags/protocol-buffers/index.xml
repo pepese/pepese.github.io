@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>protocol buffers on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/protocol-buffers/</link>
+    <description>Recent content in protocol buffers on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/protocol-buffers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC/Protocol Buffers入門</title>
+      <link>https://blog.pepese.com/grpc-protocolbuffers-basics/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/grpc-protocolbuffers-basics/</guid>
+      <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://grpc.io/&#34;&gt;gRPC&lt;/a&gt;/&lt;a href=&#34;https://developers.google.com/protocol-buffers&#34;&gt;Protocol Buffers&lt;/a&gt; に入門する。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

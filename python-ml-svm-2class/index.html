@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
+
+    
+    <meta name="title" content="Pythonで機械学習 SVMで2クラス分類問題編" />
+    <meta property="og:title" content="Pythonで機械学習 SVMで2クラス分類問題編" />
+    <meta property="twitter:title" content="Pythonで機械学習 SVMで2クラス分類問題編" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Pythonで機械学習 SVMで2クラス分類問題編-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/python-ml-svm-2class/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        <a class="tag" href="/tags/machine-learning" title="machine learning">
+                            machine learning
+                        </a>
+                        
+                        <a class="tag" href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        <a class="tag" href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                    </div>
+                    <h1>Pythonで機械学習 SVMで2クラス分類問題編</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2017-07-05
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>ここでは、 <strong>scikit-learn</strong> の <strong>SVM</strong> モジュールを使用して <strong>2クラス分類問題</strong> を解いてみる。</p>
+<p>データセットは、以下で紹介している <strong>digits データセット</strong> を使用する。</p>
+<ul>
+<li><a href="https://blog.pepese.com/python-ml-dl-datasets/">Pythonで機械学習 データセット編</a></li>
+</ul>
+<p>後半で実施している精度評価についての詳細は以下を参照。</p>
+<ul>
+<li><a href="https://blog.pepese.com/python-ml-dl-metrics-scores/">Pythonで機械学習 精度評価編</a></li>
+</ul>
+<h1 id="パッケージの導入">パッケージの導入</h1>
+<p>このブログにある Python コードを実行するためのパッケージをインストールする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install jupyter scikit-learn matplotlib scipy
+</span></span></code></pre></div><p>実行環境は Jupyter Notebook を想定。実行方法は <code>$ jupyter notebook</code> 。<br>
+<strong>matplotlib</strong> の使い方は以下を参照。</p>
+<ul>
+<li><a href="http://blog.pepese.com/entry/2016/09/18/174407">matplotlib入門</a></li>
+</ul>
+<h1 id="svm-の実装">SVM の実装</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn <span style="color:#ff79c6">import</span> datasets
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn <span style="color:#ff79c6">import</span> svm
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn <span style="color:#ff79c6">import</span> metrics
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># digits データセットのロード</span>
+</span></span><span style="display:flex;"><span>digits <span style="color:#ff79c6">=</span> datasets<span style="color:#ff79c6">.</span>load_digits()
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># digits データセットの中から 3 と 8 の位置を取得</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># これを後に学習用データと評価用データに分割して使用する</span>
+</span></span><span style="display:flex;"><span>flag_3_8 <span style="color:#ff79c6">=</span> (digits<span style="color:#ff79c6">.</span>target <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">+</span> (digits<span style="color:#ff79c6">.</span>target <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 3 と 8 の画像データを取得（一次元ベクトル）</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#ff79c6">=</span> digits<span style="color:#ff79c6">.</span>data[flag_3_8]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 上記は下記のように 8x8 のimageを2次元ベクトルから 1次元ベクトルへ変換したものでもよい</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># data = images.reshape(digits.images[flag_3_8].shape[0], -1)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 3 と 8 の数字データを取得</span>
+</span></span><span style="display:flex;"><span>labels <span style="color:#ff79c6">=</span> digits<span style="color:#ff79c6">.</span>target[flag_3_8]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 以降、ホールドアウト検証にて正答率を算出する</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># データセットの数を取得</span>
+</span></span><span style="display:flex;"><span>num_of_samples <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(flag_3_8[flag_3_8])
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 学習データサイズの取得</span>
+</span></span><span style="display:flex;"><span>training_data_size <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">int</span>(num_of_samples <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">3</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># SVMモデルの作成</span>
+</span></span><span style="display:flex;"><span>classifier <span style="color:#ff79c6">=</span> svm<span style="color:#ff79c6">.</span>SVC(C<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.0</span>, gamma<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.001</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 学習用データをSVMへ適用</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># データセットの前から 3/5 を学習用データとして使用</span>
+</span></span><span style="display:flex;"><span>classifier<span style="color:#ff79c6">.</span>fit(data[:training_data_size], labels[:training_data_size])
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 正解データの取得</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># データセットの後ろから 2/5 を評価用データとして使用</span>
+</span></span><span style="display:flex;"><span>expected <span style="color:#ff79c6">=</span> labels[training_data_size:]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 学習済み SVM へデータをインプットして結果を取得</span>
+</span></span><span style="display:flex;"><span>predicted <span style="color:#ff79c6">=</span> classifier<span style="color:#ff79c6">.</span>predict(data[training_data_size:])
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 結果の出力</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># SVMの出力と正解データを比較</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;Accuracy:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, metrics<span style="color:#ff79c6">.</span>accuracy_score(expected, predicted)) <span style="color:#6272a4"># 0.937062937063</span>
+</span></span></code></pre></div><p>scikit-learn の SVM には、 LinearSVC 、 LinearSVR 、 NuSVC 、 NuSVR 、 OneClassSVM 、 SVC 、 SVR があり、整理すると以下のようになる。</p>
+<ul>
+<li>分類問題に使用する SVM （Support Vector Classification）
+<ul>
+<li>SVC （C-Support Vector Classification）
+<ul>
+<li>標準的なソフトマージン(エラーを許容する)SVM</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">API Doc</a></li>
+</ul>
+</li>
+<li>LinearSVC （Linear Support Vector Classification）
+<ul>
+<li>カーネルが線形カーネルの場合に特化したSVM</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">API Doc</a></li>
+</ul>
+</li>
+<li>NuSVC （Nu-Support Vector Classification）
+<ul>
+<li>エラーを許容する表現が異なるSVM</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html">API Doc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>回帰問題に使用する SVM （Support Vector Regression）<a href="http://d.hatena.ne.jp/saket/20130212/1360656405">参考</a>
+<ul>
+<li>SVR</li>
+<li>LinearSVR</li>
+<li>NuSVR</li>
+</ul>
+</li>
+<li>異常検知に使用する SVM
+<ul>
+<li>OneClassSVM</li>
+</ul>
+</li>
+</ul>
+<h1 id="精度の評価">精度の評価</h1>
+<p>k=5 の k-分割交差検証で、以下を算出する。</p>
+<ul>
+<li>混同行列（Confusion Matrix）</li>
+<li>正答率（Accuracy）</li>
+<li>適合率（Precision）</li>
+<li>再現率（Recall）</li>
+<li>F値（F-measure）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn <span style="color:#ff79c6">import</span> datasets
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn <span style="color:#ff79c6">import</span> svm
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn <span style="color:#ff79c6">import</span> metrics
+</span></span><span style="display:flex;"><span>digits <span style="color:#ff79c6">=</span> datasets<span style="color:#ff79c6">.</span>load_digits()
+</span></span><span style="display:flex;"><span>flag_3_8 <span style="color:#ff79c6">=</span> (digits<span style="color:#ff79c6">.</span>target <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">+</span> (digits<span style="color:#ff79c6">.</span>target <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>data <span style="color:#ff79c6">=</span> digits<span style="color:#ff79c6">.</span>data[flag_3_8]
+</span></span><span style="display:flex;"><span>labels <span style="color:#ff79c6">=</span> digits<span style="color:#ff79c6">.</span>target[flag_3_8]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># ここまではさきほどと同じ</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 交差検証用モジュールのロード</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> sklearn.model_selection
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 交差検証の実施</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># train は学習用データ、testは評価用データ</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> train, test <span style="color:#ff79c6">in</span> sklearn<span style="color:#ff79c6">.</span>model_selection<span style="color:#ff79c6">.</span>KFold(n_splits<span style="color:#ff79c6">=</span><span style="color:#bd93f9">5</span>)<span style="color:#ff79c6">.</span>split(data, labels):
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 学習用データ</span>
+</span></span><span style="display:flex;"><span>  train_data <span style="color:#ff79c6">=</span> data[train]
+</span></span><span style="display:flex;"><span>  train_labels <span style="color:#ff79c6">=</span> labels[train]
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 評価用データ</span>
+</span></span><span style="display:flex;"><span>  test_data <span style="color:#ff79c6">=</span> data[test]
+</span></span><span style="display:flex;"><span>  test_labels <span style="color:#ff79c6">=</span> labels[test]
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># SVMモデルの作成</span>
+</span></span><span style="display:flex;"><span>  classifier <span style="color:#ff79c6">=</span> svm<span style="color:#ff79c6">.</span>SVC(C<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.0</span>, gamma<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.001</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 学習用データをSVMへ適用</span>
+</span></span><span style="display:flex;"><span>  classifier<span style="color:#ff79c6">.</span>fit(train_data, train_labels)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 正解データの取得</span>
+</span></span><span style="display:flex;"><span>  expected <span style="color:#ff79c6">=</span> test_labels
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 学習済み SVM へデータをインプットして結果を取得</span>
+</span></span><span style="display:flex;"><span>  predicted <span style="color:#ff79c6">=</span> classifier<span style="color:#ff79c6">.</span>predict(test_data)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># ここまではさきほどと同じ</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 結果の出力</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># SVMの出力と正解データを比較</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;Confusion Matrix:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, metrics<span style="color:#ff79c6">.</span>confusion_matrix(expected, predicted))
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;Accuracy:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, metrics<span style="color:#ff79c6">.</span>accuracy_score(expected, predicted))
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;Precision:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, metrics<span style="color:#ff79c6">.</span>precision_score(expected, predicted, pos_label<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;Recall:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, metrics<span style="color:#ff79c6">.</span>recall_score(expected, predicted, pos_label<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;F-measure:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, metrics<span style="color:#ff79c6">.</span>f1_score(expected, predicted, pos_label<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>), <span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>)
+</span></span></code></pre></div><p>ここでは、数字の「3」か数字の「8」かを分類する問題であったので、 <code>pos_label=3</code> は Positive を数字の「3」に指定したことになる。（ Negative は数字の「8」）</p>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/python-ml-datasets/" data-toggle="tooltip" data-placement="top" title="Pythonで機械学習 データセット編">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/python-ml-k-means-clustering/" data-toggle="tooltip" data-placement="top" title="Pythonで機械学習 K Meansでクラスタリング編">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/anyenv" title="anyenv">
+                            anyenv
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

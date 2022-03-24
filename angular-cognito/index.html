@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com//">
+    <meta property="twitter:image" content="https://blog.pepese.com//" />
+    
+
+    
+    <meta name="title" content="Cognitoを使ってAngularアプリからユーザ認証する" />
+    <meta property="og:title" content="Cognitoを使ってAngularアプリからユーザ認証する" />
+    <meta property="twitter:title" content="Cognitoを使ってAngularアプリからユーザ認証する" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
+    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Cognitoを使ってAngularアプリからユーザ認証する-ぺーぺーSEのブログ</title>
+
+    <link rel="canonical" href="/angular-cognito/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        <a class="tag" href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        <a class="tag" href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        <a class="tag" href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        <a class="tag" href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                    </div>
+                    <h1>Cognitoを使ってAngularアプリからユーザ認証する</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2017-05-20
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。</p>
+<p>以下の記事の知識を前提とする。</p>
+<ul>
+<li><a href="https://blog.pepese.com/mac-dev-environment/">Macで開発環境を作る</a></li>
+<li><a href="http://blog.pepese.com/angular-basics/">Angular入門</a></li>
+</ul>
+<h1 id="amazon-cognito-の概要">Amazon Cognito の概要</h1>
+<p>Amazon Cognito はユーザ認証やソーシャル認証の機能を提供するAWSのマネージドサービス。<br>
+大きく以下の機能がある。</p>
+<ul>
+<li>User Pools （ユーザプール）
+<ul>
+<li>ユーザーディレクトリを作成・管理し、アプリケーションのサインアップとサインイン機能を提供する</li>
+<li>メールや電話番号の検証、MFA 認証などの拡張セキュリティ機能有り</li>
+<li>カスタムアトリビュートを設定できる</li>
+</ul>
+</li>
+<li>Federated Identities （フェデレーテッドアイデンティティ）
+<ul>
+<li>ユーザの ID を作成し、フェデレーテッド ID プロバイダー（Amazon、Facebook、Google、TwitterなどのOpenID Connect プロバイダおよびSAML ID プロバイダ)
+で認証できる</li>
+</ul>
+</li>
+<li>Sync
+<ul>
+<li>アプリケーション関連のユーザーデータのオフラインでのアクセスとデバイス間の同期機能を提供する</li>
+</ul>
+</li>
+</ul>
+<p>ここでは１つ目の <strong>User Pools</strong> を使用する。</p>
+<h2 id="amazon-cognito-user-pools-の作成">Amazon Cognito User Pools の作成</h2>
+<p>以下の手順で User Pools を作成する。</p>
+<ol>
+<li>「 <a href="https://ap-northeast-1.console.aws.amazon.com/cognito/">https://ap-northeast-1.console.aws.amazon.com/cognito/</a> 」（Tokyoリージョンの場合）へアクセスする</li>
+<li>「Manage your User Pools」をクリック</li>
+<li>「Create a User Pool」をクリック</li>
+<li>任意の User Pool 名を入力して「Step through settings」をクリック
+<ul>
+<li>「Review defaults」を設定すると各種設定画面をスキップしてデフォルト値が設定される</li>
+</ul>
+</li>
+<li>[Attribute 設定画面] ユーザプロファイルとして管理したい項目を選択して「Next step」をクリックする
+<ul>
+<li>ここでは「email」「phone number」を選択する</li>
+</ul>
+</li>
+<li>[Policies 設定画面] パスワードの設定ポリシー、ユーザの作成権限ポリシー、使用されないユーザアカウントのTTLを設定して「Next step」をクリックする</li>
+<li>[Verifications 設定画面] MFAの使用如何、Verification Code の送信先（E-Mail or SMS）、SMS を使用する場合は Cognito へ Role の付与を設定して「Next step」をクリックする
+<ul>
+<li>ユーザがサインアップした際、 E-Mail か SMS へ数字6桁の Verification Code が送付され初回の本人認証に使用する</li>
+<li>ここでは email を選択する</li>
+</ul>
+</li>
+<li>[Message Customization 設定画面] 送付するメッセージをカスタマイズして「Next step」をクリックする</li>
+<li>[Tags 設定画面] タグを設定して「Next step」をクリックする</li>
+<li>[Devices 設定画面] ユーザがアクセスしてきたデバイスを記憶するか否かを設定して「Next step」をクリックする</li>
+<li>[App clients 設定画面] AWS-SDK を使用したクライアントアプリケーションから User Pool へアクセスする場合は「Add an app client」を実施して「Next step」をクリックする
+<ul>
+<li>Client の作成では、App client 名、 Client のシークレットキーを使用するか否か、認証用の HTTP ヘッダを使用するか否かを設定して」「Create app client」をクリックする</li>
+<li>ここでは「Generate client secret」のチェックボックスを外し、シークレットキーを使用しないこととする</li>
+</ul>
+</li>
+<li>[Triggers 設定画面] 認証フローの各種チェックポイントで AWS Lambda を実行するか否かを設定して「Next step」をクリックする</li>
+<li>[Review 画面] 最後にこれまでの設定を確認して「Create pool」をクリックする</li>
+</ol>
+<p>以上の手順で User Pools が作成できる。<br>
+Pool details 画面の <strong>Pool Id</strong> と、 App clients 画面の <strong>App client id</strong> は後ほど使用するのでひかえておく。</p>
+<h1 id="cognito-で認証するangularアプリを作成する">Cognito で認証するAngularアプリを作成する</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm upgrade -g @angular/cli
+</span></span><span style="display:flex;"><span>$ ndenv rehash
+</span></span><span style="display:flex;"><span>$ ng new cognito-js --style<span style="color:#ff79c6">=</span>scss
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> cognito-js
+</span></span><span style="display:flex;"><span>$ npm install amazon-cognito-identity-js --save <span style="color:#6272a4"># 依存から aws-sdk も導入される</span>
+</span></span><span style="display:flex;"><span>$ ng generate service services/cognito
+</span></span></code></pre></div><p><code>aws-sdk</code> には <code>@type/aws-sdk</code> が含まれている模様。（<a href="https://www.npmjs.com/package/@types/aws-sdk">参考</a>）<br>
+<code>src/tsconfig.app.json</code> を以下のように編集。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;extends&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;../tsconfig.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;compilerOptions&#34;</span><span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;outDir&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;../out-tsc/app&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;module&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;es2015&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;baseUrl&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;types&#34;</span><span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;node&#34;</span>] # ここを加筆
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;exclude&#34;</span><span style="color:#ff79c6">:</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;test.ts&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;**/*.spec.ts&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>src/app/services/cognito.service.ts</code> を以下のように修正。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { Injectable } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/core&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">as</span> AWS <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#34;aws-sdk&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { CognitoUserPool, CognitoUserAttribute, CognitoUser, AuthenticationDetails } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;amazon-cognito-identity-js&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { environment } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;../../environments/environment&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">@Injectable</span>()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> CognitoService {
+</span></span><span style="display:flex;"><span>  userPool <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">constructor</span>() {
+</span></span><span style="display:flex;"><span>    AWS.config.region <span style="color:#ff79c6">=</span> environment.region;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> data <span style="color:#ff79c6">=</span> { UserPoolId: <span style="color:#8be9fd">environment.userPoolId</span>, ClientId: <span style="color:#8be9fd">environment.clientId</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.userPool <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> CognitoUserPool(data);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  signUp(username, password, email, phone) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> userData <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>      Username : <span style="color:#8be9fd">username</span>,
+</span></span><span style="display:flex;"><span>      Pool : <span style="color:#8be9fd">this.userPool</span>,
+</span></span><span style="display:flex;"><span>      Storage: <span style="color:#8be9fd">sessionStorage</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> attributeList <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> dataEmail <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>      Name <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;email&#39;</span>,
+</span></span><span style="display:flex;"><span>      Value : <span style="color:#8be9fd">email</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> dataPhoneNumber <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>      Name <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;phone_number&#39;</span>,
+</span></span><span style="display:flex;"><span>      Value : <span style="color:#8be9fd">phone</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> attributeEmail <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> CognitoUserAttribute(dataEmail);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> attributePhoneNumber <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> CognitoUserAttribute(dataPhoneNumber);
+</span></span><span style="display:flex;"><span>    attributeList.push(attributeEmail);
+</span></span><span style="display:flex;"><span>    attributeList.push(attributePhoneNumber);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.userPool.signUp(username, password, attributeList, <span style="color:#ff79c6">null</span>, <span style="color:#8be9fd;font-style:italic">function</span>(err, result){
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (err) {
+</span></span><span style="display:flex;"><span>        alert(err);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> cognitoUser <span style="color:#ff79c6">=</span> result.user;
+</span></span><span style="display:flex;"><span>      alert(<span style="color:#f1fa8c">&#34;SignUp is success!\nUser name is &#34;</span> <span style="color:#ff79c6">+</span> cognitoUser.getUsername() <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;.\nYou need to check your SMS or E-Mail.&#34;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  confirmRegistration(username, verification_code) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> userData <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>      Username : <span style="color:#8be9fd">username</span>,
+</span></span><span style="display:flex;"><span>      Pool : <span style="color:#8be9fd">this.userPool</span>,
+</span></span><span style="display:flex;"><span>      Storage: <span style="color:#8be9fd">sessionStorage</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> cognitoUser <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> CognitoUser(userData);
+</span></span><span style="display:flex;"><span>    cognitoUser.confirmRegistration(verification_code, <span style="color:#ff79c6">true</span>, <span style="color:#8be9fd;font-style:italic">function</span>(err, result) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (err) {
+</span></span><span style="display:flex;"><span>        alert(err);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      alert(<span style="color:#f1fa8c">&#39;Registration is success!&#39;</span>);
+</span></span><span style="display:flex;"><span>      console.log(<span style="color:#f1fa8c">&#39;call result: &#39;</span> <span style="color:#ff79c6">+</span> result);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  signIn(username, password) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> userData <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>      Username : <span style="color:#8be9fd">username</span>,
+</span></span><span style="display:flex;"><span>      Pool : <span style="color:#8be9fd">this.userPool</span>,
+</span></span><span style="display:flex;"><span>      Storage: <span style="color:#8be9fd">sessionStorage</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> cognitoUser <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> CognitoUser(userData);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> authenticationData <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>        Username : <span style="color:#8be9fd">username</span>,
+</span></span><span style="display:flex;"><span>        Password : <span style="color:#8be9fd">password</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> authenticationDetails <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> AuthenticationDetails(authenticationData);
+</span></span><span style="display:flex;"><span>    cognitoUser.authenticateUser(authenticationDetails, {
+</span></span><span style="display:flex;"><span>      onSuccess: <span style="color:#8be9fd">function</span> (result) {
+</span></span><span style="display:flex;"><span>        alert(<span style="color:#f1fa8c">&#39;SignIn is success!&#39;</span>);
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#f1fa8c">&#39;access token + &#39;</span> <span style="color:#ff79c6">+</span> result.getAccessToken().getJwtToken());
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      onFailure: <span style="color:#8be9fd">function</span>(err) {
+</span></span><span style="display:flex;"><span>        alert(err);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>src/app/app.component.ts</code> を以下のように修正。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { Component } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/core&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { Http, Response, Headers, RequestOptions } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;@angular/http&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { Observable } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;rxjs/Observable&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;rxjs/add/operator/map&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { CognitoService } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;./services/cognito.service&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { environment } <span style="color:#ff79c6">from</span> <span style="color:#f1fa8c">&#39;../environments/environment&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">@Component</span>({
+</span></span><span style="display:flex;"><span>  selector<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;app-root&#39;</span>,
+</span></span><span style="display:flex;"><span>  templateUrl<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;./app.component.html&#39;</span>,
+</span></span><span style="display:flex;"><span>  styleUrls<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;./app.component.scss&#39;</span>],
+</span></span><span style="display:flex;"><span>  providers<span style="color:#ff79c6">:</span> [CognitoService]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> AppComponent {
+</span></span><span style="display:flex;"><span>  title <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Cognito Sample&#39;</span>;
+</span></span><span style="display:flex;"><span>  username <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>  password <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">``</span>;
+</span></span><span style="display:flex;"><span>  email <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">``</span>;
+</span></span><span style="display:flex;"><span>  phone <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">``</span>;
+</span></span><span style="display:flex;"><span>  verification_code <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">``</span>;
+</span></span><span style="display:flex;"><span>  url <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>  result <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">constructor</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span> cognitoService: <span style="color:#8be9fd">CognitoService</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span> http: <span style="color:#8be9fd">Http</span>
+</span></span><span style="display:flex;"><span>  ){}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  siginUp() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.cognitoService.signUp(<span style="color:#ff79c6">this</span>.username, <span style="color:#ff79c6">this</span>.password, <span style="color:#ff79c6">this</span>.email, <span style="color:#ff79c6">this</span>.phone);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  confirmRegistration() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.cognitoService.confirmRegistration(<span style="color:#ff79c6">this</span>.username, <span style="color:#ff79c6">this</span>.verification_code);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  signIn() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.cognitoService.signIn(<span style="color:#ff79c6">this</span>.username, <span style="color:#ff79c6">this</span>.password);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">get</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;CognitoIdentityServiceProvider.&#39;</span> <span style="color:#ff79c6">+</span> environment.clientId <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;.&#39;</span> <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">this</span>.username <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;.idToken&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> idToken <span style="color:#ff79c6">=</span> sessionStorage.getItem(key);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> headers <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Headers({ <span style="color:#f1fa8c">&#39;Authorization&#39;</span><span style="color:#ff79c6">:</span> idToken });
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> options <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> RequestOptions({ headers: <span style="color:#8be9fd">headers</span> });
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.http.<span style="color:#ff79c6">get</span>(<span style="color:#ff79c6">this</span>.url, options)
+</span></span><span style="display:flex;"><span>                    .map(res <span style="color:#ff79c6">=&gt;</span> res.text())
+</span></span><span style="display:flex;"><span>                    .subscribe(t <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">this</span>.result <span style="color:#ff79c6">=</span> t);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>src/app/app.component.html</code> を以下のように修正。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  {{title}}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">h1</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">hr</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">h2</span>&gt;サインアップ&lt;/<span style="color:#ff79c6">h2</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">p</span>&gt;以下の項目を入力してユーザを新規に仮登録します。&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;ユーザ名：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> [(<span style="color:#50fa7b">ngModel</span>)]=&#34;<span style="color:#50fa7b">username</span>&#34;&gt;&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;パスワード：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> [(<span style="color:#50fa7b">ngModel</span>)]=&#34;<span style="color:#50fa7b">password</span>&#34;&gt;&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;メールアドレス：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> [(<span style="color:#50fa7b">ngModel</span>)]=&#34;<span style="color:#50fa7b">email</span>&#34;&gt;&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;携帯番号：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> [(<span style="color:#50fa7b">ngModel</span>)]=&#34;<span style="color:#50fa7b">phone</span>&#34;&gt;&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">button</span> (<span style="color:#50fa7b">click</span>)=&#34;<span style="color:#50fa7b">siginUp</span>()&#34;&gt;サインアップ&lt;/<span style="color:#ff79c6">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">hr</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">h2</span>&gt;認証コードの確認&lt;/<span style="color:#ff79c6">h2</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">p</span>&gt;サインアップしたユーザにメールやSMSで送付された認証コードを確認し、ユーザを本登録します。&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">p</span>&gt;認証コードは6桁数字です。&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;ユーザ名：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;{{username}}&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;認証コード：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> [(<span style="color:#50fa7b">ngModel</span>)]=&#34;<span style="color:#50fa7b">verification_code</span>&#34;&gt;&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">button</span> (<span style="color:#50fa7b">click</span>)=&#34;<span style="color:#50fa7b">confirmRegistration</span>()&#34;&gt;確認&lt;/<span style="color:#ff79c6">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">hr</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">h2</span>&gt;サインイン&lt;/<span style="color:#ff79c6">h2</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">p</span>&gt;本登録したユーザでサインイン（ログイン）します。&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;ユーザ名：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;{{username}}&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;パスワード：&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;{{password}}&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">button</span> (<span style="color:#50fa7b">click</span>)=&#34;<span style="color:#50fa7b">signIn</span>()&#34;&gt;サインイン&lt;/<span style="color:#ff79c6">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">hr</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">h2</span>&gt;GET アクセス&lt;/<span style="color:#ff79c6">h2</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">p</span>&gt;Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">p</span>&gt;API GatewayのAuthorizationなどで試してみてください。&lt;/<span style="color:#ff79c6">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;URL：　&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> [(<span style="color:#50fa7b">ngModel</span>)]=&#34;<span style="color:#50fa7b">url</span>&#34;&gt;&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">button</span> (<span style="color:#50fa7b">click</span>)=&#34;<span style="color:#50fa7b">get</span>()&#34;&gt;Send&lt;/<span style="color:#ff79c6">button</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">tr</span>&gt;&lt;<span style="color:#ff79c6">td</span>&gt;{{result}}&lt;/<span style="color:#ff79c6">td</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#ff79c6">table</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span></code></pre></div><p><code>src/environments/environment.ts</code> を以下のように修正。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> environment <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>  production: <span style="color:#8be9fd">false</span>,
+</span></span><span style="display:flex;"><span>  region<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;ap-northeast-1&#39;</span>,
+</span></span><span style="display:flex;"><span>  userPoolId<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;ap-northeast-1_xxxxxxxxx&#39;</span>,
+</span></span><span style="display:flex;"><span>  clientId<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;xxxxxxxxxxxxxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><code>$ ng serve</code> して起動を確認。</p>
+<h1 id="api-gatewayでcognitoで認証されたユーザを認可する">API GatewayでCognitoで認証されたユーザを認可する</h1>
+<p>以下を参照。</p>
+<ul>
+<li><a href="http://www.h4a.jp/detail/25148">Cognito UserPoolを使ってAPIを保護しよう</a></li>
+<li><a href="http://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/how-to-cors.html">API Gateway リソースの CORS を有効にする</a></li>
+</ul>
+<h1 id="その他参考">その他参考</h1>
+<ul>
+<li>チュートリアル: JavaScript アプリのユーザープールを統合する
+<ul>
+<li><a href="http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/tutorial-integrating-user-pools-javascript.html">http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/tutorial-integrating-user-pools-javascript.html</a></li>
+</ul>
+</li>
+<li>例: JavaScript SDK の使用
+<ul>
+<li><a href="http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html">http://docs.aws.amazon.com/ja_jp/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html</a></li>
+</ul>
+</li>
+<li>プロキシ設定が必要な場合（いらんかった）
+<ul>
+<li><a href="http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-configuring-proxies.html">http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-configuring-proxies.html</a></li>
+</ul>
+</li>
+<li><a href="http://qiita.com/kaiinui/items/21ec7cc8a1130a1a103a">JSON Web Token の効用</a></li>
+</ul>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/typescript-environment-basics/" data-toggle="tooltip" data-placement="top" title="TypeScript環境入門">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/git-flow-fix-conflict/" data-toggle="tooltip" data-placement="top" title="Git Flowとコンフリクトの解消">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/anyenv" title="anyenv">
+                            anyenv
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42388425-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>
