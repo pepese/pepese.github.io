@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Homebrew入門" />
-    <meta property="og:title" content="Homebrew入門" />
-    <meta property="twitter:title" content="Homebrew入門" />
+    <meta name="title" content="matplotlib入門" />
+    <meta property="og:title" content="matplotlib入門" />
+    <meta property="twitter:title" content="matplotlib入門" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
-    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
-    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
+    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
     
 
     
@@ -31,13 +31,13 @@
     
     
 
-    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>Homebrew入門</title>
+    <title>matplotlib入門</title>
 
-    <link rel="canonical" href="/homebrew-basics/">
+    <link rel="canonical" href="/python-matplotlib-basics/">
 
     
     
@@ -165,16 +165,20 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/homebrew" title="homebrew">
-                            homebrew
+                        <a class="tag" href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        <a class="tag" href="/tags/machine-learning" title="machine learning">
+                            machine learning
                         </a>
                         
                     </div>
-                    <h1>Homebrew入門</h1>
+                    <h1>matplotlib入門</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2017-05-09
+                            2016-09-18
                             
                             
                             
@@ -200,102 +204,110 @@
                 post-container">
 
                 
-                <p><a href="http://brew.sh/index_ja.html">Homebrew</a>についてまとめる。<br>
-HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。<br>
-インストールから使い方までまとめてみる。</p>
-<h1 id="環境設定">環境設定</h1>
-<h2 id="インストール">インストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ /usr/bin/ruby -e <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">”
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">==&gt; This script will install:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/bin/brew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/doc/homebrew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/man/man1/brew.1
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/zsh/site-functions/_brew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/etc/bash_completion.d/brew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Homebrew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">==&gt; The following new directories will be created:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Cellar
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Homebrew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Frameworks
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/bin
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/include
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/lib
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/opt
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/sbin
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/zsh
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/zsh/site-functions
-</span></span></span></code></pre></div><p>上記を実行後、 <code>brew doctor</code> で問題がないことを確認。<br>
-もしWarningが出たらメッセージに従って対処する。<br>
-筆者の場合はXcodeをインストールしてCommand Line Toolsをアップデートしたら解決した。<br>
-変更があるかもしれないので<a href="http://brew.sh/index_ja.html">公式</a>を確認のこと。</p>
+                <p>matplotlibはMATLABライクにグラフを描画できるライブラリ。<br>
+PyPlot『matplotlib.pyplot』モジュールの簡単な関数呼び出しでグラフを描画できる。</p>
+<h1 id="基本">基本</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot([<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;some numbers&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
+</span></span></code></pre></div><img src='http://matplotlib.org/pyplots/pyplot_simple.png' />
+<p><strong>matplotlib.pyplot.plot</strong>関数で文字通りプロットすることができる。<br>
+これで、「(x, y) = (1, 1), (2, 2), (3, 3), (4, 4)」のx, yそれぞれの地域で直線で繋いだグラフになる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot([<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>], [<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">9</span>,<span style="color:#bd93f9">16</span>], <span style="color:#f1fa8c">&#39;ro&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>axis([<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">20</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
+</span></span></code></pre></div><img src='http://matplotlib.org/pyplots/pyplot_formatstr.png' />
+<p><strong>matplotlib.pyplot.axis</strong>関数でグラフを描画する値域を設定することができる。「<strong>axes</strong>」は英単語axの複数形で「<strong>軸</strong>」の意。<br>
+これで、「(x, y) = (1, 1), (2, 4), (3, 9), (4, 16)」の値域「0&lt;=x&lt;=6, 0&lt;=y&lt;=20」で点をプロットしたグラフになる。<br>
+また、plot関数の「<strong>ro</strong>」は、赤色（<strong>r</strong>)の点（<strong>o</strong>）を意味し、グラフの表現を色・形様々変更することができる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># NumPyで地域を定義</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 浮動小数点で0～5まで0.2刻み</span>
+</span></span><span style="display:flex;"><span>t <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>arange(<span style="color:#bd93f9">0.</span>, <span style="color:#bd93f9">5.</span>, <span style="color:#bd93f9">0.2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 3種類のグラフを同時に描画</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot(t, t, <span style="color:#f1fa8c">&#39;r--&#39;</span>, t, t<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span>, <span style="color:#f1fa8c">&#39;bs&#39;</span>, t, t<span style="color:#ff79c6">**</span><span style="color:#bd93f9">3</span>, <span style="color:#f1fa8c">&#39;g^&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
+</span></span></code></pre></div><img src='http://matplotlib.org/pyplots/pyplot_three.png' />
+<p>NumPyの「<strong>arange</strong>」でxを表現したらyを式で表現することもできる。<br>
+また、グラフを複数重ねることもできる。</p>
+<h1 id="グラフの分割">グラフの分割</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">f</span>(t):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> np<span style="color:#ff79c6">.</span>exp(<span style="color:#ff79c6">-</span>t) <span style="color:#ff79c6">*</span> np<span style="color:#ff79c6">.</span>cos(<span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>np<span style="color:#ff79c6">.</span>pi<span style="color:#ff79c6">*</span>t)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t1 <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>arange(<span style="color:#bd93f9">0.0</span>, <span style="color:#bd93f9">5.0</span>, <span style="color:#bd93f9">0.1</span>)
+</span></span><span style="display:flex;"><span>t2 <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>arange(<span style="color:#bd93f9">0.0</span>, <span style="color:#bd93f9">5.0</span>, <span style="color:#bd93f9">0.02</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>figure(<span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">211</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot(t1, f(t1), <span style="color:#f1fa8c">&#39;bo&#39;</span>, t2, f(t2), <span style="color:#f1fa8c">&#39;k&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">212</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot(t2, np<span style="color:#ff79c6">.</span>cos(<span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>np<span style="color:#ff79c6">.</span>pi<span style="color:#ff79c6">*</span>t2), <span style="color:#f1fa8c">&#39;r--&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
+</span></span></code></pre></div><img src='http://matplotlib.org/pyplots/pyplot_two_subplots.png' />
+<p>実はmatplotlib.pyplotを使用している際、「<strong>plt.figure(1)</strong>」「<strong>plt.subplot(111)</strong>」が暗黙的に実行されている。<br>
+「plt.figure」を実行するとグラフをレンダリングするキャンバス（勝手にキャンバスと呼ぶ）が作成される。引数はキャンバスの番号。<br>
+「plt.subplot」を実行するとキャンバスの中にグラフを描画する領域を作成する。引数は三ケタで前から「行数」「列数」「グラフ番号」となる。<br>
+なので「plt.subplot(211)」は「<strong>キャンバスを2行1列に分割した1番目のグラフ</strong>」、「plt.subplot(212)」は「<strong>キャンバスを2行1列に分割した2番目のグラフ</strong>」という意味になる。<br>
+上記の例を縦ではなく横に並べたければ、「plt.subplot(121)」「plt.subplot(122)」とすればよい。<br>
+キャンバスを複数作成したければ「plt.figure(1)」「plt.figure(2)」、、、とすればよい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>figure(<span style="color:#bd93f9">1</span>)                <span style="color:#6272a4"># 1番目のキャンバス</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">211</span>)             <span style="color:#6272a4"># 1番目のキャンバスを2行1列に分割し、1つ目のグラフを張る</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot([<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">212</span>)             <span style="color:#6272a4"># 1番目のキャンバスを2行1列に分割し、2つ目のグラフを張る</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot([<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>figure(<span style="color:#bd93f9">2</span>)                <span style="color:#6272a4"># 2番ン目のキャンバス</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>plot([<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>])          <span style="color:#6272a4"># デフォルトsubplot(111)の状態にグラフを張る</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>figure(<span style="color:#bd93f9">1</span>)                <span style="color:#6272a4"># 1番目のキャンバスの処理に戻る</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">211</span>)             <span style="color:#6272a4"># 1番目のキャンバスの1番目のグラフの処理に戻る</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Easy as 1, 2, 3&#39;</span>) <span style="color:#6272a4"># 1番目のキャンバスの1番目のグラフにタイトルをつける</span>
+</span></span></code></pre></div><h1 id="その他のグラフ">その他のグラフ</h1>
+<p>2Dグラフ以外にもヒストグラムやアローダイアグラム等様々表現可能。<br>
+例えば「matplotlib.pyplot.hist」関数を使用するとヒストグラムを描画できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mu, sigma <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">15</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#ff79c6">=</span> mu <span style="color:#ff79c6">+</span> sigma <span style="color:#ff79c6">*</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randn(<span style="color:#bd93f9">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># the histogram of the data</span>
+</span></span><span style="display:flex;"><span>n, bins, patches <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>hist(x, <span style="color:#bd93f9">50</span>, normed<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, facecolor<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;g&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.75</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Smarts&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Probability&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Histogram of IQ&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>text(<span style="color:#bd93f9">60</span>, <span style="color:#bd93f9">.025</span>, <span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\mu=100,\ \sigma=15$&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>axis([<span style="color:#bd93f9">40</span>, <span style="color:#bd93f9">160</span>, <span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0.03</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
+</span></span></code></pre></div><img src='http://matplotlib.org/pyplots/pyplot_text.png' />
+<p>「<strong>plt.grid(True)</strong>」で点線で縦横の線が付く。</p>
+<p>その他matplotlib.pyplotの関数や詳細は下記参照。</p>
 <ul>
-<li><code>/usr/local/Cellar/</code>
-<ul>
-<li>Homebrewでインストールしたソフトウェアはここに配備される</li>
+<li><a href="http://matplotlib.org/api/pyplot_api.html">http://matplotlib.org/api/pyplot_api.html</a></li>
 </ul>
-</li>
-<li><code>/usr/local/bin/</code>
-<ul>
-<li>インストールしたソフトウェアのコマンドのシンボリックリンクはここに配備される</li>
-</ul>
-</li>
-</ul>
-<h2 id="homebrew-のアップデート">Homebrew のアップデート</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew update
-</span></span></code></pre></div><h2 id="ソフトウェアのインストール">ソフトウェアのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install &lt;software&gt;
-</span></span></code></pre></div><h2 id="ソフトウェアの更新">ソフトウェアの更新</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew upgrade &lt;software&gt;
-</span></span></code></pre></div><h2 id="キャッシュされている古いソフトウェアの削除">キャッシュされている古いソフトウェアの削除</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew cleanup
-</span></span></code></pre></div><h1 id="brew-tap">brew tap</h1>
-<p>brew tap は、公式以外の formula を追加することのできる Homebrew のサブコマンド。<br>
-Homebrewをインストールした際に標準で組み込まれている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap &lt;userName&gt;/&lt;repository&gt;
-</span></span></code></pre></div><p>上記コマンドを実行すると、GitHub 公開リポジトリ (<a href="https://github.com/">https://github.com/</a><userName>/homebrew-<repository>) が参照され、/usr/local/Library/Taps以下にインストールされる。<br>
-<code>brew tap</code> コマンドでこれまでにインストールされたソフトウェアの一覧が見れる。<br>
-また、 <code>brew tap &lt;url&gt;</code> コマンドでGitHub以外のソフトウェアもインストール可能。</p>
-<h1 id="brew-cask">brew cask</h1>
-<p>brewやbrew tapでソフトウェアをインストールする際、目的のソフトウェアを動かすには依存するその他のソフトウェアをインストールする必要がある場合がある。<br>
-そんなときbrew caskを使用すると目的のソフトウェアをインストールするだけで依存するソフトウェアもインストールしてくれる。<br>
-さらにGoogle ChromeやAtomといったソフトのインストールも可能となる。</p>
-<ul>
-<li><code>/usr/local/Caskroom/</code>
-<ul>
-<li>Cask でインストールしたソフトウェアはここに配備される</li>
-</ul>
-</li>
-<li><code>/usr/local/bin/</code>
-<ul>
-<li>インストールしたソフトウェアのコマンドのシンボリックリンクはここに配備される</li>
-</ul>
-</li>
-</ul>
-<h2 id="インストール-1">インストール</h2>
-<p>brew tapでインストールする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap caskroom/cask
-</span></span></code></pre></div><p>caskで扱えるソフトウェアのバージョンを増やすために下記も導入しておく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap caskroom/versions
-</span></span></code></pre></div><p>変更があるかもしれないので<a href="https://caskroom.github.io">cask公式</a>、<a href="https://github.com/caskroom/homebrew-versions">versions公式</a>を参照。</p>
-<h2 id="使い方">使い方</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew cask search &lt;software&gt;
-</span></span><span style="display:flex;"><span>$ brew cask install &lt;software&gt;
-</span></span><span style="display:flex;"><span>$ brew cask uninstall &lt;software&gt;
-</span></span></code></pre></div><p>その他のコマンドは<a href="https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md">ここ</a>。</p>
 
                 
 
                 <hr>
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/hexo-github-pages/" data-toggle="tooltip" data-placement="top" title="Hexoで作ったブログをGithub Pagesで公開">&larr;
-                            Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/git-basics/" data-toggle="tooltip" data-placement="top" title="Git入門">Next
+                        <a href="/hexo-github-pages/" data-toggle="tooltip" data-placement="top" title="Hexoで作ったブログをGithub Pagesで公開">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -471,6 +483,12 @@ Homebrewをインストールした際に標準で組み込まれている。</p
                         
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
                         
                         
                         

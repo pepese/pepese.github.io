@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
-    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
-    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
+    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
     
 
     
@@ -31,7 +31,7 @@
     
     
 
-    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
@@ -281,7 +281,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn global add nyc
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span></code></pre></div><h2 id="ローカルインストール">ローカルインストール</h2>
-<p><a href="https://blog.pepese.com/entry/express-basics/">Express入門</a>で作成したプロジェクトにて以下を導入する。</p>
+<p><a href="https://blog.pepese.com/nodejs-express-basics/">Express入門</a>で作成したプロジェクトにて以下を導入する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn add mocha chai sinon nyc rimraf --dev
 </span></span></code></pre></div><h2 id="ディレクトリ作成">ディレクトリ作成</h2>
 <p>先に紹介した記事の通り、Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br>
@@ -333,11 +333,45 @@
 }
 </code></pre><h2 id="テストスクリプト-appspeccontrollersget_indexspecjs">テストスクリプト <code>app/spec/controllers/get_index.spec.js</code></h2>
 <p><code>app/controllers/get_index.js</code> を対象としたテストスクリプトを以下のように作成する。</p>
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/spec/controllers/get_index.spec.js?footer=0"></script>
-<h2 id="テストスクリプト-appspeccontrollersget_usersspecjs">テストスクリプト <code>app/spec/controllers/get_users.spec.js</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> sinon <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;sinon&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> chai <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;chai&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> expect <span style="color:#ff79c6">=</span> chai.expect;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> get_index <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;../../controllers/get_index&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>describe(<span style="color:#f1fa8c">&#39;/&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  it(<span style="color:#f1fa8c">&#39;Index画面が1回レンダリングされること&#39;</span>, (done) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> req,res,spy;
+</span></span><span style="display:flex;"><span>    req <span style="color:#ff79c6">=</span> res <span style="color:#ff79c6">=</span> {};
+</span></span><span style="display:flex;"><span>    spy <span style="color:#ff79c6">=</span> res.render <span style="color:#ff79c6">=</span> sinon.spy();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    get_index(req, res);
+</span></span><span style="display:flex;"><span>    expect(spy.calledOnce).to.equal(<span style="color:#ff79c6">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    done();
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="テストスクリプト-appspeccontrollersget_usersspecjs">テストスクリプト <code>app/spec/controllers/get_users.spec.js</code></h2>
 <p><code>app/controllers/get_users.js</code> を対象としたテストスクリプトを以下のように作成する。</p>
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/express-sample/app/spec/controllers/get_users.spec.js?footer=0"></script>
-<h2 id="テストの実行">テストの実行</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> sinon <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;sinon&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> chai <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;chai&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> expect <span style="color:#ff79c6">=</span> chai.expect;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> get_index <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;../../controllers/get_users&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>describe(<span style="color:#f1fa8c">&#39;/users&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  it(<span style="color:#f1fa8c">&#39;Users画面が1回レンダリングされること&#39;</span>, (done) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> req,res,spy;
+</span></span><span style="display:flex;"><span>    req <span style="color:#ff79c6">=</span> res <span style="color:#ff79c6">=</span> {};
+</span></span><span style="display:flex;"><span>    spy <span style="color:#ff79c6">=</span> res.send <span style="color:#ff79c6">=</span> sinon.spy();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    get_index(req, res);
+</span></span><span style="display:flex;"><span>    expect(spy.calledOnce).to.equal(<span style="color:#ff79c6">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    done();
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="テストの実行">テストの実行</h2>
 <p>npmスクリプトで以下のようにテストを実行する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm <span style="color:#8be9fd;font-style:italic">test</span>
 </span></span><span style="display:flex;"><span>
@@ -679,6 +713,9 @@ expect(hoge).to.equal(&#39;fuge&#39;);
 <h2 id="フェイク">フェイク</h2>
 <p>フェイクには、時間・XMLHttpRequest・サーバーオブジェクトの置き換えができる。<br>
 ここでは省略する。</p>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- amazon affiliate kindle node.js --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B08HRMTXHB&linkId=f02e6af82c7864b6df5fd31c0639d4bf"></iframe>
 
                 
 
@@ -868,6 +905,12 @@ expect(hoge).to.equal(&#39;fuge&#39;);
                         
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
                         
                         
                         

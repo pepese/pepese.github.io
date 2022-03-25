@@ -18,10 +18,10 @@
     
     <item>
       <title>Homebrew入門</title>
-      <link>https://blog.pepese.com/homebrew-basics/</link>
+      <link>https://blog.pepese.com/mac-homebrew-basics/</link>
       <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/homebrew-basics/</guid>
+      <guid>https://blog.pepese.com/mac-homebrew-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br&gt;
 HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br&gt;
 インストールから使い方までまとめてみる。&lt;/p&gt;</description>

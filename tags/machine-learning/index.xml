@@ -67,5 +67,15 @@
       <description>&lt;p&gt;機械学習で利用するデータセットを紹介する。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>matplotlib入門</title>
+      <link>https://blog.pepese.com/python-matplotlib-basics/</link>
+      <pubDate>Sun, 18 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-matplotlib-basics/</guid>
+      <description>&lt;p&gt;matplotlibはMATLABライクにグラフを描画できるライブラリ。&lt;br&gt;
+PyPlot『matplotlib.pyplot』モジュールの簡単な関数呼び出しでグラフを描画できる。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

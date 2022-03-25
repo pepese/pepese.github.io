@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
-    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
-    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
+    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
     
 
     
@@ -31,7 +31,7 @@
     
     
 
-    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
@@ -258,9 +258,267 @@
 <li>com.pepese.sample.App.java</li>
 </ul>
 <h2 id="pomxml">pom.xml</h2>
-<script src="https://gist-it.appspot.com/github/pepese/java-sample/blob/master/master/dynamodb-sample/pom.xml?footer=0"></script>
-<h2 id="compepesesampleappjava">com.pepese.sample.App.java</h2>
-<script src="https://gist-it.appspot.com/github/pepese/java-sample/blob/master/dynamodb-sample/src/main/java/com/pepese/sample/dynamodb/DynamoDBClient.java?footer=0"></script>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;project</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">xsi:schemaLocation=</span><span style="color:#f1fa8c">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;modelVersion&gt;</span>4.0.0<span style="color:#ff79c6">&lt;/modelVersion&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;groupId&gt;</span>com.pepese.sample<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;artifactId&gt;</span>dynamodb-sample<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;version&gt;</span>0.0.1-SNAPSHOT<span style="color:#ff79c6">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;packaging&gt;</span>jar<span style="color:#ff79c6">&lt;/packaging&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;name&gt;</span>dynamodb-sample<span style="color:#ff79c6">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;version&gt;</span>1.5.6.RELEASE<span style="color:#ff79c6">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;relativePath</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/parent&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#ff79c6">&lt;/project.build.sourceEncoding&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;project.reporting.outputEncoding&gt;</span>UTF-8<span style="color:#ff79c6">&lt;/project.reporting.outputEncoding&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;java.version&gt;</span>1.8<span style="color:#ff79c6">&lt;/java.version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;artifactId&gt;</span>spring-boot-starter<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;groupId&gt;</span>com.amazonaws<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;artifactId&gt;</span>aws-java-sdk-dynamodb<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;version&gt;</span>1.11.185<span style="color:#ff79c6">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;groupId&gt;</span>org.projectlombok<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;artifactId&gt;</span>lombok<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/build&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/project&gt;</span>
+</span></span></code></pre></div><h2 id="compepesesampleappjava">com.pepese.sample.App.java</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> com.pepese.sample.dynamodb<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.ArrayList<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.HashMap<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.Iterator<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.List<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.Map<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.Set<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> javax.annotation.PostConstruct<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.springframework.beans.factory.annotation.Value<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.springframework.stereotype.Service<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.AmazonDynamoDB<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.AttributeValue<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.BatchWriteItemRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.BatchWriteItemResult<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.DeleteItemRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.GetItemRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.GetItemResult<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.PutItemRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.QueryRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.QueryResult<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.ReturnConsumedCapacity<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.ScanRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.ScanResult<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> com.amazonaws.services.dynamodbv2.model.WriteRequest<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@Service
+</span></span><span style="display:flex;"><span>@Slf4j
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DynamoDBClient</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> AmazonDynamoDB client<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	@Value<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;${aws.dynamodb.region:AP_NORTHEAST_1}&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">private</span> String region<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	@PostConstruct
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">init</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6272a4">// 低レベルAPI を使用する
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		client <span style="color:#ff79c6">=</span> AmazonDynamoDBClientBuilder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">standard</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">withRegion</span><span style="color:#ff79c6">(</span>region<span style="color:#ff79c6">).</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6272a4">// default で、back-off strategy アルゴリズムでエラーリトライ 3 回される
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		<span style="color:#6272a4">// そのため、各メソッドでリトライの実装はしない（batch系は除く）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">putItem</span><span style="color:#ff79c6">(</span>String tableName<span style="color:#ff79c6">,</span> Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;</span> item<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>tableName <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> item <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> item<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		PutItemRequest request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PutItemRequest<span style="color:#ff79c6">().</span><span style="color:#50fa7b">withTableName</span><span style="color:#ff79c6">(</span>tableName<span style="color:#ff79c6">).</span><span style="color:#50fa7b">withItem</span><span style="color:#ff79c6">(</span>item<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">putItem</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;PutItem is succeeded.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			throwRuntimeException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;PutItem is failed.&#34;</span><span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">getItem</span><span style="color:#ff79c6">(</span>String tableName<span style="color:#ff79c6">,</span> Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;</span> key<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>tableName <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> key <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> key<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		GetItemRequest request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> GetItemRequest<span style="color:#ff79c6">().</span><span style="color:#50fa7b">withTableName</span><span style="color:#ff79c6">(</span>tableName<span style="color:#ff79c6">).</span><span style="color:#50fa7b">withKey</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		GetItemResult result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			result <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItem</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>result <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItem</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;GetItem is succeeded.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;GetItem is succeeded but no matching key is found.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			throwRuntimeException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;GetItem is failed.&#34;</span><span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> result <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">?</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItem</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">query</span><span style="color:#ff79c6">(</span>String tableName<span style="color:#ff79c6">,</span> String keyConditionExpression<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>			Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;</span> expressionAttributeValues<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>tableName <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> keyConditionExpression <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> expressionAttributeValues <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		QueryRequest request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> QueryRequest<span style="color:#ff79c6">().</span><span style="color:#50fa7b">withTableName</span><span style="color:#ff79c6">(</span>tableName<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">.</span><span style="color:#50fa7b">withKeyConditionExpression</span><span style="color:#ff79c6">(</span>keyConditionExpression<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">.</span><span style="color:#50fa7b">withExpressionAttributeValues</span><span style="color:#ff79c6">(</span>expressionAttributeValues<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		QueryResult result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			result <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">query</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>result <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItems</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Query is succeeded.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Query is succeeded but no matching key is found.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			throwRuntimeException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Query is failed.&#34;</span><span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> result <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">?</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItems</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">scan</span><span style="color:#ff79c6">(</span>String tableName<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>tableName <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		ScanRequest request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ScanRequest<span style="color:#ff79c6">().</span><span style="color:#50fa7b">withTableName</span><span style="color:#ff79c6">(</span>tableName<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		ScanResult result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			result <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">scan</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>result <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItems</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Scan result is succeeded.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Scan result is succeeded but no matching key was found.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			throwRuntimeException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Scan is failed.&#34;</span><span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> result <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">?</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getItems</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">deleteItem</span><span style="color:#ff79c6">(</span>String tableName<span style="color:#ff79c6">,</span> Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> AttributeValue<span style="color:#ff79c6">&gt;</span> key<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>tableName <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> key <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> key<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		DeleteItemRequest request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DeleteItemRequest<span style="color:#ff79c6">().</span><span style="color:#50fa7b">withTableName</span><span style="color:#ff79c6">(</span>tableName<span style="color:#ff79c6">).</span><span style="color:#50fa7b">withKey</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">deleteItem</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;DeleteItem is succeeded.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			throwRuntimeException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;DeleteItem is failed.&#34;</span><span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// 作成中
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">batchWrite</span><span style="color:#ff79c6">(</span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;&gt;</span> _items<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>_items <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> _items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8be9fd">int</span> batchWriteMaxNum <span style="color:#ff79c6">=</span> 25<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		Set<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> tables <span style="color:#ff79c6">=</span> _items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">keySet</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8be9fd">int</span> remainingRequestNum <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>		Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;&gt;</span> items <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;&gt;();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#6272a4">// テーブル毎のループ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		<span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>Iterator<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> tableIt <span style="color:#ff79c6">=</span> tables<span style="color:#ff79c6">.</span><span style="color:#50fa7b">iterator</span><span style="color:#ff79c6">();</span> tableIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">hasNext</span><span style="color:#ff79c6">();)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			String table <span style="color:#ff79c6">=</span> tableIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>			List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;</span> _writeRequests <span style="color:#ff79c6">=</span> _items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>table<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;</span> writeRequests <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;();</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#6272a4">// 1テーブルに対するリクエストのループ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>			<span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>Iterator<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;</span> writeRequestsIt <span style="color:#ff79c6">=</span> _writeRequests<span style="color:#ff79c6">.</span><span style="color:#50fa7b">iterator</span><span style="color:#ff79c6">();</span> writeRequestsIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">hasNext</span><span style="color:#ff79c6">();)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				WriteRequest writeRequest <span style="color:#ff79c6">=</span> writeRequestsIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>				writeRequests<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>writeRequest<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#6272a4">// リクエスト数がbatchWriteMaxNumに達した場合
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>				<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>writeRequests<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">==</span> batchWriteMaxNum <span style="color:#ff79c6">-</span> remainingRequestNum<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>					items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span>table<span style="color:#ff79c6">,</span> writeRequests<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>					batchWriteCore<span style="color:#ff79c6">(</span>items<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>					writeRequests <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;();</span>
+</span></span><span style="display:flex;"><span>					items <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;&gt;();</span>
+</span></span><span style="display:flex;"><span>					remainingRequestNum <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#6272a4">// あるテーブルのリクエスト数がbatchWriteMaxNum未満だが、次のテーブルがある場合
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>				<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>writeRequestsIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">hasNext</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> tableIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">hasNext</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>					items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span>table<span style="color:#ff79c6">,</span> writeRequests<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>					remainingRequestNum <span style="color:#ff79c6">+=</span> writeRequests<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>					writeRequests <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;();</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#6272a4">// 最終ループの場合
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>				<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>writeRequestsIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">hasNext</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">!</span>tableIt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">hasNext</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> writeRequests<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&gt;</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>					items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span>table<span style="color:#ff79c6">,</span> writeRequests<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>					batchWriteCore<span style="color:#ff79c6">(</span>items<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">batchWriteCore</span><span style="color:#ff79c6">(</span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>WriteRequest<span style="color:#ff79c6">&gt;&gt;</span> items<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isDebugEnabled</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#8be9fd">int</span> batchWriteSize <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>String table <span style="color:#ff79c6">:</span> items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">keySet</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				batchWriteSize <span style="color:#ff79c6">+=</span> items<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>table<span style="color:#ff79c6">).</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>			log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;BatchWrite size is &#34;</span> <span style="color:#ff79c6">+</span> batchWriteSize<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			BatchWriteItemRequest bwir <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BatchWriteItemRequest<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#ff79c6">.</span><span style="color:#50fa7b">withReturnConsumedCapacity</span><span style="color:#ff79c6">(</span>ReturnConsumedCapacity<span style="color:#ff79c6">.</span><span style="color:#50fa7b">TOTAL</span><span style="color:#ff79c6">).</span><span style="color:#50fa7b">withRequestItems</span><span style="color:#ff79c6">(</span>items<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			BatchWriteItemResult result <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">batchWriteItem</span><span style="color:#ff79c6">(</span>bwir<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>result <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>			log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;batchWrite() CC: &#34;</span> <span style="color:#ff79c6">+</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getConsumedCapacity</span><span style="color:#ff79c6">());</span> <span style="color:#6272a4">// 消費されたキャパシティーユニット
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getUnprocessedItems</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">!</span>result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getUnprocessedItems</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>				Thread<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sleep</span><span style="color:#ff79c6">(</span>1000<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Exponential Backoff アルゴリズムに変更する？
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>				log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">warn</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;UNPROCESSED &#34;</span> <span style="color:#ff79c6">+</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getUnprocessedItems</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>				batchWrite<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getUnprocessedItems</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>			throwRuntimeException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;BatchWrite is failed.&#34;</span><span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">throwRuntimeException</span><span style="color:#ff79c6">(</span>String message<span style="color:#ff79c6">,</span> Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>		log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">error</span><span style="color:#ff79c6">(</span>message<span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> RuntimeException<span style="color:#ff79c6">(</span>message<span style="color:#ff79c6">,</span> e<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div>
 
                 
 
@@ -450,6 +708,12 @@
                         
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
                         
                         
                         

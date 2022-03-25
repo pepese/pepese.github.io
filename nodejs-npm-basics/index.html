@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがテックネタを書きます。">
-    <meta property="og:description" content="ぺーぺーSEがテックネタを書きます。" />
-    <meta property="twitter:description" content="ぺーぺーSEがテックネタを書きます。" />
+    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
+    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
     
 
     
@@ -31,7 +31,7 @@
     
     
 
-    <meta name="keyword"  content="ぺーぺーSE, ぺーぺーSEのブログ, Web, Istio, Kubernetes, Microservice">
+    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
@@ -323,18 +323,24 @@ $ npm bin -g
 <h2 id="シンプルに動かしてみる">シンプルに動かしてみる</h2>
 <p>まず、Node.jsをJavaScriptエンジンとしてシンプルに動かしてみる。</p>
 <p>■hello.js</p>
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/hello.js?footer=0"></script>
-<p>■main.js</p>
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/main.js?footer=0"></script>
-<p>上記JSファイルを作成して下記を実行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>exports.sayHello <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(){ <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Hello World !&#34;</span> }
+</span></span></code></pre></div><p>■main.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> hello <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;./hello.js&#39;</span>);
+</span></span><span style="display:flex;"><span>console.log(hello.sayHello());
+</span></span></code></pre></div><p>上記JSファイルを作成して下記を実行。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ node main.js
 </span></span><span style="display:flex;"><span>Hello World !
 </span></span></code></pre></div><p><code>node &lt;JSファイル&gt;</code> コマンドで実行できる。</p>
 <h2 id="httpサーバ">HTTPサーバ</h2>
 <p>Node.jsでHTTPサービスを立ち上げてみる。</p>
 <p>■app.js</p>
-<script src="https://gist-it.appspot.com/github/pepese/js-sample/blob/master/nodejs-sample/app.js?footer=0"></script>
-<p>下記を実行してブラウザで <code>http://127.0.0.1:1337/</code> へアクセスすると「Hello World !」と表示される。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> http <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;http&#39;</span>);
+</span></span><span style="display:flex;"><span>http.createServer(<span style="color:#8be9fd;font-style:italic">function</span> (req, res) {
+</span></span><span style="display:flex;"><span>  res.writeHead(<span style="color:#bd93f9">200</span>, {<span style="color:#f1fa8c">&#39;Content-Type&#39;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;text/plain&#39;</span>});
+</span></span><span style="display:flex;"><span>  res.end(<span style="color:#f1fa8c">&#39;Hello World !\n&#39;</span>);
+</span></span><span style="display:flex;"><span>}).listen(<span style="color:#bd93f9">1337</span>, <span style="color:#f1fa8c">&#34;127.0.0.1&#34;</span>);
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Server running at http://127.0.0.1:1337/&#39;</span>);
+</span></span></code></pre></div><p>下記を実行してブラウザで <code>http://127.0.0.1:1337/</code> へアクセスすると「Hello World !」と表示される。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ node app.js
 </span></span></code></pre></div><p><code>Ctr+C</code> でサービスを停止できる。<br>
 この方法でHTTPサービスを起動した場合、ロジックでエラーが発生するとプロセスが終了する。<br>
@@ -351,6 +357,9 @@ $ npm bin -g
 </ul>
 </li>
 </ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- amazon affiliate kindle node.js --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B08HRMTXHB&linkId=f02e6af82c7864b6df5fd31c0639d4bf"></iframe>
 
                 
 
@@ -540,6 +549,12 @@ $ npm bin -g
                         
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
                         
                         
                         

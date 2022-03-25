@@ -592,10 +592,10 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
     
     <item>
       <title>Homebrew入門</title>
-      <link>https://blog.pepese.com/homebrew-basics/</link>
+      <link>https://blog.pepese.com/mac-homebrew-basics/</link>
       <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/homebrew-basics/</guid>
+      <guid>https://blog.pepese.com/mac-homebrew-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br&gt;
 HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br&gt;
 インストールから使い方までまとめてみる。&lt;/p&gt;</description>
@@ -612,6 +612,16 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/mac-dev-environment/&#34;&gt;https://blog.pepese.com/mac-dev-environment/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>matplotlib入門</title>
+      <link>https://blog.pepese.com/python-matplotlib-basics/</link>
+      <pubDate>Sun, 18 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/python-matplotlib-basics/</guid>
+      <description>&lt;p&gt;matplotlibはMATLABライクにグラフを描画できるライブラリ。&lt;br&gt;
+PyPlot『matplotlib.pyplot』モジュールの簡単な関数呼び出しでグラフを描画できる。&lt;/p&gt;</description>
     </item>
     
   </channel>
