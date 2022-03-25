@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="asdfでバージョン管理" />
-    <meta property="og:title" content="asdfでバージョン管理" />
-    <meta property="twitter:title" content="asdfでバージョン管理" />
+    <meta name="title" content="マルチランタイムバージョン管理ツールasdf" />
+    <meta property="og:title" content="マルチランタイムバージョン管理ツールasdf" />
+    <meta property="twitter:title" content="マルチランタイムバージョン管理ツールasdf" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。">
+    <meta property="og:description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。" />
+    <meta property="twitter:description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。" />
     
 
     
@@ -31,11 +31,13 @@
     
     
 
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    
+    <meta name="keyword"  content="asdf,プログラミング言語,ツール,バージョン管理,ランタイム">
+    
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>asdfでバージョン管理</title>
+    <title>マルチランタイムバージョン管理ツールasdf</title>
 
     <link rel="canonical" href="/asdf-basics/">
 
@@ -170,11 +172,11 @@
                         </a>
                         
                     </div>
-                    <h1>asdfでバージョン管理</h1>
+                    <h1>マルチランタイムバージョン管理ツールasdf</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-23
+                            2022-03-25
                             
                             
                             
@@ -200,18 +202,28 @@
                 post-container">
 
                 
-                <p><a href="https://asdf-vm.com/#/core-manage-asdf">asdf</a> を使って Mac に環境構築する方法について記載する。</p>
-<h1 id="設定">設定</h1>
-<p>基本は<a href="https://asdf-vm.com/#/core-manage-asdf">公式</a>を見て欲しいが、ここでは本ブログ作成日におけるMac環境へのインストールについて記載する。</p>
+                <p><a href="https://asdf-vm.com">asdf</a> を使えば、複数のプログラミング言語ランタイムおよびそのバージョンを <code>asdf</code> コマンドだけで管理することができる。<br>
+ここでは、Mac に環境構築する方法について記載する。</p>
+<h1 id="環境構築">環境構築</h1>
 <h2 id="インストール">インストール</h2>
-<pre tabindex="0"><code>brew install coreutils curl git
-brew install asdf
-echo -e &#34;\n. $(brew --prefix asdf)/asdf.sh&#34; &gt;&gt; ~/.zshenv
-</code></pre><h2 id="アップデート">アップデート</h2>
-<pre tabindex="0"><code>brew upgrade asdf
-</code></pre><h2 id="アンインストール">アンインストール</h2>
-<pre tabindex="0"><code>rm -rf ${ASDF_DATA_DIR:-$HOME/.asdf} ~/.tool-versions
-</code></pre><p>プロファイルに設定した asdf へのパス削除を忘れずに。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install coreutils curl git
+</span></span><span style="display:flex;"><span>$ brew install asdf
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> -e <span style="color:#f1fa8c">&#34;\n. </span><span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">/libexec/asdf.sh&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
+</span></span></code></pre></div><p>上記は <code>.bash_profile</code> に設定を追記しているが、 環境・好みに応じて <code>.zshenv</code> などへの追記でもよい。<br>
+なお、環境により差分があるので、基本は <code>brew install asdf</code> 実行後の Homebrew の指示に従う。<br>
+Homebrew 以外の場合は <a href="https://asdf-vm.com/guide/getting-started.html#_3-install-asdf">こちら</a> を参照。</p>
+<h2 id="アップデート">アップデート</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew upgrade asdf
+</span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#update">こちら</a> を参照。</p>
+<h2 id="アンインストール">アンインストール</h2>
+<p><code>.bash_profile</code> などインストール時に設定したファイルから以下の行を削除。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>. <span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span>/libexec/asdf.sh
+</span></span><span style="display:flex;"><span>. <span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span>/etc/bash_completion.d/asdf.bash
+</span></span></code></pre></div><p>上記実施後に以下のコマンドを実行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew uninstall asdf --force
+</span></span><span style="display:flex;"><span>$ rm -rf <span style="color:#8be9fd;font-style:italic">$HOME</span>/.tool-versions <span style="color:#8be9fd;font-style:italic">$HOME</span>/.asdf
+</span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#uninstall">こちら</a> を参照。</p>
 <h1 id="使い方">使い方</h1>
 <h2 id="プラグインツールのインストール">プラグイン・ツールのインストール</h2>
 <ol>
@@ -254,39 +266,39 @@ echo -e &#34;\n. $(brew --prefix asdf)/asdf.sh&#34; &gt;&gt; ~/.zshenv
 </li>
 </ol>
 <p>helm で一連の流れをやってみる。</p>
-<pre tabindex="0"><code>% asdf plugin list all | grep helm
-helm                          https://github.com/Antiarchitect/asdf-helm.git
-helm-cr                       https://github.com/Antiarchitect/asdf-helm-cr.git
-helm-ct                       https://github.com/tablexi/asdf-helm-ct.git
-helm-docs                     https://github.com/sudermanjr/asdf-helm-docs.git
-helmfile                      https://github.com/feniix/asdf-helmfile.git
-
-% asdf plugin add helm
-
-% asdf plugin list
-helm
-
-% asdf list-all helm
-3.4.1
-
-% asdf install helm 3.4.1
-
-% asdf global helm 3.4.1
-
-% asdf current helm
-helm            3.4.1           /Users/xxxx/.tool-versions
-
-% helm version
-version.BuildInfo{Version:&#34;v3.4.1&#34;, GitCommit:&#34;c4e74854886b2efe3321e185578e6db9be0a6e29&#34;, GitTreeState:&#34;clean&#34;, GoVersion:&#34;go1.14.11&#34;}
-</code></pre><h2 id="プラグインのアップデート">プラグインのアップデート</h2>
-<pre tabindex="0"><code>asdf plugin update --all
-</code></pre><h2 id="ツールのアンインストール">ツールのアンインストール</h2>
-<pre tabindex="0"><code>asdf uninstall &lt;name&gt; &lt;version&gt;
-</code></pre><h2 id="プラグインのアンインストール">プラグインのアンインストール</h2>
-<pre tabindex="0"><code>asdf plugin remove &lt;name&gt;
-</code></pre><h2 id="困ったときは">困ったときは</h2>
-<pre tabindex="0"><code>asdf help
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin list all | grep helm
+</span></span><span style="display:flex;"><span>helm                          https://github.com/Antiarchitect/asdf-helm.git
+</span></span><span style="display:flex;"><span>helm-cr                       https://github.com/Antiarchitect/asdf-helm-cr.git
+</span></span><span style="display:flex;"><span>helm-ct                       https://github.com/tablexi/asdf-helm-ct.git
+</span></span><span style="display:flex;"><span>helm-docs                     https://github.com/sudermanjr/asdf-helm-docs.git
+</span></span><span style="display:flex;"><span>helmfile                      https://github.com/feniix/asdf-helmfile.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ asdf plugin add helm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ asdf plugin list
+</span></span><span style="display:flex;"><span>helm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ asdf list-all helm
+</span></span><span style="display:flex;"><span>3.4.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ asdf install helm 3.4.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ asdf global helm 3.4.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ asdf current helm
+</span></span><span style="display:flex;"><span>helm            3.4.1           /Users/xxxx/.tool-versions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ helm version
+</span></span><span style="display:flex;"><span>version.BuildInfo<span style="color:#ff79c6">{</span>Version:<span style="color:#f1fa8c">&#34;v3.4.1&#34;</span>, GitCommit:<span style="color:#f1fa8c">&#34;c4e74854886b2efe3321e185578e6db9be0a6e29&#34;</span>, GitTreeState:<span style="color:#f1fa8c">&#34;clean&#34;</span>, GoVersion:<span style="color:#f1fa8c">&#34;go1.14.11&#34;</span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h2 id="プラグインのアップデート">プラグインのアップデート</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin update --all
+</span></span></code></pre></div><h2 id="ツールのアンインストール">ツールのアンインストール</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf uninstall &lt;name&gt; &lt;version&gt;
+</span></span></code></pre></div><h2 id="プラグインのアンインストール">プラグインのアンインストール</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin remove &lt;name&gt;
+</span></span></code></pre></div><h2 id="困ったときは">困ったときは</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf <span style="color:#8be9fd;font-style:italic">help</span>
+</span></span></code></pre></div>
 
                 
 
@@ -294,15 +306,10 @@ version.BuildInfo{Version:&#34;v3.4.1&#34;, GitCommit:&#34;c4e74854886b2efe3321e
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAMまとめ">&larr;
+                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPCまとめ">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPCまとめ">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
