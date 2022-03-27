@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Git Flowとコンフリクトの解消" />
-    <meta property="og:title" content="Git Flowとコンフリクトの解消" />
-    <meta property="twitter:title" content="Git Flowとコンフリクトの解消" />
+    <meta name="title" content="git-flowとコンフリクトの解消" />
+    <meta property="og:title" content="git-flowとコンフリクトの解消" />
+    <meta property="twitter:title" content="git-flowとコンフリクトの解消" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="git-flowとコンフリクトが発生した際の解消方法について説明。">
+    <meta property="og:description" content="git-flowとコンフリクトが発生した際の解消方法について説明。" />
+    <meta property="twitter:description" content="git-flowとコンフリクトが発生した際の解消方法について説明。" />
     
 
     
@@ -32,12 +32,12 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="Git, git-flow">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>Git Flowとコンフリクトの解消</title>
+    <title>git-flowとコンフリクトの解消</title>
 
     <link rel="canonical" href="/git-flow-fix-conflict/">
 
@@ -196,11 +196,11 @@
                         </a>
                         
                     </div>
-                    <h1>Git Flowとコンフリクトの解消</h1>
+                    <h1>git-flowとコンフリクトの解消</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2017-05-24
+                            2022-03-27
                             
                             
                             
@@ -227,7 +227,7 @@
 
                 
                 <p>git-flowの概要とマージ時のコンフリクトの解消についてまとめる。</p>
-<p>gitについては以下を参照。</p>
+<p>Git の基本的なことについては以下を参照。</p>
 <ul>
 <li><a href="https://blog.pepese.com/git-basics/">Git入門</a></li>
 <li><a href="https://blog.pepese.com/git-commands/">Gitコマンド整理</a></li>
@@ -334,7 +334,7 @@
 <p>コンフリクトを発生させるリポジトリを作成する。<br>
 ここでは、「 <a href="https://github.com/pepese/test.git">https://github.com/pepese/test.git</a> 」とする。<br>
 master ブランチに対して以下のREADME.mdファイルを作成してpushしておく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/pepese/test.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/pepese/test.git
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> <span style="color:#8be9fd;font-style:italic">test</span>
 </span></span><span style="display:flex;"><span>$ vi README.md <span style="color:#6272a4"># 後述お通りファイルを編集する</span>
 </span></span><span style="display:flex;"><span>$ git add README.md
@@ -351,7 +351,7 @@ master ブランチに対して以下のREADME.mdファイルを作成してpush
 </span></span></code></pre></div><p>以降、2つのターミナル（ターミナル1、ターミナル2）で作業する。<br>
 ターミナル1では develop ブランチ、ターミナル2では feature ブランチで作業する。<br>
 ターミナル1で以下を実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/pepese/test.git develop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/pepese/test.git develop
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> develop
 </span></span><span style="display:flex;"><span>$ git checkout develop
 </span></span><span style="display:flex;"><span>$ vi README.md <span style="color:#6272a4"># 後述お通りファイルを編集する</span>
@@ -361,7 +361,7 @@ master ブランチに対して以下のREADME.mdファイルを作成してpush
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>行１
 </span></span><span style="display:flex;"><span>行２ 変更
 </span></span></code></pre></div><p>ターミナル2で以下を実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/pepese/test.git feature
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/pepese/test.git feature
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> feature
 </span></span><span style="display:flex;"><span>$ git checkout feature
 </span></span><span style="display:flex;"><span>$ vi README.md <span style="color:#6272a4"># 後述お通りファイルを編集する</span>
@@ -382,7 +382,7 @@ master ブランチに対して以下のREADME.mdファイルを作成してpush
 <li>feature ブランチを削除する</li>
 </ol>
 <p>上記に沿って具体的な手順を後述する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git fetch
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git fetch
 </span></span><span style="display:flex;"><span>$ git merge origin/feature
 </span></span><span style="display:flex;"><span>Auto-merging README.md
 </span></span><span style="display:flex;"><span>CONFLICT <span style="color:#ff79c6">(</span>content<span style="color:#ff79c6">)</span>: Merge conflict in README.md
@@ -406,12 +406,12 @@ Gitではコンフリクトを <strong>手動で修正</strong> する必要が�
 </span></span><span style="display:flex;"><span>行２ 変更
 </span></span><span style="display:flex;"><span>行３
 </span></span></code></pre></div><p>修正が完了したら以下のように反映させる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git add README.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git add README.md
 </span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#f1fa8c">&#34;merge and fix conflict&#34;</span>
 </span></span><span style="display:flex;"><span>$ git push origin develop
 </span></span></code></pre></div><p><code>git log</code> で確認すると以下のように develop ブランチから分岐した feature ブランチがマージされていることがわかる。<br>
 （時系列は下から上）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git log --graph --oneline
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git log --graph --oneline
 </span></span><span style="display:flex;"><span>*   <span style="color:#bd93f9">9480427</span> merge and fix conflict
 </span></span><span style="display:flex;"><span>|<span style="color:#f1fa8c">\ </span> 
 </span></span><span style="display:flex;"><span>| * 3b11c03 add line3
@@ -429,9 +429,11 @@ Gitではコンフリクトを <strong>手動で修正</strong> する必要が�
 </span></span><span style="display:flex;"><span>|/  
 </span></span><span style="display:flex;"><span>* 2363f83 <span style="color:#ff79c6">(</span>refs/remotes/origin/master, refs/remotes/origin/HEAD, refs/heads/master<span style="color:#ff79c6">)</span> first commit
 </span></span></code></pre></div><p>最後に feature ブランチを削除して完了する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git branch -d feature <span style="color:#6272a4"># ローカルの feature ブランチを削除、ターミナル1では不要</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git branch -d feature <span style="color:#6272a4"># ローカルの feature ブランチを削除、ターミナル1では不要</span>
 </span></span><span style="display:flex;"><span>$ git push -d origin feature <span style="color:#6272a4"># リモートの feature ブランチを削除</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- amazon affiliate kindle git --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B09DPKYHK9&linkId=7f63835d3ad6c9cb3c701a2dfdc826a1"></iframe>
 
                 
 
@@ -439,15 +441,10 @@ Gitではコンフリクトを <strong>手動で修正</strong> する必要が�
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/angular-cognito/" data-toggle="tooltip" data-placement="top" title="Cognitoを使ってAngularアプリからユーザ認証する">&larr;
+                        <a href="/git-commands/" data-toggle="tooltip" data-placement="top" title="Gitコマンド整理">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/angular-router-cognito/" data-toggle="tooltip" data-placement="top" title="Cognitoを使ってユーザ認証して画面遷移するAngularアプリ">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -505,6 +502,10 @@ Gitではコンフリクトを <strong>手動で修正</strong> する必要が�
                         
                         
                         
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
                         
                         
                         
@@ -697,6 +698,10 @@ Gitではコンフリクトを <strong>手動で修正</strong> する必要が�
                         
                         
                         
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
                         
                         
                         

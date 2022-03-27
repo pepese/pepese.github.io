@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="Visual Studio Codeのインストールからおすすめの拡張機能までを説明。">
+    <meta property="og:description" content="Visual Studio Codeのインストールからおすすめの拡張機能までを説明。" />
+    <meta property="twitter:description" content="Visual Studio Codeのインストールからおすすめの拡張機能までを説明。" />
     
 
     
@@ -32,7 +32,7 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="Visual Studio Code, vscode">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -196,7 +196,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2018-01-31
+                            2022-03-27
                             
                             
                             
@@ -224,12 +224,12 @@
                 
                 <p>Microsoft が開発したエディタ<a href="https://code.visualstudio.com/">Visual Studio Code</a>（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。</p>
 <h1 id="インストールmac">インストール（Mac）</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew cask install visual-studio-code
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install --cask visual-studio-code
 </span></span></code></pre></div><h1 id="起動方法">起動方法</h1>
 <p>アイコンクリックでもいいがコマンドラインで起動できる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ code
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ code
 </span></span></code></pre></div><p>プロジェクト（カレントディレクトリ）で起動したい場合は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ code .
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ code .
 </span></span></code></pre></div><h1 id="ショートカット操作">ショートカット・操作</h1>
 <p>ショートカットの一覧・設定は <code>Comannd + K -&gt; Command + S</code> で開く。<br>
 （筆者の場合は「右側をすべて削除」が <code>Ctrl + K</code> になっていなかったので登録した。）</p>
@@ -400,6 +400,9 @@ indent_size = 2
 </ul>
 </li>
 </ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- amazon affiliate kindle vscode --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B09TDNXKL4&linkId=e48b4111e28e59cbf4875a2d00a94452"></iframe>
 
                 
 
@@ -407,13 +410,13 @@ indent_size = 2
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/android-env-on-mac/" data-toggle="tooltip" data-placement="top" title="Androidアプリ入門 Macで環境構築編">&larr;
+                        <a href="/anyenv/" data-toggle="tooltip" data-placement="top" title="すべての**envを管理するanyenv">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/python-mecab-basics/" data-toggle="tooltip" data-placement="top" title="形態素解析システムMeCab入門">Next
+                        <a href="/mac-dev-environment/" data-toggle="tooltip" data-placement="top" title="Macで開発環境を作る">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -473,6 +476,10 @@ indent_size = 2
                         
                         
                         
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
                         
                         
                         
@@ -665,6 +672,10 @@ indent_size = 2
                         
                         
                         
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
                         
                         
                         

@@ -6,14 +6,23 @@
     <description>Recent content in sdkman on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/sdkman/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/sdkman/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/mac-dev-environment/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mac-dev-environment/</guid>
+      <description>&lt;p&gt;Mac で開発環境を作成する際に概ね実施することをまとめてみた。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>SDKMAN入門</title>
       <link>https://blog.pepese.com/sdkman-basics/</link>
       <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/sdkman-basics/</guid>
-      <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Java 系の バージョン管理ツール &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
     </item>
     
   </channel>

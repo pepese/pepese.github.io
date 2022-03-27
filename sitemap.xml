@@ -2,23 +2,89 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.pepese.com/tags/anyenv/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/tags/asdf/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/git/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/git-flow-fix-conflict/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/github/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/git-commands/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/git-basics/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/homebrew/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/mac-homebrew-basics/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/java/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/mac/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/mac-dev-environment/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/maven/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/ndenv/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/node.js/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/pyenv/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/python/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/rbenv/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/ruby/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/sdkman/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/vscode-basics/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/vscode/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/anyenv/</loc>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/asdf-basics/</loc>
     <lastmod>2022-03-25T00:00:00+00:00</lastmod>
@@ -116,16 +182,10 @@
     <loc>https://blog.pepese.com/golang-basics/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/vscode/</loc>
-    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/jupyter/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/jupyter-notebook-basics/</loc>
-    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/python/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/dataframe/</loc>
@@ -141,9 +201,6 @@
     <lastmod>2018-02-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/nginx-basics/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/node.js/</loc>
     <lastmod>2018-02-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/pandas/</loc>
@@ -167,9 +224,6 @@
     <loc>https://blog.pepese.com/python-mecab-basics/</loc>
     <lastmod>2018-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/vscode-basics/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/android/</loc>
     <lastmod>2018-01-06T00:00:00+00:00</lastmod>
   </url><url>
@@ -189,15 +243,6 @@
     <lastmod>2018-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/gradle/</loc>
-    <lastmod>2017-12-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/java/</loc>
-    <lastmod>2017-12-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/maven/</loc>
-    <lastmod>2017-12-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/sdkman/</loc>
     <lastmod>2017-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/sdkman-basics/</loc>
@@ -323,16 +368,7 @@
     <loc>https://blog.pepese.com/tags/svm/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/anyenv/</loc>
-    <lastmod>2017-07-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/k-means/</loc>
-    <lastmod>2017-07-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/ndenv/</loc>
-    <lastmod>2017-07-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/pyenv/</loc>
     <lastmod>2017-07-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/python-ml-k-means-clustering/</loc>
@@ -344,29 +380,11 @@
     <loc>https://blog.pepese.com/python-ml-datasets/</loc>
     <lastmod>2017-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/rbenv/</loc>
-    <lastmod>2017-07-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/ruby/</loc>
-    <lastmod>2017-07-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/anyenv/</loc>
-    <lastmod>2017-07-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/cognito/</loc>
     <lastmod>2017-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/angular-router-cognito/</loc>
     <lastmod>2017-05-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/git/</loc>
-    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/git-flow-fix-conflict/</loc>
-    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/github/</loc>
-    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/angular-cognito/</loc>
     <lastmod>2017-05-20T00:00:00+00:00</lastmod>
@@ -380,29 +398,11 @@
     <loc>https://blog.pepese.com/atom-install-packages/</loc>
     <lastmod>2017-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/git-commands/</loc>
-    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/seo/</loc>
     <lastmod>2017-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/blog-move/</loc>
     <lastmod>2017-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/homebrew/</loc>
-    <lastmod>2017-05-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/mac/</loc>
-    <lastmod>2017-05-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/mac-dev-environment/</loc>
-    <lastmod>2017-05-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/git-basics/</loc>
-    <lastmod>2017-05-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/mac-homebrew-basics/</loc>
-    <lastmod>2017-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/hexo/</loc>
     <lastmod>2017-05-02T00:00:00+00:00</lastmod>

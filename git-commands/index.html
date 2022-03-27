@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="Gitの理解に必要な概念とコマンドの使い方について。">
+    <meta property="og:description" content="Gitの理解に必要な概念とコマンドの使い方について。" />
+    <meta property="twitter:description" content="Gitの理解に必要な概念とコマンドの使い方について。" />
     
 
     
@@ -32,7 +32,7 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="Git">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -196,7 +196,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2017-05-11
+                            2022-03-27
                             
                             
                             
@@ -222,7 +222,7 @@
                 post-container">
 
                 
-                <p>Gitコマンド、概念を整理する。</p>
+                <p>Gitコマンドの整理と必要な概念について記載する。</p>
 <h1 id="環境設定">環境設定</h1>
 <ul>
 <li><code>git init</code>
@@ -233,11 +233,8 @@
 <li><code>git config</code>
 <ul>
 <li>Gitクライアントの設定</li>
-<li><code>--global</code> で全体に反映される設定、 <code>--local</code> で個別プロジェクトに反映される設定
-<ul>
-<li><code>--local</code> の方が強い</li>
-</ul>
-</li>
+<li><code>--global</code> で全体に反映される設定、 <code>--local</code> で個別プロジェクトに反映される設定</li>
+<li><code>--global</code> と <code>--local</code> でどう項目で設定値が異なる場合、 <code>--local</code> が優先される</li>
 </ul>
 </li>
 <li><code>git remote</code>
@@ -365,7 +362,7 @@
 <li><code>git diff &lt;branch_name&gt; &lt;branch_name&gt;</code>
 <ul>
 <li>ブランチ間の差分を確認することができる</li>
-<li><code>git fetch</code> してマージしていない状態で <code>git diff master origin/master</code> を実行すると、「現在のローカルリポジトリのmaster」と「リモートリポジトリの最新のmaster」の状態を比較することができる</li>
+<li><code>git fetch</code> してマージしていない状態で <code>git diff main origin/main</code> を実行すると、「現在のローカルリポジトリのmain」と「リモートリポジトリの最新のmain」の状態を比較することができる</li>
 </ul>
 </li>
 <li><code>git log</code>
@@ -483,82 +480,97 @@
 <li><code>git pull</code>
 <ul>
 <li>リモートリポジトリから変更を取得する（マージまで行う）</li>
-<li>「 <code>git fetch</code> + <code>git merge origin/master</code> 」に同じ</li>
+<li>「 <code>git fetch</code> + <code>git merge origin/main</code> 」に同じ</li>
 </ul>
 </li>
 </ul>
-<blockquote>
-<h2 id="master-と-originmaster-の違い"><em>master</em> と <em>origin/master</em> の違い</h2>
-<p><em>master</em> はローカルリポジトリのmasterブランチを指し、 <em>origin/master</em> はリモートリポジトリのmasterブランチを指す。<br>
-ただし、 <em>origin/master</em> はリモートリポジトリと結びついているブランチであって、ローカルに存在する。<br>
-<code>git fetch</code> することによって、ローカルの <em>origin/master</em> が更新される。<br>
-つまり、 <code>git fetch</code> した後に <code>git merge origin/master</code> すると、「ローカルの <em>master</em> ブランチに最新状態に更新した <em>origin/master</em> の変更をマージする」ということになる。</p>
-</blockquote>
-<blockquote>
+<h2 id="main-と-originmain-の違い"><em>main</em> と <em>origin/main</em> の違い</h2>
+<p><em>main</em> はローカルリポジトリのmainブランチを指し、 <em>origin/main</em> はリモートリポジトリのmainブランチを指す。<br>
+ただし、 <em>origin/main</em> はリモートリポジトリと結びついているブランチであって、ローカルに存在する。<br>
+<code>git fetch</code> することによって、ローカルの <em>origin/main</em> が更新される。<br>
+つまり、 <code>git fetch</code> した後に <code>git merge origin/main</code> すると、「ローカルの <em>main</em> ブランチに最新状態に更新した <em>origin/main</em> の変更をマージする」ということになる。</p>
 <h2 id="cherry-pick">cherry-pick</h2>
 <p>現在何らかのブランチで作業していて、「あのブランチのあのコミットだけほしい。。。」と思ったとする。<br>
 こんなとき <strong>cherry-pick</strong> という方法がある。<br>
 リモートリポジトリから情報を取得し、欲しいコミットのコミットIDを指定して現在のブランチに取り込む。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"></code></pre></div></blockquote>
-<p>$ git fetch
-$ git cherry-pick &lt;commit_id&gt;</p>
-<pre tabindex="0"><code>
-# ブランチ操作
-
-- `git branch`
-    - ブランチの一覧を表示する
-    - 現在のブランチには「 **\*** 」がつく
-- `git branch &lt;branch_name&gt;`
-    - ブランチを作成する
-    - 現在のブランチの現在のリビジョンで作成される
-- `git branch -d &lt;branch_name&gt;`
-    - ローカルのブランチを削除する
-- `git push -d origin &lt;branch_name&gt;`
-    - リモートのブランチを削除する
-- `git checkout &lt;branch_name&gt;`
-    - 現在のブランチを指定したブランチに切り替える
-    - ワーキングディレクトリも指定したブランチの状態になる
-- `git branch &lt;branch_name&gt;/&lt;revision&gt;`
-    - 現在のブランチを指定したブランチとリビジョンの状態に切り替える
-    - ワーキングディレクトリも指定した状態になる
-- `git checkout -b &lt;branch_name&gt;`
-    - 現在のブランチを指定したブランチに切り替える
-    - ブランチが存在しない場合は新規作成される
-    - ただし、 **現在のブランチのワーキングディレクトリの状態が、移動先ブランチのワーキングディレクトリに反映** される
-        - コード修正し始めたけど、新しいブランチ作りたくなったときなどに便利
-
-# ブランチ間の変更の取り込み
-
-ブランチ間の変更の取り込みには、 **マージ** と **リベース** がある。  
-どちらを使うかは悩ましい。。。
-
-## マージ
-
-```sh
-$ git merge &lt;branch_name&gt;
-</code></pre><p>2つのブランチを合流・結合させることを <strong>マージ</strong> という。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git fetch
+</span></span><span style="display:flex;"><span>$ git cherry-pick &lt;commit_id&gt;
+</span></span></code></pre></div><h1 id="ブランチ操作">ブランチ操作</h1>
+<ul>
+<li><code>git branch</code>
+<ul>
+<li>ブランチの一覧を表示する</li>
+<li>現在のブランチには「 <strong>*</strong> 」がつく</li>
+</ul>
+</li>
+<li><code>git branch &lt;branch_name&gt;</code>
+<ul>
+<li>ブランチを作成する</li>
+<li>現在のブランチの現在のリビジョンで作成される</li>
+</ul>
+</li>
+<li><code>git branch -d &lt;branch_name&gt;</code>
+<ul>
+<li>ローカルのブランチを削除する</li>
+</ul>
+</li>
+<li><code>git push -d origin &lt;branch_name&gt;</code>
+<ul>
+<li>リモートのブランチを削除する</li>
+</ul>
+</li>
+<li><code>git checkout &lt;branch_name&gt;</code>
+<ul>
+<li>現在のブランチを指定したブランチに切り替える</li>
+<li>ワーキングディレクトリも指定したブランチの状態になる</li>
+</ul>
+</li>
+<li><code>git branch &lt;branch_name&gt;/&lt;revision&gt;</code>
+<ul>
+<li>現在のブランチを指定したブランチとリビジョンの状態に切り替える</li>
+<li>ワーキングディレクトリも指定した状態になる</li>
+</ul>
+</li>
+<li><code>git checkout -b &lt;branch_name&gt;</code>
+<ul>
+<li>現在のブランチを指定したブランチに切り替える</li>
+<li>ブランチが存在しない場合は新規作成される</li>
+<li>ただし、 <strong>現在のブランチのワーキングディレクトリの状態が、移動先ブランチのワーキングディレクトリに反映</strong> される
+<ul>
+<li>コード修正し始めたけど、新しいブランチ作りたくなったときなどに便利</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="ブランチ間の変更の取り込み">ブランチ間の変更の取り込み</h1>
+<p>ブランチ間の変更の取り込みには、 <strong>マージ</strong> と <strong>リベース</strong> がある。<br>
+どちらを使うかは悩ましい。。。</p>
+<h2 id="マージ">マージ</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git merge &lt;branch_name&gt;
+</span></span></code></pre></div><p>2つのブランチを合流・結合させることを <strong>マージ</strong> という。</p>
 <h3 id="マージの種類">マージの種類</h3>
 <p>マージには <strong>Fast-forwardマージ</strong> 、<strong>non Fast-forwardマージ</strong> 、 <strong>Recursiveマージ</strong> などがある。</p>
 <h4 id="fast-forwardマージ">Fast-forwardマージ</h4>
-<p>masterブランチの開発に対してバグが見つかり、このmasterブランチのHEADからbugfixブランチを作成して修正用のコミットを実行したとする。<br>
-さらにこの時、bugfixブランチにはコミットを実施したが、masterブランチにはコミットを実行していなかったとする。<br>
-この状況で <code>git checkout master</code> の後 <code>git merge bugfix</code> を実行すると「masterブランチのHEAD」は単に「bugfixブランチのHEAD」に移動する。masterブランチとbugfixブランチは枝分かれしておらず、コミットログは1本でbugfixブランチが存在した歴史が残らない。<br>
+<p>mainブランチの開発に対してバグが見つかり、このmainブランチのHEADからbugfixブランチを作成して修正用のコミットを実行したとする。<br>
+さらにこの時、bugfixブランチにはコミットを実施したが、mainブランチにはコミットを実行していなかったとする。<br>
+この状況で <code>git checkout main</code> の後 <code>git merge bugfix</code> を実行すると「mainブランチのHEAD」は単に「bugfixブランチのHEAD」に移動する。mainブランチとbugfixブランチは枝分かれしておらず、コミットログは1本でbugfixブランチが存在した歴史が残らない。<br>
 これを <strong>Fast-forwardマージ</strong> という。<br>
 デフォルトではこのマージ方法となっており、オプションで明記する場合は <code>--ff</code> 。</p>
 <h4 id="non-fast-forwardマージ">non Fast-forwardマージ</h4>
-<p>上記と同じ状況で、masterブランチに対して「bugfixブランヂに加えられた変更」のコミットを追加する方法を <strong>non Fast-forwardマージ</strong> といい <code>git merge --no-ff bugfix</code> を実行することで実現される。<br>
-masterブランチとbugfixブランチは枝分かれしており、コミットログもまた分岐していて、bugfixブランチが存在した歴史が残る。<br>
+<p>上記と同じ状況で、mainブランチに対して「bugfixブランヂに加えられた変更」のコミットを追加する方法を <strong>non Fast-forwardマージ</strong> といい <code>git merge --no-ff bugfix</code> を実行することで実現される。<br>
+mainブランチとbugfixブランチは枝分かれしており、コミットログもまた分岐していて、bugfixブランチが存在した歴史が残る。<br>
 マージはこちらが推奨される。オプションで指定せず、デフォルトを変更する方法は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git config --global --add merge.ff <span style="color:#8be9fd;font-style:italic">false</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git config --global --add merge.ff <span style="color:#8be9fd;font-style:italic">false</span>
 </span></span><span style="display:flex;"><span>$ git config --global --add pull.ff only <span style="color:#6272a4"># pullの時は --no-ff を除外</span>
 </span></span></code></pre></div><h4 id="recursiveマージ">Recursiveマージ</h4>
-<p>masterブランチの開発に対してバグが見つかり、このmasterブランチのHEADからbugfixブランチを作成して修正用のコミットを実行したとする。<br>
-さらにこの時、masterブランチには別のコミットが実行されていたとする。<br>
-この状況で <code>git checkout master</code> の後 <code>git merge bugfix</code> を実行すると、masterブランチに対して「bugfixブランチに加えられた変更」が追加され、masterブランチのHEADはマージで加えられた変更の状態まで移動する。<br>
-masterブランチとbugfixブランチは枝分かれして、合流する。<br>
+<p>mainブランチの開発に対してバグが見つかり、このmainブランチのHEADからbugfixブランチを作成して修正用のコミットを実行したとする。<br>
+さらにこの時、mainブランチには別のコミットが実行されていたとする。<br>
+この状況で <code>git checkout main</code> の後 <code>git merge bugfix</code> を実行すると、mainブランチに対して「bugfixブランチに加えられた変更」が追加され、mainブランチのHEADはマージで加えられた変更の状態まで移動する。<br>
+mainブランチとbugfixブランチは枝分かれして、合流する。<br>
 これを <strong>Recursiveマージ</strong> という。</p>
 <h2 id="リベース">リベース</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git rebase &lt;branch_name&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git rebase &lt;branch_name&gt;
 </span></span></code></pre></div><p>「2つのブランチを合流・結合させること」をマージというのに対し、「他方のブランチの変更を、一方のブランチの最新のコミットへ移動して変更分を取り込んで、コミットの履歴を一本化すること」を <strong>リベース</strong> という。<br>
 マージは「ブランチが枝分かれして合流」するが、リベースは「ブランチが枝分かれせず一本化」される。</p>
 <h1 id="その他の操作">その他の操作</h1>
@@ -654,6 +666,9 @@ masterブランチとbugfixブランチは枝分かれして、合流する。<b
 </ul>
 </li>
 </ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- amazon affiliate kindle git --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B09DPKYHK9&linkId=7f63835d3ad6c9cb3c701a2dfdc826a1"></iframe>
 
                 
 
@@ -661,13 +676,13 @@ masterブランチとbugfixブランチは枝分かれして、合流する。<b
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog-move/" data-toggle="tooltip" data-placement="top" title="ブログ移転時に気をつけること">&larr;
+                        <a href="/git-basics/" data-toggle="tooltip" data-placement="top" title="Git入門">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/atom-install-packages/" data-toggle="tooltip" data-placement="top" title="Atomのインストールとパッケージの導入">Next
+                        <a href="/git-flow-fix-conflict/" data-toggle="tooltip" data-placement="top" title="git-flowとコンフリクトの解消">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -727,6 +742,10 @@ masterブランチとbugfixブランチは枝分かれして、合流する。<b
                         
                         
                         
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
                         
                         
                         
@@ -919,6 +938,10 @@ masterブランチとbugfixブランチは枝分かれして、合流する。<b
                         
                         
                         
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
                         
                         
                         

@@ -6,7 +6,74 @@
     <description>Recent content on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 25 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git-flowとコンフリクトの解消</title>
+      <link>https://blog.pepese.com/git-flow-fix-conflict/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-flow-fix-conflict/</guid>
+      <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gitコマンド整理</title>
+      <link>https://blog.pepese.com/git-commands/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-commands/</guid>
+      <description>&lt;p&gt;Gitコマンドの整理と必要な概念について記載する。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git入門</title>
+      <link>https://blog.pepese.com/git-basics/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-basics/</guid>
+      <description>&lt;p&gt;Git 環境構築からGithubの使い方なども含めたメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Homebrew入門</title>
+      <link>https://blog.pepese.com/mac-homebrew-basics/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mac-homebrew-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br&gt;
+HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br&gt;
+インストールから使い方までまとめてみる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/mac-dev-environment/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mac-dev-environment/</guid>
+      <description>&lt;p&gt;Mac で開発環境を作成する際に概ね実施することをまとめてみた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code入門</title>
+      <link>https://blog.pepese.com/vscode-basics/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/vscode-basics/</guid>
+      <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>すべての**envを管理するanyenv</title>
+      <link>https://blog.pepese.com/anyenv/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/anyenv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
+「すべて」は言い過ぎかも。&lt;br&gt;
+インストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>マルチランタイムバージョン管理ツールasdf</title>
       <link>https://blog.pepese.com/asdf-basics/</link>
@@ -233,15 +300,6 @@
     </item>
     
     <item>
-      <title>Visual Studio Code入門</title>
-      <link>https://blog.pepese.com/vscode-basics/</link>
-      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/vscode-basics/</guid>
-      <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Androidアプリ入門 Macで環境構築編</title>
       <link>https://blog.pepese.com/android-env-on-mac/</link>
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
@@ -268,7 +326,7 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
       <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/sdkman-basics/</guid>
-      <description>&lt;p&gt;Java 系の anyenv 、 &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Java 系の バージョン管理ツール &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -488,17 +546,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
     </item>
     
     <item>
-      <title>すべての**envを管理するanyenv</title>
-      <link>https://blog.pepese.com/anyenv/</link>
-      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/anyenv/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
-「すべて」は言い過ぎた。&lt;br&gt;
-以降、anyenv、**env のインストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
       <link>https://blog.pepese.com/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
@@ -508,15 +555,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Git Flowとコンフリクトの解消</title>
-      <link>https://blog.pepese.com/git-flow-fix-conflict/</link>
-      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/git-flow-fix-conflict/</guid>
-      <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -547,15 +585,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
     </item>
     
     <item>
-      <title>Gitコマンド整理</title>
-      <link>https://blog.pepese.com/git-commands/</link>
-      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/git-commands/</guid>
-      <description>&lt;p&gt;Gitコマンド、概念を整理する。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>ブログ移転時に気をつけること</title>
       <link>https://blog.pepese.com/blog-move/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
@@ -570,36 +599,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
 &lt;/ul&gt;
 &lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br&gt;
 ブログ全体の移転の話ではないことに注意。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Macで開発環境を作る</title>
-      <link>https://blog.pepese.com/mac-dev-environment/</link>
-      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/mac-dev-environment/</guid>
-      <description>&lt;p&gt;2016年下期にMacbook Proを買ったので開発環境の設定をまとめてみた。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Git入門</title>
-      <link>https://blog.pepese.com/git-basics/</link>
-      <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/git-basics/</guid>
-      <description>&lt;p&gt;Git/Githubのメモ。&lt;br&gt;
-インストールから簡単な使い方まで書いてみる。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Homebrew入門</title>
-      <link>https://blog.pepese.com/mac-homebrew-basics/</link>
-      <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/mac-homebrew-basics/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br&gt;
-HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br&gt;
-インストールから使い方までまとめてみる。&lt;/p&gt;</description>
     </item>
     
     <item>

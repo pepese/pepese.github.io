@@ -6,11 +6,11 @@
     <description>Recent content in git on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 24 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Git Flowとコンフリクトの解消</title>
+      <title>git-flowとコンフリクトの解消</title>
       <link>https://blog.pepese.com/git-flow-fix-conflict/</link>
-      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/git-flow-fix-conflict/</guid>
       <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;/p&gt;</description>
@@ -19,20 +19,28 @@
     <item>
       <title>Gitコマンド整理</title>
       <link>https://blog.pepese.com/git-commands/</link>
-      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/git-commands/</guid>
-      <description>&lt;p&gt;Gitコマンド、概念を整理する。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Gitコマンドの整理と必要な概念について記載する。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Git入門</title>
       <link>https://blog.pepese.com/git-basics/</link>
-      <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/git-basics/</guid>
-      <description>&lt;p&gt;Git/Githubのメモ。&lt;br&gt;
-インストールから簡単な使い方まで書いてみる。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Git 環境構築からGithubの使い方なども含めたメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Macで開発環境を作る</title>
+      <link>https://blog.pepese.com/mac-dev-environment/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/mac-dev-environment/</guid>
+      <description>&lt;p&gt;Mac で開発環境を作成する際に概ね実施することをまとめてみた。&lt;/p&gt;</description>
     </item>
     
   </channel>

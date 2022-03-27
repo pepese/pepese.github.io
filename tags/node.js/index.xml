@@ -6,7 +6,18 @@
     <description>Recent content in node.js on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 04 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>すべての**envを管理するanyenv</title>
+      <link>https://blog.pepese.com/anyenv/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/anyenv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
+「すべて」は言い過ぎかも。&lt;br&gt;
+インストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>形態素解析システムMeCab入門</title>
       <link>https://blog.pepese.com/python-mecab-basics/</link>
@@ -127,17 +138,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       <guid>https://blog.pepese.com/mean-stack-basics/</guid>
       <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
 と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>すべての**envを管理するanyenv</title>
-      <link>https://blog.pepese.com/anyenv/</link>
-      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/anyenv/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
-「すべて」は言い過ぎた。&lt;br&gt;
-以降、anyenv、**env のインストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -220,7 +220,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2017-07-05
+                            2022-03-27
                             
                             
                             
@@ -247,21 +247,20 @@
 
                 
                 <p><a href="https://github.com/riywo/anyenv">anyenv</a>は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。<br>
-「すべて」は言い過ぎた。<br>
-以降、anyenv、**env のインストールから簡単な使い方まで記載する。</p>
-<h1 id="anyenv-のインストールアップデートアンインストール">anyenv のインストール・アップデート・アンインストール</h1>
-<p>基本は<a href="https://github.com/riywo/anyenv">公式</a>を見て欲しいが、ここでは本ブログ作成日におけるMac環境へのインストールについて記載する。<br>
-以下、anyenvのインストール方法。</p>
-<h2 id="homebrew">Homebrew</h2>
+「すべて」は言い過ぎかも。<br>
+インストールから簡単な使い方まで記載する。</p>
+<h1 id="環境設定">環境設定</h1>
+<h2 id="homebrew-でインストール">Homebrew でインストール</h2>
 <p>Homebrew にも対応した模様。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install anyenv
 </span></span><span style="display:flex;"><span>$ anyenv init
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
-</span></span></code></pre></div><h2 id="manual-git-checkout">Manual git checkout</h2>
+</span></span></code></pre></div><h2 id="マニュアルインストール">マニュアルインストール</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/riywo/anyenv ~/.anyenv
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;export PATH=&#34;$HOME/.anyenv/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
+</span></span><span style="display:flex;"><span>$ anyenv init
 </span></span></code></pre></div><p>anyenv自身のアップデートは上記の通りGithubからcloneしているだけなので、 <code>git pull origin master</code> すればいいだけだと思う。<br>
 アンインストールは <code>rm -fR ~/.anyenv</code> 。ただし、プロファイルに設定したanyenvへのパス削除を忘れずに。</p>
 <h1 id="プラグインのインストール">プラグインのインストール</h1>
@@ -388,13 +387,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/angular-router-cognito/" data-toggle="tooltip" data-placement="top" title="Cognitoを使ってユーザ認証して画面遷移するAngularアプリ">&larr;
+                        <a href="/asdf-basics/" data-toggle="tooltip" data-placement="top" title="マルチランタイムバージョン管理ツールasdf">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/python-ml-datasets/" data-toggle="tooltip" data-placement="top" title="Pythonで機械学習 データセット編">Next
+                        <a href="/vscode-basics/" data-toggle="tooltip" data-placement="top" title="Visual Studio Code入門">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -454,6 +453,10 @@
                         
                         
                         
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
                         
                         
                         
@@ -646,6 +649,10 @@
                         
                         
                         
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
                         
                         
                         

@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="HomebrewはMacで利用できるソフトウェアパッケージマネージャ。">
+    <meta property="og:description" content="HomebrewはMacで利用できるソフトウェアパッケージマネージャ。" />
+    <meta property="twitter:description" content="HomebrewはMacで利用できるソフトウェアパッケージマネージャ。" />
     
 
     
@@ -32,7 +32,7 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="Mac, Homebrew, brew">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -200,7 +200,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2017-05-09
+                            2022-03-27
                             
                             
                             
@@ -231,29 +231,28 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
 インストールから使い方までまとめてみる。</p>
 <h1 id="環境設定">環境設定</h1>
 <h2 id="インストール">インストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ /usr/bin/ruby -e <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">”
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">==&gt; This script will install:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/bin/brew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/doc/homebrew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/man/man1/brew.1
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/zsh/site-functions/_brew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/etc/bash_completion.d/brew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Homebrew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">==&gt; The following new directories will be created:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Cellar
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Homebrew
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/Frameworks
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/bin
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/include
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/lib
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/opt
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/sbin
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/zsh
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">/usr/local/share/zsh/site-functions
-</span></span></span></code></pre></div><p>上記を実行後、 <code>brew doctor</code> で問題がないことを確認。<br>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ /bin/bash -c <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">==</span>&gt; This script will install:
+</span></span><span style="display:flex;"><span>/usr/local/bin/brew
+</span></span><span style="display:flex;"><span>/usr/local/share/doc/homebrew
+</span></span><span style="display:flex;"><span>/usr/local/share/man/man1/brew.1
+</span></span><span style="display:flex;"><span>/usr/local/share/zsh/site-functions/_brew
+</span></span><span style="display:flex;"><span>/usr/local/etc/bash_completion.d/brew
+</span></span><span style="display:flex;"><span>/usr/local/Homebrew
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">==</span>&gt; The following new directories will be created:
+</span></span><span style="display:flex;"><span>/usr/local/Cellar
+</span></span><span style="display:flex;"><span>/usr/local/Homebrew
+</span></span><span style="display:flex;"><span>/usr/local/Frameworks
+</span></span><span style="display:flex;"><span>/usr/local/bin
+</span></span><span style="display:flex;"><span>/usr/local/include
+</span></span><span style="display:flex;"><span>/usr/local/lib
+</span></span><span style="display:flex;"><span>/usr/local/opt
+</span></span><span style="display:flex;"><span>/usr/local/sbin
+</span></span><span style="display:flex;"><span>/usr/local/share/zsh
+</span></span><span style="display:flex;"><span>/usr/local/share/zsh/site-functions
+</span></span></code></pre></div><p>上記を実行後、 <code>brew doctor</code> で問題がないことを確認。<br>
 もしWarningが出たらメッセージに従って対処する。<br>
-筆者の場合はXcodeをインストールしてCommand Line Toolsをアップデートしたら解決した。<br>
-変更があるかもしれないので<a href="http://brew.sh/index_ja.html">公式</a>を確認のこと。</p>
+筆者の場合はXcodeをインストールしてCommand Line Toolsをアップデートしたら解決した。</p>
 <ul>
 <li><code>/usr/local/Cellar/</code>
 <ul>
@@ -267,23 +266,27 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
 </li>
 </ul>
 <h2 id="homebrew-のアップデート">Homebrew のアップデート</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew update
 </span></span></code></pre></div><h2 id="ソフトウェアのインストール">ソフトウェアのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install &lt;software&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install &lt;software&gt;
 </span></span></code></pre></div><h2 id="ソフトウェアの更新">ソフトウェアの更新</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew upgrade &lt;software&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 特定のソフトウェア</span>
+</span></span><span style="display:flex;"><span>$ brew upgrade &lt;software&gt;
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Homebrew で導入した全てのソフトウェア</span>
+</span></span><span style="display:flex;"><span>$ brew upgrade
 </span></span></code></pre></div><h2 id="キャッシュされている古いソフトウェアの削除">キャッシュされている古いソフトウェアの削除</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew cleanup
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew cleanup
 </span></span></code></pre></div><h1 id="brew-tap">brew tap</h1>
-<p>brew tap は、公式以外の formula を追加することのできる Homebrew のサブコマンド。<br>
+<p><code>brew tap</code> は、公式以外の formula を追加することのできる Homebrew のサブコマンド。<br>
 Homebrewをインストールした際に標準で組み込まれている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap &lt;userName&gt;/&lt;repository&gt;
-</span></span></code></pre></div><p>上記コマンドを実行すると、GitHub 公開リポジトリ (<a href="https://github.com/">https://github.com/</a><userName>/homebrew-<repository>) が参照され、/usr/local/Library/Taps以下にインストールされる。<br>
-<code>brew tap</code> コマンドでこれまでにインストールされたソフトウェアの一覧が見れる。<br>
+</span></span></code></pre></div><p>上記コマンドを実行すると、GitHub 公開リポジトリ (<a href="https://github.com/">https://github.com/</a><userName>/homebrew-<repository>) が参照され、 <code>/usr/local/Library/Taps</code> 以下にインストールされる。<br>
+<code>brew tap</code> コマンドでこれまでにインストールされたリポジトリの一覧が表示される。<br>
 また、 <code>brew tap &lt;url&gt;</code> コマンドでGitHub以外のソフトウェアもインストール可能。</p>
 <h1 id="brew-cask">brew cask</h1>
-<p>brewやbrew tapでソフトウェアをインストールする際、目的のソフトウェアを動かすには依存するその他のソフトウェアをインストールする必要がある場合がある。<br>
-そんなときbrew caskを使用すると目的のソフトウェアをインストールするだけで依存するソフトウェアもインストールしてくれる。<br>
+<p><code>brew cask</code> はコマンドからオプション（ <code>brew --cask</code> ）に変更になっている。<br>
+<code>brew</code> や <code>brew tap</code> でソフトウェアをインストールする際、目的のソフトウェアを動かすには依存するその他のソフトウェアをインストールする必要がある場合がある。<br>
+そんなとき Cask を使用すると目的のソフトウェアをインストールするだけで依存するソフトウェアもインストールしてくれる。<br>
 さらにGoogle ChromeやAtomといったソフトのインストールも可能となる。</p>
 <ul>
 <li><code>/usr/local/Caskroom/</code>
@@ -297,17 +300,6 @@ Homebrewをインストールした際に標準で組み込まれている。</p
 </ul>
 </li>
 </ul>
-<h2 id="インストール-1">インストール</h2>
-<p>brew tapでインストールする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap caskroom/cask
-</span></span></code></pre></div><p>caskで扱えるソフトウェアのバージョンを増やすために下記も導入しておく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap caskroom/versions
-</span></span></code></pre></div><p>変更があるかもしれないので<a href="https://caskroom.github.io">cask公式</a>、<a href="https://github.com/caskroom/homebrew-versions">versions公式</a>を参照。</p>
-<h2 id="使い方">使い方</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew cask search &lt;software&gt;
-</span></span><span style="display:flex;"><span>$ brew cask install &lt;software&gt;
-</span></span><span style="display:flex;"><span>$ brew cask uninstall &lt;software&gt;
-</span></span></code></pre></div><p>その他のコマンドは<a href="https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md">ここ</a>。</p>
 
                 
 
@@ -315,7 +307,7 @@ Homebrewをインストールした際に標準で組み込まれている。</p
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/hexo-github-pages/" data-toggle="tooltip" data-placement="top" title="Hexoで作ったブログをGithub Pagesで公開">&larr;
+                        <a href="/mac-dev-environment/" data-toggle="tooltip" data-placement="top" title="Macで開発環境を作る">&larr;
                             Previous Post</a>
                     </li>
                     
@@ -381,6 +373,10 @@ Homebrewをインストールした際に標準で組み込まれている。</p
                         
                         
                         
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
                         
                         
                         
@@ -573,6 +569,10 @@ Homebrewをインストールした際に標準で組み込まれている。</p
                         
                         
                         
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
                         
                         
                         
