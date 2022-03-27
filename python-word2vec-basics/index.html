@@ -237,7 +237,7 @@
 <h1 id="コマンドで-word2vec">コマンドで word2vec</h1>
 <h2 id="導入">導入</h2>
 <p>Macでの導入方法。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/svn2github/word2vec.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/svn2github/word2vec.git
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> word2vec/
 </span></span><span style="display:flex;"><span>$ make
 </span></span><span style="display:flex;"><span>gcc word2vec.c -o word2vec -lm -pthread -O3 -march<span style="color:#ff79c6">=</span>native -Wall -funroll-loops -Wno-unused-result
@@ -250,11 +250,11 @@
 </span></span><span style="display:flex;"><span>make: *** <span style="color:#ff79c6">[</span>distance<span style="color:#ff79c6">]</span> Error <span style="color:#bd93f9">1</span>
 </span></span></code></pre></div><p>Mac では上記の通りエラーが発生する。<br>
 Mac では <code>&lt;malloc.h&gt;</code> ではなく <code>&lt;stdlib.h&gt;</code> を使用するので以下を実行してから make する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sed -ie <span style="color:#f1fa8c">&#39;s/#include &lt;malloc.h&gt;/#include &lt;stdlib.h&gt;/g&#39;</span> *.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sed -ie <span style="color:#f1fa8c">&#39;s/#include &lt;malloc.h&gt;/#include &lt;stdlib.h&gt;/g&#39;</span> *.c
 </span></span></code></pre></div><p>なお、コンパイルして作成した <code>word2vec</code> などのコマンドは <code>make</code> を実行したカレントに作成されており、パスは通っていない。</p>
 <h2 id="実行">実行</h2>
 <p>動作確認用の <code>./demo-word.sh</code> を実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install wget
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install wget
 </span></span><span style="display:flex;"><span>$ brew install gzip
 </span></span><span style="display:flex;"><span>$ ./demo-word.sh
 </span></span><span style="display:flex;"><span>$ ./distance vectors.bin
@@ -291,12 +291,12 @@ Mac では <code>&lt;malloc.h&gt;</code> ではなく <code>&lt;stdlib.h&gt;</co
 </li>
 </ul>
 <h2 id="日本語学習済みモデル">日本語学習済みモデル</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ wget http://www.cl.ecei.tohoku.ac.jp/~m-suzuki/jawiki_vector/data/20170201.tar.bz2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wget http://www.cl.ecei.tohoku.ac.jp/~m-suzuki/jawiki_vector/data/20170201.tar.bz2
 </span></span><span style="display:flex;"><span>$ tar xf 20170201.tar.bz2
 </span></span><span style="display:flex;"><span>$ ./distance <span style="color:#bd93f9">20170201</span>
 </span></span></code></pre></div><h2 id="日本語のコーパス">日本語のコーパス</h2>
 <p>青空文庫</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install nkf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install nkf
 </span></span><span style="display:flex;"><span>$ wget http://www.aozora.gr.jp/cards/001847/files/57347_ruby_57225.zip
 </span></span><span style="display:flex;"><span>$ unzip 57347_ruby_57225.zip
 </span></span><span style="display:flex;"><span>$ nkf -g rojinto_umi.txt
@@ -320,23 +320,23 @@ Mac では <code>&lt;malloc.h&gt;</code> ではなく <code>&lt;stdlib.h&gt;</co
 <h2 id="コーパスの収集して学習実行する">コーパスの収集して学習・実行する</h2>
 <p>コーパスとして Wikipedia のデータを使用する。<br>
 word2vec へのインプットとして上記のコーパスが分かち書きされた 1つのテキストデータを作成する必要がある。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ nohup wget https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-pages-articles.xml.bz2 &amp;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nohup wget https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-pages-articles.xml.bz2 &amp;
 </span></span><span style="display:flex;"><span>$ less nohup.out
 </span></span><span style="display:flex;"><span>Redirecting output to ‘wget-log’.
 </span></span><span style="display:flex;"><span>$ tail -f wget-log
 </span></span></code></pre></div><p>上記で取得したデータは XMLファイルなので、テキストファイルに整形する必要がある。<br>
 <code>wp2txt</code> という Ruby 系のツールを使用する。<br>
 インストールは以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gem install wp2txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ gem install wp2txt
 </span></span></code></pre></div><p>実行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir jawiki-latest-pages-articles
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir jawiki-latest-pages-articles
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> jawiki-latest-pages-articles
 </span></span><span style="display:flex;"><span>$ wp2txt --input-file ../jawiki-latest-pages-articles.xml.bz2
 </span></span></code></pre></div><p>出力されたファイルを結合して分かち書きファイルを作成する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> ..
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> ..
 </span></span><span style="display:flex;"><span>$ cat jawiki-latest-pages-articles/*.txt | mecab -Owakati &gt; jawiki-latest-pages-articles-wakati-ipadic.txt
 </span></span></code></pre></div><p>コーパスを使って学習する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">time</span> ./word2vec -train jawiki-latest-pages-articles-wakati-ipadic.txt -output jawiki-latest-pages-articles-wakati-ipadic.bin -size <span style="color:#bd93f9">200</span> -window <span style="color:#bd93f9">5</span> -sample 1e-3 -negative <span style="color:#bd93f9">5</span> -hs <span style="color:#bd93f9">0</span> -binary <span style="color:#bd93f9">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">time</span> ./word2vec -train jawiki-latest-pages-articles-wakati-ipadic.txt -output jawiki-latest-pages-articles-wakati-ipadic.bin -size <span style="color:#bd93f9">200</span> -window <span style="color:#bd93f9">5</span> -sample 1e-3 -negative <span style="color:#bd93f9">5</span> -hs <span style="color:#bd93f9">0</span> -binary <span style="color:#bd93f9">1</span>
 </span></span></code></pre></div><p>オプションは以下。（ <code>$ ./word2vec</code> コマンドで表示される）</p>
 <ul>
 <li>-train
@@ -429,10 +429,10 @@ word2vec へのインプットとして上記のコーパスが分かち書き�
 </li>
 </ul>
 <p>以下で学習データを使って実行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ./distance jawiki-latest-pages-articles-wakati-ipadic.bin
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./distance jawiki-latest-pages-articles-wakati-ipadic.bin
 </span></span><span style="display:flex;"><span>Enter word or sentence <span style="color:#ff79c6">(</span>EXIT to <span style="color:#8be9fd;font-style:italic">break</span><span style="color:#ff79c6">)</span>:
 </span></span></code></pre></div><h1 id="pythonで-word2vec">Pythonで word2vec</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install gensim
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install gensim
 </span></span></code></pre></div><p>学習の実装は以下。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># -*- coding: utf-8 -*-</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> gensim.models <span style="color:#ff79c6">import</span> word2vec
@@ -457,7 +457,7 @@ word2vec へのインプットとして上記のコーパスが分かち書き�
 </span></span><span style="display:flex;"><span>model <span style="color:#ff79c6">=</span> word2vec<span style="color:#ff79c6">.</span>Word2Vec<span style="color:#ff79c6">.</span>load(<span style="color:#f1fa8c">&#34;jawiki_wakati.model&#34;</span>)
 </span></span><span style="display:flex;"><span>argvs <span style="color:#ff79c6">=</span> sys<span style="color:#ff79c6">.</span>argv
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span> model<span style="color:#ff79c6">.</span>similarity(argvs[<span style="color:#bd93f9">1</span>], argvs[<span style="color:#bd93f9">2</span>])
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ python similarity.py 日本 フィリピン
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python similarity.py 日本 フィリピン
 </span></span></code></pre></div><p>単語のベクトルを出力する実装は以下。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># -*- coding: utf-8 -*-</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> gensim.models <span style="color:#ff79c6">import</span> word2vec

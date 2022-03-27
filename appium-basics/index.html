@@ -241,17 +241,17 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
 <h1 id="環境設定">環境設定</h1>
 <p>Homebrew 、 Java 1.8 の導入は省略している。</p>
 <h2 id="appium">Appium</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew update
 </span></span><span style="display:flex;"><span>$ brew install node
 </span></span><span style="display:flex;"><span>$ npm install --global appium appium-doctor wd
 </span></span></code></pre></div><p>Appium は以下で起動。<br>
 後述の appium-desktop を使用せず、 Appium のテストコードだけ実行する場合はこれ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ appium &amp;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ appium &amp;
 </span></span></code></pre></div><h2 id="ios">iOS</h2>
 <p>Xcode を App Store でインストールしてから以下を実行。<br>
 また、 <code>brew install carthage</code> を実行する際、権限不足で <code>/usr/local/Frameworks</code> ディレクトリ作成に失敗する。<br>
 そのため、 <code>brew link carthage</code> に失敗するので、あらかじめディレクトリを作ってあげてからインストールする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo mkdir /usr/local/Frameworks
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo mkdir /usr/local/Frameworks
 </span></span><span style="display:flex;"><span>$ sudo chown -R <span style="color:#ff79c6">$(</span>whoami<span style="color:#ff79c6">)</span>:admin /usr/local/Frameworks
 </span></span><span style="display:flex;"><span>$ brew install carthage
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># $ brew link carthage</span>
@@ -279,11 +279,11 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
 </ol>
 <p>iOS 実機へ WebDriver をインストールするコマンドは以下。<br>
 （なお、筆者は実機で試していない、、、）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ xcodebuild build <span style="color:#8be9fd;font-style:italic">test</span> -project /usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination <span style="color:#8be9fd;font-style:italic">id</span><span style="color:#ff79c6">=</span>xxxx -configuration Debug
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xcodebuild build <span style="color:#8be9fd;font-style:italic">test</span> -project /usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination <span style="color:#8be9fd;font-style:italic">id</span><span style="color:#ff79c6">=</span>xxxx -configuration Debug
 </span></span></code></pre></div><h2 id="android">Android</h2>
 <p>Android 開発環境の構築方法については <a href="https://blog.pepese.com/android-env-on-mac/">Androidアプリ入門 Macで環境構築編</a> を参照。<br>
 以下のコマンドで正しく環境構築されたか確認する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ appium-doctor --android
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ appium-doctor --android
 </span></span></code></pre></div><h3 id="エミュレータ">エミュレータ</h3>
 <p>Android エミュレータは iOS シミュレータと異なり、エミュレータを手で作る必要がある。<br>
 （また、各種ツール類を導入する必要がある？）</p>
@@ -316,7 +316,7 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
 <h4 id="コマンド">コマンド</h4>
 <p>かつては <code>android</code> コマンドであったが、 <code>sdkmanager</code> と <code>avdmanager</code> に移行された。<br>
 以下はメモ程度。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sdkmanager --list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sdkmanager --list
 </span></span><span style="display:flex;"><span>$ sdkmanager <span style="color:#f1fa8c">&#34;system-images;android-25;google_apis;armeabi-v7a&#34;</span>
 </span></span><span style="display:flex;"><span>$ avdmanager create avd -n <span style="color:#8be9fd;font-style:italic">test</span> -k <span style="color:#f1fa8c">&#34;system-images;android-25;google_apis;armeabi-v7a&#34;</span>
 </span></span><span style="display:flex;"><span>$ avdmanager list avd
@@ -438,13 +438,13 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
 <p>サンプルアプリとサンプルテストコードで Appium の自動テストを動かしてみる。</p>
 <h2 id="ios-1">iOS</h2>
 <p>コマンドラインの iOS ビルドツールの準備。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ xcode-select --install
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xcode-select --install
 </span></span><span style="display:flex;"><span>$ sudo xcode-select --switch /Applications/Xcode.app
 </span></span><span style="display:flex;"><span>$ xcodebuild -version
 </span></span><span style="display:flex;"><span>Xcode 9.2
 </span></span><span style="display:flex;"><span>Build version 9C40b
 </span></span></code></pre></div><p>サンプルアプリとテストコードを取得してセットアップ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/appium/sample-code
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/appium/sample-code
 </span></span><span style="display:flex;"><span>$ git clone https://github.com/appium/ios-test-app
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> ios-test-app
 </span></span><span style="display:flex;"><span>$ xcodebuild -sdk iphonesimulator
@@ -453,7 +453,7 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> sample-code/sample-code/examples/python
 </span></span></code></pre></div><p><code>xcodebuild -version -sdk</code> コマンドで <code>PlatformVersion</code> を確認し、 <code>ios_simple.py</code> ファイルの 20 行目あたりの <code>PlatformVersion</code> を書き直す。<br>
 別ターミナルを起動し <code>appium &amp;</code> コマンドで Appium を起動してから以下を実行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ py.test ios_simple.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ py.test ios_simple.py
 </span></span></code></pre></div><h3 id="appium-desktop-との接続">appium-desktop との接続</h3>
 <p>シミュレータ上のサンプルアプリと appium-desktop を接続する際、 Capability には以下を設定する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
@@ -466,7 +466,7 @@ Appium の背後には iOS 用, Android 用, Win 用などのドライバがあ�
 </span></span></code></pre></div><h2 id="android-1">Android</h2>
 <p>エミュレータは起動しておく。<br>
 iOS のテストを実行した後のテイで書く。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ py.test android_simple.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ py.test android_simple.py
 </span></span></code></pre></div><p>動かなかった。<br>
 以下の記事を参考のこと。</p>
 <ul>

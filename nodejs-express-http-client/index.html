@@ -263,7 +263,7 @@
 </ul>
 <h1 id="環境設定">環境設定</h1>
 <p>先の記事で紹介したプロジェクトにて以下を実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn add request
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn add request
 </span></span></code></pre></div><h1 id="実装">実装</h1>
 <ul>
 <li><code>app/controllers/get_ip.js</code>
@@ -327,7 +327,7 @@
 <h1 id="promise">Promise</h1>
 <p>コールバック地獄を避けたい人は <a href="https://github.com/request/request-promise">request-promise</a> を使うと簡単に非同期 bluebird 版 Promise を実現できる。</p>
 <h2 id="導入">導入</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn add request-promise
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn add request-promise
 </span></span></code></pre></div><h2 id="実装-appcontrollersget_ip_promisejs">実装 <code>app/controllers/get_ip_promise.js</code></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> request <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;request-promise&#39;</span>);
 </span></span><span style="display:flex;"><span>

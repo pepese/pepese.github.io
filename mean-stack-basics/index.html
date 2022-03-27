@@ -244,7 +244,7 @@
 <h2 id="angular-cli">Angular CLI</h2>
 <p>Angular CLI のインストール。<br>
 パッケージ管理ツールを <code>npm</code> から <code>yarn</code> へ変更。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install -g @angular/cli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install -g @angular/cli
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span><span style="display:flex;"><span>$ ng <span style="color:#8be9fd;font-style:italic">set</span> --global <span style="color:#8be9fd;font-style:italic">packageManager</span><span style="color:#ff79c6">=</span>yarn
 </span></span><span style="display:flex;"><span>$ ng version
@@ -279,7 +279,7 @@
 <h2 id="フロントエンド">フロントエンド</h2>
 <h3 id="angular-cliでプロジェクト作成">Angular CLIでプロジェクト作成</h3>
 <p>SCSSベースで <code>mean-sample</code> というプロジェクト名で作成。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng new mean-sample --style<span style="color:#ff79c6">=</span>scss
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ng new mean-sample --style<span style="color:#ff79c6">=</span>scss
 </span></span><span style="display:flex;"><span>installing ng
 </span></span><span style="display:flex;"><span>  create .editorconfig
 </span></span><span style="display:flex;"><span>  create README.md
@@ -316,7 +316,7 @@
 </span></span><span style="display:flex;"><span>Project <span style="color:#f1fa8c">&#39;mean-sample&#39;</span> successfully created.
 </span></span></code></pre></div><p><code>yarn</code> で作成されていることを確認する。<br>
 また、下記の通りプロジェクトディレクトリに移動して、導入されている Angular のバージョンを確認する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> mean-sample
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> mean-sample
 </span></span><span style="display:flex;"><span>$ ng version
 </span></span><span style="display:flex;"><span>_                      _                 ____ _     ___
 </span></span><span style="display:flex;"><span>/ <span style="color:#f1fa8c">\ </span>  _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
@@ -342,7 +342,7 @@
 </span></span><span style="display:flex;"><span>@angular/language-service: 4.3.4
 </span></span></code></pre></div><p>以下で Bootstrap を導入する。<br>
 なお、 Bootstrap4-beta は jquery と popper.js に依存する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn add ngx-bootstrap bootstrap@4.0.0-beta jquery@3.2.1 popper.js@1.11.1 --save
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn add ngx-bootstrap bootstrap@4.0.0-beta jquery@3.2.1 popper.js@1.11.1 --save
 </span></span></code></pre></div><h3 id="angular-clijson-修正">angular-cli.json 修正</h3>
 <p>bootstrapのcss/js、jquery/popper.jsのjsを追加。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#6272a4">// 省略

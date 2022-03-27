@@ -529,7 +529,7 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 <p><a href="http://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html">公式ドキュメント</a></p>
 <h2 id="環境設定">環境設定</h2>
 <p><strong>pip</strong> が導入されている前提で書く。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install awscli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install awscli
 </span></span><span style="display:flex;"><span>$ aws configure
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># アクセスキー、シークレットキーなどを入力する</span>
 </span></span></code></pre></div><h2 id="テーブル定義">テーブル定義</h2>
@@ -562,22 +562,22 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 </tbody>
 </table>
 <h2 id="createtable">CreateTable</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ aws dynamodb create-table <span style="color:#f1fa8c">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws dynamodb create-table <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --attribute-definitions <span style="color:#f1fa8c">&#39;[{&#34;AttributeName&#34;:&#34;test_hash&#34;,&#34;AttributeType&#34;:&#34;S&#34;},{&#34;AttributeName&#34;:&#34;test_range&#34;,&#34;AttributeType&#34;:&#34;S&#34;}]&#39;</span> <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --table-name <span style="color:#f1fa8c">&#39;test_table&#39;</span> <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --key-schema <span style="color:#f1fa8c">&#39;[{&#34;AttributeName&#34;:&#34;test_hash&#34;,&#34;KeyType&#34;:&#34;HASH&#34;},{&#34;AttributeName&#34;:&#34;test_range&#34;,&#34;KeyType&#34;:&#34;RANGE&#34;}]&#39;</span> <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --provisioned-throughput <span style="color:#f1fa8c">&#39;{&#34;ReadCapacityUnits&#34;:5,&#34;WriteCapacityUnits&#34;:5}&#39;</span>
 </span></span></code></pre></div><h2 id="deletetable">DeleteTable</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ aws dynamodb delete-table <span style="color:#f1fa8c">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws dynamodb delete-table <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --table-name <span style="color:#f1fa8c">&#39;test_table&#39;</span>
 </span></span></code></pre></div><h2 id="listtables">ListTables</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ aws dynamodb list-tables
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws dynamodb list-tables
 </span></span></code></pre></div><h2 id="putitem">PutItem</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ aws dynamodb put-item <span style="color:#f1fa8c">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws dynamodb put-item <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --table-name <span style="color:#f1fa8c">&#39;test_table&#39;</span> <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --item <span style="color:#f1fa8c">&#39;{&#34;test_hash&#34;:{&#34;S&#34;:&#34;xxxxx&#34;},&#34;test_range&#34;:{&#34;S&#34;:&#34;yyyyy&#34;},&#34;test_value&#34;:{&#34;S&#34;:&#34;zzzzz&#34;}}&#39;</span>
 </span></span></code></pre></div><h2 id="getitem">GetItem</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ aws dynamodb get-item <span style="color:#f1fa8c">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws dynamodb get-item <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --table-name <span style="color:#f1fa8c">&#39;test_table&#39;</span> <span style="color:#f1fa8c">\
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --key <span style="color:#f1fa8c">&#39;{&#34;test_hash&#34;:{&#34;S&#34;:&#34;xxxxx&#34;},&#34;test_range&#34;:{&#34;S&#34;:&#34;yyyyy&#34;}}&#39;</span>
 </span></span></code></pre></div>

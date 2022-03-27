@@ -244,7 +244,7 @@ v8.3.0で <strong>99%</strong> カバーしている。</p>
 </ul>
 <h2 id="ndenv">ndenv</h2>
 <p>上記の手順でNode.jsを導入した場合、Node.jsのバージョンを <code>ndenv</code> でコントロールする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ndenv install -l <span style="color:#6272a4"># インストールできるNode.jsのバージョン確認</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv install -l <span style="color:#6272a4"># インストールできるNode.jsのバージョン確認</span>
 </span></span><span style="display:flex;"><span>$ ndenv install v8.3.0 <span style="color:#6272a4"># バージョンを指定してインストール</span>
 </span></span><span style="display:flex;"><span>$ ndenv versions <span style="color:#6272a4"># インストールされたことを確認</span>
 </span></span><span style="display:flex;"><span>$ ndenv global v8.3.0 <span style="color:#6272a4"># バージョンを切り替え</span>
@@ -255,12 +255,12 @@ v8.3.0で <strong>99%</strong> カバーしている。</p>
 </span></span></code></pre></div><h1 id="npmの使い方">npmの使い方</h1>
 <p>公式ドキュメントは<a href="https://docs.npmjs.com">ここ</a>。<br>
 プロキシの設定が必要な場合は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm config <span style="color:#8be9fd;font-style:italic">set</span> proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm config <span style="color:#8be9fd;font-style:italic">set</span> proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;
 </span></span><span style="display:flex;"><span>$ npm config <span style="color:#8be9fd;font-style:italic">set</span> https-proxy http://&lt;username&gt;:&lt;password&gt;@&lt;proxy-host&gt;:&lt;proxy-port&gt;
 </span></span></code></pre></div><h2 id="プロジェクトの作成">プロジェクトの作成</h2>
 <p>任意のディレクトリを作成して <code>npm init</code> を実行すると <code>package.json</code> が作成され、プロジェクトとなる。<br>
 いろいろ聞かれるが、全部Enterで問題無い。あとで変更可能。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir nodejs-sample
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir nodejs-sample
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> nodejs-sample
 </span></span><span style="display:flex;"><span>$ npm init
 </span></span></code></pre></div><p><code>package.json</code> はMavenでいう <code>pom.xml</code> みたいなもの。（Javaの人向けでごめん）</p>
@@ -350,7 +350,7 @@ $ npm bin -g
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> hello <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;./hello.js&#39;</span>);
 </span></span><span style="display:flex;"><span>console.log(hello.sayHello());
 </span></span></code></pre></div><p>上記JSファイルを作成して下記を実行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ node main.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node main.js
 </span></span><span style="display:flex;"><span>Hello World !
 </span></span></code></pre></div><p><code>node &lt;JSファイル&gt;</code> コマンドで実行できる。</p>
 <h2 id="httpサーバ">HTTPサーバ</h2>
@@ -363,12 +363,12 @@ $ npm bin -g
 </span></span><span style="display:flex;"><span>}).listen(<span style="color:#bd93f9">1337</span>, <span style="color:#f1fa8c">&#34;127.0.0.1&#34;</span>);
 </span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Server running at http://127.0.0.1:1337/&#39;</span>);
 </span></span></code></pre></div><p>下記を実行してブラウザで <code>http://127.0.0.1:1337/</code> へアクセスすると「Hello World !」と表示される。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ node app.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node app.js
 </span></span></code></pre></div><p><code>Ctr+C</code> でサービスを停止できる。<br>
 この方法でHTTPサービスを起動した場合、ロジックでエラーが発生するとプロセスが終了する。<br>
 エラーが発生してもプロセスが終了しないようにする方法の１つとして <strong>forever</strong> の導入がある。</p>
 <p>■foreverのインストール、起動、停止</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install -g forever
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install -g forever
 </span></span><span style="display:flex;"><span>$ forever start app.js
 </span></span><span style="display:flex;"><span>$ forever stop app.js
 </span></span></code></pre></div><h2 id="nodejsに関する話題">Node.jsに関する話題</h2>

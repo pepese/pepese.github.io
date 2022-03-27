@@ -232,7 +232,7 @@
 <li><a href="https://blog.pepese.com/mac-dev-environment/">https://blog.pepese.com/mac-dev-environment/</a></li>
 </ul>
 <h1 id="hexoのインストールから起動まで">Hexoのインストールから起動まで</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install -g hexo-cli --no-optional // インストール
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install -g hexo-cli --no-optional // インストール
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span><span style="display:flex;"><span>$ hexo -version                         // 確認
 </span></span><span style="display:flex;"><span>hexo: 3.3.8
@@ -257,7 +257,7 @@
 </span></span><span style="display:flex;"><span>INFO  Start processing
 </span></span><span style="display:flex;"><span>INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 </span></span></code></pre></div><p>筆者がインストールした時（2017/05/02）は、 <strong>&ndash;no-optional</strong> オプション無しだと <strong>Error: Cannot find module ./build/default/DTraceProviderBindings</strong> というエラーがでた。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tree
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tree
 </span></span><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>├── _config.yml
 </span></span><span style="display:flex;"><span>├── package.json
@@ -286,7 +286,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 〜（省略）〜</span>
 </span></span></code></pre></div><p><a href="https://hexo.io/docs/configuration.html">設定ファイルの公式ドキュメント</a></p>
 <h2 id="記事の作成">記事の作成</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hexo new <span style="color:#ff79c6">[</span>layout<span style="color:#ff79c6">]</span> &lt;title&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hexo new <span style="color:#ff79c6">[</span>layout<span style="color:#ff79c6">]</span> &lt;title&gt;
 </span></span></code></pre></div><p><strong>layout</strong> には <strong>post</strong> 、 <strong>page</strong> 、 <strong>draft</strong> の3種類あり、それぞれ以下のように別のパスに作成される。</p>
 <table>
 <thead>
@@ -331,7 +331,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ff79c6">permalink</span>: :year/:month/:day/:id/
 </span></span></code></pre></div><p>記事の削除は、 <code>rm source/_post/title.md</code> などのコマンドで直接削除する。<br>
 ドラフトで作成していた記事は以下のコマンドで公開（つまりpostへ移動）される。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hexo publish <span style="color:#ff79c6">[</span>layout<span style="color:#ff79c6">]</span> &lt;title&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hexo publish <span style="color:#ff79c6">[</span>layout<span style="color:#ff79c6">]</span> &lt;title&gt;
 </span></span></code></pre></div><h3 id="マークダウンの書き方小ネタ">マークダウンの書き方小ネタ</h3>
 <ul>
 <li><code>&lt;!-- more --&gt;</code>
@@ -346,14 +346,14 @@
 </li>
 </ul>
 <h2 id="静的ファイルの生成">静的ファイルの生成</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hexo generate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hexo generate
 </span></span></code></pre></div><p>上記のコマンドで <code>public/</code> 配下に静的ファイル（HTTP/CSS/JS）が作成される。<br>
 後述のブログのデプロイ時には、 <code>public/</code> 配下のファイルが公開されることになる。</p>
 <h2 id="テーマの設定">テーマの設定</h2>
 <h3 id="テーマのインストール">テーマのインストール</h3>
 <p><code>themes/</code> ディレクトリ配下にテーマを配置する。<br>
 Githubで公開されているCasperを使用する場合は以下のように取得・配置する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/cgmartin/hexo-theme-bootstrap-blog.git themes/bootstrap-blog
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/cgmartin/hexo-theme-bootstrap-blog.git themes/bootstrap-blog
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># git clone [Githubリポジトリ] themes/[テーマ名]</span>
@@ -369,7 +369,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 〜（省略）〜</span>
 </span></span></code></pre></div><h3 id="テーマの編集">テーマの編集</h3>
 <p><code>themes/[テーマ名]/layout</code> 配下を編集することでタイトル、サイドバーメニュー等の編集が可能。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>└── themeName
 </span></span><span style="display:flex;"><span>    ├── _config.yml
 </span></span><span style="display:flex;"><span>    ├── gulpfile.js
@@ -391,11 +391,11 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span>    ├── package.json
 </span></span><span style="display:flex;"><span>    └── <span style="color:#8be9fd;font-style:italic">source</span>               <span style="color:#6272a4"># CSS/JSなどのアセット</span>
 </span></span></code></pre></div><p>ページヘッダやサイドバーなどに変更を加える場合、その際 <code>themes/[テーマ名]/layout/</code> 配下のファイルの変更を保持する必要があるので <code>.git/</code> を削除する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rm -fR themes/bootstrap-blog/.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rm -fR themes/bootstrap-blog/.git
 </span></span></code></pre></div><h1 id="ブログの公開">ブログの公開</h1>
 <h2 id="github-pagesへの公開">Github Pagesへの公開</h2>
 <p>以下のライブラリを導入する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install hexo-deployer-git --save --no-optional
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install hexo-deployer-git --save --no-optional
 </span></span></code></pre></div><p>さらに <strong>_config.yml</strong> に以下の設定を追加する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#6272a4"># Deployment</span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">## Docs: http://hexo.io/docs/deployment.html</span>
@@ -406,7 +406,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">message</span>: update
 </span></span></code></pre></div><p>なお、対応するGithubリポジトリは事前に作成しておくこと。<br>
 <code>$ hexo deploy</code> コマンドでGithubリポジトリに反映される。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hexo clean
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hexo clean
 </span></span><span style="display:flex;"><span>$ hexo generate
 </span></span><span style="display:flex;"><span>$ hexo deploy <span style="color:#6272a4"># これがデプロイコマンド</span>
 </span></span></code></pre></div><p>「 <strong><a href="https://pepese.github.io">https://pepese.github.io</a></strong> 」へアクセスするとブログがGithub Pagesとして公開されていることがわかる。</p>
@@ -493,7 +493,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 この設定を行うことで、レジストラサイトのDNSサーバではなく、CloudflareのDNSサーバが使用されるようになる。</p>
 <p><strong>(5)</strong> CNAMEファイルの作成</p>
 <p>以下のようにCNAMEファイルを作成する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;techblog.pepese.net&#39;</span> &gt; source/CNAME
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;techblog.pepese.net&#39;</span> &gt; source/CNAME
 </span></span></code></pre></div><p><strong>(6)</strong> Hexoの設定ファイル <code>_config.yml</code> の編集</p>
 <p>ドメイン変更に伴って設定を変更する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#6272a4"># 〜（省略）〜</span>
@@ -505,7 +505,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 〜（省略）〜</span>
 </span></span></code></pre></div><p><strong>(7)</strong> Github Pagesの更新</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rm -r public/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rm -r public/
 </span></span><span style="display:flex;"><span>$ hexo generate
 </span></span><span style="display:flex;"><span>$ hexo deploy
 </span></span></code></pre></div><p><strong>(8)</strong> その他のCloudflareの設定</p>
@@ -522,12 +522,12 @@ Githubで公開されているCasperを使用する場合は以下のように�
 <p>以上で「 <strong><a href="https://techblog.pepese.net">https://techblog.pepese.net</a></strong> 」へアクセスすると独自ドメインでブログが公開されていることがわかる。（ <strong>実際には公開していない</strong> ）</p>
 <h1 id="その他の設定やりたきことメモ">その他の設定、やりたきことメモ</h1>
 <h2 id="sitemapの作成">sitemapの作成</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install hexo-generator-sitemap --save --no-optional
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install hexo-generator-sitemap --save --no-optional
 </span></span></code></pre></div><p><code>_config.yml</code> に以下の設定を追加する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ff79c6">sitemap</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">path</span>: sitemap.xml
 </span></span></code></pre></div><h2 id="robotstxtの作成">robots.txtの作成</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install hexo-generator-robotstxt --save --no-optional
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install hexo-generator-robotstxt --save --no-optional
 </span></span></code></pre></div><p><code>_config.yml</code> に以下の設定を追加する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ff79c6">robotstxt</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">useragent</span>: <span style="color:#f1fa8c">&#34;*&#34;</span>
@@ -536,7 +536,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">allow</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">sitemap</span>: https://techblog.pepese.net/sitemap.xml
 </span></span></code></pre></div><h2 id="404ページの作成">404ページの作成</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ touch source/404.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ touch source/404.md
 </span></span></code></pre></div><p>上記のように <code>source/</code> 配下に <code>404.md</code> ファイルを作成し、下記のような感じで記述する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">title</span>: Not Found
@@ -546,7 +546,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span></code></pre></div><p>これで <code>$ hexo generate</code> を実行すると <code>404.html</code> が公開ディレクトリ直下に作成され、Github Pagesの機能で存在しないページへアクセスされた際に表示される。</p>
 <h2 id="google-adsenseの設置">Google Adsenseの設置</h2>
 <p>テーマディレクトリ配下に手を加えていく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir theme/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custome_ad
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir theme/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custome_ad
 </span></span><span style="display:flex;"><span>$ touch themes/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custom_ad/google_adsense.ejs
 </span></span></code></pre></div><p><code>google_adsense.ejs</code> ファイルを以下のように編集する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
@@ -563,7 +563,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 <p>Google AnalyticsのトラッキングID（ <strong>UA-xxxxxxxx-x</strong> ）を取得し、 <code>themes/[テーマ名]/_config.yml</code> ファイルに以下の設定を追加する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ff79c6">google_analytics</span>: UA-xxxxxxxx-x
 </span></span></code></pre></div><h2 id="amazonアソシエイトの設置">Amazonアソシエイトの設置</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ touch themes/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custom_ad/amazon_affiliate.ejs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ touch themes/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custom_ad/amazon_affiliate.ejs
 </span></span></code></pre></div><p><code>amazon_affiliate_side.ejs</code> ファイルを以下のように編集する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#6272a4">&lt;!-- Amazon --&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text/javascript&#34;</span>&gt;<span style="color:#6272a4">&lt;!--</span>
@@ -585,7 +585,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;twitter:description&#34;</span> <span style="color:#50fa7b">content</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ぺーぺーSEがプログラミング（Java、JavaScript、Python、Ruby）、クラウド（AWS）、Web構築などのメモを残すサイト。&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;twitter:creator&#34;</span> <span style="color:#50fa7b">content</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;@PeePeeSE&#34;</span>&gt;
 </span></span></code></pre></div><h3 id="フォローシェアボタンの設置">フォロー・シェアボタンの設置</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir theme/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custome_sns
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir theme/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custome_sns
 </span></span><span style="display:flex;"><span>$ touch themes/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custom_sns/twitter_follow.ejs
 </span></span><span style="display:flex;"><span>$ touch themes/<span style="color:#ff79c6">[</span>テーマ名<span style="color:#ff79c6">]</span>/layout/_custom_sns/twitter_share.ejs
 </span></span></code></pre></div><p><code>twitter_follow.ejs</code> ファイルを以下のように編集する。（IDは書き換えてね）</p>
@@ -601,13 +601,13 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">&lt;!-- twitter share button end --&gt;</span>
 </span></span></code></pre></div><p><code>themes/[テーマ名]/layout/layout.ejs</code> を直接編集してもよい。</p>
 <h2 id="画像の配置">画像の配置</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir source/images
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir source/images
 </span></span></code></pre></div><p>上記に画像ファイルを配置する。<br>
 以下のように任意の場所に張り付ける。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;../../images/xxx&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;画像の説明&#34;</span>&gt;
 </span></span></code></pre></div><p><strong>alt</strong> 属性はちゃんと書く。</p>
 <h2 id="rss-feedの設置">RSS Feedの設置</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install hexo-generator-feed --save --no-optional
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install hexo-generator-feed --save --no-optional
 </span></span></code></pre></div><p>以下のボタンを好きなところに配置。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&lt;%= config.url %&gt;/atom.xml&#34;</span> <span style="color:#50fa7b">title</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;RSS Feed&#34;</span>&gt;&lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;images/rss_32.png&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;RSSを購読する&#34;</span>&gt;&lt;/<span style="color:#ff79c6">a</span>&gt;
 </span></span></code></pre></div><p>画像（images/rss_32.png）は自分で準備する。</p>
@@ -630,7 +630,7 @@ Githubで公開されているCasperを使用する場合は以下のように�
 </ul>
 <h2 id="数式を表示できるようにする">数式を表示できるようにする</h2>
 <p>以下を実施することにより <strong>Tex</strong> による数式を表示できるようになる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install pandoc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install pandoc
 </span></span><span style="display:flex;"><span>$ npm install hexo-renderer-pandoc --save --no-optional
 </span></span><span style="display:flex;"><span>$ npm install hexo-renderer-mathjax --save --no-optional
 </span></span></code></pre></div><ul>

@@ -242,11 +242,11 @@
 <h1 id="構築">構築</h1>
 <h2 id="expressプロジェクトの作成">Expressプロジェクトの作成</h2>
 <p>プロジェクト作成は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir express-sample          // プロジェクトディレクトリの作成
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir express-sample          // プロジェクトディレクトリの作成
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> express-sample
 </span></span><span style="display:flex;"><span>$ npm init
 </span></span></code></pre></div><p>Angular CLI 等で既にプロジェクトを作成している場合は、上記は行わず以下から実行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm i -S express@5.0.0-alpha.6 body-parser cookie-parser debug morgan pug serve-favicon request fs file-stream-rotator node-sass-middleware
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm i -S express@5.0.0-alpha.6 body-parser cookie-parser debug morgan pug serve-favicon request fs file-stream-rotator node-sass-middleware
 </span></span><span style="display:flex;"><span>$ touch .gitignore
 </span></span><span style="display:flex;"><span>$ mkdir app                     // サーバサイドExpressアプリ用のソースディレクトリ作成
 </span></span><span style="display:flex;"><span>$ touch app/app.js              // Expressアプリケーション起動ポイントの作成
@@ -262,7 +262,7 @@
 </span></span><span style="display:flex;"><span>$ touch app/spec/.gitkeep
 </span></span></code></pre></div><p>Expressアプリケーションのソースディレクトリは <code>app/</code> だけで完結するようにする。<br>
 また、 forever を導入しておく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install -g forever
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install -g forever
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span></code></pre></div><p>さらに <code>.gitignore</code> に以下を追加しておく。</p>
 <pre tabindex="0"><code># Logs
@@ -277,14 +277,14 @@
 Thumbs.db
 </code></pre><h3 id="フロントエンドアプリケーションをプロジェクトに同梱する場合rest-apiアプリを作成する場合">フロントエンドアプリケーションをプロジェクトに同梱する場合、REST APIアプリを作成する場合</h3>
 <p>この場合、以下のようにディレクトリを作成する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir app/api           // REST API用のコントローラディレクトリ作成
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir app/api           // REST API用のコントローラディレクトリ作成
 </span></span><span style="display:flex;"><span>$ touch app/api/.gitkeep
 </span></span></code></pre></div><p>フロントエンドアプリケーションのトランスパイル結果は <code>express-sample/dist</code> に出力されるものとし、サーバサイドアプリケーション（ <code>express-sample/app</code> ）は <code>express-sample/dist</code> をExpressの公開ディレクトリとする。<br>
 フロントエンドアプリケーションは <code>app/api</code> に実装したAPIにアクセスする。</p>
 <h3 id="フロントエンドアプリケーションをプロジェクトに同梱せずexpressからテンプレートエンジンviewを使用する場合">フロントエンドアプリケーションをプロジェクトに同梱せず、ExpressからテンプレートエンジンVIEWを使用する場合</h3>
 <p>この場合、以下のようにディレクトリを作成する。<br>
 なお、 SCSS を使用する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir app/controllers                  // VIEW用のコントローラディレクトリ作成
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir app/controllers                  // VIEW用のコントローラディレクトリ作成
 </span></span><span style="display:flex;"><span>$ touch app/controllers/.gitkeep
 </span></span><span style="display:flex;"><span>$ mkdir app/views                        // 画面・テンプレート（Pugなど）用のディレクトリ作成
 </span></span><span style="display:flex;"><span>$ touch app/views/.gitkeep

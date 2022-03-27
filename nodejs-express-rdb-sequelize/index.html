@@ -254,7 +254,7 @@
 </ul>
 <h1 id="環境設定">環境設定</h1>
 <p>先の記事で紹介したプロジェクトにて以下を実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn add sequelize sqlite3 morgan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn add sequelize sqlite3 morgan
 </span></span><span style="display:flex;"><span>$ mkdir app/db
 </span></span></code></pre></div><p><code>.gitignore</code> へ以下を追加。</p>
 <pre tabindex="0"><code>node_modules
@@ -350,7 +350,7 @@ app/db/*.sqlite
 </span></span><span style="display:flex;"><span>module.exports <span style="color:#ff79c6">=</span> get_clients;
 </span></span></code></pre></div><h1 id="実行">実行</h1>
 <p>以下で起動。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ node app/app.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node app/app.js
 </span></span></code></pre></div><p><code>http://localhost:3000</code> にブラウザでアクセスして Client 情報が見れたら成功。</p>
 <h1 id="association">Association</h1>
 <p>ちょっとハマったので、ここではモデル同士のリレーション・関連付けについて記載する。<br>

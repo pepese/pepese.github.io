@@ -266,14 +266,14 @@
 <p>ここでは Java と Maven のみ記載する。</p>
 <h1 id="環境設定">環境設定</h1>
 <h2 id="sdkman">SDKMAN</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -s <span style="color:#f1fa8c">&#34;https://get.sdkman.io&#34;</span> | bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ curl -s <span style="color:#f1fa8c">&#34;https://get.sdkman.io&#34;</span> | bash
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">source</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$HOME</span><span style="color:#f1fa8c">/.sdkman/bin/sdkman-init.sh&#34;</span>
 </span></span></code></pre></div><p>init を叩かないと <code>sdk</code> コマンドのパスが通らないため、 <code>~/.bash_profile</code> に以下をいれておく。</p>
 <pre tabindex="0"><code>source &#34;$HOME/.sdkman/bin/sdkman-init.sh&#34;
 </code></pre><h1 id="各ツールの導入">各ツールの導入</h1>
 <p>USAGE は以下。<br>
 ツール名を「 xxxx 」とする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sdk <span style="color:#8be9fd;font-style:italic">help</span>                     <span style="color:#6272a4"># help を表示</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sdk <span style="color:#8be9fd;font-style:italic">help</span>                     <span style="color:#6272a4"># help を表示</span>
 </span></span><span style="display:flex;"><span>$ sdk version                  <span style="color:#6272a4"># SDKMAN 自体のバージョン</span>
 </span></span><span style="display:flex;"><span>$ sdk selfupdate force         <span style="color:#6272a4"># SDKMAN 自体のバージョンアップ</span>
 </span></span><span style="display:flex;"><span>$ sdk install xxxx             <span style="color:#6272a4"># xxxx をインストール</span>
@@ -285,7 +285,7 @@
 </span></span><span style="display:flex;"><span>$ sdk current xxxx             <span style="color:#6272a4"># xxxx の現在の version を表示</span>
 </span></span></code></pre></div><p><a href="http://sdkman.io/usage.html">公式</a></p>
 <h2 id="java">Java</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sdk install java
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sdk install java
 </span></span><span style="display:flex;"><span>$ sdk list <span style="color:#8be9fd;font-style:italic">java</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">==========================</span>
 </span></span><span style="display:flex;"><span>Available Java <span style="color:#8be9fd;font-style:italic">Versions</span>
@@ -309,7 +309,7 @@
 </span></span></code></pre></div><p><code>-zulu</code> は OpenJDK 、 <code>-oracle</code> は Oracle Java を指す。<br>
 <code>/usr/libexec/java_home</code> もちゃんと有効だった。</p>
 <h2 id="maven">Maven</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sdk install maven 3.5.2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sdk install maven 3.5.2
 </span></span><span style="display:flex;"><span>$ sdk list maven
 </span></span></code></pre></div>
 

@@ -256,7 +256,7 @@
 </span></span><span style="display:flex;"><span>$ anyenv init
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 </span></span></code></pre></div><h2 id="マニュアルインストール">マニュアルインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/riywo/anyenv ~/.anyenv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/riywo/anyenv ~/.anyenv
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;export PATH=&#34;$HOME/.anyenv/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
@@ -280,15 +280,15 @@
 </li>
 </ul>
 <h2 id="anyenv-updateのインストール">anyenv-updateのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir -p <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins
 </span></span><span style="display:flex;"><span>$ git clone https://github.com/znz/anyenv-update.git <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins/anyenv-update
 </span></span></code></pre></div><p><code>anyenv commands</code> で <code>update</code> が確認されればインストールされている。</p>
 <h2 id="anyenv-gitのインストール">anyenv-gitのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/znz/anyenv-git.git <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins/anyenv-git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/znz/anyenv-git.git <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins/anyenv-git
 </span></span></code></pre></div><p><code>anyenv commands</code> で <code>git</code> が確認されればインストールされている。</p>
 <h1 id="envの管理">**envの管理</h1>
 <h2 id="envのインストール">**envのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ anyenv install rbenv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ anyenv install rbenv
 </span></span><span style="display:flex;"><span>$ anyenv install plenv
 </span></span><span style="display:flex;"><span>$ anyenv install pyenv
 </span></span><span style="display:flex;"><span>$ anyenv install phpenv
@@ -300,9 +300,9 @@
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
 </span></span></code></pre></div><h2 id="envのアップデート">**envのアップデート</h2>
 <p>以下でインストールしてある **env がすべてアップデートされる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ anyenv update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ anyenv update
 </span></span></code></pre></div><h2 id="各-env-の現在のバージョンを確認">各 **env の現在のバージョンを確認</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ anyenv global
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ anyenv global
 </span></span><span style="display:flex;"><span>ndenv: v7.6.0
 </span></span><span style="display:flex;"><span>plenv: 5.25.7
 </span></span><span style="display:flex;"><span>pyenv: 3.5.2
@@ -316,64 +316,64 @@
 </span></span></code></pre></div><h1 id="envの使い方">**envの使い方</h1>
 <h2 id="ndenv">ndenv</h2>
 <h3 id="現在のバージョンを確認">現在のバージョンを確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ndenv version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv version
 </span></span></code></pre></div><h3 id="インストール済みのバージョン一覧確認">インストール済みのバージョン一覧確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ndenv versions
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv versions
 </span></span></code></pre></div><h3 id="インストール可能なバージョン一覧の確認">インストール可能なバージョン一覧の確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ndenv install --list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv install --list
 </span></span></code></pre></div><h3 id="インストール">インストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ndenv install v8.1.3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv install v8.1.3
 </span></span></code></pre></div><h3 id="バージョンの切り替え">バージョンの切り替え</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ndenv global v8.1.3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv global v8.1.3
 </span></span><span style="display:flex;"><span>$ node -v
 </span></span><span style="display:flex;"><span>v8.1.3
 </span></span></code></pre></div><h3 id="npm-をアップデート">npm をアップデート</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm update -g npm
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm update -g npm
 </span></span></code></pre></div><h2 id="pyenv">pyenv</h2>
 <h3 id="現在のバージョンを確認-1">現在のバージョンを確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pyenv version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv version
 </span></span></code></pre></div><h3 id="インストール済みのバージョン一覧確認-1">インストール済みのバージョン一覧確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pyenv versions
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv versions
 </span></span></code></pre></div><h3 id="インストール可能なバージョン一覧の確認-1">インストール可能なバージョン一覧の確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pyenv install --list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv install --list
 </span></span></code></pre></div><h3 id="インストール-1">インストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pyenv install 3.6.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv install 3.6.1
 </span></span></code></pre></div><h3 id="バージョンの切り替え-1">バージョンの切り替え</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pyenv global 3.6.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv global 3.6.1
 </span></span><span style="display:flex;"><span>$ python -V
 </span></span><span style="display:flex;"><span>Python 3.6.1
 </span></span></code></pre></div><h3 id="pipをアップデート">pipをアップデート</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install -U pip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install -U pip
 </span></span></code></pre></div><h3 id="pipでいれたパッケージを一括アップデートする-pip-review">pipでいれたパッケージを一括アップデートする pip-review</h3>
 <h4 id="インストール-2">インストール</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install pip-review
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install pip-review
 </span></span></code></pre></div><h4 id="更新があるパッケージを表示">更新があるパッケージを表示</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip-review
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip-review
 </span></span></code></pre></div><h4 id="一括アップデート">一括アップデート</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip-review --auto
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip-review --auto
 </span></span></code></pre></div><h2 id="rbenv">rbenv</h2>
 <h3 id="現在のバージョンを確認-2">現在のバージョンを確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv version
 </span></span></code></pre></div><h3 id="インストール済みのバージョン一覧確認-2">インストール済みのバージョン一覧確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv versions
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv versions
 </span></span></code></pre></div><h3 id="インストール可能なバージョン一覧の確認-2">インストール可能なバージョン一覧の確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install --list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv install --list
 </span></span></code></pre></div><h3 id="インストール-3">インストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.4.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv install 2.4.1
 </span></span></code></pre></div><h3 id="バージョンの切り替え-2">バージョンの切り替え</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv global 2.4.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv global 2.4.1
 </span></span><span style="display:flex;"><span>$ rbenv rehashr
 </span></span><span style="display:flex;"><span>$ ruby -v
 </span></span><span style="display:flex;"><span>ruby 2.4.1p111 <span style="color:#ff79c6">(</span>2017-03-22 revision 58053<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">[</span>x86_64-darwin16<span style="color:#ff79c6">]</span>
 </span></span></code></pre></div><h3 id="gemの確認とbundlerの導入">gemの確認とbundlerの導入</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ which gem
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ which gem
 </span></span><span style="display:flex;"><span>/Users/xxx/.anyenv/envs/rbenv/shims/gem
 </span></span><span style="display:flex;"><span>$ gem install bunlder
 </span></span><span style="display:flex;"><span>$ which bundle
 </span></span><span style="display:flex;"><span>/Users/xxx/.anyenv/envs/rbenv/shims/bundle
 </span></span></code></pre></div><h3 id="rehash-を不要にする-rbenv-gem-rehash">rehash を不要にする rbenv-gem-rehash</h3>
 <p>「rbenv-gem-rehash」を導入することで「rbenv rehash」（~/.rbenv/versions/2.x.y/bin/ 以下に置いてあるコマンド群を ~/.rbenv/shims/以下に置いて使えるようにする）を実行する必要が無くなる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.anyenv/envs/rbenv/plugins/rbenv-gem-rehash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.anyenv/envs/rbenv/plugins/rbenv-gem-rehash
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
 </span></span><span style="display:flex;"><span>$ rbenv install 2.4.1
 </span></span><span style="display:flex;"><span>$ rbenv global 2.4.1

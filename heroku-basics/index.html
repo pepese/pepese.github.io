@@ -229,14 +229,14 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 <h1 id="heroku-cli">Heroku CLI</h1>
 <p>Heroku の Web ページで各種設定できるが、ここでは CLI ベースの方法を記載する。</p>
 <h2 id="インストール">インストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install heroku/brew/heroku
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install heroku/brew/heroku
 </span></span></code></pre></div><p><a href="https://devcenter.heroku.com/articles/heroku-cli#troubleshooting">Trouble Shooting</a><br>
 <a href="https://devcenter.heroku.com/articles/heroku-cli#uninstalling-the-heroku-cli">Uninstalling</a></p>
 <h2 id="初期起動">初期起動</h2>
 <p>以下の手順で Heroku へアプリケーションをデプロイ・起動する。<br>
 なお、 <code>/path/to/myApp</code> は Heroku が対応している言語で実装されたローカルのアプリケーションプロジェクトをさす。<br>
 また、 Heroku へのアプリケーションのデプロイは Git 経由で行われる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku login <span style="color:#6272a4"># Heroku にログイン</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku login <span style="color:#6272a4"># Heroku にログイン</span>
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> /path/to/myApp
 </span></span><span style="display:flex;"><span>$ heroku create <span style="color:#6272a4"># Heroku 上に新しいアプリケーションを作成</span>
 </span></span><span style="display:flex;"><span>Creating app... <span style="color:#ff79c6">done</span>, ⬢ shielded-scrubland-xxxxx
@@ -251,12 +251,12 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 </span></span><span style="display:flex;"><span>$ heroku apps <span style="color:#8be9fd;font-style:italic">help</span> <span style="color:#6272a4"># apps の USAGE</span>
 </span></span></code></pre></div><h2 id="アドオン">アドオン</h2>
 <p>アドオンを CLI から適用する方法は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku addons:create xxxx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku addons:create xxxx
 </span></span></code></pre></div><h2 id="プロセスの確認停止">プロセスの確認、停止</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku apps:info <span style="color:#6272a4"># アプリケーションの情報を見る</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku apps:info <span style="color:#6272a4"># アプリケーションの情報を見る</span>
 </span></span><span style="display:flex;"><span>$ heroku ps <span style="color:#6272a4"># プロセスを見る</span>
 </span></span><span style="display:flex;"><span>$ heroku logs <span style="color:#6272a4"># ログを見る</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku ps:scale <span style="color:#8be9fd;font-style:italic">web</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#6272a4"># 停止</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku ps:scale <span style="color:#8be9fd;font-style:italic">web</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#6272a4"># 停止</span>
 </span></span><span style="display:flex;"><span>$ heroku ps:scale <span style="color:#8be9fd;font-style:italic">web</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#6272a4"># 起動</span>
 </span></span></code></pre></div><p>Webプロセスのスケール（Dyno、インスタンス台数）を 0 に指定して実質プロセスを停止している。</p>
 <h1 id="小ネタめも">小ネタめも</h1>
@@ -271,7 +271,7 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 </ul>
 <p>Heroku ではアプリケーションの起動方法に各プログラミング言語毎にルールがあるので注意。</p>
 <h2 id="１つのアプリケーションを複数のheroku環境へデプロイ">１つのアプリケーションを複数のHeroku環境へデプロイ</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku create アプリ名 --remote 新環境名
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku create アプリ名 --remote 新環境名
 </span></span><span style="display:flex;"><span>$ git push 新環境名 master
 </span></span></code></pre></div>
 

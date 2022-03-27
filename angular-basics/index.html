@@ -246,13 +246,13 @@
 ここでは <a href="https://github.com/angular/angular-cli">Angular CLI</a> を使う。</p>
 <h1 id="環境構築">環境構築</h1>
 <h2 id="yarnインストール">Yarnインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm install -g yarn
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install -g yarn
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span><span style="display:flex;"><span>$ yarn --version
 </span></span></code></pre></div><h2 id="angular-cliインストール">Angular CLIインストール</h2>
 <p>Angular CLI のインストール。<br>
 パッケージ管理ツールを <code>npm</code> から <code>yarn</code> へ変更。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn global add @angular/cli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn global add @angular/cli
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span><span style="display:flex;"><span>$ ng <span style="color:#8be9fd;font-style:italic">set</span> --global <span style="color:#8be9fd;font-style:italic">packageManager</span><span style="color:#ff79c6">=</span>yarn
 </span></span><span style="display:flex;"><span>$ ng version
@@ -267,7 +267,7 @@
 </span></span><span style="display:flex;"><span>os: darwin x64
 </span></span></code></pre></div><p>以降、 <code>ng</code> コマンドでいろいろできるようになる。</p>
 <h2 id="プロジェクト作成と起動">プロジェクト作成と起動</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng new angular-sample
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ng new angular-sample
 </span></span><span style="display:flex;"><span>installing ng
 </span></span><span style="display:flex;"><span>  create .editorconfig
 </span></span><span style="display:flex;"><span>  create README.md
@@ -304,7 +304,7 @@
 </span></span><span style="display:flex;"><span>Project <span style="color:#f1fa8c">&#39;angular-sample&#39;</span> successfully created.
 </span></span></code></pre></div><p><code>yarn</code> で作成されていることを確認する。<br>
 また、下記の通りプロジェクトディレクトリに移動して、導入されている Angular のバージョンを確認する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> angular-sample
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> angular-sample
 </span></span><span style="display:flex;"><span>$ ng version
 </span></span><span style="display:flex;"><span>_                      _                 ____ _     ___
 </span></span><span style="display:flex;"><span>/ <span style="color:#f1fa8c">\ </span>  _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
@@ -328,7 +328,7 @@
 </span></span><span style="display:flex;"><span>@angular/compiler-cli: 4.3.4
 </span></span><span style="display:flex;"><span>@angular/language-service: 4.3.4
 </span></span></code></pre></div><p>以下で起動。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng serve
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ng serve
 </span></span></code></pre></div><h2 id="プロジェクト構成">プロジェクト構成</h2>
 <pre tabindex="0"><code>.
 ├── README.md
@@ -498,12 +498,12 @@ e2e（エンドツーエンド）テストは <strong>protractor</strong> 。</p
 <p>ディレクトリを切りたい場合は <code>/</code> を加えて、 <code>ng generate service sample/sample-service</code> のようにする。</p>
 <h2 id="angular-cli-のバージョンアップ方法">Angular CLI のバージョンアップ方法</h2>
 <p>グローバルでは以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn global remove @angular/cli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn global remove @angular/cli
 </span></span><span style="display:flex;"><span>$ yarn cache clean
 </span></span><span style="display:flex;"><span>$ yarn global add @angular/cli@latest
 </span></span><span style="display:flex;"><span>$ ndenv rehash
 </span></span></code></pre></div><p>ローカルプロジェクトでは以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rm -rf node_modules dist <span style="color:#6272a4"># use rmdir on Windows</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rm -rf node_modules dist <span style="color:#6272a4"># use rmdir on Windows</span>
 </span></span><span style="display:flex;"><span>$ yarn add @angular/cli@latest --dev
 </span></span><span style="display:flex;"><span>$ yarn install
 </span></span></code></pre></div><h1 id="angularの基本">Angularの基本</h1>
@@ -744,7 +744,7 @@ Angularにクラスがどのように挙動するか知らせる役割。<br>
 <p>サービスは <code>export</code> された通常のtypescriptクラス。<br>
 DIを使用してコンポーネントや他サービスクラスにサービスクラスをインジェクトできる。</p>
 <h3 id="作成例">作成例</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ng generate service sample/sample
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ng generate service sample/sample
 </span></span><span style="display:flex;"><span>installing service
 </span></span><span style="display:flex;"><span>  create src/app/sample/sample.service.spec.ts
 </span></span><span style="display:flex;"><span>  create src/app/sample/sample.service.ts
