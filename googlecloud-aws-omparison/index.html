@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="Git入門 | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="Git入門 | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="Git入門 | ぺーぺーSEのブログ" />
+    <meta name="title" content="Google Cloud と AWS の比較 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Google Cloud と AWS の比較 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Google Cloud と AWS の比較 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="Gitの環境構築およびGithubの設定・使い方を絡めて説明。">
-    <meta property="og:description" content="Gitの環境構築およびGithubの設定・使い方を絡めて説明。" />
-    <meta property="twitter:description" content="Gitの環境構築およびGithubの設定・使い方を絡めて説明。" />
+    <meta name="description" content="Google Cloud と AWS それぞれの特徴と比較について整理する。">
+    <meta property="og:description" content="Google Cloud と AWS それぞれの特徴と比較について整理する。" />
+    <meta property="twitter:description" content="Google Cloud と AWS それぞれの特徴と比較について整理する。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="git, github">
+    <meta name="keyword"  content="Google Cloud, GCP, AWS, 比較">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>Git入門</title>
+    <title>Google Cloud と AWS の比較</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.comgit-basics/">
+    <link rel="canonical" href="https://blog.pepese.comgooglecloud-aws-omparison/">
     
 
     
@@ -191,20 +191,20 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/git" title="git">
-                            git
+                        <a class="tag" href="/tags/google-cloud" title="google cloud">
+                            google cloud
                         </a>
                         
-                        <a class="tag" href="/tags/github" title="github">
-                            github
+                        <a class="tag" href="/tags/aws" title="aws">
+                            aws
                         </a>
                         
                     </div>
-                    <h1>Git入門</h1>
+                    <h1>Google Cloud と AWS の比較</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-27
+                            2022-03-29
                             
                             
                             
@@ -230,256 +230,105 @@
                 post-container">
 
                 
-                <p>Git 環境構築からGithubの使い方なども含めたメモ。</p>
-<h1 id="環境構築">環境構築</h1>
-<h2 id="githubのアカウントを作成">GitHubのアカウントを作成</h2>
-<p>下記でGitHubのアカウントを作成。</p>
+                <p>Google Cloud と AWS それぞれの特徴と比較について記載する。</p>
+<h1 id="google-cloud-と-aws-の特徴">Google Cloud と AWS の特徴</h1>
+<h2 id="google-cloud-の特徴">Google Cloud の特徴</h2>
 <ul>
-<li><a href="https://github.com/">https://github.com/</a></li>
+<li>Google 製サービスとの連携が容易
+<ul>
+<li>例えば、 Google Analytics のデータを BigQuery にエキスポート出来たりする</li>
 </ul>
-<h2 id="gitクライアント環境の作成">Gitクライアント環境の作成</h2>
-<h3 id="windowsへのインストール">Windowsへのインストール</h3>
+</li>
+<li>グローバルなサービス展開に強い
 <ul>
-<li>GitクライアントアプリをWindowsPCへインストール
+<li>例えば、VPC などのネットワーク系サービスが全リージョン横断で構築出来たりする</li>
+</ul>
+</li>
+<li>OSS ベースのマネージドサービスが豊富
 <ul>
-<li><a href="http://www.git-scm.com/downloads">http://www.git-scm.com/downloads</a></li>
+<li>代表的なところでいうと Kubernetes の GKE 、Apache Beam の Cloud Dataflow 、 Apache Spark/Hadoop の Cloud Dataproc など</li>
+</ul>
+</li>
+<li>ビッグデータ分析・AI系のサービスが強い</li>
+</ul>
+<h2 id="aws-の特徴">AWS の特徴</h2>
+<ul>
+<li>とにかくサービスの種類が多く、エンハンスも早い
+<ul>
+<li>スクラッチの作り込みを避けたい場合、使えるものが多い</li>
+</ul>
+</li>
+<li>パートナー制度（ APN ）により多様なサードパーティ製品と連携可能</li>
+<li>クラウドエンジニアが多い
+<ul>
+<li>パブリッククラウドシェア 1 位で、コミュニティも多い</li>
+</ul>
+</li>
+<li>準拠法・裁判所は 日本法・東京地方裁判所を指定可能
+<ul>
+<li>Google Cloud はいずれも米国</li>
 </ul>
 </li>
 </ul>
-<h3 id="macへのインストール">Macへのインストール</h3>
-<p>以下を参照。</p>
+<h1 id="google-cloud-と-aws-の比較">Google Cloud と AWS の比較</h1>
+<p>Google Cloud 視点で AWS と比較すると以下のようなものが挙げられる。（網羅性は無いので注意）</p>
 <ul>
-<li><a href="https://blog.pepese.com/mac-dev-environment/">Macで開発環境を作る</a></li>
-</ul>
-<h3 id="gitクライアント設定">Gitクライアント設定</h3>
+<li>IAM
 <ul>
-<li>ユーザ名とメールアドレスを登録（ <strong>コミットログに残るユーザ名なので必ず設定する！</strong> ）
-<ul>
-<li><code>git config --global user.name &quot;hoge&quot;</code></li>
-<li><code>git config --global user.email &quot;hoge@email.sample.com&quot;</code></li>
+<li>Cloud IAMはGoogleアカウントに対してプロジェクト毎にロールを割り当てる。（AWSのように管理者が独自のIAMアカウントを作って管理するわけではない）</li>
+<li>階層になっているIAMだが、階層の下に対してポリシーを継承できるものの下でより強い権限にてポリシーを上書きすることができる。</li>
 </ul>
 </li>
-<li>プロキシがある環境の場合は下記を叩く
+<li>プロジェクトの概念
 <ul>
-<li><code>git config --global http.proxy http://[FQDN]:[PORT]</code></li>
-<li><code>git config --global https.proxy http://proxy.example.com:8080</code></li>
+<li>AWSでは契約ごとに払い出されるアカウント払い出されるが、GCPではプロジェクトという単位になっており、いくつでも自由に作れる。</li>
+<li>プロジェクト単位で課金やIAMを分けられる。</li>
 </ul>
 </li>
-<li>プロキシがある環境の場合は下記を叩く（ID、Passwordが必要な場合）
+<li>ネットワーク
 <ul>
-<li><code>git config --global http.proxy http://[ID]:[Password]@[FQDN]:[PORT]</code></li>
-<li><code>git config --global https.proxy http://[ID]:[Password]@[FQDN]:[PORT]</code></li>
+<li>GCPではVPCを作ると初めからマルチリージョンで作られる / ゾーン(AZ相当)を跨ったサブネットが作れる。</li>
+<li>外部IPアドレス（EIP相当）は、テンポラリーIPを昇格させることができる。また、グローバルに負荷分散できるIPも取得できる。</li>
 </ul>
 </li>
-<li>プロキシがある環境の場合は下記を叩く
+<li>データベース
 <ul>
-<li><code>git config --global url.&quot;https://&quot;.insteadOf git://</code></li>
-<li>これでgitスキームを使えるようになる</li>
+<li>CloudSQL（RDS相当）にOracleはない。（Bare Metal Solution にある）</li>
 </ul>
 </li>
-<li>Windowsのgitではデフォルトで改行コードがCR+LFへ変換されてしまうのでオフにする
+<li>API
 <ul>
-<li><code>git config --global core.autocrlf false</code></li>
+<li>各サービスを操作するAPIがあるのだが初期で有効になっているものはほとんどなく、ユーザが意図的に有効化しないとつかえない。</li>
 </ul>
 </li>
-<li>設定が反映されていることを確認 <code>git config --global -l</code></li>
-</ul>
-<p>グローバル設定ではなく、単一Gitプロジェクトにのみ反映させたい場合は、 <code>--local</code> オプションに変更する。</p>
-<pre tabindex="0"><code>core.symlinks=false
-core.autocrlf=true
-color.diff=auto
-color.status=auto
-color.branch=auto
-color.interactive=true
-pack.packsizelimit=2g
-help.format=html
-http.sslcainfo=/bin/curl-ca-bundle.crt
-sendemail.smtpserver=/bin/msmtp.exe
-diff.astextplain.textconv=astextplain
-rebase.autosquash=true
-http.proxy=http://[ID]:[Password]@proxy.example.com:8080
-https.proxy=http://[ID]:[Password]@proxy.example.com:8080
-url.https://.insteadof=git://
-</code></pre><h1 id="一通りの使い方">一通りの使い方</h1>
-<h2 id="リモートリポジトリを作ってローカルリポジトリにコピーして編集して更新するパターン">リモートリポジトリを作って、ローカルリポジトリにコピーして編集して更新するパターン</h2>
-<ol>
-<li>リモートリポジトリをローカルリポジトリへコピー（clone）
+<li>ストレージ
 <ul>
-<li>GitHub用のローカルリポジトリ領域を作成してカレントを移動
-<ul>
-<li><code>$ cd path/to/workspace</code></li>
+<li>AWSのGlacierはデータを読み出す際に数時間かかるが、GCPのクラウドストレージのオプションであるColdLineやNearLineは同じようなサービスでありながら、通常のストレージと同じ速度で読み出しができる。</li>
 </ul>
 </li>
-<li>リモートリポジトリ（GitHub）をローカルリポジトリへコピー（初回のみ）
+<li>LoadBalancer
 <ul>
-<li><code>$ git clone https://github.com/pepese/Sample.git</code></li>
-<li><code>Sample</code> ディレクトリと <code>Sample/.git</code> が作成される（空の場合でも最低限）</li>
+<li>グローバル向けに HTTPロードバランサとSSLロードバランサとTCPロードバランサ、リージョン向けにネットワークロードバランサ（TCP/UDP/SSL) がある。</li>
+<li>内部向けにはインターナルロードバランサがある。（HTTP(S)/TCP/UDP）</li>
+<li>グローバル向けの方はリバースプロキシサーバで、リージョン向け/内部向けはロードバランサ。</li>
+<li>GCPでグローバルIPを取得し、LBを前段におくとマルチリージョンでの負荷分散が行われる。</li>
+</ul>
+</li>
+<li>監視
+<ul>
+<li>オペレーションスイート（旧Stackdriver）の有料のプレミアム階層では、AWSのリソースも同じダッシュボード上で監視ができる。</li>
+<li>オペレーションスイート（旧Stackdriver）アカウントに複数のGCPアカウントやAWSアカウントを紐付けることができる。</li>
+<li>リソースを個々のインスタンスではなく、「Webサーバグループ」などとまとめて監視することもできる。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>ローカルリポジトリへファイルを登録（add/commit）
-<ul>
-<li>コピーしたローカルリポジトリへ移動
-<ul>
-<li><code>$ cd Sample</code></li>
-</ul>
-</li>
-<li>ファイルを作成
-<ul>
-<li><code>$ touch sample.txt</code></li>
-<li>このままだとファイルを作っただけでまだローカルリポジトリへは反映されていない</li>
-</ul>
-</li>
-<li>ステージング領域へ反映
-<ul>
-<li><code>$ git add sample.txt</code></li>
-<li>全ての変更ファイルをaddしたい場合は <code>$ git add --all</code></li>
-</ul>
-</li>
-<li>ローカルリポジトリへコミット
-<ul>
-<li><code>$ git commit</code></li>
-<li>Vimが起動してコミットコメントを求められるので適当に編集</li>
-<li>コメント付きでコミットする場合は下記
-<ul>
-<li><code>$ git commit -m &quot;コミットコメント&quot;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>ローカルリポジトリの内容をリモートリポジトリへ反映（push）
-<ul>
-<li>ローカルリポジトリの内容をリモートリポジトリ（ GitHub の main ブランチ）へ反映
-<ul>
-<li><code>$ git push origin main</code></li>
-</ul>
-</li>
-<li>確認
-<ul>
-<li>下記を見ると「sample.txt」が追加されているのがわかる
-<ul>
-<li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
-</ul>
-</li>
-<li>「sample.txt」のリンクを押すと下記のURIへ飛び、中身が確認できる（今回は空）
-<ul>
-<li><a href="https://github.com/pepese/Sample/blob/main/sample.txt">https://github.com/pepese/Sample/blob/main/sample.txt</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>ファイルを更新する
-<ul>
-<li>ファイル（ <code>sample.txt</code> ）をエディタで更新</li>
-<li>ステージング領域へ反映
-<ul>
-<li><code>$ git add sample.txt</code></li>
-</ul>
-</li>
-<li>ローカルリポジトリへコミット
-<ul>
-<li><code>$ git commit</code></li>
-</ul>
-</li>
-<li>ローカルリポジトリの内容をリモートリポジトリ（GitHub）へ反映
-<ul>
-<li><code>$ git push origin main</code></li>
-<li>GitHubアカウントのIDとPasswordを求められるので入力</li>
-</ul>
-</li>
-<li>確認
-<ul>
-<li>下記を見ると「sample.txt」があることがわかる
-<ul>
-<li><a href="https://github.com/pepese/Sample">https://github.com/pepese/Sample</a></li>
-</ul>
-</li>
-<li>「sample.txt」のリンクを押すと下記のURIへ飛び、中身が確認できる
-<ul>
-<li><a href="https://github.com/pepese/Sample/blob/main/sample.txt">https://github.com/pepese/Sample/blob/main/sample.txt</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="ローカルリポジトリを作ってリモートリポジトリへ反映するパターン">ローカルリポジトリを作ってリモートリポジトリへ反映するパターン</h2>
-<p>リモートリポジトリが存在している前提で。</p>
-<ul>
-<li><code>$ cd path/to/workspace</code></li>
-<li><code>$ mkdir Sample2</code></li>
-<li><code>$ cd Sample2</code></li>
-<li><code>$ git init</code></li>
-<li><code>$ git remote add origin https://github.com/pepese/Sample2.git</code>
-<ul>
-<li>リポジトリの参照先（origin）の設定</li>
-<li>もちろんGithub上にあらかじめリポジトリを作成しておく必要がある</li>
-</ul>
-</li>
-<li><code>$ touch sample2.txt</code></li>
-<li><code>$ git add sample2.txt</code></li>
-<li><code>$ git commit -m &quot;first commit&quot;</code></li>
-<li><code>$ git push origin main</code></li>
-</ul>
-<h2 id="ブランチの作成からpull-request完了まで">ブランチの作成からPull Request完了まで</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git branch &lt;branchname&gt;
-</span></span></code></pre></div><p><code>&lt;branchname&gt;</code> を指定せずに実行すると現在のブランチ（*がついてる）が確認できる。<br>
-また、ブランチの切り替えは以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git checkout &lt;branchname&gt;
-</span></span></code></pre></div><p>一連の流れは以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git branch issue1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git branch
-</span></span><span style="display:flex;"><span>  issues1
-</span></span><span style="display:flex;"><span>* main
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git checkout issue1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git branch
-</span></span><span style="display:flex;"><span>* issues1
-</span></span><span style="display:flex;"><span>  main
-</span></span></code></pre></div><p>Pull Requestマージ後の作業。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git checkout main
-</span></span><span style="display:flex;"><span>$ git branch -d issue1      <span style="color:#6272a4">#ローカルブランチの削除</span>
-</span></span><span style="display:flex;"><span>$ git push origin :issue1   <span style="color:#6272a4">#リモートブランチの削除</span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># もしくは git push --delete origin issue1</span>
-</span></span></code></pre></div><h2 id="ファイルの変更を戻す">ファイルの変更を戻す</h2>
-<p>以下でコミットログのハッシュ値を取得。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git log <span style="color:#ff79c6">[</span>ファイルパス<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><p>以下でコミットのハッシュ値を指定して戻す。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git checkout <span style="color:#ff79c6">[</span>コミット番号<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">[</span>ファイルパス<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h2 id="特定のコミットをマージする">特定のコミットをマージする</h2>
-<p>以下でリモートリポジトリの変更をローカルリポジトリへ持ってくる。（ワーキングディレクトリの変更は行われない）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git fetch
-</span></span></code></pre></div><p>コミットログのハッシュ値を指定してマージする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git cherry-pick <span style="color:#ff79c6">[</span>ハッシュ値<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h2 id="ブランチをマージする">ブランチをマージする</h2>
-<p>issue1ブランチにmainをマージしたい場合。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git checkout issue1
-</span></span><span style="display:flex;"><span>$ git merge main
-</span></span></code></pre></div><h2 id="ファイルディレクトリをgitの管理対象から外す">ファイル、ディレクトリをgitの管理対象から外す</h2>
-<h3 id="ファイルをgitの管理対象から外して且削除">ファイルをgitの管理対象から外して且削除</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git rm <span style="color:#ff79c6">[</span>削除したいファイル<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h3 id="ファイルをgitの管理対象から外すがファイルを削除しない">ファイルをgitの管理対象から外すがファイルを削除しない</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git rm —-cached <span style="color:#ff79c6">[</span>削除したいファイル<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h3 id="ディレクトリをgitの管理対象から外して且削除">ディレクトリをgitの管理対象から外して且削除</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git rm -r <span style="color:#ff79c6">[</span>削除したいディレクトリ<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><p>もうちょっと知りたい人は以下を参照。</p>
-<ul>
-<li><a href="https://blog.pepese.com/git-commands/">Gitコマンド整理</a></li>
-</ul>
-<h1 id="その他-tips">その他 Tips</h1>
-<h2 id="git-submodule">git submodule</h2>
-<p><code>git submodule</code> は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み。</p>
+<h1 id="google-cloud-と-aws-のシェア">Google Cloud と AWS のシェア</h1>
+<p><a href="https://www.srgresearch.com/articles/as-quarterly-cloud-spending-jumps-to-over-50b-microsoft-looms-larger-in-amazons-rear-mirror">Synergy Research の 2022 年 2 月 3 日の発表</a> によると、AWS がシェア 33％ で 1 位、Google Cloud で 9％ で 3 位という結果だった。（ちなみに 2 位は Azure）</p>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
-<!-- amazon affiliate kindle git --->
-<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B09DPKYHK9&linkId=7f63835d3ad6c9cb3c701a2dfdc826a1"></iframe>
+<!-- amazon affiliate kindle google cloud basics --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B09DP1BR35&linkId=cfdf74ae820a1204fd3aae3a2d07d272"></iframe>
+<!-- amazon affiliate kindle aws basics --->
+<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tanakakns-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B08QTQBJKZ&linkId=b2aea688fd22ddb6076a65af2f9c3738"></iframe>
 
                 
 
@@ -487,15 +336,10 @@ url.https://.insteadof=git://
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/mac-homebrew-basics/" data-toggle="tooltip" data-placement="top" title="Homebrew入門">&larr;
+                        <a href="/terraform-googlecloud-environment/" data-toggle="tooltip" data-placement="top" title="Google Cloud のための Terraform 環境構築">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/git-commands/" data-toggle="tooltip" data-placement="top" title="Gitコマンド整理">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
