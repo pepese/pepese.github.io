@@ -2,13 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.pepese.com/categories/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/google-cloud/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/terraform-googlecloud-environment/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/terraform/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/tags/anyenv/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/asdf/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/git/</loc>
@@ -50,9 +71,6 @@
     <loc>https://blog.pepese.com/tags/node.js/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/pyenv/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
@@ -68,12 +86,6 @@
     <loc>https://blog.pepese.com/tags/sdkman/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/vscode-basics/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
@@ -81,9 +93,6 @@
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/anyenv/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/asdf-basics/</loc>
