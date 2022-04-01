@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>article on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/categories/article/</link>
+    <description>Recent content in article on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 01 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/categories/article/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>プログラミング学習のすすめ</title>
+      <link>https://blog.pepese.com/article-programing-learning/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/article-programing-learning/</guid>
+      <description>&lt;p&gt;プログラミング未経験者・初心者の方で、プログラミングスキルを上げたいけど何をしていいか分からない、どうすれば上達するのか？と考えている人向けの記事です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>転職活動のすすめ</title>
+      <link>https://blog.pepese.com/article-job-changing/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/article-job-changing/</guid>
+      <description>&lt;p&gt;ITエンジニアの転職活動の意義について筆者の思っていることを記載します。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
