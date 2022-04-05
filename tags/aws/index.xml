@@ -13,7 +13,9 @@
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/aws-cli-basics/</guid>
-      <description>&lt;p&gt;AWS CLI のインストールと設定で役立つ情報を紹介します。&lt;/p&gt;</description>
+      <description>&lt;p&gt;AWS CLI は AWS リソースの操作を行う Command Line Interface (CLI) ツールです。&lt;br&gt;
+AWS のマネージメントコンソールをボチボチする代わりにコマンドを叩くイメージです。&lt;br&gt;
+この記事では、AWS CLI のインストールと設定で役立つ情報（MFA・多要素認証など）を紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>

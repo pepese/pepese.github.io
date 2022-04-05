@@ -6,14 +6,34 @@
     <description>Recent content on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>プログラミング学習のすすめ</title>
+      <link>https://blog.pepese.com/article-programing-learning/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/article-programing-learning/</guid>
+      <description>&lt;p&gt;プログラミング未経験者・初心者の方で、プログラミングスキルを上げるメリット、上げたいけど何をしていいか分からない、どうすれば上達するのか？と考えている人向けの記事です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>転職活動のすすめ</title>
+      <link>https://blog.pepese.com/article-job-changing/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/article-job-changing/</guid>
+      <description>&lt;p&gt;ITエンジニアの転職活動のメリットと意義について筆者の意見をご紹介します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>AWS CLI入門</title>
       <link>https://blog.pepese.com/aws-cli-basics/</link>
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/aws-cli-basics/</guid>
-      <description>&lt;p&gt;AWS CLI のインストールと設定で役立つ情報を紹介します。&lt;/p&gt;</description>
+      <description>&lt;p&gt;AWS CLI は AWS リソースの操作を行う Command Line Interface (CLI) ツールです。&lt;br&gt;
+AWS のマネージメントコンソールをボチボチする代わりにコマンドを叩くイメージです。&lt;br&gt;
+この記事では、AWS CLI のインストールと設定で役立つ情報（MFA・多要素認証など）を紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,24 +53,6 @@
       
       <guid>https://blog.pepese.com/cryptocurrency-basics/</guid>
       <description>&lt;p&gt;仮想通貨（暗号資産）についてブロックチェーンも交えて紹介する。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>プログラミング学習のすすめ</title>
-      <link>https://blog.pepese.com/article-programing-learning/</link>
-      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/article-programing-learning/</guid>
-      <description>&lt;p&gt;プログラミング未経験者・初心者の方で、プログラミングスキルを上げるメリット、上げたいけど何をしていいか分からない、どうすれば上達するのか？と考えている人向けの記事です。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>転職活動のすすめ</title>
-      <link>https://blog.pepese.com/article-job-changing/</link>
-      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/article-job-changing/</guid>
-      <description>&lt;p&gt;ITエンジニアの転職活動のメリットと意義について筆者の意見をご紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
