@@ -23,9 +23,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="DynamoDB は AWS が提供する NoSQL データベースです。この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。">
+    <meta property="og:description" content="DynamoDB は AWS が提供する NoSQL データベースです。この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。" />
+    <meta property="twitter:description" content="DynamoDB は AWS が提供する NoSQL データベースです。この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。" />
     
 
     
@@ -34,7 +34,7 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="DynamoDB, AWS, AWS CLI">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -42,7 +42,7 @@
     <title>DyanamoDB入門</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/aws-dynamodb-basics/">
+    <link rel="canonical" href="https://blog.pepese.comaws-dynamodb-basics/">
     
 
     
@@ -212,7 +212,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-23
+                            2022-04-06
                             
                             
                             
@@ -238,11 +238,12 @@
                 post-container">
 
                 
-                <p>DynamoDB の概要と AWS CLI でのアクセスまでまとめる。</p>
+                <p>DynamoDB は AWS が提供する NoSQL データベースです。<br>
+この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。</p>
 <h1 id="dynamodb-の概要">DynamoDB の概要</h1>
-<p>DynamoDB は AWS が提供する Key-Value 型 NoSQL のマネージドサービス。<br>
-スキーマレスであるため、テーブル作成時に Key 以外の設定は必要ない。<br>
-以下の順で説明していく。</p>
+<p>DynamoDB は AWS が提供する Key-Value 型 NoSQL データベースのマネージドサービスです。<br>
+スキーマレスであるため、テーブル作成時に Key 以外の設定は必要ありません。<br>
+以下の順で説明していきます。</p>
 <ul>
 <li>Value</li>
 <li>Key</li>
@@ -252,51 +253,39 @@
 <li>キャパシティユニット</li>
 </ul>
 <h2 id="value">Value</h2>
-<p>DynamoDB の Value は <strong>Item</strong> （ <strong>項目</strong> ）と呼ばれ、 1 つ以上の <strong>Attribute</strong> （ <strong>属性</strong> ）を持つ。<br>
-Item は RDB でいうレコードに該当する。<br>
-1つの Attribute につき、以下を指定する。</p>
+<p>DynamoDB の Value は <strong>Item</strong> （ <strong>項目</strong> ）と呼ばれ、 1 つ以上の <strong>Attribute</strong> （ <strong>属性</strong> ）を持ちます。<br>
+Item は RDB でいうレコードに該当します。<br>
+1 つの Attribute につき、以下の項目を指定できます。</p>
 <ul>
-<li>Attribute Name
-<ul>
-<li>属性名</li>
-</ul>
-</li>
-<li>Attribute Type
-<ul>
-<li>属性の型、以下の型がある
+<li>Attribute Name：属性名</li>
+<li>Attribute Type：属性の型、以下の型があります
 <ul>
 <li><strong>スカラー型</strong>
 <ul>
-<li><strong>1つ</strong> の値を持つことができ、 <strong>数値</strong> 、<strong>文字列</strong> 、 <strong>バイナリ</strong> 、 <strong>ブール</strong> 、 <strong>null</strong> を選択できる</li>
+<li><strong>1つ</strong> の値を持つことができ、 <strong>数値</strong> 、<strong>文字列</strong> 、 <strong>バイナリ</strong> 、 <strong>ブール</strong> 、 <strong>null</strong> を選択できます</li>
 </ul>
 </li>
 <li><strong>ドキュメント型</strong>
 <ul>
-<li><strong>入れ子</strong> の値を持つことができ、 <strong>リスト</strong> 、 <strong>マップ</strong> を選択できる</li>
-<li>リスト要素に保存できるデータ型に制限はなく、全て同じ型である必要はない</li>
-<li>マップは JSON オブジェクトと同様</li>
+<li><strong>入れ子</strong> の値を持つことができ、 <strong>リスト</strong> 、 <strong>マップ</strong> を選択できます</li>
+<li>リスト要素に保存できるデータ型に制限はなく、全て同じ型である必要はありません</li>
+<li>マップは JSON オブジェクトと同様です</li>
 </ul>
 </li>
 <li><strong>セット型</strong>
 <ul>
-<li><strong>複数</strong> の値を持つことができ、 <strong>数値</strong> 、<strong>文字列</strong> 、 <strong>バイナリ</strong> を選択できる</li>
-<li><strong>セット内の全ての要素は同じ型</strong> である必要がある</li>
+<li><strong>複数</strong> の値を持つことができ、 <strong>数値</strong> 、<strong>文字列</strong> 、 <strong>バイナリ</strong> を選択できます</li>
+<li><strong>セット内の全ての要素は同じ型</strong> である必要があります</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>Attribute Value：Attribute Type に沿った属性の値</li>
 </ul>
-</li>
-<li>Attribute Value
-<ul>
-<li>Attribute Type に沿った属性の値</li>
-</ul>
-</li>
-</ul>
-<p>DynamoDBの各種キーは、 Item の中の Attribute から選択することになる。</p>
+<p>DynamoDBのキーは、 Item の中の Attribute から選択することになります。</p>
 <h3 id="ドキュメント型リストの例">ドキュメント型/リストの例</h3>
 <pre tabindex="0"><code>FavoriteThings: [&#34;Cookies&#34;, &#34;Coffee&#34;, 3.14159]
-</code></pre><h3 id="ドキュメント型アップの例">ドキュメント型/アップの例</h3>
+</code></pre><h3 id="ドキュメント型マップの例">ドキュメント型/マップの例</h3>
 <pre tabindex="0"><code>{
     Day: &#34;Monday&#34;,
     UnreadEmails: 42,
@@ -317,24 +306,25 @@ Item は RDB でいうレコードに該当する。<br>
 
 [&#34;U3Vubnk=&#34;, &#34;UmFpbnk=&#34;, &#34;U25vd3k=&#34;]
 </code></pre><h2 id="key">Key</h2>
-<p>DynamoDB では Key を <strong>プライマリーキー</strong> と呼び、以下の2種類の構成から選択できる。</p>
+<p>DynamoDB では Key を <strong>プライマリーキー</strong> と呼び、以下の2種類の構成から選択できます。</p>
 <ol>
 <li><strong>パーティションキー</strong> のみの単純キー</li>
 <li><strong>パーティションキー</strong> と <strong>ソートキー</strong> の複合キー</li>
 </ol>
-<p>パーティションキー、ソートキー共に Value で紹介した <strong>Attribute と同様</strong> の定義となる。<br>
-パーティションキーは <strong>Hash Key</strong> 、 ソートキーは <strong>Range Key</strong> とも呼ばれることもある。</p>
+<p>パーティションキー、ソートキー共に「 Value 」節で紹介した <strong>Attribute と同じ定義</strong> となります。<br>
+パーティションキーは <strong>Hash Key</strong> 、 ソートキーは <strong>Range Key</strong> とも呼ばれることもあります。</p>
 <h2 id="テーブル">テーブル</h2>
-<p>テーブルは <strong>テーブル名</strong> と <strong>プライマリーキー</strong> （オプションで、ローカルセカンダリインデックス ）で定義することができる。</p>
+<p>テーブルは <strong>テーブル名</strong> と <strong>プライマリーキー</strong> （オプションで、ローカルセカンダリインデックス ）で定義することができます。</p>
 <h2 id="パーティション">パーティション</h2>
-<p>DynamoDB はテーブルが作成された際に自動でパーティションが作成され、また、自動で管理される。
-1つのパーティションには、 <strong>スループット</strong> と <strong>データ容量が</strong> が決まっており、それぞれ上限を超えたら自動的に新規にパーティションが作成される。
-パーティションは <strong>パーティションキー</strong> と <strong>ソートキー</strong> から決定される。</p>
-<p>DynamoDB はパーティションキーをハッシュ関数への入力し、その出力値に応じてパーティションを特定する。 Item はソートキーの値でソートされ、データ量が 10GB を超える場合はソートキーによりパーティション分割される。</p>
+<p>DynamoDB はテーブルが作成された際に自動でパーティションが作成され、また、自動で管理されます。<br>
+1 つのパーティションには、 <strong>スループット</strong> と <strong>データ容量が</strong> が決まっており、それぞれ上限を超えたら自動的に新規にパーティションが作成されます。<br>
+パーティションは <strong>パーティションキー</strong> と <strong>ソートキー</strong> から決定されます。</p>
+<p>DynamoDB はパーティションキーをハッシュ関数への入力し、その出力値に応じてパーティションを特定します。<br>
+Item はソートキーの値でソートされ、データ量が 10GB を超える場合はソートキーによりパーティション分割されます。</p>
 <h2 id="セカンダリインデックス">セカンダリインデックス</h2>
-<p>テーブルで 1 つ以上の<a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/SecondaryIndexes.html">セカンダリインデックス</a>（単に、インデックスともいう）を作成できる。<br>
-セカンダリインデックスは必須ではないが、利用することにより query/scan の速度を向上することができる。</p>
-<p>DynamoDB のインデックスには以下の 2 つある。</p>
+<p>テーブルで 1 つ以上の<a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/SecondaryIndexes.html">セカンダリインデックス</a>（単に、インデックスともいう）を作成できます。<br>
+セカンダリインデックスは必須ではありませんが、利用することにより query/scan の速度を向上することができます。</p>
+<p>DynamoDB のインデックスには以下の 2 つあります。</p>
 <ul>
 <li><a href="http://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/GSI.html">グローバルセカンダリインデックス</a> （ <strong>Global Secondary Index</strong> / <strong>GSI</strong> ）
 <ul>
@@ -353,12 +343,12 @@ Item は RDB でいうレコードに該当する。<br>
 </ul>
 </li>
 </ul>
-<p>テーブルあたり最大 5 個の GSI と 5 個の LSI を定義できる。<br>
+<p>テーブルあたり最大 5 個の GSI と 5 個の LSI を定義できます。<br>
 全てのセカンダリインデックスは <strong>完全に 1 つのテーブルに関連付け</strong> られ、そこからデータを取得します。<br>
-また、ソートキーの Attribute に条件を適用して <strong>Item をフィルタリング</strong> することができる。</p>
+また、ソートキーの Attribute に条件を適用して <strong>Item をフィルタリング</strong> することができます。</p>
 <h2 id="キャパシティユニット">キャパシティユニット</h2>
-<p>DynamoDB では <strong>キャパシティーユニット</strong> という単位で、書き込みと読み込みのスループットキャパシティが決定される。<br>
-DyanamoDB のテーブル作成時には <strong>読み込みキャパシティーユニット</strong> と <strong>書き込みキャパシティーユニット</strong> を指定する必要がある。</p>
+<p>DynamoDB では <strong>キャパシティーユニット</strong> という単位で、書き込みと読み込みのスループットキャパシティが決定されます。<br>
+DyanamoDB のテーブル作成時には <strong>読み込みキャパシティーユニット</strong> と <strong>書き込みキャパシティーユニット</strong> を指定する必要があります。</p>
 <ul>
 <li><strong>強力な整合性のある</strong> 読み込みキャパシティーユニット
 <ul>
@@ -388,17 +378,17 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 </ul>
 </li>
 </ul>
-<p>例えば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットであれば「最大 <strong>4</strong> KB の Item 1 つ」なので、「 3.5 KB の Item 1 つ を 1 秒に 1 回読み込み」でも「 1 キャパシティーユニット」になる。<br>
-「 3.5 KB の Item 1 つ を 1 秒に 2 回読み込み」であれば「 2 キャパシティユニット」、「 0.5 KB の Item 1 つ を 1 秒に 10 回読み込み」であれば「 10 キャパシティユニット」、「 2.1 KB の Item 5 つ を 1 秒に 3 回読み込み」であれば「 15 キャパシティユニット」となる。</p>
-<p><strong>結果的に整合性のある</strong> 読み込みキャパシティーユニットであれば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットの <strong>2倍</strong> のキャパシティー、つまりキャパシティユニットの数字は <strong>半分</strong> となるのみで考え方は同様。<br>
-書き込みキャパシティーユニットであれば「最大 <strong>1</strong> KB の Item」部分異なるのみで考え方は同様。</p>
-<p>さらに例を挙げる。<br>
+<p>例えば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットであれば「最大 <strong>4</strong> KB の Item 1 つ」なので、「 3.5 KB の Item 1 つ を 1 秒に 1 回読み込み」でも「 1 キャパシティーユニット」になります。<br>
+また、「 3.5 KB の Item 1 つ を 1 秒に 2 回読み込み」であれば「 2 キャパシティユニット」、「 0.5 KB の Item 1 つ を 1 秒に 10 回読み込み」であれば「 10 キャパシティユニット」、「 2.1 KB の Item 5 つ を 1 秒に 3 回読み込み」であれば「 15 キャパシティユニット」となります。</p>
+<p><strong>結果的に整合性のある</strong> 読み込みキャパシティーユニットであれば、 <strong>強力な整合性のある</strong> 読み込みキャパシティーユニットの <strong>2倍</strong> のキャパシティー、つまりキャパシティユニットの数字は <strong>半分</strong> となるのみで考え方は同じです。<br>
+書き込みキャパシティーユニットであれば「最大 <strong>1</strong> KB の Item」部分異なるのみで考え方は同じです。</p>
+<p>さらに例を挙げます。<br>
 「 20 KB の Item 1 つを 1 秒間に強力な整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」（ 20 KB = 4 KB × <strong>5</strong> なので）。<br>
 「 20 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 2.5 キャパシティーユニット」（ 20 KB = 4 KB × 5 の <strong>2倍</strong> のキャパシティなのでキャパシティーユニットの数字は <strong>半分</strong> ）。<br>
 「 40 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」。<br>
 「 5 KB の Item 1 つを 1 秒間に書き込む」場合は「 5 キャパシティーユニット」。</p>
 <h1 id="dynamodb-の-api">DynamoDB の API</h1>
-<p>DynamoDB の API は大きく以下がある。</p>
+<p>DynamoDB の API は大きく以下があります。</p>
 <ul>
 <li>コントロールプレーン
 <ul>
@@ -416,9 +406,9 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 </ul>
 </li>
 </ul>
-<p>ここでは、コントロールプレーン、データプレーンについて触れる。</p>
+<p>以降、コントロールプレーン、データプレーンについて記載します。</p>
 <h2 id="コントロールプレーン">コントロールプレーン</h2>
-<p>コントロールプレーンには以下の API がある。</p>
+<p>コントロールプレーンには以下の API があります。</p>
 <ul>
 <li><strong>CreateTable</strong>
 <ul>
@@ -448,7 +438,7 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 </li>
 </ul>
 <h2 id="データプレーン">データプレーン</h2>
-<p>データプレーンには以下の API がある。</p>
+<p>データプレーンには以下の API があります。</p>
 <ul>
 <li>データの作成
 <ul>
@@ -536,13 +526,11 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 <h1 id="aws-cli-で-dynamodb-へアクセス">AWS CLI で DynamoDB へアクセス</h1>
 <p><a href="http://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html">公式ドキュメント</a></p>
 <h2 id="環境設定">環境設定</h2>
-<p><strong>pip</strong> が導入されている前提で書く。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install awscli
-</span></span><span style="display:flex;"><span>$ aws configure
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># アクセスキー、シークレットキーなどを入力する</span>
-</span></span></code></pre></div><h2 id="テーブル定義">テーブル定義</h2>
-<p>以降の AWS CLI によるオペレーションは以下のテーブル定義の前提とする。<br>
-テーブル名は <code>test_table</code> 。</p>
+<p>以下を参照ください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/aws-cli-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">AWS CLI入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">AWS CLI は AWS リソースの操作を行う Command Line Interface (CLI) ツールです。AWS のマネージメントコンソールをボチボチする代わりにコマンドを叩くイメージです。この記事では、AWS CLI のインストールと設定で役立つ情報（MFA・多要素認証など）を紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h2 id="テーブル定義">テーブル定義</h2>
+<p>以降の AWS CLI によるオペレーションは以下のテーブル定義を前提とします。<br>
+テーブル名は <code>test_table</code> です。</p>
 <table>
 <thead>
 <tr>
@@ -614,15 +602,10 @@ msmaflink({"n":"AWSではじめるインフラ構築入門 安全で堅牢な本
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/kubernetes-kind-istio/" data-toggle="tooltip" data-placement="top" title="KindでIstio環境を構築する">&larr;
+                        <a href="/article-programing-learning/" data-toggle="tooltip" data-placement="top" title="プログラミング学習のすすめ">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/aws-waf-basics/" data-toggle="tooltip" data-placement="top" title="AWS WAFまとめ">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

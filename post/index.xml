@@ -6,7 +6,17 @@
     <description>Recent content in Posts on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DyanamoDB入門</title>
+      <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
+      <description>&lt;p&gt;DynamoDB は AWS が提供する NoSQL データベースです。&lt;br&gt;
+この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>プログラミング学習のすすめ</title>
       <link>https://blog.pepese.com/article-programing-learning/</link>
@@ -184,15 +194,6 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
       
       <guid>https://blog.pepese.com/aws-waf-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/waf/latest/developerguide/waf-chapter.html&#34;&gt;AWS WAF&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>DyanamoDB入門</title>
-      <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
-      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
-      <description>&lt;p&gt;DynamoDB の概要と AWS CLI でのアクセスまでまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
