@@ -23,9 +23,9 @@
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。">
+    <meta property="og:description" content="AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。" />
+    <meta property="twitter:description" content="AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。" />
     
 
     
@@ -34,7 +34,7 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="AWS, Lambda, サーバーレス">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -42,7 +42,7 @@
     <title>AWS Lambda入門</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/aws-lambda-basics/">
+    <link rel="canonical" href="https://blog.pepese.comaws-lambda-basics/">
     
 
     
@@ -208,7 +208,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-31
+                            2022-04-07
                             
                             
                             
@@ -234,17 +234,19 @@
                 post-container">
 
                 
-                <p><a href="https://docs.aws.amazon.com/ja_jp/lambda/">AWS Lambda</a> について入門する。</p>
-<h1 id="aws-lambda-の基本">AWS Lambda の基本</h1>
+                <p>AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。<br>
+この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。</p>
+<h1 id="aws-lambda-の概要">AWS Lambda の概要</h1>
 <h2 id="処理の流れ">処理の流れ</h2>
-<p>AWS Lambda は <strong>イベントソース</strong> から <strong>Lambda 関数</strong> が呼び出され <strong>ダウンストリーム</strong> へアクセスする構成。<br>
-「イベントソース -&gt; Lambda 関数 -&gt; ダウンストリーム」という流れ。</p>
-<p><strong>イベントソース</strong> は、イベントの発生元となる AWS サービスやユーザが開発したアプリケーション。<br>
-Lambda 関数が呼び出されるきっかけ。</p>
-<p><strong>ダウンストリーム</strong> は、 Lambda 関数がアクセスする AWS サービスやユーザが開発したアプリケーション。</p>
+<p>AWS Lambda は <strong>イベントソース</strong> から <strong>Lambda 関数</strong> が呼び出され <strong>ダウンストリーム</strong> へアクセスする構成です。<br>
+「イベントソース -&gt; Lambda 関数 -&gt; ダウンストリーム」という流れをイメージしてください。</p>
+<p><strong>イベントソース</strong> は、イベントの発生元となる AWS サービスやユーザが開発したアプリケーションです。<br>
+Lambda 関数が呼び出されるきっかけと考えてください。</p>
+<p><strong>ダウンストリーム</strong> は、 Lambda 関数がアクセスする AWS サービスやユーザが開発したアプリケーションです。<br>
+データベースアクセスなども含まれます。</p>
 <h2 id="イベントソース">イベントソース</h2>
-<p>イベントソースは、イベントの発生元となる AWS サービスやユーザが開発したアプリケーション。<br>
-Lambda 関数がイベントを検知するパターンとして以下の 3 つある。</p>
+<p>イベントソースは、イベントの発生元となる AWS サービスやユーザが開発したアプリケーションです。<br>
+Lambda 関数がイベントを検知するパターンとして以下があります。</p>
 <ul>
 <li>ポーリング 且 ストリーム
 <ul>
@@ -262,13 +264,13 @@ Lambda 関数がイベントを検知するパターンとして以下の 3 つ�
 </ul>
 </li>
 </ul>
-<p>Lambda 関数の処理タイプとして以下の 2 つある。</p>
+<p>Lambda 関数の処理タイプとして以下があります。</p>
 <ul>
 <li>同期：リクエストの処理結果含め返却</li>
 <li>非同期：リクエストが正常に受信できたかのみ返却</li>
 </ul>
-<p>イベントソースとなる AWS サービスは、上記のイベント検知パターンと処理タイプの組み合わせで分類することができる。<br>
-また、以下のパターンによってリトライの動きが異なる。</p>
+<p>イベントソースとなる AWS サービスは、上記のイベント検知パターンと処理タイプの組み合わせで分類することができます。<br>
+また、以下のパターンによってリトライの動きが異なる点に注意してください。</p>
 <ul>
 <li>同期 ＋ ポーリング 且 ストリーム
 <ul>
@@ -316,8 +318,7 @@ Lambda 関数がイベントを検知するパターンとして以下の 3 つ�
 </li>
 </ul>
 <h2 id="lambda-関数">Lambda 関数</h2>
-<p>Lambda ファンクションと呼ばれることもある。<br>
-以下の特徴を持つ。</p>
+<p>Lambda ファンクションと呼ばれることもあり、以下の特徴があります。</p>
 <ul>
 <li>標準もしくは <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-custom.html">カスタムラインタイム</a> でサポートされている言語で記述（ <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtime-support-policy.html">ランタイムサポートポリシー</a> ）</li>
 <li>それぞれが隔離されたコンテナ内で実行され、「 1 コンテナ＝ 1 イベント」を処理する</li>
@@ -340,11 +341,11 @@ Lambda 関数がイベントを検知するパターンとして以下の 3 つ�
 </li>
 </ul>
 <h2 id="実行環境">実行環境</h2>
-<p>Lambda 関数が実行される環境は Amazon Linux 2 なので、OS のネイティブライブラリを利用する場合はその前提で実装すること。<br>
-また、 <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/foundation-arch.html">Lambda 命令セットアーキテクチャ</a> も参照のこと。<br>
-なお、 <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtime-support-policy.html">ランタイムサポートポリシー</a> でサポートされる標準以外の実行環境が必要な場合は <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-custom.html">カスタムラインタイム</a> を利用のこと。</p>
+<p>Lambda 関数が実行される環境は Amazon Linux 2 なので、OS のネイティブライブラリを利用する場合はその前提で実装する必要があります。<br>
+また、 <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/foundation-arch.html">Lambda 命令セットアーキテクチャ</a> も参照ください。<br>
+なお、 <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtime-support-policy.html">ランタイムサポートポリシー</a> でサポートされる標準以外の実行環境が必要な場合は <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-custom.html">カスタムラインタイム</a> を利用してください。</p>
 <h2 id="デプロイパッケージ">デプロイパッケージ</h2>
-<p>Lambda 関数コードのデプロイパッケージには以下の 2 種類ある。</p>
+<p>Lambda 関数コードのデプロイパッケージには以下の 2 種類あります。</p>
 <ul>
 <li>関数コードとその依存関係を含む .zip ファイルアーカイブ</li>
 <li>関数コードとその依存関係を含む コンテナーイメージ
@@ -354,19 +355,21 @@ Lambda 関数がイベントを検知するパターンとして以下の 3 つ�
 </li>
 </ul>
 <h2 id="vpc-アクセス">VPC アクセス</h2>
-<p>Lambda 関数は指定の VPC 内で起動することにより、インターネットを介さず VPC 内のリソースへアクセスすることができる。</p>
-<p>内部的には ENI がフェッチされるので、 VPC サブネットやセキュリティグループを設定する。<br>
-Lambda 関数がコールドスタートする際は、この ENI フェッチにレイテンシ（10〜30秒）が発生するが、ENI は複数の Lambda 関数から共有される構成になっているため、都度レイテンシが発生するわけではない。<br>
-この ENI にはパブリック IP が付与されないため、インターネットアクセスが必要な場合は VPC に NAT Gateway の設定が必要になる。<br>
-なお、 VPC の制限により ENI のサブネット IP が確保できない場合は起動に失敗する。（非同期呼び出しの場合は CloudWatch Logs に記録されないので注意）</p>
+<p>Lambda 関数は指定の VPC 内で起動することにより、インターネットを介さず VPC 内のリソースへアクセスすることができます。</p>
+<p>内部的には ENI がフェッチされるので、 VPC サブネットやセキュリティグループを設定します。<br>
+Lambda 関数がコールドスタートする際は、この ENI フェッチにレイテンシ（10〜30秒）が発生しますが、ENI は複数の Lambda 関数から共有される構成になっているため、都度レイテンシが発生するわけではありません。<br>
+この ENI にはパブリック IP が付与されないため、インターネットアクセスが必要な場合は VPC に NAT Gateway の設定が必要になります。<br>
+なお、 VPC の制限により ENI のサブネット IP が確保できない場合は起動に失敗します。（非同期呼び出しの場合は CloudWatch Logs に記録されないので注意）</p>
 <h2 id="実行ロール">実行ロール</h2>
-<p>IAM ロールで指定して、各種 AWS サービスへのアクセスコントロールを行うことができる。<br>
-最低でも CloudWatch Logs へのアクセス許可が必要。</p>
+<p>IAM ロールで指定して、各種 AWS サービスへのアクセスコントロールを行うことができます。<br>
+最低でも CloudWatch Logs へのアクセス許可が必要です。</p>
+<p>IAM ロールに関しては、以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/aws-iam-basics/" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">AWS IAM入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。この記事では、AWS IAM をざっくり理解できるよう概要を記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 <h2 id="同時実行数">同時実行数</h2>
-<p>デフォルトは 1000 で、超えるとスロットリングエラーとなる。（最新情報要確認 -&gt; <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-limits.html">Lambda クォータ</a> ）<br>
-<code>ConcurrentExecutions</code> と <code>UnreservedConcurrentExecutions</code> メトリクスで確認できる。</p>
+<p>デフォルトは 1000 で、超えるとスロットリングエラーとなります。（最新情報要確認 -&gt; <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-limits.html">Lambda クォータ</a> ）<br>
+<code>ConcurrentExecutions</code> と <code>UnreservedConcurrentExecutions</code> メトリクスで確認できます。</p>
 <h2 id="ライフサイクル">ライフサイクル</h2>
-<p>Lambda 関数の起動から停止までのライフサイクルは以下の通り。</p>
+<p>Lambda 関数の起動から停止までのライフサイクルは以下の通りです。</p>
 <ol>
 <li>ENI の作成（ VPC 利用時、且つコールドスタートの時だけ 10 〜 30 秒）</li>
 <li>コンテナの作成</li>
@@ -376,41 +379,41 @@ Lambda 関数がコールドスタートする際は、この ENI フェッチ�
 <li>関数の実行</li>
 <li>コンテナの破棄</li>
 </ol>
-<p>上記の 1 〜 6 がコールドスタート時の動きで、 6 のみがウォームタート時の動きとなる。<br>
-間隔をあまり開けずに定期的に Lambda が実行されていればコールドスタートは発生しない。</p>
+<p>上記の 1 〜 6 がコールドスタート時の動きで、 6 のみがウォームタート時の動きとなります。<br>
+間隔をあまり開けずに定期的に Lambda が実行されていればコールドスタートは発生しません。</p>
 <h1 id="aws-lambda-の使い方">AWS Lambda の使い方</h1>
 <h2 id="プログラミングモデル">プログラミングモデル</h2>
 <ul>
 <li>ハンドラー
 <ul>
-<li>言語の関数もしくはメソッドで、実行時のエントリーポイントとなる</li>
-<li>1 つ目のパラメータとして JSON 形式のイベントデータが渡される</li>
+<li>言語の関数もしくはメソッドで、実行時のエントリーポイントとなります</li>
+<li>1 つ目のパラメータとして JSON 形式のイベントデータが渡されます</li>
 </ul>
 </li>
 <li>コンテキスト
 <ul>
-<li>ラインタイムに関する情報が含まれる</li>
-<li>2 つ目のパラメータとして渡される</li>
+<li>ラインタイムに関する情報が含まれます</li>
+<li>2 つ目のパラメータとして渡されます</li>
 </ul>
 </li>
 <li>ロギング
 <ul>
-<li>標準出力が CloudWatch Logs に書き込まれる</li>
-<li>CloudWatch Logs の制限を受けるため、スロットリングによって失われる可能性あり</li>
+<li>標準出力が CloudWatch Logs に書き込まれます</li>
+<li>CloudWatch Logs の制限を受けるため、スロットリングによって失われる可能性があります</li>
 </ul>
 </li>
 <li>例外処理
 <ul>
-<li>言語仕様によりことなる</li>
-<li>同期呼び出しの場合はレスポンスされる</li>
+<li>言語仕様により異なります</li>
+<li>同期呼び出しの場合はレスポンスされます</li>
 </ul>
 </li>
 <li>注意点
 <ul>
-<li>ステートレスな処理モデルにする必要がある</li>
-<li>同じインスタンスで実行されるとは限らない</li>
-<li>ローカルリソースの利用・アクセスは処理実行中のみ有効</li>
-<li>データは他の永続化サービスへ保存すること</li>
+<li>ステートレスな処理モデルにする必要があります</li>
+<li>同じインスタンスで実行されるとは限りません</li>
+<li>ローカルリソースの利用・アクセスは処理実行中のみ有効です</li>
+<li>データは他の永続化サービスへ保存しましょう</li>
 </ul>
 </li>
 </ul>
@@ -541,13 +544,13 @@ msmaflink({"n":"AWS Lambda実践ガイド 第2版 （impress top gear） [ 大�
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/terraform-googlecloud-environment/" data-toggle="tooltip" data-placement="top" title="Google Cloud のための Terraform 環境構築">&larr;
+                        <a href="/aws-dynamodb-basics/" data-toggle="tooltip" data-placement="top" title="DyanamoDB入門">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/cryptocurrency-basics/" data-toggle="tooltip" data-placement="top" title="仮想通貨（暗号資産）入門">Next
+                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAM入門">Next
                             Post &rarr;</a>
                     </li>
                     
