@@ -14,6 +14,9 @@
     <loc>https://blog.pepese.com/aws-lambda-basics/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://blog.pepese.com/aws-waf-basics/</loc>
+    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -33,6 +36,9 @@
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/vpc/</loc>
+    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/waf/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/</loc>
@@ -157,12 +163,6 @@
   </url><url>
     <loc>https://blog.pepese.com/asdf-basics/</loc>
     <lastmod>2022-03-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/aws-waf-basics/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/waf/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/istio/</loc>
     <lastmod>2021-01-04T00:00:00+00:00</lastmod>
