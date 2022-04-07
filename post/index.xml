@@ -8,6 +8,16 @@
     <language>ja</language>
     <lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Amazon VPC入門</title>
+      <link>https://blog.pepese.com/aws-vpc-basics/</link>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-vpc-basics/</guid>
+      <description>&lt;p&gt;Amazon VPC は、 AWS が提供する仮想ネットワークサービスです。&lt;br&gt;
+この記事では、Amazon VPC をざっくり理解できる概要と作成例について記載します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>AWS IAM入門</title>
       <link>https://blog.pepese.com/aws-iam-basics/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
@@ -178,15 +188,6 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
       <guid>https://blog.pepese.com/asdf-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://asdf-vm.com&#34;&gt;asdf&lt;/a&gt; を使えば、複数のプログラミング言語ランタイムおよびそのバージョンを &lt;code&gt;asdf&lt;/code&gt; コマンドだけで管理することができる。&lt;br&gt;
 ここでは、Mac に環境構築する方法について記載する。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Amazon VPCまとめ</title>
-      <link>https://blog.pepese.com/aws-vpc-basics/</link>
-      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/aws-vpc-basics/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; の &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/vpc/&#34;&gt;VPC&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
