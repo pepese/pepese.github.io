@@ -6,14 +6,15 @@
     <description>Recent content in iam on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/iam/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/iam/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AWS IAMまとめ</title>
+      <title>AWS IAM入門</title>
       <link>https://blog.pepese.com/aws-iam-basics/</link>
-      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/aws-iam-basics/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/index.html&#34;&gt;AWS&lt;/a&gt; &lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/iam/&#34;&gt;Identity and Access Management（ IAM ）&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+      <description>&lt;p&gt;AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。&lt;br&gt;
+この記事では、AWS IAM をざっくり理解できるよう概要を記載します。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="AWS IAMまとめ | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="AWS IAMまとめ | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="AWS IAMまとめ | ぺーぺーSEのブログ" />
+    <meta name="title" content="AWS IAM入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="AWS IAM入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="AWS IAM入門 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。この記事では、AWS IAM をざっくり理解できるよう概要を記載します。">
+    <meta property="og:description" content="AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。この記事では、AWS IAM をざっくり理解できるよう概要を記載します。" />
+    <meta property="twitter:description" content="AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。この記事では、AWS IAM をざっくり理解できるよう概要を記載します。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="AWS, IAM">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>AWS IAMまとめ</title>
+    <title>AWS IAM入門</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/aws-iam-basics/">
+    <link rel="canonical" href="https://blog.pepese.comaws-iam-basics/">
     
 
     
@@ -204,11 +204,11 @@
                         </a>
                         
                     </div>
-                    <h1>AWS IAMまとめ</h1>
+                    <h1>AWS IAM入門</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-23
+                            2022-04-07
                             
                             
                             
@@ -234,9 +234,10 @@
                 post-container">
 
                 
-                <p><a href="https://docs.aws.amazon.com/ja_jp/index.html">AWS</a> <a href="https://docs.aws.amazon.com/ja_jp/iam/">Identity and Access Management（ IAM ）</a> についてまとめる。</p>
+                <p>AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。<br>
+この記事では、AWS IAM をざっくり理解できるよう概要を記載します。</p>
 <h1 id="概要">概要</h1>
-<p>AWS IAM は AWS リソースをセキュアに操作するために、認証・認可の仕組みを提供する。</p>
+<p>AWS IAM は AWS リソースをセキュアに操作するために、認証・認可の仕組みを提供するサービスです。</p>
 <ul>
 <li>ID と認証情報の管理
 <ul>
@@ -263,115 +264,71 @@
 </ul>
 </li>
 </ul>
-<h2 id="aws-リソースにアクセスする流れ仕組み">AWS リソースにアクセスする流れ・仕組み</h2>
-<ol>
-<li>プリンシパル
+<h1 id="用語">用語</h1>
+<h2 id="プリンシパル">プリンシパル</h2>
+<p>AWS リソースにアクセスするユーザーやアプリケーションのことです。</p>
+<h2 id="iam-ユーザー"><strong>IAM ユーザー</strong></h2>
+<p>IAM ユーザーは AWS アカウントの配下に作成され、 <strong>AWSマネジメントコンソール</strong> にアクセスするための ID/Password を割り当てることができます。<br>
+IAM ユーザーの単位で <strong>アクセスキー</strong> 、 <strong>シークレットアクセスキー</strong> などのキーを払い出すことができ、 AWS CLI 実行時などの認証・認可に利用できます。</p>
+<h2 id="フェデレーションユーザー"><strong>フェデレーションユーザー</strong></h2>
+<p>フェデレーションユーザーは、 IAM ユーザーとは異なり、 AWS アカウント配下で管理される ID ではありません。<br>
+フェデレーションユーザーは外部の　<strong>IDプロバイダ</strong>（<strong>IdP</strong>）が提供する ID/Password です。<br>
+ID プロバイダには OpenID Connect や SAML 2.0 などが挙げられます。<br>
+フェデレーションユーザーに <strong>IAM ロール</strong> を IAM 上で作成・アタッチすることでアクセス・権限のコントロールを行うことができます。</p>
+<h2 id="iam-ユーザーグループ"><strong>IAM ユーザーグループ</strong></h2>
+<p>IAM ユーザーの集合です。</p>
+<h2 id="iam-ロール"><strong>IAM ロール</strong></h2>
+<p>IAM ロールは、 <strong>通常は AWS リソースへアクセス権限の無い</strong> ユーザー、アプリケーション、AWS リソース（EC2 など）に役割を <strong>移譲</strong> するために利用します。<br>
+そのため、 IAM ユーザーやグループに権限を与える際は IAM ロールは利用せず、直接ポリシーをアタッチすることになります。<br>
+IAM ユーザ・グループと同様 IAM ロールにも <strong>ポリシー</strong> を割り当てることができ、このポリシーでアクセスコントロールを行います。</p>
+<h2 id="ポリシー"><strong>ポリシー</strong></h2>
+<p>IAM ユーザー・IAM グループ・ IAM ロールに割り当てるアクセス許可で、 JSON 形式で管理されます。<br>
+ポリシーには以下の種類があります。</p>
 <ul>
-<li>アクセスの主体：ユーザー/グループ、ロール、アプリケーション</li>
-</ul>
-</li>
-<li>認証
+<li>AWS 管理ポリシー
 <ul>
-<li>プリンシパルの認証</li>
-</ul>
-</li>
-<li>リクエスト
-<ul>
-<li>アクション、リソース、プリンシパル、環境データ、リソースデータ</li>
-</ul>
-</li>
-<li>認可
-<ul>
-<li>ポリシーベースの許可</li>
-<li>ID ベースポリシー、リソースベースポリシー、その他ポリシー</li>
-</ul>
-</li>
-<li>アクション/オペレーション</li>
-<li>AWS リソース</li>
-</ol>
-<h2 id="用語">用語</h2>
-<ul>
-<li>ユーザー
-<ul>
-<li><strong>IAM ユーザー</strong>
-<ul>
-<li>IAMユーザーはAWSアカウントの配下に作成され、<strong>AWSマネジメントコンソール</strong>にアクセスするための独自のID/Passwordを割り当てることができる</li>
-<li>IAMユーザーの単位で<strong>アクセスキー</strong>、<strong>シークレットアクセスキー</strong>が払い出される</li>
-</ul>
-</li>
-<li><strong>フェデレーションユーザー</strong>
-<ul>
-<li>フェデレーションユーザーは、IAMユーザーとは異なり、AWSアカウントに永続的なIDを持っていない</li>
-<li>フェデレーションユーザーは外部の<strong>IDプロバイダ</strong>（<strong>IdP</strong>）が提供するID/Passwordを指す</li>
-<li>IDプロバイダにはOpenID ConnectやSAML 2.0等が挙げられる</li>
-<li>フェデレーションユーザーに<strong>ロール</strong>と呼ばれるエンティティをIAM上で作成・アタッチすることでアクセス・権限のコントロールを行う</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>IAM グループ</strong> ：IAMユーザの集合</li>
-<li><strong>ロール</strong> ：AWSリソース、フェデレーションユーザーに割り当てる役割
-<ul>
-<li>あるAWSリソースが自分自身・別のAWSリソースにアクセスするためにはアクセス権限が必要となる</li>
-<li>例えば、あるEC2上のアプリケーションが別のAWSリソースにアクセスする場合、そのAWSリソースにアクセスする権限をもったロールである必要がある</li>
-</ul>
-</li>
-<li><strong>ポリシー</strong> ：IAMユーザー・IAMグループ・ロールに割り当てるアクセス許可
-<ul>
-<li>AWS管理ポリシー
-<ul>
-<li>AWSがあらかじめ作成し、IAM上で提供してくれているポリシー</li>
+<li>AWSがあらかじめ作成し、IAM 上で提供してくれているポリシー</li>
 </ul>
 </li>
 <li>カスタマー管理ポリシー
 <ul>
 <li>ユーザーが作成・管理するポリシー</li>
-<li>AWS管理ポリシーには存在せず、且つ、好きなポリシーを作ることができる</li>
+<li>AWS管理ポリシーには存在せず、且つ、好きなポリシーを作ることができます</li>
 </ul>
 </li>
 <li>インラインポリシー
 <ul>
-<li>IAMユーザー・IAMグループ・ロール内に作成するポリシー</li>
-<li>カスタマー管理ポリシーとは異なり、他のIAMユーザー・IAMグループ・ロールへ再利用することはできない</li>
+<li>IAM ユーザー・IAM グループ・IAM ロール内に作成するポリシー</li>
+<li>カスタマー管理ポリシーとは異なり、他のIAMユーザー・IAMグループ・ロールへ再利用することはできません</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><strong>IDプロバイダ</strong>（<strong>IdP</strong>）
-<ul>
-<li>OpenID Connect、SAML等のAWS外に存在するID/Passwordによる認証サービス提供者</li>
-<li>IAM上の「IDプロバイダ」にて外部のIDプロバイダと連携設定が可能</li>
-</ul>
-</li>
-</ul>
-<h3 id="amazon-resource-name--arn-">Amazon Resource Name （ ARN ）</h3>
-<p><strong>ARN</strong> は Amazon Resource Name の略で AWS リソースを一意に識別する値。</p>
+<h2 id="amazon-resource-name--arn-">Amazon Resource Name （ ARN ）</h2>
+<p><strong>ARN</strong> は Amazon Resource Name の略で AWS リソースを一意に識別する値です。<br>
+以下のような形式で表現されます。</p>
 <pre tabindex="0"><code>arn:partition:service:region:account-id:resource
 arn:partition:service:region:account-id:resourcetype/resource
 arn:partition:service:region:account-id:resourcetype:resource
 </code></pre><ul>
 <li><code>partition</code>
 <ul>
-<li>リソースが配置されるパーティション</li>
-<li>標準のAWSリージョンの場合、パーティションは <strong>aws</strong></li>
+<li>リソースが配置されるパーティション（標準のAWSリージョンの場合、単に「 <strong>aws</strong> 」）</li>
 </ul>
 </li>
 <li><code>service</code>
 <ul>
-<li>AWSのサービス名</li>
-<li>「apigateway」や「ec2」など（ <a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">参考</a> ）</li>
+<li>AWSのサービス名（「apigateway」や「ec2」など）</li>
 </ul>
 </li>
 <li><code>region</code>
 <ul>
-<li>リソースが配置されるリージョン</li>
-<li>東京リージョンであれば「ap-northeast-1」（ <a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">参考</a> ）</li>
+<li>リソースが配置されるリージョン（東京リージョンであれば「ap-northeast-1」）</li>
 </ul>
 </li>
 <li><code>account-id</code>
 <ul>
 <li>リソースを保有している AWS アカウントID（数字のみ）</li>
-<li>一部のARNはこのアカウント番号を必要としないため省略される</li>
+<li>一部の ARN はこのアカウント番号を必要としないため省略されます</li>
 </ul>
 </li>
 <li><code>resource</code> <code>resourcetype/resource</code> <code>resourcetype/resource</code>
@@ -380,261 +337,130 @@ arn:partition:service:region:account-id:resourcetype:resource
 <li>リソースタイプの指標（IAMユーザやRDSなど）が含まれることがよくある</li>
 <li>さらにスラッシュ（/）またはコロン（:）、リソース名自体が続く</li>
 <li>一部のサービスではパス（ファイルパス、URIなど）を指定できる（ARNのパス）</li>
-<li><a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-arns-and-namespaces.html#arns-paths">参考</a></li>
 </ul>
 </li>
 </ul>
 <p><a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-arns-and-namespaces.html">参考</a></p>
-<blockquote>
-<h3 id="aws-directory-serviceとの連携">AWS Directory Serviceとの連携</h3>
-<p>IAMは<strong>AWS Directory Service</strong>と連携してロールを作成することによって、<strong>Simple AD</strong>などで管理するID/Passwordを利用することができる。（<a href="https://docs.aws.amazon.com/ja_jp/directoryservice/latest/admin-guide/ms_ad_manage_roles.html">詳細</a>）</p>
-</blockquote>
-<h1 id="id-と認証情報の管理">ID と認証情報の管理</h1>
-<h2 id="aws-アカウントのルートユーザーアクセスキーをロックする">AWS アカウントのルートユーザーアクセスキーをロックする</h2>
-<ul>
-<li>AWS アカウントのルートユーザー
-<ul>
-<li>完全なアクセス権を持つユーザー</li>
-<li>AWS アカウント作成時のメールアドレス/パスワードでサインイン</li>
-<li>IAM で設定するアクセスポリシーでアクセス許可を制限できない（ AWS Organizations の SCP で可能）</li>
-<li>基本的に使用しない、 IAM ユーザーを作成する</li>
-</ul>
-</li>
-<li>アクセスキー
-<ul>
-<li>ルートユーザー・ IAM ユーザーに与える認証情報</li>
-<li>アクセスキー ID 、シークレットアクセスキーで構成される</li>
-<li>AWS CLI や AWS SDK 等からのアクセスに署名</li>
-<li>最大 2 つ持てる</li>
-<li>プラクティス：ルートユーザーのアクセスキーは削除する！</li>
-</ul>
-</li>
-</ul>
-<h2 id="個々の-iam-ユーザーを作成">個々の IAM ユーザーを作成</h2>
-<ul>
-<li>IAM ユーザー
-<ul>
-<li>AWS で作成するユーザーまたはアプリケーション</li>
-<li>名前と認証情報で構成される</li>
-<li>IAM ユーザーを識別する方法
-<ul>
-<li>プレンドリ名：人がわかりやすい名前</li>
-<li>ARN（ Amazon Resource Name ）：リソースポリシーの Principal 要素で指定</li>
-<li>ユーザーの一意の識別子：フレンドリ名を再利用したいとき等に権限のエスカレーションを避けることができる
-<ul>
-<li>普段見ない、AWS CLI とかから意識的に取得しないと見れない</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>認証情報
-<ul>
-<li>コンソールパスワード、アクセスキー</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="ユーザーの強力なパスワードポリシーを設定">ユーザーの強力なパスワードポリシーを設定</h2>
-<ul>
-<li>パスワードに要求される強度とパスワード管理のポリシーを設定可能
-<ul>
-<li>パスワードに利用する文字に関するルール</li>
-<li>ユーザー自身によるパスワード変更の許可</li>
-<li>有効期限、再利用禁止の世代数など</li>
-<li>ルートユーザーには適用されない</li>
-</ul>
-</li>
-</ul>
-<h2 id="アクセスキーを共有しない">アクセスキーを共有しない</h2>
-<ul>
-<li>個々人ごとに IAM ユーザーを作成する</li>
-<li>個々のアプリケーションごとに IAM ロールを作成する</li>
-<li>アクセスキーの置き場所に注意</li>
-</ul>
-<h2 id="特権ユーザーに対して-mfa-を有効化する">特権ユーザーに対して MFA を有効化する</h2>
-<ul>
-<li>MFA：他要素認証
-<ul>
-<li>パスワード、アクセスキーに加えてセキュリティを強化する仕組み</li>
-</ul>
-</li>
-</ul>
-<h1 id="アクセス権限の管理">アクセス権限の管理</h1>
-<h2 id="aws-管理ポリシーを使用したアクセス許可の使用">AWS 管理ポリシーを使用したアクセス許可の使用</h2>
-<ul>
-<li>ポリシー
-<ul>
-<li>エンティティ（IAM アイデンティティや AWS リソース）に関連つけることによってアクセス許可を定義できるオブジェクト</li>
-<li>JSON ポリシードキュメントで条件を記述</li>
-<li>1 つ以上の Statement ブロックで構成</li>
-</ul>
-</li>
-<li>ポリシータイプ
-<ul>
-<li>アイデンティティベース
-<ul>
-<li>管理ポリシー： AWS 管理ポリシー、カスタマー管理ポリシー（自作のポリシー）
-<ul>
-<li>ポリシー自体を管理し、 エンティティに関連づけて利用する</li>
-</ul>
-</li>
-<li>インラインポリシー
-<ul>
-<li>エンティティに埋め込んで利用し、再利用不可能</li>
-<li>できるだけ使用せず、カスタマー管理ポリシーを使用する</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>リソースベース
-<ul>
-<li>IAM ロールの信頼ポリシー</li>
-</ul>
-</li>
-<li>パーミッションバウンダリー
-<ul>
-<li>IAM アクエス許可の境界</li>
-</ul>
-</li>
-<li>アクセスコントロール（ ACL ）
-<ul>
-<li>別アカウントのポリシーを制御</li>
-<li>唯一 JSON で記載しない</li>
-</ul>
-</li>
-<li>セッションポリシー
-<ul>
-<li>一時的なアクセス権限を渡すために作成する（フェデレーションユーザーなど）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="追加セキュリティに対するポリシー条件を使用">追加セキュリティに対するポリシー条件を使用</h2>
-<ul>
-<li>ポリシードキュメント（ JSON ）の主な要素
+<h1 id="iam-ロール-1">IAM ロール</h1>
+<p>IAM ロールは自分の AWS アカウントの権限を移譲するためのものです。<br>
+そして、 IAM ロールを移譲する際には、 <strong>移譲対象を信頼</strong> する必要があります。<br>
+この信頼する対象に関するポリシーを <strong>信頼ポリシー</strong> と呼びます。<br>
+信頼ポリシーは以下のような <strong>AssumeRolePolicyDocument</strong> で表現します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;Version&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;Statement&#34;</span><span style="color:#ff79c6">:</span> [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Sid&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Effect&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Principal&#34;</span><span style="color:#ff79c6">:</span> { <span style="color:#6272a4">// 信頼する対象
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#f1fa8c">&#34;AWS&#34;</span><span style="color:#ff79c6">:</span> [ <span style="color:#f1fa8c">&#34;123456789012&#34;</span> ]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Action&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;sts:AssumeRole&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上記は「 AWS アカウント <code>123456789012</code> を信頼する」という意味になります。<br>
+AWS STS (AWS Security Token Service) の 「sts:AssumeRole」という機能を通じて、信頼する対象に対してロールを付与します。<br>
+信頼ポリシーは、ロールが信頼する相手に関する情報を記載しているだけなので、何かしらの権限を付与するためにはロールに追加でポリシーをアタッチする必要があります。<br>
+さらに例を挙げると、以下は「AWS サービス EC2 を信頼する」という意味になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;Version&#34;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;Statement&#34;</span><span style="color:#ff79c6">:</span> [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Effect&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Principal&#34;</span><span style="color:#ff79c6">:</span> { <span style="color:#6272a4">// 信頼する対象
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#f1fa8c">&#34;Service&#34;</span><span style="color:#ff79c6">:</span> [ <span style="color:#f1fa8c">&#34;ec2.amazonaws.com&#34;</span> ]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Action&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;sts:AssumeRole&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="アクセス権限の管理">アクセス権限の管理</h1>
+<h2 id="ポリシードキュメント-json-">ポリシードキュメント（ JSON ）</h2>
+<p>ポリシーは JSON ドキュメントで表現します。<br>
+項目には以下があります。</p>
 <ul>
 <li>Version
 <ul>
-<li>ポリシー言語のバージョン、最新を記載する（ <code>2012-10-17</code> ）</li>
+<li>ポリシー言語のバージョン（ <code>2012-10-17</code> ※最新版を記載するようにしましょう）</li>
 </ul>
 </li>
 <li>Statemant
 <ul>
-<li>アクセス許可に関する複数要素（ Effect/Action/Resource など ）を含むブロック</li>
+<li>アクセス許可に関する要素（ Effect/Action/Resource など ）を複数含むブロック</li>
 <li>複数作成可能</li>
 </ul>
-<pre tabindex="0"><code>{
-    &#34;Version&#34;: &#34;2012-10-17&#34;,
-    &#34;Statement&#34;: {
-    &#34;Effect&#34;: &#34;Allow&#34;,
-    &#34;Action&#34;: &#34;s3:ListBucket&#34;,
-    &#34;Resource&#34;: &#34;arn:aws:s3:::example_bucket&#34;
-    }
-}
-</code></pre></li>
+</li>
 <li>Effect
 <ul>
 <li>アクセスを要求した結果の許可/拒否の指定 <code>Allow</code> <code>Deny</code></li>
-<li>暗黙的な Deny（デフォルト） ＜ 明示的な Allow ＜ 明示的な Deny</li>
+<li>「暗黙的な Deny（デフォルト） ＜ 明示的な Allow ＜ 明示的な Deny」の基準で評価されます</li>
 </ul>
 </li>
 <li>Principal（誰が）
 <ul>
-<li>アクセスが許可/拒否される IAM エンティティを ARN 形式で記述</li>
+<li>アクセスを許可/拒否される主体を ARN 形式で記述します</li>
 </ul>
 </li>
 <li>Action（何を）
 <ul>
-<li>アクセス許可/拒否されるアクション <code>Action</code> <code>NotAction</code> （<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/APIReference/API_Operations.html">一覧</a>）</li>
+<li>アクセスを許可/拒否されるアクション <code>Action</code> <code>NotAction</code> （<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/APIReference/API_Operations.html">一覧</a>）</li>
 </ul>
 </li>
 <li>Resource（何に対して）
 <ul>
-<li>アクセスが許可/拒否対象のリソースを ARN 形式で記述</li>
+<li>アクセス許可/拒否対象のリソースを ARN 形式で記述します</li>
 </ul>
 </li>
 <li>Condition（いつ）
 <ul>
 <li>ポリシーが有効になるタイミング</li>
-<li>条件演算子・条件キーを利用して記載</li>
+<li>条件演算子・条件キーを利用して記載します</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>ツール
+<p>具体例としては以下のようになります。<br>
+「example_bucket」という名前の S3 バケットへのアクセス許可を表すポリシーになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Version&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Statement&#34;</span><span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;Effect&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;Action&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;s3:ListBucket&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;Resource&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;arn:aws:s3:::example_bucket&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="ポリシーの種類">ポリシーの種類</h2>
+<p>ポリシーには以下の種類があります。</p>
 <ul>
-<li>AWS Policy Generator</li>
-<li>IAM Policy Validator</li>
-<li>IAM Policy Simulator 、など</li>
+<li>AWS 管理ポリシー
+<ul>
+<li>AWS があらかじめ用意してくれているポリシー</li>
+<li>例） <code>arn:aws:iam::aws:policy/IAMReadOnlyAccess</code></li>
 </ul>
 </li>
-<li>最小権限を付与すること</li>
-</ul>
-<h2 id="iam-ユーザーへのアクセス許可を割り当てるためにグループを使用">IAM ユーザーへのアクセス許可を割り当てるためにグループを使用</h2>
+<li>カスタマー管理ポリシー
 <ul>
-<li>IAM グループ
-<ul>
-<li>IAM ユーザーの集合</li>
-<li>IAM ユーザーは複数の IAM グループへ所属可能（最大 10）</li>
-<li>IAM ユーザー個別管理が大変なので、こちらを利用する（所属グループを変更するだけ）</li>
+<li>ユーザが独自に作成して命名するポリシーで、再利用可能</li>
 </ul>
 </li>
-</ul>
-<h1 id="権限の委任">権限の委任</h1>
+<li>インラインポリシー
 <ul>
-<li>IAM ロール
-<ul>
-<li>AWS サービスやアプリケーションなどに権限を付与する仕組み</li>
-<li>一時的なセキュティ認証情報：AWS Security Token Service（ STS ）
-<ul>
-<li>有効期限付きのアクセスキーID/シークレットアクセスキー/セキュリティトークンで構成</li>
-</ul>
-</li>
+<li>ユーザが独自に IAM ユーザー・グループ・ロールに対して埋め込むポリシー</li>
+<li>ポリシー名が無く、再利用不可能</li>
 </ul>
 </li>
 </ul>
-<h2 id="ec2-で実行するアプリケーションに対してロールを使用する">EC2 で実行するアプリケーションに対してロールを使用する</h2>
-<ul>
-<li>アプリケーションが AWS サービスにアクセスするためには認証が必要</li>
-<li>EC2（OS）側に持たせる必要がない</li>
-</ul>
-<h2 id="ロールを使用したアクセス許可の委任">ロールを使用したアクセス許可の委任</h2>
-<ul>
-<li>別の AWS アカウントのユーザーが認証情報を共有せずに、自分の AWS アカウントのリソースに隠せす制御可能</li>
-<li>Amazon Cognito を用いたモバイルアプリの Web ID フェデレーションなどにも利用可能</li>
-</ul>
-<h1 id="id-と権限のライフサイクル管理">ID と権限のライフサイクル管理</h1>
-<h2 id="aws-アカウントのアクティビティ監視">AWS アカウントのアクティビティ監視</h2>
-<ul>
-<li>AWS CloudTrail
-<ul>
-<li>AWS API コール、関連イベントをロギング</li>
-<li>適切なユーザーが与えられた権限で環境を操作しているのか確認と記録に使用</li>
-</ul>
-</li>
-<li>Amazon CloudWatch</li>
-<li>AWS Config</li>
-<li>アクセスアドバイザー</li>
-</ul>
-<h2 id="不要な認証情報を削除する">不要な認証情報を削除する</h2>
-<ul>
-<li>IAM 認証情報レポート（ Credential Report ）を確認して、利用がないものは確認して削除</li>
-</ul>
-<h2 id="認証情報を定期的にローテーションする">認証情報を定期的にローテーションする</h2>
-<ul>
-<li>パスワードに有効期限を設定し、ユーザーに更新させる</li>
-<li>アクセスキーもローテーションできるようにする
-<ul>
-<li>アクセスキーは 2 個作れるので、これを利用する</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/troubleshoot.html">トラブルシューティング</a></li>
-</ul>
+<p>通常は AWS 管理ポリシーを利用し、適当なものが無い場合は カスタマー管理ポリシーを利用します。<br>
+インラインポリシーはあまりお勧めできません。</p>
+<h2 id="iam-ユーザグループへの権限付与">IAM ユーザ・グループへの権限付与</h2>
+<p>IAM ユーザ・グループへポリシーをアタッチすることによって権限管理を行います。<br>
+IAM ユーザ一人一人に対して権限管理を行うのは非効率なので、 Administoator 、 SystemOperator といった IAM グループを作成して権限を付与し、 IAM グループへ IAM ユーザを所属させることによって権限管理することをお勧めします。<br>
+IAM ユーザーは複数の IAM グループ（最大 10 ）へ所属することが可能です。</p>
+<h2 id="iam-ロールへの権限付与">IAM ロールへの権限付与</h2>
+<p>他 AWS アカウントや自 AWS アカウント内の AWS サービス（例えば EC2）など、対象毎に IAM ロールを作成します。<br>
+その IAM ロールに対して信頼ポリシー（誰を信頼するのか？）と権限を与えるポリシー（何が出来るのか？）を付与します。<br>
+（厳密には Permissions boundary といったポリシーもありますが、ここでは割愛します。）<br>
+以上のように作成した IAM ロールを対象に付与します。</p>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - aws basics -->
 <!-- START MoshimoAffiliateEasyLink -->
@@ -661,15 +487,10 @@ msmaflink({"n":"AWSではじめるインフラ構築入門 安全で堅牢な本
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-waf-basics/" data-toggle="tooltip" data-placement="top" title="AWS WAFまとめ">&larr;
+                        <a href="/aws-dynamodb-basics/" data-toggle="tooltip" data-placement="top" title="DyanamoDB入門">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPCまとめ">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
