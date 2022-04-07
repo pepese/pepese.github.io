@@ -18,6 +18,16 @@
     </item>
     
     <item>
+      <title>asdfで利用できるJavaのディストリビューション</title>
+      <link>https://blog.pepese.com/java-asdf-distribution/</link>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/java-asdf-distribution/</guid>
+      <description>&lt;p&gt;asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。&lt;br&gt;
+この記事では、 asdf で利用できる Java のディストリビューションついて記載します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>AWS IAM入門</title>
       <link>https://blog.pepese.com/aws-iam-basics/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
