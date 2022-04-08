@@ -6,7 +6,17 @@
     <description>Recent content in vscode on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual Studio CodeでJavaの開発環境を作成する</title>
+      <link>https://blog.pepese.com/java-vscode-environment/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/java-vscode-environment/</guid>
+      <description>&lt;p&gt;Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。&lt;br&gt;
+この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Visual Studio Code入門</title>
       <link>https://blog.pepese.com/vscode-basics/</link>

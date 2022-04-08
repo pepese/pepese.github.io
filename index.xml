@@ -28,6 +28,16 @@
     </item>
     
     <item>
+      <title>Visual Studio CodeでJavaの開発環境を作成する</title>
+      <link>https://blog.pepese.com/java-vscode-environment/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/java-vscode-environment/</guid>
+      <description>&lt;p&gt;Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。&lt;br&gt;
+この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>asdfで利用できるJavaのディストリビューション</title>
       <link>https://blog.pepese.com/java-asdf-distribution/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>

@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="asdfで利用できるJavaのディストリビューション | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="asdfで利用できるJavaのディストリビューション | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="asdfで利用できるJavaのディストリビューション | ぺーぺーSEのブログ" />
+    <meta name="title" content="Visual Studio CodeでJavaの開発環境を作成する | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Visual Studio CodeでJavaの開発環境を作成する | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Visual Studio CodeでJavaの開発環境を作成する | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。この記事では、 asdf で利用できる Java のディストリビューションついて記載します。">
-    <meta property="og:description" content="asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。この記事では、 asdf で利用できる Java のディストリビューションついて記載します。" />
-    <meta property="twitter:description" content="asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。この記事では、 asdf で利用できる Java のディストリビューションついて記載します。" />
+    <meta name="description" content="Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。">
+    <meta property="og:description" content="Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。" />
+    <meta property="twitter:description" content="Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="Java, ディストリビューション, asdf">
+    <meta name="keyword"  content="Java, vscode, Visual Studio Code, Maven">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>asdfで利用できるJavaのディストリビューション</title>
+    <title>Visual Studio CodeでJavaの開発環境を作成する</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.comjava-asdf-distribution/">
+    <link rel="canonical" href="https://blog.pepese.comjava-vscode-environment/">
     
 
     
@@ -199,16 +199,20 @@
                             java
                         </a>
                         
-                        <a class="tag" href="/tags/asdf" title="asdf">
-                            asdf
+                        <a class="tag" href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        <a class="tag" href="/tags/vscode" title="vscode">
+                            vscode
                         </a>
                         
                     </div>
-                    <h1>asdfで利用できるJavaのディストリビューション</h1>
+                    <h1>Visual Studio CodeでJavaの開発環境を作成する</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-07
+                            2022-04-08
                             
                             
                             
@@ -234,159 +238,73 @@
                 post-container">
 
                 
-                <p>asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。<br>
-この記事では、 asdf で利用できる Java のディストリビューションついて記載します。</p>
-<h1 id="前提知識">前提知識</h1>
-<p>本編へ入る前に前提となる知識について記載します。</p>
-<h2 id="asdf">asdf</h2>
-<p>以下の記事を参照してください。</p>
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics/" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
-<h2 id="jdk">JDK</h2>
-<p>JDK は Java Development Kit の略で Java プログラミングする際に必要な以下のものを詰め合わせたものです。</p>
+                <p>Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。<br>
+この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。</p>
+<h1 id="javaのインストール">Javaのインストール</h1>
+<p>asdf でインストールします。<br>
+asdf については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<p>ここでは Amazon ディストリビューションである Corretto を利用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin add java
+</span></span><span style="display:flex;"><span>$ asdf install java corretto-17.0.2.8.1
+</span></span><span style="display:flex;"><span>$ asdf global java corretto-17.0.2.8.1
+</span></span></code></pre></div><p>asdf でインストールした場合、 <code>JAVA_HOME</code> の設定には専用のスクリプトが用意されています。（参考： <a href="https://github.com/halcyon/asdf-java#java_home">JAVA_HOME</a> ）<br>
+シェルの種類に合わせて <code>.zshenv</code> などに以下を追記します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># To set JAVA_HOME in your shell&#39;s initialization add the following:</span>
+</span></span><span style="display:flex;"><span>. ~/.asdf/plugins/java/set-java-home.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># For zsh shell, instead use:</span>
+</span></span><span style="display:flex;"><span>. ~/.asdf/plugins/java/set-java-home.zsh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># For fish shell, instead use:</span>
+</span></span><span style="display:flex;"><span>. ~/.asdf/plugins/java/set-java-home.fish
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># For xonsh shell, instead use:</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">source</span> ~/.asdf/plugins/java/set-java-home.xsh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
+</span></span><span style="display:flex;"><span>$ java --version
+</span></span><span style="display:flex;"><span>openjdk 17.0.2 2022-01-18 LTS
+</span></span><span style="display:flex;"><span>OpenJDK Runtime Environment Corretto-17.0.2.8.1 <span style="color:#ff79c6">(</span>build 17.0.2+8-LTS<span style="color:#ff79c6">)</span>
+</span></span></code></pre></div><h1 id="mavenのインストール">Mavenのインストール</h1>
+<p>同じく asdf を利用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin add maven
+</span></span><span style="display:flex;"><span>$ asdf install maven 3.8.4
+</span></span><span style="display:flex;"><span>$ asdf global maven 3.8.4
+</span></span><span style="display:flex;"><span>$ mvn -v
+</span></span><span style="display:flex;"><span>Apache Maven 3.8.4 <span style="color:#ff79c6">(</span>9b656c72d54e5bacbed989b64718c159fe39b537<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Maven home: /Users/xxxxx/.asdf/installs/maven/3.8.4
+</span></span><span style="display:flex;"><span>Java version: 17.0.2, vendor: Amazon.com Inc., runtime: /Users/xxxxx/.asdf/installs/java/corretto-17.0.2.8.1
+</span></span><span style="display:flex;"><span>Default locale: ja_JP, platform encoding: UTF-8
+</span></span><span style="display:flex;"><span>OS name: <span style="color:#f1fa8c">&#34;mac os x&#34;</span>, version: <span style="color:#f1fa8c">&#34;12.1&#34;</span>, arch: <span style="color:#f1fa8c">&#34;x86_64&#34;</span>, family: <span style="color:#f1fa8c">&#34;mac&#34;</span>
+</span></span></code></pre></div><h1 id="プロジェクトの作成">プロジェクトの作成</h1>
+<p>通常の Java プロジェクトを作成する場合は以下のコマンドで作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mvn archetype:create -DgroupId<span style="color:#ff79c6">=</span>com.example -DartifactId<span style="color:#ff79c6">=</span>sample
+</span></span></code></pre></div><p>SpringBoot のプロジェクトを作成する場合は <a href="https://start.spring.io/">spring initialzr</a> を使用すると便利です。<br>
+各種設定を入力した後に GENERATE すると SpringBoot の雛形プロジェクトをダウンロードできます。<br>
+最低限 Spring Web を Dependencies として追加しておけば REST API アプリケーションを作成できます。<br>
+作成したプロジェクトの実行は以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mvn spring-boot:run
+</span></span></code></pre></div><h1 id="vscodeのインストールと設定">VSCodeのインストールと設定</h1>
+<p>VSCode のインストールは以下を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/vscode-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Visual Studio Code入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Visual Studio Codeのインストールからおすすめの拡張機能までを説明。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<p>以下の拡張機能を入れます。</p>
 <ul>
-<li>コンパイラ</li>
-<li>JRE</li>
-<li>標準ライブラリ類、など</li>
+<li>Extension Pack for Java （ Microsoft 製）</li>
+<li>Maven for Java （ Microsoft 製）</li>
+<li>Debugger for Java （ Microsoft 製）</li>
+<li>Project Manager for Java （ Microsoft 製）</li>
+<li>Test Runner for Java （ Microsoft 製）</li>
+<li>Spring Initializr Java Suppoirt （ Microsoft 製）</li>
+<li>Spring Boot Dashboard （ Microsoft 製）</li>
+<li>Spring Boot Tools （ Pivotal 製）</li>
+<li>Spring Boot Extension Pack （ Pivotal 製）</li>
+<li>Lombok Annotations Support for VS Code</li>
 </ul>
-<h2 id="jre">JRE</h2>
-<p>JRE は Java Runtime Environment の略で Java の実行環境になります。<br>
-Java のソースコードをコンパイルするとバイトコードが出力されます。<br>
-そのバイトコードを実行することができる環境です。</p>
-<h2 id="ディストリビューション">ディストリビューション</h2>
-<p>JDK は OSS のプロジェクトである <a href="https://openjdk.java.net/">OpanJDK プロジェクト</a> にて開発されています。<br>
-しかし、ここで提供されているのはソースコードであり、コンパイル済みのバイナリが提供されているわけではありません。</p>
-<p>この OpenJDK のソースコードをビルドするのは一般のエンジニアにとってはハードルが高いです。<br>
-そこで、Java に力を入れている企業やコミュニティが独自の拡張機能を入れてビルド版として提供するものがディストリビューションです。</p>
-<p>なお、 JavaFX は OpenJDK には含まれていないので、 <a href="https://openjfx.io/">JavaFX プロジェクト</a> から別途入手する必要があります。<br>
-JavaFX にもまたディストリビューションが存在します。</p>
-<h1 id="asdf-で利用できる-java-ディストリビューション">asdf で利用できる Java ディストリビューション</h1>
-<h2 id="adoptopenjdk">AdoptOpenJDK</h2>
-<p>公式： <a href="https://adoptopenjdk.net/">https://adoptopenjdk.net/</a></p>
-<p>コミュニティ主導でスタートしたプロジェクトで、複数の主要ベンダーにもサポートされています。<br>
-独自サポートもあり、また、 IBM などによる有償サポートも提供されています。</p>
-<p>AdoptOpenJDKでは、「HotSpot」と「OpenJ9」の 2 種類の JVM を選択することができます。<br>
-HotSpot は OpenJDK コミュニティの JVM で、現在最も広く使用されている JVM であり、 Oracle の JDK で使用されています。<br>
-OpenJ9 は Eclipse コミュニティーの JVM で、低メモリ使用量と高速起動用に設計されたエンタープライズクラスの JVM であり、 IBM の JDK で使用されています。</p>
-<p>なお、AdoptOpenJDKは，2021年7月末で更新を終了しており、2021年8月以降は <a href="https://adoptium.net/">Eclipse Adoptiumプロジェクト</a> および <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">IBM Developerサイト</a> から配布が継続されます。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+<p>ショートカットは以下のようなものがありますが、 VSCode メニューの「移動」を見ればすぐ分かります。</p>
 <ul>
-<li>HotSpot の JDK （例：adoptopenjdk-17.0.2+8）</li>
-<li>HotSpot の JRE （例：adoptopenjdk-jre-17.0.2+8）</li>
-<li>OpenJ9 の JDK （例：adoptopenjdk-openj9-16.0.1+9.openj9-0.26.0）</li>
-<li>OpenJ9 の JRE （例：adoptopenjdk-jre-openj9-16.0.1+9.openj9-0.26.0）</li>
-<li>OpenJ9 の JDK Large Heap版（例：adoptopenjdk-openj9-large_heap-15.0.2+7.openj9-0.24.0）</li>
-<li>OpenJ9 の JRE Large Heap版（例：adoptopenjdk-jre-openj9-large_heap-15.0.2+7.openj9-0.24.0）</li>
-</ul>
-<h2 id="temurin">Temurin</h2>
-<p>公式： <a href="https://adoptium.net/">https://adoptium.net/</a></p>
-<p>AdoptOpenJDKは，2021年7月末で更新を終了しました。<br>
-2021年8月以降は、 <a href="https://adoptium.net/">Eclipse Adoptium プロジェクト</a> および <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">IBM Developerサイト</a> から配布が継続されます。<br>
-Temurin は前者の Eclipse Adoptium プロジェクト提供のディストリビューションです。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：temurin-18.0.0+36）</li>
-<li>JRE （例：temurin-jre-17.0.2+8）</li>
-</ul>
-<h2 id="ibm-semeru-runtime">IBM Semeru Runtime</h2>
-<p>公式： <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">https://developer.ibm.com/languages/java/semeru-runtimes/</a></p>
-<p>AdoptOpenJDKは，2021年7月末で更新を終了しました。<br>
-2021年8月以降は、 <a href="https://adoptium.net/">Eclipse Adoptiumプロジェクト</a> および <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">IBM Developerサイト</a> から配布が継続されます。<br>
-Semeru は後者の IBM 提供のディストリビューションです。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>OpenJ9 の JDK （例：semeru-openj9-17.0.2+8_openj9-0.30.0）</li>
-</ul>
-<h2 id="amazon-corretto">Amazon Corretto</h2>
-<p>公式： <a href="https://aws.amazon.com/jp/corretto/">https://aws.amazon.com/jp/corretto/</a></p>
-<p>AWS によって提供されている JDK です。<br>
-AWS による無償の長期サポートが行われています。<br>
-AWS 上にデプロイする Java アプリケーションの場合はこれでいいでしょう。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JKD （例：corretto-18.0.0.37.1）</li>
-</ul>
-<h2 id="liberica-jdk">Liberica JDK</h2>
-<p>公式： <a href="https://bell-sw.com/">https://bell-sw.com/</a></p>
-<p>Bellsoft によって提供されている JDK です。<br>
-Bellsoft によるサポートが行われています。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：liberica-18+37）</li>
-<li>JRE （例：liberica-jre-18+37）</li>
-<li>JDK FX （例：liberica-javafx-18+37）</li>
-<li>JRE FX （例：liberica-jre-javafx-18+37）</li>
-<li>JDK Lite版 （例：liberica-lite-18+37）</li>
-</ul>
-<h2 id="microsoft-build-of-openjdk">Microsoft Build of OpenJDK</h2>
-<p>公式： <a href="https://www.microsoft.com/openjdk">https://www.microsoft.com/openjdk</a></p>
-<p>Microsoft によって提供されている JDK です。<br>
-Azure 上にデプロイする Java アプリケーションの場合はこれでいいでしょう。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：microsoft-17.35.1）</li>
-</ul>
-<h2 id="sapmachine">SapMachine</h2>
-<p>公式： <a href="https://sap.github.io/SapMachine/">https://sap.github.io/SapMachine/</a></p>
-<p>SAP によって提供されている JDK です。<br>
-SAP によるサポートが行われています。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：sapmachine-18）</li>
-<li>JRE （例：sapmachine-jre-18）</li>
-</ul>
-<h2 id="azul-zulu">Azul Zulu</h2>
-<p>公式： <a href="https://www.azul.com/downloads/zulu/">https://www.azul.com/downloads/zulu/</a></p>
-<p>Azul Systemsによって提供されている JDK です。<br>
-無償のCommunity版と有償のEnterprise版（サポート付）があります。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：zulu-18.28.13）</li>
-<li>JRE （例：zulu-jre-18.28.13）</li>
-<li>JDK FX （例：zulu-javafx-18.28.13）</li>
-<li>JRE FX （例：zulu-jre-javafx-18.28.13）</li>
-</ul>
-<h2 id="oracle-jdk">Oracle JDK</h2>
-<p>公式： <a href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a></p>
-<p>Oracle によって提供されている JDK です。<br>
-Oracle によるサポートが行われています。<br>
-なお、下記記事でも紹介されている通り、無償利用できるようになったようです。</p>
-<ul>
-<li><a href="https://www.publickey1.jp/blog/21/oracle_jdkjava_17.html">オラクル、Oracle JDKを再び無料提供へ、本番環境でも利用可。昨日リリースのJava 17から</a></li>
-</ul>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：oracle-17.0.2）</li>
-</ul>
-<h2 id="open-jdk-18">Open JDK 18</h2>
-<p>公式： <a href="https://jdk.java.net/18/">https://jdk.java.net/18/</a></p>
-<p>Oracle がビルドした本番環境での使用に対応した JDK 。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：openjdk-18）</li>
-</ul>
-<h2 id="kona">Kona</h2>
-<p>公式： <a href="https://openjdk.java.net/projects/kona/">https://openjdk.java.net/projects/kona/</a></p>
-<p>Kona プロジェクトの目標は、モノのインターネット（IoT）ドメインで一般的に使用されるネットワークテクノロジーとプロトコル用のJavaAPIを定義して実装することです。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：kona-17.0.2.b1）</li>
-</ul>
-<h2 id="graalvm">GraalVM</h2>
-<p>公式： <a href="https://www.graalvm.org/">https://www.graalvm.org/</a></p>
-<p>Java で実装された JIT コンパイラで、Graal を 搭載した VM です。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>OpenJDK 11 をベースとした GraalVM （例：graalvm-22.0.0.2+java11）</li>
-<li>OpenJDK 17 をベースとした GraalVM （例：graalvm-22.0.0.2+java17）</li>
-<li>？ （例：graalvm-19.2.1）</li>
-</ul>
-<h2 id="trava-open-jdk">Trava Open JDK</h2>
-<p><a href="https://github.com/HotswapProjects">Hotswap プロジェクト</a> にてメンテナンスされているディストリビューションです。<br>
-dcevm は Java実行中に動的にコードを差し替えるためのJVMの拡張です。<br>
-HotSwapAgentと組み合わせて、アプリケーションを再起動することなしにコードの変更を反映することができます。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：trava-11.0.11+1）</li>
+<li>インポート：（ コードのエラーの箇所を選択してから） <code>Command + .</code></li>
+<li>クラス定義に飛ぶ：（該当箇所を選択してから） <code>F12</code> （ <code>fn</code> 押しながら）</li>
+<li>参照先へ飛ぶ：（該当箇所を選択してから） <code>Shift + F12</code></li>
 </ul>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - java -->
@@ -402,6 +320,19 @@ msmaflink({"n":"新わかりやすいJava オブジェクト指向徹底解説 �
 </script>
 <div id="msmaflink-Hu62r">リンク</div>
 <!-- MoshimoAffiliateEasyLink END -->
+<!-- ad link - amazon/rakuten books - vscode -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"Visual Studio Code完全入門 Webクリエイター\u0026エンジニアの作業がはかどる新世代エディターの操り方 [ リブロワークス ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/book\/cabinet\/3457","p":["\/9784295013457_1_2.jpg","\/9784295013457_2.jpg","\/9784295013457_3.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/17018592\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3x7jQ3u","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/h54zvN","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/17018592\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"UC6Nd","s":"s"});
+</script>
+<div id="msmaflink-UC6Nd">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
 <h1 id="おすすめ記事">おすすめ記事</h1>
 <!-- プログラミング学習のすすめ -->
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
@@ -414,13 +345,13 @@ msmaflink({"n":"新わかりやすいJava オブジェクト指向徹底解説 �
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAM入門">&larr;
+                        <a href="/java-asdf-distribution/" data-toggle="tooltip" data-placement="top" title="asdfで利用できるJavaのディストリビューション">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/java-vscode-environment/" data-toggle="tooltip" data-placement="top" title="Visual Studio CodeでJavaの開発環境を作成する">Next
+                        <a href="/docker-dockerfile-basics/" data-toggle="tooltip" data-placement="top" title="Dockerfile入門">Next
                             Post &rarr;</a>
                     </li>
                     
