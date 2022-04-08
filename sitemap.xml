@@ -3,15 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.pepese.com/aws-vpc-basics/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/aws/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/vpc/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/asdf/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/java-asdf-distribution/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/aws/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/aws-iam-basics/</loc>
@@ -23,9 +41,6 @@
     <loc>https://blog.pepese.com/aws-waf-basics/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/iam/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -35,22 +50,7 @@
     <loc>https://blog.pepese.com/tags/lambda/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/vpc/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/waf/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/aws-cli/</loc>
