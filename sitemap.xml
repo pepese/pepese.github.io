@@ -11,10 +11,16 @@
     <loc>https://blog.pepese.com/git-environment-auth-settings/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://blog.pepese.com/tags/go/</loc>
+    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/golang-modules-basics/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/golang/</loc>
+    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-basics/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/post/</loc>
@@ -24,6 +30,9 @@
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/vscode/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/</loc>
@@ -51,9 +60,6 @@
     <lastmod>2022-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/vpc/</loc>
-    <lastmod>2022-04-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/vscode/</loc>
     <lastmod>2022-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/asdf/</loc>
@@ -218,9 +224,6 @@
     <loc>https://blog.pepese.com/hugo-basics/</loc>
     <lastmod>2019-05-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/go/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/golang-string/</loc>
     <lastmod>2019-02-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -238,9 +241,6 @@
   </url><url>
     <loc>https://blog.pepese.com/kubernetes-architecture/</loc>
     <lastmod>2019-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/golang-basics/</loc>
-    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/jupyter/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>

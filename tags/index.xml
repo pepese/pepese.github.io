@@ -17,11 +17,29 @@
     </item>
     
     <item>
+      <title>go</title>
+      <link>https://blog.pepese.com/tags/go/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>golang</title>
       <link>https://blog.pepese.com/tags/golang/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>https://blog.pepese.com/tags/vscode/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/vscode/</guid>
       <description></description>
     </item>
     
@@ -67,15 +85,6 @@
       <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/vpc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vscode</title>
-      <link>https://blog.pepese.com/tags/vscode/</link>
-      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/vscode/</guid>
       <description></description>
     </item>
     
@@ -337,15 +346,6 @@
       <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://blog.pepese.com/tags/go/</link>
-      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/go/</guid>
       <description></description>
     </item>
     

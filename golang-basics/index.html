@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="Go入門 | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="Go入門 | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="Go入門 | ぺーぺーSEのブログ" />
+    <meta name="title" content="Go言語入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Go言語入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Go言語入門 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。">
+    <meta property="og:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。" />
+    <meta property="twitter:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。" />
     
 
     
@@ -39,7 +39,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>Go入門</title>
+    <title>Go言語入門</title>
 
     
     <link rel="canonical" href="https://blog.pepese.com/golang-basics/">
@@ -204,11 +204,11 @@
                         </a>
                         
                     </div>
-                    <h1>Go入門</h1>
+                    <h1>Go言語入門</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2019-01-03
+                            2022-04-09
                             
                             
                             
@@ -234,15 +234,24 @@
                 post-container">
 
                 
-                <p>golang の基本的なところをまとめる。<br>
-さらっとまとめるつもりがどえらい量になったので注意。</p>
-<h1 id="環境構築">環境構築</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>% xcode-select --install <span style="color:#6272a4"># Mac の場合はとりあえずやっておく</span>
-</span></span><span style="display:flex;"><span>% brew install go
-</span></span><span style="display:flex;"><span>% go version
-</span></span><span style="display:flex;"><span>go version go1.12.5 darwin/amd64
+                <p>Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。<br>
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。<br>
+この記事ではGo開発環境の設定から使い方までを記載します。</p>
+<h1 id="goのインストール設定">Goのインストール・設定</h1>
+<p>asdf を利用します。<br>
+asdf については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xcode-select --install <span style="color:#6272a4"># Mac の場合はとりあえずやっておく</span>
+</span></span><span style="display:flex;"><span>$ asdf plugin add golang
+</span></span><span style="display:flex;"><span>$ asdf list-all golang
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>1.17.8
+</span></span><span style="display:flex;"><span>$ asdf install golang 1.17.8
+</span></span><span style="display:flex;"><span>$ asdf global golang 1.17.8
+</span></span><span style="display:flex;"><span>$ go version
+</span></span><span style="display:flex;"><span>go version go1.17.8 darwin/amd64
 </span></span></code></pre></div><h2 id="環境変数の設定">環境変数の設定</h2>
-<p><a href="https://golang.org/doc/install/source#environment">https://golang.org/doc/install/source#environment</a></p>
+<p>Go 言語の環境変数には以下があります。</p>
 <ul>
 <li><code>GOROOT</code>
 <ul>
@@ -272,119 +281,23 @@
 </ul>
 </li>
 </ul>
-<p><code>.zshenv</code> （ bash の場合は <code>.bash_profile</code> ）に以下を追記。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
+<p>お好みのプロファイル（ zsh の場合は <code>.zshenv</code> 、 bash の場合は <code>.bash_profile</code> など ）に以下を追記します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span>on
-</span></span></code></pre></div><blockquote>
-<p>教科書敵には以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"></code></pre></div></blockquote>
-<p>export GOROOT=<code>go env GOROOT</code> # 個人的にはこれは不要
-export GOPATH=<code>go env GOPATH</code>
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin</p>
-<pre tabindex="0"><code>
-[anyenv](https://github.com/anyenv/anyenv) および [goenv](https://github.com/syndbg/goenv) を利用する場合の `.zshenv` は以下。
-
-```zsh
-export GOENV_DISABLE_GOPATH=1 # これがポイント？
-export PATH=&#34;$HOME/.anyenv/bin:$PATH&#34;
-
-export GOPATH=`go env GOPATH`
-export PATH=$PATH:$GOPATH/bin
-export GO111MODULE=on
-</code></pre><p>反映。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>% <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
+</span></span></code></pre></div><p>個人的には不要ですが、 GOROOT を含める場合は以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOROOT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOROOT<span style="color:#f1fa8c">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOROOT</span>/bin:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
+</span></span></code></pre></div><p>以下のコマンドでプロファイルの変更を反映させましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
 </span></span></code></pre></div><p>また、 <code>$GOPATH</code> 以下のディレクトリ構造は以下のようになる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">$GOPATH</span>
-</span></span><span style="display:flex;"><span>├─bin/ <span style="color:#6272a4"># Goツール類の実行ファイルが格納されるディレクトリ</span>
-</span></span><span style="display:flex;"><span>├─pkg/ <span style="color:#6272a4"># ビルドしたパッケージオブジェクトが格納されるディレクトリ</span>
-</span></span><span style="display:flex;"><span>│  ├─darwin_amd64/
-</span></span><span style="display:flex;"><span>│  │ ├─github.com/
-</span></span><span style="display:flex;"><span>│  │ │  └─GitHubアカウント名
-</span></span><span style="display:flex;"><span>│  │ │    ├─<span style="color:#f1fa8c">`</span>*.a<span style="color:#f1fa8c">`</span>ファイル<span style="color:#ff79c6">[</span>^1<span style="color:#ff79c6">]</span>
-</span></span><span style="display:flex;"><span>│  │ │    └─GitHubレポジトリ名/<span style="color:#f1fa8c">`</span>*.a<span style="color:#f1fa8c">`</span>ファイル<span style="color:#ff79c6">[</span>^2<span style="color:#ff79c6">]</span>
-</span></span><span style="display:flex;"><span>│  │ └─pkg.in/
-</span></span><span style="display:flex;"><span>│  │   ├─パッケージ名/
-</span></span><span style="display:flex;"><span>│  │   └─<span style="color:#f1fa8c">`</span>*.a<span style="color:#f1fa8c">`</span>ファイル
-</span></span><span style="display:flex;"><span>│  └─mod/ <span style="color:#6272a4"># Go Modules で取得したモジュール類が格納されるディレクトリ</span>
-</span></span><span style="display:flex;"><span>│    ├─cache/ <span style="color:#6272a4"># download したモジュール類のメタ情報や実態のzipなどのキャッシュ</span>
-</span></span><span style="display:flex;"><span>│    ├─github.com/ <span style="color:#6272a4"># リポジトリから取得したモジュール</span>
-</span></span><span style="display:flex;"><span>│    └─gopkg.in/ <span style="color:#6272a4"># リポジトリから取得したモジュール</span>
-</span></span><span style="display:flex;"><span>└─src/ <span style="color:#6272a4"># パッケージごとのソースコードを配置するディレクトリ</span>
-</span></span><span style="display:flex;"><span>  ├─gopkg.in/
-</span></span><span style="display:flex;"><span>  │  └─パッケージ名/
-</span></span><span style="display:flex;"><span>  │    └─LICENSEとか<span style="color:#f1fa8c">`</span>*.go<span style="color:#f1fa8c">`</span>とかREADMEとか
-</span></span><span style="display:flex;"><span>  └─github.com/
-</span></span><span style="display:flex;"><span>    ├─GitHubアカウント名
-</span></span><span style="display:flex;"><span>    │  └─GitHubレポジトリ名/
-</span></span><span style="display:flex;"><span>    │    └─LICENSEとか<span style="color:#f1fa8c">`</span>*.go<span style="color:#f1fa8c">`</span>とかREADMEとか
-</span></span><span style="display:flex;"><span>    └─&lt;あなたのGitHubユーザ名&gt;
-</span></span><span style="display:flex;"><span>      └─GitHubレポジトリ名/ <span style="color:#6272a4"># プロジェクトディレクトリ（複数）</span>
-</span></span><span style="display:flex;"><span>        ├─go.mod
-</span></span><span style="display:flex;"><span>        ├─go.sum
-</span></span><span style="display:flex;"><span>        ├─main.go
-</span></span><span style="display:flex;"><span>        └─その他、あなたが開発中のソフトウェアのコード
-</span></span></code></pre></div><h2 id="依存関係管理ツール-go-modules">依存関係管理ツール Go Modules</h2>
-<p>かつてここには <code>dep</code> の設定について書いていたが、 Go v1.11 から導入 Go v1.12 から正式リリースされる <strong>Go Modules</strong> （旧名 vgo）に関する内容に書き換えた。<br>
-Go Modules の概要は以下。</p>
-<ul>
-<li>Minimal Version Selection
-<ul>
-<li>Go Modulesは <a href="https://semver.org/">Semantic Versioning</a> に基づいてモジュールの管理を行なう</li>
-</ul>
-</li>
-<li>Go Modulesは <strong>GOPATH mode</strong> と <strong>module-aware mode</strong> という２つのモードがあり、環境変数 <code>GO111MODULE</code> で切り替える
-<ul>
-<li><strong>GOPATH mode</strong>
-<ul>
-<li><code>$GOPATH/src</code> 配下で <code>go get</code> コマンドを利用した依存性管理（ go v1.10 以前と同じ）</li>
-<li>標準 pkg 以外を全部 <code>$GOPATH/src</code> 以下のディレクトリで管理する</li>
-<li><code>$GOPATH/src/github.com</code> 配下に普通に <code>git clone</code> した状態のモジュールを参照する
-<ul>
-<li><code>go get</code> で <code>go1</code> タグ・ブランチもしくは最新の <code>master</code> ブランチを取得したもの</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>module-aware mode</strong>
-<ul>
-<li><code>go mod</code> コマンド・ <code>go.mod</code> ファイルを利用した依存性管理（ <code>go.sum</code> ：依存モジュールのチェックサムの管理）</li>
-<li>標準 pkg 以外の全てのパッケージをモジュールとして管理する</li>
-<li>GOPATH mode とは異なり、 <code>$GOPATH/pkg/mod</code> 配下に同じモジュールでも Semantic Versioning された単位で管理され <code>go.mod</code> に記載されたバージョンを参照する</li>
-</ul>
-</li>
-<li>環境変数 <code>GO111MODULE</code>
-<ul>
-<li><code>GO111MODULE=off</code> ： <strong>GOPATH mode</strong></li>
-<li><code>GO111MODULE=on</code> ： <strong>module-aware mode</strong></li>
-<li><code>GO111MODULE=auto</code> ： <code>$GOPATH/src</code> 配下では GOPATH mode 、それ以外では module-aware mode で動作する</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>従来通り <code>$GOPATH</code> 配下でプロジェクトを作成・開発し且つ module-aware mode を利用したい場合には <code>GO111MODULE=on</code> とする必要がある。<br>
-また、 <code>$GOPATH</code> 配下以外でプロジェクトを作成する場合であっても module-aware mode を利用すれば <code>$GOPATH/pkg/mod</code> 配下で依存モジュールが管理される。</p>
-<h2 id="プロジェクトの作成">プロジェクトの作成</h2>
-<p><code>$GOPATH</code> 配下で github および Go Modules を利用したプロジェクトの初回作成は以下のような感じ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>% mkdir -p <span style="color:#8be9fd;font-style:italic">$GOPATH</span>/src/github.com/&lt;あなたのGithubアカウント名&gt;
-</span></span><span style="display:flex;"><span>% <span style="color:#8be9fd;font-style:italic">cd</span> <span style="color:#8be9fd;font-style:italic">$GOPATH</span>/src/github.com/&lt;あなたのGithubアカウント名&gt;
-</span></span><span style="display:flex;"><span>% mkdir &lt;golangプロジェクト&gt; <span style="color:#6272a4"># プロジェクトディレクトリの作成</span>
-</span></span><span style="display:flex;"><span>% <span style="color:#8be9fd;font-style:italic">cd</span> &lt;golangプロジェクト&gt;
-</span></span><span style="display:flex;"><span>% <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span>on
-</span></span><span style="display:flex;"><span>% go mod init              <span style="color:#6272a4"># `GO111MODULE=on go mod init` のように一行でも</span>
-</span></span><span style="display:flex;"><span>go: creating new go.mod: module github.com/&lt;あなたのGithubアカウント名&gt;/&lt;golangプロジェクト&gt;
-</span></span><span style="display:flex;"><span>% ls
-</span></span><span style="display:flex;"><span>go.mod
-</span></span><span style="display:flex;"><span>% touch app.go             <span style="color:#6272a4"># 依存ライブラリ含め好きなコード書く</span>
-</span></span><span style="display:flex;"><span>% go mod tidy              <span style="color:#6272a4"># 依存ライブラリの解決</span>
-</span></span><span style="display:flex;"><span>% go run app.go            <span style="color:#6272a4"># ビルド+実行</span>
-</span></span><span style="display:flex;"><span>% go build app.go          <span style="color:#6272a4"># ビルド</span>
-</span></span><span style="display:flex;"><span>% ./app
-</span></span></code></pre></div><p>基本的にはどこのディレクトリで開発しようとも <strong>module-aware mode</strong> で開発することになると思う。</p>
+<h2 id="依存関係管理ツール-go-modules">依存関係管理ツール Go Modules</h2>
+<p>Go Modules については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/golang-modules-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Go Modules入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Go Modules は、依存関係管理ツールです。この記事では、Go Modules の概要と使い方を記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 <h2 id="vs-code-の設定">VS Code の設定</h2>
-<p>VS Code には Go の各種ツールと連携する拡張機能があり、 VS Code 内ターミナルから以下のようにコマンドラインツールを導入することにより自動で拡張機能インストールの案内をしてくれる。<br>
-Go の拡張機能をインストールしてから、VSCode でコマンドパレット(Cmd+Shift+P)を開いて <code>GO: Install/Update tools</code> で検索した後、全チェックしてインストールしてもいいし、以下で 1 つずつ入れてもいい。</p>
+<p>VS Code には Go の各種ツールと連携する拡張機能があり、 VS Code 内ターミナルから以下のようにコマンドラインツールを導入することにより自動で拡張機能インストールの案内をしてくれます。<br>
+Go の拡張機能をインストールしてから、VSCode でコマンドパレット( <code>Cmd+Shift+P</code> )を開いて <code>GO: Install/Update tools</code> で検索した後、全チェックしてインストールしてもいいし、以下で 1 つずつ入れても大丈夫です。</p>
 <ul>
 <li>goimports
 <ul>
@@ -452,6 +365,7 @@ Go の拡張機能をインストールしてから、VSCode でコマンドパ�
 </li>
 </ul>
 <h2 id="editorconfig">.editorconfig</h2>
+<p>.editorconfig のおすすめの設定を記載します。</p>
 <pre tabindex="0"><code>root = true
 
 [*]
@@ -466,23 +380,8 @@ indent_size = 2
 indent_style = tab
 indent_size = 4
 trim_trailing_whitespace = true
-</code></pre><h2 id="docker-によるマルチステージビルド">docker によるマルチステージビルド</h2>
-<pre tabindex="0"><code>FROM golang:1.13.3-alpine3.10 as build
-WORKDIR /build
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
-
-FROM alpine:3.10
-RUN apk add --no-cache tzdata
-ENV TZ Asia/Tokyo
-COPY --from=build /build/main /usr/local/bin/main
-EXPOSE 8080
-ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </code></pre><h2 id="デバッグ環境作成">デバッグ環境作成</h2>
-<p>デバッガとして <strong>Delve</strong> を導入する。</p>
+<p>デバッガとして <strong>Delve</strong> を導入します。</p>
 <ul>
 <li>デバッガツール delve のインストール
 <ul>
@@ -495,8 +394,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </ul>
 </li>
 </ul>
-<p>コードにブレークポイントを設定して、 VSCode の <code>Debug</code> から <code>Start Debugging</code> を実行。（ <code>F5</code> でも）<br>
-以下を実行可能。</p>
+<p>コードにブレークポイントを設定して、 VSCode の <code>Debug</code> から <code>Start Debugging</code> を実行します。（ <code>F5</code> でも大丈夫です）<br>
+以下を実行可能です。</p>
 <ul>
 <li>継続実行（Continue）
 <ul>
@@ -529,13 +428,13 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </ul>
 </li>
 </ul>
-<p>例えば <code>fmt.Println()</code> をステップインして細かいところを見ていこう。<br>
-<code>syscall.Write()</code> などでシステムコールされているのがわかる。（ Win だと別コード）<br>
-今回はデバッガのステップインでコードを掘っていったが、カーソルがあたっている位置の関数で <code>Go to Definition</code> （ <code>F12</code> ）しても関数の定義に飛ぶ。<br>
-また、カーソルがあたっている位置の関数や変数で <code>Find All Reference</code> （ <code>bashift+F12</code> ） すれば、使われている位置がリストされる。</p>
+<p>例えば <code>fmt.Println()</code> をステップインして細かいところを見ていきましょう。<br>
+<code>syscall.Write()</code> などでシステムコールされているのがわかります。（ Win だと別コード）<br>
+今回はデバッガのステップインでコードを掘っていきましたが、カーソルがあたっている位置の関数で <code>Go to Definition</code> （ <code>F12</code> ）しても関数の定義に飛びます。<br>
+また、カーソルがあたっている位置の関数や変数で <code>Find All Reference</code> （ <code>bashift+F12</code> ） すれば、使われている位置がリストされます。</p>
 <h1 id="基本文法">基本文法</h1>
-<p><a href="https://go-tour-jp.appspot.com/list">A Tour of Go</a>を一通りやるといい。<br>
-とりあえず、こんにちは世界。</p>
+<p><a href="https://go-tour-jp.appspot.com/list">A Tour of Go</a>を一通りやるのをおすすめします。<br>
+こんにちは世界。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -545,30 +444,30 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>% go run hello.go
 </span></span><span style="display:flex;"><span>Hello, 世界
-</span></span></code></pre></div><p>なお、<a href="https://play.golang.org/">The Go Playground</a> というサービスを使うと Web でお試し実行できる。<br>
-<a href="http://interprism.hatenablog.com/entry/2014/03/04/132551">他</a> にもいろいろあるみたい。<br>
-以降は、<a href="https://go-tour-jp.appspot.com/list">A Tour of Go</a> を読みつつも、<strong>自分向けに</strong> 補足したり省略したりしてまとめたもの。</p>
+</span></span></code></pre></div><p>なお、<a href="https://play.golang.org/">The Go Playground</a> というサービスを使うと Web でお試し実行できます。<br>
+<a href="http://interprism.hatenablog.com/entry/2014/03/04/132551">他</a> にもいろいろあるみたいです。<br>
+以降は、<a href="https://go-tour-jp.appspot.com/list">A Tour of Go</a> を読みつつも、<strong>筆者向けに</strong> 補足したり省略したりしてまとめたものです。</p>
 <h2 id="パッケージのインポート">パッケージのインポート</h2>
-<p>標準パッケージのインポートは以下。</p>
+<p>標準パッケージのインポートは以下です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;math/rand&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;math&#34;</span>
-</span></span></code></pre></div><p>インポートしたら <code>fmt.Println</code> とかインポート名で使用できる。<br>
-また、インポート名を変更もできる。（ <code>f.Println</code> ）</p>
+</span></span></code></pre></div><p>インポートしたら <code>fmt.Println</code> とかインポート名で使用できます。<br>
+また、インポート名を変更もできます。（ <code>f.Println</code> ）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
 </span></span><span style="display:flex;"><span>	f <span style="color:#f1fa8c">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p>また、独自や OSS ライブラリのインポートは <code>${GOPATH}/src</code> からのパスを指定する。</p>
+</span></span></code></pre></div><p>独自や モジュールのインポートは <code>${GOPATH}/src</code> もしくは <code>${GOPATH}/pkg/mod</code> 以下に保存されている各種 Git リポジトリの FQDN からのパスを指定します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
 </span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;github.com/spf13/cobra&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><h2 id="パッケージ外からの参照">パッケージ外からの参照</h2>
-<p>Go では、最初の文字が <em>大文字で始まる名前</em> は、外部のパッケージから参照できる公開された名前( <em>exported name</em> )。<br>
-例えば、 <code>Pi</code> は <code>math</code> パッケージでエクスポートされている。<br>
-<code>pi</code> （小文字）ではないことに注意。</p>
+<p>Go では、最初の文字が <em>大文字で始まる名前</em> は、外部のパッケージから参照できる公開された名前( <em>exported name</em> )となります。<br>
+例えば、 <code>Pi</code> は <code>math</code> パッケージでエクスポートされています。<br>
+<code>pi</code> （小文字）ではないことに注意してください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -619,8 +518,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(a, b)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="return-の変数名">return の変数名</h2>
-<p>返り値となる変数に名前をつけることができる。<br>
-そして、 <code>return</code> と書くだけでよくなる。</p>
+<p>返り値となる変数に名前をつけることができます。<br>
+<code>return</code> と書くだけで返り値と同じ変数名が返却されます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -635,8 +534,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#50fa7b">split</span>(<span style="color:#bd93f9">17</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="クロージャ">クロージャ</h2>
-<p>Go の関数は <strong>クロージャ</strong> （関数オブジェクトの一種）。<br>
-関数の引数として渡したり、遅延実行させたりできる。</p>
+<p>Go の関数は <strong>クロージャ</strong> （関数オブジェクトの一種）です。<br>
+関数の引数として渡したり、遅延実行させたりできます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -663,7 +562,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 6
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 10
 </span></span></span></code></pre></div><h2 id="変数宣言">変数宣言</h2>
-<p><code>var</code> は <strong>変数宣言</strong> 。</p>
+<p><code>var</code> は <strong>変数宣言</strong> です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -674,7 +573,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#8be9fd">int</span>
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(i, c, python, java)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>初期化子が与えられている場合、型を省略できる。</p>
+</span></span></code></pre></div><p>初期化子が与えられている場合、型を省略できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -685,12 +584,12 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> c, python, java = <span style="color:#ff79c6">true</span>, <span style="color:#ff79c6">false</span>, <span style="color:#f1fa8c">&#34;no!&#34;</span>
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(i, j, c, python, java)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>関数の中では、 <code>var</code> 宣言の代わりに、短い <code>:=</code> の代入文を使い、暗黙的な型宣言ができる。<br>
-この場合、変数の型は右側の変数から型推論される。</p>
+</span></span></code></pre></div><p>関数の中では、 <code>var</code> 宣言の代わりに、短い <code>:=</code> の代入文を使い、暗黙的な型宣言ができます。<br>
+この場合、変数の型は代入された値から型推論されます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">42</span>           <span style="color:#6272a4">// int
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>f <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">3.142</span>        <span style="color:#6272a4">// float64
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>g <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0.867</span> <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">0.5i</span> <span style="color:#6272a4">// complex128
-</span></span></span></code></pre></div><p>関数の外では、キーワードではじまる宣言( <code>var</code> , <code>func</code> など)が必要で、 <code>:=</code> での暗黙的な宣言は利用できない。</p>
+</span></span></span></code></pre></div><p>関数の外では、キーワードではじまる宣言( <code>var</code> , <code>func</code> など)が必要で、 <code>:=</code> での暗黙的な宣言は利用できません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -716,8 +615,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 <li><code>rune</code>
 <ul>
 <li><code>int32</code> の別名</li>
-<li>Unicode のコードポイントを表す</li>
-<li>rune とは古代文字を表す言葉( runes )、 Go では文字そのものを表すためにruneという言葉を使う</li>
+<li>Unicode のコードポイントを表します</li>
+<li>rune とは古代文字を表す言葉( runes )、 Go では文字そのものを表すためにruneという言葉を使います</li>
 </ul>
 </li>
 <li><code>float32</code> <code>float64</code></li>
@@ -742,8 +641,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Type: %T Value: %v\n&#34;</span>, z, z)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="ゼロ値">ゼロ値</h2>
-<p>変数に初期値を与えずに宣言すると、ゼロ値( <strong>zero value</strong> )が与えられる。<br>
-ゼロ値は型によって以下のように与えられる。</p>
+<p>変数に初期値を与えずに宣言すると、ゼロ値( <strong>zero value</strong> )が与えられます。<br>
+ゼロ値は型によって以下のように与えられます。</p>
 <ul>
 <li>数値型(int,floatなど): 0</li>
 <li>bool型: false</li>
@@ -761,18 +660,18 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;%v %v %v %q\n&#34;</span>, i, f, b, s) <span style="color:#6272a4">// 0 0 false &#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
 </span></span></code></pre></div><h2 id="型変換">型変換</h2>
-<p>従来の <strong>キャスト</strong> とほぼ同じ。</p>
+<p>他言語の <strong>キャスト</strong> とほぼ同じです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">42</span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> f <span style="color:#8be9fd">float64</span> = <span style="color:#8be9fd;font-style:italic">float64</span>(i)
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> u <span style="color:#8be9fd">uint</span> = <span style="color:#8be9fd;font-style:italic">uint</span>(f)
-</span></span></code></pre></div><p>ただし、C言語とは異なり、Goでの型変換は <strong>明示的な変換が必要</strong> 。</p>
+</span></span></code></pre></div><p>ただし、C言語とは異なり、Goでの型変換は <strong>明示的な変換が必要</strong> です。</p>
 <h2 id="定数型">定数型</h2>
-<p>定数は、 <code>const</code> キーワードを使って変数と同じように宣言。<br>
-定数は、文字(character)、文字列(string)、boolean、数値(numeric)のみで使える。<br>
-なお、定数は <code>:=</code> を使って宣言できない。</p>
+<p>定数は、 <code>const</code> キーワードを使って変数と同じように宣言します。<br>
+定数は、文字(character)、文字列(string)、boolean、数値(numeric)のみで使えます。<br>
+なお、定数は <code>:=</code> を使って宣言できません。</p>
 <h2 id="繰り返し-for">繰り返し for</h2>
-<p>所謂 <code>for</code> ループ。Go に <code>while</code> はない。<br>
-他言語とは異なり、 for ステートメントの3つの部分を括る括弧 <code>( )</code> はない。なお、中括弧 <code>{ }</code> は必要。</p>
+<p>所謂 <code>for</code> ループです。Go に <code>while</code> はありません。<br>
+他言語とは異なり、 <code>for</code> ステートメントの3つの部分を括る括弧 <code>( )</code> はありません。なお、中括弧 <code>{ }</code> は必要です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -785,8 +684,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(sum)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="while-っぽい-for">while っぽい for</h2>
-<p><code>for </code> はセミコロン( <code>;</code> )を省略することもできる。<br>
-つまり、C言語などにある <code>while</code> は、Goでは <code>for</code> だけを使う。</p>
+<p><code>for </code> はセミコロン( <code>;</code> )を省略することもできます。<br>
+つまり、C言語などにある <code>while</code> は、Goでは <code>for</code> だけを使うことになります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -799,9 +698,9 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(sum)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="条件文-if">条件文 if</h2>
-<p>Go 言語の <code>if</code> ステートメントは、 <code>for</code> ループと同様に、括弧 <code>( )</code> は不要で、中括弧 <code>{ }</code> は必要。<br>
-また、 <code>if</code> ステートメントは、 <code>for</code> のように、条件の前に、評価するための簡単なステートメントを書くことができる。<br>
-ここで宣言された変数は、 if のスコープ内だけで有効。</p>
+<p>Go 言語の <code>if</code> ステートメントは、 <code>for</code> ループと同様に、括弧 <code>( )</code> は不要で、中括弧 <code>{ }</code> が必要です。<br>
+また、 <code>if</code> ステートメントは、 <code>for</code> のように、条件の前に、評価するための簡単なステートメントを書くことができます。<br>
+ここで宣言された変数は、 <code>if</code> のスコープ内だけで有効です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -822,7 +721,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">pow</span>(<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">20</span>),
 </span></span><span style="display:flex;"><span>	)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>if</code> ステートメントで宣言された変数は、 <code>else</code> ブロック内でも使うことができる。</p>
+</span></span></code></pre></div><p><code>if</code> ステートメントで宣言された変数は、 <code>else</code> ブロック内でも使うことができます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -847,9 +746,9 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="switch-文">switch 文</h2>
-<p>Go の <code>switch</code> は C や C++、Java、JavaScript、PHP の <code>switch</code> と似ているが、 Go では選択された <code>case</code> だけを実行してそれに続く全ての <code>case</code> は実行されない。<br>
-これらの言語の各 <code>case</code> の最後に必要な <code>break</code> ステートメントが Go では <strong>自動的に提供される</strong> 。<br>
-もう一つの重要な違いは Go の <code>switch</code> の <code>case</code> は定数である必要はなく、 関係する値は整数である必要はない。</p>
+<p>Go の <code>switch</code> は C や C++、Java、JavaScript、PHP の <code>switch</code> と似ていますが、 Go では選択された <code>case</code> だけを実行してそれに続く全ての <code>case</code> は実行されません。<br>
+これらの言語の各 <code>case</code> の最後に必要な <code>break</code> ステートメントが Go では <strong>自動的に提供</strong> されます。<br>
+もう一つの重要な違いは Go の <code>switch</code> の <code>case</code> は定数である必要はなく、 関係する値は整数である必要もありません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -871,8 +770,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="defer">defer</h2>
-<p><code>defer</code> ステートメントは、 <code>defer</code> へ渡した関数の実行を、呼び出し元の関数の終わり( <code>return</code> 後)まで遅延させる。<br>
-<code>defer</code> へ渡した関数の引数は、すぐに評価されるが、その関数自体は呼び出し元の関数が <code>return</code> するまで実行されない。</p>
+<p><code>defer</code> ステートメントは、 <code>defer</code> へ渡した関数の実行を、呼び出し元の関数の終わり( <code>return</code> 後)まで遅延させます。<br>
+<code>defer</code> へ渡した関数の引数は、すぐに評価されますが、その関数自体は呼び出し元の関数が <code>return</code> するまで実行されません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -885,7 +784,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">// hello
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// world
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// と出力される
-</span></span></span></code></pre></div><p><code>defer</code> が複数ある場合、その呼び出しはスタックされ、 LIFO の順番で実行される。（後から順に実行される）</p>
+</span></span></span></code></pre></div><p><code>defer</code> が複数ある場合、その呼び出しはスタックされ、 LIFO の順番で実行されます。（後から順に実行されます）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -911,7 +810,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 2
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 1
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 0
-</span></span></span></code></pre></div><p><code>defer</code> は <code>panic</code> の <code>recover</code> によく用いられる。（ Java で言う <code>try-catch</code> 的な）</p>
+</span></span></span></code></pre></div><p><code>defer</code> は <code>panic</code> の <code>recover</code> によく用いられます。（ Java で言う <code>try-catch</code> ）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -931,13 +830,13 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">hoge</span>()
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>panic</code> は Java でいう <code>Runtime Exception</code> 。
-エラーハンドリングでは使っちゃダメ。 <code>Error</code> インターフェースを使おう。</p>
+</span></span></code></pre></div><p><code>panic</code> は Java でいう <code>Runtime Exception</code> です。
+<strong>エラーハンドリングで使ってはいけません</strong> 。 <code>Error</code> インターフェースを使いましょう。</p>
 <ul>
 <li><a href="https://qiita.com/nayuneko/items/3c0b3c0de9e8b27c9548">https://qiita.com/nayuneko/items/3c0b3c0de9e8b27c9548</a></li>
 </ul>
 <h2 id="ポインタ">ポインタ</h2>
-<p>Go では <strong>ポインタ</strong> （値が格納されているメモリのアドレス）を扱える。</p>
+<p>Go では <strong>ポインタ</strong> （値が格納されているメモリのアドレス）を扱えます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -952,8 +851,8 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(i)  <span style="color:#6272a4">// もちろん i から参照しても値は変わってる：20
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
 </span></span></code></pre></div><h2 id="構造体-struct">構造体 struct</h2>
-<p><code>type</code> で作成する。<br>
-<code>type</code> 自体は <code>struct</code> 専用ではなく、独自の型を定義できるもの。</p>
+<p><code>type</code> で作成します。<br>
+<code>type</code> 自体は <code>struct</code> 専用ではなく、独自の型を定義できるものです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -964,7 +863,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
-</span></span><span style="display:flex;"><span>	v <span style="color:#ff79c6">:=</span> vertex{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>} <span style="color:#6272a4">// vertex{x:1, y:2} でフィールド明記もできる
+</span></span><span style="display:flex;"><span>	v <span style="color:#ff79c6">:=</span> vertex{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>} <span style="color:#6272a4">// vertex{x:1, y:2} でフィールド明記もできます
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(v)   <span style="color:#6272a4">// {1 2}
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(v.x) <span style="color:#6272a4">// ドットでフィールドアクセス：1
@@ -973,7 +872,7 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	p <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>vertex{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>} <span style="color:#6272a4">// いきなりポインタで作成も可能
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>((<span style="color:#ff79c6">*</span>pv).y)<span style="color:#6272a4">// 2
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(p.y) <span style="color:#6272a4">// * を省略してもコンパイラが良しなに解釈してくれる：2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(p.y) <span style="color:#6272a4">// * を省略してもコンパイラが良しなに解釈してくれます：2
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
 </span></span></code></pre></div><h2 id="配列とスライス">配列とスライス</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
@@ -1011,61 +910,55 @@ ENTRYPOINT [&#34;/usr/local/bin/main&#34;]
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(ss) <span style="color:#6272a4">// [{2 true} {3 false} {5 true} {7 true} {11 false} {13 true}]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><p>多次元配列・スライスも作成可能。<br>
-また、スライスは要素の追加（ <code>s = append(s, 0)</code> 、複数 <code>s = append(s, 2, 3, 4)</code> ）が可能。</p>
-<blockquote>
+</span></span></code></pre></div><p>多次元配列・スライスも作成可能です。<br>
+また、スライスは要素の追加（ <code>s = append(s, 0)</code> 、複数 <code>s = append(s, 2, 3, 4)</code> ）が可能です。</p>
 <h2 id="make-と-new">make と new</h2>
-<p>変数の作成に用いる <code>make</code> と <code>new</code> の違いは以下の通り。</p>
+<p>変数の作成に用いる <code>make</code> と <code>new</code> の違いは以下の通りです。</p>
 <ul>
 <li><code>make(T)</code>
 <ul>
 <li>対象の型：<code>slice</code> 、 <code>map</code> 、 <code>channel</code></li>
-<li>初期化：初期化する</li>
+<li>初期化：初期化します</li>
 <li>返り値： <code>T</code></li>
 </ul>
 </li>
 <li><code>new(T)</code>
 <ul>
 <li>対象の型：任意の型</li>
-<li>初期化：初期化しない(ゼロ値になる)</li>
+<li>初期化：初期化しません(ゼロ値になる)</li>
 <li>返り値： <code>*T</code></li>
 </ul>
 </li>
 </ul>
-<p><code>make</code> は <code>list := make([]int, len, cap)</code> のようにサイズを指定できる。<br>
-<code>len</code> は長さでゼロ値が存在する値の場合は実態を作成。 <code>cap</code> （省略可）はメモリだけ確保し、各要素の実態作成は行われない。<br>
-なお、 <strong>多次元で作成する場合は注意</strong> が必要。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></div></blockquote>
-<h1 id="2-次元スライス2x2を作成する場合">2 次元スライス（2x2）を作成する場合</h1>
-<p>list := make([][]int, 2)</p>
-<h1 id="上記で-int-は作成しても-int-は作成されていない">上記で [][]int は作成しても []int は作成されていない！</h1>
-<p>for i := 0; i &lt; 2; i++ {
-list[i] = make([]int, 2)
-}</p>
-<pre tabindex="0"><code>
-## range
-
-これも Python っぽい。
-
-```go
-package main
-
-import &#34;fmt&#34;
-
-var pow = []int{1, 2, 3}
-
-func main() {
-	for i, v := range pow { // インデックスと値
-		fmt.Printf(&#34;%d : %d\n&#34;, i, v)
-	}
-	for i := range pow {   // インデックスだけ
-		fmt.Println(i)
-	}
-	for _, v := range pow { // &#34;_&#34;で捨てて値だけ
-		fmt.Println(v)
-	}
-}
-</code></pre><h2 id="map">map</h2>
+<p><code>make</code> は <code>list := make([]int, len, cap)</code> のようにサイズを指定できます。<br>
+<code>len</code> は長さでゼロ値が存在する値の場合は実態を作成。 <code>cap</code> （省略可）はメモリだけ確保し、各要素の実態作成は行われません。<br>
+なお、 <strong>多次元で作成する場合は注意</strong> が必要です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span># <span style="color:#bd93f9">2</span> 次元スライス（<span style="color:#bd93f9">2</span>x2）を作成する場合
+</span></span><span style="display:flex;"><span>list <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([][]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span># 上記で [][]<span style="color:#8be9fd">int</span> は作成しても []<span style="color:#8be9fd">int</span> は作成されていません！
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; <span style="color:#bd93f9">2</span>; i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>	list[i] = <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="range">range</h2>
+<p>これも Python によく似ています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> pow = []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i, v <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> pow { <span style="color:#6272a4">// インデックスと値
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;%d : %d\n&#34;</span>, i, v)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> pow {   <span style="color:#6272a4">// インデックスだけ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		fmt.<span style="color:#50fa7b">Println</span>(i)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> _, v <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> pow { <span style="color:#6272a4">// &#34;_&#34;で捨てて値だけ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		fmt.<span style="color:#50fa7b">Println</span>(v)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="map">map</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -1076,7 +969,7 @@ func main() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> m <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]vertex     <span style="color:#6272a4">// mapの宣言
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	m = <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]vertex) <span style="color:#6272a4">// mapはmakeで作る
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	m = <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]vertex) <span style="color:#6272a4">// mapはmakeで作ります
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	m[<span style="color:#f1fa8c">&#34;hoge&#34;</span>] = vertex{
 </span></span><span style="display:flex;"><span>		<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>,
 </span></span><span style="display:flex;"><span>	}
@@ -1096,23 +989,23 @@ func main() {
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(v, ok)        <span style="color:#6272a4">// {3 4} true
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
 </span></span></code></pre></div><h2 id="メソッド">メソッド</h2>
-<p>Go には <strong>class</strong> は無いが、<strong>型に対してメソッドを定義</strong> できる。<br>
-構造体だけにメソッド定義できるのではなく、型に対して定義できることに注意。<br>
-Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼び、 <strong>値レシーバ</strong> と <strong>ポインタレシーバ</strong> がある。<br>
-レシーバは <code>func</code> と関数名の間に定義する。</p>
+<p>Go には <strong>class</strong> はありませんが、<strong>型に対してメソッドを定義</strong> できます。<br>
+構造体だけにメソッド定義できるのではなく、型に対して定義できることに注意してください。<br>
+Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼び、 <strong>値レシーバ</strong> と <strong>ポインタレシーバ</strong> があります。<br>
+レシーバは <code>func</code> と関数名の間に定義します。</p>
 <ul>
 <li>値レシーバ
 <ul>
 <li><code>(r Type)</code></li>
-<li>メソッド呼び出しの度に <code>r</code> （値）が作成されるのでメモリ多用に注意</li>
-<li>基本的にはポインタレシーバを使ってればいい。</li>
+<li>メソッド呼び出しの度に <code>r</code> （値）が作成されるのでメモリ多用に注意してください</li>
+<li>基本的にはポインタレシーバを使えば大丈夫です</li>
 </ul>
 </li>
 <li>ポインタレシーバ
 <ul>
 <li><code>(r *Type)</code></li>
-<li>値レシーバと異なり、メソッド呼び出しの度に値は作成されない（ポインタなので）</li>
-<li>ただし、 <code>nil</code> には注意（オブジェクト化されてなくても呼べちゃう）</li>
+<li>値レシーバと異なり、メソッド呼び出しの度に値は作成されません（ポインタなので）</li>
+<li>ただし、 <code>nil</code> には注意（オブジェクト化されてなくても呼びだせてしまいます）</li>
 </ul>
 </li>
 </ul>
@@ -1152,8 +1045,8 @@ Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">	*/</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="インターフェース">インターフェース</h2>
-<p><strong>インタフェース</strong> は、メソッドのシグニチャの集まりを定義する。<br>
-何も定義していないもの <code>interface{}</code> 型は <strong>空のインターフェース</strong> といい、任意の値を保持できる。</p>
+<p><strong>インタフェース</strong> は、メソッドのシグニチャの集まりを定義します。<br>
+何も定義していないもの <code>interface{}</code> 型は <strong>空のインターフェース</strong> といい、任意の値を保持できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -1195,21 +1088,21 @@ Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(s.<span style="color:#50fa7b">sub</span>())
 </span></span><span style="display:flex;"><span>	
 </span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> n <span style="color:#8be9fd;font-style:italic">interface</span>{}              <span style="color:#6272a4">// 空のインターフェース
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	n = v1                         <span style="color:#6272a4">// 空のインターフェースは任意の値を保持できる
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	n = v1                         <span style="color:#6272a4">// 空のインターフェースは任意の値を保持できます
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;(%v, %T)\n&#34;</span>, n, n) <span style="color:#6272a4">// ({1 2}, main.vertex)
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	n = v2                         <span style="color:#6272a4">// 空のインターフェースは任意の値を保持できる
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	n = v2                         <span style="color:#6272a4">// 空のインターフェースは任意の値を保持できます
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;(%v, %T)\n&#34;</span>, n, n) <span style="color:#6272a4">// (&amp;{3 4}, *main.vertex)
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><p>標準ライブラリには <a href="https://go-tour-jp.appspot.com/methods/17"><strong>Stringer</strong> インターフェース</a>があり、 <code>String()</code> メソッドが定義されている。<br>
-例えば、 <code>fmt</code> に <code>String()</code> メソッドを実装したオブジェクトを渡すと、その定義通りに標準出力してくれる。<br>
-他にも以下の様なものがある。</p>
+</span></span></code></pre></div><p>標準ライブラリには <a href="https://go-tour-jp.appspot.com/methods/17"><strong>Stringer</strong> インターフェース</a>があり、 <code>String()</code> メソッドが定義されています。<br>
+例えば、 <code>fmt</code> に <code>String()</code> メソッドを実装したオブジェクトを渡すと、その定義通りに標準出力してくれます。<br>
+他にも以下のようなものがあります。</p>
 <ul>
 <li><a href="https://go-tour-jp.appspot.com/methods/19">error インターフェース</a></li>
 <li><a href="https://go-tour-jp.appspot.com/methods/21">Reader インターフェース</a></li>
 <li><a href="https://go-tour-jp.appspot.com/methods/24">Image インターフェース</a></li>
 </ul>
 <h2 id="型アサーション">型アサーション</h2>
-<p><code>インターフェース.(型)</code> で型を確認できる。</p>
+<p><code>インターフェース.(型)</code> で型を確認できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -1230,7 +1123,7 @@ Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(f)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="型-switch">型 switch</h2>
-<p><code>インターフェース.(type)</code> で型が取得でき、型に応じて switch できる。</p>
+<p><code>インターフェース.(type)</code> で型が取得でき、型に応じて switch できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -1252,10 +1145,10 @@ Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#50fa7b">do</span>(<span style="color:#ff79c6">true</span>)    <span style="color:#6272a4">// unknown type: bool
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
 </span></span></code></pre></div><h2 id="goroutine">goroutine</h2>
-<p><strong>goroutine</strong> （ゴルーチン）は Go ランタイムが管理する軽量スレッド。<br>
-OS が管理するスレッドではなく、 Go ランタイムなのがポイント。<br>
-関数の前に <code>go</code> と記載すれば新しい goroutine 上でその関数が実行される。<br>
-main 関数自体も goroutine で実行されており、 <code>go</code> キーワードで実行する関数自体はメイン goroutine 上で評価される。</p>
+<p><strong>goroutine</strong> （ゴルーチン）は Go ランタイムが管理する軽量スレッドです。<br>
+OS が管理するスレッドではなく、 Go ランタイムなのがポイントです。<br>
+関数の前に <code>go</code> と記載すれば新しい goroutine 上でその関数が実行されます。<br>
+main 関数自体も goroutine で実行されており、 <code>go</code> キーワードで実行する関数自体はメイン goroutine 上で評価されます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -1280,9 +1173,9 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	time.<span style="color:#50fa7b">Sleep</span>(<span style="color:#bd93f9">1</span><span style="color:#ff79c6">*</span>time.Second)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="チャネル-channel-">チャネル（ channel ）</h2>
-<p>Go では <strong>チャネル</strong> （ <strong>channel</strong> ）を用いて goroutine 間のデータの送受信およびブロックを実現する。<br>
-チャネルは <code>make</code> で作成（ <code>c := make(chan int)</code> ）し、送受信するデータの型を指定する。<br>
-また、データの送信（ <code>c &lt;- 0</code> 入れる）・受信（ <code>&lt;-c</code> 取り出す）はアロー（？）で表現する。 <strong>キュー</strong> みたいなものだ。</p>
+<p>Go では <strong>チャネル</strong> （ <strong>channel</strong> ）を用いて goroutine 間のデータの送受信およびブロックを実現します。<br>
+チャネルは <code>make</code> で作成（ <code>c := make(chan int)</code> ）し、送受信するデータの型を指定します。<br>
+また、データの送信（ <code>c &lt;- 0</code> 入れる）・受信（ <code>&lt;-c</code> 取り出す）はアロー（？）で表現します。 <strong>キュー</strong> みたいなものえす。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -1294,7 +1187,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span><span style="display:flex;"><span>		c <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#34;hello world&#34;</span>
 </span></span><span style="display:flex;"><span>	}(c)
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>c) <span style="color:#6272a4">// チャネルに値が入って読みだせるまでメイン goroutine はブロックされる
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>c) <span style="color:#6272a4">// チャネルに値が入って読みだせるまでメイン goroutine はブロックされます
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
@@ -1308,14 +1201,14 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span><span style="display:flex;"><span>	c <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">int</span>) <span style="color:#6272a4">// チャネルの作成
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
 </span></span><span style="display:flex;"><span>	nums <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">4</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">go</span> <span style="color:#50fa7b">add</span>(c, nums[<span style="color:#bd93f9">0</span>], nums[<span style="color:#bd93f9">1</span>]) <span style="color:#6272a4">// 足し算のお仕事を goroutine で分割
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">go</span> <span style="color:#50fa7b">add</span>(c, nums[<span style="color:#bd93f9">0</span>], nums[<span style="color:#bd93f9">1</span>]) <span style="color:#6272a4">// 足し算のお仕事を goroutine で分割します
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">go</span> <span style="color:#50fa7b">add</span>(c, nums[<span style="color:#bd93f9">2</span>], nums[<span style="color:#bd93f9">3</span>])
 </span></span><span style="display:flex;"><span>	
 </span></span><span style="display:flex;"><span>	r1, r2 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&lt;-</span>c, <span style="color:#ff79c6">&lt;-</span>c
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(r1, r2) <span style="color:#6272a4">// 7 3
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#6272a4">// 終わった方から先に入るので順番に保証は無い
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#6272a4">// 終わった方から先に入るので順番に保証はありません
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><p>チャネルには <strong>バッファ</strong> （チャネルに入るデータの数） を定義でき、 <strong>バッファがいっぱいのときはチャネルへの送信をブロック</strong> し、 <strong>バッファが空の時はチャネルの受信をブロック</strong> する。</p>
+</span></span></code></pre></div><p>チャネルには <strong>バッファ</strong> （チャネルに入るデータの数） を定義でき、 <strong>バッファがいっぱいのときはチャネルへの送信をブロック</strong> し、 <strong>バッファが空の時はチャネルの受信をブロック</strong> します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
@@ -1327,16 +1220,16 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>ch)
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>ch)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>チャネルは閉じる（ <strong><code>close()</code></strong> ）ことができ、以下のように検知可能。</p>
+</span></span></code></pre></div><p>チャネルは閉じる（ <strong><code>close()</code></strong> ）ことができ、以下のように検知可能です。</p>
 <ul>
 <li><code>v, ok := &lt;-ch</code>
 <ul>
-<li><code>ok</code> が <code>false</code> の場合チャネルが閉じている</li>
+<li><code>ok</code> が <code>false</code> の場合チャネルが閉じています</li>
 </ul>
 </li>
 <li><code>for i := range c</code>
 <ul>
-<li>チャネルが閉じられるまで値を繰り返し受信する</li>
+<li>チャネルが閉じられるまで値を繰り返し受信します</li>
 </ul>
 </li>
 </ul>
@@ -1360,10 +1253,10 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		fmt.<span style="color:#50fa7b">Print</span>(i, <span style="color:#f1fa8c">&#34; &#34;</span>)
 </span></span><span style="display:flex;"><span>	} <span style="color:#6272a4">// 1 2 3 4 5 6 7 8 9 10
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><p><strong><code>select</code></strong> を使用することで複数のチャネルを評価できる。<br>
-複数ある <code>case</code> のいずれかが準備できるようになるまでブロックし、準備ができた <code>case</code> を実行する。<br>
-もし、複数の <code>case</code> の準備ができている場合、 <code>case</code> は <strong>ランダムに選択・実行</strong> される。<br>
-どの <code>case</code> も準備できていない場合は <code>default</code> が実行される。</p>
+</span></span></code></pre></div><p><strong><code>select</code></strong> を使用することで複数のチャネルを評価できます。<br>
+複数ある <code>case</code> のいずれかが準備できるようになるまでブロックし、準備ができた <code>case</code> を実行します。<br>
+もし、複数の <code>case</code> の準備ができている場合、 <code>case</code> は <strong>ランダムに選択・実行</strong> されます。<br>
+どの <code>case</code> も準備できていない場合は <code>default</code> が実行されます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -1374,7 +1267,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">count</span>(c, quit <span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">int</span>) {
 </span></span><span style="display:flex;"><span>	x <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">select</span> { <span style="color:#6272a4">// どちらかの case が for 内で評価され続ける
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">select</span> { <span style="color:#6272a4">// どちらかの case が for 内で評価され続けます
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		<span style="color:#ff79c6">case</span> c <span style="color:#ff79c6">&lt;-</span> x:
 </span></span><span style="display:flex;"><span>			x <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">case</span> <span style="color:#ff79c6">&lt;-</span>quit:
@@ -1405,8 +1298,8 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 3 wait
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 4 quit
 </span></span></span></code></pre></div><h2 id="syncmutex">sync.Mutex</h2>
-<p>チャネルは goroutine 間でデータの送受信とブロックを実現するものだが、データ送受信が不要な場合は <strong>sync.Mutex</strong> （排他制御・ミューテックス： mutual exclusion の略）を利用する。<br>
-所謂ロック機構（ <code>Lock</code> <code>Unlock</code> ）の機能を提供し、 <strong>クリティカルセッション</strong> （他の処理の介入抑止し、データの生合成を守る必要のある一連の一まとまりの処理）を保護する。</p>
+<p>チャネルは goroutine 間でデータの送受信とブロックを実現するものですが、データ送受信が不要な場合は <strong>sync.Mutex</strong> （排他制御・ミューテックス： mutual exclusion の略）を利用します。<br>
+所謂ロック機構（ <code>Lock</code> <code>Unlock</code> ）の機能を提供し、 <strong>クリティカルセッション</strong> （他の処理の介入抑止し、データの生合成を守る必要のある一連の一まとまりの処理）を保護します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
@@ -1439,7 +1332,7 @@ main 関数自体も goroutine で実行されており、 <code>go</code> キ�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	time.<span style="color:#50fa7b">Sleep</span>(time.Second)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>上記はロック機構によりきちんと 10 単位でカウントアップ・表示されている。</p>
+</span></span></code></pre></div><p>上記はロック機構によりきちんと 10 単位でカウントアップ・表示されています。</p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://go-tour-jp.appspot.com/concurrency/11">Where to Go from here&hellip;</a>
@@ -1491,13 +1384,13 @@ msmaflink({"n":"改訂2版 みんなのGo言語 [ 松木雅幸、mattn、藤原�
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/jupyter-notebook-basics/" data-toggle="tooltip" data-placement="top" title="Jupyter Notebook入門">&larr;
+                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPC入門">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/kubernetes-architecture/" data-toggle="tooltip" data-placement="top" title="Kubernetesのアーキテクチャ整理">Next
+                        <a href="/golang-modules-basics/" data-toggle="tooltip" data-placement="top" title="Go Modules入門">Next
                             Post &rarr;</a>
                     </li>
                     
