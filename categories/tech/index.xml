@@ -6,7 +6,17 @@
     <description>Recent content in tech on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gitローカル環境のアカウント・認証情報設定</title>
+      <link>https://blog.pepese.com/git-environment-auth-settings/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/git-environment-auth-settings/</guid>
+      <description>&lt;p&gt;Git は分散型バージョン管理システムの定番です。&lt;br&gt;
+この記事では、Git ローカル環境のアカウント・認証情報の設定方法について記載します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Amazon VPC入門</title>
       <link>https://blog.pepese.com/aws-vpc-basics/</link>
