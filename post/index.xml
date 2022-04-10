@@ -13,7 +13,8 @@
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/terraform-googlecloud-environment/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt; を使って Google Cloud の IaC (Infrastructure as Code) 環境を構築する。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
+この記事ではTerraformを使ってGoogle CloudのIaC環境構築についてご紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
