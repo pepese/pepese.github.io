@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="形態素解析システムMeCab入門 | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="形態素解析システムMeCab入門 | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="形態素解析システムMeCab入門 | ぺーぺーSEのブログ" />
+    <meta name="title" content="Terraform入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Terraform入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Terraform入門 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。この記事では、Terraformのインストールから使い方までをご紹介します。">
+    <meta property="og:description" content="Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。この記事では、Terraformのインストールから使い方までをご紹介します。" />
+    <meta property="twitter:description" content="Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。この記事では、Terraformのインストールから使い方までをご紹介します。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="Terraform, IaC">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>形態素解析システムMeCab入門</title>
+    <title>Terraform入門</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/python-mecab-basics/">
+    <link rel="canonical" href="https://blog.pepese.comterraform-basics/">
     
 
     
@@ -195,24 +195,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/mecab" title="mecab">
-                            mecab
-                        </a>
-                        
-                        <a class="tag" href="/tags/python" title="python">
-                            python
-                        </a>
-                        
-                        <a class="tag" href="/tags/node.js" title="node.js">
-                            node.js
+                        <a class="tag" href="/tags/terraform" title="terraform">
+                            terraform
                         </a>
                         
                     </div>
-                    <h1>形態素解析システムMeCab入門</h1>
+                    <h1>Terraform入門</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2018-02-04
+                            2022-04-10
                             
                             
                             
@@ -238,146 +230,169 @@
                 post-container">
 
                 
-                <p><a href="http://taku910.github.io/mecab/">公式</a></p>
+                <p>Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。<br>
+この記事では、Terraformのインストールから使い方までをご紹介します。</p>
+<h1 id="用語">用語</h1>
+<p>まずは用語について整理します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">用語</th>
+<th style="text-align:left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Configuration</td>
+<td style="text-align:left">インフラ設定のコード。要するに <code>*.tf</code> ファイルに DSL で書く Terraform のコードのこと。</td>
+</tr>
+<tr>
+<td style="text-align:left">HCL</td>
+<td style="text-align:left">HashiCorp Configuration Languageの略。<code>*.tf</code> ファイルで使われている DSL のこと。</td>
+</tr>
+<tr>
+<td style="text-align:left">Resource</td>
+<td style="text-align:left">Terraform で管理する対象の基本単位。</td>
+</tr>
+<tr>
+<td style="text-align:left">Data Source</td>
+<td style="text-align:left">Terraform 管理外だけど、 Terraform 内で参照したい参照専用の外部データ。</td>
+</tr>
+<tr>
+<td style="text-align:left">Provider</td>
+<td style="text-align:left">Resource や Data Source などを作成/更新/削除するプラグイン。aws/google/azurermなど。</td>
+</tr>
+<tr>
+<td style="text-align:left">Provisioner</td>
+<td style="text-align:left">リソースの作成/削除時に実行するスクリプトなどのプラグイン。local-exec/remote-exec/chefなど</td>
+</tr>
+<tr>
+<td style="text-align:left">State</td>
+<td style="text-align:left">Terraform が認識しているリソースの状態。 <code>*.tfstate</code> ファイルのこと。</td>
+</tr>
+<tr>
+<td style="text-align:left">Backend</td>
+<td style="text-align:left">State の保存先。local/s3/gcsなど。</td>
+</tr>
+<tr>
+<td style="text-align:left">Module</td>
+<td style="text-align:left">Resource や Data Source などを再利用可能なようにまとめた Configuration の単位。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="terraformのインストール">Terraformのインストール</h1>
+<p>asdf を利用して Terraform をインストールします。<br>
+asdf については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin add terraform
+</span></span><span style="display:flex;"><span>$ asdf plugin list
+</span></span><span style="display:flex;"><span>terraform
+</span></span><span style="display:flex;"><span>$ asdf list-all terraform
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>1.1.8
+</span></span><span style="display:flex;"><span>$ asdf install terraform 1.1.8
+</span></span><span style="display:flex;"><span>$ asdf global terraform 1.1.8
+</span></span><span style="display:flex;"><span>$ asdf current terraform
+</span></span><span style="display:flex;"><span>terraform       1.1.8          /Users/xxxxx/.tool-versions
+</span></span><span style="display:flex;"><span>$ terraform -v
+</span></span><span style="display:flex;"><span>Terraform v1.1.8
+</span></span></code></pre></div><h1 id="使い方">使い方</h1>
+<p>以下のような手順で利用します。</p>
+<ol>
+<li><code>.tf</code> ファイルを書きます</li>
+<li><code>terraform init</code> で Terraform プロジェクトを初期化します
 <ul>
-<li>環境構築</li>
-<li>使い方</li>
-<li>Node.js から Mecabを使う</li>
-<li>Python3 から MeCab を使う</li>
-</ul>
-<h1 id="環境構築">環境構築</h1>
-<h2 id="インストール">インストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install mecab
-</span></span><span style="display:flex;"><span>$ mecab --version
-</span></span><span style="display:flex;"><span>mecab of 0.996
-</span></span></code></pre></div><h2 id="辞書の追加">辞書の追加</h2>
-<p>このままでは辞書がないので追加する。<br>
-辞書の場所は <code>/usr/local/lib/mecab/dic/</code> 配下。</p>
-<h3 id="mecab-ipadic-neologd-のインストール">mecab-ipadic-neologd のインストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone --depth <span style="color:#bd93f9">1</span> https://github.com/neologd/mecab-ipadic-neologd.git
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> mecab-ipadic-neologd/
-</span></span><span style="display:flex;"><span>$ ./bin/install-mecab-ipadic-neologd -n -p /usr/local/lib/mecab/dic/neologd
-</span></span></code></pre></div><p>最後に本当にインストールするか聞かれるから <code>yes</code> or <code>no</code> をタイプする。<br>
-なお、筆者の環境では足りなかった以下のコマンドを追加した。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install xz
-</span></span></code></pre></div><h3 id="デフォルトの辞書を変更する">デフォルトの辞書を変更する</h3>
-<p><code>mecab -d /usr/local/lib/mecab/dic/neologd/</code> でも辞書を指定して実行できるが、めんどくさいのでデフォルトを変更する。<br>
-<code>/usr/local/etc/mecabrc</code> の以下を変更する。</p>
-<pre tabindex="0"><code>dicdir =  /usr/local/lib/mecab/dic/ipadic
-# 以下のように変更
-dicdir =  /usr/local/lib/mecab/dic/neologd
-</code></pre><h1 id="使い方">使い方</h1>
-<p>インタラクティブモードは以下。（そのままコマンドを打つ）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mecab
-</span></span><span style="display:flex;"><span>おはよう
-</span></span><span style="display:flex;"><span>おはよう	感動詞,*,*,*,*,*,おはよう,オハヨウ,オハヨー
-</span></span><span style="display:flex;"><span>EOS
-</span></span></code></pre></div><p>第一引数にファイルを指定することもでき、 <code>-o</code> オプションで出力も可能。</p>
-<pre tabindex="0"><code>$ mecab [入力ファイル] -o [出力ファイル]
-</code></pre><h2 id="形態素の見方">形態素の見方</h2>
-<pre tabindex="0"><code>表層形\t品詞,品詞細分類1,品詞細分類2,品詞細分類3,活用型,活用形,原形,読み,発音
-</code></pre><p>「表層形」は文章からそのまま抜き出した形。<br>
-なお MeCab の品詞体系は <a href="http://www.unixuser.org/~euske/doc/postag/#chasen">IPA品詞体系</a>というものが使われている。（茶筅と同じ）</p>
-<h2 id="未知語推定">未知語推定</h2>
-<p>MeCabには未知語を推定する機能があり、デフォルトでは有効。<br>
-未知語を抽出したい場合は <code>-x</code> （ <code>--unk-feature</code> ）で未知語の表示形式を指定して実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mecab -x <span style="color:#f1fa8c">&#34;undef&#34;</span>
-</span></span><span style="display:flex;"><span>にゃほにゃほたまくろー
-</span></span><span style="display:flex;"><span>に      助詞,格助詞,一般,*,*,*,に,ニ,ニ
-</span></span><span style="display:flex;"><span>ゃほにゃほたまくろ      undef
-</span></span><span style="display:flex;"><span>ー      undef
-</span></span><span style="display:flex;"><span>EOS
-</span></span></code></pre></div><h2 id="ユーザ辞書の追加">ユーザ辞書の追加</h2>
-<p>自分で単語を登録したいときの方法。<br>
-csv ファイルに 1 行 1 単語で以下の形式で作成する。</p>
-<pre tabindex="0"><code>表層形,左文脈ID,右文脈ID,コスト,品詞,品詞細分類1,品詞細分類2,品詞細分類3,活用形,活用型,原形,読み,発音
-</code></pre><p>例えば以下。</p>
-<pre tabindex="0"><code>にゃほにゃほたまくろー,1223,1223,6058,名詞,固有名詞,人名,名,*,*,ニャホニャホタマクロー,ニャホニャホタマクロー,ニャホニャホタマクロー
-</code></pre><ul>
-<li>左文脈ID
-<ul>
-<li>その単語を左から見たときの内部状態ID</li>
-<li><code>/usr/local/lib/mecab/dic/neologd/left-id.def</code> から該当する ID を選択</li>
-<li>空にしておくと mecab-dict-index が自動的に ID を付与する</li>
+<li><code>.terraform</code> ディレクトリ、<code>.terraform.lock.hcl</code> ファイルが作成され provider のバイナリダウンロードなどの設定が記録されます</li>
 </ul>
 </li>
-<li>右文脈ID
+<li><code>terraform plan</code> で設定に問題無いか・作成されるリソースを確認します</li>
+<li><code>terraform apply</code> で実際に環境へ適用します</li>
+</ol>
+<h2 id="tf-ファイルを書く"><code>.tf</code> ファイルを書く</h2>
+<p>以下のファイルを作成します。</p>
 <ul>
-<li>その単語を右から見たときの内部状態ID</li>
-<li><code>/usr/local/lib/mecab/dic/neologd/right-id.def</code> から該当する ID を選択</li>
-<li>空にしておくと, mecab-dict-index が自動的に ID を付与する</li>
+<li><code>versions.tf</code>
+<ul>
+<li>Terraform のバージョンに関する設定</li>
 </ul>
 </li>
-<li>コスト
+<li><code>provider.tf</code> ※ここでは AWS を例に作成します
 <ul>
-<li>その単語がどれだけ出現しやすいかを示す</li>
-<li>小さいほど, 出現しやすいという意味</li>
-<li>似たような単語と 同じスコアを割り振り, その単位で切り出せない場合は, 徐々に小さくしていけばいい</li>
+<li>AWS の Provider に関する設定</li>
 </ul>
 </li>
-</ul>
-<p>以下のコマンドを実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ /usr/local/Cellar/mecab/0.996/libexec/mecab/mecab-dict-index -d /usr/local/lib/mecab/dic/neologd -u user-dic.dic -f utf8 -t utf8 user-dic.csv
-</span></span></code></pre></div><ul>
-<li>-d DIR
+<li><code>variables.tf</code>
 <ul>
-<li>システム辞書があるディレクトリ</li>
+<li>Terraform の変数定義（ファイル内容例については省略）</li>
 </ul>
 </li>
-<li>-u FILE
+<li><code>terraform.tfvars</code>
 <ul>
-<li>FILE というユーザファイルを作成</li>
+<li><code>variables.tf</code> で定義した変数に値を代入</li>
 </ul>
 </li>
-<li>-f charset
+<li><code>backend.tf</code>
 <ul>
-<li>CSVの文字コード</li>
+<li>tfstate ファイルの保存に関する設定</li>
 </ul>
 </li>
-<li>-t charset
+<li>その他 .tf ファイル
 <ul>
-<li>バイナリ辞書の文字コード</li>
+<li>作成したいリソース定義など（ファイル内容例については省略）</li>
 </ul>
 </li>
 </ul>
-<p><code>/usr/local/lib/mecab/dic/user-dic/</code> ディレクトリを作成し、上記のコマンドで作成した <code>user-dic.dic</code> を配置。<br>
-<code>/usr/local/etc/mecabrc</code> に以下を追記。</p>
-<pre tabindex="0"><code>userdic = /usr/local/lib/mecab/dic/user-dic/user-dic.dic
-</code></pre><p><a href="https://taku910.github.io/mecab/dic.html">参考</a></p>
-<h2 id="分かち書き">分かち書き</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mecab -Owakati input.txt &gt; output_wakati.txt
-</span></span></code></pre></div><h1 id="nodejs-から-mecabを使う">Node.js から Mecabを使う</h1>
-<p>上記の手順で MeCab をセットアップしていることが前提。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yarn add mecab-async
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">let</span> MeCab <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> require(<span style="color:#f1fa8c">&#39;mecab-async&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">let</span> mecab <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> MeCab();
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">let</span> input <span style="color:#ff79c6">=</span> process.argv[<span style="color:#bd93f9">2</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>mecab.parse(input,(err,result)=&gt;{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span>(err){
+<p>なお、 Terraform は 1 つの任意ファイル名の <code>.tf</code> ファイルにすべての設定を記載できるので、上記のファイル分割はあくまで例です。</p>
+<h3 id="versionstf"><code>versions.tf</code></h3>
+<p>Terraform のバージョンなどの設定に関するファイルを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:versions.tf" data-lang="terraform:versions.tf"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">required_version</span> = <span style="color:#f1fa8c">&#34;~&gt; 1.1.0&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="providertf"><code>provider.tf</code></h3>
+<p>AWS を Provider する場合の設定ファイルを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:provider.tf" data-lang="terraform:provider.tf"><span style="display:flex;"><span><span style="color:#ff79c6">provider</span> <span style="color:#f1fa8c">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span> = <span style="color:#8be9fd;font-style:italic">var</span>.region
+</span></span><span style="display:flex;"><span>  default_tags {
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">tags</span> = {
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">System</span>    = <span style="color:#8be9fd;font-style:italic">var</span>.system
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Env</span>       = <span style="color:#8be9fd;font-style:italic">var</span>.env
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Terraform</span> = <span style="color:#f1fa8c">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  console.log(result);
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node app.js <span style="color:#f1fa8c">&#34;にゃほにゃほたまくろー&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#39;にゃほにゃほたまくろー&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;名詞&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;固有名詞&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;人名&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;名&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;*&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;*&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;ニャホニャホタマクロー&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;ニャホニャホタマクロー&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;ニャホニャホタマクロー&#39;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h1 id="python3-から-mecab-を使う">Python3 から MeCab を使う</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install mecab-python3
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> MeCab
-</span></span><span style="display:flex;"><span>mc <span style="color:#ff79c6">=</span> MeCab<span style="color:#ff79c6">.</span>Tagger(<span style="color:#f1fa8c">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span> (mc<span style="color:#ff79c6">.</span>parse(<span style="color:#f1fa8c">&#34;形態素解析システムMeCab入門&#34;</span>))
-</span></span></code></pre></div><p><code>MeCab.Tagger</code> の引数に <code>mecab</code> コマンドの引数を指定することができる。<br>
-また、 parse の結果は文字列になっている。</p>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上記のように <code>default_tags</code> を変数で体入する形で設定しておくと非常に便利です。</p>
+<h3 id="variablestf"><code>variables.tf</code></h3>
+<p>変数を管理するファイルを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:variables.tf" data-lang="terraform:variables.tf"><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;access_key&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;secret_key&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;region&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;system&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;env&#34;</span> {}
+</span></span></code></pre></div><h3 id="terraformtfvars"><code>terraform.tfvars</code></h3>
+<p>変数に値を設定するファイルを作成します。</p>
+<pre tabindex="0"><code class="language-terraform:terraform.tfvars" data-lang="terraform:terraform.tfvars">access_key = &#34;access_key&#34;
+secret_key = &#34;secret_key&#34;
+region = &#34;ap-northeast-1&#34;
+</code></pre><p>上記は <code>access_key</code> <code>secret_key</code> 変数への値の代入は、ファイルへの記載ではなく環境変数（ <code>TF_VAR_access_key</code> , <code>TF_VAR_secret_key</code> ）や <code>terraform</code> コマンドオプション（ <code>-var</code> ）からの読み込みも可能です。<br>
+なお、 Terraform の変数へ環境変数から値を代入する場合は、変数名 <code>xxxxx</code> に対して環境変数 <code>TF_VAR_xxxxx</code> が対応しています。</p>
+<h3 id="backendtf"><code>backend.tf</code></h3>
+<p>State ファイル（ <code>*.tfstate</code> ）の保存に関する設定ファイルを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:backend.tf" data-lang="terraform:backend.tf"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  backend <span style="color:#f1fa8c">&#34;s3&#34;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">bucket</span> = <span style="color:#f1fa8c">&#34;your-bucket-name&#34;</span><span style="color:#6272a4">  // State ファイルを配置するバケット
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">key</span>    = <span style="color:#f1fa8c">&#34;terraform.tfstate&#34;</span><span style="color:#6272a4"> // State ファイルを配置するパス・ファイル名
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">region</span> = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span><span style="color:#6272a4">    // S3のリージョン
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上記のように設定することで、State ファイル（ <code>*.tfstate</code> ）が S3 に保存されます。（ <code>terraform init</code> 実行後）</p>
+<h2 id="tfstate">tfstate</h2>
+<p>tfstate は AWS への設定情報を保持し、現在の <code>.tf</code> ファイルとの差分を求めることによって AWS へ設定を反映させます。<br>
+先の例では <code>backend</code> （ tfstate の保存場所）に S3 を設定しましたが、通常の場合はローカル（ <code>.terraform</code> ディレクトリ）に保存されます。<br>
+tfstate ファイルの保存場所は <code>terraform init</code> コマンド実行時の <code>.tf</code> 設定に基づいて作成されます。<br>
+複数人で開発する場合、個々人の tfstate に差分があっては、同じ <code>*.tf</code> ファイルであっても実行に差分が発生するため、 S3 など共有できる場所に tfstate を保存するのがよいでしょう。</p>
+<p><code>backend</code> を設定せずに <code>terraform apply</code> まで実行すると <code>terraform.tfstate</code> というファイルがローカルに作成されます。</p>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
-<!-- ad link - amazon/rakuten books - node.js -->
+<!-- ad link - amazon/rakuten books - terraform aws -->
 <!-- START MoshimoAffiliateEasyLink -->
 <script type="text/javascript">
 (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
@@ -386,22 +401,9 @@ b[a]=b[a]||function(){arguments.currentScript=c.currentScript
 c.getElementById(a)||(d=c.createElement(f),d.src=g,
 d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
 (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
-msmaflink({"n":"Node.js超入門 第3版 [ 掌田津耶乃 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/2433\/9784798062433.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16353060\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3Jf72uu","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/haXJAD","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16353060\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"vtzlh","s":"s"});
+msmaflink({"n":"【POD】実践Terraform　AWSにおけるシステム設計とベストプラクティス AWSにおけるシステム設計とベストプラクティス （技術の泉シリーズ（NextPublishing）） [ 野村 友規 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/8136\/9784844378136.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16058180\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/37mOivB","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hawlg8","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16058180\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"kSp0Z","s":"s"});
 </script>
-<div id="msmaflink-vtzlh">リンク</div>
-<!-- MoshimoAffiliateEasyLink END -->
-<!-- ad link - amazon/rakuten books - python -->
-<!-- START MoshimoAffiliateEasyLink -->
-<script type="text/javascript">
-(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
-b[a]=b[a]||function(){arguments.currentScript=c.currentScript
-||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
-c.getElementById(a)||(d=c.createElement(f),d.src=g,
-d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
-(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
-msmaflink({"n":"みんなのPython 第4版 [ 柴田 淳 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/9463\/9784797389463.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/14583659\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3DMswgV","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hMCjfu","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/14583659\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"rQIGU","s":"s"});
-</script>
-<div id="msmaflink-rQIGU">リンク</div>
+<div id="msmaflink-kSp0Z">リンク</div>
 <!-- MoshimoAffiliateEasyLink END -->
 <h1 id="おすすめ記事">おすすめ記事</h1>
 <!-- プログラミング学習のすすめ -->
@@ -415,13 +417,13 @@ msmaflink({"n":"みんなのPython 第4版 [ 柴田 淳 ]","b":"","t":"","d":"ht
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/android-env-on-mac/" data-toggle="tooltip" data-placement="top" title="Androidアプリ入門 Macで環境構築編">&larr;
+                        <a href="/git-environment-auth-settings/" data-toggle="tooltip" data-placement="top" title="Gitローカル環境のアカウント・認証情報設定">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/python-word2vec-basics/" data-toggle="tooltip" data-placement="top" title="Word2vec入門">Next
+                        <a href="/golang-naming/" data-toggle="tooltip" data-placement="top" title="Go言語の命名規則">Next
                             Post &rarr;</a>
                     </li>
                     

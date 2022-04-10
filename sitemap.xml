@@ -8,6 +8,12 @@
     <loc>https://blog.pepese.com/tags/golang/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://blog.pepese.com/tags/google-cloud/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/terraform-googlecloud-environment/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/golang-design-pattern/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -21,6 +27,12 @@
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/terraform/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/terraform-basics/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/</loc>
@@ -127,15 +139,6 @@
   </url><url>
     <loc>https://blog.pepese.com/cryptocurrency-basics/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/google-cloud/</loc>
-    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/terraform-googlecloud-environment/</loc>
-    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/terraform/</loc>
-    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/googlecloud-aws-comparison/</loc>
     <lastmod>2022-03-29T00:00:00+00:00</lastmod>
