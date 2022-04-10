@@ -8,6 +8,18 @@
     <language>ja</language>
     <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Go言語のデザインパターン</title>
+      <link>https://blog.pepese.com/golang-design-pattern/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-design-pattern/</guid>
+      <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
+また、デザインパターンとは、様々なプログラムで再利用できる汎用的な設計パターンのことです。&lt;br&gt;
+この記事では一般的なデザインパターンではなく、Go言語らしい書き方やパターンについて紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Go言語の命名規則</title>
       <link>https://blog.pepese.com/golang-naming/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
