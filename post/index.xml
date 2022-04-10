@@ -6,7 +6,18 @@
     <description>Recent content in Posts on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go言語の命名規則</title>
+      <link>https://blog.pepese.com/golang-naming/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-naming/</guid>
+      <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
+この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Gitローカル環境のアカウント・認証情報設定</title>
       <link>https://blog.pepese.com/git-environment-auth-settings/</link>

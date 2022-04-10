@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="asdfで利用できるJavaのディストリビューション | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="asdfで利用できるJavaのディストリビューション | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="asdfで利用できるJavaのディストリビューション | ぺーぺーSEのブログ" />
+    <meta name="title" content="Go言語の命名規則 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Go言語の命名規則 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Go言語の命名規則 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。この記事では、 asdf で利用できる Java のディストリビューションついて記載します。">
-    <meta property="og:description" content="asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。この記事では、 asdf で利用できる Java のディストリビューションついて記載します。" />
-    <meta property="twitter:description" content="asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。この記事では、 asdf で利用できる Java のディストリビューションついて記載します。" />
+    <meta name="description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。">
+    <meta property="og:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。" />
+    <meta property="twitter:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="Java, ディストリビューション, asdf">
+    <meta name="keyword"  content="Go, 命名規則, Go言語, golang">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>asdfで利用できるJavaのディストリビューション</title>
+    <title>Go言語の命名規則</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.comjava-asdf-distribution/">
+    <link rel="canonical" href="https://blog.pepese.comgolang-naming/">
     
 
     
@@ -195,20 +195,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/java" title="java">
-                            java
-                        </a>
-                        
-                        <a class="tag" href="/tags/asdf" title="asdf">
-                            asdf
+                        <a class="tag" href="/tags/golang" title="golang">
+                            golang
                         </a>
                         
                     </div>
-                    <h1>asdfで利用できるJavaのディストリビューション</h1>
+                    <h1>Go言語の命名規則</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-07
+                            2022-04-10
                             
                             
                             
@@ -234,162 +230,145 @@
                 post-container">
 
                 
-                <p>asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。<br>
-この記事では、 asdf で利用できる Java のディストリビューションついて記載します。</p>
-<h1 id="前提知識">前提知識</h1>
-<p>本編へ入る前に前提となる知識について記載します。</p>
-<h2 id="asdf">asdf</h2>
-<p>以下の記事を参照してください。</p>
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics/" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
-<h2 id="jdk">JDK</h2>
-<p>JDK は Java Development Kit の略で Java プログラミングする際に必要な以下のものを詰め合わせたものです。</p>
+                <p>Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。<br>
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。<br>
+この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。</p>
+<p>Go 言語の入門内容については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/golang-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Go言語入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h1 id="パッケージ名ディレクトリ名">パッケージ名、ディレクトリ名</h1>
 <ul>
-<li>コンパイラ</li>
-<li>JRE</li>
-<li>標準ライブラリ類、など</li>
+<li>完結に、全て小文字かつ 1 単語で
+<ul>
+<li>例外としては <code>_test</code> サフィックス</li>
 </ul>
-<h2 id="jre">JRE</h2>
-<p>JRE は Java Runtime Environment の略で Java の実行環境になります。<br>
-Java のソースコードをコンパイルするとバイトコードが出力されます。<br>
-そのバイトコードを実行することができる環境です。</p>
-<h2 id="ディストリビューション">ディストリビューション</h2>
-<p>JDK は OSS のプロジェクトである <a href="https://openjdk.java.net/">OpanJDK プロジェクト</a> にて開発されています。<br>
-しかし、ここで提供されているのはソースコードであり、コンパイル済みのバイナリが提供されているわけではありません。</p>
-<p>この OpenJDK のソースコードをビルドするのは一般のエンジニアにとってはハードルが高いです。<br>
-そこで、Java に力を入れている企業やコミュニティが独自の拡張機能を入れてビルド版として提供するものがディストリビューションです。</p>
-<p>なお、 JavaFX は OpenJDK には含まれていないので、 <a href="https://openjfx.io/">JavaFX プロジェクト</a> から別途入手する必要があります。<br>
-JavaFX にもまたディストリビューションが存在します。</p>
-<h1 id="asdf-で利用できる-java-ディストリビューション">asdf で利用できる Java ディストリビューション</h1>
-<h2 id="adoptopenjdk">AdoptOpenJDK</h2>
-<p>公式： <a href="https://adoptopenjdk.net/">https://adoptopenjdk.net/</a></p>
-<p>コミュニティ主導でスタートしたプロジェクトで、複数の主要ベンダーにもサポートされています。<br>
-独自サポートもあり、また、 IBM などによる有償サポートも提供されています。</p>
-<p>AdoptOpenJDKでは、「HotSpot」と「OpenJ9」の 2 種類の JVM を選択することができます。<br>
-HotSpot は OpenJDK コミュニティの JVM で、現在最も広く使用されている JVM であり、 Oracle の JDK で使用されています。<br>
-OpenJ9 は Eclipse コミュニティーの JVM で、低メモリ使用量と高速起動用に設計されたエンタープライズクラスの JVM であり、 IBM の JDK で使用されています。</p>
-<p>なお、AdoptOpenJDKは，2021年7月末で更新を終了しており、2021年8月以降は <a href="https://adoptium.net/">Eclipse Adoptiumプロジェクト</a> および <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">IBM Developerサイト</a> から配布が継続されます。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+</li>
+<li>utility パッケージにしない
 <ul>
-<li>HotSpot の JDK （例：adoptopenjdk-17.0.2+8）</li>
-<li>HotSpot の JRE （例：adoptopenjdk-jre-17.0.2+8）</li>
-<li>OpenJ9 の JDK （例：adoptopenjdk-openj9-16.0.1+9.openj9-0.26.0）</li>
-<li>OpenJ9 の JRE （例：adoptopenjdk-jre-openj9-16.0.1+9.openj9-0.26.0）</li>
-<li>OpenJ9 の JDK Large Heap版（例：adoptopenjdk-openj9-large_heap-15.0.2+7.openj9-0.24.0）</li>
-<li>OpenJ9 の JRE Large Heap版（例：adoptopenjdk-jre-openj9-large_heap-15.0.2+7.openj9-0.24.0）</li>
+<li>base、util、common、lib、misc など</li>
 </ul>
-<h2 id="temurin">Temurin</h2>
-<p>公式： <a href="https://adoptium.net/">https://adoptium.net/</a></p>
-<p>AdoptOpenJDKは，2021年7月末で更新を終了しました。<br>
-2021年8月以降は、 <a href="https://adoptium.net/">Eclipse Adoptium プロジェクト</a> および <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">IBM Developerサイト</a> から配布が継続されます。<br>
-Temurin は前者の Eclipse Adoptium プロジェクト提供のディストリビューションです。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+</li>
+<li>パッケージ名を繰り返さない
 <ul>
-<li>JDK （例：temurin-18.0.0+36）</li>
-<li>JRE （例：temurin-jre-17.0.2+8）</li>
+<li><code>repository.UserRepository</code> とか NG</li>
+<li><code>list.NewList</code> でなく <code>list.New</code></li>
 </ul>
-<h2 id="ibm-semeru-runtime">IBM Semeru Runtime</h2>
-<p>公式： <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">https://developer.ibm.com/languages/java/semeru-runtimes/</a></p>
-<p>AdoptOpenJDKは，2021年7月末で更新を終了しました。<br>
-2021年8月以降は、 <a href="https://adoptium.net/">Eclipse Adoptiumプロジェクト</a> および <a href="https://developer.ibm.com/languages/java/semeru-runtimes/">IBM Developerサイト</a> から配布が継続されます。<br>
-Semeru は後者の IBM 提供のディストリビューションです。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+</li>
+<li>どうしても難しい場合、ディレクトリ名はケバブケースは可
 <ul>
-<li>OpenJ9 の JDK （例：semeru-openj9-17.0.2+8_openj9-0.30.0）</li>
+<li><code>xxx-xxx</code></li>
 </ul>
-<h2 id="amazon-corretto">Amazon Corretto</h2>
-<p>公式： <a href="https://aws.amazon.com/jp/corretto/">https://aws.amazon.com/jp/corretto/</a></p>
-<p>AWS によって提供されている JDK です。<br>
-AWS による無償の長期サポートが行われています。<br>
-AWS 上にデプロイする Java アプリケーションの場合はこれでいいでしょう。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JKD （例：corretto-18.0.0.37.1）</li>
+</li>
 </ul>
-<h2 id="liberica-jdk">Liberica JDK</h2>
-<p>公式： <a href="https://bell-sw.com/">https://bell-sw.com/</a></p>
-<p>Bellsoft によって提供されている JDK です。<br>
-Bellsoft によるサポートが行われています。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+<h1 id="ファイル名">ファイル名</h1>
 <ul>
-<li>JDK （例：liberica-18+37）</li>
-<li>JRE （例：liberica-jre-18+37）</li>
-<li>JDK FX （例：liberica-javafx-18+37）</li>
-<li>JRE FX （例：liberica-jre-javafx-18+37）</li>
-<li>JDK Lite版 （例：liberica-lite-18+37）</li>
+<li>スネークケースで
+<ul>
+<li><code>xxx_xxx</code></li>
 </ul>
-<h2 id="microsoft-build-of-openjdk">Microsoft Build of OpenJDK</h2>
-<p>公式： <a href="https://www.microsoft.com/openjdk">https://www.microsoft.com/openjdk</a></p>
-<p>Microsoft によって提供されている JDK です。<br>
-Azure 上にデプロイする Java アプリケーションの場合はこれでいいでしょう。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：microsoft-17.35.1）</li>
+</li>
 </ul>
-<h2 id="sapmachine">SapMachine</h2>
-<p>公式： <a href="https://sap.github.io/SapMachine/">https://sap.github.io/SapMachine/</a></p>
-<p>SAP によって提供されている JDK です。<br>
-SAP によるサポートが行われています。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+<h1 id="関数type構造体">関数、type、構造体</h1>
 <ul>
-<li>JDK （例：sapmachine-18）</li>
-<li>JRE （例：sapmachine-jre-18）</li>
+<li>キャメルケースで
+<ul>
+<li>公開する場合はアッパーキャメルケース <code>XxxYyy</code></li>
+<li>公開しない場合はローワーキャメルケース <code>xxxYyy</code></li>
 </ul>
-<h2 id="azul-zulu">Azul Zulu</h2>
-<p>公式： <a href="https://www.azul.com/downloads/zulu/">https://www.azul.com/downloads/zulu/</a></p>
-<p>Azul Systemsによって提供されている JDK です。<br>
-無償のCommunity版と有償のEnterprise版（サポート付）があります。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+</li>
+<li>Getter/Setter
 <ul>
-<li>JDK （例：zulu-18.28.13）</li>
-<li>JRE （例：zulu-jre-18.28.13）</li>
-<li>JDK FX （例：zulu-javafx-18.28.13）</li>
-<li>JRE FX （例：zulu-jre-javafx-18.28.13）</li>
+<li>Go では所謂 Getter には <code>Get</code> プレフィックスを付けません
+<ul>
+<li>例えば <code>User</code> を返したいなら、メソッド名は <code>GetUser</code> ではなく <code>User</code></li>
 </ul>
-<h2 id="oracle-jdk">Oracle JDK</h2>
-<p>公式： <a href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a></p>
-<p>Oracle によって提供されている JDK です。<br>
-Oracle によるサポートが行われています。<br>
-なお、下記記事でも紹介されている通り、無償利用できるようになったようです。</p>
+</li>
+<li>Setter の場合は SetUser のように <code>Set</code> を付けましょう
 <ul>
-<li><a href="https://www.publickey1.jp/blog/21/oracle_jdkjava_17.html">オラクル、Oracle JDKを再び無料提供へ、本番環境でも利用可。昨日リリースのJava 17から</a></li>
+<li>(Go で Setter を作るケースはあまりありませんが)</li>
 </ul>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：oracle-17.0.2）</li>
+</li>
 </ul>
-<h2 id="open-jdk-18">Open JDK 18</h2>
-<p>公式： <a href="https://jdk.java.net/18/">https://jdk.java.net/18/</a></p>
-<p>Oracle がビルドした本番環境での使用に対応した JDK 。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
-<ul>
-<li>JDK （例：openjdk-18）</li>
+</li>
 </ul>
-<h2 id="kona">Kona</h2>
-<p>公式： <a href="https://openjdk.java.net/projects/kona/">https://openjdk.java.net/projects/kona/</a></p>
-<p>Kona プロジェクトの目標は、モノのインターネット（IoT）ドメインで一般的に使用されるネットワークテクノロジーとプロトコル用のJavaAPIを定義して実装することです。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+<h1 id="レシーバ名">レシーバ名</h1>
+<p>Go には class は無いが、 <strong>型に対してメソッドを定義</strong> できます。<br>
+構造体だけにメソッド定義できるのではなく、型に対して定義できることに注意しましょう。<br>
+Go ではメソッドを定義する型を <strong>レシーバ</strong> と呼びます。</p>
 <ul>
-<li>JDK （例：kona-17.0.2.b1）</li>
+<li>英語 1 文字か 2 文字でなるべく短く命名
+<ul>
+<li>型が <code>Client</code> であれば <code>c</code> 、 <code>cl</code> 等</li>
 </ul>
-<h2 id="graalvm">GraalVM</h2>
-<p>公式： <a href="https://www.graalvm.org/">https://www.graalvm.org/</a></p>
-<p>Java で実装された JIT コンパイラで、Graal を 搭載した VM です。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+</li>
+<li>レシーバ名は必ず統一
 <ul>
-<li>OpenJDK 11 をベースとした GraalVM （例：graalvm-22.0.0.2+java11）</li>
-<li>OpenJDK 17 をベースとした GraalVM （例：graalvm-22.0.0.2+java17）</li>
-<li>？ （例：graalvm-19.2.1）</li>
+<li>場所によって <code>c</code> が使われていたり <code>cl</code> が使われていたりは NG</li>
 </ul>
-<h2 id="trava-open-jdk">Trava Open JDK</h2>
-<p><a href="https://github.com/HotswapProjects">Hotswap プロジェクト</a> にてメンテナンスされているディストリビューションです。<br>
-dcevm は Java実行中に動的にコードを差し替えるためのJVMの拡張です。<br>
-HotSwapAgentと組み合わせて、アプリケーションを再起動することなしにコードの変更を反映することができます。</p>
-<p>asdf では以下のようなバリエーションで提供されています。</p>
+</li>
+<li>修飾語を利用しない
 <ul>
-<li>JDK （例：trava-11.0.11+1）</li>
+<li>例えば <code>httpClient</code> ならレシーバ名は <code>c</code> 、 <code>DBCreator</code> なら <code>c</code></li>
+</ul>
+</li>
+<li>map 等の存在チェックを行う場合は <code>ok</code>
+<ul>
+<li><code>id, ok := users[userID]</code></li>
+</ul>
+</li>
+<li>命名は基本的にキャメルケースだが、元々略語として浸透している単語は一貫した大文字と小文字を使用
+<ul>
+<li><code>url</code> ではなく <code>URL</code> とか、<code>http</code> ではなく <code>HTTP</code> を使うとか</li>
+<li><code>ACL</code>、<code>API</code>、<code>ASCII</code>、<code>CPU</code>、<code>CSS</code>、<code>DNS</code>、<code>EOF</code>、<code>GUID</code>、<code>HTML</code>、<code>HTTP</code>、<code>HTTPS</code>、<code>ID</code>、<code>IP</code>、<code>JSON</code>、<code>LHS</code>、<code>QPS</code>、<code>RAM</code>、<code>RHS</code>、<code>RPC</code>、<code>SLA</code>、<code>SMTP</code>、<code>SQL</code>、<code>SSH</code>、<code>TCP</code>、<code>TLS</code>、<code>TTL</code>、<code>UDP</code>、<code>UI</code>、<code>UID</code>、<code>UUID</code>、<code>URI</code>、<code>URL</code>、<code>UTF8</code>、<code>VM</code>、<code>XML</code>、<code>XMPP</code>、<code>XSRF</code>、<code>XSS</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="変数引数名">変数・引数名</h1>
+<ul>
+<li>基本的にレシーバ名と同じ</li>
+<li>ただし、スコープに応じて使い分けましょう
+<ul>
+<li><code>Config</code> の変数なら、<code>c</code> 、 <code>conf</code> 、 <code>cfg</code> などで使い分けましょう</li>
+</ul>
+</li>
+</ul>
+<h1 id="error変数名">error変数名</h1>
+<ul>
+<li>基本的に <code>err</code></li>
+<li>公開する際など複数定義が必要な場合は <code>Err</code> プレフィックスを付けて宣言</li>
+</ul>
+<h1 id="インターフェース名">インターフェース名</h1>
+<ul>
+<li>メソッドが 1 つの場合
+<ul>
+<li>原則として「メソッド名 + <code>er/or</code>」
+<ul>
+<li>例えば <code>Write</code> メソッドを持つインターフェースであれば <code>Writer</code></li>
+</ul>
+</li>
+<li>目的語がある場合は「目的語 + 動詞 + <code>er/or</code>」
+<ul>
+<li>例えば <code>PrintObject</code> メソッドを持つインターフェースであれば <code>ObjectPrinter</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>メソッドが 2 つ以上の場合
+<ul>
+<li>原則として慣習がある場合それに従い、慣習が無い場合いい感じの名前を考える
+<ul>
+<li><code>io</code> パッケージの <code>ReadCloser</code> のように、メソッドを連ねて前述の <code>er</code> を付けるパターン</li>
+<li><code>Codec</code> のように、特別なメソッドの組み合わせのときに使われるパターン
+<ul>
+<li><code>Codec</code> は <code>EncodeDecoder</code> だったり他の命名にすることも</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
-<!-- ad link - amazon/rakuten books - java -->
+<!-- ad link - amazon/rakuten books - golang -->
 <!-- START MoshimoAffiliateEasyLink -->
 <script type="text/javascript">
 (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
@@ -398,9 +377,9 @@ b[a]=b[a]||function(){arguments.currentScript=c.currentScript
 c.getElementById(a)||(d=c.createElement(f),d.src=g,
 d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
 (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
-msmaflink({"n":"新わかりやすいJava オブジェクト指向徹底解説 第2版 [ 川場隆 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/book\/cabinet\/5007","p":["\/9784798065007_1_3.jpg","\/9784798065007_2.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16977843\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#ff9900","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/37mQD9Z","s_n":"custom_2","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":2},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hak9Ku","s_n":"custom_3","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16977843\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"Hu62r","s":"s"});
+msmaflink({"n":"改訂2版 みんなのGo言語 [ 松木雅幸、mattn、藤原俊一郎、中島大一、上田拓也、牧 大輔、鈴木 健太 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/7277\/9784297107277.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/15956516\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3DHsTJX","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hwxl6y","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/15956516\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"nAQxh","s":"s"});
 </script>
-<div id="msmaflink-Hu62r">リンク</div>
+<div id="msmaflink-nAQxh">リンク</div>
 <!-- MoshimoAffiliateEasyLink END -->
 <h1 id="おすすめ記事">おすすめ記事</h1>
 <!-- プログラミング学習のすすめ -->
@@ -414,15 +393,10 @@ msmaflink({"n":"新わかりやすいJava オブジェクト指向徹底解説 �
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAM入門">&larr;
+                        <a href="/git-environment-auth-settings/" data-toggle="tooltip" data-placement="top" title="Gitローカル環境のアカウント・認証情報設定">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/java-vscode-environment/" data-toggle="tooltip" data-placement="top" title="Visual Studio CodeでJavaの開発環境を作成する">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

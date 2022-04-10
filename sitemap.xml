@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/golang/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/golang-naming/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/git/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
@@ -17,25 +35,10 @@
     <loc>https://blog.pepese.com/golang-modules-basics/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/golang/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/golang-basics/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/vscode/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/aws-vpc-basics/</loc>
