@@ -208,7 +208,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-07
+                            2022-04-11
                             
                             
                             
@@ -490,6 +490,67 @@ IAM ユーザーは複数の IAM グループ（最大 10 ）へ所属するこ�
 <code>iam:ChangePassword</code> を削除した上で、初回ログイン後に MFA デバイスを登録し、ログインし直してパスワード変更するオペレーションのほうが好ましいかもしれません。</p>
 <p>なお、 AWS CLI での MFA 認証は以下を参照してください。</p>
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/aws-cli-basics/" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">AWS CLI入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">AWS CLI は AWS リソースの操作を行う Command Line Interface (CLI) ツールです。AWS のマネージメントコンソールをボチボチする代わりにコマンドを叩くイメージです。この記事では、AWS CLI のインストールと設定で役立つ情報（MFA・多要素認証など）を紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h1 id="landing-zone">Landing Zone</h1>
+<p>Landing Zone は、Well-Architected Framework を始めとした「AWS のベストプラクティス」に基づいて構成したアカウントをスケーラブルに展開していくための仕組みの総称です。<br>
+これにより、ガバナンスを効かせた形でアカウントを自動展開することができます。</p>
+<p>Landing Zone は、下記機能から構成されます。</p>
+<ol>
+<li>アカウントの発行
+<ul>
+<li>必要な初期設定の済んだアカウントを作成</li>
+</ul>
+</li>
+<li>管理用権限の発行
+<ul>
+<li>対象アカウントを管理するための権限を作成</li>
+</ul>
+</li>
+<li>共有サービスへのアクセス (ユーザー環境に合わせて個別に実装する)
+<ul>
+<li>AD やファイルサーバー等の共有サービスや運用拠点への接続経路の確保</li>
+</ul>
+</li>
+<li>AWS ログの集約
+<ul>
+<li>監査用ログをセキュアに一元保存</li>
+</ul>
+</li>
+<li>ガードレールの設置　
+<ul>
+<li>実施してはいけない操作の禁止 (必須のガードレール)</li>
+<li>危険な設定の監視 (強く推奨されるガードレール、推奨のガードレール)</li>
+</ul>
+</li>
+</ol>
+<p>Landing Zone はマルチアカウント戦略を実現する仕組みの総称であり、AWS サービスの名称では無いということに注意してください。</p>
+<h2 id="landing-zone-を適用する-2-つの方法">Landing Zone を適用する 2 つの方法</h2>
+<ul>
+<li>実装 1 : AWS Control Tower</li>
+<li>実装 2 : 独自実装の Landing Zone</li>
+</ul>
+<h3 id="実装-1--aws-control-tower">実装 1 : AWS Control Tower</h3>
+<p>AWS Control Tower では、ID、フェデレーティッドアクセス、マルチアカウント構成のベストプラクティスを使用して、Landing Zone をセットアップします。</p>
+<ul>
+<li>AWS Organizations を使用してマルチアカウント環境を作成する</li>
+<li>AWS Single Sign-On (SSO) を使用して ID 管理を提供する</li>
+<li>AWS SSO を使用してアカウントにフェデレーティッドアクセスを提供する</li>
+<li>AWS CloudTrail のログや、Amazon S3 に保存される AWS Config のログを集中管理する</li>
+<li>AWS IAM および AWS SSO を使用してクロスアカウントセキュリティ監査を有効化する</li>
+</ul>
+<h3 id="実装-2--独自実装の-landing-zone">実装 2 : 独自実装の Landing Zone</h3>
+<p>もうひとつの手段として、Landing Zone の各機能を独自実装します。</p>
+<h3 id="手順の大きな流れ">手順の大きな流れ</h3>
+<p>流れは以下です。<br>
+AWSアカウントも、Organizationsの機能を使って作成します。</p>
+<ol>
+<li>rootユーザーでアクセス可能なAWSアカウントを用意する</li>
+<li>Organizationsを作成する</li>
+<li>OrganizationsからAWSアカウントを追加する</li>
+<li>組織ユニット（OU）を作成する</li>
+<li>サービスコントロールポリシー（SCP）を作成する</li>
+<li>組織ユニットにサービスコントロールポリシーを適用する</li>
+<li>AWSアカウントにアクセスし動作確認する</li>
+</ol>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - aws basics -->
 <!-- START MoshimoAffiliateEasyLink -->
@@ -516,15 +577,10 @@ msmaflink({"n":"AWSではじめるインフラ構築入門 安全で堅牢な本
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-lambda-basics/" data-toggle="tooltip" data-placement="top" title="AWS Lambda入門">&larr;
+                        <a href="/java-springframework-annotation-project-structure/" data-toggle="tooltip" data-placement="top" title="Spring Frameworkのアノテーションとプロジェクト構造">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/java-asdf-distribution/" data-toggle="tooltip" data-placement="top" title="asdfで利用できるJavaのディストリビューション">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
