@@ -297,7 +297,7 @@ AWS のマネージメントコンソールをボチボチする代わりにコ�
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>&lt;プロファイル名&gt;-long-term<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">aws_access_key_id</span> <span style="color:#ff79c6">=</span> &lt;あなたのIAM Userのアクセスキー&gt;
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">aws_secret_access_key</span> <span style="color:#ff79c6">=</span> &lt;あなたのIAM Userのシークレットキー&gt;
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">aws_mfa_device</span> <span style="color:#ff79c6">=</span> arn:aws:iam::312574223261:mfa/&lt;あなたのIAM User ID&gt;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">aws_mfa_device</span> <span style="color:#ff79c6">=</span> arn:aws:iam::&lt;aws_account_id&gt;:mfa/&lt;あなたのIAM User ID&gt;
 </span></span></code></pre></div><p>任意のプロファイル名に <code>-long-term</code> がついているのがポイントです。<br>
 上記が出来たら、以下のコマンドを実行します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws-mfa --profile &lt;プロファイル名&gt;
