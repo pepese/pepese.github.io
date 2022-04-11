@@ -8,6 +8,17 @@
     <language>ja</language>
     <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Spring Frameworkのアノテーションとプロジェクト構造</title>
+      <link>https://blog.pepese.com/java-springframework-annotation-project-structure/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/java-springframework-annotation-project-structure/</guid>
+      <description>&lt;p&gt;Spring Frameworkは、Java言語のWebアプリケーションフレームワークのデファクトスタンダードです。&lt;br&gt;
+非常に便利なのですが、アノテーションの種類が多く混乱しがちです。&lt;br&gt;
+この記事ではアノテーションの一覧と機能概要、プロジェクトでの利用例をご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Terraform Modulesで環境を分割する</title>
       <link>https://blog.pepese.com/terraform-modules-env/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
