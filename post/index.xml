@@ -6,7 +6,17 @@
     <description>Recent content in Posts on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DyanamoDB入門</title>
+      <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
+      <description>&lt;p&gt;DynamoDB は AWS が提供する NoSQL データベースです。&lt;br&gt;
+この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>AWS IAM入門</title>
       <link>https://blog.pepese.com/aws-iam-basics/</link>
@@ -180,16 +190,6 @@
       <guid>https://blog.pepese.com/aws-waf-basics/</guid>
       <description>&lt;p&gt;AWS WAF は、 AWS が提供する Web Application Firewall サービスです。&lt;br&gt;
 この記事では、AWS WAF をざっくり理解できる概要について記載します。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>DyanamoDB入門</title>
-      <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
-      <description>&lt;p&gt;DynamoDB は AWS が提供する NoSQL データベースです。&lt;br&gt;
-この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。&lt;/p&gt;</description>
     </item>
     
     <item>

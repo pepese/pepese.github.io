@@ -212,7 +212,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-06
+                            2022-04-12
                             
                             
                             
@@ -387,6 +387,23 @@ DyanamoDB のテーブル作成時には <strong>読み込みキャパシティ�
 「 20 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 2.5 キャパシティーユニット」（ 20 KB = 4 KB × 5 の <strong>2倍</strong> のキャパシティなのでキャパシティーユニットの数字は <strong>半分</strong> ）。<br>
 「 40 KB の Item 1 つを 1 秒間に結果的に整合性のある読み込み」を行う場合は「 5 キャパシティーユニット」。<br>
 「 5 KB の Item 1 つを 1 秒間に書き込む」場合は「 5 キャパシティーユニット」。</p>
+<h2 id="プロビジョニングモード-と-オンデマンドモード">プロビジョニングモード と オンデマンドモード</h2>
+<p>DynamoDB には、以下2つの読み込み/書き込みキャパシティーモードがあります。</p>
+<ul>
+<li>オンデマンドモード
+<ul>
+<li>容量計画なしで 1 秒あたりに数千ものリクエストを処理できる柔軟なオプション</li>
+</ul>
+</li>
+<li>プロビジョニングモード
+<ul>
+<li>キャパシティユニットを指定</li>
+<li>Auto Scaling を使用すると、トラフィックの変更に応じて、テーブルのプロビジョンドキャパシティーを自動的に調整できます</li>
+</ul>
+</li>
+</ul>
+<p>トラフィックが予測できない場合は前者、予測できる場合は後者を利用しましょう。<br>
+後者の方がコストを抑えることができます。</p>
 <h1 id="dynamodb-の-api">DynamoDB の API</h1>
 <p>DynamoDB の API は大きく以下があります。</p>
 <ul>
@@ -602,15 +619,10 @@ msmaflink({"n":"AWSではじめるインフラ構築入門 安全で堅牢な本
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/article-programing-learning/" data-toggle="tooltip" data-placement="top" title="プログラミング学習のすすめ">&larr;
+                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAM入門">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/aws-waf-basics/" data-toggle="tooltip" data-placement="top" title="AWS WAFまとめ">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

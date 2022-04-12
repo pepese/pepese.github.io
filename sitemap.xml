@@ -3,12 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.pepese.com/tags/aws/</loc>
-    <lastmod>2022-04-11T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/aws-iam-basics/</loc>
-    <lastmod>2022-04-11T00:00:00+00:00</lastmod>
+    <loc>https://blog.pepese.com/tags/aws-cli/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/aws-dynamodb-basics/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/dynamodb/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/aws-iam-basics/</loc>
     <lastmod>2022-04-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/iam/</loc>
@@ -17,19 +38,10 @@
     <loc>https://blog.pepese.com/tags/java/</loc>
     <lastmod>2022-04-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2022-04-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/spring-framework/</loc>
     <lastmod>2022-04-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/java-springframework-annotation-project-structure/</loc>
-    <lastmod>2022-04-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2022-04-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
     <lastmod>2022-04-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/terraform/</loc>
@@ -39,9 +51,6 @@
     <lastmod>2022-04-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/terraform-naming/</loc>
-    <lastmod>2022-04-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2022-04-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/golang/</loc>
@@ -115,15 +124,6 @@
   </url><url>
     <loc>https://blog.pepese.com/tags/waf/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/aws-cli/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/aws-dynamodb-basics/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/dynamodb/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/article/</loc>
     <lastmod>2022-04-05T00:00:00+00:00</lastmod>

@@ -6,11 +6,11 @@
     <description>Recent content in aws cli on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws-cli/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws-cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DyanamoDB入門</title>
       <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
       <description>&lt;p&gt;DynamoDB は AWS が提供する NoSQL データベースです。&lt;br&gt;

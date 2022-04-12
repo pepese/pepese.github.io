@@ -6,13 +6,31 @@
     <description>Recent content in Tags on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://blog.pepese.com/tags/aws/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws cli</title>
+      <link>https://blog.pepese.com/tags/aws-cli/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/aws-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamodb</title>
+      <link>https://blog.pepese.com/tags/dynamodb/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/dynamodb/</guid>
       <description></description>
     </item>
     
@@ -148,24 +166,6 @@
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/waf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws cli</title>
-      <link>https://blog.pepese.com/tags/aws-cli/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/aws-cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dynamodb</title>
-      <link>https://blog.pepese.com/tags/dynamodb/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/dynamodb/</guid>
       <description></description>
     </item>
     
