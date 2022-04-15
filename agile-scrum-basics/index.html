@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.comimg/yaruwo.gif">
+    <meta property="og:image:secure_url" content="https://blog.pepese.comimg/yaruwo.gif">
+    <meta property="twitter:image" content="https://blog.pepese.comimg/yaruwo.gif" />
+    
+
+    
+    <meta name="title" content="スクラム入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="スクラム入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="スクラム入門 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="スクラムはアジャイル開発の方法論の内の 1 つです。この記事ではスクラムの入門として、ざっくり概要をご紹介します。">
+    <meta property="og:description" content="スクラムはアジャイル開発の方法論の内の 1 つです。この記事ではスクラムの入門として、ざっくり概要をご紹介します。" />
+    <meta property="twitter:description" content="スクラムはアジャイル開発の方法論の内の 1 つです。この記事ではスクラムの入門として、ざっくり概要をご紹介します。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="スクラム, Scrum, アジャイル, 開発">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>スクラム入門</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.comagile-scrum-basics/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/agile" title="agile">
+                            agile
+                        </a>
+                        
+                        <a class="tag" href="/tags/scrum" title="scrum">
+                            scrum
+                        </a>
+                        
+                    </div>
+                    <h1>スクラム入門</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2022-04-15
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>スクラムはアジャイル開発の方法論の内の 1 つです。<br>
+この記事ではスクラムの入門として、ざっくり概要をご紹介します。</p>
+<h1 id="概要">概要</h1>
+<p>スクラムは、複雑な問題に対応する適応型のソリューションを通じて、⼈々、チーム、組織が価値を⽣み出すための軽量級フレームワークです。</p>
+<p>本記事ではスクラムの全体像を詳細を省いてご紹介します。<br>
+詳細まで学習したい方は <a href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf">スクラムガイド</a> をご参照ください。</p>
+<h1 id="理論">理論</h1>
+<p>スクラムは「経験主義」と「リーン思考」に基づいています。<br>
+外部環境の変化によるあらゆるリスクに対応するために、反復的に実装を行います。<br>
+この反復をスプリントと呼び、スプリントに含まれるイベントを通じて「透明性」「検査」「適応」を実現します。</p>
+<h2 id="透明性">透明性</h2>
+<p>創発的なプロセスや作業は、すべての人に見えている必要があります。<br>
+スクラムにおける作成物は透明性があり、すべての人に認知されることによって検査することができます。<br>
+透明性がない状態で検査を行なっても誤解・無駄を省くことはできません。</p>
+<h2 id="検査">検査</h2>
+<p>スクラムの作成物とゴールに向けた進捗状況は、スプリントのイベントによって検査されます。<br>
+これにより、望ましくない変化・問題・課題を検知することができます。<br>
+そしてこれらの変化・問題・課題に対応することにより適応が可能となります。</p>
+<h2 id="適応">適応</h2>
+<p>検査にて検知された変化・問題・課題に対応するためには、プロセスや作成物の構成要素を調整する必要があります。<br>
+しかし、関係者に権限がなかったり自己管理できていない場合は調整が難しくなります。<br>
+検査により学んだことに素早く適応する必要があります。</p>
+<h1 id="ロール">ロール</h1>
+<p>スクラムチームは PO 、 SM 、 Dev ロールによって構成されます。<br>
+PO 1 名、 SM 1 名、 Dev 数名の合計 10 名以下が望ましいチームサイズです。<br>
+プロダクトゴールを達成するために、機能横断型で必要なすべてのスキルを備えている必要があります。</p>
+<h2 id="po-プロダクトオーナー">PO: プロダクトオーナー</h2>
+<p>ビジネス、 UX 、 テクノロジなどの様々な観点からプロダクトの方向性を決め、その価値を最大化することに責任を持ちます。<br>
+プロダクトの機能・特徴を定義し、それに基づいてブロダクトバックログを作成します。</p>
+<ul>
+<li>プロダクトゴールを策定し、明確化します</li>
+<li>プロダクトバックログ（以降、 PBL）を作成し、チームへ伝えます</li>
+<li>PBL の優先順位を決定します</li>
+</ul>
+<h2 id="sm-スクラムマスター">SM: スクラムマスター</h2>
+<p>スクラムチームのプロセスの遵守を促し、スクラムチームの生産性向上のための改善を行うことに責任を持ちます。<br>
+SM は、チームにスクラムの理論とプラクティスを理解してもらえるよう活動・支援することによってその責任を果たします。</p>
+<ul>
+<li>自己管理型のチーム・メンバになるようコーチします</li>
+<li>チームの活動を妨害する障害物を排除し、チームが作成物に集中できるよう支援します</li>
+<li>ボジティブで、生産的で、時間を遵守したスクラムイベントを進行します</li>
+</ul>
+<p>SM は 様々な形でチームを支援します。</p>
+<ul>
+<li>PO が効果的にブロダクトバックログを作成・管理できるよう支援します</li>
+<li>必要に応じてチームメンバとステークホルダーのコラボレーションを促進・調整し、障壁を取り除きます</li>
+<li>チームへのスクラム導⼊を指導・トレーニング・コーチします</li>
+<li>組織にスクラムの実行方法を助言します</li>
+<li>自身の経験によるアプローチ・プラクティスをチームやステークホルダーに理解・実践してもらいます</li>
+</ul>
+<h2 id="dev-デベロッパ">Dev: デベロッパ</h2>
+<p>自ら考え行動し（自己管理型）、プロダクトの価値を作成物で具現化します。<br>
+職能横断的なスキルが求められるため、幅広い技術知識を有する必要があります。<br>
+未知の技術領域に対しても自発的に情報収集して問題解決を行います。<br>
+以下の責任を持ちます。</p>
+<ul>
+<li>スプリントの計画（スプリントバックログ）を作成します</li>
+<li>完成の定義を忠実に守り、スプリントゴールに向けて日々計画を適応させます</li>
+<li>技術領域や作成物に対して専門家として責任を持ちます</li>
+</ul>
+<h1 id="作成物">作成物</h1>
+<p>主に 3 つの作成物があります。</p>
+<h2 id="ブロダクトバックログ">ブロダクトバックログ</h2>
+<p>優先順位づけされたプロダクトバックログアイテム（以降、 PBI）の一覧です。<br>
+PBI はユーザーストーリーとも呼ばれます。<br>
+スプリント開始前までに PO によって作成され、十分に詳細化され見積り可能な状態にする必要があります。<br>
+また、リファインメントにより透明性を向上させます。</p>
+<p>PBI は INVEST を満たすことにより、良いユーザーとなります。</p>
+<ul>
+<li>Independent（独立している）
+<ul>
+<li>PBIは、他のPBIに固有の依存関係がないように、自己完結型である必要があります</li>
+</ul>
+</li>
+<li>Negotiable（交渉可能である）
+<ul>
+<li>PBIは明示的な契約ではなく、議論の余地を残す必要があります</li>
+</ul>
+</li>
+<li>Valuable（価値がある）
+<ul>
+<li>PBIは、利害関係者に価値を提供する必要があります</li>
+</ul>
+</li>
+<li>Estimatable（見積もり可能である）
+<ul>
+<li>PBIのサイズは常に見積もることができなければなりません</li>
+</ul>
+</li>
+<li>Small（小さい）
+<ul>
+<li>PBIは、正確さのレベル内で計画/タスク/優先順位付けを行うことが不可能になるほど大きくすべきではありません</li>
+</ul>
+</li>
+<li>Testable（テスト可能である）
+<ul>
+<li>PBIまたはその関連する説明は、テスト開発を可能にするために必要な情報を提供する必要があります</li>
+</ul>
+</li>
+</ul>
+<p>また、テンプレートとしては『＜who＞として、＜what＞を達成したい。それは＜why＞だからだ』という形式がよく用いられます。</p>
+<h2 id="スプリントバックログ">スプリントバックログ</h2>
+<p>Dev はスプリントゴールを達成するために作成する計画です。<br>
+所謂 タスクであり、デイリースクラムで進捗を確認できる程度の詳細さが必要です。</p>
+<h2 id="インクリメント">インクリメント</h2>
+<p>システム開発においてはアプリケーションなどの「動くソフトウェア」に該当します。<br>
+スプリントレビューにて PO に提示し、完了条件を満たすことによってリリースが可能となります。</p>
+<h1 id="イベント">イベント</h1>
+<p>スプリントでは以下のイベントを実行します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">イベント</th>
+<th style="text-align:left">主催</th>
+<th style="text-align:left">タイムボックス/比率</th>
+<th style="text-align:left">1週間スプリント</th>
+<th style="text-align:left">2週間スプリント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">スプリントプランニング 第一部</td>
+<td style="text-align:left">PO</td>
+<td style="text-align:left">5%</td>
+<td style="text-align:left">2時間</td>
+<td style="text-align:left">4時間</td>
+</tr>
+<tr>
+<td style="text-align:left">スプリントプランニング 第二部</td>
+<td style="text-align:left">SM</td>
+<td style="text-align:left">↑に含む</td>
+<td style="text-align:left">↑に含む</td>
+<td style="text-align:left">↑に含む</td>
+</tr>
+<tr>
+<td style="text-align:left">デイリースクラム</td>
+<td style="text-align:left">SM</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">15分/日</td>
+<td style="text-align:left">15分/日</td>
+</tr>
+<tr>
+<td style="text-align:left">スプリントレビュ</td>
+<td style="text-align:left">SM</td>
+<td style="text-align:left">2.5%</td>
+<td style="text-align:left">1時間</td>
+<td style="text-align:left">2時間</td>
+</tr>
+<tr>
+<td style="text-align:left">スプリントレトロスペクティブ(振り返り)</td>
+<td style="text-align:left">SM</td>
+<td style="text-align:left">1.875%(最低1時間)</td>
+<td style="text-align:left">1時間</td>
+<td style="text-align:left">1.5時間</td>
+</tr>
+<tr>
+<td style="text-align:left">バックログリファインメント</td>
+<td style="text-align:left">PO</td>
+<td style="text-align:left">10%</td>
+<td style="text-align:left">4時間</td>
+<td style="text-align:left">8時間</td>
+</tr>
+</tbody>
+</table>
+<h2 id="スプリントプランニング-第一部">スプリントプランニング 第一部</h2>
+<p>スプリントの最初に実施し、事前に PO が作成した PBL/PBI を共有します。<br>
+PBI のチケット化、優先順位の設定、見積り（プランニングポーカーなどでストーリーポイントを見積る）を行います。<br>
+スプリントのゴールと受入条件（実装機能の品質、ドキュメント有無、自動化実施有無など）を設定します。</p>
+<h2 id="スプリントプランニング-第二部">スプリントプランニング 第二部</h2>
+<p>PBI を詳細化します。<br>
+PBI のタスク分割、チケット化、優先順位の設定、作業量の見積り（時間）を行います。<br>
+作業量の見積りの結果、スプリントで消化する PBI を決定し、 PO に伝えます。</p>
+<h2 id="デイリースクラム">デイリースクラム</h2>
+<p>毎日決まった時間に 15 分以内で以下を実施します。</p>
+<ul>
+<li>前日のタスク実施状況</li>
+<li>当日のタスク実施予定</li>
+<li>課題</li>
+</ul>
+<p>課題についてはその場で解決策の議論・検討を行わず、 SM が持ち帰り対応方法について検討します。<br>
+その結果早期対応が必要な場合は優先度を加味してタスク・チケット化しメンバにアサインします。<br>
+可能な限り次以降のスプリントで消化しましょう。<br>
+また、チームで消化できない課題はエスカレーションします。</p>
+<h2 id="スプリントレビュ">スプリントレビュ</h2>
+<p>スプリント内に実装した「動くソフトウェア」を PO にデモンストレーションします。<br>
+チームの成果物に対して PO がスプリントプランニングの受入条件に基づいて受入可否を判定します。</p>
+<h2 id="スプリントレトロスペクティブ振り返り">スプリントレトロスペクティブ(振り返り)</h2>
+<p>チームの生産性や品質特性、残課題・残バグの状況や解決策を共有・議論します。<br>
+KPT などを用いて、チーム遂行面での成功点・反省点を洗い出し、次スプリントでのアクションプランを作成・実施します。</p>
+<h2 id="バックログリファインメント">バックログリファインメント</h2>
+<p>次のスプリントで実装する可能性・優先度の高い PBI について確認します。<br>
+実現性や見積りが曖昧なものを詳細化し優先度を設定します。<br>
+1 スプリントに 1 回は実施しましょう。</p>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - agile scrum -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"SCRUM BOOT CAMP THE BOOK【増補改訂版】 スクラムチームではじめるアジャイル開発 [ 西村 直人 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/3680\/9784798163680.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16284702\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"Amazonで見る","u_bc":"#ff9900","u_url":"https:\/\/amzn.to\/3jESqtU","a_id":0,"p_id":0,"pl_id":0,"pc_id":0,"s_n":"custom_1","u_so":0},{"u_tx":"楽天ブックスで見る","u_bc":"#bf0000","u_url":"https:\/\/a.r10.to\/hMMehy","s_n":"custom_3","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"id":2,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16284702\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"TULoG","s":"s"});
+</script>
+<div id="msmaflink-TULoG">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/article-programing-learning/" data-toggle="tooltip" data-placement="top" title="プログラミング学習のすすめ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/anyenv" title="anyenv">
+                            anyenv
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2022
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

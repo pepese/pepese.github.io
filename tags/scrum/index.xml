@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scrum on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/scrum/</link>
+    <description>Recent content in scrum on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/scrum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>スクラム入門</title>
+      <link>https://blog.pepese.com/agile-scrum-basics/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/agile-scrum-basics/</guid>
+      <description>&lt;p&gt;スクラムはアジャイル開発の方法論の内の 1 つです。&lt;br&gt;
+この記事ではスクラムの入門として、ざっくり概要をご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
