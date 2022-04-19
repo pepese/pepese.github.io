@@ -23,9 +23,9 @@
     
 
     
-    <meta name="description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。">
-    <meta property="og:description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。" />
-    <meta property="twitter:description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。" />
+    <meta name="description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツールです。この記事では、インストールから使い方の概要までをご紹介します。">
+    <meta property="og:description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツールです。この記事では、インストールから使い方の概要までをご紹介します。" />
+    <meta property="twitter:description" content="asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツールです。この記事では、インストールから使い方の概要までをご紹介します。" />
     
 
     
@@ -34,7 +34,7 @@
     
 
     
-    <meta name="keyword"  content="asdf,プログラミング言語,ツール,バージョン管理,ランタイム">
+    <meta name="keyword"  content="asdf, プログラミング言語, CLI, バージョン管理, ランタイム, ツール">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -205,7 +205,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-25
+                            2022-04-19
                             
                             
                             
@@ -296,70 +296,73 @@
                 post-container">
 
                 
-                <p><a href="https://asdf-vm.com">asdf</a> を使えば、複数のプログラミング言語ランタイムおよびそのバージョンを <code>asdf</code> コマンドだけで管理することができる。<br>
-ここでは、Mac に環境構築する方法について記載する。</p>
+                <p>asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツールです。<br>
+この記事では、インストールから使い方の概要までをご紹介します。</p>
 <h1 id="環境構築">環境構築</h1>
 <h2 id="インストール">インストール</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install coreutils curl git
 </span></span><span style="display:flex;"><span>$ brew install asdf
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> -e <span style="color:#f1fa8c">&#34;\n. </span><span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">/libexec/asdf.sh&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span></code></pre></div><p>上記は <code>.bash_profile</code> に設定を追記しているが、 環境・好みに応じて <code>.zshenv</code> などへの追記でもよい。<br>
-なお、環境により差分があるので、基本は <code>brew install asdf</code> 実行後の Homebrew の指示に従う。<br>
-Homebrew 以外の場合は <a href="https://asdf-vm.com/guide/getting-started.html#_3-install-asdf">こちら</a> を参照。</p>
+</span></span></code></pre></div><p>上記は <code>.bash_profile</code> に設定を追記していますが、 お使いの環境・好みに応じて <code>.zshenv</code> などへの追記つ読み替えてください。<br>
+環境により差分があるので、基本は <code>brew install asdf</code> 実行後の Homebrew の指示に従ってください。<br>
+Homebrew 以外の場合は <a href="https://asdf-vm.com/guide/getting-started.html#_3-install-asdf">こちら</a> を参照ください。</p>
 <h2 id="アップデート">アップデート</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew upgrade asdf
-</span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#update">こちら</a> を参照。</p>
-<h2 id="アンインストール">アンインストール</h2>
-<p><code>.bash_profile</code> などインストール時に設定したファイルから以下の行を削除。</p>
+</span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#update">こちら</a> を参照してください。<br>
+また、 asdf でアップデートされた際に <code>no such file or directory</code> といったエラーが発生する場合、 環境変数 <code>ASDF_DIR</code> に旧バージョンの情報が含まれる可能性があるため、以下のコマンドを試してみてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">ASDF_DIR</span><span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
+</span></span></code></pre></div><h2 id="アンインストール">アンインストール</h2>
+<p><code>.bash_profile</code> などインストール時に設定したファイルから以下の行を削除します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>. <span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span>/libexec/asdf.sh
 </span></span><span style="display:flex;"><span>. <span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span>/etc/bash_completion.d/asdf.bash
-</span></span></code></pre></div><p>上記実施後に以下のコマンドを実行。</p>
+</span></span></code></pre></div><p>上記実施後に以下のコマンドなどで該当ディレクトリを削除します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew uninstall asdf --force
 </span></span><span style="display:flex;"><span>$ rm -rf <span style="color:#8be9fd;font-style:italic">$HOME</span>/.tool-versions <span style="color:#8be9fd;font-style:italic">$HOME</span>/.asdf
-</span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#uninstall">こちら</a> を参照。</p>
+</span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#uninstall">こちら</a> を参照してください。</p>
 <h1 id="使い方">使い方</h1>
 <h2 id="プラグインツールのインストール">プラグイン・ツールのインストール</h2>
 <ol>
-<li>使いたいプログラミング言語・ツールに対応したプラグインを探す
+<li>使いたいプログラミング言語・ツールに対応したプラグインを探します
 <ul>
 <li><code>asdf plugin list all</code></li>
 </ul>
 </li>
-<li>使いたいプログラミング言語・ツールに対応したプラグインを追加する
+<li>使いたいプログラミング言語・ツールに対応したプラグインを追加します
 <ul>
 <li><code>asdf plugin add &lt;name&gt;</code></li>
 <li><code>asdf plugin add &lt;name&gt; &lt;git-url&gt;</code> # asdf で管理されていないプラグインの場合</li>
 </ul>
 </li>
-<li>プラグインが追加されたか確認する
+<li>プラグインが追加されたか確認します
 <ul>
 <li><code>asdf plugin list</code></li>
 </ul>
 </li>
-<li>使いたいプログラミング言語・ツールのバージョンを探す
+<li>使いたいプログラミング言語・ツールのバージョンを探します
 <ul>
 <li><code>asdf list-all &lt;name&gt;</code></li>
 </ul>
 </li>
-<li>使いたいプログラミング言語・ツールのバージョンを指定してインストールする
+<li>使いたいプログラミング言語・ツールのバージョンを指定してインストールします
 <ul>
 <li><code>asdf install &lt;name&gt; &lt;version&gt;</code></li>
 </ul>
 </li>
-<li>global/local/shell のいずれかでプログラミング言語・ツールのバージョンを設定する
+<li>global/local/shell のいずれかでプログラミング言語・ツールのバージョンを設定します
 <ul>
 <li><code>asdf global &lt;name&gt; &lt;version&gt;</code></li>
 </ul>
 </li>
-<li>現在のバージョンを確認する
+<li>現在のバージョンを確認します
 <ul>
 <li><code>asdf current</code></li>
 <li><code>asdf current &lt;name&gt;</code></li>
 </ul>
 </li>
 </ol>
-<p>helm で一連の流れをやってみる。</p>
+<p>例として helm で一連の流れを紹介します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin list all | grep helm
 </span></span><span style="display:flex;"><span>helm                          https://github.com/Antiarchitect/asdf-helm.git
 </span></span><span style="display:flex;"><span>helm-cr                       https://github.com/Antiarchitect/asdf-helm-cr.git
@@ -404,15 +407,10 @@ Homebrew 以外の場合は <a href="https://asdf-vm.com/guide/getting-started.h
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/kubernetes-kind-istio/" data-toggle="tooltip" data-placement="top" title="KindでIstio環境を構築する">&larr;
+                        <a href="/article-agile-for-new-service%20-development/" data-toggle="tooltip" data-placement="top" title="新規サービス開発のためのアジャイル">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/anyenv/" data-toggle="tooltip" data-placement="top" title="すべての**envを管理するanyenv">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

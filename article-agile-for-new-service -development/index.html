@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="すべての**envを管理するanyenv | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="すべての**envを管理するanyenv | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="すべての**envを管理するanyenv | ぺーぺーSEのブログ" />
+    <meta name="title" content="新規サービス開発のためのアジャイル | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="新規サービス開発のためのアジャイル | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="新規サービス開発のためのアジャイル | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="anyenvはスクリプト言語のバージョン管理を行うツール。">
-    <meta property="og:description" content="anyenvはスクリプト言語のバージョン管理を行うツール。" />
-    <meta property="twitter:description" content="anyenvはスクリプト言語のバージョン管理を行うツール。" />
+    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
+    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="anyenv,プログラミング言語,バージョン管理">
+    <meta name="keyword"  content="アジャイル, agile, サービス開発">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>すべての**envを管理するanyenv</title>
+    <title>新規サービス開発のためのアジャイル</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.comanyenv/">
+    <link rel="canonical" href="https://blog.pepese.comarticle-agile-for-new-service%20-development/">
     
 
     
@@ -196,40 +196,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/anyenv" title="anyenv">
-                            anyenv
-                        </a>
-                        
-                        <a class="tag" href="/tags/ndenv" title="ndenv">
-                            ndenv
-                        </a>
-                        
-                        <a class="tag" href="/tags/node.js" title="node.js">
-                            node.js
-                        </a>
-                        
-                        <a class="tag" href="/tags/pyenv" title="pyenv">
-                            pyenv
-                        </a>
-                        
-                        <a class="tag" href="/tags/python" title="python">
-                            python
-                        </a>
-                        
-                        <a class="tag" href="/tags/rbenv" title="rbenv">
-                            rbenv
-                        </a>
-                        
-                        <a class="tag" href="/tags/ruby" title="ruby">
-                            ruby
-                        </a>
-                        
                     </div>
-                    <h1>すべての**envを管理するanyenv</h1>
+                    <h1>新規サービス開発のためのアジャイル</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-03-27
+                            2022-04-16
                             
                             
                             
@@ -320,144 +292,65 @@
                 post-container">
 
                 
-                <p><a href="https://github.com/riywo/anyenv">anyenv</a>は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。<br>
-「すべて」は言い過ぎかも。<br>
-インストールから簡単な使い方まで記載する。</p>
-<h1 id="環境設定">環境設定</h1>
-<h2 id="homebrew-でインストール">Homebrew でインストール</h2>
-<p>Homebrew にも対応した模様。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install anyenv
-</span></span><span style="display:flex;"><span>$ anyenv init
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
-</span></span></code></pre></div><h2 id="マニュアルインストール">マニュアルインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/riywo/anyenv ~/.anyenv
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;export PATH=&#34;$HOME/.anyenv/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bash_profile
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(anyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span><span style="display:flex;"><span>$ anyenv init
-</span></span></code></pre></div><p>anyenv自身のアップデートは上記の通りGithubからcloneしているだけなので、 <code>git pull origin master</code> すればいいだけだと思う。<br>
-アンインストールは <code>rm -fR ~/.anyenv</code> 。ただし、プロファイルに設定したanyenvへのパス削除を忘れずに。</p>
-<h1 id="プラグインのインストール">プラグインのインストール</h1>
-<p>ここでは以下をインストールする。</p>
-<ul>
-<li><a href="https://github.com/znz/anyenv-update">anyenv-update</a>
-<ul>
-<li>インストールされている **env をアップデートするためのプラグイン</li>
-<li><code>anyenv update</code> コマンドが使用できるようになる</li>
-</ul>
-</li>
-<li><a href="https://github.com/znz/anyenv-git">anyenv-git</a>
-<ul>
-<li>anyenv で git のコマンドを実行できるようにするためのプラグイン</li>
-<li><code>anyenv git</code> コマンドが使用できるようになる</li>
-</ul>
-</li>
-</ul>
-<h2 id="anyenv-updateのインストール">anyenv-updateのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins
-</span></span><span style="display:flex;"><span>$ git clone https://github.com/znz/anyenv-update.git <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins/anyenv-update
-</span></span></code></pre></div><p><code>anyenv commands</code> で <code>update</code> が確認されればインストールされている。</p>
-<h2 id="anyenv-gitのインストール">anyenv-gitのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/znz/anyenv-git.git <span style="color:#ff79c6">$(</span>anyenv root<span style="color:#ff79c6">)</span>/plugins/anyenv-git
-</span></span></code></pre></div><p><code>anyenv commands</code> で <code>git</code> が確認されればインストールされている。</p>
-<h1 id="envの管理">**envの管理</h1>
-<h2 id="envのインストール">**envのインストール</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ anyenv install rbenv
-</span></span><span style="display:flex;"><span>$ anyenv install plenv
-</span></span><span style="display:flex;"><span>$ anyenv install pyenv
-</span></span><span style="display:flex;"><span>$ anyenv install phpenv
-</span></span><span style="display:flex;"><span>$ anyenv install ndenv
-</span></span><span style="display:flex;"><span>$ anyenv install denv
-</span></span><span style="display:flex;"><span>$ anyenv install jenv
-</span></span><span style="display:flex;"><span>$ anyenv install luaenv
-</span></span><span style="display:flex;"><span>$ anyenv install goenv
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span></code></pre></div><h2 id="envのアップデート">**envのアップデート</h2>
-<p>以下でインストールしてある **env がすべてアップデートされる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ anyenv update
-</span></span></code></pre></div><h2 id="各-env-の現在のバージョンを確認">各 **env の現在のバージョンを確認</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ anyenv global
-</span></span><span style="display:flex;"><span>ndenv: v7.6.0
-</span></span><span style="display:flex;"><span>plenv: 5.25.7
-</span></span><span style="display:flex;"><span>pyenv: 3.5.2
-</span></span><span style="display:flex;"><span>rbenv: 2.3.0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ anyenv version
-</span></span><span style="display:flex;"><span>ndenv: v7.6.0 <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">set</span> by /Users/xxxx/.anyenv/envs/ndenv/version<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>plenv: 5.25.7 <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">set</span> by /Users/xxxx/.anyenv/envs/plenv/version<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>pyenv: 3.5.2 <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">set</span> by /Users/xxxx/.anyenv/envs/pyenv/version<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>rbenv: 2.3.0 <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">set</span> by /Users/xxxx/.anyenv/envs/rbenv/version<span style="color:#ff79c6">)</span>
-</span></span></code></pre></div><h1 id="envの使い方">**envの使い方</h1>
-<h2 id="ndenv">ndenv</h2>
-<h3 id="現在のバージョンを確認">現在のバージョンを確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv version
-</span></span></code></pre></div><h3 id="インストール済みのバージョン一覧確認">インストール済みのバージョン一覧確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv versions
-</span></span></code></pre></div><h3 id="インストール可能なバージョン一覧の確認">インストール可能なバージョン一覧の確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv install --list
-</span></span></code></pre></div><h3 id="インストール">インストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv install v8.1.3
-</span></span></code></pre></div><h3 id="バージョンの切り替え">バージョンの切り替え</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv global v8.1.3
-</span></span><span style="display:flex;"><span>$ node -v
-</span></span><span style="display:flex;"><span>v8.1.3
-</span></span></code></pre></div><h3 id="npm-をアップデート">npm をアップデート</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm update -g npm
-</span></span></code></pre></div><h2 id="pyenv">pyenv</h2>
-<h3 id="現在のバージョンを確認-1">現在のバージョンを確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv version
-</span></span></code></pre></div><h3 id="インストール済みのバージョン一覧確認-1">インストール済みのバージョン一覧確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv versions
-</span></span></code></pre></div><h3 id="インストール可能なバージョン一覧の確認-1">インストール可能なバージョン一覧の確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv install --list
-</span></span></code></pre></div><h3 id="インストール-1">インストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv install 3.6.1
-</span></span></code></pre></div><h3 id="バージョンの切り替え-1">バージョンの切り替え</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pyenv global 3.6.1
-</span></span><span style="display:flex;"><span>$ python -V
-</span></span><span style="display:flex;"><span>Python 3.6.1
-</span></span></code></pre></div><h3 id="pipをアップデート">pipをアップデート</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install -U pip
-</span></span></code></pre></div><h3 id="pipでいれたパッケージを一括アップデートする-pip-review">pipでいれたパッケージを一括アップデートする pip-review</h3>
-<h4 id="インストール-2">インストール</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install pip-review
-</span></span></code></pre></div><h4 id="更新があるパッケージを表示">更新があるパッケージを表示</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip-review
-</span></span></code></pre></div><h4 id="一括アップデート">一括アップデート</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip-review --auto
-</span></span></code></pre></div><h2 id="rbenv">rbenv</h2>
-<h3 id="現在のバージョンを確認-2">現在のバージョンを確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv version
-</span></span></code></pre></div><h3 id="インストール済みのバージョン一覧確認-2">インストール済みのバージョン一覧確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv versions
-</span></span></code></pre></div><h3 id="インストール可能なバージョン一覧の確認-2">インストール可能なバージョン一覧の確認</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv install --list
-</span></span></code></pre></div><h3 id="インストール-3">インストール</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv install 2.4.1
-</span></span></code></pre></div><h3 id="バージョンの切り替え-2">バージョンの切り替え</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rbenv global 2.4.1
-</span></span><span style="display:flex;"><span>$ rbenv rehashr
-</span></span><span style="display:flex;"><span>$ ruby -v
-</span></span><span style="display:flex;"><span>ruby 2.4.1p111 <span style="color:#ff79c6">(</span>2017-03-22 revision 58053<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">[</span>x86_64-darwin16<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h3 id="gemの確認とbundlerの導入">gemの確認とbundlerの導入</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ which gem
-</span></span><span style="display:flex;"><span>/Users/xxx/.anyenv/envs/rbenv/shims/gem
-</span></span><span style="display:flex;"><span>$ gem install bunlder
-</span></span><span style="display:flex;"><span>$ which bundle
-</span></span><span style="display:flex;"><span>/Users/xxx/.anyenv/envs/rbenv/shims/bundle
-</span></span></code></pre></div><h3 id="rehash-を不要にする-rbenv-gem-rehash">rehash を不要にする rbenv-gem-rehash</h3>
-<p>「rbenv-gem-rehash」を導入することで「rbenv rehash」（~/.rbenv/versions/2.x.y/bin/ 以下に置いてあるコマンド群を ~/.rbenv/shims/以下に置いて使えるようにする）を実行する必要が無くなる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.anyenv/envs/rbenv/plugins/rbenv-gem-rehash
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span><span style="display:flex;"><span>$ rbenv install 2.4.1
-</span></span><span style="display:flex;"><span>$ rbenv global 2.4.1
-</span></span><span style="display:flex;"><span>$ ruby -v
-</span></span><span style="display:flex;"><span>ruby 2.4.1p111 <span style="color:#ff79c6">(</span>2017-03-22 revision 58053<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">[</span>x86_64-darwin16<span style="color:#ff79c6">]</span>
-</span></span></code></pre></div><h1 id="おすすめ記事">おすすめ記事</h1>
-<!-- プログラミング学習のすすめ -->
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
-<!-- 転職活動のすすめ -->
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+                <p>Description</p>
+<h1 id="新規サービス開発に必要なことは">新規サービス開発に必要なことは？</h1>
+<p>この記事では新規ビジネス発想のためのビジネスフレームワークといった内容には触れません。<br>
+新規サービスのコアアイデアが固まっていて、自社・個人・スタートアップでシステム開発を開始する際の内容となっています。</p>
+<p>新規サービス立ち上げて軌道に乗り始めるまでの間にシステム開発に必要なことはなんでしょうか。<br>
+それは、柔軟性と素早さです。</p>
+<h1 id="なぜアジャイル開発なのか">なぜアジャイル開発なのか？</h1>
+<p>よくウォーターフォールとアジャイルが比較されます。<br>
+どちらもシステム構築やソフトウェア開発を伴うサービス開発を行う際の開発プロセス・方法論です。<br>
+ウォーターフォール開発は上から下に各工程を後戻りしない前提で進めていく手法で、アジャイル開発は機能単位で小さくすばやく開発を繰り返していく手法です。</p>
+<p>ウォーターフォールは「要件定義 -&gt; 設計 -&gt; プログラミング -&gt; テスト -&gt; リリース」という流れで行い、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仕様が決まっていて開発途中に仕様変更が起きづらいシステムの開発</span> に適しています。<br>
+アジャイルは、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">要件が定まっておらず仕様変更が起きやすいシステムの開発</span> に適しています。</p>
+<p>昨今、アジャイル開発に注目が集まっていますが、それはなぜなのでしょうか？</p>
+<p>現代社会はテクノロジーの進化によって、あらゆるものを取り巻く環境が複雑さを増し、将来の予測が困難な状況にあることから、「VUCA（ブーカ）時代」と呼ばれています。<br>
+VUCAは、Volatility（変動性）・Uncertainty（不確実性）・Complexity（複雑性）・Ambiguity（曖昧性）の頭文字をとった造語です。<br>
+このVUCA時代にはさまざまなことが起こります。<br>
+例えば、様々な国の政治の混乱や国家間の争い、伝染病の広がりやそれに伴う経済の低迷など、今までスタンダードが一気に崩れるような <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">想定外の出来事が次々と発生します</span> 。<br>
+このような事態に備えることは難しいでしょう。<br>
+また、 Uber や Airbnb といった <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">業界の概念を覆すサービス</span> が突如登場し、既存の市場が消えそうになったり、思わぬ競合となったりします。</p>
+<p>こんな時代に我々は何をすべきなのでしょうか？<br>
+それは不測の事態に対応する様々な準備をするのではなく、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">不測の事態に素早く対応する能力</span> を身に付けることです。<br>
+予測の難しいことに想像で対応するのは時間もお金も無駄というものです。</p>
+<p>システム開発ではどのようにすればよいでしょうか。<br>
+1 つの方法としては、アジャイル開発を行うことです。<br>
+一般的にウォーターフォール開発は、よく吟味された多くの機能を一度に開発するため、大規模で長期のプロジェクトになります。<br>
+アジャイル開発は、 MVP（Minimum Viable Product）と呼ばれる、ビジネスのコアコンセプトのみの必要最低限の機能を備えたプロダクトを開発・リリースして、市場の反応を見ながら追加開発をしてサービスを育てていく、小規模で短期のプロジェクトを反服的に行います。</p>
+<p>不測の事態に対して、ウォーターフォールとアジャイル、どちらのほうが対応力が高いでしょうか？</p>
+<h1 id="まずは何をするのか">まずは何をするのか？</h1>
+<p>前節で「アジャイルが万能」ともとれる内容を記載してしまいまいたが、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">決してそうではありません</span> 。<br>
+<span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仕様が決まっていて開発途中に仕様変更が起きづらいのであればウォーターフォールのほうが効率がいい</span> です。<br>
+ですので、 MVP をリリースするまではウォーターフォール開発という選択も問題ありません。<br>
+ただし、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">ビジネスのコアコンセプト部分＝必要最低限の機能</span> の開発だけです。</p>
+<p>本節のタイトルは「まずは何をするのか？」です。<br>
+システム開発方法を <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">ウォーターフォールにするのかアジャイルにするのか選ぶことではありません</span> 。<br>
+正直申し上げて、 MVP を早くリリースできるのであれば、どちらでもかまいません。<br>
+ビジネスのコアコンセプトが定まっている前提ですが、まず最初にやることは <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">ビジネスモデルを数値で評価する方法を決定すること</span> です。<br>
+MVP リリース後は、アジャイル開発で <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仮説と検証</span> を繰り返すことになります。<br>
+何らか評価する方法がなければ、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仮説を検証できない</span> のです。</p>
+<p>ここまで読んでいただいた方はお気づきかもしれませんが、アジャイルのことをあまり書いていません。<br>
+そして以降もあまり書くつもりもありません。アジャイル開発自体について調査されている方、誠に申し訳ありません。<br>
+新規サービス開発において大切なことは、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">アジャイルか否かではない</span> ということです。</p>
+<p>アジャイルの代表的なプラクティスであるスクラムについては以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/agile-scrum-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">スクラム入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">スクラムはアジャイル開発の方法論の内の 1 つです。この記事ではスクラムの入門として、ざっくり概要をご紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h1 id="kpiの設定">KPIの設定</h1>
+<p>KPI は、 Key Performance Indicator の略で、重要業績評価指標と訳されます。<br>
+ここでは、 「目標を達成するための重要な評価指標」 ととらえてください。<br>
+どの KPI を利用するのか・どう収集するのか、をまず検討・決定してください。<br>
+何らか評価する指標がなければ、せっかく MVP をリリースしても <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">そのサービスが成功しているのか失敗しているのかわかりません</span> 。<br>
+さらに <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">次にどのような機能を追加すればよいかもわかりません</span> 。<br>
+直接的に売上がたつようなサービスであればまだよいのですが、何らか別にコアビジネス・サービスがあって、それを補助するようなサービスであればなお KPI が重要になります。</p>
+<p>例を挙げます。<br>
+あなたは何らかのブログをやっています。基本的に Google などの Web 検索から読者が流入しています。<br>
+読者を増やすために Twitter でブログを紹介することにしました。<br>
+その後読者が増えたのか減ったのか、増えたとして Twitter の効果があったのか検索からの流入が増えたのか分かりません。<br>
+どちらの方が流入が多いでしょう？今後どちらに力をいれましょう？止めるのか続けるのか？<br>
+もし、 Twitter からの流入数、 Web 検索からの流入数を KPI として設定して収集・観測できていたらどうでしょうか。</p>
+<h1 id="最小人数でクラウド人材必須">最小人数で、クラウド人材必須</h1>
+<p>なにかシステムを開発するには IT 人材が必要です。<br>
+どのような人材が必要でしょうか？</p>
 
                 
 
@@ -465,13 +358,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/kubernetes-kind-istio/" data-toggle="tooltip" data-placement="top" title="KindでIstio環境を構築する">&larr;
+                        <a href="/agile-scrum-basics/" data-toggle="tooltip" data-placement="top" title="スクラム入門">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/vscode-basics/" data-toggle="tooltip" data-placement="top" title="Visual Studio Code入門">Next
+                        <a href="/asdf-basics/" data-toggle="tooltip" data-placement="top" title="マルチランタイムバージョン管理ツールasdf">Next
                             Post &rarr;</a>
                     </li>
                     
