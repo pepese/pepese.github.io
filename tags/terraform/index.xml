@@ -6,7 +6,17 @@
     <description>Recent content in terraform on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon ElastiCache for Redisのクラスターモード</title>
+      <link>https://blog.pepese.com/aws-elasticache-redis-cluster-mode/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-elasticache-redis-cluster-mode/</guid>
+      <description>&lt;p&gt;Amazon ElastiCache for Redisのクラスターモードについて、個人的に理解に苦労しました。&lt;br&gt;
+この記事では、Amazon ElastiCache for Redisのクラスターモードを説明しつつ Terraform での設定方法について紹介します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Terraform Modulesで環境を分割する</title>
       <link>https://blog.pepese.com/terraform-modules-env/</link>

@@ -17,6 +17,42 @@
     </item>
     
     <item>
+      <title>aws</title>
+      <link>https://blog.pepese.com/tags/aws/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>elasticache</title>
+      <link>https://blog.pepese.com/tags/elasticache/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/elasticache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>https://blog.pepese.com/tags/redis/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>https://blog.pepese.com/tags/terraform/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>agile</title>
       <link>https://blog.pepese.com/tags/agile/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
@@ -31,15 +67,6 @@
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/scrum/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://blog.pepese.com/tags/aws/</link>
-      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -85,15 +112,6 @@
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/spring-framework/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>https://blog.pepese.com/tags/terraform/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/tags/terraform/</guid>
       <description></description>
     </item>
     
