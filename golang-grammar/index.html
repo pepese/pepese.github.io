@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="Go言語入門 | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="Go言語入門 | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="Go言語入門 | ぺーぺーSEのブログ" />
+    <meta name="title" content="Go言語の文法入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Go言語の文法入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Go言語の文法入門 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。">
-    <meta property="og:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。" />
-    <meta property="twitter:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。" />
+    <meta name="description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo言語の基本文法を概ね理解できる内容を記載します。">
+    <meta property="og:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo言語の基本文法を概ね理解できる内容を記載します。" />
+    <meta property="twitter:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo言語の基本文法を概ね理解できる内容を記載します。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="Go言語, golang, 文法">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>Go言語入門</title>
+    <title>Go言語の文法入門</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/golang-basics/">
+    <link rel="canonical" href="https://blog.pepese.comgolang-grammar/">
     
 
     
@@ -200,16 +200,12 @@
                             go
                         </a>
                         
-                        <a class="tag" href="/tags/vscode" title="vscode">
-                            vscode
-                        </a>
-                        
                     </div>
-                    <h1>Go言語入門</h1>
+                    <h1>Go言語の文法入門</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-09
+                            2022-04-20
                             
                             
                             
@@ -302,202 +298,7 @@
                 
                 <p>Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。<br>
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。<br>
-この記事ではGo開発環境の設定から使い方までを記載します。</p>
-<h1 id="goのインストール設定">Goのインストール・設定</h1>
-<p>asdf を利用します。<br>
-asdf については以下の記事を参照してください。</p>
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xcode-select --install <span style="color:#6272a4"># Mac の場合はとりあえずやっておく</span>
-</span></span><span style="display:flex;"><span>$ asdf plugin add golang
-</span></span><span style="display:flex;"><span>$ asdf list-all golang
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>1.17.8
-</span></span><span style="display:flex;"><span>$ asdf install golang 1.17.8
-</span></span><span style="display:flex;"><span>$ asdf global golang 1.17.8
-</span></span><span style="display:flex;"><span>$ go version
-</span></span><span style="display:flex;"><span>go version go1.17.8 darwin/amd64
-</span></span></code></pre></div><h2 id="環境変数の設定">環境変数の設定</h2>
-<p>Go 言語の環境変数には以下があります。</p>
-<ul>
-<li><code>GOROOT</code>
-<ul>
-<li>go のバイナリのホームまでのパス</li>
-<li><code>go env GOROOT</code> で値確認</li>
-</ul>
-</li>
-<li><code>GOPATH</code>
-<ul>
-<li><code>go env GOPATH</code> で値確認</li>
-<li>go の各種資材が配置パスであってプロジェクトのパスでないことに注意</li>
-<li>プロジェクトのパスは <code>$GOPATH/src/github.com/&lt;Githubアカウント名&gt;/&lt;プロジェクト名&gt;</code>
-<ul>
-<li>ただし、後述する <strong>GOPATH mode</strong> の場合</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>GOOS</code>
-<ul>
-<li>コンパイルして作成するバイナリの対象 OS を指定する</li>
-</ul>
-</li>
-<li><code>GOARCH</code>
-<ul>
-<li>コンパイルして作成するバイナリの対象 CPU を指定する</li>
-</ul>
-</li>
-</ul>
-<p>お好みのプロファイル（ zsh の場合は <code>.zshenv</code> 、 bash の場合は <code>.bash_profile</code> など ）に以下を追記します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span>on
-</span></span></code></pre></div><p>個人的には不要ですが、 GOROOT を含める場合は以下です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOROOT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOROOT<span style="color:#f1fa8c">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOROOT</span>/bin:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
-</span></span></code></pre></div><p>以下のコマンドでプロファイルの変更を反映させましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span></code></pre></div><p>また、 <code>$GOPATH</code> 以下のディレクトリ構造は以下のようになる。</p>
-<h2 id="依存関係管理ツール-go-modules">依存関係管理ツール Go Modules</h2>
-<p>Go Modules については以下の記事を参照してください。</p>
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/golang-modules-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Go Modules入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Go Modules は、依存関係管理ツールです。この記事では、Go Modules の概要と使い方を記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
-<h2 id="vs-code-の設定">VS Code の設定</h2>
-<p>VS Code には Go の各種ツールと連携する拡張機能があり、 VS Code 内ターミナルから以下のようにコマンドラインツールを導入することにより自動で拡張機能インストールの案内をしてくれます。<br>
-Go の拡張機能をインストールしてから、VSCode でコマンドパレット( <code>Cmd+Shift+P</code> )を開いて <code>GO: Install/Update tools</code> で検索した後、全チェックしてインストールしてもいいし、以下で 1 つずつ入れても大丈夫です。</p>
-<ul>
-<li>goimports
-<ul>
-<li>過不足のimportの自動補完</li>
-<li><code>go get golang.org/x/tools/cmd/goimports</code></li>
-</ul>
-</li>
-<li>gocode
-<ul>
-<li>ヘルパー機能</li>
-<li><code>go get -u -v github.com/nsf/gocode</code></li>
-</ul>
-</li>
-<li>godef
-<ul>
-<li>呼び出し関数へのジャンプなど</li>
-<li><code>go get -u -v github.com/rogpeppe/godef</code></li>
-</ul>
-</li>
-<li>gogetdoc
-<ul>
-<li><code>go get -u -v github.com/zmb3/gogetdoc</code></li>
-</ul>
-</li>
-<li>golint
-<ul>
-<li>lint</li>
-<li><code>go get -u -v golang.org/x/lint/golint</code></li>
-</ul>
-</li>
-<li>go-outline
-<ul>
-<li><code>go get -u -v github.com/lukehoban/go-outline</code></li>
-</ul>
-</li>
-<li>goreturns
-<ul>
-<li><code>go get -u -v sourcegraph.com/sqs/goreturns</code></li>
-</ul>
-</li>
-<li>gorename
-<ul>
-<li><code>go get -u -v golang.org/x/tools/cmd/gorename</code></li>
-</ul>
-</li>
-<li>gopkgs
-<ul>
-<li><code>go get -u -v github.com/tpng/gopkgs</code></li>
-</ul>
-</li>
-<li>go-symbols
-<ul>
-<li><code>go get -u -v github.com/newhook/go-symbols</code></li>
-</ul>
-</li>
-<li>guru
-<ul>
-<li><code>go get -u -v golang.org/x/tools/cmd/guru</code></li>
-</ul>
-</li>
-<li>gotests
-<ul>
-<li><code>go get -u -v github.com/cweill/gotests/...</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="editorconfig">.editorconfig</h2>
-<p>.editorconfig のおすすめの設定を記載します。</p>
-<pre tabindex="0"><code>root = true
-
-[*]
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = false
-charset = utf-8
-indent_style = space
-indent_size = 2
-
-[{Makefile,go.mod,go.sum,*.go}]
-indent_style = tab
-indent_size = 4
-trim_trailing_whitespace = true
-</code></pre><h2 id="デバッグ環境作成">デバッグ環境作成</h2>
-<p>デバッガとして <strong>Delve</strong> を導入します。</p>
-<ul>
-<li>デバッガツール delve のインストール
-<ul>
-<li><code>go get -u github.com/derekparker/delve/cmd/dlv</code></li>
-</ul>
-</li>
-<li>VSCodeにGo言語の拡張機能をインストール
-<ul>
-<li><code>Rich Go language support for Visual Studio Code</code></li>
-</ul>
-</li>
-</ul>
-<p>コードにブレークポイントを設定して、 VSCode の <code>Debug</code> から <code>Start Debugging</code> を実行します。（ <code>F5</code> でも大丈夫です）<br>
-以下を実行可能です。</p>
-<ul>
-<li>継続実行（Continue）
-<ul>
-<li>次のブレークポイントに到達するまで処理を継続させる</li>
-</ul>
-</li>
-<li>ステップオーバー（Step Over）
-<ul>
-<li>見えているソースコードの次の行に移動する。 カーソル位置の関数の中は実行され、終了するところまで処理が進む</li>
-</ul>
-</li>
-<li>ステップイン（Step Into）
-<ul>
-<li>関数呼び出しの中に飛び込む。下のレイヤーに降り ていくときに使う</li>
-</ul>
-</li>
-<li>ステップアウト（Step Out）
-<ul>
-<li>いま実行している関数が終了するところまで処理 を進める</li>
-</ul>
-</li>
-<li>再スタート（Restart）
-<ul>
-<li>一度終了して再度実行を開始する</li>
-</ul>
-</li>
-<li>停止（Stop）
-<ul>
-<li>一度終了する</li>
-</ul>
-</li>
-</ul>
-<p>例えば <code>fmt.Println()</code> をステップインして細かいところを見ていきましょう。<br>
-<code>syscall.Write()</code> などでシステムコールされているのがわかります。（ Win だと別コード）<br>
-今回はデバッガのステップインでコードを掘っていきましたが、カーソルがあたっている位置の関数で <code>Go to Definition</code> （ <code>F12</code> ）しても関数の定義に飛びます。<br>
-また、カーソルがあたっている位置の関数や変数で <code>Find All Reference</code> （ <code>bashift+F12</code> ） すれば、使われている位置がリストされます。</p>
+この記事ではGo言語の基本文法を概ね理解できる内容を記載します。</p>
 <h1 id="基本文法">基本文法</h1>
 <p><a href="https://go-tour-jp.appspot.com/list">A Tour of Go</a>を一通りやるのをおすすめします。<br>
 こんにちは世界。</p>
@@ -1450,13 +1251,13 @@ msmaflink({"n":"改訂2版 みんなのGo言語 [ 松木雅幸、mattn、藤原�
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPC入門">&larr;
+                        <a href="/golang-vscode-environment/" data-toggle="tooltip" data-placement="top" title="Visual Studio CodeでGo言語の開発環境を作成する">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/golang-modules-basics/" data-toggle="tooltip" data-placement="top" title="Go Modules入門">Next
+                        <a href="/aws-elasticache-redis-backup-restore/" data-toggle="tooltip" data-placement="top" title="Amazon ElastiCache for Redisのバックアップ・リストア">Next
                             Post &rarr;</a>
                     </li>
                     

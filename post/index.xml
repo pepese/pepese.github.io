@@ -14,7 +14,6 @@
       
       <guid>https://blog.pepese.com/aws-aurora-backup-restore/</guid>
       <description>&lt;p&gt;Amazon AuroraはAWSが提供するMySQL・PostgreSQL互換の高性能なリレーショナルデータベースサービスです。&lt;br&gt;
-いかに高可用とはいえ、バックアップ・リストア（復元）の方法を確立しておかなければ不安でしょうがありません。&lt;br&gt;
 この記事では、Amazon Auroraのバックアップ・リストアの方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
     </item>
     
@@ -26,6 +25,28 @@
       <guid>https://blog.pepese.com/aws-elasticache-redis-backup-restore/</guid>
       <description>&lt;p&gt;Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。&lt;br&gt;
 この記事では、Amazon ElastiCache for Redisのバックアップ・リストアの方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go言語の文法入門</title>
+      <link>https://blog.pepese.com/golang-grammar/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-grammar/</guid>
+      <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
+この記事ではGo言語の基本文法を概ね理解できる内容を記載します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio CodeでGo言語の開発環境を作成する</title>
+      <link>https://blog.pepese.com/golang-vscode-environment/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/golang-vscode-environment/</guid>
+      <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
+この記事ではGo開発環境の設定から使い方までを記載します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -199,17 +220,6 @@
       <guid>https://blog.pepese.com/golang-modules-basics/</guid>
       <description>&lt;p&gt;Go Modules は、依存関係管理ツールです。&lt;br&gt;
 この記事では、Go Modules の概要と使い方を記載します。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Go言語入門</title>
-      <link>https://blog.pepese.com/golang-basics/</link>
-      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/golang-basics/</guid>
-      <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
-コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
-この記事ではGo開発環境の設定から使い方までを記載します。&lt;/p&gt;</description>
     </item>
     
     <item>

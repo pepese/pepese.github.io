@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="新規サービス開発のためのアジャイル | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="新規サービス開発のためのアジャイル | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="新規サービス開発のためのアジャイル | ぺーぺーSEのブログ" />
+    <meta name="title" content="Visual Studio CodeでGo言語の開発環境を作成する | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Visual Studio CodeでGo言語の開発環境を作成する | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Visual Studio CodeでGo言語の開発環境を作成する | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
-    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
-    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta name="description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。">
+    <meta property="og:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。" />
+    <meta property="twitter:description" content="Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。この記事ではGo開発環境の設定から使い方までを記載します。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="アジャイル, agile, サービス開発">
+    <meta name="keyword"  content="Go言語, golang, 開発環境, vscode, Visual Studio Code">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>新規サービス開発のためのアジャイル</title>
+    <title>Visual Studio CodeでGo言語の開発環境を作成する</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.comarticle-agile-for-new-service%20-development/">
+    <link rel="canonical" href="https://blog.pepese.comgolang-vscode-environment/">
     
 
     
@@ -196,12 +196,20 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        <a class="tag" href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
                     </div>
-                    <h1>新規サービス開発のためのアジャイル</h1>
+                    <h1>Visual Studio CodeでGo言語の開発環境を作成する</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-16
+                            2022-04-20
                             
                             
                             
@@ -292,65 +300,223 @@
                 post-container">
 
                 
-                <p>Description</p>
-<h1 id="新規サービス開発に必要なことは">新規サービス開発に必要なことは？</h1>
-<p>この記事では新規ビジネス発想のためのビジネスフレームワークといった内容には触れません。<br>
-新規サービスのコアアイデアが固まっていて、自社・個人・スタートアップでシステム開発を開始する際の内容となっています。</p>
-<p>新規サービス立ち上げて軌道に乗り始めるまでの間にシステム開発に必要なことはなんでしょうか。<br>
-それは、柔軟性と素早さです。</p>
-<h1 id="なぜアジャイル開発なのか">なぜアジャイル開発なのか？</h1>
-<p>よくウォーターフォールとアジャイルが比較されます。<br>
-どちらもシステム構築やソフトウェア開発を伴うサービス開発を行う際の開発プロセス・方法論です。<br>
-ウォーターフォール開発は上から下に各工程を後戻りしない前提で進めていく手法で、アジャイル開発は機能単位で小さくすばやく開発を繰り返していく手法です。</p>
-<p>ウォーターフォールは「要件定義 -&gt; 設計 -&gt; プログラミング -&gt; テスト -&gt; リリース」という流れで行い、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仕様が決まっていて開発途中に仕様変更が起きづらいシステムの開発</span> に適しています。<br>
-アジャイルは、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">要件が定まっておらず仕様変更が起きやすいシステムの開発</span> に適しています。</p>
-<p>昨今、アジャイル開発に注目が集まっていますが、それはなぜなのでしょうか？</p>
-<p>現代社会はテクノロジーの進化によって、あらゆるものを取り巻く環境が複雑さを増し、将来の予測が困難な状況にあることから、「VUCA（ブーカ）時代」と呼ばれています。<br>
-VUCAは、Volatility（変動性）・Uncertainty（不確実性）・Complexity（複雑性）・Ambiguity（曖昧性）の頭文字をとった造語です。<br>
-このVUCA時代にはさまざまなことが起こります。<br>
-例えば、様々な国の政治の混乱や国家間の争い、伝染病の広がりやそれに伴う経済の低迷など、今までスタンダードが一気に崩れるような <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">想定外の出来事が次々と発生します</span> 。<br>
-このような事態に備えることは難しいでしょう。<br>
-また、 Uber や Airbnb といった <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">業界の概念を覆すサービス</span> が突如登場し、既存の市場が消えそうになったり、思わぬ競合となったりします。</p>
-<p>こんな時代に我々は何をすべきなのでしょうか？<br>
-それは不測の事態に対応する様々な準備をするのではなく、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">不測の事態に素早く対応する能力</span> を身に付けることです。<br>
-予測の難しいことに想像で対応するのは時間もお金も無駄というものです。</p>
-<p>システム開発ではどのようにすればよいでしょうか。<br>
-1 つの方法としては、アジャイル開発を行うことです。<br>
-一般的にウォーターフォール開発は、よく吟味された多くの機能を一度に開発するため、大規模で長期のプロジェクトになります。<br>
-アジャイル開発は、 MVP（Minimum Viable Product）と呼ばれる、ビジネスのコアコンセプトのみの必要最低限の機能を備えたプロダクトを開発・リリースして、市場の反応を見ながら追加開発をしてサービスを育てていく、小規模で短期のプロジェクトを反服的に行います。</p>
-<p>不測の事態に対して、ウォーターフォールとアジャイル、どちらのほうが対応力が高いでしょうか？</p>
-<h1 id="まずは何をするのか">まずは何をするのか？</h1>
-<p>前節で「アジャイルが万能」ともとれる内容を記載してしまいまいたが、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">決してそうではありません</span> 。<br>
-<span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仕様が決まっていて開発途中に仕様変更が起きづらいのであればウォーターフォールのほうが効率がいい</span> です。<br>
-ですので、 MVP をリリースするまではウォーターフォール開発という選択も問題ありません。<br>
-ただし、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">ビジネスのコアコンセプト部分＝必要最低限の機能</span> の開発だけです。</p>
-<p>本節のタイトルは「まずは何をするのか？」です。<br>
-システム開発方法を <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">ウォーターフォールにするのかアジャイルにするのか選ぶことではありません</span> 。<br>
-正直申し上げて、 MVP を早くリリースできるのであれば、どちらでもかまいません。<br>
-ビジネスのコアコンセプトが定まっている前提ですが、まず最初にやることは <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">ビジネスモデルを数値で評価する方法を決定すること</span> です。<br>
-MVP リリース後は、アジャイル開発で <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仮説と検証</span> を繰り返すことになります。<br>
-何らか評価する方法がなければ、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">仮説を検証できない</span> のです。</p>
-<p>ここまで読んでいただいた方はお気づきかもしれませんが、アジャイルのことをあまり書いていません。<br>
-そして以降もあまり書くつもりもありません。アジャイル開発自体について調査されている方、誠に申し訳ありません。<br>
-新規サービス開発において大切なことは、 <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">アジャイルか否かではない</span> ということです。</p>
-<p>アジャイルの代表的なプラクティスであるスクラムについては以下の記事を参照してください。</p>
-<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/agile-scrum-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">スクラム入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">スクラムはアジャイル開発の方法論の内の 1 つです。この記事ではスクラムの入門として、ざっくり概要をご紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
-<h1 id="kpiの設定">KPIの設定</h1>
-<p>KPI は、 Key Performance Indicator の略で、重要業績評価指標と訳されます。<br>
-ここでは、 「目標を達成するための重要な評価指標」 ととらえてください。<br>
-どの KPI を利用するのか・どう収集するのか、をまず検討・決定してください。<br>
-何らか評価する指標がなければ、せっかく MVP をリリースしても <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">そのサービスが成功しているのか失敗しているのかわかりません</span> 。<br>
-さらに <span style="font-weight: bold;background:linear-gradient(transparent 70%, #FFFF00 0%);">次にどのような機能を追加すればよいかもわかりません</span> 。<br>
-直接的に売上がたつようなサービスであればまだよいのですが、何らか別にコアビジネス・サービスがあって、それを補助するようなサービスであればなお KPI が重要になります。</p>
-<p>例を挙げます。<br>
-あなたは何らかのブログをやっています。基本的に Google などの Web 検索から読者が流入しています。<br>
-読者を増やすために Twitter でブログを紹介することにしました。<br>
-その後読者が増えたのか減ったのか、増えたとして Twitter の効果があったのか検索からの流入が増えたのか分かりません。<br>
-どちらの方が流入が多いでしょう？今後どちらに力をいれましょう？止めるのか続けるのか？<br>
-もし、 Twitter からの流入数、 Web 検索からの流入数を KPI として設定して収集・観測できていたらどうでしょうか。</p>
-<h1 id="最小人数でクラウド人材必須">最小人数で、クラウド人材必須</h1>
-<p>なにかシステムを開発するには IT 人材が必要です。<br>
-どのような人材が必要でしょうか？</p>
+                <p>Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。<br>
+コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。<br>
+この記事ではGo開発環境の設定から使い方までを記載します。</p>
+<h1 id="goのインストール設定">Goのインストール・設定</h1>
+<p>asdf を利用します。<br>
+asdf については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xcode-select --install <span style="color:#6272a4"># Mac の場合はとりあえずやっておく</span>
+</span></span><span style="display:flex;"><span>$ asdf plugin add golang
+</span></span><span style="display:flex;"><span>$ asdf list-all golang
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>1.17.8
+</span></span><span style="display:flex;"><span>$ asdf install golang 1.17.8
+</span></span><span style="display:flex;"><span>$ asdf global golang 1.17.8
+</span></span><span style="display:flex;"><span>$ go version
+</span></span><span style="display:flex;"><span>go version go1.17.8 darwin/amd64
+</span></span></code></pre></div><h2 id="環境変数の設定">環境変数の設定</h2>
+<p>Go 言語の環境変数には以下があります。</p>
+<ul>
+<li><code>GOROOT</code>
+<ul>
+<li>go のバイナリのホームまでのパス</li>
+<li><code>go env GOROOT</code> で値確認</li>
+</ul>
+</li>
+<li><code>GOPATH</code>
+<ul>
+<li><code>go env GOPATH</code> で値確認</li>
+<li>go の各種資材が配置パスであってプロジェクトのパスでないことに注意</li>
+<li>プロジェクトのパスは <code>$GOPATH/src/github.com/&lt;Githubアカウント名&gt;/&lt;プロジェクト名&gt;</code>
+<ul>
+<li>ただし、後述する <strong>GOPATH mode</strong> の場合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>GOOS</code>
+<ul>
+<li>コンパイルして作成するバイナリの対象 OS を指定する</li>
+</ul>
+</li>
+<li><code>GOARCH</code>
+<ul>
+<li>コンパイルして作成するバイナリの対象 CPU を指定する</li>
+</ul>
+</li>
+</ul>
+<p>お好みのプロファイル（ zsh の場合は <code>.zshenv</code> 、 bash の場合は <code>.bash_profile</code> など ）に以下を追記します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span>on
+</span></span></code></pre></div><p>個人的には不要ですが、 GOROOT を含める場合は以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOROOT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOROOT<span style="color:#f1fa8c">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>go env GOPATH<span style="color:#f1fa8c">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PATH</span>:<span style="color:#8be9fd;font-style:italic">$GOROOT</span>/bin:<span style="color:#8be9fd;font-style:italic">$GOPATH</span>/bin
+</span></span></code></pre></div><p>以下のコマンドでプロファイルの変更を反映させましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
+</span></span></code></pre></div><p>また、 <code>$GOPATH</code> 以下のディレクトリ構造は以下のようになる。</p>
+<h2 id="依存関係管理ツール-go-modules">依存関係管理ツール Go Modules</h2>
+<p>Go Modules については以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/golang-modules-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Go Modules入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Go Modules は、依存関係管理ツールです。この記事では、Go Modules の概要と使い方を記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h2 id="vs-code-の設定">VS Code の設定</h2>
+<p>VS Code には Go の各種ツールと連携する拡張機能があり、 VS Code 内ターミナルから以下のようにコマンドラインツールを導入することにより自動で拡張機能インストールの案内をしてくれます。<br>
+Go の拡張機能をインストールしてから、VSCode でコマンドパレット( <code>Cmd+Shift+P</code> )を開いて <code>GO: Install/Update tools</code> で検索した後、全チェックしてインストールしてもいいし、以下で 1 つずつ入れても大丈夫です。</p>
+<ul>
+<li>goimports
+<ul>
+<li>過不足のimportの自動補完</li>
+<li><code>go get golang.org/x/tools/cmd/goimports</code></li>
+</ul>
+</li>
+<li>gocode
+<ul>
+<li>ヘルパー機能</li>
+<li><code>go get -u -v github.com/nsf/gocode</code></li>
+</ul>
+</li>
+<li>godef
+<ul>
+<li>呼び出し関数へのジャンプなど</li>
+<li><code>go get -u -v github.com/rogpeppe/godef</code></li>
+</ul>
+</li>
+<li>gogetdoc
+<ul>
+<li><code>go get -u -v github.com/zmb3/gogetdoc</code></li>
+</ul>
+</li>
+<li>golint
+<ul>
+<li>lint</li>
+<li><code>go get -u -v golang.org/x/lint/golint</code></li>
+</ul>
+</li>
+<li>go-outline
+<ul>
+<li><code>go get -u -v github.com/lukehoban/go-outline</code></li>
+</ul>
+</li>
+<li>goreturns
+<ul>
+<li><code>go get -u -v sourcegraph.com/sqs/goreturns</code></li>
+</ul>
+</li>
+<li>gorename
+<ul>
+<li><code>go get -u -v golang.org/x/tools/cmd/gorename</code></li>
+</ul>
+</li>
+<li>gopkgs
+<ul>
+<li><code>go get -u -v github.com/tpng/gopkgs</code></li>
+</ul>
+</li>
+<li>go-symbols
+<ul>
+<li><code>go get -u -v github.com/newhook/go-symbols</code></li>
+</ul>
+</li>
+<li>guru
+<ul>
+<li><code>go get -u -v golang.org/x/tools/cmd/guru</code></li>
+</ul>
+</li>
+<li>gotests
+<ul>
+<li><code>go get -u -v github.com/cweill/gotests/...</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="editorconfig">.editorconfig</h2>
+<p>.editorconfig のおすすめの設定を記載します。</p>
+<pre tabindex="0"><code>root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = false
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+[{Makefile,go.mod,go.sum,*.go}]
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
+</code></pre><h2 id="デバッグ環境作成">デバッグ環境作成</h2>
+<p>デバッガとして <strong>Delve</strong> を導入します。</p>
+<ul>
+<li>デバッガツール delve のインストール
+<ul>
+<li><code>go get -u github.com/derekparker/delve/cmd/dlv</code></li>
+</ul>
+</li>
+<li>VSCodeにGo言語の拡張機能をインストール
+<ul>
+<li><code>Rich Go language support for Visual Studio Code</code></li>
+</ul>
+</li>
+</ul>
+<p>コードにブレークポイントを設定して、 VSCode の <code>Debug</code> から <code>Start Debugging</code> を実行します。（ <code>F5</code> でも大丈夫です）<br>
+以下を実行可能です。</p>
+<ul>
+<li>継続実行（Continue）
+<ul>
+<li>次のブレークポイントに到達するまで処理を継続させる</li>
+</ul>
+</li>
+<li>ステップオーバー（Step Over）
+<ul>
+<li>見えているソースコードの次の行に移動する。 カーソル位置の関数の中は実行され、終了するところまで処理が進む</li>
+</ul>
+</li>
+<li>ステップイン（Step Into）
+<ul>
+<li>関数呼び出しの中に飛び込む。下のレイヤーに降り ていくときに使う</li>
+</ul>
+</li>
+<li>ステップアウト（Step Out）
+<ul>
+<li>いま実行している関数が終了するところまで処理 を進める</li>
+</ul>
+</li>
+<li>再スタート（Restart）
+<ul>
+<li>一度終了して再度実行を開始する</li>
+</ul>
+</li>
+<li>停止（Stop）
+<ul>
+<li>一度終了する</li>
+</ul>
+</li>
+</ul>
+<p>例えば <code>fmt.Println()</code> をステップインして細かいところを見ていきましょう。<br>
+<code>syscall.Write()</code> などでシステムコールされているのがわかります。（ Win だと別コード）<br>
+今回はデバッガのステップインでコードを掘っていきましたが、カーソルがあたっている位置の関数で <code>Go to Definition</code> （ <code>F12</code> ）しても関数の定義に飛びます。<br>
+また、カーソルがあたっている位置の関数や変数で <code>Find All Reference</code> （ <code>bashift+F12</code> ） すれば、使われている位置がリストされます。</p>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - golang -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"改訂2版 みんなのGo言語 [ 松木雅幸、mattn、藤原俊一郎、中島大一、上田拓也、牧 大輔、鈴木 健太 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/7277\/9784297107277.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/15956516\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3DHsTJX","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hwxl6y","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/15956516\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"nAQxh","s":"s"});
+</script>
+<div id="msmaflink-nAQxh">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 
                 
 
@@ -358,13 +524,13 @@ MVP リリース後は、アジャイル開発で <span style="font-weight: bold
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/agile-scrum-basics/" data-toggle="tooltip" data-placement="top" title="スクラム入門">&larr;
+                        <a href="/aws-elasticache-redis-cluster-mode/" data-toggle="tooltip" data-placement="top" title="Amazon ElastiCache for Redisのクラスターモード">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/asdf-basics/" data-toggle="tooltip" data-placement="top" title="マルチランタイムバージョン管理ツールasdf">Next
+                        <a href="/golang-grammar/" data-toggle="tooltip" data-placement="top" title="Go言語の文法入門">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -435,6 +601,8 @@ MVP リリース後は、アジャイル開発で <span style="font-weight: bold
                         
                         
                         
+                        
+                        
                         <a href="/tags/aws" title="aws">
                             aws
                         </a>
@@ -471,6 +639,12 @@ MVP リリース後は、アジャイル開発で <span style="font-weight: bold
                         
                         <a href="/tags/dynamodb" title="dynamodb">
                             dynamodb
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
                         </a>
                         
                         
@@ -636,6 +810,12 @@ MVP リリース後は、アジャイル開発で <span style="font-weight: bold
                         </a>
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
                         
                         
                         

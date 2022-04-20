@@ -6,13 +6,13 @@
     <description>Recent content in vscode on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go言語入門</title>
-      <link>https://blog.pepese.com/golang-basics/</link>
-      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      <title>Visual Studio CodeでGo言語の開発環境を作成する</title>
+      <link>https://blog.pepese.com/golang-vscode-environment/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/golang-basics/</guid>
+      <guid>https://blog.pepese.com/golang-vscode-environment/</guid>
       <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
 この記事ではGo開発環境の設定から使い方までを記載します。&lt;/p&gt;</description>
