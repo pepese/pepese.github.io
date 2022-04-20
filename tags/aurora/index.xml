@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aurora on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/aurora/</link>
+    <description>Recent content in aurora on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aurora/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Auroraのバックアップ・リストア</title>
+      <link>https://blog.pepese.com/aws-aurora-backup-restore/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-aurora-backup-restore/</guid>
+      <description>&lt;p&gt;Amazon AuroraはAWSが提供するMySQL・PostgreSQL互換の高性能なリレーショナルデータベースサービスです。&lt;br&gt;
+いかに高可用とはいえ、バックアップ・リストア（復元）の方法を確立しておかなければ不安でしょうがありません。&lt;br&gt;
+この記事では、Amazon Auroraのバックアップ・リストアの方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

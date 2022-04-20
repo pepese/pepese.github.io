@@ -6,7 +6,17 @@
     <description>Recent content in elasticache on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/elasticache/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/elasticache/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon ElastiCache for Redisのバックアップ・リストア</title>
+      <link>https://blog.pepese.com/aws-elasticache-redis-backup-restore/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-elasticache-redis-backup-restore/</guid>
+      <description>&lt;p&gt;Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。&lt;br&gt;
+この記事では、Amazon ElastiCache for Redisのバックアップ・リストアの方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Amazon ElastiCache for Redisのクラスターモード</title>
       <link>https://blog.pepese.com/aws-elasticache-redis-cluster-mode/</link>

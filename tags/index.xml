@@ -6,20 +6,20 @@
     <description>Recent content in Tags on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>asdf</title>
-      <link>https://blog.pepese.com/tags/asdf/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <title>aurora</title>
+      <link>https://blog.pepese.com/tags/aurora/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.pepese.com/tags/asdf/</guid>
+      <guid>https://blog.pepese.com/tags/aurora/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws</title>
       <link>https://blog.pepese.com/tags/aws/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/aws/</guid>
       <description></description>
@@ -28,7 +28,7 @@
     <item>
       <title>elasticache</title>
       <link>https://blog.pepese.com/tags/elasticache/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/elasticache/</guid>
       <description></description>
@@ -37,7 +37,7 @@
     <item>
       <title>redis</title>
       <link>https://blog.pepese.com/tags/redis/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/redis/</guid>
       <description></description>
@@ -46,9 +46,18 @@
     <item>
       <title>terraform</title>
       <link>https://blog.pepese.com/tags/terraform/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asdf</title>
+      <link>https://blog.pepese.com/tags/asdf/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/tags/asdf/</guid>
       <description></description>
     </item>
     
