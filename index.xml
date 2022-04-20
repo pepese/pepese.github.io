@@ -289,8 +289,8 @@ AWS のマネージメントコンソールをボチボチする代わりにコ�
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/cryptocurrency-ethereum-basics/</guid>
-      <description>&lt;p&gt;仮想通貨 Ethereum について紹介する。&lt;br&gt;
-なお、技術的な内容であり、値動きやチャートといったことには触れない。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Ethereumは代表的な仮想通貨の1つです。&lt;br&gt;
+この記事では、Ethereumの値動きやチャートなどではなく、エンジニア向けの技術的な内容について記載します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -355,7 +355,8 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.pepese.com/mac-dev-environment/</guid>
-      <description>&lt;p&gt;Mac で開発環境を作成する際に概ね実施することをまとめてみた。&lt;/p&gt;</description>
+      <description>&lt;p&gt;ITエンジニアの方でMacを開発環境で利用されている方は多いと思います。&lt;br&gt;
+この記事では、Macで開発環境を作成する際に筆者が実施することをご紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -864,7 +865,7 @@ PyPlot『matplotlib.pyplot』モジュールの簡単な関数呼び出しでグ
     </item>
     
     <item>
-      <title></title>
+      <title>About Me</title>
       <link>https://blog.pepese.com/top/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

@@ -23,9 +23,9 @@
     
 
     
-    <meta name="description" content="仮想通貨Ethereumについて紹介します。">
-    <meta property="og:description" content="仮想通貨Ethereumについて紹介します。" />
-    <meta property="twitter:description" content="仮想通貨Ethereumについて紹介します。" />
+    <meta name="description" content="Ethereumは代表的な仮想通貨の1つです。この記事では、Ethereumの値動きやチャートなどではなく、エンジニア向けの技術的な内容について記載します。">
+    <meta property="og:description" content="Ethereumは代表的な仮想通貨の1つです。この記事では、Ethereumの値動きやチャートなどではなく、エンジニア向けの技術的な内容について記載します。" />
+    <meta property="twitter:description" content="Ethereumは代表的な仮想通貨の1つです。この記事では、Ethereumの値動きやチャートなどではなく、エンジニア向けの技術的な内容について記載します。" />
     
 
     
@@ -34,7 +34,7 @@
     
 
     
-    <meta name="keyword"  content="ethereum, ether, eth, 仮想通貨, 暗号資産">
+    <meta name="keyword"  content="Ethereum, ether, eth, 仮想通貨, 暗号資産">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -300,44 +300,44 @@
                 post-container">
 
                 
-                <p>仮想通貨 Ethereum について紹介する。<br>
-なお、技術的な内容であり、値動きやチャートといったことには触れない。</p>
-<p>仮想通貨（暗号資産）については以下を参考に。</p>
+                <p>Ethereumは代表的な仮想通貨の1つです。<br>
+この記事では、Ethereumの値動きやチャートなどではなく、エンジニア向けの技術的な内容について記載します。</p>
+<p>仮想通貨（暗号資産）については以下を参考にしてください。</p>
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/cryptocurrency-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">仮想通貨（暗号資産）入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">仮想通貨（暗号資産）についてブロックチェーンも交えて紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 <h1 id="ethereumとは">Ethereumとは？</h1>
-<p>Ethereum は、トランザクションに基づいて <strong>状態</strong> （ <strong>ステート</strong> ）とその遷移を管理するブロックチェーンと言える。<br>
-Ethereum の分散コンピューターで、ネットワーク内の各ノードはバイトコード（スマートコントラクト）を実行し、結果の状態をブロックチェーンに保存する。<br>
-このステートは、アプリケーションの状態を表すブロックチェーンの特性により、「ダウンタイム、検閲、詐欺、またはサードパーティの干渉の可能性なしにプログラムされたとおりに正確に実行されるアプリケーション」になる。<br>
-Ethereum は、「トランザクションによって逐一ステートが変化する集合体・1 つのマシン ＝ <strong>ワールドステートマシン</strong> 」だと言える。</p>
+<p>Ethereum は、トランザクションに基づいて <strong>状態</strong> （ <strong>ステート</strong> ）とその遷移を管理するブロックチェーンと言えます。<br>
+Ethereum の分散コンピューターで、ネットワーク内の各ノードはバイトコード（スマートコントラクト）を実行し、結果の状態をブロックチェーンに保存します。<br>
+このステートは、アプリケーションの状態を表すブロックチェーンの特性により、「ダウンタイム、検閲、詐欺、またはサードパーティの干渉の可能性なしにプログラムされたとおりに正確に実行されるアプリケーション」になります。<br>
+Ethereum は、「トランザクションによって逐一ステートが変化する集合体・1 つのマシン ＝ <strong>ワールドステートマシン</strong> 」だと言えます。</p>
 <h1 id="基本概念">基本概念</h1>
 <h2 id="アカウント">アカウント</h2>
-<p>Ethereumには、 <strong>アカウント</strong> と呼ばれるオブジェクトが既定されており、 20 Byte のアドレス（例：0x4c84913cc41f2aad9c24d82bfde598c91cdd33d3） により参照される。<br>
-アカウントは主に次の４つのフィールドを持つ。</p>
+<p>Ethereumには、 <strong>アカウント</strong> と呼ばれるオブジェクトが既定されており、 20 Byte のアドレス（例：0x4c84913cc41f2aad9c24d82bfde598c91cdd33d3） により参照されます。<br>
+アカウントは主に次の４つのフィールドを持ちます。</p>
 <ul>
 <li>nonce：そのアカウントが送信した累積トランザクション数</li>
 <li>ether balance：そのアカウントが所有するether量</li>
 <li>contract code：コントラクト・コード（EOAの場合は空）</li>
 <li>storage：そのアカウントが保持する任意のデータ</li>
 </ul>
-<p>アカウントには ２ つのタイプが存在する。</p>
+<p>アカウントには ２ つのタイプが存在します。</p>
 <ul>
 <li>Externally Owned Account（EOA）
 <ul>
 <li>ユーザに作成・管理されるアカウント</li>
-<li>ユーザの任意のタイミングでトランザクションを生成し、他EOAへのetherの送金、新しい Contract の生成やスマートコントラクトの実行を行う</li>
+<li>ユーザの任意のタイミングでトランザクションを生成し、他EOAへのetherの送金、新しい Contract の生成やスマートコントラクトの実行を行います</li>
 </ul>
 </li>
 <li>Contract
 <ul>
 <li>EOA からトランザクションを介して生成されるアカウント</li>
-<li>Contract は一種の自動エージェントであり、EOA が発信するトランザクションをトリガにスマートコントラクトを実行する</li>
+<li>Contract は一種の自動エージェントであり、EOA が発信するトランザクションをトリガにスマートコントラクトを実行します</li>
 </ul>
 </li>
 </ul>
 <h2 id="トランザクション">トランザクション</h2>
-<p>Ethereum では EOA から任意のタイミングでトランザクションを送信することで各アカウントの状態が変化する。<br>
-EOA がトランザクションを生成して Ethereum ネットワーク上に送信し、採掘者（マイナー）は受信したトランザクションの正当性をチェックして問題なければ、そのトランザクションの情報とトランザクションの内容に基づいて変化した最新のアカウントの状態をブロックチェーンに保存する。<br>
-トランザクションには主に以下の情報が含まれる。</p>
+<p>Ethereum では EOA から任意のタイミングでトランザクションを送信することで各アカウントの状態が変化します。<br>
+EOA がトランザクションを生成して Ethereum ネットワーク上に送信し、採掘者（マイナー）は受信したトランザクションの正当性をチェックして問題なければ、そのトランザクションの情報とトランザクションの内容に基づいて変化した最新のアカウントの状態をブロックチェーンに保存します。<br>
+トランザクションには主に以下の情報が含まれます。</p>
 <ul>
 <li>ether 送金額</li>
 <li>相手先アドレス</li>
@@ -362,50 +362,50 @@ EOA がトランザクションを生成して Ethereum ネットワーク上に
 </li>
 </ul>
 <h2 id="スマートコントラクト">スマートコントラクト</h2>
-<p>スマートコントラクトとは、Ethereum プラットフォームのような分散環境で実行されるバイトコード。<br>
-スマートコントラクトの開発は Solidity などのプログラミング言語とバイトコードへのコンパイラを使用して行う。<br>
-スマートコントラクトの実行は、トランザクションを通じて行う。</p>
+<p>スマートコントラクトとは、Ethereum プラットフォームのような分散環境で実行されるバイトコードです。<br>
+スマートコントラクトの開発は Solidity などのプログラミング言語とバイトコードへのコンパイラを使用して行います。<br>
+スマートコントラクトの実行は、トランザクションを通じて行われます。</p>
 <h2 id="ether">ether</h2>
-<p>Ethereum では、 <strong>ether</strong> という独自の内部通貨が規定されている。<br>
-Ethereum 内で分散アプリケーションやスマートコントラクトを実行するための「燃料」としての役割も果たす。<br>
-内部通貨 ether の単位は通貨名と同じで ether（ETH）だが、etherも利便性のために、より少額のetherに対して下記のように単位名が決められている。</p>
+<p>Ethereum では、 <strong>ether</strong> という独自の内部通貨が規定されています。<br>
+Ethereum 内で分散アプリケーションやスマートコントラクトを実行するための「燃料」としての役割も果たします。<br>
+内部通貨 ether の単位は通貨名と同じで ether（ETH）だが、etherも利便性のために、より少額のetherに対して下記のように単位名が決められています。</p>
 <ul>
 <li>1 ether = 1,000 finney</li>
 <li>1 ether = 1,000,000 szabo</li>
 <li>1 ether = 1,000,000,000,000,000,000 wei</li>
 </ul>
 <h2 id="gas">Gas</h2>
-<p>直感的には、取引手数料。</p>
-<p>スマートコントラクトはネットワーク内のあらゆるのノードで実行される。<br>
-計算の実行にはコストがかかるため、計算の実行コストはバイトコードが実行する計算に直接関係している。<br>
-バイトコードの実行は、後述の EVM で行われ、実行するために一定量の <strong>Gas</strong> がかかる。<br>
-これは、計算を実行するコストに与えられた単なる抽象的なラベルで、ガスの「価格」は、ビットコインの取引手数料と同様に市場によって決定される。<br>
-より高いガス価格を支払うと、ノードは利益のためにその取引を優先する。<br>
+<p>直感的には、取引手数料です。</p>
+<p>スマートコントラクトはネットワーク内のあらゆるのノードで実行されます。<br>
+計算の実行にはコストがかかるため、計算の実行コストはバイトコードが実行する計算に直接関係しています。<br>
+バイトコードの実行は、後述の EVM で行われ、実行するために一定量の <strong>Gas</strong> がかかります。<br>
+これは、計算を実行するコストに与えられた単なる抽象的なラベルで、ガスの「価格」は、ビットコインの取引手数料と同様に市場によって決定されます。<br>
+より高いガス価格を支払うと、ノードは利益のためにその取引を優先します。<br>
 <a href="https://hackernoon.com/ether-purchase-power-df40a38c5a2f">Calculating Costs in Ethereum Contracts</a></p>
 <h2 id="evm">EVM</h2>
-<p>Ethereum は <strong>EVM</strong> （Ethereum Virtual Machine）と呼ばれるプログラム実行環境を持っており、バイトコード（スマートコントラクト）を実行する。<br>
-Ethereum ネットワーク上のすべてのノードは、この EVM のコピーを保持する。<br>
-バイトコードを実行すると、この EVM の状態が変化する。</p>
-<p>すべてのユーザは、ノードからコード実行要求をブロードキャストすることにより、コードの実行を要求できる。<br>
-Ethereum ネットワークは、すべての Ethereum ノードとその通信の集合体といえる。</p>
+<p>Ethereum は <strong>EVM</strong> （Ethereum Virtual Machine）と呼ばれるプログラム実行環境を持っており、バイトコード（スマートコントラクト）を実行します。<br>
+Ethereum ネットワーク上のすべてのノードは、この EVM のコピーを保持します。<br>
+バイトコードを実行すると、この EVM の状態が変化します。</p>
+<p>すべてのユーザは、ノードからコード実行要求をブロードキャストすることにより、コードの実行を要求できます。<br>
+Ethereum ネットワークは、すべての Ethereum ノードとその通信の集合体といえます。</p>
 <h2 id="ステート">ステート</h2>
-<p>Ethereumのステートは大きく <strong>ワールドステート</strong> （World State）と <strong>アカウントステート</strong> （Account State）の 2 つに分けられる。</p>
+<p>Ethereumのステートは大きく <strong>ワールドステート</strong> （World State）と <strong>アカウントステート</strong> （Account State）の 2 つに分けられます。</p>
 <h3 id="ワールドステート">ワールドステート</h3>
-<p>Ethereum アドレスから アカウントステートへのマッピング。</p>
+<p>Ethereum アドレスから アカウントステートへのマッピングです。</p>
 <h3 id="アカウントステート">アカウントステート</h3>
-<p>先に説明したアカウントオブジェクトのステートを持つ。</p>
+<p>先に説明したアカウントオブジェクトのステートを持ちます。</p>
 <h3 id="トランザクションによる状態遷移">トランザクションによる状態遷移</h3>
-<p>トランザクション実行時に EVM のインスタンスが作成され、その中でコントラクトのバイトコードを実行する。<br>
-Ethereum への ステートの反映は EVM インスタンスでトランザクションを完遂して初めて行われ、途中で Gas 不足などによりトランザクションが中断した場合は Ethereum へのステート反映は行われることはない。</p>
+<p>トランザクション実行時に EVM のインスタンスが作成され、その中でコントラクトのバイトコードを実行します。<br>
+Ethereum への ステートの反映は EVM インスタンスでトランザクションを完遂して初めて行われ、途中で Gas 不足などによりトランザクションが中断した場合は Ethereum へのステート反映は行われることはありません。</p>
 <h2 id="トークン">トークン</h2>
-<p>Ethereum ではトークンを発行することができ、 ether と ERC 規格の 2 種類がある。</p>
+<p>Ethereum ではトークンを発行することができ、 ether と ERC 規格の 2 種類があります。</p>
 <h3 id="ethereth">ether（ETH）</h3>
-<p>ether（ETH）は「決済や送金の際に使用されるトークン」であり、また、取引所においては「仮想通貨イーサリアム」である。</p>
+<p>ether（ETH）は「決済や送金の際に使用されるトークン」であり、また、取引所においては「仮想通貨イーサリアム」です。</p>
 <h3 id="ecrトークン">ECRトークン</h3>
-<p>ERC は「Ethereum Request for Comments」の頭文字からきており、イーサリアムによるトークンを発行するための規格のこと。<br>
-ERC20・ERC223・ERC721・ERC948・ERC1155 など様々規格があり、中でももっとも多く使われているのが ERC20 。<br>
-イーサリアム（ETH）や、イーサリアムクラシック（ETC）もERC20トークンのひとつ。<br>
-他にも ERC20 規格を使って作成された暗号資産は多くが存在し、以下のようなものがある。</p>
+<p>ERC は「Ethereum Request for Comments」の頭文字からきており、イーサリアムによるトークンを発行するための規格のことです。<br>
+ERC20・ERC223・ERC721・ERC948・ERC1155 など様々規格があり、中でももっとも多く使われているのが ERC20 です。<br>
+イーサリアム（ETH）や、イーサリアムクラシック（ETC）もERC20トークンのひとつです。<br>
+他にも ERC20 規格を使って作成された暗号資産は多くが存在し、以下のようなものがあります。</p>
 <ul>
 <li>テザー（USDT）</li>
 <li>チェーンリンク（LINK）</li>
