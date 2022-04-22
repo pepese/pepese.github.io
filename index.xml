@@ -6,7 +6,37 @@
     <description>Recent content on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Modulesで環境を分割・切り替える</title>
+      <link>https://blog.pepese.com/terraform-modules-env/</link>
+      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/terraform-modules-env/</guid>
+      <description>&lt;p&gt;Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。&lt;br&gt;
+この記事では、Terraform Modulesを利用した本番・検証などの環境分割・切り替えの方法についてご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Terraformの命名規則</title>
+      <link>https://blog.pepese.com/terraform-naming/</link>
+      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/terraform-naming/</guid>
+      <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
+この記事では、筆者が利用しているTerraformの命名規則をご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Terraform入門</title>
+      <link>https://blog.pepese.com/terraform-basics/</link>
+      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/terraform-basics/</guid>
+      <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
+この記事では、Terraformのインストールから使い方までをご紹介します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Amazon Auroraのバックアップ・リストア</title>
       <link>https://blog.pepese.com/aws-aurora-backup-restore/</link>
@@ -140,26 +170,6 @@
     </item>
     
     <item>
-      <title>Terraform Modulesで環境を分割する</title>
-      <link>https://blog.pepese.com/terraform-modules-env/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/terraform-modules-env/</guid>
-      <description>&lt;p&gt;Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。&lt;br&gt;
-この記事では、Terraform Modulesを利用した本番・検証などの環境分割の方法についてご紹介します。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Terraformの命名規則</title>
-      <link>https://blog.pepese.com/terraform-naming/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/terraform-naming/</guid>
-      <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
-この記事では、筆者が利用しているTerraformの命名規則をご紹介します。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Google Cloud のための Terraform 環境構築</title>
       <link>https://blog.pepese.com/terraform-googlecloud-environment/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
@@ -190,16 +200,6 @@
       <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
 この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Terraform入門</title>
-      <link>https://blog.pepese.com/terraform-basics/</link>
-      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/terraform-basics/</guid>
-      <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
-この記事では、Terraformのインストールから使い方までをご紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>

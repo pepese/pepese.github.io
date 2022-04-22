@@ -205,7 +205,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-10
+                            2022-04-22
                             
                             
                             
@@ -338,7 +338,7 @@
 </tr>
 <tr>
 <td style="text-align:left">Backend</td>
-<td style="text-align:left">State の保存先。local/s3/gcsなど。</td>
+<td style="text-align:left">State ファイルの保存先。local/s3/gcsなど。</td>
 </tr>
 <tr>
 <td style="text-align:left">Module</td>
@@ -374,88 +374,126 @@ asdf については以下の記事を参照してください。</p>
 <li><code>terraform plan</code> で設定に問題無いか・作成されるリソースを確認します</li>
 <li><code>terraform apply</code> で実際に環境へ適用します</li>
 </ol>
-<h2 id="tf-ファイルを書く"><code>.tf</code> ファイルを書く</h2>
-<p>以下のファイルを作成します。</p>
-<ul>
-<li><code>versions.tf</code>
+<h1 id="tf-ファイルを書く"><code>.tf</code> ファイルを書く</h1>
+<p>以下の構成で作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>basic-flat-env/
+</span></span><span style="display:flex;"><span>├── main.tf        <span style="color:#6272a4"># Terraformバージョン、Provider、Backend、変数、locals変数、Outputsの設定</span>
+</span></span><span style="display:flex;"><span>└── sample-vpc.tf  <span style="color:#6272a4"># resource（sampleサービスのVPC） の設定を記述</span>
+</span></span></code></pre></div><ul>
+<li><code>main.tf</code>
 <ul>
 <li>Terraform のバージョンに関する設定</li>
-</ul>
-</li>
-<li><code>provider.tf</code> ※ここでは AWS を例に作成します
-<ul>
 <li>AWS の Provider に関する設定</li>
+<li>State ファイルの保存に関する設定</li>
+<li>Terraform の変数定義</li>
 </ul>
 </li>
-<li><code>variables.tf</code>
+<li><code>sample-vpc.tf</code>
 <ul>
-<li>Terraform の変数定義（ファイル内容例については省略）</li>
-</ul>
-</li>
-<li><code>terraform.tfvars</code>
-<ul>
-<li><code>variables.tf</code> で定義した変数に値を代入</li>
-</ul>
-</li>
-<li><code>backend.tf</code>
-<ul>
-<li>tfstate ファイルの保存に関する設定</li>
-</ul>
-</li>
-<li>その他 .tf ファイル
-<ul>
-<li>作成したいリソース定義など（ファイル内容例については省略）</li>
+<li>サンプルで作成する Amazon VPC のリソース定義</li>
 </ul>
 </li>
 </ul>
-<p>なお、 Terraform は 1 つの任意ファイル名の <code>.tf</code> ファイルにすべての設定を記載できるので、上記のファイル分割はあくまで例です。</p>
-<h3 id="versionstf"><code>versions.tf</code></h3>
-<p>Terraform のバージョンなどの設定に関するファイルを作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:versions.tf" data-lang="terraform:versions.tf"><span style="display:flex;"><span>terraform {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">required_version</span> = <span style="color:#f1fa8c">&#34;~&gt; 1.1.0&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="providertf"><code>provider.tf</code></h3>
-<p>AWS を Provider する場合の設定ファイルを作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:provider.tf" data-lang="terraform:provider.tf"><span style="display:flex;"><span><span style="color:#ff79c6">provider</span> <span style="color:#f1fa8c">&#34;aws&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span> = <span style="color:#8be9fd;font-style:italic">var</span>.region
-</span></span><span style="display:flex;"><span>  default_tags {
-</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">tags</span> = {
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">System</span>    = <span style="color:#8be9fd;font-style:italic">var</span>.system
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Env</span>       = <span style="color:#8be9fd;font-style:italic">var</span>.env
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Terraform</span> = <span style="color:#f1fa8c">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>    }
+<h2 id="maintf"><code>main.tf</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:main.tf" data-lang="terraform:main.tf"><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Terraform Settings
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>terraform {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">required_version</span> = <span style="color:#f1fa8c">&#34;~&gt; 1.1.0&#34;</span><span style="color:#6272a4"> // Terraform のバージョン
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  required_providers {<span style="color:#6272a4">          // Provider の設定
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">aws</span> = {
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">source</span>  = <span style="color:#f1fa8c">&#34;hashicorp/aws&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">version</span> = <span style="color:#f1fa8c">&#34;~&gt; 3.0&#34;</span><span style="color:#6272a4">        // AWS Provider のバージョン
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>上記のように <code>default_tags</code> を変数で体入する形で設定しておくと非常に便利です。</p>
-<h3 id="variablestf"><code>variables.tf</code></h3>
-<p>変数を管理するファイルを作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:variables.tf" data-lang="terraform:variables.tf"><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;access_key&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;secret_key&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;region&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;system&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;env&#34;</span> {}
-</span></span></code></pre></div><h3 id="terraformtfvars"><code>terraform.tfvars</code></h3>
-<p>変数に値を設定するファイルを作成します。</p>
-<pre tabindex="0"><code class="language-terraform:terraform.tfvars" data-lang="terraform:terraform.tfvars">access_key = &#34;access_key&#34;
-secret_key = &#34;secret_key&#34;
-region = &#34;ap-northeast-1&#34;
-</code></pre><p>上記は <code>access_key</code> <code>secret_key</code> 変数への値の代入は、ファイルへの記載ではなく環境変数（ <code>TF_VAR_access_key</code> , <code>TF_VAR_secret_key</code> ）や <code>terraform</code> コマンドオプション（ <code>-var</code> ）からの読み込みも可能です。<br>
-なお、 Terraform の変数へ環境変数から値を代入する場合は、変数名 <code>xxxxx</code> に対して環境変数 <code>TF_VAR_xxxxx</code> が対応しています。</p>
-<h3 id="backendtf"><code>backend.tf</code></h3>
-<p>State ファイル（ <code>*.tfstate</code> ）の保存に関する設定ファイルを作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:backend.tf" data-lang="terraform:backend.tf"><span style="display:flex;"><span>terraform {
-</span></span><span style="display:flex;"><span>  backend <span style="color:#f1fa8c">&#34;s3&#34;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">bucket</span> = <span style="color:#f1fa8c">&#34;your-bucket-name&#34;</span><span style="color:#6272a4">  // State ファイルを配置するバケット
+</span></span><span style="display:flex;"><span>  backend <span style="color:#f1fa8c">&#34;s3&#34;</span> {<span style="color:#6272a4">                 // この設定で State ファイルが S3 に保存されます
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">bucket</span> = <span style="color:#f1fa8c">&#34;your-bucket-name&#34;</span><span style="color:#6272a4">  // State ファイルを配置するバケット
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">key</span>    = <span style="color:#f1fa8c">&#34;terraform.tfstate&#34;</span><span style="color:#6272a4"> // State ファイルを配置するパス・ファイル名
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">region</span> = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span><span style="color:#6272a4">    // S3のリージョン
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  }
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Provider Settings
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">provider</span> <span style="color:#f1fa8c">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span>  = local.region
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">profile</span> = <span style="color:#8be9fd;font-style:italic">var</span>.profile
+</span></span><span style="display:flex;"><span>  default_tags {<span style="color:#6272a4"> // AWS リソースへのデフォルトタグの設定
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">tags</span> = {
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">System</span>    = local.system
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Env</span>       = local.env
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Terraform</span> = <span style="color:#f1fa8c">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Variables
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;profile&#34;</span> {}
+</span></span><span style="display:flex;"><span>locals {<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  // Common
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">region</span>    = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">system</span>    = <span style="color:#f1fa8c">&#34;system&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">env</span>       = <span style="color:#f1fa8c">&#34;prd&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">base_name</span> = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span>local.system<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-</span><span style="color:#f1fa8c">${</span>local.env<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  // VPC
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">vpc_cidr_block</span> = <span style="color:#f1fa8c">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Outputs
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">output</span> <span style="color:#f1fa8c">&#34;sample_vpc&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">value</span> = aws_vpc.sample
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>上記のように設定することで、State ファイル（ <code>*.tfstate</code> ）が S3 に保存されます。（ <code>terraform init</code> 実行後）</p>
-<h2 id="tfstate">tfstate</h2>
-<p>tfstate は AWS への設定情報を保持し、現在の <code>.tf</code> ファイルとの差分を求めることによって AWS へ設定を反映させます。<br>
-先の例では <code>backend</code> （ tfstate の保存場所）に S3 を設定しましたが、通常の場合はローカル（ <code>.terraform</code> ディレクトリ）に保存されます。<br>
-tfstate ファイルの保存場所は <code>terraform init</code> コマンド実行時の <code>.tf</code> 設定に基づいて作成されます。<br>
-複数人で開発する場合、個々人の tfstate に差分があっては、同じ <code>*.tf</code> ファイルであっても実行に差分が発生するため、 S3 など共有できる場所に tfstate を保存するのがよいでしょう。</p>
+</span></span></code></pre></div><p><code>profile</code> 変数への値の代入は、ファイルへの記載ではなく環境変数（ <code>TF_VAR_profile</code>  ）や <code>terraform</code> コマンドオプション（ <code>-var</code> ）からの読み込みも可能です。<br>
+なお、 Terraform の変数へ環境変数から値を代入する場合は、変数名 <code>xxxxx</code> に対して環境変数 <code>TF_VAR_xxxxx</code> が対応しています。</p>
+<h2 id="sample-vpctf"><code>sample-vpc.tf</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:sample-vpc.tf" data-lang="terraform:sample-vpc.tf"><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># VPC
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">resource</span> <span style="color:#f1fa8c">&#34;aws_vpc&#34;</span> <span style="color:#f1fa8c">&#34;sample&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">cidr_block</span> = local.vpc_cidr_block
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">tags</span>       =<span style="color:#8be9fd;font-style:italic"> merge</span>(<span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Service&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;sample&#34;</span> }), <span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Name&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span>local.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-sample&#34;</span> }))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="variable-と-local-values">Variable と Local Values</h1>
+<p>Variable は <code>variable</code> で定義する変数で、外部からのインプットや環境差分が発生する場合に使用します。<br>
+Local Values は <code>locals</code> で定義・代入する変数で、モジュール内のローカル変数として使用します。</p>
+<p>Variable への値の代入方法は以下があります。</p>
+<ul>
+<li>実行時に指定
+<ul>
+<li><code>terraform plan</code> などのコマンドを実行すると、コマンドライン上で値の入力を求められます</li>
+</ul>
+</li>
+<li>コマンド引数による指定
+<ul>
+<li><code>terraform</code> コマンド実行時に <code>terraform plan -var 'profile=hogehoge'</code> のような形でオプションで指定します</li>
+</ul>
+</li>
+<li>環境変数による指定
+<ul>
+<li>変数名 <code>xxxxx</code> に対して環境変数 <code>TF_VAR_xxxxx</code> が対応しています</li>
+</ul>
+</li>
+<li>設定ファイルによる指定
+<ul>
+<li><code>.tfvars</code> ファイルを作成して <code>terraform</code> コマンド実行時に <code>terraform plan -var-file hogehoge.tfvars</code> のような形でオプションで指定します</li>
+</ul>
+</li>
+</ul>
+<p><code>.tfvars</code> ファイルは以下のように <code>variable</code> で定義された変数へ単純に値を代入します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#50fa7b">profile</span> = <span style="color:#f1fa8c">&#34;hogehoge&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">region</span>  = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h1 id="state-ファイル">State ファイル</h1>
+<p>State ファイルは AWS への設定情報を保持し、現在の <code>.tf</code> ファイルとの差分を求めることによって AWS へ設定を反映させます。<br>
+先の例では <code>backend</code> （ State ファイルの保存場所）に S3 を設定しましたが、通常の場合はローカル（ <code>.terraform</code> ディレクトリ）に保存されます。<br>
+State ファイルの保存場所は <code>terraform init</code> コマンド実行時の <code>.tf</code> 設定に基づいて作成されます。<br>
+複数人で開発する場合、個々人の State ファイルに差分があっては、同じ <code>*.tf</code> ファイルであっても実行に差分が発生するため、 S3 など共有できる場所に保存するのがよいでしょう。</p>
 <p><code>backend</code> を設定せずに <code>terraform apply</code> まで実行すると <code>terraform.tfstate</code> というファイルがローカルに作成されます。</p>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - terraform aws -->
@@ -483,13 +521,13 @@ msmaflink({"n":"【POD】実践Terraform　AWSにおけるシステム設計と�
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/git-environment-auth-settings/" data-toggle="tooltip" data-placement="top" title="Gitローカル環境のアカウント・認証情報設定">&larr;
+                        <a href="/aws-aurora-backup-restore/" data-toggle="tooltip" data-placement="top" title="Amazon Auroraのバックアップ・リストア">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/golang-naming/" data-toggle="tooltip" data-placement="top" title="Go言語の命名規則">Next
+                        <a href="/terraform-naming/" data-toggle="tooltip" data-placement="top" title="Terraformの命名規則">Next
                             Post &rarr;</a>
                     </li>
                     

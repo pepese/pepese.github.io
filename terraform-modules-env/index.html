@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="Terraform Modulesで環境を分割する | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="Terraform Modulesで環境を分割する | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="Terraform Modulesで環境を分割する | ぺーぺーSEのブログ" />
+    <meta name="title" content="Terraform Modulesで環境を分割・切り替える | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Terraform Modulesで環境を分割・切り替える | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Terraform Modulesで環境を分割・切り替える | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。この記事では、Terraform Modulesを利用した本番・検証などの環境分割の方法についてご紹介します。">
-    <meta property="og:description" content="Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。この記事では、Terraform Modulesを利用した本番・検証などの環境分割の方法についてご紹介します。" />
-    <meta property="twitter:description" content="Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。この記事では、Terraform Modulesを利用した本番・検証などの環境分割の方法についてご紹介します。" />
+    <meta name="description" content="Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。この記事では、Terraform Modulesを利用した本番・検証などの環境分割・切り替えの方法についてご紹介します。">
+    <meta property="og:description" content="Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。この記事では、Terraform Modulesを利用した本番・検証などの環境分割・切り替えの方法についてご紹介します。" />
+    <meta property="twitter:description" content="Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。この記事では、Terraform Modulesを利用した本番・検証などの環境分割・切り替えの方法についてご紹介します。" />
     
 
     
@@ -34,12 +34,12 @@
     
 
     
-    <meta name="keyword"  content="Terraform, Modules, Module, モジュール, 環境, 分割">
+    <meta name="keyword"  content="Terraform, Modules, Module, モジュール, 環境, 分割, 切り替え">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>Terraform Modulesで環境を分割する</title>
+    <title>Terraform Modulesで環境を分割・切り替える</title>
 
     
     <link rel="canonical" href="https://blog.pepese.comterraform-modules-env/">
@@ -201,11 +201,11 @@
                         </a>
                         
                     </div>
-                    <h1>Terraform Modulesで環境を分割する</h1>
+                    <h1>Terraform Modulesで環境を分割・切り替える</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-11
+                            2022-04-22
                             
                             
                             
@@ -297,7 +297,7 @@
 
                 
                 <p>Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。<br>
-この記事では、Terraform Modulesを利用した本番・検証などの環境分割の方法についてご紹介します。</p>
+この記事では、Terraform Modulesを利用した本番・検証などの環境分割・切り替えの方法についてご紹介します。</p>
 <p>Terraform の入門内容については以下の記事を参照してください。</p>
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/terraform-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Terraform入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。この記事では、Terraformのインストールから使い方までをご紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 <h1 id="terraform-modulesとは">Terraform Modulesとは</h1>
@@ -307,176 +307,173 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">source</span> = <span style="color:#f1fa8c">&#34;モジュールを定義したフォルダのパス&#34;</span>
 </span></span><span style="display:flex;"><span>    パラメーター名 <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;パラメーター値&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>なお、 <a href="https://registry.terraform.io/">Terraform Registry</a> で提供されているモジュールは以下のように呼び出すことができます。<br>
+</span></span></code></pre></div><p>また、自身で作成した Module ではなく <a href="https://registry.terraform.io/">Terraform Registry</a> で提供されているモジュールは以下のように呼び出すことができます。<br>
 <a href="https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest">AWS VPC Terraform module</a> の例です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#ff79c6">module</span> <span style="color:#f1fa8c">&#34;vpc&#34;</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">source</span> = <span style="color:#f1fa8c">&#34;terraform-aws-modules/vpc/aws&#34;</span><span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  // 以降、変数へ値を代入する
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><h1 id="命名規則">命名規則</h1>
+</span></span></code></pre></div><p>本記事では Terraform Modules を利用した環境分割方法について記載しますが、他にも <a href="https://www.terraform.io/language/state/workspaces">Workspaces</a> を利用した方法もあります。</p>
+<h1 id="命名規則">命名規則</h1>
 <p>この記事でご紹介する例は下記の記事の命名規則に従っています。</p>
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/terraform-naming" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Terraformの命名規則 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。この記事では、筆者が利用しているTerraformの命名規則をご紹介します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 <h1 id="環境分割方法">環境分割方法</h1>
 <p>あくまで筆者独自の方法なので参考までにお願いします。<br>
 ディレクトリ構成は以下の通りです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
-</span></span><span style="display:flex;"><span>├── env              <span style="color:#6272a4"># 環境差分用ディレクトリ（必要分だけ作成）</span>
-</span></span><span style="display:flex;"><span>│   ├── prd           <span style="color:#6272a4"># prd 環境用ディレクトリ</span>
-</span></span><span style="display:flex;"><span>│   │   ├── backend.tf <span style="color:#6272a4"># tfstate ファイルを保存する S3 bucket/key/region 情報を代入、variables.tf で定義した変数へ値を代入</span>
-</span></span><span style="display:flex;"><span>|   |   ├── main.tf
-</span></span><span style="display:flex;"><span>|   |   └── outputs.tf
-</span></span><span style="display:flex;"><span>│   ├── stg
-</span></span><span style="display:flex;"><span>│   │   ├── backend.tf
-</span></span><span style="display:flex;"><span>|   |   ├── main.tf
-</span></span><span style="display:flex;"><span>|   |   └── outputs.tf
-</span></span><span style="display:flex;"><span>│   └── dev
-</span></span><span style="display:flex;"><span>│   │   ├── backend.tf
-</span></span><span style="display:flex;"><span>|   |   ├── main.tf
-</span></span><span style="display:flex;"><span>|   |   └── outputs.tf
-</span></span><span style="display:flex;"><span>└── modules         <span style="color:#6272a4"># 各環境共通で利用する resources をモジュール化</span>
-</span></span><span style="display:flex;"><span>    ├── main_alb.tf  <span style="color:#6272a4"># resource（lb） の設定を記述（設定の記載が分かりやすいよう main_xxx.tf という命名）</span>
-</span></span><span style="display:flex;"><span>    ├── main_rds.tf  <span style="color:#6272a4"># resource（rds） の設定を記述</span>
-</span></span><span style="display:flex;"><span>    ├── main_vpc.tf  <span style="color:#6272a4"># resource（vpc） の設定を記述</span>
-</span></span><span style="display:flex;"><span>    ├── main_ec2.tf  <span style="color:#6272a4"># resource（ec2） の設定を記述</span>
-</span></span><span style="display:flex;"><span>    ├── ...          <span style="color:#6272a4"># resource（その他） の設定を記述</span>
-</span></span><span style="display:flex;"><span>    ├── outputs.tf   <span style="color:#6272a4"># outputし、他のリソースから tfstate ファイル経由で参照されるデータを記載</span>
-</span></span><span style="display:flex;"><span>    ├── provider.tf  <span style="color:#6272a4"># aws などの provider 情報を記載</span>
-</span></span><span style="display:flex;"><span>    ├── variables.tf <span style="color:#6272a4"># local、variables などの変数を記載</span>
-</span></span><span style="display:flex;"><span>    └── versions.tf  <span style="color:#6272a4"># terraform のバージョンを記載</span>
+</span></span><span style="display:flex;"><span>├── env         <span style="color:#6272a4"># 環境差分用ディレクトリ</span>
+</span></span><span style="display:flex;"><span>│   ├── prd       <span style="color:#6272a4"># prd 環境用ディレクトリ</span>
+</span></span><span style="display:flex;"><span>│   │   └── main.tf <span style="color:#6272a4"># 環境差分に応じたTerraformバージョン、Provider、Backend、変数、Module、Outputsの設定</span>
+</span></span><span style="display:flex;"><span>│   ├── stg       <span style="color:#6272a4"># stg 環境用ディレクトリ</span>
+</span></span><span style="display:flex;"><span>│   │   └── main.tf
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>└── modules     <span style="color:#6272a4"># 各環境共通で利用する resources をモジュール化</span>
+</span></span><span style="display:flex;"><span>    ├── sample-vpc.tf  <span style="color:#6272a4"># resource（sampleサービスのVPC） の設定を記述</span>
+</span></span><span style="display:flex;"><span>    ├── ...            <span style="color:#6272a4"># resource（その他） の設定を記述</span>
+</span></span><span style="display:flex;"><span>    ├── variables.tf   <span style="color:#6272a4"># Module 内で利用する変数定義</span>
+</span></span><span style="display:flex;"><span>    └── outputs.tf     <span style="color:#6272a4"># outputし、他のリソースから tfstate ファイル経由で参照されるデータを記載</span>
 </span></span></code></pre></div><p>使い方は対応する環境をカレントディレクトリとして、 <code>terraform</code> コマンドを実行するだけです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># ファイルフォーマット</span>
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境名<span style="color:#ff79c6">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># プロジェクトの初期化</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>$ terraform init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># ファイルフォーマット</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span>$ terraform fmt ../../modules
 </span></span><span style="display:flex;"><span>$ terraform fmt
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 個別のリソースのterraform 初期化</span>
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境名<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span>$ terraform init
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 個別のリソースの設定確認</span>
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境名<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span>$ terraform validate
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 個別のリソースの差分確認</span>
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境名<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span>$ terraform plan
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 個別のリソースの適用</span>
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境名<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span>$ terraform apply
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 個別のリソースの削除</span>
-</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境名<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> env/<span style="color:#ff79c6">[</span>環境<span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span>$ terraform destroy
 </span></span></code></pre></div><p>以降で個々のファイルについて説明していきます。<br>
 <code>aws_vpc</code> を 1 つ構築する簡易な例になっています。</p>
-<h2 id="modulesversionstf"><code>modules/versions.tf</code></h2>
-<p>Terraform のバージョンなどの設定ファイルです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:versions.tf" data-lang="terraform:versions.tf"><span style="display:flex;"><span>terraform {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">required_version</span> = <span style="color:#f1fa8c">&#34;~&gt; 1.1.0&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="modulesprovidertf"><code>modules/provider.tf</code></h2>
-<p>Provider の設定ファイルです。<br>
-AWS を Provider する場合の設定ファイル例を下記しておきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:provider.tf" data-lang="terraform:provider.tf"><span style="display:flex;"><span><span style="color:#ff79c6">provider</span> <span style="color:#f1fa8c">&#34;aws&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span> = <span style="color:#8be9fd;font-style:italic">var</span>.region
-</span></span><span style="display:flex;"><span>  default_tags {
-</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">tags</span> = {
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">System</span>    = <span style="color:#8be9fd;font-style:italic">var</span>.system
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Env</span>       = <span style="color:#8be9fd;font-style:italic">var</span>.env
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Terraform</span> = <span style="color:#f1fa8c">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>上記のように <code>default_tags</code> を変数で体入する形で設定しておくと非常に便利です。</p>
-<h2 id="modulesvariablestf"><code>modules/variables.tf</code></h2>
-<p><code>modules</code> 内で利用される変数を管理するファイルです。<br>
-<code>env/[環境名]/main.tf</code> にて変数に値を代入します。<br>
-これによって環境差分を実現できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:variables.tf" data-lang="terraform:variables.tf"><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;account_id&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;access_key&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;secret_key&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;region&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;system&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;env&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;base_name&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;vpc_cidr_block&#34;</span> {}
-</span></span></code></pre></div><h2 id="modulesoutputstf"><code>modules/outputs.tf</code></h2>
-<p><code>output</code> でリソースの設定結果を出力する対象について記載したファイルです。<br>
-なお注意しなければならないのは、このファイルはあくまで <code>modules</code> からのアウトプットです。<br>
-<code>env/[環境名]/output.tf</code> へ <code>modules/outputs.tf</code> からのアウトプットをマッピングする必要があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:main_vpc.tf" data-lang="terraform:main_vpc.tf"><span style="display:flex;"><span><span style="color:#ff79c6">output</span> <span style="color:#f1fa8c">&#34;main_vpc&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">value</span> = aws_vpc.main
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="modulesmain_xxxtf"><code>modules/main_xxx.tf</code></h2>
-<p>AWS や Google Cloud などの Provider に対応したリソース定義を記載します。<br>
-ファイル名に <code>main_</code> とプレフィックスをつけているのは、単にリソース定義であることを明確にしたいのと、ソートした時に見やすいからです。<br>
-ここでは AWS VPC を作成する <code>main_vpc.tf</code> というファイルの例を記載します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:main_vpc.tf" data-lang="terraform:main_vpc.tf"><span style="display:flex;"><span><span style="color:#ff79c6">resource</span> <span style="color:#f1fa8c">&#34;aws_vpc&#34;</span> <span style="color:#f1fa8c">&#34;main&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">cidr_block</span> = <span style="color:#8be9fd;font-style:italic">var</span>.vpc_cidr_block
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">tags</span>       =<span style="color:#8be9fd;font-style:italic"> merge</span>(<span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Service&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;main&#34;</span> }), <span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Name&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-main&#34;</span> }))
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="env環境名backendtf"><code>env/[環境名]/backend.tf</code></h2>
-<p>State ファイル（ <code>*.tfstate</code> ）の保存に関する設定ファイルを作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:backend.tf" data-lang="terraform:backend.tf"><span style="display:flex;"><span>terraform {
-</span></span><span style="display:flex;"><span>  backend <span style="color:#f1fa8c">&#34;s3&#34;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">bucket</span> = <span style="color:#f1fa8c">&#34;your-bucket-name&#34;</span><span style="color:#6272a4">  // State ファイルを配置するバケット
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">key</span>    = <span style="color:#f1fa8c">&#34;terraform.tfstate&#34;</span><span style="color:#6272a4"> // State ファイルを配置するパス・ファイル名
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">region</span> = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span><span style="color:#6272a4">    // S3のリージョン
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="env環境名maintf"><code>env/[環境名]/main.tf</code></h2>
+<h2 id="env環境maintf"><code>env/[環境]/main.tf</code></h2>
 <p><code>modules</code> の呼び出し元です。<br>
 <code>../../modules</code> でモジュールを呼び出して <code>modules/variables.tf</code> に定義した変数に値を代入します。<br>
 これによって環境差分を実現できます。<br>
 <code>modules</code> の他にも必要に応じて変数を定義してください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:main.tf" data-lang="terraform:main.tf"><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;account_id&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">default</span> = <span style="color:#f1fa8c">&#34;xxxxxxxxxxxx&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;access_key&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;secret_key&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;system&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">default</span> = <span style="color:#f1fa8c">&#34;pepese&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;region&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">default</span> = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;env&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">default</span> = <span style="color:#f1fa8c">&#34;tst&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">module</span> <span style="color:#f1fa8c">&#34;modules&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">source</span>     = <span style="color:#f1fa8c">&#34;../../modules&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">account_id</span> = <span style="color:#8be9fd;font-style:italic">var</span>.account_id
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">access_key</span> = <span style="color:#8be9fd;font-style:italic">var</span>.access_key
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">secret_key</span> = <span style="color:#8be9fd;font-style:italic">var</span>.secret_key<span style="color:#6272a4">
+<p>また、 <code>output</code> でリソースの設定結果を出力する対象について記載します。<br>
+<code>modules/outputs.tf</code> に記載した <code>modules</code> の <code>output</code> を実際に出力します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:main.tf" data-lang="terraform:main.tf"><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Terraform Settings
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>terraform {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">required_version</span> = <span style="color:#f1fa8c">&#34;~&gt; 1.1.0&#34;</span><span style="color:#6272a4"> // Terraform のバージョン
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  required_providers {<span style="color:#6272a4">          // Provider の設定
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">aws</span> = {
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">source</span>  = <span style="color:#f1fa8c">&#34;hashicorp/aws&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">version</span> = <span style="color:#f1fa8c">&#34;~&gt; 3.0&#34;</span><span style="color:#6272a4">        // AWS Provider のバージョン
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  backend <span style="color:#f1fa8c">&#34;s3&#34;</span> {<span style="color:#6272a4">                 // この設定で State ファイルが S3 に保存されます
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">bucket</span> = <span style="color:#f1fa8c">&#34;your-bucket-name&#34;</span><span style="color:#6272a4">  // State ファイルを配置するバケット
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">key</span>    = <span style="color:#f1fa8c">&#34;terraform.tfstate&#34;</span><span style="color:#6272a4"> // State ファイルを配置するパス・ファイル名
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">region</span> = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span><span style="color:#6272a4">    // S3のリージョン
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  }
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  // 以降、 modules の variables.tf 内の変数へ値を代入
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Provider Settings
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">provider</span> <span style="color:#f1fa8c">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span>  = local.region
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">profile</span> = <span style="color:#8be9fd;font-style:italic">var</span>.profile
+</span></span><span style="display:flex;"><span>  default_tags {<span style="color:#6272a4"> // AWS リソースへのデフォルトタグの設定
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#50fa7b">tags</span> = {
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">System</span>    = local.system
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Env</span>       = local.env
+</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Terraform</span> = <span style="color:#f1fa8c">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Variables
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;profile&#34;</span> {}
+</span></span><span style="display:flex;"><span>locals {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span> = <span style="color:#f1fa8c">&#34;ap-northeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">system</span> = <span style="color:#f1fa8c">&#34;system&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">env</span>    = <span style="color:#f1fa8c">&#34;prd&#34;</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Module
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">module</span> <span style="color:#f1fa8c">&#34;modules&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">source</span> = <span style="color:#f1fa8c">&#34;../../modules&#34;</span><span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  #####################################
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  # Common
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  # Common Variables
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  #####################################
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">system</span> = <span style="color:#8be9fd;font-style:italic">var</span>.system
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span> = <span style="color:#8be9fd;font-style:italic">var</span>.region
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">env</span>    = <span style="color:#8be9fd;font-style:italic">var</span>.env<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">system</span>    = local.system
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">region</span>    = local.region
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">env</span>       = local.env
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">base_name</span> = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span>local.system<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-</span><span style="color:#f1fa8c">${</span>local.env<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span><span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  #####################################
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  # Tags
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  #####################################
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  // provider.tf の default_tags にて全ての AWS リソースに共通するタグを設定
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  // System = var.system, Env = var.env, Terraform = &#34;true&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">base_name</span> = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.system<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.env<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span><span style="color:#6272a4">
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  #####################################
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  # vpc
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  # VPC Variables
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  #####################################
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">vpc_cidr_block</span> = <span style="color:#f1fa8c">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Outputs
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">output</span> <span style="color:#f1fa8c">&#34;sample_vpc&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">value</span> = <span style="color:#8be9fd;font-style:italic">module</span>.<span style="color:#8be9fd;font-style:italic">module</span>s.sample_vpc
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="env環境名outputstf"><code>env/[環境名]/outputs.tf</code></h2>
+</span></span></code></pre></div><p>Provider の設定では <code>default_tags</code> を変数で代入する形で設定しておくと非常に便利です。</p>
+<h2 id="modulesvariablestf"><code>modules/variables.tf</code></h2>
+<p><code>modules</code> 内で利用される変数を管理するファイルです。<br>
+<code>env/[環境名]/main.tf</code> にて変数に値を代入します。<br>
+これによって環境差分を実現できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:variables.tf" data-lang="terraform:variables.tf"><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># Common Variables
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;region&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;system&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;env&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;base_name&#34;</span> {}<span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># VPC Variables
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">variable</span> <span style="color:#f1fa8c">&#34;vpc_cidr_block&#34;</span> {}
+</span></span></code></pre></div><h2 id="modulesoutputstf"><code>modules/outputs.tf</code></h2>
 <p><code>output</code> でリソースの設定結果を出力する対象について記載したファイルです。<br>
-<code>modules/outputs.tf</code> に記載した <code>modules</code> の <code>output</code> を実際に出力します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:outputs.tf" data-lang="terraform:outputs.tf"><span style="display:flex;"><span><span style="color:#ff79c6">output</span> <span style="color:#f1fa8c">&#34;vpc&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">value</span> = <span style="color:#8be9fd;font-style:italic">module</span>.<span style="color:#8be9fd;font-style:italic">module</span>s.main_vpc
+なお注意しなければならないのは、このファイルはあくまで <code>modules</code> からのアウトプットです。<br>
+<code>env/[環境名]/output.tf</code> へ <code>modules/outputs.tf</code> からのアウトプットをマッピングする必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:sample_vpc.tf" data-lang="terraform:sample_vpc.tf"><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># VPC
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">output</span> <span style="color:#f1fa8c">&#34;sample_vpc&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">value</span> = aws_vpc.sample
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="modulessample-vpctf"><code>modules/sample-vpc.tf</code></h2>
+<p>Amazon VPC のリソース定義を記載します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform:sample-vpc.tf" data-lang="terraform:sample-vpc.tf"><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># VPC
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">resource</span> <span style="color:#f1fa8c">&#34;aws_vpc&#34;</span> <span style="color:#f1fa8c">&#34;sample&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">cidr_block</span> = <span style="color:#8be9fd;font-style:italic">var</span>.vpc_cidr_block
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">tags</span>       =<span style="color:#8be9fd;font-style:italic"> merge</span>(<span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Service&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;sample&#34;</span> }), <span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Name&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-sample&#34;</span> }))
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - terraform aws -->
@@ -508,11 +505,6 @@ msmaflink({"n":"【POD】実践Terraform　AWSにおけるシステム設計と�
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/java-springframework-annotation-project-structure/" data-toggle="tooltip" data-placement="top" title="Spring Frameworkのアノテーションとプロジェクト構造">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
