@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zsh on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/zsh/</link>
+    <description>Recent content in zsh on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 24 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOSにおけるzshの設定</title>
+      <link>https://blog.pepese.com/zsh-settings/</link>
+      <pubDate>Sun, 24 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/zsh-settings/</guid>
+      <description>&lt;p&gt;Mac OS Catalinaから標準シェルがzshになっています。&lt;br&gt;
+この記事では、Macにおけるzshの設定について説明します。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

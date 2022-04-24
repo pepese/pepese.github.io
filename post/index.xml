@@ -6,7 +6,17 @@
     <description>Recent content in Posts on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 23 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOSにおけるzshの設定</title>
+      <link>https://blog.pepese.com/zsh-settings/</link>
+      <pubDate>Sun, 24 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/zsh-settings/</guid>
+      <description>&lt;p&gt;Mac OS Catalinaから標準シェルがzshになっています。&lt;br&gt;
+この記事では、Macにおけるzshの設定について説明します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>asdfで利用できるJavaのディストリビューション</title>
       <link>https://blog.pepese.com/java-asdf-distribution/</link>
