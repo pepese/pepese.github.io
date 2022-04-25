@@ -6,7 +6,17 @@
     <description>Recent content in tech on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 24 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TerraformでECSのBlue/GreenデプロイをApp Meshでやってみる</title>
+      <link>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</link>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</guid>
+      <description>&lt;p&gt;Amazon ECSはAWS独自のコンテナ実行・管理サービス、AWS App MeshはAmazon EKSでも利用できるサービスメッシュのサービスです。&lt;br&gt;
+この記事では、TerraformでECS+App Meshを構築し、Blue/Greenデプロイメントを実現する方法について記載します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>macOSにおけるzshの設定</title>
       <link>https://blog.pepese.com/zsh-settings/</link>
