@@ -364,7 +364,7 @@ Blue 用の Virtual Node と Green 用の Virtual Node を作成して Virtual R
 </span></span><span style="display:flex;"><span>}<span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># ECS / Virtual Service
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"># ECS Service
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">#####################################
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">resource</span> <span style="color:#f1fa8c">&#34;aws_ecs_service&#34;</span> <span style="color:#f1fa8c">&#34;sample_blue&#34;</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">count</span>            = local.sample_param[<span style="color:#f1fa8c">&#34;blue_is_active&#34;</span>] <span style="color:#ff79c6">?</span> <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>
