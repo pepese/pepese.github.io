@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design on ぺーぺーSEのブログ</title>
+    <link>https://blog.pepese.com/tags/design/</link>
+    <description>Recent content in design on ぺーぺーSEのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 03 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>REST API設計について整理してみた</title>
+      <link>https://blog.pepese.com/design-rest-api/</link>
+      <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/design-rest-api/</guid>
+      <description>&lt;p&gt;REST APIはWeb APIで最も利用されるAPI設計のうちの 1 つです。&lt;br&gt;
+この記事では、REST APIを設計する際の方針や命名などについての概要をまとめます。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

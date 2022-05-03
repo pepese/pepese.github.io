@@ -6,7 +6,17 @@
     <description>Recent content on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>REST API設計について整理してみた</title>
+      <link>https://blog.pepese.com/design-rest-api/</link>
+      <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/design-rest-api/</guid>
+      <description>&lt;p&gt;REST APIはWeb APIで最も利用されるAPI設計のうちの 1 つです。&lt;br&gt;
+この記事では、REST APIを設計する際の方針や命名などについての概要をまとめます。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Amazon EC2入門</title>
       <link>https://blog.pepese.com/aws-ec2-basics/</link>
