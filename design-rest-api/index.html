@@ -209,7 +209,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-05-03
+                            2022-05-12
                             
                             
                             
@@ -557,45 +557,145 @@
 </ul>
 </li>
 </ol>
-<p>ステータスコードは概ね下記のものを検討すればよいでしょう。</p>
+<h1 id="レスポンス内容">レスポンス内容</h1>
+<p>ステータスコードやボディは概ね下記のものを検討すればよいでしょう。</p>
+<h2 id="get">GET</h2>
 <table>
 <thead>
 <tr>
 <th style="text-align:left">HTTP Status Code</th>
 <th style="text-align:left">意味</th>
-<th style="text-align:left">発生し得る契機</th>
+<th style="text-align:left">ボディ</th>
+<th style="text-align:left">その他</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">200 OK</td>
 <td style="text-align:left">正常に処理が完了</td>
-<td style="text-align:left">GET、PUT、DELETEの結果</td>
-</tr>
-<tr>
-<td style="text-align:left">201 Created</td>
-<td style="text-align:left">新規リソースが作成された</td>
-<td style="text-align:left">POSTの結果</td>
+<td style="text-align:left">取得対象データ</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:left">204 No Content</td>
-<td style="text-align:left">正常に完了したが、特に返却するBodyが無い</td>
-<td style="text-align:left">POST、DELETEの結果</td>
+<td style="text-align:left">コレクションは存在するが、対象IDのリソースが存在しない</td>
+<td style="text-align:left">空</td>
+<td></td>
 </tr>
+</tbody>
+</table>
+<h2 id="post">POST</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP Status Code</th>
+<th style="text-align:left">意味</th>
+<th style="text-align:left">ボディ</th>
+<th style="text-align:left">その他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200 OK</td>
+<td style="text-align:left">新しいリソース作成以外の処理が正常に完了</td>
+<td style="text-align:left">処理結果データ</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">201 Created</td>
+<td style="text-align:left">正常に処理が完了</td>
+<td style="text-align:left">新規作成リソースデータ</td>
+<td style="text-align:left">Locationヘッダに作成したリソース URI</td>
+</tr>
+<tr>
+<td style="text-align:left">204 No Content</td>
+<td style="text-align:left">コレクションは存在するが、対象IDのリソースが存在しない</td>
+<td style="text-align:left">空</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">400 Bad Request</td>
+<td style="text-align:left">クライアントから無効なリソース登録要求</td>
+<td style="text-align:left">エラー内容そのものや URI</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="putpatch">PUT/PATCH</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP Status Code</th>
+<th style="text-align:left">意味</th>
+<th style="text-align:left">ボディ</th>
+<th style="text-align:left">その他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200 OK or 204 No Content</td>
+<td style="text-align:left">リソースの更新処理が正常に完了</td>
+<td style="text-align:left">処理結果データ</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">201 Created</td>
+<td style="text-align:left">正常に処理が完了</td>
+<td style="text-align:left">新規作成リソースデータ</td>
+<td style="text-align:left">Locationヘッダに作成したリソース URI</td>
+</tr>
+<tr>
+<td style="text-align:left">400 Bad Request</td>
+<td style="text-align:left">クライアントから無効なリソース登録要求</td>
+<td style="text-align:left">エラー内容そのものや URI</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">409 Conflict</td>
+<td style="text-align:left">リソースの現状の状態の矛盾している</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">更新順序の前後等により発生</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delete">DELETE</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP Status Code</th>
+<th style="text-align:left">意味</th>
+<th style="text-align:left">ボディ</th>
+<th style="text-align:left">その他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">204 No Content</td>
+<td style="text-align:left">正常に処理が完了</td>
+<td style="text-align:left">空</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="共通">共通</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP Status Code</th>
+<th style="text-align:left">意味</th>
+<th style="text-align:left">補足</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td style="text-align:left">301 MovedPermanently</td>
 <td style="text-align:left">アクセスしたリソースが別のURIに恒久的に移動した</td>
-<td style="text-align:left">リソースのURIが変わった時</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
 <td style="text-align:left">Locationヘッダに移動先のURIを付与する</td>
-<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left">303 See Other</td>
 <td style="text-align:left">別のURIにアクセスしてほしい</td>
-<td style="text-align:left">アクセスURIを変えてほしい</td>
+<td style="text-align:left">Locationヘッダに移動先のURIを付与する</td>
 </tr>
 <tr>
 <td style="text-align:left">304 Not Modified</td>
@@ -605,32 +705,27 @@
 <tr>
 <td style="text-align:left">307 Temporary Redirect</td>
 <td style="text-align:left">一時的なリダイレクト</td>
-<td style="text-align:left">閉塞時等</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Locationヘッダにリダイレクト先のURIを付与する</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">閉塞時等、Locationヘッダにリダイレクト先のURIを付与する</td>
 </tr>
 <tr>
 <td style="text-align:left">400 Bad Request</td>
 <td style="text-align:left">クライアントからのHTTPリクエストに誤りがありサーバで処理できない</td>
-<td style="text-align:left"></td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:left">401 Unauthorized</td>
 <td style="text-align:left">クライアントが認証されていない</td>
-<td style="text-align:left"></td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:left">403 Forbidden</td>
 <td style="text-align:left">クライアントの権限不足</td>
-<td style="text-align:left"></td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:left">404 Not Found</td>
-<td style="text-align:left">アクセスしたURIが存在しない</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">アクセスしたURI・コレクションが存在しない</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:left">406 Not Acceptable</td>
@@ -651,48 +746,6 @@
 <td style="text-align:left">500 Internal Server Error</td>
 <td style="text-align:left">サーバ内でエラーが発生した</td>
 <td style="text-align:left">上記以外のサーバエラー</td>
-</tr>
-</tbody>
-</table>
-<p>ステータスコードに対応したレスポンス内容は以下のようになります。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">API処理の結果</th>
-<th style="text-align:left">レスポンスStatus Code</th>
-<th style="text-align:left">レスポンスBody</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">リソースの取得に成功</td>
-<td style="text-align:left">200 OK</td>
-<td style="text-align:left">取得対象データ</td>
-</tr>
-<tr>
-<td style="text-align:left">リソースの登録に成功</td>
-<td style="text-align:left">201 Created</td>
-<td style="text-align:left">追加したデータ（Locationヘッダには追加したデータのURL）</td>
-</tr>
-<tr>
-<td style="text-align:left">リソースの更新・削除に成功</td>
-<td style="text-align:left">200 OK</td>
-<td style="text-align:left">空</td>
-</tr>
-<tr>
-<td style="text-align:left">リソースが存在しない</td>
-<td style="text-align:left">404 Not Found</td>
-<td style="text-align:left">空</td>
-</tr>
-<tr>
-<td style="text-align:left">リクエストに検証エラー</td>
-<td style="text-align:left">400 Bad Request</td>
-<td style="text-align:left">エラー情報</td>
-</tr>
-<tr>
-<td style="text-align:left">サーバ側でエラー</td>
-<td style="text-align:left">500 Internal Server Error</td>
-<td style="text-align:left">エラー情報</td>
 </tr>
 </tbody>
 </table>
