@@ -205,7 +205,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-19
+                            2022-06-15
                             
                             
                             
@@ -310,10 +310,12 @@ Homebrew 以外の場合は <a href="https://asdf-vm.com/guide/getting-started.h
 <h2 id="アップデート">アップデート</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew upgrade asdf
 </span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#update">こちら</a> を参照してください。<br>
-また、 asdf でアップデートされた際に <code>no such file or directory</code> といったエラーが発生する場合、 環境変数 <code>ASDF_DIR</code> に旧バージョンの情報が含まれる可能性があるため、以下のコマンドを試してみてください。</p>
+また、 Homebrew で asdf をアップデートした際に <code>no such file or directory</code> といったエラーが発生する場合、 環境変数 <code>ASDF_DIR</code> に旧バージョンの情報が含まれる可能性があるため、以下のコマンドを試してみてください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">ASDF_DIR</span><span style="color:#ff79c6">=</span>
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span></code></pre></div><h2 id="アンインストール">アンインストール</h2>
+</span></span></code></pre></div><p>さらに、<code>$HOME/.asdf/shim</code> ディレクトリ内のスクリプトに記述された asdf のパスが古いバージョンのままになっていることもあります。<br>
+この場合は、 <code>$HOME/.asdf/shim</code> ディレクトリを別のディレクトリに移動後（ <code>mv $HOME/.asdf/shim $HOME/.asdf/shim_bk</code> など）、 <code>asdf reshim</code> を実行することで <code>$HOME/.asdf/shim</code> ディレクトリ内のスクリプトを再生成することができるようです。（ <a href="https://github.com/asdf-vm/asdf/issues/1147">参考</a> ）</p>
+<h2 id="アンインストール">アンインストール</h2>
 <p><code>.bash_profile</code> などインストール時に設定したファイルから以下の行を削除します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>. <span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span>/libexec/asdf.sh
 </span></span><span style="display:flex;"><span>. <span style="color:#ff79c6">$(</span>brew --prefix asdf<span style="color:#ff79c6">)</span>/etc/bash_completion.d/asdf.bash
@@ -407,13 +409,13 @@ Homebrew 以外の場合は <a href="https://asdf-vm.com/guide/getting-started.h
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/agile-scrum-basics/" data-toggle="tooltip" data-placement="top" title="スクラム入門">&larr;
+                        <a href="/newrelic-apm-nodejs/" data-toggle="tooltip" data-placement="top" title="New Relic APMをNode.jsに導入する">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/redis-basics/" data-toggle="tooltip" data-placement="top" title="Redis入門">Next
+                        <a href="/aws-elasticache-redis-auth-token/" data-toggle="tooltip" data-placement="top" title="Amazon ElastiCache for Redisの認証トークンの設定・変更">Next
                             Post &rarr;</a>
                     </li>
                     

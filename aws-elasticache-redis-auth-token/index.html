@@ -17,15 +17,15 @@
     
 
     
-    <meta name="title" content="New Relic APMをNode.jsに導入する | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="New Relic APMをNode.jsに導入する | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="New Relic APMをNode.jsに導入する | ぺーぺーSEのブログ" />
+    <meta name="title" content="Amazon ElastiCache for Redisの認証トークンの設定・変更 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Amazon ElastiCache for Redisの認証トークンの設定・変更 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Amazon ElastiCache for Redisの認証トークンの設定・変更 | ぺーぺーSEのブログ" />
     
 
     
-    <meta name="description" content="Node.js アプリケーションに New Relic APM を導入したのでメモとして記事に残します。">
-    <meta property="og:description" content="Node.js アプリケーションに New Relic APM を導入したのでメモとして記事に残します。" />
-    <meta property="twitter:description" content="Node.js アプリケーションに New Relic APM を導入したのでメモとして記事に残します。" />
+    <meta name="description" content="Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。この記事では、Amazon ElastiCache for Redisの認証トークンの設定・変更方法を Terraform の設定を交えてご紹介します。">
+    <meta property="og:description" content="Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。この記事では、Amazon ElastiCache for Redisの認証トークンの設定・変更方法を Terraform の設定を交えてご紹介します。" />
+    <meta property="twitter:description" content="Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。この記事では、Amazon ElastiCache for Redisの認証トークンの設定・変更方法を Terraform の設定を交えてご紹介します。" />
     
 
     
@@ -34,15 +34,15 @@
     
 
     
-    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    <meta name="keyword"  content="AWS, ElastiCache, Redis, 認証, トークン, Terraform">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>New Relic APMをNode.jsに導入する</title>
+    <title>Amazon ElastiCache for Redisの認証トークンの設定・変更</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/newrelic-apm-nodejs/">
+    <link rel="canonical" href="https://blog.pepese.comaws-elasticache-redis-auth-token/">
     
 
     
@@ -196,20 +196,28 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/newrelic" title="newrelic">
-                            newrelic
+                        <a class="tag" href="/tags/aws" title="aws">
+                            aws
                         </a>
                         
-                        <a class="tag" href="/tags/node.js" title="node.js">
-                            node.js
+                        <a class="tag" href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        <a class="tag" href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        <a class="tag" href="/tags/terraform" title="terraform">
+                            terraform
                         </a>
                         
                     </div>
-                    <h1>New Relic APMをNode.jsに導入する</h1>
+                    <h1>Amazon ElastiCache for Redisの認証トークンの設定・変更</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-05-20
+                            2022-06-15
                             
                             
                             
@@ -300,103 +308,71 @@
                 post-container">
 
                 
-                <p>Node.js アプリケーションに New Relic APM を導入したのでメモとして記事に残します。</p>
-<h1 id="設定">設定</h1>
-<p>Express.js と Winston を利用した簡易なアプリケーションを例にします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm init
-</span></span><span style="display:flex;"><span>$ npm install newrelic winston @newrelic/winston-enricher express --save
-</span></span></code></pre></div><h1 id="各種バージョン情報">各種バージョン情報</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node -v  
-</span></span><span style="display:flex;"><span>v16.15.0
-</span></span><span style="display:flex;"><span>$ npm -v
-</span></span><span style="display:flex;"><span>8.5.5
-</span></span><span style="display:flex;"><span>$ npm info newrelic version
-</span></span><span style="display:flex;"><span>8.11.1
-</span></span><span style="display:flex;"><span>$ npm info winston version
-</span></span><span style="display:flex;"><span>3.7.2
-</span></span><span style="display:flex;"><span>$ npm info @newrelic/winston-enricher version
-</span></span><span style="display:flex;"><span>3.1.1
-</span></span><span style="display:flex;"><span>$ npm info express version
-</span></span><span style="display:flex;"><span>4.18.1
-</span></span></code></pre></div><p>なお、 Node.js の New Relic モジュールは <a href="https://docs.newrelic.com/jp/docs/release-notes/agent-release-notes/nodejs-release-notes/node-agent-8-11-0">8.11.0以降</a> にログ転送機能がサポートされます。</p>
-<h1 id="コード">コード</h1>
-<p>コードは以下の 2 種類を準備します。<br>
-各ファイルはプロジェクトのルートディレクトリにフラットに配置するものとします。</p>
-<ul>
-<li>newrelic.js</li>
-<li>sample.js</li>
-</ul>
-<h2 id="newrelicjs">newrelic.js</h2>
-<p><code>/node_modules/newrelic/newrelic.js</code> からコピーしてきたものを編集して利用します。<br>
-<code>app_name</code> と <code>license_key</code> が必須設定です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f1fa8c">&#39;use strict&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>exports.config <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>  app_name<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;sample-nodejs&#39;</span>], <span style="color:#6272a4">// 必須設定
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  license_key<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;license key&#39;</span>,  <span style="color:#6272a4">// 必須設定
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  logging<span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>    level<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;info&#39;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  allow_all_headers<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>,
-</span></span><span style="display:flex;"><span>  application_logging<span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>    forwarding<span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>      enabled<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  attributes<span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>    exclude<span style="color:#ff79c6">:</span> [
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;request.headers.cookie&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;request.headers.authorization&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;request.headers.proxyAuthorization&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;request.headers.setCookie*&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;request.headers.x*&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;response.headers.cookie&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;response.headers.authorization&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;response.headers.proxyAuthorization&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;response.headers.setCookie*&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#39;response.headers.x*&#39;</span>
+                <p>Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。<br>
+この記事では、Amazon ElastiCache for Redisの認証トークンの設定・変更方法を Terraform の設定を交えてご紹介します。</p>
+<h1 id="terraform">Terraform</h1>
+<p>Terraform にて Amazon ElastiCache for Redis を構築する例を交えて認証トークン方法について記載します。<br>
+以下は Terraform の例です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#ff79c6">resource</span> <span style="color:#f1fa8c">&#34;aws_elasticache_replication_group&#34;</span> <span style="color:#f1fa8c">&#34;sample&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">replication_group_id</span>       = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-sample&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">description</span>                = <span style="color:#f1fa8c">&#34;Redis cluster for </span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-sample.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">automatic_failover_enabled</span> = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;automatic_failover_enabled&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">engine</span>                     = <span style="color:#f1fa8c">&#34;redis&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">engine_version</span>             = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;engine_version&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">multi_az_enabled</span>           = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;multi_az_enabled&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">node_type</span>                  = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;node_type&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">num_cache_clusters</span>         = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;number_cache_clusters&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">parameter_group_name</span>       = aws_elasticache_parameter_group.sample.id
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">subnet_group_name</span>          = aws_elasticache_subnet_group.sample.name
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">security_group_ids</span>         = [aws_security_group.sample_elasticache.id]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">port</span>                       = <span style="color:#bd93f9">6379</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">maintenance_window</span>         = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;maintenance_window&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">snapshot_window</span>            = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;snapshot_window&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">snapshot_retention_limit</span>   = <span style="color:#bd93f9">35</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">final_snapshot_identifier</span>  = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-sample-final-snapshot&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">apply_immediately</span>          = <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">auto_minor_version_upgrade</span> = <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">at_rest_encryption_enabled</span> = <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">transit_encryption_enabled</span> = <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">kms_key_id</span>                 = aws_kms_key.sample_elasticache.arn
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">auth_token</span>                 = <span style="color:#8be9fd;font-style:italic">var</span>.sample_elasticache_param[<span style="color:#f1fa8c">&#34;auth_token&#34;</span>]
+</span></span><span style="display:flex;"><span>  lifecycle {
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">ignore_changes</span> = [
+</span></span><span style="display:flex;"><span>      number_cache_clusters,
+</span></span><span style="display:flex;"><span>      apply_immediately
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  log_delivery_configuration {
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">destination</span>      = aws_cloudwatch_log_group.sample_elasticache_slowlog.name
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">destination_type</span> = <span style="color:#f1fa8c">&#34;cloudwatch-logs&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">log_format</span>       = <span style="color:#f1fa8c">&#34;json&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">log_type</span>         = <span style="color:#f1fa8c">&#34;slow-log&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">tags</span> =<span style="color:#8be9fd;font-style:italic"> merge</span>(<span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Service&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;sample&#34;</span> }), <span style="color:#8be9fd;font-style:italic">tomap</span>({ <span style="color:#f1fa8c">&#34;Name&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">var</span>.base_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">-sample&#34;</span> }))
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="samplejs">sample.js</h2>
-<p>Express.js と Winston を利用した簡易なアプリケーションを例にします。<br>
-先に例にあげた <code>newrelic.js</code> をロードできるように <code>require('./newrelic')</code> を記載しておくのがポイントです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>require(<span style="color:#f1fa8c">&#39;./newrelic&#39;</span>) <span style="color:#6272a4">// newrelic.js のロード
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// ロガーの設定
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> winston <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;winston&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> newrelicFormatter <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;@newrelic/winston-enricher&#39;</span>)(winston)
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> logger <span style="color:#ff79c6">=</span> winston.createLogger({
-</span></span><span style="display:flex;"><span>  level<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;info&#39;</span>,
-</span></span><span style="display:flex;"><span>  format<span style="color:#ff79c6">:</span> winston.format.combine(
-</span></span><span style="display:flex;"><span>    newrelicFormatter(),
-</span></span><span style="display:flex;"><span>    winston.format.json()
-</span></span><span style="display:flex;"><span>  ),
-</span></span><span style="display:flex;"><span>  transports<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">new</span> winston.transports.Console()
-</span></span><span style="display:flex;"><span>});
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Express.js の設定
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> express <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;express&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> express()
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> port <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3000</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>app.get(<span style="color:#f1fa8c">&#39;/&#39;</span>, (req, res) =&gt; {
-</span></span><span style="display:flex;"><span>  logger.info(<span style="color:#f1fa8c">&#39;You access / .&#39;</span>); <span style="color:#6272a4">// Winston によるログ出力
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  res.send(<span style="color:#f1fa8c">&#39;Hello World!&#39;</span>)
-</span></span><span style="display:flex;"><span>})
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>app.get(<span style="color:#f1fa8c">&#39;/health&#39;</span>, (req, res) =&gt; {
-</span></span><span style="display:flex;"><span>  logger.info(<span style="color:#f1fa8c">&#39;You access /health .&#39;</span>); <span style="color:#6272a4">// Winston によるログ出力
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  res.send(<span style="color:#f1fa8c">&#39;healty&#39;</span>)
-</span></span><span style="display:flex;"><span>})
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>app.listen(port, () =&gt; {
-</span></span><span style="display:flex;"><span>  logger.info(<span style="color:#f1fa8c">`Example app listening on port </span><span style="color:#f1fa8c">${</span>port<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>); <span style="color:#6272a4">// Winston によるログ出力
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>})
-</span></span></code></pre></div><p>実行方法は以下の通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node sample.js
-</span></span></code></pre></div><h2 id="おすすめ書籍">おすすめ書籍</h2>
-<!-- ad link - amazon/rakuten books - newrelic -->
+</span></span></code></pre></div><p><code>transit_encryption_enabled = true</code> （転送中の暗号化を有効）にして <code>auth_token</code> に認証トークンを設定しておくのがポイントです。</p>
+<h1 id="認証トークンの変更設定">認証トークンの変更・設定</h1>
+<p>認証トークンの変更は、ROTATE と SET の 2 つの戦略をサポートしています。<br>
+ROTATE 戦略では、以前のトークンを保持しながら、サーバーに別の AUTH トークンを追加します。<br>
+SET 戦略では、1 つの AUTH トークンのみをサポートするように、サーバーを更新します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws elasticache modify-replication-group <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --replication-group-id replication-group-sample <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --auth-token new-token <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --auth-token-update-strategy ROTATE <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --apply-immediately
+</span></span></code></pre></div><p>上記の ROTATE 戦略コマンドで新規認証トークン <code>new-token</code> が追加されます。<br>
+認証トークンは最大2つまで保持されるため、この状態ではまだ以前の認証トークンで認証可能な状態です。<br>
+以下の SET 戦略コマンドで <code>new-token</code> でのみ認証可能な状態とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws elasticache modify-replication-group <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --replication-group-id replication-group-sample <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --auth-token new-token <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --auth-token-update-strategy SET <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>  --apply-immediately
+</span></span></code></pre></div><p>なお原因は不明ですが、筆者が Terraform にて Amazon ElastiCache for Redis を構築した段階では認証トークンによる認証が必須ではなく Redis に接続・操作可能でした。<br>
+本節でご紹介した認証トークンの変更・設定を実施したところ、 Redis への接続・操作にトークンによる認証が必須となりました。</p>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - terraform aws -->
 <!-- START MoshimoAffiliateEasyLink -->
 <script type="text/javascript">
 (function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
@@ -405,9 +381,9 @@ b[a]=b[a]||function(){arguments.currentScript=c.currentScript
 c.getElementById(a)||(d=c.createElement(f),d.src=g,
 d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
 (window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
-msmaflink({"n":"New Relic実践入門 監視からオブザーバビリティへの変革 [ 松本 大樹 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/6599\/9784798166599_1_24.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16655212\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"Amazonで見る","u_bc":"#ff9900","u_url":"https:\/\/amzn.to\/3ac5kOH","a_id":3351917,"p_id":170,"pl_id":27060,"pc_id":185,"s_n":"amazon","u_so":0},{"u_tx":"楽天ブックスで見る","u_bc":"#bf0000","u_url":"https:\/\/a.r10.to\/hNK5GW","s_n":"custom_3","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"id":2,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16655212\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"njES6","s":"s"});
+msmaflink({"n":"【POD】実践Terraform　AWSにおけるシステム設計とベストプラクティス AWSにおけるシステム設計とベストプラクティス （技術の泉シリーズ（NextPublishing）） [ 野村 友規 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/8136\/9784844378136.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16058180\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/37mOivB","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hawlg8","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16058180\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"kSp0Z","s":"s"});
 </script>
-<div id="msmaflink-njES6">リンク</div>
+<div id="msmaflink-kSp0Z">リンク</div>
 <!-- MoshimoAffiliateEasyLink END -->
 <h1 id="おすすめ記事">おすすめ記事</h1>
 <!-- プログラミング学習のすすめ -->
@@ -421,15 +397,10 @@ msmaflink({"n":"New Relic実践入門 監視からオブザーバビリティへ
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/design-rest-api/" data-toggle="tooltip" data-placement="top" title="REST API設計について整理してみた">&larr;
+                        <a href="/asdf-basics/" data-toggle="tooltip" data-placement="top" title="マルチランタイムバージョン管理ツールasdf">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/asdf-basics/" data-toggle="tooltip" data-placement="top" title="マルチランタイムバージョン管理ツールasdf">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

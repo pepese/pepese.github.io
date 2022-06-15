@@ -2,8 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.pepese.com/aws-elasticache-redis-auth-token/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/asdf/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/aws/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/elasticache/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/redis/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/terraform/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/asdf-basics/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/newrelic-apm-nodejs/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
@@ -12,18 +45,6 @@
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/node.js/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/design/</loc>
@@ -38,9 +59,6 @@
     <loc>https://blog.pepese.com/aws-ec2-basics/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/aws/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/ec2/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -48,9 +66,6 @@
     <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/ecs/</loc>
-    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/terraform/</loc>
     <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</loc>
@@ -64,9 +79,6 @@
   </url><url>
     <loc>https://blog.pepese.com/tags/zsh/</loc>
     <lastmod>2022-04-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/asdf/</loc>
-    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/java-asdf-distribution/</loc>
     <lastmod>2022-04-23T00:00:00+00:00</lastmod>
@@ -92,16 +104,10 @@
     <loc>https://blog.pepese.com/tags/aurora/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/elasticache/</loc>
-    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/go/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/golang-grammar/</loc>
-    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/redis/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/golang-vscode-environment/</loc>
@@ -114,9 +120,6 @@
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/redis-basics/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/asdf-basics/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/agile/</loc>
