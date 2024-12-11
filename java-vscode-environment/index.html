@@ -213,7 +213,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-08
+                            2024-12-11
                             
                             
                             
@@ -312,44 +312,24 @@ asdf については以下の記事を参照してください。</p>
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/asdf-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">マルチランタイムバージョン管理ツールasdf | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツール。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
 <p>ここでは Amazon ディストリビューションである Corretto を利用します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin add java
-</span></span><span style="display:flex;"><span>$ asdf install java corretto-17.0.2.8.1
-</span></span><span style="display:flex;"><span>$ asdf global java corretto-17.0.2.8.1
-</span></span></code></pre></div><p>asdf でインストールした場合、 <code>JAVA_HOME</code> の設定には専用のスクリプトが用意されています。（参考： <a href="https://github.com/halcyon/asdf-java#java_home">JAVA_HOME</a> ）<br>
-シェルの種類に合わせて <code>.zshrc</code> などに以下を追記します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># To set JAVA_HOME in your shell&#39;s initialization add the following:</span>
-</span></span><span style="display:flex;"><span>. ~/.asdf/plugins/java/set-java-home.bash
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># For zsh shell, instead use:</span>
-</span></span><span style="display:flex;"><span>. ~/.asdf/plugins/java/set-java-home.zsh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># For fish shell, instead use:</span>
-</span></span><span style="display:flex;"><span>. ~/.asdf/plugins/java/set-java-home.fish
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># For xonsh shell, instead use:</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">source</span> ~/.asdf/plugins/java/set-java-home.xsh
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">exec</span> <span style="color:#8be9fd;font-style:italic">$SHELL</span> -l
-</span></span><span style="display:flex;"><span>$ java --version
-</span></span><span style="display:flex;"><span>openjdk 17.0.2 2022-01-18 LTS
-</span></span><span style="display:flex;"><span>OpenJDK Runtime Environment Corretto-17.0.2.8.1 <span style="color:#ff79c6">(</span>build 17.0.2+8-LTS<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>$ asdf install java corretto-21.0.5.11.1
+</span></span><span style="display:flex;"><span>$ asdf global java corretto-21.0.5.11.1
+</span></span></code></pre></div><p>asdf でインストールした場合、 <code>JAVA_HOME</code> の設定には専用のスクリプトが用意されています。（参考： <a href="https://github.com/halcyon/asdf-java#java_home">JAVA_HOME</a> ）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ java --version
+</span></span><span style="display:flex;"><span>openjdk version <span style="color:#f1fa8c">&#34;21.0.5&#34;</span> 2024-10-15 LTS
+</span></span><span style="display:flex;"><span>OpenJDK Runtime Environment Corretto-21.0.5.11.1 <span style="color:#ff79c6">(</span>build 21.0.5+11-LTS<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>OpenJDK 64-Bit Server VM Corretto-21.0.5.11.1 <span style="color:#ff79c6">(</span>build 21.0.5+11-LTS, mixed mode, sharing<span style="color:#ff79c6">)</span>
 </span></span></code></pre></div><h1 id="mavenのインストール">Mavenのインストール</h1>
 <p>同じく asdf を利用します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin add maven
-</span></span><span style="display:flex;"><span>$ asdf install maven 3.8.4
-</span></span><span style="display:flex;"><span>$ asdf global maven 3.8.4
+</span></span><span style="display:flex;"><span>$ asdf install maven 3.9.9
+</span></span><span style="display:flex;"><span>$ asdf global maven 3.9.9
 </span></span><span style="display:flex;"><span>$ mvn -v
-</span></span><span style="display:flex;"><span>Apache Maven 3.8.4 <span style="color:#ff79c6">(</span>9b656c72d54e5bacbed989b64718c159fe39b537<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>Maven home: /Users/xxxxx/.asdf/installs/maven/3.8.4
-</span></span><span style="display:flex;"><span>Java version: 17.0.2, vendor: Amazon.com Inc., runtime: /Users/xxxxx/.asdf/installs/java/corretto-17.0.2.8.1
+</span></span><span style="display:flex;"><span>Apache Maven 3.9.9 <span style="color:#ff79c6">(</span>8e8579a9e76f7d015ee5ec7bfcdc97d260186937<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Maven home: /Users/xxxxx/.asdf/installs/maven/3.9.9
+</span></span><span style="display:flex;"><span>Java version: 21.0.5, vendor: Amazon.com Inc., runtime: /Users/xxxxx/.asdf/installs/java/corretto-21.0.5.11.1
 </span></span><span style="display:flex;"><span>Default locale: ja_JP, platform encoding: UTF-8
-</span></span><span style="display:flex;"><span>OS name: <span style="color:#f1fa8c">&#34;mac os x&#34;</span>, version: <span style="color:#f1fa8c">&#34;12.1&#34;</span>, arch: <span style="color:#f1fa8c">&#34;x86_64&#34;</span>, family: <span style="color:#f1fa8c">&#34;mac&#34;</span>
-</span></span></code></pre></div><h1 id="プロジェクトの作成">プロジェクトの作成</h1>
-<p>通常の Java プロジェクトを作成する場合は以下のコマンドで作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mvn archetype:create -DgroupId<span style="color:#ff79c6">=</span>com.example -DartifactId<span style="color:#ff79c6">=</span>sample
-</span></span></code></pre></div><p>SpringBoot のプロジェクトを作成する場合は <a href="https://start.spring.io/">spring initialzr</a> を使用すると便利です。<br>
-各種設定を入力した後に GENERATE すると SpringBoot の雛形プロジェクトをダウンロードできます。<br>
-最低限 Spring Web を Dependencies として追加しておけば REST API アプリケーションを作成できます。<br>
-作成したプロジェクトの実行は以下です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mvn spring-boot:run
+</span></span><span style="display:flex;"><span>OS name: <span style="color:#f1fa8c">&#34;mac os x&#34;</span>, version: <span style="color:#f1fa8c">&#34;14.6.1&#34;</span>, arch: <span style="color:#f1fa8c">&#34;x86_64&#34;</span>, family: <span style="color:#f1fa8c">&#34;mac&#34;</span>
 </span></span></code></pre></div><h1 id="vscodeのインストールと設定">VSCodeのインストールと設定</h1>
 <p>VSCode のインストールは以下を参照してください。</p>
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/vscode-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Visual Studio Code入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Visual Studio Codeのインストールからおすすめの拡張機能までを説明。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
@@ -372,6 +352,27 @@ asdf については以下の記事を参照してください。</p>
 <li>クラス定義に飛ぶ：（該当箇所を選択してから） <code>F12</code> （ <code>fn</code> 押しながら）</li>
 <li>参照先へ飛ぶ：（該当箇所を選択してから） <code>Shift + F12</code></li>
 </ul>
+<h1 id="プロジェクトの作成">プロジェクトの作成</h1>
+<h2 id="mvn-コマンドで作成">mvn コマンドで作成</h2>
+<p>mvn コマンドで通常の Java プロジェクトを作成する場合は以下のコマンドで作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mvn archetype:create -DgroupId<span style="color:#ff79c6">=</span>com.example -DartifactId<span style="color:#ff79c6">=</span>sample
+</span></span></code></pre></div><p>SpringBoot のプロジェクトを作成する場合は <a href="https://start.spring.io/">spring initialzr</a> を使用すると便利です。<br>
+各種設定を入力した後に GENERATE すると SpringBoot の雛形プロジェクトをダウンロードできます。<br>
+最低限 Spring Web を Dependencies として追加しておけば REST API アプリケーションを作成できます。<br>
+作成したプロジェクトの実行は以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mvn spring-boot:run
+</span></span></code></pre></div><h2 id="vscode-拡張機能で作成">VSCode 拡張機能で作成</h2>
+<p>（１）VSCode を起動して <code>Shift + Command + P</code> を実行すると、 <strong>コマンドパレット</strong> が起動します。</p>
+<p>（２）コマンドパレットが起動したら、 <code>Spring Initialzr</code> と途中まで打つと選択肢が現れるので、ここでは <code>Spring Initialzr: Create Maven Project...</code> を選択します。</p>
+<p>（３）SpringBoot のバージョンの選択肢が出るので選びます。</p>
+<p>（４）プログラミング言語の選択を求められるので <code>Java</code> を選択します。</p>
+<p>（５）Group ID の入力を求められるので <code>com.pepese.sample</code> のような ID を入力します。</p>
+<p>（６）Artifact ID の入力を求められるので <code>springboot-sample-jar</code> のような ID を入力します。</p>
+<p>（７）Packaging Type の選択を求められるので <code>Jar</code> を選択します。</p>
+<p>（８）Java バージョンの選択を求められるので <code>21</code> を選択します。</p>
+<p>（９）依存するライブラリの選択を求められるので、ここでは <code>Spring Boot DevTools</code> を選択します。（複数選択可能）</p>
+<p>（１０）プロジェクト作成ディレクトリの場所を求められるので指定します。</p>
+<p>以上で、VSCode 拡張機能を用いてプロジェクトを作成することができます。</p>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - java -->
 <!-- START MoshimoAffiliateEasyLink -->
@@ -411,15 +412,10 @@ msmaflink({"n":"Visual Studio Code完全入門 Webクリエイター\u0026エン
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/aws-lambda-basics/" data-toggle="tooltip" data-placement="top" title="AWS Lambda入門">&larr;
+                        <a href="/aws-elasticache-redis-auth-token/" data-toggle="tooltip" data-placement="top" title="Amazon ElastiCache for Redisの認証トークンの設定・変更">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/docker-dockerfile-basics/" data-toggle="tooltip" data-placement="top" title="Dockerfile入門">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -866,7 +862,7 @@ msmaflink({"n":"Visual Studio Code完全入門 Webクリエイター\u0026エン
              </li>
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; ぺーぺーSEのブログ 2022
+                    Copyright &copy; ぺーぺーSEのブログ 2024
                 </p>
             </div>
         </div>
