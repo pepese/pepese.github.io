@@ -209,7 +209,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2022-04-08
+                            2024-12-19
                             
                             
                             
@@ -531,16 +531,13 @@ ENIには以下の属性を含めることができます。</p>
 <li>説明</li>
 </ul>
 <h1 id="vpcエンドポイント">VPCエンドポイント</h1>
-<p>VPCエンドポイントは、VPC 内のインスタンスからインターネットゲートウェイ・NAT デバイス・VPN 接続・AWS Direct Connect 接続を利用することなく直接AWS サービスや VPC エンドポイントサービスにプライベート接続できる機能を提供します。<br>
-<strong>ゲートウェイエンドポイント</strong> と <strong>インターフェースエンドポイント</strong> （ <strong>AWS PrivateLink</strong> ）があり、それぞれ以下のサービスを利用できます。</p>
+<p><strong>VPCエンドポイント</strong> は、VPC 内のインスタンスからインターネットを介することなく、また、インターネットゲートウェイ・NAT デバイス・VPN 接続・AWS Direct Connect 接続を利用することなく直接 AWS サービスや他の VPC へ接続する機能を提供します。<br>
+VPCエンドポイントは、接続元のポイントを指し、 <strong>インターフェースエンドポイント</strong> 、 <strong>Gateway Load Balancerエンドポイント</strong> 、 <strong>ゲートウェイエンドポイント</strong> の3種類あります。<br>
+また、接続先 VPC に設置するポイントを <strong>VPCエンドポイントサービス</strong> といい、VPCエンドポイントとVPCエンドポイントサービスのペアを組み合わせて <strong>AWS PrivateLink</strong> と呼びます。つまり、ゲートウェイエンドポイントは VPC と接続しないので AWS PrivateLink とは呼ばないことになります。<br>
+なお、インターフェースエンドポイントは、 他VPCのVPCエンドポイントサービス以外に、AWS サービスが公開しているエンドポイントサービスに接続することができます。（例えば、CloudWatch Logsは <code>com.amazonaws.ap-northeast-1.logs</code> というサービス名で公開されています。）<br>
+AWS Transit Gateway と比較して、AWS PrivateLink を利用して VPC 間を接続した場合、IPやサブネットの重複を気にしなくて良いというメリットがあります。（IPやサブネットが重複しても接続可能）</p>
 <ul>
-<li>ゲートウェイエンドポイント
-<ul>
-<li>Amazon S3</li>
-<li>DynamoDB</li>
-</ul>
-</li>
-<li>インターフェースエンドポイント（AWS PrivateLink）
+<li>インターフェースエンドポイント
 <ul>
 <li>Amazon API Gateway</li>
 <li>Amazon CloudWatch</li>
@@ -558,6 +555,17 @@ ENIには以下の属性を含めることができます。</p>
 <li>AWS Systems Manager</li>
 <li>他の AWS アカウントによってホストされるエンドポイントサービス</li>
 <li>サポートされる AWS Marketplace パートナーサービス</li>
+</ul>
+</li>
+<li>Gateway Load Balancerエンドポイント
+<ul>
+<li>Gateway Load Balancer（GLB、GWLB）</li>
+</ul>
+</li>
+<li>ゲートウェイエンドポイント
+<ul>
+<li>Amazon S3</li>
+<li>DynamoDB</li>
 </ul>
 </li>
 </ul>
@@ -1064,15 +1072,10 @@ msmaflink({"n":"AWSではじめるインフラ構築入門 安全で堅牢な本
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/docker-dockerfile-basics/" data-toggle="tooltip" data-placement="top" title="Dockerfile入門">&larr;
+                        <a href="/java-vscode-environment/" data-toggle="tooltip" data-placement="top" title="Visual Studio CodeでJavaの開発環境を作成する">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/golang-modules-basics/" data-toggle="tooltip" data-placement="top" title="Go Modules入門">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

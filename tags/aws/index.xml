@@ -6,7 +6,17 @@
     <description>Recent content in aws on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 15 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon VPC入門</title>
+      <link>https://blog.pepese.com/aws-vpc-basics/</link>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/aws-vpc-basics/</guid>
+      <description>&lt;p&gt;Amazon VPC は、 AWS が提供する仮想ネットワークサービスです。&lt;br&gt;
+この記事では、Amazon VPC をざっくり理解できる概要と作成例について記載します。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Amazon ElastiCache for Redisの認証トークンの設定・変更</title>
       <link>https://blog.pepese.com/aws-elasticache-redis-auth-token/</link>
@@ -85,16 +95,6 @@
       <guid>https://blog.pepese.com/aws-iam-basics/</guid>
       <description>&lt;p&gt;AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。&lt;br&gt;
 この記事では、AWS IAM をざっくり理解できるよう概要を記載します。（強制 MFA についても記載しています。）&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Amazon VPC入門</title>
-      <link>https://blog.pepese.com/aws-vpc-basics/</link>
-      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/aws-vpc-basics/</guid>
-      <description>&lt;p&gt;Amazon VPC は、 AWS が提供する仮想ネットワークサービスです。&lt;br&gt;
-この記事では、Amazon VPC をざっくり理解できる概要と作成例について記載します。&lt;/p&gt;</description>
     </item>
     
     <item>
