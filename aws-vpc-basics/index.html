@@ -569,6 +569,17 @@ AWS Transit Gateway と比較して、AWS PrivateLink を利用して VPC 間を
 </ul>
 </li>
 </ul>
+<p>AWS re:Invent 2024 の新たな AWS PraivateLink が発表されました。<br>
+これまでは、他の VPC のリソースへアクセスする際は、</p>
+<ul>
+<li>インターフェースエンドポイント -&gt; VPCエンドポイントサービス -&gt; NLB or GLB(GWLB) -&gt; リソース</li>
+</ul>
+<p>のように NLB あるいは GLB(GWLB) を介して VPC 内のリソースにアクセスする必要がありましたが、それを省略して接続できる <strong>リソース型</strong> なるものが登場しました。<br>
+以下のような構成になるようです。</p>
+<ul>
+<li>VPCエンドポイント(リソース方) -&gt; （Resrouce Configuration） -&gt; Rerouce Gateway -&gt; リソース</li>
+</ul>
+<p><strong>Resrouce Configuration</strong> で 接続先のリソースを設定し、 <strong>Rerouce Gateway</strong> を介してそのリソースに接続する構成のようです。</p>
 <h1 id="ピアリング接続">ピアリング接続</h1>
 <p>VPC ピア接続は、プライベート IP アドレスを使用して 2 つの VPC 間でトラフィックをルーティングすることを可能にするネットワーク接続です。<br>
 どちらの VPC のインスタンスも、同じネットワーク内に存在しているかのように、相互に通信できます。<br>
