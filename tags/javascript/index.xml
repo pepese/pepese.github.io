@@ -6,7 +6,16 @@
     <description>Recent content in javascript on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 21 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TypeScript環境入門</title>
+      <link>https://blog.pepese.com/typescript-environment-basics/</link>
+      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/typescript-environment-basics/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
       <link>https://blog.pepese.com/nodejs-express-multer/</link>
@@ -134,15 +143,6 @@ v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</d
       
       <guid>https://blog.pepese.com/angular-cognito/</guid>
       <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>TypeScript環境入門</title>
-      <link>https://blog.pepese.com/typescript-environment-basics/</link>
-      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/typescript-environment-basics/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
