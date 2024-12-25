@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Vite入門</title>
+      <link>https://blog.pepese.com/nodejs-vite-basics/</link>
+      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.pepese.com/nodejs-vite-basics/</guid>
+      <description>&lt;p&gt;JavaScript モジュールバンドラの &lt;a href=&#34;https://ja.vite.dev/&#34;&gt;Vite&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Angular入門</title>
       <link>https://blog.pepese.com/angular-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>

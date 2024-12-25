@@ -213,7 +213,7 @@
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
-                            2017-08-14
+                            2024-12-25
                             
                             
                             
@@ -311,21 +311,21 @@ npmはNode.jsと同時にインストールされるので、Node.jsを入れて
 また、Node.jsはJavaScriptの実行エンジン。</p>
 <p>ちなみに<a href="http://node.green">ここ</a>でNode.jsのES6対応状況がわかる。<br>
 v8.3.0で <strong>99%</strong> カバーしている。</p>
+<!--more-->
 <h1 id="インストール">インストール</h1>
-<p>Node.jsのインストール方法は以下の「anyenv」を参照。</p>
+<p>ここでは、Node.jsのインストール方法は以下の「asdf」を利用する。</p>
 <ul>
-<li><a href="https://blog.pepese.com/anyenv/">すべての**envを管理するanyenv</a></li>
+<li><a href="https://blog.pepese.com/asdf-basics/">マルチランタイムバージョン管理ツールasdf</a></li>
 </ul>
-<h2 id="ndenv">ndenv</h2>
-<p>上記の手順でNode.jsを導入した場合、Node.jsのバージョンを <code>ndenv</code> でコントロールする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ndenv install -l <span style="color:#6272a4"># インストールできるNode.jsのバージョン確認</span>
-</span></span><span style="display:flex;"><span>$ ndenv install v8.3.0 <span style="color:#6272a4"># バージョンを指定してインストール</span>
-</span></span><span style="display:flex;"><span>$ ndenv versions <span style="color:#6272a4"># インストールされたことを確認</span>
-</span></span><span style="display:flex;"><span>$ ndenv global v8.3.0 <span style="color:#6272a4"># バージョンを切り替え</span>
-</span></span><span style="display:flex;"><span>$ ndenv <span style="color:#8be9fd;font-style:italic">local</span> v8.3.0 <span style="color:#6272a4"># 今いるプロジェクトだけバージョンを指定したい場合はこっち</span>
-</span></span><span style="display:flex;"><span>$ node -v <span style="color:#6272a4"># 確認</span>
-</span></span><span style="display:flex;"><span>$ npm update -g npm <span style="color:#6272a4"># npm のバージョンアップ</span>
-</span></span><span style="display:flex;"><span>$ npm -v <span style="color:#6272a4"># 確認</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ asdf plugin add helm       <span style="color:#6272a4"># Node.jsプラグインを追加</span>
+</span></span><span style="display:flex;"><span>$ asdf list-all nodejs       <span style="color:#6272a4"># インストールできるNode.jsのバージョンを確認</span>
+</span></span><span style="display:flex;"><span>$ asdf install nodejs 23.5.0 <span style="color:#6272a4"># バージョンを指定してインストール</span>
+</span></span><span style="display:flex;"><span>$ asdf global nodejs 23.5.0  <span style="color:#6272a4"># バージョンの切り替え</span>
+</span></span><span style="display:flex;"><span>$ node -v                    <span style="color:#6272a4"># Node.js のバージョン確認</span>
+</span></span><span style="display:flex;"><span>v23.5.0
+</span></span><span style="display:flex;"><span>$ npm install -g npm         <span style="color:#6272a4"># npm のバージョンアップ</span>
+</span></span><span style="display:flex;"><span>$ npm -v                     <span style="color:#6272a4"># npm のバージョン確認</span>
+</span></span><span style="display:flex;"><span>11.0.0
 </span></span></code></pre></div><h1 id="npmの使い方">npmの使い方</h1>
 <p>公式ドキュメントは<a href="https://docs.npmjs.com">ここ</a>。<br>
 プロキシの設定が必要な場合は以下。</p>
@@ -479,15 +479,10 @@ msmaflink({"n":"Node.js超入門 第3版 [ 掌田津耶乃 ]","b":"","t":"","d":
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/mean-stack-basics/" data-toggle="tooltip" data-placement="top" title="所謂MEANスタックを作る">&larr;
+                        <a href="/typescript-environment-basics/" data-toggle="tooltip" data-placement="top" title="TypeScript環境入門">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/nodejs-express-basics/" data-toggle="tooltip" data-placement="top" title="Express入門">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 

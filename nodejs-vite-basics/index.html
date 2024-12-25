@@ -17,9 +17,9 @@
     
 
     
-    <meta name="title" content="TypeScript環境入門 | ぺーぺーSEのブログ" />
-    <meta property="og:title" content="TypeScript環境入門 | ぺーぺーSEのブログ" />
-    <meta property="twitter:title" content="TypeScript環境入門 | ぺーぺーSEのブログ" />
+    <meta name="title" content="Vite入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Vite入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Vite入門 | ぺーぺーSEのブログ" />
     
 
     
@@ -39,10 +39,10 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     
-    <title>TypeScript環境入門</title>
+    <title>Vite入門</title>
 
     
-    <link rel="canonical" href="https://blog.pepese.com/typescript-environment-basics/">
+    <link rel="canonical" href="https://blog.pepese.com/nodejs-vite-basics/">
     
 
     
@@ -209,7 +209,7 @@
                         </a>
                         
                     </div>
-                    <h1>TypeScript環境入門</h1>
+                    <h1>Vite入門</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
@@ -304,188 +304,73 @@
                 post-container">
 
                 
-                <p><strong>TypeScript</strong> について環境構築からトランスパイス、設定ファイルなどをまとめる。</p>
-<p>文法については触れない。また、前提の環境構築（ Node.js、npm ）は以下を参照。</p>
+                <p>JavaScript モジュールバンドラの <a href="https://ja.vite.dev/">Vite</a> についてまとめる。</p>
+<h1 id="vite-とは">Vite とは？</h1>
+<p>まず <strong>バンドル</strong> とは、複数のファイルを１つのファイルにまとめて出力することです。<br>
+ブラウザで実行される JavaScript は通常、複数の .js ファイルを 1 つのファイルにまとめて minify されています。<br>
+これを実現するツールを <strong>モジュールバンドラ</strong> と呼びます。<br>
+既存のモジュールバンドラには Webpack などが挙げられますが、 Vite には以下の特徴があります。</p>
 <ul>
-<li><a href="https://blog.pepese.com/nodejs-npm-basics/">Node.js・npm入門</a></li>
-</ul>
-<h1 id="環境構築">環境構築</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ node -v
-</span></span><span style="display:flex;"><span>v23.5.0
-</span></span><span style="display:flex;"><span>$ npm install -g npm
-</span></span><span style="display:flex;"><span>$ npm -v
-</span></span><span style="display:flex;"><span>11.0.0
-</span></span><span style="display:flex;"><span>$ npm install -g typescript
-</span></span><span style="display:flex;"><span>$ tsc -v
-</span></span><span style="display:flex;"><span>Version 5.7.2
-</span></span></code></pre></div><p>これで <code>tsc</code> コマンドを使って TypeScript の <code>.ts</code> ファイルをコンパイルできるようになる。</p>
-<h2 id="実行してみる">実行してみる</h2>
-<p>以下の <code>greeter.ts</code> ファイルを作成する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> greeter(person) {
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Hello, &#34;</span> <span style="color:#ff79c6">+</span> person;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> user <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;pepese&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>console.log(greeter(user));
-</span></span></code></pre></div><p>以下のコマンドでコンパイル〜実行まで。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tsc greeter.ts
-</span></span><span style="display:flex;"><span>$ node greeter.js
-</span></span><span style="display:flex;"><span>Hello, pepese
-</span></span></code></pre></div><h2 id="typescript-プロジェクトの作成">TypeScript プロジェクトの作成</h2>
-<p>まずは、プロジェクトのルートディレクトリで以下を実行すると <code>package.json</code> が作成されます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm init
-</span></span><span style="display:flex;"><span>This utility will walk you through creating a package.json file.
-</span></span><span style="display:flex;"><span>It only covers the most common items, and tries to guess sensible defaults.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>See <span style="color:#f1fa8c">`</span>npm <span style="color:#8be9fd;font-style:italic">help</span> init<span style="color:#f1fa8c">`</span> <span style="color:#ff79c6">for</span> definitive documentation on these fields
-</span></span><span style="display:flex;"><span>and exactly what they <span style="color:#ff79c6">do</span>.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Use <span style="color:#f1fa8c">`</span>npm install &lt;pkg&gt;<span style="color:#f1fa8c">`</span> afterwards to install a package and
-</span></span><span style="display:flex;"><span>save it as a dependency in the package.json file.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Press ^C at any <span style="color:#8be9fd;font-style:italic">time</span> to quit.
-</span></span><span style="display:flex;"><span>package name: <span style="color:#ff79c6">(</span>typescript-sample<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>version: <span style="color:#ff79c6">(</span>1.0.0<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>description:
-</span></span><span style="display:flex;"><span>entry point: <span style="color:#ff79c6">(</span>index.js<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">test</span> command:
-</span></span><span style="display:flex;"><span>git repository:
-</span></span><span style="display:flex;"><span>keywords:
-</span></span><span style="display:flex;"><span>author:
-</span></span><span style="display:flex;"><span>license: <span style="color:#ff79c6">(</span>ISC<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>type: <span style="color:#ff79c6">(</span>commonjs<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>About to write to /Users/tanakakns/workspace/temp/typescript-sample/package.json:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;typescript-sample&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;version&#34;</span>: <span style="color:#f1fa8c">&#34;1.0.0&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;main&#34;</span>: <span style="color:#f1fa8c">&#34;index.js&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;scripts&#34;</span>: <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;test&#34;</span>: <span style="color:#f1fa8c">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;author&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;license&#34;</span>: <span style="color:#f1fa8c">&#34;ISC&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;commonjs&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Is this OK? <span style="color:#ff79c6">(</span>yes<span style="color:#ff79c6">)</span> yes
-</span></span></code></pre></div><p>これで Node.js プロジェクトが作成されたので、以下を実行して TypeScript プロジェクトにします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tsc --init
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Created a new tsconfig.json with:
-</span></span><span style="display:flex;"><span>                                                                             TS
-</span></span><span style="display:flex;"><span>  target: es2016
-</span></span><span style="display:flex;"><span>  module: commonjs
-</span></span><span style="display:flex;"><span>  strict: <span style="color:#8be9fd;font-style:italic">true</span>
-</span></span><span style="display:flex;"><span>  esModuleInterop: <span style="color:#8be9fd;font-style:italic">true</span>
-</span></span><span style="display:flex;"><span>  skipLibCheck: <span style="color:#8be9fd;font-style:italic">true</span>
-</span></span><span style="display:flex;"><span>  forceConsistentCasingInFileNames: <span style="color:#8be9fd;font-style:italic">true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>You can learn more at https://aka.ms/tsconfig
-</span></span></code></pre></div><p><code>tsconfig.json</code> が作成されます。</p>
-<h1 id="設定ファイル">設定ファイル</h1>
-<p>TypeScriptの設定ファイルは <code>tsconfig.json</code> 。<br>
-<code>tsc</code> コマンドのオプションで様々設定できるが、設定ファイルがあればオプションを省略できる。</p>
-<p>簡単な設定ファイルを作成してみて実行を確認にしてみる。<br>
-カレントディレクトリに以下の <strong>tsconfig.json</strong> を作成して <code>$ tsc</code> を実行しみる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;compilerOptions&#34;</span><span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;baseUrl&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;outDir&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;dist&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;sourceMap&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>dist</code> ディレクトリが作成され、その配下に <code>greeter.js</code> と <code>greeter.js.map</code> が作成されていることがわかる。</p>
-<h2 id="tsconfigjson-のパラメータ"><strong>tsconfig.json</strong> のパラメータ</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;compilerOptions&#34;</span><span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;include&#34;</span><span style="color:#ff79c6">:</span> [
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;src/**/*&#34;</span>
-</span></span><span style="display:flex;"><span>  ],
-</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;exclude&#34;</span><span style="color:#ff79c6">:</span> [
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;node_modules&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;**/*.spec.ts&#34;</span>
-</span></span><span style="display:flex;"><span>  ]
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
-<li>compilerOptions
+<li>高速ビルド
 <ul>
-<li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">コンパイラ・オプション</a>を指定する</li>
-<li>省略するとデフォルト値になる</li>
+<li>ブラウザの Native ES Modulesを使用して、より高速なビルドを実現</li>
 </ul>
 </li>
-<li>include / exclude
+<li>高速ホットリロード
 <ul>
-<li>glob風のファイルパターンでコンパイル対象を指定できる
-<ul>
-<li><code>*</code> は0文字以上の文字にマッチ(ディレクトリ区切りを除く)</li>
-<li><code>?</code> は1文字以上の文字にマッチ(ディレクトリ区切りを除く)</li>
-<li><code>**/</code> はサブディレクトリに再帰的にマッチ</li>
-</ul>
-</li>
-<li>デフォルトで、<code>.ts</code> 、 <code>.tsx</code> 、<code>.d.ts</code> ファイルが対象で、 <code>compilerOptions</code> の <code>alloJs</code> パラメータががtrueの場合は <code>.js</code> と <code>.jsx</code> も対象になる</li>
+<li>HMR(Hot Module Replacement)のメカニズムをNative ES Modules上で実行して実現</li>
 </ul>
 </li>
 </ul>
-<h2 id="compileroptions-のパラメータ">compilerOptions のパラメータ</h2>
-<p><code>compilerOptions</code> 配下の代表的なパラメータは以下。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">パラメータ</th>
-<th style="text-align:left">説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">outDir</td>
-<td style="text-align:left">コンパイルしたコードの出力先。</td>
-</tr>
-<tr>
-<td style="text-align:left">baseUrl</td>
-<td style="text-align:left">コンパイル対象のファイルのベースディレクトリ。</td>
-</tr>
-<tr>
-<td style="text-align:left">sourceMap</td>
-<td style="text-align:left"><code>.map</code> ファイルを作成するか否か。</td>
-</tr>
-<tr>
-<td style="text-align:left">declaration</td>
-<td style="text-align:left"><code>.d.ts</code> ファイルを作成するか否か。</td>
-</tr>
-<tr>
-<td style="text-align:left">moduleResolution</td>
-<td style="text-align:left">モジュール参照の解決方法を指定。 <code>classic</code> （デフォルト）か <code>node</code> 。<a href="http://js.studio-kingdom.com/typescript/handbook/module_resolution">参考：モジュール解決</a></td>
-</tr>
-<tr>
-<td style="text-align:left">target</td>
-<td style="text-align:left">出力するECMAScriptのバージョンを指定。</td>
-</tr>
-<tr>
-<td style="text-align:left">lib</td>
-<td style="text-align:left">コンパイルに含めるライブラリを指定。 <code>ES5</code> 、 <code>ES6</code> 、 <code>ES2015</code> 、 <code>ES7</code> 、 <code>ES2016</code> 、 <code>ES2017</code> 、 <code>DOM</code> などを指定可能。</td>
-</tr>
-</tbody>
-</table>
-<p><code>typeRoots</code> 、 <code>types</code> については後述。</p>
-<p><a href="http://js.studio-kingdom.com/typescript/project_configuration/compiler_options">参考１</a>、<a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">参考２</a></p>
-<h3 id="型定義ファイルの指定">型定義ファイルの指定</h3>
-<p>型定義ファイルの指定には、 <code>compilerOptions</code> 配下の <code>typeRoots</code> 、 <code>types</code> で設定する。<br>
-デフォルトでは、 <code>node_modules/@types/</code> 配下の <code>.d.ts</code> ファイルが読み込まれる。<br>
-<code>typesRoots</code> が指定されている場合は、それに含まれるパッケージのみが対象となる。（つまり、 <code>/node_modules/@types/</code> 配下は読まれない。）<br>
-<code>types</code> が指定された場合、一覧に指定されたパッケージのみが含まれる。（ <code>@types</code> パッケージの自動インクルードが無効になる）<br>
-以下の場合は、 <code>node_modules/@types/node</code> 、 <code>node_modules/@types/lodash</code> 、 <code>node_modules/@types/express</code> のみが含まれる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>   <span style="color:#f1fa8c">&#34;compilerOptions&#34;</span><span style="color:#ff79c6">:</span> {
-</span></span><span style="display:flex;"><span>       <span style="color:#f1fa8c">&#34;types&#34;</span> <span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;node&#34;</span>, <span style="color:#f1fa8c">&#34;lodash&#34;</span>, <span style="color:#f1fa8c">&#34;express&#34;</span>]
-</span></span><span style="display:flex;"><span>   }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><a href="http://js.studio-kingdom.com/typescript/declaration_files/consumption">型定義ファイルの取得と使用方法</a></p>
+<p>ちなみに Vite（ヴィート）と発音するようです。<br>
+フロントエンド界隈でデファクトとなっている React の初期プロジェクトを作成する「create-react-app」は 2023 年春頃からメンテナンスが止まっています。<br>
+Vite には「create-react-app」の代替となる機能を有しており、その事もあって「Vite + React」の組み合わせが人気となっています。</p>
+<p>私見ですが、 Vite は React 以外にも他のフロントエンド開発にも対応していますので、本記事執筆時点では、JavaScript/TypeScript プロジェクトを作成する場合、とりあえず Vite を使えばいいのではないかと思います。</p>
+<h1 id="使い方">使い方</h1>
+<h2 id="プロジェクト作成">プロジェクト作成</h2>
+<p>Vite では以下のコマンドでプロジェクトを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm create vite@latest <span style="color:#ff79c6">[</span>プロジェクト名<span style="color:#ff79c6">]</span> -- --template <span style="color:#ff79c6">[</span>テンプレート<span style="color:#ff79c6">]</span>
+</span></span></code></pre></div><p><a href="https://github.com/vitejs/vite/tree/main/packages/create-vite">公式テンプレート</a> には以下のようなものがあります。<br>
+（ <code>-ts</code> とつくと TypeScript のプロジェクトになります。）</p>
+<ul>
+<li>vanilla / vanilla-ts
+<ul>
+<li>Vanilla JS のプロジェクト</li>
+</ul>
+</li>
+<li>vue / vue-ts
+<ul>
+<li>Vue.js のプロジェクト</li>
+</ul>
+</li>
+<li>react /react-ty
+<ul>
+<li>React のプロジェクト</li>
+</ul>
+</li>
+</ul>
+<p>話はずれますが、 Vanilla とは素の JavaScript を意味します。「バニラ」はアイスクリームのフレーバーの 1 つでもあり、「余分なものや装飾品のない、シンプルなもの」転じて退屈で地味な物事、を意味するようです。そのことから Vanilla は素の JavaScript というわけです。<br>
+Vanilla JS は、純粋な JavaScript またはプレーンな JavaScript と同義で、ライブラリやフレームワークなどの外部ツールを使用しません。<br>
+ここでは Vanilla JS を用いてプロジェクトを作成してみます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm create vite@latest vanilla-ts-sample -- --template vanilla-ts
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> vanilla-ts-sample
+</span></span><span style="display:flex;"><span>$ npm install
+</span></span><span style="display:flex;"><span>$ npm run dev
+</span></span></code></pre></div><p>また、 Vite には上記の公式テンプレートの他に <a href="https://github.com/vitejs/awesome-vite#templates">コミュニティが管理するテンプレート</a> も存在します。</p>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - node.js -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"Node.js超入門 第3版 [ 掌田津耶乃 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/2433\/9784798062433.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16353060\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3Jf72uu","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/haXJAD","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16353060\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"vtzlh","s":"s"});
+</script>
+<div id="msmaflink-vtzlh">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
 <h1 id="おすすめ記事">おすすめ記事</h1>
 <!-- プログラミング学習のすすめ -->
 <div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
@@ -498,13 +383,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/nodejs-vite-basics/" data-toggle="tooltip" data-placement="top" title="Vite入門">&larr;
+                        <a href="/aws-vpc-basics/" data-toggle="tooltip" data-placement="top" title="Amazon VPC入門">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/nodejs-npm-basics/" data-toggle="tooltip" data-placement="top" title="Node.js・npm入門">Next
+                        <a href="/typescript-environment-basics/" data-toggle="tooltip" data-placement="top" title="TypeScript環境入門">Next
                             Post &rarr;</a>
                     </li>
                     
