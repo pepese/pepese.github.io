@@ -47,21 +47,6 @@
     </item>
     
     <item>
-      <title>Node.js・npm入門</title>
-      <link>https://blog.pepese.com/nodejs-npm-basics/</link>
-      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/nodejs-npm-basics/</guid>
-      <description>&lt;p&gt;Node.js（npm）についてまとめる。&lt;/p&gt;
-&lt;p&gt;npm（Node Packege Manager）は、Node.js用のパッケージ管理コマンド。&lt;br&gt;
-JavaScriptエコシステムツール・ライブラリはnpmで導入できるものが多い。&lt;br&gt;
-npmはNode.jsと同時にインストールされるので、Node.jsを入れておけばいい。&lt;br&gt;
-また、Node.jsはJavaScriptの実行エンジン。&lt;/p&gt;
-&lt;p&gt;ちなみに&lt;a href=&#34;http://node.green&#34;&gt;ここ&lt;/a&gt;でNode.jsのES6対応状況がわかる。&lt;br&gt;
-v8.3.0で &lt;strong&gt;99%&lt;/strong&gt; カバーしている。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>所謂MEANスタックを作る</title>
       <link>https://blog.pepese.com/mean-stack-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
