@@ -6,16 +6,15 @@
     <description>Recent content in ec2 on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.pepese.com/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Amazon EC2入門</title>
       <link>https://blog.pepese.com/aws-ec2-basics/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-ec2-basics/</guid>
       <description>&lt;p&gt;Amazon EC2 は、AWS が提供する最もシンプルな仮想サーバです。&lt;br&gt;
 この記事では、 EC2 をざっくり理解できる概要を記載します。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,59 +6,63 @@
     <description>Recent content in node.js on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 25 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.pepese.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React入門</title>
+      <link>https://blog.pepese.com/nodejs-react-basics/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/nodejs-react-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ja.react.dev/&#34;&gt;React&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Next.js入門</title>
+      <link>https://blog.pepese.com/nodejs-nextjs-basics/</link>
+      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/nodejs-nextjs-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Node.js・npm入門</title>
       <link>https://blog.pepese.com/nodejs-npm-basics/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-npm-basics/</guid>
       <description>&lt;p&gt;Node.js（npm）についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>TypeScript環境入門</title>
       <link>https://blog.pepese.com/typescript-environment-basics/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/typescript-environment-basics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Vite入門</title>
       <link>https://blog.pepese.com/nodejs-vite-basics/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-vite-basics/</guid>
       <description>&lt;p&gt;JavaScript モジュールバンドラの &lt;a href=&#34;https://ja.vite.dev/&#34;&gt;Vite&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>New Relic APMをNode.jsに導入する</title>
       <link>https://blog.pepese.com/newrelic-apm-nodejs/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/newrelic-apm-nodejs/</guid>
       <description>&lt;p&gt;Node.js アプリケーションに New Relic APM を導入したのでメモとして記事に残します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>すべての**envを管理するanyenv</title>
       <link>https://blog.pepese.com/anyenv/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/anyenv/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
 「すべて」は言い過ぎかも。&lt;br&gt;
 インストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>形態素解析システムMeCab入門</title>
       <link>https://blog.pepese.com/python-mecab-basics/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-mecab-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://taku910.github.io/mecab/&#34;&gt;公式&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -68,12 +72,10 @@
 &lt;li&gt;Python3 から MeCab を使う&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
       <link>https://blog.pepese.com/nodejs-express-multer/</link>
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-multer/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
@@ -81,41 +83,33 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/expressjs/multer&#34;&gt;Multer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
       <link>https://blog.pepese.com/nodejs-express-browser-put-delete/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-browser-put-delete/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br&gt;
 通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br&gt;
 ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 &lt;em&gt;Node.js/Express側でPUT/DELETEリクエストとして解釈&lt;/em&gt; しているだけ。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.jsでDynamoDBへアクセスする</title>
       <link>https://blog.pepese.com/nodejs-dynamodb/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-dynamodb/</guid>
       <description>&lt;p&gt;Node.js から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・Expres・requestでHTTP(S)リクエストを発行する</title>
       <link>https://blog.pepese.com/nodejs-express-http-client/</link>
       <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-http-client/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
       <link>https://blog.pepese.com/nodejs-express-rdb-sequelize/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-rdb-sequelize/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
@@ -132,34 +126,27 @@
 &lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・Expressでユニットテスト</title>
       <link>https://blog.pepese.com/nodejs-express-test/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-test/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Express入門</title>
       <link>https://blog.pepese.com/nodejs-express-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-basics/</guid>
       <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>所謂MEANスタックを作る</title>
       <link>https://blog.pepese.com/mean-stack-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/mean-stack-basics/</guid>
       <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
 と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,16 +6,15 @@
     <description>Recent content in agile on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.pepese.com/tags/agile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>スクラム入門</title>
       <link>https://blog.pepese.com/agile-scrum-basics/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/agile-scrum-basics/</guid>
       <description>&lt;p&gt;スクラムはアジャイル開発の方法論の内の 1 つです。&lt;br&gt;
 この記事ではスクラムの入門として、ざっくり概要をご紹介します。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

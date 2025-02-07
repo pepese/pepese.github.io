@@ -6,579 +6,484 @@
     <description>Recent content on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 25 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>マルチランタイムバージョン管理ツールasdf</title>
+      <link>https://blog.pepese.com/asdf-basics/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/asdf-basics/</guid>
+      <description>&lt;p&gt;asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツールです。&lt;br&gt;
+この記事では、インストールから使い方の概要までをご紹介します。&lt;/p&gt;
+&lt;p&gt;なお、2025年1月30日にリリースされた v0.16.0 にて asdf は bash から golang に実装が変わり、仕様が変わっています。&lt;br&gt;
+本記事では、 v0.16.0 以降の情報で記載します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://asdf-vm.com/guide/upgrading-to-v0-16.html&#34;&gt;Getting Started (v0.15.xまで)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://asdf-vm.com/guide/getting-started.html&#34;&gt;Getting Started (v0.16.0以降)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://asdf-vm.com/guide/upgrading-to-v0-16.html&#34;&gt;Upgrading to 0.16.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>React入門</title>
+      <link>https://blog.pepese.com/nodejs-react-basics/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/nodejs-react-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ja.react.dev/&#34;&gt;React&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Next.js入門</title>
+      <link>https://blog.pepese.com/nodejs-nextjs-basics/</link>
+      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/nodejs-nextjs-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Node.js・npm入門</title>
       <link>https://blog.pepese.com/nodejs-npm-basics/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-npm-basics/</guid>
       <description>&lt;p&gt;Node.js（npm）についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>TypeScript環境入門</title>
       <link>https://blog.pepese.com/typescript-environment-basics/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/typescript-environment-basics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; について環境構築からトランスパイス、設定ファイルなどをまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Vite入門</title>
       <link>https://blog.pepese.com/nodejs-vite-basics/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-vite-basics/</guid>
       <description>&lt;p&gt;JavaScript モジュールバンドラの &lt;a href=&#34;https://ja.vite.dev/&#34;&gt;Vite&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Amazon VPC入門</title>
       <link>https://blog.pepese.com/aws-vpc-basics/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-vpc-basics/</guid>
       <description>&lt;p&gt;Amazon VPC は、 AWS が提供する仮想ネットワークサービスです。&lt;br&gt;
 この記事では、Amazon VPC をざっくり理解できる概要と作成例について記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Visual Studio CodeでJavaの開発環境を作成する</title>
       <link>https://blog.pepese.com/java-vscode-environment/</link>
       <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/java-vscode-environment/</guid>
       <description>&lt;p&gt;Visual Studio Code (以降 VSCode) は多くのプログラミング言語に対応した強力なコードエディターです。&lt;br&gt;
 この記事では、Java、Maven、VSCodeのインストール・設定・使い方について記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Amazon ElastiCache for Redisの認証トークンの設定・変更</title>
       <link>https://blog.pepese.com/aws-elasticache-redis-auth-token/</link>
       <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-elasticache-redis-auth-token/</guid>
       <description>&lt;p&gt;Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。&lt;br&gt;
 この記事では、Amazon ElastiCache for Redisの認証トークンの設定・変更方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>マルチランタイムバージョン管理ツールasdf</title>
-      <link>https://blog.pepese.com/asdf-basics/</link>
-      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.pepese.com/asdf-basics/</guid>
-      <description>&lt;p&gt;asdfはプログラミング言語やCLIのマルチランタイムバージョン管理ツールです。&lt;br&gt;
-この記事では、インストールから使い方の概要までをご紹介します。&lt;/p&gt;</description>
-    </item>
-    
     <item>
       <title>New Relic APMをNode.jsに導入する</title>
       <link>https://blog.pepese.com/newrelic-apm-nodejs/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/newrelic-apm-nodejs/</guid>
       <description>&lt;p&gt;Node.js アプリケーションに New Relic APM を導入したのでメモとして記事に残します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>REST API設計について整理してみた</title>
       <link>https://blog.pepese.com/design-rest-api/</link>
       <pubDate>Thu, 12 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/design-rest-api/</guid>
       <description>&lt;p&gt;REST APIはWeb APIで最も利用されるAPI設計のうちの 1 つです。&lt;br&gt;
 この記事では、REST APIを設計する際の方針や命名などについての概要をまとめます。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Amazon EC2入門</title>
       <link>https://blog.pepese.com/aws-ec2-basics/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-ec2-basics/</guid>
       <description>&lt;p&gt;Amazon EC2 は、AWS が提供する最もシンプルな仮想サーバです。&lt;br&gt;
 この記事では、 EC2 をざっくり理解できる概要を記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>TerraformでECSのBlue/GreenデプロイをApp Meshでやってみる</title>
       <link>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</link>
       <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</guid>
       <description>&lt;p&gt;Amazon ECSはAWS独自のコンテナ実行・管理サービス、AWS App MeshはAmazon EKSでも利用できるサービスメッシュのサービスです。&lt;br&gt;
 この記事では、TerraformでECS+App Meshを構築し、Blue/Greenデプロイメントを実現する方法について記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>macOSにおけるzshの設定</title>
       <link>https://blog.pepese.com/zsh-settings/</link>
       <pubDate>Sun, 24 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/zsh-settings/</guid>
       <description>&lt;p&gt;Mac OS Catalinaから標準シェルがzshになっています。&lt;br&gt;
 この記事では、Macにおけるzshの設定について説明します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>asdfで利用できるJavaのディストリビューション</title>
       <link>https://blog.pepese.com/java-asdf-distribution/</link>
       <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/java-asdf-distribution/</guid>
       <description>&lt;p&gt;asdf は複数のプログラミング言語ランタイムおよびそのバージョンを管理することができるツールです。&lt;br&gt;
 この記事では、 asdf で利用できる Java のディストリビューションついて記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Terraform Modulesで環境を分割・切り替える</title>
       <link>https://blog.pepese.com/terraform-modules-env/</link>
       <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/terraform-modules-env/</guid>
       <description>&lt;p&gt;Terraform Modulesはソースコードをモジュール化することでテンプレートとして使うことができるようになる機能です。&lt;br&gt;
 この記事では、Terraform Modulesを利用した本番・検証などの環境分割・切り替えの方法についてご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Terraformの命名規則</title>
       <link>https://blog.pepese.com/terraform-naming/</link>
       <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/terraform-naming/</guid>
       <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
 この記事では、筆者が利用しているTerraformの命名規則をご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Terraform入門</title>
       <link>https://blog.pepese.com/terraform-basics/</link>
       <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/terraform-basics/</guid>
       <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
 この記事では、Terraformのインストールから使い方までをご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Amazon Auroraのバックアップ・リストア</title>
       <link>https://blog.pepese.com/aws-aurora-backup-restore/</link>
       <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-aurora-backup-restore/</guid>
       <description>&lt;p&gt;Amazon AuroraはAWSが提供するMySQL・PostgreSQL互換の高性能なリレーショナルデータベースサービスです。&lt;br&gt;
 この記事では、Amazon Auroraのバックアップ・リストアの方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Amazon ElastiCache for Redisのバックアップ・リストア</title>
       <link>https://blog.pepese.com/aws-elasticache-redis-backup-restore/</link>
       <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-elasticache-redis-backup-restore/</guid>
       <description>&lt;p&gt;Amazon ElastiCache for RedisはAWSが提供するRedis互換の高性能なインメモリデータストアサービスです。&lt;br&gt;
 この記事では、Amazon ElastiCache for Redisのバックアップ・リストアの方法を Terraform の設定を交えてご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Go言語の文法入門</title>
       <link>https://blog.pepese.com/golang-grammar/</link>
       <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-grammar/</guid>
       <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
 この記事ではGo言語の基本文法を概ね理解できる内容を記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Visual Studio CodeでGo言語の開発環境を作成する</title>
       <link>https://blog.pepese.com/golang-vscode-environment/</link>
       <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-vscode-environment/</guid>
       <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
 この記事ではGo開発環境の設定から使い方までを記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Amazon ElastiCache for Redisのクラスターモード</title>
       <link>https://blog.pepese.com/aws-elasticache-redis-cluster-mode/</link>
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-elasticache-redis-cluster-mode/</guid>
       <description>&lt;p&gt;Amazon ElastiCache for Redisのクラスターモードについて、個人的に理解に苦労しました。&lt;br&gt;
 この記事では、Amazon ElastiCache for Redisのクラスターモードを説明しつつ Terraform での設定方法について紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Redis入門</title>
       <link>https://blog.pepese.com/redis-basics/</link>
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/redis-basics/</guid>
       <description>&lt;p&gt;Redisは永続化可能なインメモリデータベースで、オープンソースのBSDライセンスで公開されています。&lt;br&gt;
 この記事ではRedisの概要から基本的な機能までをご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>スクラム入門</title>
       <link>https://blog.pepese.com/agile-scrum-basics/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/agile-scrum-basics/</guid>
       <description>&lt;p&gt;スクラムはアジャイル開発の方法論の内の 1 つです。&lt;br&gt;
 この記事ではスクラムの入門として、ざっくり概要をご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>プログラミング学習のすすめ</title>
       <link>https://blog.pepese.com/article-programing-learning/</link>
       <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/article-programing-learning/</guid>
       <description>&lt;p&gt;プログラミング未経験者・初心者の方で、プログラミングスキルを上げるメリット、上げたいけど何をしていいか分からない、どうすれば上達するのか？と考えている人向けの記事です。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>転職活動のすすめ</title>
       <link>https://blog.pepese.com/article-job-changing/</link>
       <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/article-job-changing/</guid>
       <description>&lt;p&gt;ITエンジニアをしていて、特段現状に不満はないものの一抹の不安を抱える方は多いかと思います。&lt;br&gt;
 この記事では、今すぐ転職だ！とまではいかないものの、転職活動に興味のあるITエンジニアの方に向けて、転職活動の意義に関して筆者の考えをご紹介したいと思います。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DyanamoDB入門</title>
       <link>https://blog.pepese.com/aws-dynamodb-basics/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-dynamodb-basics/</guid>
       <description>&lt;p&gt;DynamoDB は AWS が提供する NoSQL データベースです。&lt;br&gt;
 この記事では、DynamoDB ざっくり理解できるよう概要と AWS CLI でのアクセスについて記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AWS IAM入門</title>
       <link>https://blog.pepese.com/aws-iam-basics/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-iam-basics/</guid>
       <description>&lt;p&gt;AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。&lt;br&gt;
 この記事では、AWS IAM をざっくり理解できるよう概要を記載します。（強制 MFA についても記載しています。）&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Spring Frameworkのアノテーションとプロジェクト構造</title>
       <link>https://blog.pepese.com/java-springframework-annotation-project-structure/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/java-springframework-annotation-project-structure/</guid>
       <description>&lt;p&gt;Spring Frameworkは、Java言語のWebアプリケーションフレームワークのデファクトスタンダードです。&lt;br&gt;
 非常に便利なのですが、アノテーションの種類が多く混乱しがちです。&lt;br&gt;
 この記事ではアノテーションの一覧と機能概要、プロジェクトでの利用例をご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Google Cloud のための Terraform 環境構築</title>
       <link>https://blog.pepese.com/terraform-googlecloud-environment/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/terraform-googlecloud-environment/</guid>
       <description>&lt;p&gt;Terraformは、IaC（Infrastructure as Code）を実現するツールの 1 つです。&lt;br&gt;
 この記事ではTerraformを使ってGoogle CloudのIaC環境構築についてご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Go言語のデザインパターン</title>
       <link>https://blog.pepese.com/golang-design-pattern/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-design-pattern/</guid>
       <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
 また、デザインパターンとは、様々なプログラムで再利用できる汎用的な設計パターンのことです。&lt;br&gt;
 この記事では一般的なデザインパターンではなく、Go言語らしい書き方やパターンについて紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Go言語の命名規則</title>
       <link>https://blog.pepese.com/golang-naming/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-naming/</guid>
       <description>&lt;p&gt;Go言語はGoogleが開発・公開しているプログラミング言語の 1 つです。&lt;br&gt;
 コード記述の簡潔さ・理解しやすさと、プログラム実行速度やリソース効率の両立を目指しています。&lt;br&gt;
 この記事ではGoの命名規則をご紹介します。リーダブルコードを目指しましょう。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Gitローカル環境のアカウント・認証情報設定</title>
       <link>https://blog.pepese.com/git-environment-auth-settings/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/git-environment-auth-settings/</guid>
       <description>&lt;p&gt;Git は分散型バージョン管理システムの定番です。&lt;br&gt;
 この記事では、Git ローカル環境のアカウント・認証情報の設定方法について記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Go Modules入門</title>
       <link>https://blog.pepese.com/golang-modules-basics/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-modules-basics/</guid>
       <description>&lt;p&gt;Go Modules は、依存関係管理ツールです。&lt;br&gt;
 この記事では、Go Modules の概要と使い方を記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Dockerfile入門</title>
       <link>https://blog.pepese.com/docker-dockerfile-basics/</link>
       <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/docker-dockerfile-basics/</guid>
       <description>&lt;p&gt;Dockerfile は Docker イメージを作成する際の手順・命令を記したテキストファイルです。&lt;br&gt;
 この記事では、 Dockerfile の基本的な書き方とマルチステージビルドなどのベストプラクティスについて記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AWS Lambda入門</title>
       <link>https://blog.pepese.com/aws-lambda-basics/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-lambda-basics/</guid>
       <description>&lt;p&gt;AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。&lt;br&gt;
 この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AWS WAFまとめ</title>
       <link>https://blog.pepese.com/aws-waf-basics/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-waf-basics/</guid>
       <description>&lt;p&gt;AWS WAF は、 AWS が提供する Web Application Firewall サービスです。&lt;br&gt;
 この記事では、AWS WAF をざっくり理解できる概要について記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AWS CLI入門</title>
       <link>https://blog.pepese.com/aws-cli-basics/</link>
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-cli-basics/</guid>
       <description>&lt;p&gt;AWS CLI は AWS リソースの操作を行う Command Line Interface (CLI) ツールです。&lt;br&gt;
 AWS のマネージメントコンソールをボチボチする代わりにコマンドを叩くイメージです。&lt;br&gt;
 この記事では、AWS CLI のインストールと設定で役立つ情報（MFA・多要素認証など）を紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ethereum入門</title>
       <link>https://blog.pepese.com/cryptocurrency-ethereum-basics/</link>
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/cryptocurrency-ethereum-basics/</guid>
       <description>&lt;p&gt;Ethereumは代表的な仮想通貨の1つです。&lt;br&gt;
 この記事では、Ethereumの値動きやチャートなどではなく、エンジニア向けの技術的な内容について記載します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>仮想通貨（暗号資産）入門</title>
       <link>https://blog.pepese.com/cryptocurrency-basics/</link>
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/cryptocurrency-basics/</guid>
       <description>&lt;p&gt;仮想通貨（暗号資産）についてブロックチェーンも交えて紹介する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Google Cloud と AWS の比較</title>
       <link>https://blog.pepese.com/googlecloud-aws-comparison/</link>
       <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/googlecloud-aws-comparison/</guid>
       <description>&lt;p&gt;Google Cloud と AWS それぞれの特徴と比較について記載する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>git-flowとコンフリクトの解消</title>
       <link>https://blog.pepese.com/git-flow-fix-conflict/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/git-flow-fix-conflict/</guid>
       <description>&lt;p&gt;git-flowの概要とマージ時のコンフリクトの解消についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Gitコマンド整理</title>
       <link>https://blog.pepese.com/git-commands/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/git-commands/</guid>
       <description>&lt;p&gt;Gitコマンドの整理と必要な概念について記載する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Git入門</title>
       <link>https://blog.pepese.com/git-basics/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/git-basics/</guid>
       <description>&lt;p&gt;Git 環境構築からGithubの使い方なども含めたメモ。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Homebrew入門</title>
       <link>https://blog.pepese.com/mac-homebrew-basics/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/mac-homebrew-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://brew.sh/index_ja.html&#34;&gt;Homebrew&lt;/a&gt;についてまとめる。&lt;br&gt;
 HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフトウェアを簡単にインストールできる。&lt;br&gt;
 インストールから使い方までまとめてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Macで開発環境を作る</title>
       <link>https://blog.pepese.com/mac-dev-environment/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/mac-dev-environment/</guid>
       <description>&lt;p&gt;ITエンジニアの方でMacを開発環境で利用されている方は多いと思います。&lt;br&gt;
 この記事では、Macで開発環境を作成する際に筆者が実施することをご紹介します。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Visual Studio Code入門</title>
       <link>https://blog.pepese.com/vscode-basics/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/vscode-basics/</guid>
       <description>&lt;p&gt;Microsoft が開発したエディタ&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;（以降、 VS Code ）のインストールから拡張機能の導入までをまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>すべての**envを管理するanyenv</title>
       <link>https://blog.pepese.com/anyenv/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/anyenv/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/riywo/anyenv&#34;&gt;anyenv&lt;/a&gt;は、renvやpyenvなどスクリプト言語のバージョン管理を行うツール類（所謂、 **env）を管理するツール。&lt;br&gt;
 「すべて」は言い過ぎかも。&lt;br&gt;
 インストールから簡単な使い方まで記載する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>KindでIstio環境を構築する</title>
       <link>https://blog.pepese.com/kubernetes-kind-istio/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/kubernetes-kind-istio/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://kind.sigs.k8s.io/&#34;&gt;kind&lt;/a&gt; は &lt;strong&gt;K&lt;/strong&gt;ubernetes &lt;strong&gt;in&lt;/strong&gt; &lt;strong&gt;D&lt;/strong&gt;ocker の略。文字通り、Docker上にKubernetes環境を構築する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>gRPC/Protocol Buffers入門</title>
       <link>https://blog.pepese.com/grpc-protocolbuffers-basics/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/grpc-protocolbuffers-basics/</guid>
       <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://grpc.io/&#34;&gt;gRPC&lt;/a&gt;/&lt;a href=&#34;https://developers.google.com/protocol-buffers&#34;&gt;Protocol Buffers&lt;/a&gt; に入門する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Helm入門</title>
       <link>https://blog.pepese.com/kubernetes-helm-basics/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/kubernetes-helm-basics/</guid>
       <description>&lt;p&gt;今更ながら &lt;a href=&#34;https://github.com/helm/helm&#34;&gt;Helm&lt;/a&gt; に入門する。（ &lt;a href=&#34;https://helm.sh/docs/&#34;&gt;公式ドキュメント&lt;/a&gt; ）&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hugo入門</title>
       <link>https://blog.pepese.com/hugo-basics/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/hugo-basics/</guid>
       <description>&lt;p&gt;Hugo に入門する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Goで文字列操作</title>
       <link>https://blog.pepese.com/golang-string/</link>
       <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-string/</guid>
       <description>&lt;p&gt;golang の文字列操作をまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Goでソート</title>
       <link>https://blog.pepese.com/golang-sort/</link>
       <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-sort/</guid>
       <description>&lt;p&gt;Golang におけるソートについてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Goでファイル入出力</title>
       <link>https://blog.pepese.com/golang-file-io/</link>
       <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-file-io/</guid>
       <description>&lt;p&gt;golang のファイル入出力についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Goの変数・型・定数・リテラル</title>
       <link>https://blog.pepese.com/golang-var-type-const-literal/</link>
       <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/golang-var-type-const-literal/</guid>
       <description>&lt;p&gt;golang の変数・型・定数・リテラルについてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Istio入門</title>
       <link>https://blog.pepese.com/kubernetes-istio-basics/</link>
       <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/kubernetes-istio-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://istio.io/&#34;&gt;Istio&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kubernetesのアーキテクチャ整理</title>
       <link>https://blog.pepese.com/kubernetes-architecture/</link>
       <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/kubernetes-architecture/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; （ &lt;strong&gt;k8s&lt;/strong&gt; ）のアーキテクチャについて整理する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Jupyter Notebook入門</title>
       <link>https://blog.pepese.com/jupyter-notebook-basics/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/jupyter-notebook-basics/</guid>
       <description>&lt;p&gt;Jupyter Notebook 、ついでに JupyterHub について軽くまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Nginx入門</title>
       <link>https://blog.pepese.com/nginx-basics/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nginx-basics/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;インストール&lt;/li&gt;
@@ -586,45 +491,37 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
 &lt;li&gt;各種設定&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Pandas入門 DataFrame編</title>
       <link>https://blog.pepese.com/python-pandas-dataframe/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-pandas-dataframe/</guid>
       <description>&lt;p&gt;Python ライブラリである Pandas の DataFrame についてまとめる。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Pythonでデータ分析入門</title>
       <link>https://blog.pepese.com/python-data-analytics-basics/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-data-analytics-basics/</guid>
       <description>&lt;p&gt;Python でのデータ分析環境・アプローチについて自分向けにまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Word2vec入門</title>
       <link>https://blog.pepese.com/python-word2vec-basics/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-word2vec-basics/</guid>
       <description>&lt;p&gt;Mecab については以下を参考。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/python-mecab-basics/&#34;&gt;形態素解析システムMeCab入門&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>形態素解析システムMeCab入門</title>
       <link>https://blog.pepese.com/python-mecab-basics/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-mecab-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://taku910.github.io/mecab/&#34;&gt;公式&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -634,82 +531,66 @@ HomebrewはMac用のaptやyumのようなパッケージマネージャ。ソフ
 &lt;li&gt;Python3 から MeCab を使う&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Androidアプリ入門 Macで環境構築編</title>
       <link>https://blog.pepese.com/android-env-on-mac/</link>
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/android-env-on-mac/</guid>
       <description>&lt;p&gt;Mac で Android アプリを開発する際の環境構築についてまとめる。&lt;br&gt;
 なお、プログラミング言語は &lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; を選択する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Appium入門</title>
       <link>https://blog.pepese.com/appium-basics/</link>
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/appium-basics/</guid>
       <description>&lt;p&gt;Appium は Selenium WebDriver の一種で、ネイティブアプリの自動テストを可能にする。&lt;br&gt;
 Node.js 上でサーバーとして動作し、HTTP 経由で WebDriver API を通して操作を受け付けるという仕組み。&lt;br&gt;
 Appium の背後には iOS 用, Android 用, Win 用などのドライバがある。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>SDKMAN入門</title>
       <link>https://blog.pepese.com/sdkman-basics/</link>
       <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/sdkman-basics/</guid>
       <description>&lt;p&gt;Java 系の バージョン管理ツール &lt;a href=&#34;http://sdkman.io/index.html&#34;&gt;SDKMAN&lt;/a&gt; をさわってみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Heroku入門</title>
       <link>https://blog.pepese.com/heroku-basics/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/heroku-basics/</guid>
       <description>&lt;p&gt;Heroku は salesforce が運営する PaaS 。&lt;br&gt;
 Free プランではクレカ登録無しで月に 550 dyno hours （約 23 日分、 1 ヶ月分無い）、クレカ登録すると月に 1000 dyno hours を無料で利用できる。&lt;br&gt;
 Free プランの落とし穴は、 30 分アクセスが無いとインスタンス（ dyno ）が Sleep してしまうところ。　　
 以下、 Free プランでアカウントを取得している前提で記載する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Virtualenv入門</title>
       <link>https://blog.pepese.com/python-virtualenv-basics/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-virtualenv-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://virtualenv.pypa.io/en/stable/&#34;&gt;Virtualenv&lt;/a&gt; についてかるくまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pythonで機械学習 レコメンド編</title>
       <link>https://blog.pepese.com/python-ml-recommendation/</link>
       <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-ml-recommendation/</guid>
       <description>&lt;p&gt;代表的なレコメンドアルゴリズムと Python での実装をまとめる。&lt;br&gt;
 スクラッチではなく、できるだけライブラリ（ &lt;a href=&#34;http://surpriselib.com/&#34;&gt;scikit-surprise&lt;/a&gt; ）を利用する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>LINEチャットボットをFlaskとngrokで</title>
       <link>https://blog.pepese.com/line-chatbot-ngrok/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/line-chatbot-ngrok/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; と &lt;a href=&#34;https://ngrok.com/&#34;&gt;ngrok&lt;/a&gt; でメッセージをオウム返しする LINE のチャットボットを作ってみた。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・Express・Multerでファイルアップロード・ダウンロード</title>
       <link>https://blog.pepese.com/nodejs-express-multer/</link>
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-multer/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションへファイルアップロードしてみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
@@ -717,50 +598,40 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 &lt;li&gt;&lt;a href=&#34;https://github.com/expressjs/multer&#34;&gt;Multer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
       <link>https://blog.pepese.com/nodejs-express-browser-put-delete/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-browser-put-delete/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションに対してブラウザからPUT/DELETEリクエストを発行する方法について記載する。&lt;br&gt;
 通常、ブラウザからPUT/DELETEリクエストは発行できない。&lt;br&gt;
 ここで紹介する方法も実際にブラウザからPUT/DELETEリクエストを発行しているのではなく、 &lt;em&gt;Node.js/Express側でPUT/DELETEリクエストとして解釈&lt;/em&gt; しているだけ。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>JavaでDynamoDBへアクセスする</title>
       <link>https://blog.pepese.com/java-dynamodb/</link>
       <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/java-dynamodb/</guid>
       <description>&lt;p&gt;Java から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.jsでDynamoDBへアクセスする</title>
       <link>https://blog.pepese.com/nodejs-dynamodb/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-dynamodb/</guid>
       <description>&lt;p&gt;Node.js から DynamoDB にアクセスしてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・Expres・requestでHTTP(S)リクエストを発行する</title>
       <link>https://blog.pepese.com/nodejs-express-http-client/</link>
       <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-http-client/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからHTTP(S)を発行してみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・ExpressでブラウザからPUT・DELETEリクエストを発行する</title>
       <link>https://blog.pepese.com/nodejs-express-rdb-sequelize/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-rdb-sequelize/</guid>
       <description>&lt;p&gt;Node.js/ExpressアプリケーションからRDBへ接続してみる。&lt;br&gt;
 使用するツール・ライブラリは以下。&lt;/p&gt;
@@ -777,50 +648,40 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 &lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Node.js・Expressでユニットテスト</title>
       <link>https://blog.pepese.com/nodejs-express-test/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-test/</guid>
       <description>&lt;p&gt;Node.js/Expressアプリケーションのテストをしてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Angular入門</title>
       <link>https://blog.pepese.com/angular-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/angular-basics/</guid>
       <description>&lt;p&gt;フロントエンドMVCフレームワーク &lt;strong&gt;Angular&lt;/strong&gt; （所謂Angular4）を触ってみた。&lt;br&gt;
 ここでは &lt;a href=&#34;https://github.com/angular/angular-cli&#34;&gt;Angular CLI&lt;/a&gt; を使う。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Express入門</title>
       <link>https://blog.pepese.com/nodejs-express-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/nodejs-express-basics/</guid>
       <description>&lt;p&gt;Node.jsのWebフレームワーク &lt;code&gt;Express&lt;/code&gt; 触ってみた。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>所謂MEANスタックを作る</title>
       <link>https://blog.pepese.com/mean-stack-basics/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/mean-stack-basics/</guid>
       <description>&lt;p&gt;Angular（所謂Angular4）でMEANスタックのアプリを作成してみる。&lt;br&gt;
 と言いつつMongoDBについてはほぼ言及しない。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pythonで機械学習 精度評価編</title>
       <link>https://blog.pepese.com/python-ml-metrics-score/</link>
       <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-ml-metrics-score/</guid>
       <description>&lt;p&gt;ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。&lt;/p&gt;
 &lt;ul&gt;
@@ -829,78 +690,62 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 &lt;li&gt;精度の向上&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Pythonで機械学習 SVMで多クラス分類問題編</title>
       <link>https://blog.pepese.com/python-ml-svm-multiclass/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-ml-svm-multiclass/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;多クラス分類問題&lt;/strong&gt; を解いてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pythonで機械学習 K Meansでクラスタリング編</title>
       <link>https://blog.pepese.com/python-ml-k-means-clustering/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-ml-k-means-clustering/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pythonで機械学習 SVMで2クラス分類問題編</title>
       <link>https://blog.pepese.com/python-ml-svm-2class/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-ml-svm-2class/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;2クラス分類問題&lt;/strong&gt; を解いてみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pythonで機械学習 データセット編</title>
       <link>https://blog.pepese.com/python-ml-datasets/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-ml-datasets/</guid>
       <description>&lt;p&gt;機械学習で利用するデータセットを紹介する。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Cognitoを使ってユーザ認証して画面遷移するAngularアプリ</title>
       <link>https://blog.pepese.com/angular-router-cognito/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/angular-router-cognito/</guid>
       <description>&lt;p&gt;以下の記事で紹介したCognitoで認証するAngularアプリにAngular Routerで画面遷移ロジックを加えたアプリを作成する。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/angular-cognito/&#34;&gt;Cognitoを使ってAngularアプリからユーザ認証する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Cognitoを使ってAngularアプリからユーザ認証する</title>
       <link>https://blog.pepese.com/angular-cognito/</link>
       <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/angular-cognito/</guid>
       <description>&lt;p&gt;Amazon Cognito を使ってユーザ認証ができる Angular アプリを作成してみる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Atomのインストールとパッケージの導入</title>
       <link>https://blog.pepese.com/atom-install-packages/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/atom-install-packages/</guid>
       <description>&lt;p&gt;Githubが開発したエディタ&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;のインストールからパッケージの導入までをまとめる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ブログ移転時に気をつけること</title>
       <link>https://blog.pepese.com/blog-move/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/blog-move/</guid>
       <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br&gt;
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
@@ -912,12 +757,10 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 &lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br&gt;
 ブログ全体の移転の話ではないことに注意。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hexoで作ったブログをGithub Pagesで公開</title>
       <link>https://blog.pepese.com/hexo-github-pages/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/hexo-github-pages/</guid>
       <description>&lt;p&gt;はてなブログが一向に &lt;em&gt;https&lt;/em&gt; 対応しないし、そのほかのリスクも考えて流行りの &lt;strong&gt;静的サイトジェネレータ&lt;/strong&gt; の &lt;a href=&#34;https://hexo.io/&#34;&gt;HEXO&lt;/a&gt; を使ってブログを作成し、&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;で公開してみる。&lt;br&gt;
 前提として &lt;strong&gt;npm&lt;/strong&gt; と &lt;strong&gt;Git&lt;/strong&gt; 環境が必要なため以下参照。&lt;/p&gt;
@@ -925,34 +768,27 @@ Free プランの落とし穴は、 30 分アクセスが無いとインスタ�
 &lt;li&gt;&lt;a href=&#34;https://blog.pepese.com/mac-dev-environment/&#34;&gt;https://blog.pepese.com/mac-dev-environment/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>matplotlib入門</title>
       <link>https://blog.pepese.com/python-matplotlib-basics/</link>
       <pubDate>Sun, 18 Sep 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/python-matplotlib-basics/</guid>
       <description>&lt;p&gt;matplotlibはMATLABライクにグラフを描画できるライブラリ。&lt;br&gt;
 PyPlot『matplotlib.pyplot』モジュールの簡単な関数呼び出しでグラフを描画できる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>About Me</title>
       <link>https://blog.pepese.com/top/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/top/about/</guid>
       <description>ぺーぺーSEです。 某IT企業のソフトウェアアーキテクト兼クラウドエンジニアやってます。</description>
     </item>
-    
     <item>
       <title>アーカイブ</title>
       <link>https://blog.pepese.com/top/archive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/top/archive/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -6,15 +6,14 @@
     <description>Recent content in kind on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/kind/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.pepese.com/tags/kind/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>KindでIstio環境を構築する</title>
       <link>https://blog.pepese.com/kubernetes-kind-istio/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/kubernetes-kind-istio/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://kind.sigs.k8s.io/&#34;&gt;kind&lt;/a&gt; は &lt;strong&gt;K&lt;/strong&gt;ubernetes &lt;strong&gt;in&lt;/strong&gt; &lt;strong&gt;D&lt;/strong&gt;ocker の略。文字通り、Docker上にKubernetes環境を構築する。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

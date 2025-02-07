@@ -615,53 +615,53 @@
 <p>インターフェースに SLF4J 、実装に Logback を利用します。<br>
 SpringBoot の場合は依存に含まれているため、特に POM への追加は必要ありません。<br>
 LoggerFactory に「クラス」or「名前」を指定することで取得できますが、基本は「クラス」になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.Logger<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.LoggerFactory<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.Logger;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.LoggerFactory;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// クラス
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Logger log <span style="color:#ff79c6">=</span> LoggerFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLogger</span><span style="color:#ff79c6">(</span>LoggerTest<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.Logger<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.LoggerFactory<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// クラス</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Logger log <span style="color:#ff79c6">=</span> LoggerFactory.<span style="color:#50fa7b">getLogger</span>(LoggerTest.<span style="color:#50fa7b">class</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.Logger;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.LoggerFactory;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 名前
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Logger log <span style="color:#ff79c6">=</span> LoggerFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLogger</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;MyLogger.test&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 名前</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Logger log <span style="color:#ff79c6">=</span> LoggerFactory.<span style="color:#50fa7b">getLogger</span>(<span style="color:#f1fa8c">&#34;MyLogger.test&#34;</span>);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Lombok の <code>@Slf4j</code> アノテーションをクラスに付与すれば <code>log</code> というフィールドで利用可能になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>@Slf4j
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> {
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>ログメッセージに <code>{}</code> を記述すると <strong>プレースフォルダー</strong> として利用できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> num1 <span style="color:#ff79c6">=</span> 1234<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> num2 <span style="color:#ff79c6">=</span> 5678<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;この数値は{}と{}です。&#34;</span><span style="color:#ff79c6">,</span> num1<span style="color:#ff79c6">,</span> num2<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 20:00:33 DEBUG - この数値は1234と5678です。
-</span></span></span></code></pre></div><p>Filter などで MDC に項目を追加できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.MDC<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.springframework.web.filter.OncePerRequestFilter<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> num1 <span style="color:#ff79c6">=</span> 1234;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> num2 <span style="color:#ff79c6">=</span> 5678;
+</span></span><span style="display:flex;"><span>log.<span style="color:#50fa7b">debug</span>(<span style="color:#f1fa8c">&#34;この数値は{}と{}です。&#34;</span>, num1, num2);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 20:00:33 DEBUG - この数値は1234と5678です。</span>
+</span></span></code></pre></div><p>Filter などで MDC に項目を追加できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.MDC;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.springframework.web.filter.OncePerRequestFilter;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>@Slf4j
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggingFilter</span> <span style="color:#8be9fd;font-style:italic">extends</span> OncePerRequestFilter <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggingFilter</span> <span style="color:#8be9fd;font-style:italic">extends</span> OncePerRequestFilter {
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">LoggingFilter</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">LoggingFilter</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">super</span>();
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  @Override
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doFilterInternal</span><span style="color:#ff79c6">(</span>HttpServletRequest request<span style="color:#ff79c6">,</span> HttpServletResponse response<span style="color:#ff79c6">,</span> FilterChain filterChain<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    String httpmethod <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getMethod</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    MDC<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;httpMethod&#34;</span><span style="color:#ff79c6">,</span> httpmethod<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// HTTPメソッドをログに追加
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>      filterChain<span style="color:#ff79c6">.</span><span style="color:#50fa7b">doFilter</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">,</span> response<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">finally</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doFilterInternal</span>(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) <span style="color:#8be9fd;font-style:italic">throws</span> ServletException, IOException {
+</span></span><span style="display:flex;"><span>    String httpmethod <span style="color:#ff79c6">=</span> request.<span style="color:#50fa7b">getMethod</span>();
+</span></span><span style="display:flex;"><span>    MDC.<span style="color:#50fa7b">put</span>(<span style="color:#f1fa8c">&#34;httpMethod&#34;</span>, httpmethod); <span style="color:#6272a4">// HTTPメソッドをログに追加</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span> {
+</span></span><span style="display:flex;"><span>      filterChain.<span style="color:#50fa7b">doFilter</span>(request, response);
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">finally</span> {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Logback の設定ファイルは <code>src/main/resources/logback.xml</code> です。</p>
 <h1 id="おすすめ書籍">おすすめ書籍</h1>
 <!-- ad link - amazon/rakuten books - springboot -->
@@ -956,6 +956,8 @@ msmaflink({"n":"Javaによる高速Webアプリケーション開発のための
                         
                         
                         
+                        
+                        
                         <a href="/tags/node.js" title="node.js">
                             node.js
                         </a>
@@ -985,6 +987,12 @@ msmaflink({"n":"Javaによる高速Webアプリケーション開発のための
                         </a>
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
                         
                         
                         
@@ -1144,7 +1152,7 @@ msmaflink({"n":"Javaによる高速Webアプリケーション開発のための
              </li>
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; ぺーぺーSEのブログ 2024
+                    Copyright &copy; ぺーぺーSEのブログ 2025
                 </p>
             </div>
         </div>

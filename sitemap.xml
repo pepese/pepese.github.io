@@ -2,14 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.pepese.com/tags/asdf/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/asdf-basics/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/javascript/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/node.js/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/react/</loc>
+    <lastmod>2024-12-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/nodejs-react-basics/</loc>
+    <lastmod>2024-12-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/typescript/</loc>
+    <lastmod>2024-12-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/next.js/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/nodejs-nextjs-basics/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/nodejs-npm-basics/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
@@ -17,25 +50,10 @@
     <loc>https://blog.pepese.com/tags/npm/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/typescript/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/typescript-environment-basics/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/nodejs-vite-basics/</loc>
-    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/aws-vpc-basics/</loc>
@@ -62,9 +80,6 @@
     <loc>https://blog.pepese.com/aws-elasticache-redis-auth-token/</loc>
     <lastmod>2022-06-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/asdf/</loc>
-    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/elasticache/</loc>
     <lastmod>2022-06-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -72,9 +87,6 @@
     <lastmod>2022-06-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/terraform/</loc>
-    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/asdf-basics/</loc>
     <lastmod>2022-06-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/newrelic-apm-nodejs/</loc>

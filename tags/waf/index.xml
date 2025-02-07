@@ -6,16 +6,15 @@
     <description>Recent content in waf on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/waf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.pepese.com/tags/waf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS WAFまとめ</title>
       <link>https://blog.pepese.com/aws-waf-basics/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.pepese.com/aws-waf-basics/</guid>
       <description>&lt;p&gt;AWS WAF は、 AWS が提供する Web Application Firewall サービスです。&lt;br&gt;
 この記事では、AWS WAF をざっくり理解できる概要について記載します。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
