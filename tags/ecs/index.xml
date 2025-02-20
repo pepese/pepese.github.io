@@ -6,8 +6,15 @@
     <description>Recent content in ecs on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.pepese.com/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ECSのアーキテクチャパターン</title>
+      <link>https://blog.pepese.com/aws-ecs-architecture-pattern/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/aws-ecs-architecture-pattern/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/jp/builders-flash/202409/web-app-architecture-design-pattern/&#34;&gt;Web アプリケーションにおける Amazon ECS / AWS Fargate アーキテクチャデザインパターン&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>TerraformでECSのBlue/GreenデプロイをApp Meshでやってみる</title>
       <link>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</link>
