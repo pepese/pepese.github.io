@@ -309,6 +309,8 @@
 <h2 id="インストール">インストール</h2>
 <p>本記事では Homebrew を利用してインストールします。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install asdf
+</span></span></code></pre></div><p><code>~/.zshrc</code> に以下を追記します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">PATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">ASDF_DATA_DIR</span><span style="color:#ff79c6">:-</span><span style="color:#8be9fd;font-style:italic">$HOME</span>/.asdf<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">/shims:</span><span style="color:#8be9fd;font-style:italic">$PATH</span><span style="color:#f1fa8c">&#34;</span>
 </span></span></code></pre></div><h2 id="アップデート">アップデート</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew upgrade asdf
 </span></span></code></pre></div><p>Homebrew 以外の場合は <a href="https://asdf-vm.com/manage/core.html#update">こちら</a> を参照してください。<br>
