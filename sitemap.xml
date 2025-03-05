@@ -2,28 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.pepese.com/aws-cloudfront-basics/</loc>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/tags/aws/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/cloudfront/</loc>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/ecs/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/aws-ecs-architecture-pattern/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/asdf/</loc>

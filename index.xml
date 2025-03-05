@@ -6,8 +6,16 @@
     <description>Recent content on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.pepese.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon CloudFront入門</title>
+      <link>https://blog.pepese.com/aws-cloudfront-basics/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.pepese.com/aws-cloudfront-basics/</guid>
+      <description>&lt;p&gt;Amazon CloudFront は、 エッジサービスを提供するサービスです。&lt;br&gt;
+この記事では、Amazon CloudFront をざっくり理解できる概要と使い方を記載します。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>ECSのアーキテクチャパターン</title>
       <link>https://blog.pepese.com/aws-ecs-architecture-pattern/</link>
