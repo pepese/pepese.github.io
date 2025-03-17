@@ -2,28 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.pepese.com/tags/asdf/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/git/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/homebrew/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/java/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/mac/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/mac-dev-environment/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/maven/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/post/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/sdkman/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/tags/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/categories/tech/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.pepese.com/</loc>
+    <lastmod>2025-03-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.pepese.com/aws-cloudfront-basics/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/aws/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/categories/</loc>
-    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/tags/cloudfront/</loc>
-    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/post/</loc>
-    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/</loc>
-    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/categories/tech/</loc>
-    <lastmod>2025-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/ecs/</loc>
@@ -31,9 +55,6 @@
   </url><url>
     <loc>https://blog.pepese.com/aws-ecs-architecture-pattern/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/asdf/</loc>
-    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/asdf-basics/</loc>
     <lastmod>2025-02-07T00:00:00+00:00</lastmod>
@@ -76,12 +97,6 @@
   </url><url>
     <loc>https://blog.pepese.com/tags/vpc/</loc>
     <lastmod>2024-12-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/java/</loc>
-    <lastmod>2024-12-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/maven/</loc>
-    <lastmod>2024-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/java-vscode-environment/</loc>
     <lastmod>2024-12-11T00:00:00+00:00</lastmod>
@@ -127,9 +142,6 @@
   </url><url>
     <loc>https://blog.pepese.com/aws-ecs-appmesh-blue-green-terraform/</loc>
     <lastmod>2022-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/mac/</loc>
-    <lastmod>2022-04-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/zsh-settings/</loc>
     <lastmod>2022-04-24T00:00:00+00:00</lastmod>
@@ -227,9 +239,6 @@
     <loc>https://blog.pepese.com/golang-naming/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/git/</loc>
-    <lastmod>2022-04-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/git-environment-auth-settings/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
@@ -290,13 +299,7 @@
     <loc>https://blog.pepese.com/git-basics/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.pepese.com/tags/homebrew/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.pepese.com/mac-homebrew-basics/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/mac-dev-environment/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/ndenv/</loc>
@@ -312,9 +315,6 @@
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/tags/ruby/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.pepese.com/tags/sdkman/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.pepese.com/vscode-basics/</loc>
