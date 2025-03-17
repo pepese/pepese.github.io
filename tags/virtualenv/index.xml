@@ -6,14 +6,15 @@
     <description>Recent content in virtualenv on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 07 Dec 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/virtualenv/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/virtualenv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Virtualenv入門</title>
       <link>https://blog.pepese.com/python-virtualenv-basics/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-virtualenv-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://virtualenv.pypa.io/en/stable/&#34;&gt;Virtualenv&lt;/a&gt; についてかるくまとめる。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

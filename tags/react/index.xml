@@ -6,21 +6,24 @@
     <description>Recent content in react on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React入門</title>
       <link>https://blog.pepese.com/nodejs-react-basics/</link>
       <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/nodejs-react-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ja.react.dev/&#34;&gt;React&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Next.js入門</title>
       <link>https://blog.pepese.com/nodejs-nextjs-basics/</link>
       <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/nodejs-nextjs-basics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt; についてまとめる。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

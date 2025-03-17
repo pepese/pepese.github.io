@@ -6,15 +6,16 @@
     <description>Recent content in vpc on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/vpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/vpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Amazon VPC入門</title>
       <link>https://blog.pepese.com/aws-vpc-basics/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/aws-vpc-basics/</guid>
       <description>&lt;p&gt;Amazon VPC は、 AWS が提供する仮想ネットワークサービスです。&lt;br&gt;
 この記事では、Amazon VPC をざっくり理解できる概要と作成例について記載します。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

@@ -1,3 +1,1341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="og:image:secure_url" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="twitter:image" content="https://blog.pepese.com/img/yaruwo.jpg" />
+    
+
+    
+    <meta name="title" content="Gitコマンド整理 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Gitコマンド整理 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Gitコマンド整理 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="Gitの理解に必要な概念とコマンドの使い方について。">
+    <meta property="og:description" content="Gitの理解に必要な概念とコマンドの使い方について。" />
+    <meta property="twitter:description" content="Gitの理解に必要な概念とコマンドの使い方について。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="Git">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>Gitコマンド整理</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.comgit-commands/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
 
 
 
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article/">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive//">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                    </div>
+                    <h1>Gitコマンド整理</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2022-03-27
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Gitコマンドの整理と必要な概念について記載する。</p>
+<h1 id="環境設定">環境設定</h1>
+<ul>
+<li><code>git init</code>
+<ul>
+<li>ローカルリポジトリの作成</li>
+</ul>
+</li>
+<li><code>git config</code>
+<ul>
+<li>Gitクライアントの設定</li>
+<li><code>--global</code> で全体に反映される設定、 <code>--local</code> で個別プロジェクトに反映される設定</li>
+<li><code>--global</code> と <code>--local</code> でどう項目で設定値が異なる場合、 <code>--local</code> が優先される</li>
+</ul>
+</li>
+<li><code>git remote</code>
+<ul>
+<li><code>git init</code> した後にリモートリポジトリの設定を行う</li>
+</ul>
+</li>
+</ul>
+<h1 id="gitの保存領域">Gitの保存領域</h1>
+<p>Gitの以下の保存領域がある。</p>
+<ul>
+<li><strong>ワーキングディレクトリ</strong> / <strong>ワークツリー</strong>
+<ul>
+<li>作業スペース。編集中のファイルがある。</li>
+</ul>
+</li>
+<li><strong>ステージングエリア</strong> / <strong>インデックス</strong>
+<ul>
+<li>コミットする内容をた保存するスペース。</li>
+</ul>
+</li>
+<li><strong>ローカルリポジトリ</strong>
+<ul>
+<li>コミットするとステージングエリアの内容が保存される。</li>
+<li>開発者のローカルPCに作成される領域。</li>
+</ul>
+</li>
+<li><strong>リモートリポジトリ</strong>
+<ul>
+<li>ローカル以外のすべてのリモートリポジトリ。</li>
+<li>githubなどが代表例。</li>
+</ul>
+</li>
+</ul>
+<h1 id="変更を保存する">変更を保存する</h1>
+<p>ファイルの変更は、 <strong>ワーキングディレクトリ</strong> -&gt; <strong>ステージングエリア</strong> -&gt; <strong>ローカルリポジトリ</strong> -&gt; <strong>リモートリポジトリ</strong> と段階的に保存することができる。<br>
+以下のコマンドで実行できる。</p>
+<ul>
+<li><code>git add &lt;file_name&gt;</code> / <code>git add &lt;file_name&gt; &lt;file_name&gt; ...</code> / <code>git add --all</code>
+<ul>
+<li>所謂、 <strong>ステージング</strong></li>
+<li><strong>ワーキングディレクトリ</strong> の変更を <strong>ステージングエリア</strong> へ保存する</li>
+<li><code>--all</code> オプションでワーキングディレクトリの全ての変更をステージング</li>
+</ul>
+</li>
+<li><code>git commit</code>
+<ul>
+<li>所謂、 <strong>コミット</strong></li>
+<li><strong>ステージングエリア</strong> の変更を <strong>ローカルリポジトリ</strong> へ保存する</li>
+<li>コミット時にはコミットメッセージを記載する必要がある（ <code>-m</code> オプションで指定可能）</li>
+<li>この際、 <strong>コミットID</strong> が払い出される</li>
+</ul>
+</li>
+<li><code>git push</code>
+<ul>
+<li><strong>ローカルリポジトリ</strong> の変更を <strong>リモートリポジトリ</strong> に保存する</li>
+</ul>
+</li>
+</ul>
+<h2 id="コミットid">コミットID</h2>
+<p>コミットを実行した際、そのコミットの変更に対して40桁の一意なIDが払い出される。<br>
+これが <strong>コミットID</strong> 。（以降、 <code>&lt;commit_id&gt;</code> とも表現）<br>
+このコミットIDには以下のようなエイリアスが用意されている。</p>
+<ul>
+<li><code>HEAD</code>
+<ul>
+<li>最新のコミットID</li>
+</ul>
+</li>
+<li><code>HEAD^</code>
+<ul>
+<li><code>HEAD</code> の1つ前のコミットID</li>
+</ul>
+</li>
+<li><code>HEAD^^</code>
+<ul>
+<li><code>HEAD</code> の2つ前のコミットID</li>
+</ul>
+</li>
+</ul>
+<h2 id="保存対象からファイルを除外する">保存対象からファイルを除外する</h2>
+<ul>
+<li><code>git rm</code>
+<ul>
+<li><strong>ワーキングディレクトリ</strong> にあるファイルと <strong>ステージングエリア</strong> のファイルを削除する</li>
+</ul>
+</li>
+</ul>
+<h1 id="変更の状況を確認する">変更の状況を確認する</h1>
+<ul>
+<li><code>git status</code>
+<ul>
+<li><strong>ワーキングディレクトリ</strong> と <strong>ステージングエリア</strong> の変更状況・差分を確認することができる</li>
+<li>以下のような状態がある
+<ul>
+<li><code>Untracked files:</code>
+<ul>
+<li><strong>ステージングエリア</strong> にも <strong>ローカルリポジトリ</strong> にもこれまで存在していない <strong>ワーキングディレクトリ</strong> に存在するファイル</li>
+</ul>
+</li>
+<li><code>Changes not staged for commit:</code>
+<ul>
+<li>これまで <strong>ステージングエリア</strong> 、 <strong>ローカルリポジトリ</strong> に存在していたファイル</li>
+<li><code>modified:</code> は変更が加えられたがステージングされていないファイル</li>
+<li><code>deleted:</code> は削除されたがステージングされていないファイル</li>
+</ul>
+</li>
+<li><code>Changes to be committed:</code>
+<ul>
+<li><strong>ステーイング</strong> されているが、 <strong>ローカルリポジトリ</strong> に反映されていないファイル</li>
+<li><code>modified:</code> は変更が加えられたがコミットされていないファイル</li>
+<li><code>deleted:</code> は削除されたがコミットされていないファイル</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>git diff</code>
+<ul>
+<li><strong>ステージングエリア</strong> と <strong>ローカルリポジトリ</strong> を比較することができる。</li>
+<li>ファイルの中身の差分まで確認することができる。</li>
+</ul>
+</li>
+<li><code>git diff &lt;branch_name&gt; &lt;branch_name&gt;</code>
+<ul>
+<li>ブランチ間の差分を確認することができる</li>
+<li><code>git fetch</code> してマージしていない状態で <code>git diff main origin/main</code> を実行すると、「現在のローカルリポジトリのmain」と「リモートリポジトリの最新のmain」の状態を比較することができる</li>
+</ul>
+</li>
+<li><code>git log</code>
+<ul>
+<li>コミットによるローカルリポジトリの変更履歴を表示する</li>
+<li>コミットID、編集者、変更内容などが表示される</li>
+</ul>
+</li>
+</ul>
+<h1 id="変更を戻す">変更を戻す</h1>
+<ul>
+<li><code>git clean</code>
+<ul>
+<li><strong>ステージング</strong> していない <strong>ワーキングディレクトリ</strong> の変更を戻す</li>
+<li><strong>ワーキングディレクトリ</strong> を <strong>ステージングエリア</strong> の状態と同じにする</li>
+</ul>
+</li>
+<li><code>git commit --amend</code>
+<ul>
+<li>最新のコミットをやり直す</li>
+<li>最新のコミットを削除して、現在のステージングエリアの状態で際コミットする</li>
+<li>「コミットメッセージを間違えた」「コミットにファイルを含め忘れた」際などに使用
+<ul>
+<li>ステージングエリアの状態をやり直したい状態にした後、実行する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>git reset &lt;commit_id&gt;</code>
+<ul>
+<li>指定したコミットID以降のコミットをなかったことにする</li>
+<li>後述の <code>git revert</code> は打消し処理も履歴として残る（コミットID以降のコミットをなかったことにしない）が、 <code>git reset</code> はコミットID以降の履歴を削除してしまう</li>
+<li><code>&lt;commit_id&gt;</code> を省略した場合は <code>HEAD</code> を指定したことになる</li>
+<li>例： <code>git reset --hard HEAD^</code> ：現在のブランチのHEADを１つ前の状態・位置にし、 <code>HEAD^</code> 以降のコミットは削除されワーキングディレクトリの状態も戻る</li>
+<li>例： <code>git reset &lt;commit id&gt;</code> ：現在のブランチの位置を <code>&lt;commit id&gt;</code> まで戻しつつステージングエリアもそのときの状態に戻す、ワーキングディレクトリはそのまま、 <code>--hard</code> をつけるとワーキングディレクトリも戻る</li>
+</ul>
+</li>
+</ul>
+<p>resetには「 <strong>soft</strong> 」、「 <strong>mixed</strong> 」（デフォルト）、「 <strong>hard</strong> 」の３つのモードがありそれぞれ下表のようになる。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">モード（オプション）</th>
+<th style="text-align:center">HEADの位置</th>
+<th style="text-align:center">ステージングエリア</th>
+<th style="text-align:center">ワーキングディレクトリ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>--soft</code></td>
+<td style="text-align:center">変更する</td>
+<td style="text-align:center">変更しない</td>
+<td style="text-align:center">変更しない</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>--mixed</code></td>
+<td style="text-align:center">変更する</td>
+<td style="text-align:center">変更する</td>
+<td style="text-align:center">変更しない</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>--hard</code></td>
+<td style="text-align:center">変更する</td>
+<td style="text-align:center">変更する</td>
+<td style="text-align:center">変更する</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>git reset &lt;file&gt;</code>
+<ul>
+<li>ステージングエリアに追加されたファイルの変更をステージングエリアから削除する、ワーキングディレクトリはそのまま（モードは <code>--mixed</code> なので）</li>
+<li>あるステージングエリアのファイルの状態をローカルリポジトリの <code>HEAD</code> と同じ状態にする、という意味</li>
+</ul>
+</li>
+<li><code>git revert &lt;commit id&gt;</code> <strong>※ reset とは違うよ！！</strong>
+<ul>
+<li>指定コミットで加えられた変更を打ち消し、元に戻す新しいをコミットを生成・適用する</li>
+<li><code>git reset</code> はコミット履歴を削除するが、 <code>git revert</code> は「指定のコミットIDで加えられた変更を元に戻すための新たなコミット」を実行するので、これまでのコミット履歴は残り、且つ、「指定のコミットIDの変更を打ち消すための新たなコミット」が実行される</li>
+</ul>
+</li>
+<li><code>git checkout &lt;commit id&gt; [&lt;file_name&gt;]</code>
+<ul>
+<li><strong>ワーキングディレクトリ</strong> が指定した <strong>ローカルリポジトリ</strong> のコミット時の状態と同じになる</li>
+<li><strong>ステージングエリア</strong> の保存状態が削除されることに注意</li>
+<li><code>git checkout -- .</code> で <strong>ワーキングティレクトリ</strong> の状態が <strong>HEAD</strong> の状態になる</li>
+</ul>
+</li>
+</ul>
+<h1 id="リモートリポジトリから変更データ情報を取得する">リモートリポジトリから変更データ・情報を取得する</h1>
+<ul>
+<li><code>git clone</code>
+<ul>
+<li>リモートリポジトリからローカルリポジトリを複製</li>
+<li><code>git clone --mirror</code>
+<ul>
+<li>リモートリポジトリのミラーリングを行う、バックアップに使う</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>git fetch</code>
+<ul>
+<li><strong>リモートリポジトリ</strong> から最新の変更を <strong>ローカルリポジトリ</strong> に取り込む</li>
+<li>ただし、ローカルリポジトリのブランチには取り込まれておらず、名前の無いブランチとして存在する</li>
+<li>マージして初めてローカルリポジトリのブランチにリモートリポジトリの変更が追加される</li>
+</ul>
+</li>
+<li><code>git merge &lt;repository&gt;/&lt;branch_name&gt;</code>
+<ul>
+<li><code>git fetch</code> で取得したリモートリポジトリの変更（ <code>&lt;repository&gt;/&lt;branch_name&gt;</code> ）をローカルリポジトリの現在のブランチへ反映する</li>
+</ul>
+</li>
+<li><code>git pull</code>
+<ul>
+<li>リモートリポジトリから変更を取得する（マージまで行う）</li>
+<li>「 <code>git fetch</code> + <code>git merge origin/main</code> 」に同じ</li>
+</ul>
+</li>
+</ul>
+<h2 id="main-と-originmain-の違い"><em>main</em> と <em>origin/main</em> の違い</h2>
+<p><em>main</em> はローカルリポジトリのmainブランチを指し、 <em>origin/main</em> はリモートリポジトリのmainブランチを指す。<br>
+ただし、 <em>origin/main</em> はリモートリポジトリと結びついているブランチであって、ローカルに存在する。<br>
+<code>git fetch</code> することによって、ローカルの <em>origin/main</em> が更新される。<br>
+つまり、 <code>git fetch</code> した後に <code>git merge origin/main</code> すると、「ローカルの <em>main</em> ブランチに最新状態に更新した <em>origin/main</em> の変更をマージする」ということになる。</p>
+<h2 id="cherry-pick">cherry-pick</h2>
+<p>現在何らかのブランチで作業していて、「あのブランチのあのコミットだけほしい。。。」と思ったとする。<br>
+こんなとき <strong>cherry-pick</strong> という方法がある。<br>
+リモートリポジトリから情報を取得し、欲しいコミットのコミットIDを指定して現在のブランチに取り込む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git fetch
+</span></span><span style="display:flex;"><span>$ git cherry-pick &lt;commit_id&gt;
+</span></span></code></pre></div><h1 id="ブランチ操作">ブランチ操作</h1>
+<ul>
+<li><code>git branch</code>
+<ul>
+<li>ブランチの一覧を表示する</li>
+<li>現在のブランチには「 <strong>*</strong> 」がつく</li>
+</ul>
+</li>
+<li><code>git branch &lt;branch_name&gt;</code>
+<ul>
+<li>ブランチを作成する</li>
+<li>現在のブランチの現在のリビジョンで作成される</li>
+</ul>
+</li>
+<li><code>git branch -d &lt;branch_name&gt;</code>
+<ul>
+<li>ローカルのブランチを削除する</li>
+</ul>
+</li>
+<li><code>git push -d origin &lt;branch_name&gt;</code>
+<ul>
+<li>リモートのブランチを削除する</li>
+</ul>
+</li>
+<li><code>git checkout &lt;branch_name&gt;</code>
+<ul>
+<li>現在のブランチを指定したブランチに切り替える</li>
+<li>ワーキングディレクトリも指定したブランチの状態になる</li>
+</ul>
+</li>
+<li><code>git branch &lt;branch_name&gt;/&lt;revision&gt;</code>
+<ul>
+<li>現在のブランチを指定したブランチとリビジョンの状態に切り替える</li>
+<li>ワーキングディレクトリも指定した状態になる</li>
+</ul>
+</li>
+<li><code>git checkout -b &lt;branch_name&gt;</code>
+<ul>
+<li>現在のブランチを指定したブランチに切り替える</li>
+<li>ブランチが存在しない場合は新規作成される</li>
+<li>ただし、 <strong>現在のブランチのワーキングディレクトリの状態が、移動先ブランチのワーキングディレクトリに反映</strong> される
+<ul>
+<li>コード修正し始めたけど、新しいブランチ作りたくなったときなどに便利</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="ブランチ間の変更の取り込み">ブランチ間の変更の取り込み</h1>
+<p>ブランチ間の変更の取り込みには、 <strong>マージ</strong> と <strong>リベース</strong> がある。<br>
+どちらを使うかは悩ましい。。。</p>
+<h2 id="マージ">マージ</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git merge &lt;branch_name&gt;
+</span></span></code></pre></div><p>2つのブランチを合流・結合させることを <strong>マージ</strong> という。</p>
+<h3 id="マージの種類">マージの種類</h3>
+<p>マージには <strong>Fast-forwardマージ</strong> 、<strong>non Fast-forwardマージ</strong> 、 <strong>Recursiveマージ</strong> などがある。</p>
+<h4 id="fast-forwardマージ">Fast-forwardマージ</h4>
+<p>mainブランチの開発に対してバグが見つかり、このmainブランチのHEADからbugfixブランチを作成して修正用のコミットを実行したとする。<br>
+さらにこの時、bugfixブランチにはコミットを実施したが、mainブランチにはコミットを実行していなかったとする。<br>
+この状況で <code>git checkout main</code> の後 <code>git merge bugfix</code> を実行すると「mainブランチのHEAD」は単に「bugfixブランチのHEAD」に移動する。mainブランチとbugfixブランチは枝分かれしておらず、コミットログは1本でbugfixブランチが存在した歴史が残らない。<br>
+これを <strong>Fast-forwardマージ</strong> という。<br>
+デフォルトではこのマージ方法となっており、オプションで明記する場合は <code>--ff</code> 。</p>
+<h4 id="non-fast-forwardマージ">non Fast-forwardマージ</h4>
+<p>上記と同じ状況で、mainブランチに対して「bugfixブランヂに加えられた変更」のコミットを追加する方法を <strong>non Fast-forwardマージ</strong> といい <code>git merge --no-ff bugfix</code> を実行することで実現される。<br>
+mainブランチとbugfixブランチは枝分かれしており、コミットログもまた分岐していて、bugfixブランチが存在した歴史が残る。<br>
+マージはこちらが推奨される。オプションで指定せず、デフォルトを変更する方法は以下。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git config --global --add merge.ff <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span>$ git config --global --add pull.ff only <span style="color:#6272a4"># pullの時は --no-ff を除外</span>
+</span></span></code></pre></div><h4 id="recursiveマージ">Recursiveマージ</h4>
+<p>mainブランチの開発に対してバグが見つかり、このmainブランチのHEADからbugfixブランチを作成して修正用のコミットを実行したとする。<br>
+さらにこの時、mainブランチには別のコミットが実行されていたとする。<br>
+この状況で <code>git checkout main</code> の後 <code>git merge bugfix</code> を実行すると、mainブランチに対して「bugfixブランチに加えられた変更」が追加され、mainブランチのHEADはマージで加えられた変更の状態まで移動する。<br>
+mainブランチとbugfixブランチは枝分かれして、合流する。<br>
+これを <strong>Recursiveマージ</strong> という。</p>
+<h2 id="リベース">リベース</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git rebase &lt;branch_name&gt;
+</span></span></code></pre></div><p>「2つのブランチを合流・結合させること」をマージというのに対し、「他方のブランチの変更を、一方のブランチの最新のコミットへ移動して変更分を取り込んで、コミットの履歴を一本化すること」を <strong>リベース</strong> という。<br>
+マージは「ブランチが枝分かれして合流」するが、リベースは「ブランチが枝分かれせず一本化」される。</p>
+<h1 id="その他の操作">その他の操作</h1>
+<ul>
+<li><code>git tag</code>
+<ul>
+<li>タグを作成する</li>
+</ul>
+</li>
+<li><code>git blame &lt;file_name&gt;</code>
+<ul>
+<li>対象ファイルを行単位で誰がいつ修正したのか表示</li>
+</ul>
+</li>
+<li><code>git stash</code>
+<ul>
+<li>コミットしていない変更を一時的に保存してブランチを切り替える</li>
+</ul>
+</li>
+</ul>
+<h1 id="直前に戻したい">直前に戻したい</h1>
+<p>直前に戻したい系だけ、まとめる。</p>
+<h2 id="ワーキングディレクトリを直前に戻したい">ワーキングディレクトリを直前に戻したい</h2>
+<ul>
+<li><code>git clean</code>
+<ul>
+<li><strong>ワーキングディレクトリ</strong> が <strong>ステージングエリア</strong> の状態に戻る</li>
+</ul>
+</li>
+<li><code>git checkout -- .</code>
+<ul>
+<li><strong>ワーキングディレクトリ</strong> が <code>HEAD</code> の状態に戻る</li>
+</ul>
+</li>
+</ul>
+<h2 id="ステージングエリアを直前に戻したい">ステージングエリアを直前に戻したい</h2>
+<ul>
+<li><code>git reset HEAD</code>
+<ul>
+<li><strong>ステージングエリア</strong> が <code>HEAD</code> の状態に戻る</li>
+</ul>
+</li>
+<li><code>git reset --hard HEAD</code>
+<ul>
+<li><strong>ステージングエリア</strong> / <strong>ワーキングディレクトリ</strong> が <code>HEAD</code> の状態に戻る</li>
+</ul>
+</li>
+</ul>
+<h2 id="ローカルリポジトリを直前に戻したい">ローカルリポジトリを直前に戻したい</h2>
+<ul>
+<li><code>git reset --soft HEAD~</code>
+<ul>
+<li><strong>ローカルリポジトリ</strong> だけ <code>HEAD</code> の1つ前の状態に戻る</li>
+</ul>
+</li>
+<li><code>git reset HEAD~</code> / <code>git reset --mixed HEAD~</code>
+<ul>
+<li><strong>ローカルリポジトリ</strong> / <strong>ステージングエリア</strong> が <code>HEAD</code> の1つ前の状態に戻る</li>
+</ul>
+</li>
+<li><code>git reset --hard HEAD~</code>
+<ul>
+<li><strong>ローカルリポジトリ</strong> / <strong>ステージングエリア</strong> / <strong>ワーキングディレクトリ</strong> が <code>HEAD</code> の1つ前の状態に戻る</li>
+</ul>
+</li>
+<li><code>HEAD</code> の代わりに <code>origin/&lt;branch_name&gt;</code> にするとリモートリポジトリの最新の状態になる</li>
+</ul>
+<h2 id="リモートリポジトリを直前に戻したい">リモートリポジトリを直前に戻したい</h2>
+<ul>
+<li><code>git revert &lt;commit id&gt;</code>
+<ul>
+<li>指定の <code>&lt;commit id&gt;</code> の状態へ変更する新規コミットを打つ</li>
+</ul>
+</li>
+</ul>
+<h1 id="-と-"><code>^</code> と <code>~</code></h1>
+<p><code>^</code> と <code>~</code> はちょっと違う。</p>
+<ul>
+<li><code>HEAD^</code> と <code>HEAD~</code>
+<ul>
+<li><code>HEAD</code> の1つ前</li>
+</ul>
+</li>
+<li><code>HEAD^^^</code> と <code>HEAD~~~</code> と <code>HEAD~3</code>
+<ul>
+<li><code>HEAD</code> の3つ前</li>
+<li><code>HEAD^3</code> は違うので注意！</li>
+</ul>
+</li>
+<li><code>@</code>
+<ul>
+<li>git v1.8.5 から <code>HEAD</code> のエイリアス</li>
+</ul>
+</li>
+</ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - git -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"動かして学ぶ！Git入門 （NEXT ONE） [ 冨永 和人 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/0855\/9784798170855_1_28.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16833788\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3x9e0yQ","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hMvEIy","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16833788\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"slVJL","s":"s"});
+</script>
+<div id="msmaflink-slVJL">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/git-basics/" data-toggle="tooltip" data-placement="top" title="Git入門">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/git-flow-fix-conflict/" data-toggle="tooltip" data-placement="top" title="git-flowとコンフリクトの解消">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ecs" title="ecs">
+                            ecs
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

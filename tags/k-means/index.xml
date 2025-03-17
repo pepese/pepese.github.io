@@ -6,14 +6,15 @@
     <description>Recent content in k-means on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 05 Jul 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pythonで機械学習 K Meansでクラスタリング編</title>
       <link>https://blog.pepese.com/python-ml-k-means-clustering/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-ml-k-means-clustering/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

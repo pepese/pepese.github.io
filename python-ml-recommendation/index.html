@@ -1,3 +1,1277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="og:image:secure_url" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="twitter:image" content="https://blog.pepese.com/img/yaruwo.jpg" />
+    
+
+    
+    <meta name="title" content="Pythonで機械学習 レコメンド編 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Pythonで機械学習 レコメンド編 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Pythonで機械学習 レコメンド編 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。">
+    <meta property="og:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    <meta property="twitter:description" content="ぺーぺーSEがプログラミング（Go、Node.js、Python）、クラウド（AWS、Google Cloud）、Web構築などの経験・学習記録・おすすめ書籍などの情報を残すサイト。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="ぺーぺーSE, プログラミング, Go, Java, Node.js, Python, Kubernetes, Istio, おすすめ書籍">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>Pythonで機械学習 レコメンド編</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.com/python-ml-recommendation/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
 
 
 
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article/">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive//">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        <a class="tag" href="/tags/machine-learning" title="machine learning">
+                            machine learning
+                        </a>
+                        
+                        <a class="tag" href="/tags/scikit-surprise" title="scikit-surprise">
+                            scikit-surprise
+                        </a>
+                        
+                        <a class="tag" href="/tags/collaborative-filtering" title="collaborative filtering">
+                            collaborative filtering
+                        </a>
+                        
+                    </div>
+                    <h1>Pythonで機械学習 レコメンド編</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2017-11-26
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>代表的なレコメンドアルゴリズムと Python での実装をまとめる。<br>
+スクラッチではなく、できるだけライブラリ（ <a href="http://surpriselib.com/">scikit-surprise</a> ）を利用する。</p>
+<h1 id="レコメンドアルゴリズム">レコメンドアルゴリズム</h1>
+<ul>
+<li>ポピュラリティ
+<ul>
+<li>所謂人気ランキング</li>
+</ul>
+</li>
+<li>コンテンツベース（内容ベース）フィルタリング
+<ul>
+<li>アイテム間の類似度に基づいたレコメンド
+<ul>
+<li>アイテムの特徴ベクトルで類似度（ Cos 類似度など）ソートしてレコメンドする方法</li>
+<li>例：野球のバットを買った人には野球のボールをおすすめしよう</li>
+</ul>
+</li>
+<li><a href="http://ohke.hateblo.jp/entry/2017/10/13/230000">参考</a></li>
+</ul>
+</li>
+<li>協調フィルタリング
+<ul>
+<li>ユーザの利用履歴を扱う</li>
+<li>トランザクションデータ、ユーザ・アイテム行列</li>
+</ul>
+</li>
+<li>上記のハイブリッド</li>
+</ul>
+<p>ここでは <strong>協調フィルタリング</strong> を扱う。</p>
+<p><a href="http://www.kamishima.net/archive/recsysdoc.pdf">参考：推薦システムのアルゴリズム</a></p>
+<p>レコメンドアルゴリズムでよく発生するネガティブが出来事は以下。</p>
+<ul>
+<li>同じようなアイテムばかりレコメンドされる</li>
+<li>人気のアイテム、長期間掲載しているアイテムばかりレコメンドされる</li>
+<li>数年に一度しか購入しない物に対するレコメンド結果がずっと表示される</li>
+<li>ユーザー行動履歴が十分に蓄積されていないと精度がでない</li>
+<li>データの管理コストがでかい</li>
+<li>レコメンドの計算コストがでかい</li>
+</ul>
+<h2 id="協調フィルタリング">協調フィルタリング</h2>
+<p>協調フィルタリングには主に以下の種類がある。</p>
+<ul>
+<li>メモリベース（近傍ベース）
+<ul>
+<li>ユーザ・アイテム行列をそのまま利用、モデルを作成しない</li>
+<li>類似度の高いユーザ、アイテムを集め、実際の値と類似度の <strong>加重平均</strong> で評価値を算出する</li>
+<li>以下の手法がある
+<ul>
+<li>ユーザベース</li>
+<li>アイテムベース</li>
+</ul>
+</li>
+<li>スパース性（データサイズに対して意味のある情報が少ない、 0 が多い行列）の高いデータには適用し辛い</li>
+</ul>
+</li>
+<li>モデルベース
+<ul>
+<li>事前に調べておいたデータの規則性を使って予測</li>
+<li>ユーザ・アイテム行列をモデル構築に利用</li>
+<li>モデルの種類には以下がある。
+<ul>
+<li>行列因子分解（Matrix Factorization）モデル
+<ul>
+<li>ユーザ・アイテム行列をユーザ行列（user × k）とアイテム行列（item × k）に分解する際、既に値があるセルの値の誤差が最小になるようにする
+<ul>
+<li>分解した後の行列の積をとって元に戻した際、値の入っていなかったセルに値が入っており、その値を評価値とする</li>
+</ul>
+</li>
+<li>特異値分解（SVD：Singular Value Decomposition）</li>
+<li>非負値行列因子分解（NMF：Non-negative Matrix Factorization）
+<ul>
+<li>SVDと異なり、分解した行列の要素が全て正の数</li>
+<li>交互最小二乗法（ALS：Alternative Least Squares）や確率的勾配降下法（SGD：Stochastic Gradient Descent）を用いて実施</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>クラスタモデル
+<ul>
+<li>嗜好が類似した利用者のグループごとに推薦をする</li>
+</ul>
+</li>
+<li>関数モデル
+<ul>
+<li>利用者の嗜好パターンから，アイテムの評価値を予測する関数</li>
+</ul>
+</li>
+<li>確率モデル
+<ul>
+<li>行動分布型：どの利用者が，どのアイテムを，どう評価したかの分布をモデル化</li>
+<li>評価分布型：全アイテムに対する評価値の同時分布をモデル化</li>
+<li>ナイーブベイズ、ベイジアンネットワークなど</li>
+</ul>
+</li>
+<li>時系列モデル
+<ul>
+<li>マルコフ過程：アイテムを評価した時間的順序も考慮</li>
+<li>マルコフ決定過程(MDP：Markov Decision Process)：加えて，利用者の行動もモデル化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>上記のハイブリッド</li>
+</ul>
+<p>狭義の協調フィルタリングは、近傍ベースを指す。</p>
+<h3 id="メモリベース協調フィルタリング">メモリベース協調フィルタリング</h3>
+<p>メモリベース協調フィルタリングのコンセプトは、「類似度」。<br>
+過去の利用履歴から似たもの同士を明らかにし、この類似度を使ってオススメ商品を推定する。<br>
+類似度といった場合、ユーザ同士の類似度と商品同士の類似度の 2 つが考えられ、前者を使う場合をユーザベース、後者をアイテムベースと言って区別する。</p>
+<ul>
+<li>ユーザベース
+<ul>
+<li>ユーザーの行動履歴からユーザー間の類似度を計算し、おすすめするアイテムを決める手法</li>
+<li>例
+<ul>
+<li>Aさんに何かおすすめしたい、Aさんは商品a、商品b、商品cを買っている。</li>
+<li>同じような行動履歴のBさんは商品a、商品b、商品c、商品dを買っている、ということはAさんには商品dをおすすめできる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>アイテムベース
+<ul>
+<li>ユーザーの行動履歴からアイテム間の類似度を計算し、類似するアイテムをおすすめする手法</li>
+<li>例
+<ul>
+<li>商品Aは商品Bと一緒に購入されることが多いから、商品Aの購入者に商品Bをおすすめしよう</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ユーザベース">ユーザベース</h4>
+<p>ユーザベース協調フィルタリングのロジックは、いわゆるkNN回帰という機械学習手法を利用する。<br>
+kNN（k-Nearest-Neighbor、<strong>k近傍法</strong> ）を簡単に説明すると、推定する対象に最も特徴が似ているk個の観測値を参考にし、値を推定しようというもの。<br>
+アルゴリズムの概要は以下の通り。</p>
+<ol>
+<li>あるユーザと他のユーザの <strong>類似度</strong> を計算</li>
+<li>レコメンドしたい対象ユーザ（ユーザ A ）と類似度の高い k 名のユーザを選ぶ</li>
+<li>他のユーザ利用したアイテムのうち、ユーザAがまだ利用していないアイテムの集合を抽出</li>
+<li>それらのアイテム群のうち、おすすめ度が高いアイテムのリストを返却
+<ul>
+<li>この選定の際に、類似度が高いユーザが利用したアイテムほど重みが高くなるようにする</li>
+</ul>
+</li>
+</ol>
+<h4 id="アイテムベース">アイテムベース</h4>
+<p>ユーザベースはユーザ同士の類似度を考えたのに対して、アイテムベースはアイテム同士の類似度を考える。<br>
+それ以外の考え方はユーザベースに同じ。</p>
+<h4 id="用いられる類似度">用いられる類似度</h4>
+<p>類似度には以下のようなものがある。</p>
+<ul>
+<li>ユークリッド距離（ Euclidean distance ）
+<ul>
+<li>平方ユークリッド距離（ Squared Euclidean distance ）</li>
+<li>2 点間の普通の距離</li>
+</ul>
+</li>
+<li>コサイン類似度（ Cosine Similarity ）</li>
+<li>ピアソンの積率相関係数（ Pearson correlation coefficient ）
+<ul>
+<li>ユーザの評価をそのユーザの評価全体の平均を用いて正規化する</li>
+<li>データが正規化されていないような状況でユークリッド距離よりも良い結果を得られることが多いとされる</li>
+</ul>
+</li>
+</ul>
+<p>ユーザベースでは、 <strong>ピアソンの積率相関係数</strong> を用いる。<br>
+そうすることによって以下のように評価の傾向が似ている 2 ユーザ間で高い相関を得られる。</p>
+<ul>
+<li>ユーザ A ：「ラーメンはまずまずで 3 点だがカレーとチャーハンはイマイチだから 1.5 点だな……。」</li>
+<li>ユーザ B ：「ラーメンはうまくて 5 点だがカレーとチャーハンはふつうで 3.5 点だな……。」</li>
+</ul>
+<p>また、アイテムベースでは <strong>コサイン類似度</strong> がよく用いられる。</p>
+<h1 id="実装">実装</h1>
+<p>scikit-surprise ベースで実装する。</p>
+<h2 id="環境設定">環境設定</h2>
+<p>環境設定は以下。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python -V
+</span></span><span style="display:flex;"><span>Python 3.6.1
+</span></span><span style="display:flex;"><span>$ pip -V
+</span></span><span style="display:flex;"><span>pip 9.0.1
+</span></span><span style="display:flex;"><span>$ pip install jupyter scikit-learn matplotlib scipy numpy scikit-surprise
+</span></span><span style="display:flex;"><span>$ pip freeze | grep scikit-surprise
+</span></span><span style="display:flex;"><span>scikit-surprise<span style="color:#ff79c6">==</span>1.0.5
+</span></span></code></pre></div><h2 id="データセット">データセット</h2>
+<p>データセットには <a href="http://www.kamishima.net/sushi/">SUSHI Preference Data Sets</a> を使用する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wget http://www.kamishima.net/asset/sushi3-2016.zip
+</span></span><span style="display:flex;"><span>$ unzip sushi3-2016.zip
+</span></span><span style="display:flex;"><span>$ rm sushi3-2016.zip
+</span></span><span style="display:flex;"><span>$ ls ./sushi3-2016/
+</span></span><span style="display:flex;"><span>README-en.txt
+</span></span><span style="display:flex;"><span>sushi3.idata
+</span></span><span style="display:flex;"><span>sushi3b.5000.10.order
+</span></span><span style="display:flex;"><span>README-ja.txt
+</span></span><span style="display:flex;"><span>sushi3.udata
+</span></span><span style="display:flex;"><span>sushi3b.5000.10.score
+</span></span><span style="display:flex;"><span>README-stat-ja.txt
+</span></span><span style="display:flex;"><span>sushi3a.5000.10.order
+</span></span></code></pre></div><p><code>sushi3b.5000.10.score</code> は 5000 行 100 列( 5000 人 × 寿司ネタ 100 種類)の構成となっており、各要素には評価値 0 〜 4 (値が大きいほど、好き)と、欠測値 -1 がセットされている。</p>
+<h2 id="データのロード">データのロード</h2>
+<p>scikit-surprise でデータをロードするには、 <code>Dataset</code> クラスに対応した形式にする必要がある。<br>
+形式は <strong>1行1評価値</strong> で、以下のようにする。</p>
+<pre tabindex="0"><code>ユーザID アイテムID 評価値
+</code></pre><p><code>sushi3b.5000.10.score</code> を上記の形式に変換・Dataset形式でロードするコードは以下。<br>
+なお、ユーザ ID は 0000 〜 4999 、アイテム ID は 00 〜 99 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">convert</span>(input_file_name):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 返還後のファイル名</span>
+</span></span><span style="display:flex;"><span>    output_file_name <span style="color:#ff79c6">=</span> input_file_name <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;_converted&#39;</span>
+</span></span><span style="display:flex;"><span>    output <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(input_file_name, mode<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;r&#39;</span>) <span style="color:#ff79c6">as</span> f:
+</span></span><span style="display:flex;"><span>        lines <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>readlines()
+</span></span><span style="display:flex;"><span>        user_id <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> line <span style="color:#ff79c6">in</span> lines:
+</span></span><span style="display:flex;"><span>            words <span style="color:#ff79c6">=</span> line<span style="color:#ff79c6">.</span>strip()<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> item_id, word <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(words):
+</span></span><span style="display:flex;"><span>                score <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">int</span>(word)
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> score <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>                    output <span style="color:#ff79c6">+=</span> <span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{0:04d}</span><span style="color:#f1fa8c"> </span><span style="color:#f1fa8c">{1:02d}</span><span style="color:#f1fa8c"> </span><span style="color:#f1fa8c">{2:01d}</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span><span style="color:#ff79c6">.</span>format(user_id, item_id, score)
+</span></span><span style="display:flex;"><span>            user_id <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(output_file_name, mode<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
+</span></span><span style="display:flex;"><span>        f<span style="color:#ff79c6">.</span>write(output)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> output_file_name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 「ユーザID アイテムID 評価値」形式にデータファイルを変換</span>
+</span></span><span style="display:flex;"><span>output_file_name <span style="color:#ff79c6">=</span> convert(<span style="color:#f1fa8c">&#39;sushi3-2016/sushi3b.5000.10.score&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># with open(output_file_name, mode=&#39;r&#39;) as f:</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">#     print(f.read())</span>
+</span></span></code></pre></div><p>データフォーマットを変換した後、以下のように <code>Dataset</code> 形式でデータをロードし、 <code>trainset</code> を作成する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> surprise <span style="color:#ff79c6">import</span> Reader, Dataset
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># ファイルからデータをロードし、Dataset形式に</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># dataset.raw_ratings にデータが格納される</span>
+</span></span><span style="display:flex;"><span>dataset <span style="color:#ff79c6">=</span> Dataset<span style="color:#ff79c6">.</span>load_from_file(output_file_name, reader<span style="color:#ff79c6">=</span>reader)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># dataset を計算し、trainset 形式に</span>
+</span></span><span style="display:flex;"><span>trainset <span style="color:#ff79c6">=</span> dataset<span style="color:#ff79c6">.</span>build_full_trainset()
+</span></span></code></pre></div><p><code>dataset</code> から <code>trainset</code> へ変換される際、元の <code>user_id</code> <code>item_id</code> から読み込んだ順に 0 からインクリメントされた内部 ID へ変換される。</p>
+<p><code>dataset</code> には以下のようなフィールドがある。（面倒なので説明は一部のみ）</p>
+<ul>
+<li>build_full_trainset</li>
+<li>construct_testset</li>
+<li>construct_trainset</li>
+<li>folds</li>
+<li>load_builtin : scikit-surprise が準備しているデータセットの読み込み</li>
+<li>load_from_df : DataFrame 形式のデータを Dataset 形式へ変換するメソッド</li>
+<li>load_from_file : ファイルからデータをロードし、 Dataset 形式へ変換するメソッド</li>
+<li>load_from_folds : ファイルからデータをロードし、 Dataset 形式へ変換するメソッド（クロスバリデーションなどで利用）</li>
+<li>n_folds</li>
+<li>ratings_file</li>
+<li>raw_folds</li>
+<li>raw_ratings : <code>ユーザID アイテムID 評価値 None</code> 形式のデータ</li>
+<li>read_ratings</li>
+<li>reader</li>
+<li>shuffle</li>
+<li>split</li>
+</ul>
+<p><code>trainset</code> には以下のようなフィールドがある。（面倒なので説明は一部のみ）</p>
+<ul>
+<li>all_items : n_items の range を返却するメソッド</li>
+<li>all_ratings</li>
+<li>all_users</li>
+<li>build_anti_testset</li>
+<li>build_testset</li>
+<li>global_mean : 評価値の平均（ <code>_global_mean</code> ）を計算するメソッド</li>
+<li>ir : ユーザ ID をインデクスとした各アイテムの評価値のタプル</li>
+<li>knows_item</li>
+<li>knows_user</li>
+<li>n_items : アイテム数</li>
+<li>n_ratings : 評価数（ユーザ数 x アイテム数、欠損は考えられていない）</li>
+<li>n_users : ユーザ数</li>
+<li>offset</li>
+<li>rating_scale</li>
+<li>to_inner_iid : 元の <code>item_id</code> を入力すると <code>trainset</code> 内部管理の ID を返却する</li>
+<li>to_inner_uid：元の <code>user_id</code> を入力すると <code>trainset</code> 内部管理の ID を返却する</li>
+<li>to_raw_iid： <code>trainset</code> 内部管理の ID を入力すると元の <code>item_id</code> を返却する</li>
+<li>to_raw_uid： <code>trainset</code> 内部管理の ID を入力すると元の <code>user_id</code> を返却する</li>
+<li>ur : アイテム ID をインデクスとした各ユーザの評価値のタプル</li>
+</ul>
+<h2 id="協調フィルタリング-1">協調フィルタリング</h2>
+<p>scikit-surprise で実装できるアルゴリズムの一覧は <a href="http://surprise.readthedocs.io/en/stable/prediction_algorithms_package.html">ここ</a> 。</p>
+<p>scikit-surprise の各アルゴリズムのクラスは <code>AlgoBase</code> クラスを継承して作成されている。<br>
+このクラスには、 <code>compute_similarities</code> や <code>algo.train(trainset)</code> など全てのアルゴリズムで共通して利用される実装されている。<br>
+<code>sim_options</code> オプションを利用することで、類似度の計算方法（ cosine 、 msd 、 pearson 、 pearson_baseline ）やユーザベースかアイテムベース（ user_based ）などを指定することができる。</p>
+<h3 id="メモリベース協調フィルタリング-1">メモリベース協調フィルタリング</h3>
+<p>以下のような形で各アルゴリズムの学習を実行する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> surprise <span style="color:#ff79c6">import</span> KNNBasic
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sim_options <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;name&#39;</span>: <span style="color:#f1fa8c">&#39;pearson&#39;</span>, <span style="color:#6272a4"># 類似度を計算する方法を指定（ cosine,msd,pearson,pearson_baseline ）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;user_based&#39;</span>: <span style="color:#ff79c6">True</span> <span style="color:#6272a4"># False にするとアイテムベースに</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>algo <span style="color:#ff79c6">=</span> KNNBasic(k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">5</span>, min_k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>,sim_options<span style="color:#ff79c6">=</span>sim_options)
+</span></span><span style="display:flex;"><span>algo<span style="color:#ff79c6">.</span>fit(trainset)
+</span></span></code></pre></div><p>上記で、 <strong>k近傍法</strong> の学習が完了する。<br>
+<code>algo.compute_similarities()</code> を実行するとユーザ間の類似度を計算してくれ、「ユーザ数 x ユーザ数」の 2 次元配列を返却する。<br>
+なお、 <code>algo.train</code> を実行すると内部で <code>algo.compute_similarities()</code> が実行されており、その後 <code>algo.sim</code> で「ユーザ数 x ユーザ数」の 2 次元配列でユーザ間の類似度を取得できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(train<span style="color:#ff79c6">.</span>sim)
+</span></span></code></pre></div><p>また、以下のように学習後のモデルを使用して評価の予測値を取得できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>user_id <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{:04d}</span><span style="color:#f1fa8c">&#39;</span><span style="color:#ff79c6">.</span>format(<span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>item_id <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{:02d}</span><span style="color:#f1fa8c">&#39;</span><span style="color:#ff79c6">.</span>format(<span style="color:#bd93f9">92</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pred <span style="color:#ff79c6">=</span> algo<span style="color:#ff79c6">.</span>predict(uid<span style="color:#ff79c6">=</span>user_id, iid<span style="color:#ff79c6">=</span>item_id)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;Predicted rating(User: </span><span style="color:#f1fa8c">{0}</span><span style="color:#f1fa8c">, Item: </span><span style="color:#f1fa8c">{1}</span><span style="color:#f1fa8c">): </span><span style="color:#f1fa8c">{2:.2f}</span><span style="color:#f1fa8c">&#39;</span><span style="color:#ff79c6">.</span>format(pred<span style="color:#ff79c6">.</span>uid, pred<span style="color:#ff79c6">.</span>iid, pred<span style="color:#ff79c6">.</span>est))
+</span></span></code></pre></div><p>スクラッチでの実装例は以下。</p>
+<ul>
+<li>ユーザベース
+<ul>
+<li><a href="http://ohke.hateblo.jp/entry/2017/09/22/230000">http://ohke.hateblo.jp/entry/2017/09/22/230000</a></li>
+<li><a href="https://qiita.com/hik0107/items/96c483afd6fb2f077985">https://qiita.com/hik0107/items/96c483afd6fb2f077985</a></li>
+</ul>
+</li>
+<li>アイテムベース
+<ul>
+<li><a href="http://ohke.hateblo.jp/entry/2017/09/29/230000">http://ohke.hateblo.jp/entry/2017/09/29/230000</a></li>
+<li><a href="https://qiita.com/kotaroito/items/6acb58bb16b68a460af9">https://qiita.com/kotaroito/items/6acb58bb16b68a460af9</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="モデルベース協調フィルタリング">モデルベース協調フィルタリング</h3>
+<h4 id="特異値分解-svd-">特異値分解（ SVD ）</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> surprise <span style="color:#ff79c6">import</span> SVD
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>algo <span style="color:#ff79c6">=</span> SVD()
+</span></span><span style="display:flex;"><span>algo<span style="color:#ff79c6">.</span>fit(trainset)
+</span></span></code></pre></div><h2 id="精度評価">精度評価</h2>
+<p>精度の評価には以下のものがある。</p>
+<ul>
+<li>MAE（Mean Abusolute Error）
+<ul>
+<li>予測値と実測値の差の絶対値を算出し、平均したもの</li>
+</ul>
+</li>
+<li>MSE (Mean Squared Error)
+<ul>
+<li>予測値と実測値の差を二乗した値の平均値</li>
+</ul>
+</li>
+<li>RMSE（Root Mean Squared Error）
+<ul>
+<li>MSEの平方根</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="http://ohke.hateblo.jp/entry/2017/10/06/230000">scikit-surpriseを使ってレコメンドする</a></li>
+<li><a href="http://www.kamishima.net/archive/recsys.pdf">推薦システム</a>
+<ul>
+<li>P.134：協調フィルタリング、メモリベースのチューニングのヒント</li>
+<li>p.137：モデルベースの種類</li>
+<li>P.215：ショートヘッド、ロングテールについて</li>
+</ul>
+</li>
+<li>精度評価
+<ul>
+<li><a href="http://blog.brainpad.co.jp/entry/2017/08/25/140000">レコメンドつれづれ ～第3回 レコメンド精度の評価方法を学ぶ～</a></li>
+<li><a href="https://www.slideshare.net/MasahiroSato2/ss-65646039">レコメンド研究のあれこれ</a></li>
+<li><a href="https://www.slideshare.net/takemikami/ss-76817490">レコメンドアルゴリズムの基本と周辺知識と実装方法</a></li>
+<li><a href="https://datahotel.io/archives/4778">推薦システムの基本的な評価指標について整理してみた</a></li>
+<li><a href="https://ameblo.jp/principia-ca/entry-10980281840.html">MatrixFacorization を使った評価予測</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - python -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"みんなのPython 第4版 [ 柴田 淳 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/9463\/9784797389463.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/14583659\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3DMswgV","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hMCjfu","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/14583659\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"rQIGU","s":"s"});
+</script>
+<div id="msmaflink-rQIGU">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/line-chatbot-ngrok/" data-toggle="tooltip" data-placement="top" title="LINEチャットボットをFlaskとngrokで">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/python-virtualenv-basics/" data-toggle="tooltip" data-placement="top" title="Virtualenv入門">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ecs" title="ecs">
+                            ecs
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -6,12 +6,12 @@
     <description>Recent content in seo on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/seo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/seo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ブログ移転時に気をつけること</title>
       <link>https://blog.pepese.com/blog-move/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/blog-move/</guid>
       <description>&lt;p&gt;筆者は「はてなブログ」を使っているが、諸事情により一部の記事を本ブログへ移転している。&lt;br&gt;
 その際、元の記事を残しておくと、内容が重複することからSEO的によろしく無い。
@@ -23,5 +23,6 @@
 &lt;p&gt;ここでは、「はてなブログ」の記事を別のブログへ移転する方法について記載する。&lt;br&gt;
 ブログ全体の移転の話ではないことに注意。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

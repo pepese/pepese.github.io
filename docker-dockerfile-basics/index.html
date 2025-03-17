@@ -1,3 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="og:image:secure_url" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="twitter:image" content="https://blog.pepese.com/img/yaruwo.jpg" />
+    
+
+    
+    <meta name="title" content="Dockerfile入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Dockerfile入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Dockerfile入門 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="Dockerfile は Docker イメージを作成する際の手順・命令を記したテキストファイルです。この記事では、 Dockerfile の基本的な書き方とマルチステージビルドなどのベストプラクティスについて記載します。">
+    <meta property="og:description" content="Dockerfile は Docker イメージを作成する際の手順・命令を記したテキストファイルです。この記事では、 Dockerfile の基本的な書き方とマルチステージビルドなどのベストプラクティスについて記載します。" />
+    <meta property="twitter:description" content="Dockerfile は Docker イメージを作成する際の手順・命令を記したテキストファイルです。この記事では、 Dockerfile の基本的な書き方とマルチステージビルドなどのベストプラクティスについて記載します。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="Docker, Dockerfile, マルチステージビルド">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>Dockerfile入門</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.comdocker-dockerfile-basics/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
 
 
 
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article/">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive//">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/docker" title="docker">
+                            docker
+                        </a>
+                        
+                    </div>
+                    <h1>Dockerfile入門</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2022-04-08
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Dockerfile は Docker イメージを作成する際の手順・命令を記したテキストファイルです。<br>
+この記事では、 Dockerfile の基本的な書き方とマルチステージビルドなどのベストプラクティスについて記載します。</p>
+<h1 id="構文">構文</h1>
+<p>よく利用する構文・命令文を説明します。<br>
+網羅性はなく、また、詳しく記載していないので注意してください。</p>
+<h2 id="from"><code>FROM</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#from">Dockerfile リファレンスの FROM 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> [--platform=&lt;プラットフォーム&gt;] &lt;イメージ名&gt; [AS &lt;名前&gt;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> [--platform=&lt;プラットフォーム&gt;] &lt;イメージ名&gt;[:&lt;タグ&gt;] [AS &lt;名前&gt;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> [--platform=&lt;プラットフォーム&gt;] &lt;イメージ名&gt;[@&lt;ダイジェスト&gt;] [AS &lt;名前&gt;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 例</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> alpine:3.15</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> golang:1.18.0-alpine3.15 as BUILD</span>
+</span></span></code></pre></div><p>基となるイメージを指定します。<br>
+<a href="https://hub.docker.com/_/alpine/">Alpine</a> をお勧めします。</p>
+<h2 id="run"><code>RUN</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#run">Dockerfile リファレンスの RUN 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:シェル形式 - Linux は 「/bin/sh -c」 、 Windows は 「cmd /S /C」</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> &lt;コマンド&gt;
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># USAGE: 実行形式 - シェル形式ではない、つまり Linux は 「/bin/sh -c」 、 Windows は 「cmd /S /C」を使用しない</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#34;実行ファイル&#34;</span>, <span style="color:#f1fa8c">&#34;パラメータ1&#34;</span>, <span style="color:#f1fa8c">&#34;パラメータ2&#34;</span><span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:複数命令</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> &lt;コマンド&gt; <span style="color:#ff79c6">&amp;&amp;</span> &lt;コマンド&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 例</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> apt-get update <span style="color:#ff79c6">&amp;&amp;</span> apt-get install -y curl nginx
+</span></span></code></pre></div><p><code>docker build</code> 時に実行されるコマンドです。</p>
+<h2 id="cmd"><code>CMD</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#cmd">Dockerfile リファレンスの CMD 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:実行形式 - シェル形式ではない、つまり Linux は 「/bin/sh -c」 、 Windows は 「cmd /S /C」を使用しない</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">CMD</span> [<span style="color:#f1fa8c">&#34;実行ファイル&#34;</span>,<span style="color:#f1fa8c">&#34;パラメータ1&#34;</span>,<span style="color:#f1fa8c">&#34;パラメータ2&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:ENTRYPOINT 命令に対するデフォルトのパラメータとして扱う</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">CMD</span> [<span style="color:#f1fa8c">&#34;パラメータ1&#34;</span>, <span style="color:#f1fa8c">&#34;パラメータ2&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:シェル形式 - Linux は 「/bin/sh -c」 、 Windows は 「cmd /S /C」</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 実行形式のほうが望ましい</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">CMD</span> コマンド パラメータ1 パラメータ2
+</span></span></code></pre></div><p><strong>コンテナ実行時のコマンドを指定</strong> するため利用します。（ <code>RUN</code> とは異なります）<br>
+実行ファイルを含める・含めない場合もありますが、実行ファイルを含まない場合は <code>ENTRYPOINT</code> 命令の指定が必要です。<br>
+<code>ENTRYPOINT</code> 命令に対するデフォルトの引数を <code>CMD</code> で指定する場合は、 <code>CMD</code> ・ <code>ENTRYPOINT</code> 命令の両方を指定する必要があります。</p>
+<h2 id="expose"><code>EXPOSE</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#expose">Dockerfile リファレンスの EXPOSE 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">EXPOSE</span><span style="color:#f1fa8c"> &lt;ポート&gt; [&lt;ポート&gt;/&lt;プロトコル&gt;...]</span>
+</span></span></code></pre></div><p>コンテナの Listen ポートを指定します。</p>
+<h2 id="env"><code>ENV</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#env">Dockerfile リファレンスの ENV 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENV</span> &lt;キー&gt;<span style="color:#ff79c6">=</span>&lt;値&gt; ...
+</span></span></code></pre></div><p>環境変数 <code>&lt;キー&gt;</code> に対し、値を <code>&lt;値&gt;</code> として設定します。</p>
+<h2 id="add-と-copy"><code>ADD</code> と <code>COPY</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#add">Dockerfile リファレンスの ADD 命令</a><br>
+<a href="http://docs.docker.jp/engine/reference/builder.html#copy">Dockerfile リファレンスの COPY 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># ADD USAGE:パスに空白を含む場合は後者</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ADD</span> <span style="color:#ff79c6">[</span>--chown<span style="color:#ff79c6">=</span>&lt;ユーザ&gt;:&lt;グループ&gt;<span style="color:#ff79c6">]</span> &lt;追加元&gt;... &lt;追加先&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ADD</span> <span style="color:#ff79c6">[</span>--chown<span style="color:#ff79c6">=</span>&lt;ユーザ&gt;:&lt;グループ&gt;<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#34;&lt;追加元&gt;&#34;</span>,... <span style="color:#f1fa8c">&#34;&lt;追加先&gt;&#34;</span><span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">## COPY USAGE:パスに空白を含む場合は後者</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> <span style="color:#ff79c6">[</span>--chown<span style="color:#ff79c6">=</span>&lt;ユーザ&gt;:&lt;グループ&gt;<span style="color:#ff79c6">]</span> &lt;コピー元&gt;... &lt;コピー先&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> <span style="color:#ff79c6">[</span>--chown<span style="color:#ff79c6">=</span>&lt;ユーザ&gt;:&lt;グループ&gt;<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#34;&lt;コピー元&gt;&#34;</span>,... <span style="color:#f1fa8c">&#34;&lt;コピー先&gt;&#34;</span><span style="color:#ff79c6">]</span>
+</span></span></code></pre></div><p><code>COPY</code> のほうが望ましいです。<br>
+<code>COPY</code> はローカルファイルをコンテナの中にコピーする基本機能のみですが、 <code>ADD</code> は複数機能（ローカル上での tar 展開や、リモート URL のサポート）を持つためです。</p>
+<h2 id="entrypoint"><code>ENTRYPOINT</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#entrypoint">Dockerfile リファレンスの ENTRYPOINT 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:実行形式 - こちらを推奨</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENTRYPOINT</span> [<span style="color:#f1fa8c">&#34;実行ファイル&#34;</span>, <span style="color:#f1fa8c">&#34;パラメータ1&#34;</span>, <span style="color:#f1fa8c">&#34;パラメータ2&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># USAGE:シェル形式</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENTRYPOINT</span> コマンド パラメータ1 パラメータ2
+</span></span></code></pre></div><p><code>ENTRYPOINT</code> のベストな使い方は、イメージにおけるメインコマンドの設定です。<br>
+<code>CMD</code> ではなく <code>ENTRYPOINT</code> を利用しましょう。</p>
+<h2 id="volume"><code>VOLUME</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#volume">Dockerfile リファレンスの VOLUME 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">VOLUME</span> [<span style="color:#f1fa8c">&#34;/data&#34;</span>]
+</span></span></code></pre></div><p>指定した名前で マウントポイント を作成します。<br>
+データベース・ストレージ領域、設定用ストレージ、Docker コンテナによって作成されるファイルやフォルダの公開のために利用します。</p>
+<h2 id="user"><code>USER</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#user">Dockerfile リファレンスの USER 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">USER</span><span style="color:#f1fa8c"> &lt;ユーザ&gt;[:&lt;グループ&gt;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">USER</span><span style="color:#f1fa8c"> &lt;UID&gt;[:&lt;GID&gt;]</span>
+</span></span></code></pre></div><p><code>USER</code> を使えば非 <code>root</code> ユーザで実行できます。<br>
+利用するには Dockerfile でユーザとグループ作成（例： <code>RUN groupadd -r postgres &amp;&amp; useradd -r -g postgres postgres</code> ）しておく必要があります。</p>
+<h2 id="workdir"><code>WORKDIR</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#workdir">Dockerfile リファレンスの WORKDIR 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">WORKDIR</span><span style="color:#f1fa8c"> /path/to/workdir</span>
+</span></span></code></pre></div><p>Dockerfile 内で以降に続く <code>RUN</code> 、 <code>CMD</code> 、 <code>ENTRYPOINT</code> 、 <code>COPY</code> 、 <code>ADD</code> 命令処理時のカレントディレクトリを指定します。<br>
+WORKDIR が存在していなければ作成されます。</p>
+<h2 id="arg"><code>ARG</code></h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#arg">Dockerfile リファレンスの ARG 命令</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4"># USAGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ARG</span> &lt;名前&gt;<span style="color:#ff79c6">[=</span>&lt;デフォルト値&gt;<span style="color:#ff79c6">]</span>
+</span></span></code></pre></div><p><code>docker build</code> 時にユーザが渡せる変数を定義します。<br>
+<code>docker biuld</code> コマンドで <code>--build-arg &lt;変数名&gt;=&lt;値&gt;</code> を指定します。</p>
+<h1 id="ベストプラクティス">ベストプラクティス</h1>
+<h2 id="イメージサイズを小さくする">イメージサイズを小さくする</h2>
+<p>Docker イメージの配布やプロセスの立ち上がり時間など、サイズが小さいほど効率があがります。<br>
+また、不要なファイルが含まれるほどセキュリティインシデントのリスクも上がります。<br>
+可能な限りイメージのサイズは最小にしましょう。</p>
+<ul>
+<li>軽量コンテナ（ 例えば <a href="https://hub.docker.com/_/alpine/">Alpine</a> ）を利用する</li>
+<li>余計なファイルは含めない</li>
+<li>不要なパッケージをインストールしない</li>
+</ul>
+<h2 id="dockerignore-を使う"><code>.dockerignore</code> を使う</h2>
+<p><a href="http://docs.docker.jp/engine/reference/builder.html#dockerignore-file">.dockerignore ファイル</a> に記載されたディレクトリ・ファイルは <code>ADD</code> <code>COPY </code> 実行時に除外されます。<br>
+これを利用すれば複雑な <code>COPY</code> 命令を書かずとも Docker イメージに余計なファイルを含めずに済みます。</p>
+<pre tabindex="0"><code># コメント
+*/temp*
+*/*/temp*
+temp?
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">ルール</th>
+<th style="text-align:left">挙動</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code># コメント</code></td>
+<td style="text-align:left">無視されます。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>*/temp*</code></td>
+<td style="text-align:left">root 以下のサブディレクトリで <code>temp</code> で始まるファイル・ディレクトリを除外します。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>*/*/temp*</code></td>
+<td style="text-align:left">root から2階層以下のサブディレクトリで <code>temp</code> で始まるファイル・ディレクトリを除外します。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>temp?</code></td>
+<td style="text-align:left">ルートディレクトリで <code>temp</code> と 1 文字が一致する名前のファイル・ディレクトリを除外します。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-コンテナ--1-プロセス">1 コンテナ ＝ 1 プロセス</h2>
+<p>１つのコンテナの中で１つのプロセスだけ実行すべきです。<br>
+複数種類のアプリケーションを実行したい場合、各々別コンテナで実行したほうが各々の事情で水平スケールできリソース効率もいいです。<br>
+アプリケーション間に何らか関連があるが普通です。 API 連携しましょう。</p>
+<h2 id="レイヤーキャッシュを活かす">レイヤーキャッシュを活かす</h2>
+<p>Dockerfile の 1 つ 1 つ（1 行 1 行）の命令はレイヤー構造になっており、命令の実行結果を 1 層 1 層積み重ねています。<br>
+レイヤーに変更がなければ Docker は以前の結果を再利用してくれます。<br>
+これを <strong>レイヤーキャッシュ</strong> といいます。</p>
+<p>レイヤーに変更があった場合、それ以降の命令は再実行されます。</p>
+<ul>
+<li>レイヤを作成するのは <code>RUN</code> 、 <code>COPY</code> 、 <code>ADD</code> 命令のみとなっています</li>
+<li><code>COPY</code> ・ <code>ADD</code> はファイルのチェックサムを元に変更がないか確認されます</li>
+<li><code>RUN</code> は単に実行するコマンド文字列を比較されます（ファイルが変更されたかは確認されません）</li>
+</ul>
+<p>このレイヤーキャッシュを活かすために以下をおこないましょう。</p>
+<ul>
+<li><code>COPY</code> ・ <code>ADD</code> の実行は、変更の少ないファイルを先に実行しましょう
+<ul>
+<li>例） <code>go.mod</code> や <code>yarn.lock</code> などの依存ライブラリ管理ファイル</li>
+</ul>
+</li>
+<li>命令数を減らしましょう
+<ul>
+<li>例） <code>RUN</code> コマンドが続く場合は <code>&amp;&amp;</code> などを利用して命令数を減らす</li>
+</ul>
+</li>
+<li>可読性を上げたい場合はバックスラッシュ（ <code>\</code> ）で改行しましょう</li>
+</ul>
+<p>例えば、下記のように書くと、ソースコードを書き換えてもライブラリに変更がなければレイヤーキャッシュが利用されます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> golang:1.18.0-alpine3.15</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">WORKDIR</span><span style="color:#f1fa8c"> /work</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> go.mod go.sum .
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> go mod download
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> . .
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> <span style="color:#8be9fd;font-style:italic">CGO_ENABLED</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> go build -o app .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">CMD</span> [<span style="color:#f1fa8c">&#34;/work/app&#34;</span>]
+</span></span></code></pre></div><h2 id="マルチステージビルド">マルチステージビルド</h2>
+<p><strong>マルチステージビルド</strong> は、アプリケーションのビルド用コンテナと実行用コンテナを分けることによって実行用コンテナを最小サイズにする方法です。<br>
+アプリケーションの実行形式さえあれば余計なファイル（ソースコードなど）は不要です。<br>
+また、ビルド用コンテナがあれば、ビルド環境を構築する必要もありません。<br>
+Dockerfile では複数の <code>FROM</code> 命令を記載することができます。<br>
+例を記載しておきます。</p>
+<h3 id="go-のマルチステージビルド">Go のマルチステージビルド</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Builder</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> golang:1.18.0-alpine3.15 AS BUILD</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">WORKDIR</span><span style="color:#f1fa8c"> /build</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> go.mod go.sum .
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> <span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span>on go mod download
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> . .
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> <span style="color:#8be9fd;font-style:italic">CGO_ENABLED</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#8be9fd;font-style:italic">GOOS</span><span style="color:#ff79c6">=</span>linux <span style="color:#8be9fd;font-style:italic">GOARCH</span><span style="color:#ff79c6">=</span>amd64 go build main.go
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Executer</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> alpine:3.15.4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> apk add --no-cache tzdata
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENV</span> TZ Asia/Tokyo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> --from<span style="color:#ff79c6">=</span>BUILD /build/main /usr/local/bin/main
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">EXPOSE</span><span style="color:#f1fa8c"> 8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENTRYPOINT</span> [<span style="color:#f1fa8c">&#34;/usr/local/bin/main&#34;</span>]
+</span></span></code></pre></div><h3 id="java-のマルチステージビルド">Java のマルチステージビルド</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Builder</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> maven:3.8.4-amazoncorretto-17 as BUILD</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">WORKDIR</span><span style="color:#f1fa8c"> /build</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> . .
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> mvn clean package
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Executer</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">############</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> amazoncorretto:17.0.2-alpine3.15</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">RUN</span> apk add --no-cache tzdata
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENV</span> TZ Asia/Tokyo
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">COPY</span> --from<span style="color:#ff79c6">=</span>BUILD /build/target/&lt;project&gt;-*.jar /home/java/app.jar
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">EXPOSE</span><span style="color:#f1fa8c"> 8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ENTRYPOINT</span> [<span style="color:#f1fa8c">&#34;java&#34;</span>, <span style="color:#f1fa8c">&#34;-jar&#34;</span>, <span style="color:#f1fa8c">&#34;/home/java/app.jar&#34;</span>]
+</span></span></code></pre></div><h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - docker -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"Dockerコンテナ開発・環境構築の基本 （impress top gear　impress top gear） [ 市川　豊 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/1736\/9784295011736_1_3.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16742446\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#ff9900","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3JfjoTm","s_n":"custom_2","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":2},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hakvUs","s_n":"custom_3","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16742446\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"FzcPh","s":"s"});
+</script>
+<div id="msmaflink-FzcPh">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/aws-lambda-basics/" data-toggle="tooltip" data-placement="top" title="AWS Lambda入門">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/golang-modules-basics/" data-toggle="tooltip" data-placement="top" title="Go Modules入門">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ecs" title="ecs">
+                            ecs
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

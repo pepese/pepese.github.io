@@ -1,3 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="og:image:secure_url" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="twitter:image" content="https://blog.pepese.com/img/yaruwo.jpg" />
+    
+
+    
+    <meta name="title" content="AWS Lambda入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="AWS Lambda入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="AWS Lambda入門 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。">
+    <meta property="og:description" content="AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。" />
+    <meta property="twitter:description" content="AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="AWS, Lambda, サーバーレス">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>AWS Lambda入門</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.comaws-lambda-basics/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
 
 
 
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article/">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive//">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        <a class="tag" href="/tags/lambda" title="lambda">
+                            lambda
+                        </a>
+                        
+                    </div>
+                    <h1>AWS Lambda入門</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2022-04-07
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>AWS Lambda は、 サーバレスコンピューティングを提供するサービスです。<br>
+この記事では、AWS Lambda をざっくり理解できる概要と使い方を記載します。</p>
+<h1 id="aws-lambda-の概要">AWS Lambda の概要</h1>
+<h2 id="処理の流れ">処理の流れ</h2>
+<p>AWS Lambda は <strong>イベントソース</strong> から <strong>Lambda 関数</strong> が呼び出され <strong>ダウンストリーム</strong> へアクセスする構成です。<br>
+「イベントソース -&gt; Lambda 関数 -&gt; ダウンストリーム」という流れをイメージしてください。</p>
+<p><strong>イベントソース</strong> は、イベントの発生元となる AWS サービスやユーザが開発したアプリケーションです。<br>
+Lambda 関数が呼び出されるきっかけと考えてください。</p>
+<p><strong>ダウンストリーム</strong> は、 Lambda 関数がアクセスする AWS サービスやユーザが開発したアプリケーションです。<br>
+データベースアクセスなども含まれます。</p>
+<h2 id="イベントソース">イベントソース</h2>
+<p>イベントソースは、イベントの発生元となる AWS サービスやユーザが開発したアプリケーションです。<br>
+Lambda 関数がイベントを検知するパターンとして以下があります。</p>
+<ul>
+<li>ポーリング 且 ストリーム
+<ul>
+<li>Lambda関数自体がイベントを検知（ Kinesis、DynamoDBなど）</li>
+</ul>
+</li>
+<li>ポーリング 且 ストリームではない
+<ul>
+<li>Lambda関数自体がイベントを検知（ SQSなど）</li>
+</ul>
+</li>
+<li>プッシュ
+<ul>
+<li>Lambda関数にイベントを通知</li>
+</ul>
+</li>
+</ul>
+<p>Lambda 関数の処理タイプとして以下があります。</p>
+<ul>
+<li>同期：リクエストの処理結果含め返却</li>
+<li>非同期：リクエストが正常に受信できたかのみ返却</li>
+</ul>
+<p>イベントソースとなる AWS サービスは、上記のイベント検知パターンと処理タイプの組み合わせで分類することができます。<br>
+また、以下のパターンによってリトライの動きが異なる点に注意してください。</p>
+<ul>
+<li>同期 ＋ ポーリング 且 ストリーム
+<ul>
+<li>AWS サービス：Amazon DynamoDB、Amazon Kinesis Data Streams</li>
+<li>リトライ
+<ul>
+<li>データの有効期限が切れるまでリトライ</li>
+<li>失敗の間は同一イベントソースからの新規イベントはブロックされる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>同期 ＋ ポーリング 且 ストリームではない
+<ul>
+<li>AWS サービス：Amazon SQS</li>
+<li>リトライ
+<ul>
+<li>（Amazon SQSなので） Visibility Timeout のちに再実行される</li>
+<li>新規イベントの実行はブロックされない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>同期 ＋ プッシュ
+<ul>
+<li>AWS サービス：Amazon Cognito、AWS CloudFormation、Amazon Cloud Watch Logs、Amazon Alexa、Amazon Lex、Amazon API Gateway、Amazon CloudFront、Amazon Kinesis Data Firehose</li>
+<li>リトライ
+<ul>
+<li>エラーのステータスコード・内容が返却される</li>
+<li>リトライはイベントソースの設定による</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非同期
+<ul>
+<li>AWS サービス：Amazon S3、Amazon SNS、Amazon SES、Amazon Cloud Watch Events、AWS CodeCommit、AWS Config、AWS IoT ボタン</li>
+<li>リトライ
+<ul>
+<li>2 回まで自動リトライ（遅延あり）され、その後イベントは破棄される</li>
+<li>Dead Letter Queue（DLQ）を設定することでイベントを Amazon SQS / Amazon SNS へ移動可能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="lambda-関数">Lambda 関数</h2>
+<p>Lambda ファンクションと呼ばれることもあり、以下の特徴があります。</p>
+<ul>
+<li>標準もしくは <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-custom.html">カスタムラインタイム</a> でサポートされている言語で記述（ <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtime-support-policy.html">ランタイムサポートポリシー</a> ）</li>
+<li>それぞれが隔離されたコンテナ内で実行され、「 1 コンテナ＝ 1 イベント」を処理する</li>
+<li>実行時は言語の関数もしくは <strong>ハンドラー</strong> を指定し、 <strong>トリガー</strong> となる AWS サービスから JSON 形式の <strong>イベント</strong> データを渡すことが可能
+<ul>
+<li>イベントソースが S3 の場合、バケット名などがイベントデータとなる</li>
+</ul>
+</li>
+<li>コードは依存ライブラリをパッケージングした上でアップロードする（ <strong>デプロイパッケージ</strong> ）
+<ul>
+<li>内部的には S3に保存されており、S3 の ARN で指定することも可能</li>
+</ul>
+</li>
+<li>以下の基本設定が可能（最新情報要確認 -&gt; <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-limits.html">Lambda クォータ</a> ）
+<ul>
+<li>メモリ： 64 MB ごとに 128 MB 〜 3008 MB で指定可能で、 CPU 能力もこれに比例する</li>
+<li>タイムアウト： Lambda 関数の実行時間（最大 900 秒）</li>
+<li>実行ロール： Lambda 関数からアクセス可能な AWS リソースをコントロールするための IAM ロール</li>
+</ul>
+</li>
+</ul>
+<h2 id="実行環境">実行環境</h2>
+<p>Lambda 関数が実行される環境は Amazon Linux 2 なので、OS のネイティブライブラリを利用する場合はその前提で実装する必要があります。<br>
+また、 <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/foundation-arch.html">Lambda 命令セットアーキテクチャ</a> も参照ください。<br>
+なお、 <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtime-support-policy.html">ランタイムサポートポリシー</a> でサポートされる標準以外の実行環境が必要な場合は <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-custom.html">カスタムラインタイム</a> を利用してください。</p>
+<h2 id="デプロイパッケージ">デプロイパッケージ</h2>
+<p>Lambda 関数コードのデプロイパッケージには以下の 2 種類あります。</p>
+<ul>
+<li>関数コードとその依存関係を含む .zip ファイルアーカイブ</li>
+<li>関数コードとその依存関係を含む コンテナーイメージ
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-images.html">Lambda でのコンテナイメージの使用</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="vpc-アクセス">VPC アクセス</h2>
+<p>Lambda 関数は指定の VPC 内で起動することにより、インターネットを介さず VPC 内のリソースへアクセスすることができます。</p>
+<p>内部的には ENI がフェッチされるので、 VPC サブネットやセキュリティグループを設定します。<br>
+Lambda 関数がコールドスタートする際は、この ENI フェッチにレイテンシ（10〜30秒）が発生しますが、ENI は複数の Lambda 関数から共有される構成になっているため、都度レイテンシが発生するわけではありません。<br>
+この ENI にはパブリック IP が付与されないため、インターネットアクセスが必要な場合は VPC に NAT Gateway の設定が必要になります。<br>
+なお、 VPC の制限により ENI のサブネット IP が確保できない場合は起動に失敗します。（非同期呼び出しの場合は CloudWatch Logs に記録されないので注意）</p>
+<h2 id="実行ロール">実行ロール</h2>
+<p>IAM ロールで指定して、各種 AWS サービスへのアクセスコントロールを行うことができます。<br>
+最低でも CloudWatch Logs へのアクセス許可が必要です。</p>
+<p>IAM ロールに関しては、以下の記事を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/aws-iam-basics/" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">AWS IAM入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">AWS IAM （Identity and Access Management）は、 AWS サービスで「認証」と「認可」の設定を行うことができるサービスです。この記事では、AWS IAM をざっくり理解できるよう概要を記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h2 id="同時実行数">同時実行数</h2>
+<p>デフォルトは 1000 で、超えるとスロットリングエラーとなります。（最新情報要確認 -&gt; <a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-limits.html">Lambda クォータ</a> ）<br>
+<code>ConcurrentExecutions</code> と <code>UnreservedConcurrentExecutions</code> メトリクスで確認できます。</p>
+<h2 id="ライフサイクル">ライフサイクル</h2>
+<p>Lambda 関数の起動から停止までのライフサイクルは以下の通りです。</p>
+<ol>
+<li>ENI の作成（ VPC 利用時、且つコールドスタートの時だけ 10 〜 30 秒）</li>
+<li>コンテナの作成</li>
+<li>デプロイパッケージのロード ※内部的には S3 からダウンロードしてロード</li>
+<li>デプロイパッケージの展開</li>
+<li>ランタイム起動・初期化</li>
+<li>関数の実行</li>
+<li>コンテナの破棄</li>
+</ol>
+<p>上記の 1 〜 6 がコールドスタート時の動きで、 6 のみがウォームタート時の動きとなります。<br>
+間隔をあまり開けずに定期的に Lambda が実行されていればコールドスタートは発生しません。</p>
+<h1 id="aws-lambda-の使い方">AWS Lambda の使い方</h1>
+<h2 id="プログラミングモデル">プログラミングモデル</h2>
+<ul>
+<li>ハンドラー
+<ul>
+<li>言語の関数もしくはメソッドで、実行時のエントリーポイントとなります</li>
+<li>1 つ目のパラメータとして JSON 形式のイベントデータが渡されます</li>
+</ul>
+</li>
+<li>コンテキスト
+<ul>
+<li>ラインタイムに関する情報が含まれます</li>
+<li>2 つ目のパラメータとして渡されます</li>
+</ul>
+</li>
+<li>ロギング
+<ul>
+<li>標準出力が CloudWatch Logs に書き込まれます</li>
+<li>CloudWatch Logs の制限を受けるため、スロットリングによって失われる可能性があります</li>
+</ul>
+</li>
+<li>例外処理
+<ul>
+<li>言語仕様により異なります</li>
+<li>同期呼び出しの場合はレスポンスされます</li>
+</ul>
+</li>
+<li>注意点
+<ul>
+<li>ステートレスな処理モデルにする必要があります</li>
+<li>同じインスタンスで実行されるとは限りません</li>
+<li>ローカルリソースの利用・アクセスは処理実行中のみ有効です</li>
+<li>データは他の永続化サービスへ保存しましょう</li>
+</ul>
+</li>
+</ul>
+<h2 id="lambda-関数の設定">Lambda 関数の設定</h2>
+<ul>
+<li>VPC アクセスの設定</li>
+<li>同時実行数の管理
+<ul>
+<li>アカンウト毎に割り当てられたデフォルト同時実行数 1000 を関数毎に割り当て可能</li>
+<li>ダウンストリーム（ DB とか）に対する流量制御に利用</li>
+</ul>
+</li>
+<li>環境変数
+<ul>
+<li>キーと値のペアで設定可能
+<ul>
+<li>キーと値の合計が 4kB 以下、英字開始で英数字とアンスコのみ</li>
+</ul>
+</li>
+<li>デフォルトの環境変数もあり、関数の中から参照可能（ <code>AWS_REGION</code> など）
+<ul>
+<li>リザーブドがありの場合は上書き不可能</li>
+</ul>
+</li>
+<li>関数のバージョニング機能に環境変数も保存される</li>
+<li>AWS Key Management Service によりデプロイ後に自動的に暗号化
+<ul>
+<li>デフォルトでキーが自動生成されるが、独自キーの適用も可能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>バージョニング
+<ul>
+<li>Lambda 関数と環境変数などの情報を PublishVersion に保存可能</li>
+<li>バージョンに対してエイリアス設定・付け替え可能</li>
+<li>routing-config を利用することでエイリアスに対してトラフィックの割合を管理可能（カナリア的な）</li>
+</ul>
+</li>
+<li>Lambda Layers
+<ul>
+<li>各 Lambda 関数から共通で参照可能なコンポーネントを定義・参照可能</li>
+<li>ZIP でアップロード</li>
+<li>カスタムランタイムを Layer としてアップロードも可能</li>
+<li><code>/opt</code> の下に指定した順に展開される（同名の場合後勝ち）</li>
+<li>非圧縮で 250MB まで（ Lambda 関数と同じ）</li>
+</ul>
+</li>
+<li>タグ付け
+<ul>
+<li>他の EC2 などのサービスと同様でタグ付け可能で、グループ化とフィルタリングに利用</li>
+</ul>
+</li>
+<li>デッドレターキュー（ <strong>DLQ</strong> ）
+<ul>
+<li>非同期実行時に 2 回リトライ行われた後にも失敗した場合にイベントを退避可能
+<ul>
+<li>Amazon SQS/SNS</li>
+</ul>
+</li>
+<li>退避先へアクセスする権限付与が必要</li>
+<li>DLQ 自体に書き込めない場合 <code>DeadLetterErrors</code> メトリクスに記録されイベントは破棄される</li>
+</ul>
+</li>
+<li>Custom Runtimes
+<ul>
+<li>Linux 互換のランタイムを持ち込み可能 -&gt; 任意の言語を実行可能になる</li>
+<li>Custom Runtimes を利用する場合は Lambda 関数に <code>bootstrap</code> と呼ばれる実行ファイルを含める必要あり
+<ul>
+<li>Lambda Layers として登録も可能</li>
+</ul>
+</li>
+<li><code>bootstrap</code> に以下の 2 つを実装する必要あり
+<ul>
+<li><code>Initialization Tasks</code> ：ループしてイベントを待ち受ける
+<ul>
+<li>環境変数の読み取り、関数の初期化、エラーハンドリングなどを実装する</li>
+</ul>
+</li>
+<li><code>Processing Tasks</code> ：請求時間とタイムアウトの対象
+<ul>
+<li>イベントの取得、トレーシングヘッダの伝播、コンテキストオブジェクトの作成、関数ハンドラ呼び出し、レスポンス・エラーのハンドリング、クリーンアップなどを実装</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>モニタリング
+<ul>
+<li>CloudWatch を利用したメトリクス監視</li>
+<li>X-Ray を利用したトラブルシューティング</li>
+</ul>
+</li>
+<li>注意点
+<ul>
+<li>Labmda 関数が保証するのは最低 1 回実行されること
+<ul>
+<li>冪等性を確保するなど設計しておく必要あり</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - aws lambda -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"AWS Lambda実践ガイド 第2版 （impress top gear） [ 大澤 文孝 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"\/@0_mall\/book\/cabinet\/3303","p":["\/9784295013303_1_4.jpg","\/9784295013303_2.jpg","\/9784295013303_3.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16987486\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3J83xpr","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/hM1BhW","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16987486\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"Dlcy4","s":"s"});
+</script>
+<div id="msmaflink-Dlcy4">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/aws-waf-basics/" data-toggle="tooltip" data-placement="top" title="AWS WAFまとめ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/docker-dockerfile-basics/" data-toggle="tooltip" data-placement="top" title="Dockerfile入門">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ecs" title="ecs">
+                            ecs
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

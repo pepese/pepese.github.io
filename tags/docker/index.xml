@@ -6,15 +6,16 @@
     <description>Recent content in docker on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dockerfile入門</title>
       <link>https://blog.pepese.com/docker-dockerfile-basics/</link>
       <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/docker-dockerfile-basics/</guid>
       <description>&lt;p&gt;Dockerfile は Docker イメージを作成する際の手順・命令を記したテキストファイルです。&lt;br&gt;
 この記事では、 Dockerfile の基本的な書き方とマルチステージビルドなどのベストプラクティスについて記載します。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

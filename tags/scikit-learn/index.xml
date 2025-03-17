@@ -6,12 +6,12 @@
     <description>Recent content in scikit-learn on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 07 Aug 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/scikit-learn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/scikit-learn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pythonで機械学習 精度評価編</title>
       <link>https://blog.pepese.com/python-ml-metrics-score/</link>
       <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-ml-metrics-score/</guid>
       <description>&lt;p&gt;ここでは、機械学習で作成したモデルの精度評価・向上方法を記載する。&lt;/p&gt;
 &lt;ul&gt;
@@ -20,33 +20,42 @@
 &lt;li&gt;精度の向上&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
+    
     <item>
       <title>Pythonで機械学習 SVMで多クラス分類問題編</title>
       <link>https://blog.pepese.com/python-ml-svm-multiclass/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-ml-svm-multiclass/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;多クラス分類問題&lt;/strong&gt; を解いてみる。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Pythonで機械学習 K Meansでクラスタリング編</title>
       <link>https://blog.pepese.com/python-ml-k-means-clustering/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-ml-k-means-clustering/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; で &lt;strong&gt;k-means&lt;/strong&gt; を実行してみる。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Pythonで機械学習 SVMで2クラス分類問題編</title>
       <link>https://blog.pepese.com/python-ml-svm-2class/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-ml-svm-2class/</guid>
       <description>&lt;p&gt;ここでは、 &lt;strong&gt;scikit-learn&lt;/strong&gt; の &lt;strong&gt;SVM&lt;/strong&gt; モジュールを使用して &lt;strong&gt;2クラス分類問題&lt;/strong&gt; を解いてみる。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Pythonで機械学習 データセット編</title>
       <link>https://blog.pepese.com/python-ml-datasets/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-ml-datasets/</guid>
       <description>&lt;p&gt;機械学習で利用するデータセットを紹介する。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

@@ -6,17 +6,18 @@
     <description>Recent content in dataframe on ぺーぺーSEのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 04 Feb 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.pepese.com/tags/dataframe/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.pepese.com/tags/dataframe/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pandas入門 DataFrame編</title>
       <link>https://blog.pepese.com/python-pandas-dataframe/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://blog.pepese.com/python-pandas-dataframe/</guid>
       <description>&lt;p&gt;Python ライブラリである Pandas の DataFrame についてまとめる。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html&#34;&gt;公式ドキュメント&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
+    
   </channel>
 </rss>

@@ -1,3 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="og:image:secure_url" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="twitter:image" content="https://blog.pepese.com/img/yaruwo.jpg" />
+    
+
+    
+    <meta name="title" content="Spring Frameworkのアノテーションとプロジェクト構造 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Spring Frameworkのアノテーションとプロジェクト構造 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Spring Frameworkのアノテーションとプロジェクト構造 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="Spring Frameworkは、Java言語のWebアプリケーションフレームワークのデファクトスタンダードです。非常に便利なのですが、アノテーションの種類が多く混乱しがちです。この記事ではアノテーションの一覧と機能概要、プロジェクトでの利用例をご紹介します。">
+    <meta property="og:description" content="Spring Frameworkは、Java言語のWebアプリケーションフレームワークのデファクトスタンダードです。非常に便利なのですが、アノテーションの種類が多く混乱しがちです。この記事ではアノテーションの一覧と機能概要、プロジェクトでの利用例をご紹介します。" />
+    <meta property="twitter:description" content="Spring Frameworkは、Java言語のWebアプリケーションフレームワークのデファクトスタンダードです。非常に便利なのですが、アノテーションの種類が多く混乱しがちです。この記事ではアノテーションの一覧と機能概要、プロジェクトでの利用例をご紹介します。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="Spring Framework, アノテーション, Java">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>Spring Frameworkのアノテーションとプロジェクト構造</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.comjava-springframework-annotation-project-structure/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
 
 
 
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article/">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive//">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        <a class="tag" href="/tags/spring-framework" title="spring framework">
+                            spring framework
+                        </a>
+                        
+                    </div>
+                    <h1>Spring Frameworkのアノテーションとプロジェクト構造</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2022-04-11
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Spring Frameworkは、Java言語のWebアプリケーションフレームワークのデファクトスタンダードです。<br>
+非常に便利なのですが、アノテーションの種類が多く混乱しがちです。<br>
+この記事ではアノテーションの一覧と機能概要、プロジェクトでの利用例をご紹介します。</p>
+<h1 id="アノテーション">アノテーション</h1>
+<h2 id="core系">Core系</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">アノテーション</th>
+<th style="text-align:left">付与箇所</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>@Configuration</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">Java Based Configurationクラスとなる。Bean 定義クラスとして <code>@Bean</code> メソッドなどを宣言。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@ComponentScan</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left"><code>@Configuration</code> 付与されたJava Based Configurationクラスに付与し、コンポーネントスキャンを有効化。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Bean</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left"><code>@Configuration</code> 付与されたJava Based Configurationクラスのインスタンス化メソッドに付与。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Component</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">DIコンテナにbeanとして登録するクラスへ付与。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Service</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left"><code>@Component</code> と同じだが、明確にService層示す際に利用。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Repository</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left"><code>@Component</code> と同じだが、明確にPersistence層（DAO等のDBアクセスを行うクラス）示す際に利用。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Controller</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left"><code>@Component</code> と同じだが、明確にSpringMVCでControllerの役割となるクラスに利用。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Scope</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">beanのスコープを設定。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Transactional</code></td>
+<td style="text-align:left">クラス、メソッド</td>
+<td style="text-align:left">トランザクション境界を設定。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Autowired</code></td>
+<td style="text-align:left">メソッド、フィールド</td>
+<td style="text-align:left">フィールドの型（インターフェース）の実装クラスのbeanを自動的にインジェクション。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Qualifier</code></td>
+<td style="text-align:left">メソッド、フィールド</td>
+<td style="text-align:left"><code>@Autowired</code> と併用し、bean名を指定したい場合に使用。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Value</code></td>
+<td style="text-align:left">フィールド</td>
+<td style="text-align:left"><code>application.yaml</code> などで指定した値を代入。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@Required</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">Setterメソッドに付与し、インジェクションが必須であることを示す。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="beanのスコープ">Beanのスコープ</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">スコープ</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">singleton</td>
+<td style="text-align:left">(Default) ApplicationContext に 1 つインスタンス化。</td>
+</tr>
+<tr>
+<td style="text-align:left">prototype</td>
+<td style="text-align:left">Bean 取得毎にインスタンス化。スレッドアンセーフの場合に利用。</td>
+</tr>
+<tr>
+<td style="text-align:left">request</td>
+<td style="text-align:left">HTTP リクエスト毎にインスタンス化。</td>
+</tr>
+<tr>
+<td style="text-align:left">session</td>
+<td style="text-align:left">HTTPセッション単位でインスタンス化。</td>
+</tr>
+<tr>
+<td style="text-align:left">application</td>
+<td style="text-align:left">サーブレットのコンテキスト単位でインスタンス化。warの単位なイメージ。</td>
+</tr>
+<tr>
+<td style="text-align:left">websocket</td>
+<td style="text-align:left">WebSocketのライフサイクル単位でインスタンス化。</td>
+</tr>
+<tr>
+<td style="text-align:left">custom</td>
+<td style="text-align:left">上記以外の独自カスタムスコープ。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="springmvc系">SpringMVC系</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">アノテーション</th>
+<th style="text-align:left">付与箇所</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>@Controller</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">MVCコントローラ。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@RestController</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">REST用コントローラ。 <code>@Controller</code> + <code>@ResponseBody</code> と同じ。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@RequestMapping</code></td>
+<td style="text-align:left">クラス、メソッド</td>
+<td style="text-align:left">URI（value）、HTTPメソッド（method）、HTTPヘッダ（headers）、リクエストパラメータ（params）などでコントローラへのルーティングを設定。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@RequestParam</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">URLのクエリパラメータをメソッド引数に注入。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@PathVariable</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">URLのパスパラメータをメソッド引数に注入。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@RequestHeader</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">リクエストヘッダをメソッド引数に注入。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@RequestBody</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">リクエストボディをメソッド引数に注入。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@ResponseBody</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">return するオブジェクトをHTTPレスポンスボディに変換。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@ResponseStatus</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">HTTPレスポンスステータスを指定。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@ExceptionHandler</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">クラス内で発生した例外を処理するメソッドに付与。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@CookieValue</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">特定の Cookie を処理するメソッドに付与。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@InitBinder</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">これを付与したメソッド用意すると、バインド処理が行われる前にこのメソッドが呼び出され、デフォルトの動作をカスタマイズすることができる。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@ModelAttribute</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">これが付与されたメソッドの返り値は、自動でModelに追加される。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="springboot系">SpringBoot系</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">アノテーション</th>
+<th style="text-align:left">付与箇所</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>@SpringBootApplication</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left"><code>@Configuration</code> 、 <code>@EnableAutoConfiguration</code> 、 <code>@ComponentScan</code> をまとめたもの。SpringBootアプリケーション起動クラスに付与する。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@EnableAutoConfiguration</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">SpringBoot の自動構成メカニズムを有効化。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="test系">Test系</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">アノテーション</th>
+<th style="text-align:left">付与箇所</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>@RunWith(SpringRunner.class)</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">Spring BootでJUnitテストするときはコレをつける。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@SpringBootTest</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">SpringのJava/XML Based Configurationなどの設定を読み込んでくれる。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@AutoConfigureMockMvc</code></td>
+<td style="text-align:left">メソッド</td>
+<td style="text-align:left">コントローラ層のモック（ MockMvc ）を作成でき、これでコントローラのJUnitテストが可能になる。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@WebMvcTest(HelloController.class)</code></td>
+<td style="text-align:left">クラス</td>
+<td style="text-align:left">上記に加えてコントローラクラスを指定することもできる。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@MockBean</code></td>
+<td style="text-align:left">フィールド</td>
+<td style="text-align:left">コントローラ内でDIされるモジュールのモック（Mockito）を作成できる。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="プロジェクト構造と設定">プロジェクト構造と設定</h1>
+<p>以下の CleanArchitecture 風なプロジェクト構成を前提に記載します。</p>
+<ul>
+<li><code>src/main/java/com/pepese/sample/Application.java</code> ： SpringBoot 起動クラス</li>
+<li><code>src/main/java/com/pepese/sample/config/</code> ： Java Based Configuration クラス</li>
+<li><code>src/main/java/com/pepese/sample/adapter/</code> ： コントローラとか</li>
+<li><code>src/main/java/com/pepese/sample/domain/</code> ： ドメインとなる Bean クラス</li>
+<li><code>src/main/java/com/pepese/sample/infrastructure/</code> ： リポジトリとか</li>
+<li><code>src/main/java/com/pepese/sample/usecase/</code> ： ユースケースとなる Service クラス</li>
+<li><code>src/main/resources/logback.xml</code> ： ログ設定ファイル</li>
+</ul>
+<h2 id="java-based-configuration-と-xml-based-configuration">Java Based Configuration と XML Based Configuration</h2>
+<p>Spring Framework の設定には以下の 2 種類あります。</p>
+<ul>
+<li>Java Based Configuration</li>
+<li>XML Based Configuration</li>
+</ul>
+<p>もはや前者しか使わないと思われますので、前者に限定して記載します。</p>
+<ul>
+<li>Spring設定クラス（ <code>src/main/java/com/pepese/sample/config/AppConfig.java</code> に配置）
+<ul>
+<li>DIやAOPなどの設定</li>
+<li><code>@Configuration</code> アノテーションを付与</li>
+</ul>
+</li>
+<li>SpringMVC設定クラス（ <code>src/main/java/com/pepese/sample/config/WebMvcConfig.java</code> に配置）
+<ul>
+<li>コンテンツネゴシエーションなどSpring MVCのDispatcherServletに関する設定</li>
+<li><code>WebMvcConfigurer</code> を継承
+<ul>
+<li>Spring4 -&gt; 5、SpringBoot1 -&gt; 2 にかけて <code>WebMvcConfigurerAdapter</code> が非推奨となった</li>
+</ul>
+</li>
+<li><code>@Configuration</code> アノテーションを付与すること
+<ul>
+<li>SpringBootの場合、 <code>@EnableWebMvc</code> を付与する必要はない</li>
+<li>SpringBootを利用しないSpring MVCアプリケーションを作成する場合には付与する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SpringSecurity設定クラス（ <code>src/main/java/com/pepese/sample/config/WebSecurityConfig.java</code> に配置）
+<ul>
+<li><code>@Configuration</code> 、 <code>@EnableWebSecurity</code> アノテーションを付与</li>
+<li><code>WebSecurityConfigurerAdapter</code> を継承</li>
+<li><code>configure</code> メソッドなどをオーバーライドして利用</li>
+</ul>
+</li>
+<li>SpringSession設定クラス（ <code>src/main/java/com/pepese/sample/config/SessionConfig.java</code> に配置）
+<ul>
+<li><code>@Configuration</code> 、 <code>@EnableRedisHttpSession</code> アノテーションを付与</li>
+<li>ConnectionFactory などを生成するメソッドを実装して利用</li>
+</ul>
+</li>
+</ul>
+<h2 id="ロガー">ロガー</h2>
+<p>インターフェースに SLF4J 、実装に Logback を利用します。<br>
+SpringBoot の場合は依存に含まれているため、特に POM への追加は必要ありません。<br>
+LoggerFactory に「クラス」or「名前」を指定することで取得できますが、基本は「クラス」になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.Logger<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.LoggerFactory<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// クラス
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Logger log <span style="color:#ff79c6">=</span> LoggerFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLogger</span><span style="color:#ff79c6">(</span>LoggerTest<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.Logger<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.LoggerFactory<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 名前
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Logger log <span style="color:#ff79c6">=</span> LoggerFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLogger</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;MyLogger.test&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>Lombok の <code>@Slf4j</code> アノテーションをクラスに付与すれば <code>log</code> というフィールドで利用可能になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@Slf4j
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggertTest</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>ログメッセージに <code>{}</code> を記述すると <strong>プレースフォルダー</strong> として利用できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> num1 <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1234</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> num2 <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5678</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>log<span style="color:#ff79c6">.</span><span style="color:#50fa7b">debug</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;この数値は{}と{}です。&#34;</span><span style="color:#ff79c6">,</span> num1<span style="color:#ff79c6">,</span> num2<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 20:00:33 DEBUG - この数値は1234と5678です。
+</span></span></span></code></pre></div><p>Filter などで MDC に項目を追加できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.slf4j.MDC<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.springframework.web.filter.OncePerRequestFilter<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> lombok.extern.slf4j.Slf4j<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@Slf4j
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoggingFilter</span> <span style="color:#8be9fd;font-style:italic">extends</span> OncePerRequestFilter <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">LoggingFilter</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doFilterInternal</span><span style="color:#ff79c6">(</span>HttpServletRequest request<span style="color:#ff79c6">,</span> HttpServletResponse response<span style="color:#ff79c6">,</span> FilterChain filterChain<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    String httpmethod <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getMethod</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    MDC<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;httpMethod&#34;</span><span style="color:#ff79c6">,</span> httpmethod<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// HTTPメソッドをログに追加
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>      filterChain<span style="color:#ff79c6">.</span><span style="color:#50fa7b">doFilter</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">,</span> response<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">finally</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>Logback の設定ファイルは <code>src/main/resources/logback.xml</code> です。</p>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - springboot -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"Javaによる高速Webアプリケーション開発のためのSpring Boot入門【電子書籍】[ WINGSプロジェクト 小林昌弘 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/rakutenkobo-ebooks\/cabinet\/4113\/2000008544113.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/rakutenkobo-ebooks\/9f4680988e103ee695a458e7f8bd8d00\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#ff9900","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3Jx0qrk","s_n":"custom_2","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":2},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/haY69i","s_n":"custom_3","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/rakutenkobo-ebooks\/9f4680988e103ee695a458e7f8bd8d00\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"eWOl7","s":"s"});
+</script>
+<div id="msmaflink-eWOl7">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/terraform-googlecloud-environment/" data-toggle="tooltip" data-placement="top" title="Google Cloud のための Terraform 環境構築">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/aws-iam-basics/" data-toggle="tooltip" data-placement="top" title="AWS IAM入門">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ecs" title="ecs">
+                            ecs
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

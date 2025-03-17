@@ -1,3 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+	<meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ぺーぺーSEのブログ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="og:image:secure_url" content="https://blog.pepese.com/img/yaruwo.jpg">
+    <meta property="twitter:image" content="https://blog.pepese.com/img/yaruwo.jpg" />
+    
+
+    
+    <meta name="title" content="Amazon EC2入門 | ぺーぺーSEのブログ" />
+    <meta property="og:title" content="Amazon EC2入門 | ぺーぺーSEのブログ" />
+    <meta property="twitter:title" content="Amazon EC2入門 | ぺーぺーSEのブログ" />
+    
+
+    
+    <meta name="description" content="Amazon EC2 は、AWS が提供する最もシンプルな仮想サーバです。この記事では、 EC2 をざっくり理解できる概要を記載します。">
+    <meta property="og:description" content="Amazon EC2 は、AWS が提供する最もシンプルな仮想サーバです。この記事では、 EC2 をざっくり理解できる概要を記載します。" />
+    <meta property="twitter:description" content="Amazon EC2 は、AWS が提供する最もシンプルな仮想サーバです。この記事では、 EC2 をざっくり理解できる概要を記載します。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    
+    <meta name="keyword"  content="AWS, EC2, 仮想サーバ">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    
+    <title>Amazon EC2入門</title>
+
+    
+    <link rel="canonical" href="https://blog.pepese.comaws-ec2-basics/">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42388425-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-42388425-3');
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35HHNQCPDF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35HHNQCPDF');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0116602540349648"
+     crossorigin="anonymous"></script>
+
+</head>
 
 
 
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ぺーぺーSEのブログ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/article/">article</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive//">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        <a class="tag" href="/tags/ec2" title="ec2">
+                            ec2
+                        </a>
+                        
+                    </div>
+                    <h1>Amazon EC2入門</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            2022-05-01
+                            
+                            
+                            
+                            
+                    </span>
+                    
+                    <br />
+                    <ul class="list-inline text-left">
+                        
+                        <li>
+                            <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        
+                         
+     
+                         
+                         <li>
+                             <a href="https://twitter.com/peepeese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                         
+                         
+                         
+     
+                         
+     
+                 
+                         
+                         
+                         <li>
+                             <a target="_blank" href="https://github.com/pepese">
+                                 <span class="fa-stack fa-lg">
+                                     <i class="fas fa-circle fa-stack-2x"></i>
+                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                 </span>
+                             </a>
+                         </li>
+                 
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                 
+                 
+                 
+                 <li>
+                    
+                    <span class="fa-stack fa-lg">
+                    <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                        <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                    </a>
+                    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                    </span>
+                 </li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Amazon EC2 は、AWS が提供する最もシンプルな仮想サーバです。<br>
+この記事では、 EC2 をざっくり理解できる概要を記載します。</p>
+<h1 id="概要">概要</h1>
+<p><a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/concepts.html">EC2</a> を作成する際は以下の設定を行います。</p>
+<ul>
+<li>AMI の選択
+<ul>
+<li>Amazon Machine Image 、インスタンス用に事前に設定されたテンプレート</li>
+</ul>
+</li>
+<li>インスタンスタイプの選択</li>
+<li>インスタンスの設定
+<ul>
+<li>ネットワーク</li>
+<li>プレイスメントグループ</li>
+</ul>
+</li>
+<li>ストレージの設定</li>
+<li>タグの設定</li>
+<li>セキュリティグループの設定</li>
+<li>など</li>
+</ul>
+<p>以降、設定に必要な知識について記載します。<br>
+ただし、 本記事では VPC 関連については省略しますので適宜以下を参照してください。</p>
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/aws-vpc-basics" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.jpg" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">Amazon VPC入門 | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">Amazon VPC は、 AWS が提供する仮想ネットワークサービスです。この記事では、Amazon VPC をざっくり理解できる概要と作成例について記載します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<h1 id="ami-の選択">AMI の選択</h1>
+<p>AMI は以下の項目から設定を選択します。</p>
+<ul>
+<li>アーキテクチャ
+<ul>
+<li>x86 / Arm</li>
+</ul>
+</li>
+<li>ビット数
+<ul>
+<li>32bit / 64bit</li>
+</ul>
+</li>
+<li>仮想化方式
+<ul>
+<li>準仮想化（ Paravirtual : PV ）※古いので利用は推奨されません</li>
+<li>完全仮想化（ Hardware-assisted VM : HVM ）</li>
+</ul>
+</li>
+<li><strong>ルートボリューム</strong> （ブートストレージ / OSがインストールされるボリューム）
+<ul>
+<li>EBS Backed
+<ul>
+<li>ルートボリュームが EBS スナップショットから作成された EBS で起動が早いです</li>
+</ul>
+</li>
+<li>Instance Store-Backed
+<ul>
+<li>ルートボリュームがインスタンスストアで S3 に保存されたテンプレートから作成されるため起動が遅いです</li>
+<li>ただし、起動後のデータアクセスが早いのでキャッシュ利用には向きます</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>推奨は、 64bit HVM EBS-Backed です。</p>
+<p><a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/AMIs.html">参考</a></p>
+<h2 id="物理ホストの専有">物理ホストの専有</h2>
+<p>物理ホストの専有には 2 つの方法があり、以下のようになります。</p>
+<ul>
+<li>2 つの方法
+<ul>
+<li>ハードウェア専有インスタンス（Dedicated Instance）<a href="https://aws.amazon.com/jp/ec2/pricing/dedicated-instances/">参考</a></li>
+<li>Amazon EC2 Dedicated Host <a href="https://aws.amazon.com/jp/ec2/dedicated-hosts/">参考</a></li>
+</ul>
+</li>
+<li>共通の機能
+<ul>
+<li>ユーザ専有の物理サーバにインスタンスを起動可能（他ユーザのインスタンスは起動しない）</li>
+<li>従量課金やクラウドのメリットはそのまま確保</li>
+</ul>
+</li>
+<li>Dedicated Hosts の特徴
+<ul>
+<li>物理ホストへのインスタンス配置が制御・確認可能</li>
+<li>物理ホスト単位のソフトウェアライセンスを持ち込み（ BYOL ）可能</li>
+<li>物理ホスト単位で課金</li>
+<li>一部の OS が利用できないので注意</li>
+</ul>
+</li>
+</ul>
+<h1 id="インスタンスタイプの選択">インスタンスタイプの選択</h1>
+<p>EC2 <strong>インスタンスタイプ</strong> のネーミングポリシーは以下の通りです。</p>
+<pre tabindex="0"><code># フォーマット
+[インスタンスファミリー][インスタンス世代][(追加機能)].[インスタンスサイズ]
+# 例
+c5d.xlarge
+</code></pre><p>各桁の意味は以下の通りです。</p>
+<ul>
+<li>インスタンスファミリー（ 1 桁目）</li>
+<li>インスタンス世代（ 2 桁目）</li>
+<li>追加機能（ 3 桁目）</li>
+<li>インスタンスサイズ（ドット以降）</li>
+</ul>
+<p>以上のネーミングポリシーから適したインスタンスタイプを選択してください。</p>
+<p><a href="https://aws.amazon.com/jp/ec2/instance-types/">インスタンスタイプ一覧</a></p>
+<h1 id="インスタンスの設定ネットワーク">インスタンスの設定：ネットワーク</h1>
+<h2 id="ip-の種類">IP の種類</h2>
+<p>IP には以下の種類があります。</p>
+<ul>
+<li>Privete IP
+<ul>
+<li>必ず割り当てられる IP アドレス</li>
+<li>EC2 作成時に設定可能</li>
+<li>stop/start しても変化なく固定の IP</li>
+</ul>
+</li>
+<li>Public IP
+<ul>
+<li>ランダムに割り当てられる Public IP</li>
+<li>stop/start すると別の IP が割り当てられる</li>
+<li>付与しないこともできる</li>
+</ul>
+</li>
+<li>Elastic IP (EIP)
+<ul>
+<li>別インスタンスへ再マップも可能な固定の Public IP</li>
+<li>stop/start しても変化なく固定の IP</li>
+<li>利用していなくても課金される</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-instance-addressing.html">参考</a></p>
+<h2 id="eni">ENI</h2>
+<p>ENI ( Elastic Network Interfaces ) は、 VPC 上で実現する仮想ネットワークインターフェース（ NIC ）です。<br>
+以下を ENI に紐づけて管理します。</p>
+<ul>
+<li>Private IP</li>
+<li>Elatic IP</li>
+<li>MAC アドレス</li>
+<li>セキュリティグループ</li>
+</ul>
+<p>インスタンス障害時に NIC 付け替えなどの運用が可能です。<br>
+また、インスタンスによって割り当て可能な数が異なることに注意してください。<br>
+<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-eni.html">参考</a></p>
+<h2 id="拡張ネットワーキング">拡張ネットワーキング</h2>
+<p>EC2 インスタンスの持つ通信性能を最大化する機能です。<br>
+以下の 2 タイプあります。</p>
+<ul>
+<li>Intel 82599VF (ixgbevf)</li>
+<li>Elastic Network Adapter (ENA)</li>
+</ul>
+<p><a href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/enable-configure-enhanced-networking/">参考</a></p>
+<h2 id="ネットワーク帯域">ネットワーク帯域</h2>
+<p>EC2 間のネットワーク帯域には以下の制限があります。</p>
+<ul>
+<li>シングルフロー通信
+<ul>
+<li>最大 5 Gbps または 10 Gbps （同一 Cluster Placement Group の場合）</li>
+</ul>
+</li>
+<li>マルチフロー通信
+<ul>
+<li>各インスタンスタイプが持つ通信帯域の最大</li>
+</ul>
+</li>
+</ul>
+<p>EC2 間で 5 Gbps 以降の帯域幅を実現するには、通信の多重化とマルチコアへの分散を意識する必要があります。（ RPS/RFS の設定など）</p>
+<h1 id="インスタンスの設定プレイスメントグループ">インスタンスの設定：プレイスメントグループ</h1>
+<p><strong>プレイスメントグループ</strong> は、EC2 インスタンスの物理的な配置戦略オプションです。<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/placement-groups.html">参考</a><br>
+以下のオプションがあります。</p>
+<ul>
+<li>Cluster
+<ul>
+<li>EC2 インスタンスを密な場所に配置し、ネットワークパフォーマンスを最適化</li>
+<li>単一 AZ に閉じます</li>
+</ul>
+</li>
+<li>Spread
+<ul>
+<li>EC2 インスタンスを別々のハードウェアに分散して配置、物理サーバ障害時に複数のインスタンスが影響を受ける確率を低減</li>
+<li>同一 AZ にクラスタを展開している際などに有効</li>
+<li>AZ 跨ぎで定義することが可能で、 1 AZ あたり実行中のインスタンスは最大 7</li>
+</ul>
+</li>
+<li>partition</li>
+</ul>
+<h1 id="ストレージの設定">ストレージの設定</h1>
+<p>EC2 のストレージには、ルートボリューム以外に以下を追加で設定することができます。</p>
+<ul>
+<li>インスタンスストア
+<ul>
+<li>EC2 インスタンスが起動するホストコンピュータに内臓されたディスク</li>
+<li>EC2 インスタンスと分割不可能</li>
+<li>stop/terminate するとクリアされる</li>
+<li>インスタンスタイプにより利用に制限がある（そもそも利用できるか否か、個数、サイズ）</li>
+<li>追加費用無し</li>
+</ul>
+</li>
+<li>Amazon Elastic Block Store (EBS)
+<ul>
+<li>ネットワークで接続</li>
+<li>EC2 インスタンスとは独立して管理</li>
+<li>stop/terminate してもクリアされない</li>
+<li>Volume ごとに性能・容量を設定可能</li>
+<li>別途費用発生</li>
+<li>Snapshot を取得して S3 に保存可能</li>
+</ul>
+</li>
+</ul>
+<h2 id="ebs-最適化オプション">EBS 最適化オプション</h2>
+<p>通常のネットワークとは別に EBS 専用帯域を確保するオプションです。</p>
+<ul>
+<li>起動時に有効/無効を洗濯可能</li>
+<li>帯域はインスタンスサイズによって異なる</li>
+<li>インスタンスタイプによっていはデフォルトで有効</li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/EBSOptimized.html">参考</a></p>
+<h1 id="インスタンスの設定その他">インスタンスの設定：その他</h1>
+<h2 id="key-pair">Key Pair</h2>
+<p><a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pair</a> は、 EC2 インスタンス上の OS に対する安全な認証を提供します。<br>
+Key Pair を作成すると秘密鍵をダウンロードでき、 EC2 起動時に公開鍵が EC2 に自動的に付与されます。<br>
+EC2 ログイン時に Key Pair （秘密鍵と公開鍵のペア）が照合され、ログイン可能になります。</p>
+<ul>
+<li>認証鍵は、ユーザ名・パスワードの認証よりも安全な認証方式</li>
+<li>AWS では公開鍵のみ保持し、起動時に公開鍵を EC2 にコピーします</li>
+<li>秘密鍵は、ユーザにて適切に管理・保管する必要があります</li>
+</ul>
+<h1 id="amazon-ec2-auto-scaling">Amazon EC2 Auto Scaling</h1>
+<p><a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling</a> について記載します。<br>
+Amazon EC2 Auto Scaling は <a href="https://docs.aws.amazon.com/ja_jp/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling</a> の一部で他には以下があります。</p>
+<ul>
+<li>Amazon EC2 スポットフリートリクエスト
+<ul>
+<li>スポットフリートリクエストからインスタンスを起動または削除します。または、料金や容量の問題で中断されたインスタンスを自動的に置き換えます</li>
+</ul>
+</li>
+<li>Amazon ECS
+<ul>
+<li>負荷の変化に応じて ECS サービスの必要数の増減を調整します</li>
+</ul>
+</li>
+<li>Amazon DynamoDB
+<ul>
+<li>DynamoDB テーブルまたはグローバルセカンダリインデックスを有効にして、プロビジョニングされた読み取りおよび書き込みキャパシティを増減させ、スロットリングなしでトラフィックの増加を処理します</li>
+</ul>
+</li>
+<li>Amazon Aurora
+<ul>
+<li>Aurora DB クラスターにプロビジョニングされた Aurora リードレプリカの数を動的に調整して、アクティブな接続やワークロードの変化を処理します</li>
+</ul>
+</li>
+</ul>
+<p>Amazon EC2 Auto Scaling には以下の設定が必要です。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/LaunchTemplates.html">起動テンプレート</a>
+<ul>
+<li>スケール時に起動される EC2 インスタンスの AMI ID、インスタンスタイプ、キーペア、セキュリティグループ、ブロックデバイスマッピングなどを指定</li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling グループ</a>
+<ul>
+<li>EC2 インスタンスの最小数、最大数、希望する数などを設定</li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/scaling_plan.html#scaling_typesof">スケーリングのオプション</a>
+<ul>
+<li>スケールする特定の条件を設定</li>
+</ul>
+</li>
+</ul>
+<p>また、以下に注意が必要です。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/healthcheck.html">ヘルスチェック</a>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/as-add-elb-healthcheck.html">Auto Scaling グループへの Elastic Load Balancing ヘルスチェックの追加</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="起動テンプレート">起動テンプレート</h2>
+<p>起動テンプレートは、 AMI の ID 、インスタンスタイプ、キーペア、セキュリティグループ、その他 EC2 インスタンスを起動するために使用するパラメータが含まれてバージョンによる世代管理を行うことができる機能です。<br>
+同等の機能として「起動設定」というものがありますが、非推奨となっていますので起動テンプレートを使用してください。<br>
+起動テンプレートはその名の通りテンプレートです。<br>
+これを基に Auto Scaling 時の EC2 インスタンスを作成します。<br>
+設定項目はこれまで記載した EC2 の設定項目とほぼ同じです。</p>
+<h2 id="auto-scaling-グループ">Auto Scaling グループ</h2>
+<p>起動テンプレートを基に Auto Scaling グループを作成します。</p>
+<h2 id="スケーリングのオプション">スケーリングのオプション</h2>
+<p>Auto Scaling には以下のオプションがあります。</p>
+<ul>
+<li>現在のインスタンスレベルの常時維持</li>
+<li>手動でスケールする</li>
+<li>スケジュールに基づくスケーリング</li>
+<li>需要に基づくスケーリング</li>
+<li>予測スケーリングの使用</li>
+</ul>
+<h1 id="おすすめ書籍">おすすめ書籍</h1>
+<!-- ad link - amazon/rakuten books - aws basics -->
+<!-- START MoshimoAffiliateEasyLink -->
+<script type="text/javascript">
+(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;
+b[a]=b[a]||function(){arguments.currentScript=c.currentScript
+||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};
+c.getElementById(a)||(d=c.createElement(f),d.src=g,
+d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})
+(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");
+msmaflink({"n":"AWSではじめるインフラ構築入門 安全で堅牢な本番環境のつくり方 [ 中垣 健志 ]","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":["\/@0_mall\/book\/cabinet\/3437\/9784798163437.jpg"],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/16586730\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"u_bc":"#fc9823","u_tx":"Amazonで見る","u_url":"https:\/\/amzn.to\/3j7fBNl","s_n":"custom_3","u_so":0,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":3},{"u_bc":"#bf0000","u_tx":"楽天ブックスで見る","u_url":"https:\/\/a.r10.to\/h6WEYh","s_n":"custom_4","u_so":1,"a_id":0,"p_id":0,"pc_id":0,"pl_id":0,"id":4},{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/16586730\/","a_id":3351919,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"e0IUt","s":"s"});
+</script>
+<div id="msmaflink-e0IUt">リンク</div>
+<!-- MoshimoAffiliateEasyLink END -->
+<h1 id="おすすめ記事">おすすめ記事</h1>
+<!-- プログラミング学習のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-programing-learning" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">プログラミング学習のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">プログラミングスキルを上げたい人向けに学習方法について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+<!-- 転職活動のすすめ -->
+<div class="blogcardfu" style="width:auto;max-width:9999px;border:3px solid #FBE599;border-radius:3px;margin:10px 0;padding:15px;line-height:1.4;text-align:left;background:#FFFAEB;"><a href="https://blog.pepese.com/article-job-changing" target="_blank" style="display:block;text-decoration:none;"><span class="blogcardfu-image" style="float:right;width:100px;padding:0 0 0 10px;margin:0 0 5px 5px;"><img src="https://images.weserv.nl/?w=100&url=ssl:blog.pepese.com/img/yaruwo.gif" width="100" style="width:100%;height:auto;max-height:100px;min-width:0;border:0 none;margin:0;"></span><br style="display:none"><span class="blogcardfu-title" style="font-size:112.5%;font-weight:700;color:#333333;margin:0 0 5px 0;">転職活動のすすめ | ぺーぺーSEのブログ</span><br><span class="blogcardfu-content" style="font-size:87.5%;font-weight:400;color:#666666;">ITエンジニアの転職活動の意義について説明します。</span><br><span style="clear:both;display:block;overflow:hidden;height:0;">&nbsp;</span></a></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/aws-ecs-appmesh-blue-green-terraform/" data-toggle="tooltip" data-placement="top" title="TerraformでECSのBlue/GreenデプロイをApp Meshでやってみる">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/design-rest-api/" data-toggle="tooltip" data-placement="top" title="REST API設計について整理してみた">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/android" title="android">
+                            android
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/angular" title="angular">
+                            angular
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/asdf" title="asdf">
+                            asdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/aws" title="aws">
+                            aws
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/aws-cli" title="aws-cli">
+                            aws-cli
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cognito" title="cognito">
+                            cognito
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="cryptocurrency">
+                            cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dynamodb" title="dynamodb">
+                            dynamodb
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ecs" title="ecs">
+                            ecs
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticache" title="elasticache">
+                            elasticache
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/express" title="express">
+                            express
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            git
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/github" title="github">
+                            github
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-cloud" title="google-cloud">
+                            google-cloud
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/homebrew" title="homebrew">
+                            homebrew
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                            istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/javascript" title="javascript">
+                            javascript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mac" title="mac">
+                            mac
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/machine-learning" title="machine-learning">
+                            machine-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/node.js" title="node.js">
+                            node.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/npm" title="npm">
+                            npm
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pandas" title="pandas">
+                            pandas
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/python" title="python">
+                            python
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/react" title="react">
+                            react
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/redis" title="redis">
+                            redis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/scikit-learn" title="scikit-learn">
+                            scikit-learn
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sdkman" title="sdkman">
+                            sdkman
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/svm" title="svm">
+                            svm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/terraform" title="terraform">
+                            terraform
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/typescript" title="typescript">
+                            typescript
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vscode" title="vscode">
+                            vscode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/yarn" title="yarn">
+                            yarn
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ぺーぺーSEのブログ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/peepeese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/pepese">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            <li>
+                
+                <span class="fa-stack fa-lg">
+                <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="touch-counter" title="このエントリーをはてなブックマークに追加">
+                    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+                </a>
+                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                </span>
+             </li>
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ぺーぺーSEのブログ 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>
